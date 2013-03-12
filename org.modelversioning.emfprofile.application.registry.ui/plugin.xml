@@ -98,6 +98,11 @@
             id="org.modelversioning.emfprofile.application.registry.ui.commands.showpropertiesview"
             name="Show Properties View">
       </command>
+      <command
+            defaultHandler="org.modelversioning.emfprofile.application.registry.ui.commands.handlers.ApplySterotypeOnElementHandler"
+            id="org.modelversioning.emfprofile.application.registry.ui.applysterotypeonelement"
+            name="Apply Sterotype">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -178,6 +183,27 @@
                style="push"
                tooltip="Properties">
          </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:#AbstractTextEditorRulerContext?after=additions">
+         <menu
+               label="EMF Profiles">
+            <command
+                  commandId="org.modelversioning.emfprofile.application.registry.ui.applysterotypeonelement"
+                  label="Apply stereotype"
+                  style="push">
+            </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeEditor">
+                  <instanceof
+                        value="org.eclipse.xtext.ui.editor.XtextEditor">
+                  </instanceof>
+               </with>
+            </visibleWhen>
+         </menu>
       </menuContribution>
    </extension>
    <extension
@@ -341,6 +367,16 @@
                priorityLevel="workbench">
          </variable>
       </sourceProvider>
+   </extension>
+   <extension
+         id="org.modelversioning.emfprofile.application.registry.ui.sterotypemarker"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.taskmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
    </extension>
 
 </plugin>

@@ -19,7 +19,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
- org.modelversioning.emfprofile.editor;bundle-version="1.0.0"
+ org.modelversioning.emfprofile.editor;bundle-version="1.0.0",
+ org.eclipse.jface.text;bundle-version="3.8.1",
+ org.eclipse.xtext.ui;bundle-version="2.3.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.modelversioning.emfprofile.application.registry.ui.extensionpoint.decorator
