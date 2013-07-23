@@ -66,7 +66,7 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 			String modelId = ActiveEditorObserver.INSTANCE.getModelIdForWorkbenchPart(targetPart);
 			if(modelId == null)
 				throw new RuntimeException("Could not find modelId for a part: " + targetPart);
-			ProfileApplicationRegistry.INSTANCE.applyProfileToModel(modelId, profileApplicationFile, profileFilePage.getSelectedProfiles(), ProfileApplicationConstantsAndUtil.getResourceSet(targetPart));
+			ProfileApplicationRegistry.INSTANCE.createNewProfileApplicationForModel(modelId, profileApplicationFile, profileFilePage.getSelectedProfiles(), ProfileApplicationConstantsAndUtil.getResourceSet(targetPart));
 			ActiveEditorObserver.INSTANCE.refreshViewer();
 		} catch (Exception e) {
 			IStatus status = new Status(IStatus.ERROR, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,

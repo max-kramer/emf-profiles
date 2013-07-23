@@ -18,6 +18,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
@@ -87,6 +88,10 @@ public class ProfileApplicationDecoratorImpl implements
 
 	public IFile getProfileApplicationFile() {
 		return profileApplicationFile;
+	}
+	
+	public Resource getProfileApplicationResource(){
+		return this.facade.getProfileApplicationResource();
 	}
 
 	/**

@@ -30,14 +30,14 @@ public interface ProfileApplicationRegistry {
 	public static final ProfileApplicationRegistry INSTANCE = ProfileApplicationRegistryImpl.INSTANCE;
 
 	/**
-	 * To apply profiles on a model
+	 * To create new profile application resource for the <code>modelId</code>.
 	 * @param modelId Generated Id of the opened model's resource in user interface editor.
 	 * @param profileApplicationsFile file where profile applications are saved.
 	 * @param profiles collection of profiles that are going to be applied on a model resource.
 	 * @param resourceSet is optional. If it's not provided, the registry's default resource set will be used instead.
 	 * @throws Exception
 	 */
-	void applyProfileToModel(String modelId, IFile profileApplicationsFile, Collection<Profile> profiles, ResourceSet resourceSet) throws Exception;
+	ProfileApplicationDecorator createNewProfileApplicationForModel(String modelId, IFile profileApplicationsFile, Collection<Profile> profiles, ResourceSet resourceSet) throws Exception;
 	
 	/**
 	 * Load profile application for model from a file.

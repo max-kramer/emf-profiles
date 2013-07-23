@@ -43,13 +43,13 @@ public class ProfileApplicationRegistryImpl implements
 	private ResourceSet resourceSet = new ResourceSetImpl();
 
 	@Override
-	public void applyProfileToModel(String modelId,
+	public ProfileApplicationDecorator createNewProfileApplicationForModel(String modelId,
 			IFile profileApplicationsFile, Collection<Profile> profiles,
 			ResourceSet resourceSet) throws Exception {
 		initializeProfileApplicationManagerIfNecessary(modelId, resourceSet);
 		ProfileApplicationManager pam = profileApplicationManagerIdMap
 				.get(modelId);
-		pam.createNewProfileApplication(profileApplicationsFile, profiles);
+		return pam.createNewProfileApplication(profileApplicationsFile, profiles);
 	}
 
 	@Override

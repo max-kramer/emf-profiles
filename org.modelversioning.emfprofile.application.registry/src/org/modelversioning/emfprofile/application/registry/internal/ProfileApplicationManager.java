@@ -38,11 +38,12 @@ public class ProfileApplicationManager {
 		return !profileApplications.isEmpty();
 	}
 
-	public void createNewProfileApplication(IFile profileApplicationFile,
+	public ProfileApplicationDecorator createNewProfileApplication(IFile profileApplicationFile,
 			Collection<Profile> profiles) throws CoreException, IOException {
-		ProfileApplicationDecorator element = new ProfileApplicationDecoratorImpl(
+		ProfileApplicationDecorator pad = new ProfileApplicationDecoratorImpl(
 				profileApplicationFile, profiles, resourceSet);
-		profileApplications.add(element);
+		profileApplications.add(pad);
+		return pad;
 	}
 
 	public ProfileApplicationDecorator loadProfileApplication(
