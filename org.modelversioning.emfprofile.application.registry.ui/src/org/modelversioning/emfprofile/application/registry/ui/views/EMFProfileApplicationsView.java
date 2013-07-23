@@ -303,4 +303,8 @@ public class EMFProfileApplicationsView extends ViewPart {
 		super.dispose();
 	}
 
+	public TreeViewer getEMFProfileApplicationsViewer() {
+		return viewer;
+	}
+
 }
