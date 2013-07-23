@@ -5,7 +5,7 @@
  * accompanies this distribution, and is available at
  *  http://www.eclipse.org/legal/epl-v10.html
  */
-package org.modelversioning.emfprofile.application.registry;
+package org.modelversioning.emfprofile.application.registry.plugin;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
