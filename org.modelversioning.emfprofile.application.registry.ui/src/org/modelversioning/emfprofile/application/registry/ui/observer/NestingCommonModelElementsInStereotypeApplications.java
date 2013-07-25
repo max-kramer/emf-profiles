@@ -33,7 +33,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
@@ -137,13 +137,13 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 		if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1) {
 			
 			// if selected object is ProfileApplicationDecorator then return
-			if(((IStructuredSelection)selection).getFirstElement() instanceof ProfileApplicationDecorator){
+			if(((IStructuredSelection)selection).getFirstElement() instanceof ProfileApplicationWrapper){
 				return;				
 			}
 			
 			EObject eObject = (EObject) ((IStructuredSelection)selection).getFirstElement();
 			
-			ProfileApplicationDecorator profileApplication = ActiveEditorObserver.INSTANCE.findProfileApplicationDecorator(
+			ProfileApplicationWrapper profileApplication = ActiveEditorObserver.INSTANCE.findProfileApplicationDecorator(
 					eObject);
 			createChildActions = generateCreateChildActions(eObject, profileApplication);
 			
@@ -165,7 +165,7 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 	}
 
 	private Collection<IAction> generateCreateChildActions(final EObject eObject,
-			final ProfileApplicationDecorator profileApplication) {
+			final ProfileApplicationWrapper profileApplication) {
 		ArrayList<IAction> actions = new ArrayList<>();
 		EList<EReference> references = eObject.eClass().getEAllContainments();
 		for (final EReference reference : references) {
@@ -223,7 +223,7 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 	}
 	
 	private Collection<IAction> generateCreateSiblingActions(EObject eObject,
-			ProfileApplicationDecorator profileApplication) {
+			ProfileApplicationWrapper profileApplication) {
 		return generateCreateChildActions(eObject.eContainer(), profileApplication);
 	}
 

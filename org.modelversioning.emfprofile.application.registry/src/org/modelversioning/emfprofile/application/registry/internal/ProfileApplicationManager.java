@@ -15,7 +15,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
@@ -24,13 +24,13 @@ import org.modelversioning.emfprofile.application.registry.ProfileApplicationDec
 public class ProfileApplicationManager {
 
 	private ResourceSet resourceSet;
-	private Collection<ProfileApplicationDecorator> profileApplications = new ArrayList<>();
+	private Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>();
 
 	public ProfileApplicationManager(ResourceSet resourceSet) {
 		this.resourceSet = resourceSet;
 	}
 
-	public Collection<ProfileApplicationDecorator> getProfileApplications() {
+	public Collection<ProfileApplicationWrapper> getProfileApplications() {
 		return profileApplications;
 	}
 
@@ -38,33 +38,33 @@ public class ProfileApplicationManager {
 		return !profileApplications.isEmpty();
 	}
 
-	public ProfileApplicationDecorator createNewProfileApplication(IFile profileApplicationFile,
+	public ProfileApplicationWrapper createNewProfileApplication(IFile profileApplicationFile,
 			Collection<Profile> profiles) throws CoreException, IOException {
-		ProfileApplicationDecorator pad = new ProfileApplicationDecoratorImpl(
+		ProfileApplicationWrapper pad = new ProfileApplicationWrapperImpl(
 				profileApplicationFile, profiles, resourceSet);
 		profileApplications.add(pad);
 		return pad;
 	}
 
-	public ProfileApplicationDecorator loadProfileApplication(
+	public ProfileApplicationWrapper loadProfileApplication(
 			IFile profileApplicationFile) throws CoreException, IOException {
-		ProfileApplicationDecorator profileApplication = new ProfileApplicationDecoratorImpl(
+		ProfileApplicationWrapper profileApplication = new ProfileApplicationWrapperImpl(
 				profileApplicationFile, resourceSet);
 		profileApplications.add(profileApplication);
 		return profileApplication;
 	}
 
 	public void removeProfileApplication(
-			ProfileApplicationDecorator profileApplication) {
-		ProfileApplicationDecoratorImpl profileApplicationImpl = (ProfileApplicationDecoratorImpl) profileApplication;
+			ProfileApplicationWrapper profileApplication) {
+		ProfileApplicationWrapperImpl profileApplicationImpl = (ProfileApplicationWrapperImpl) profileApplication;
 		profileApplicationImpl.unload();
 		profileApplications.remove(profileApplication);
 
 	}
 
 	public void dispose() {
-		for (ProfileApplicationDecorator profileApplication : profileApplications) {
-			((ProfileApplicationDecoratorImpl) profileApplication).unload();
+		for (ProfileApplicationWrapper profileApplication : profileApplications) {
+			((ProfileApplicationWrapperImpl) profileApplication).unload();
 		}
 		profileApplications.clear();
 	}

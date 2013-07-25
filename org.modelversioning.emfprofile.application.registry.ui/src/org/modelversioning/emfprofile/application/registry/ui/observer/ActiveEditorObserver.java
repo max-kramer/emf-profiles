@@ -41,7 +41,7 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.RegistryToggleState;
 import org.eclipse.ui.services.ISourceProviderService;
 import org.modelversioning.emfprofile.Stereotype;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.commands.handlers.StereotypeApplicationsOnSelectedElementHandler;
@@ -236,8 +236,8 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	public void applyStereotype(final EObject eObject) {
 		Assert.isNotNull(eObject);
 		// we are looking in all loaded profiles if there are any stereotypes applicable on eObject 
-		final Map<ProfileApplicationDecorator, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap = new HashMap<>();
-		for (ProfileApplicationDecorator profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToModelIdMap.get(decoratableEditorPartListener.getLastActiveEditPart()))) {
+		final Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap = new HashMap<>();
+		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToModelIdMap.get(decoratableEditorPartListener.getLastActiveEditPart()))) {
 			profileToStereotypeApplicabilityForEObjectMap.put(profileApplication, (Collection<StereotypeApplicability>) profileApplication.getApplicableStereotypes(eObject));
 		}
 		boolean mayApplyStereotype = false;
@@ -329,7 +329,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 		}
 		final List<Image> images = new ArrayList<>();
 		final List<String> toolTipTexts = new ArrayList<>();
-		for (ProfileApplicationDecorator profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(getModelIdForWorkbenchPart(decoratableEditorPartListener.getLastActiveEditPart()))) {
+		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(getModelIdForWorkbenchPart(decoratableEditorPartListener.getLastActiveEditPart()))) {
 			Collection<StereotypeApplication> stereotypeApplications = profileApplication.getStereotypeApplications(eObject);
 			for (StereotypeApplication stereotypeApplication : stereotypeApplications) {
 				images.add(((ILabelProvider)viewer.getLabelProvider()).getImage(stereotypeApplication));
@@ -406,7 +406,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 					EObject eObject = (EObject) ((IStructuredSelection)selection).getFirstElement();
 					if(eObject == null) // probably was deleted, so nothing to do
 						return;
-					ProfileApplicationDecorator profileApplication = findProfileApplicationDecorator(eObject);
+					ProfileApplicationWrapper profileApplication = findProfileApplicationDecorator(eObject);
 					if(profileApplication == null) // could not find it, do nothing
 						return;
 					updateViewer(profileApplication);
@@ -417,14 +417,14 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	}
 	
 	/**
-	 * If we need {@link ProfileApplicationDecorator} because of its extended functionalities, and 
+	 * If we need {@link ProfileApplicationWrapper} because of its extended functionalities, and 
 	 * calling {@link EObject#eContainer()} will eventually return {@link ProfileApplication}
-	 * but we cannot cast it to {@link ProfileApplicationDecorator}. Thus, the easiest way
+	 * but we cannot cast it to {@link ProfileApplicationWrapper}. Thus, the easiest way
 	 * to get it is to ask the {@link ProfileApplicationRegistry}, which this method does for you.
 	 * @param eObject
 	 * @return
 	 */
-	public ProfileApplicationDecorator findProfileApplicationDecorator(EObject eObject){
-		return ProfileApplicationRegistry.INSTANCE.getProfileApplicationDecoratorOfContainedEObject(editorPartToModelIdMap.get(decoratableEditorPartListener.getLastActiveEditPart()), eObject);
+	public ProfileApplicationWrapper findProfileApplicationDecorator(EObject eObject){
+		return ProfileApplicationRegistry.INSTANCE.getProfileApplicationWrapperOfContainedEObject(editorPartToModelIdMap.get(decoratableEditorPartListener.getLastActiveEditPart()), eObject);
 	}
 }

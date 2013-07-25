@@ -30,14 +30,14 @@ public interface ProfileApplicationRegistry {
 	public static final ProfileApplicationRegistry INSTANCE = ProfileApplicationRegistryImpl.INSTANCE;
 
 	/**
-	 * To create new profile application resource for the <code>modelId</code>.
+	 * To create new profile application wrapper for the <code>modelId</code>.
 	 * @param modelId Generated Id of the opened model's resource in user interface editor.
 	 * @param profileApplicationsFile file where profile applications are saved.
 	 * @param profiles collection of profiles that are going to be applied on a model resource.
 	 * @param resourceSet is optional. If it's not provided, the registry's default resource set will be used instead.
 	 * @throws Exception
 	 */
-	ProfileApplicationDecorator createNewProfileApplicationForModel(String modelId, IFile profileApplicationsFile, Collection<Profile> profiles, ResourceSet resourceSet) throws Exception;
+	ProfileApplicationWrapper createNewProfileApplicationForModel(String modelId, IFile profileApplicationsFile, Collection<Profile> profiles, ResourceSet resourceSet) throws Exception;
 	
 	/**
 	 * Load profile application for model from a file.
@@ -48,14 +48,14 @@ public interface ProfileApplicationRegistry {
 	 * @return <code>null</code> if already loaded, otherwise the loaded profile application.
 	 * @throws Exception
 	 */
-	ProfileApplicationDecorator loadProfileApplicationForModel(String modelId,	IFile profileApplicationFile, ResourceSet resourceSet) throws Exception;
+	ProfileApplicationWrapper loadProfileApplicationForModel(String modelId, IFile profileApplicationFile, ResourceSet resourceSet) throws Exception;
 	
 	/**
 	 * Unloads profile application for a model.
 	 * @param modelId
 	 * @param profileApplication
 	 */
-	void unloadProfileApplicationForModel(String modelId, ProfileApplicationDecorator profileApplication);
+	void unloadProfileApplicationForModel(String modelId, ProfileApplicationWrapper profileApplication);
 	
 	/**
 	 * Unloads all profile applications for a model.
@@ -76,19 +76,19 @@ public interface ProfileApplicationRegistry {
 	 * @param modelId
 	 * @return
 	 */
-	Collection<ProfileApplicationDecorator> getProfileApplications(String modelId);
+	Collection<ProfileApplicationWrapper> getProfileApplications(String modelId);
 	
 	/**
-	 * Gets the instance of the @link {@link ProfileApplicationDecorator} that 
+	 * Gets the instance of the @link {@link ProfileApplicationWrapper} that 
 	 * is a parent of the provided {@link EObject} and it searches amongst all 
 	 * profile application decorators for the given model id.
 	 * 
 	 * @param modelId The string identification of the modelled resource.
 	 * @param eObject in question
-	 * @return {@link ProfileApplicationDecorator} if everything OK, <code>null</code> if 
+	 * @return {@link ProfileApplicationWrapper} if everything OK, <code>null</code> if 
 	 * could not find it or any of the parents was also <code>null</code> which would indicate
 	 * that the eObject was removed together with parent.
 	 */
-	ProfileApplicationDecorator getProfileApplicationDecoratorOfContainedEObject(String modelId, EObject eObject);
+	ProfileApplicationWrapper getProfileApplicationWrapperOfContainedEObject(String modelId, EObject eObject);
 	
 }

@@ -30,7 +30,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.handlers.IHandlerService;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -58,8 +58,8 @@ public class UnloadProfileApplicationHandler extends AbstractHandler implements	
 		if(currentSelection != null && currentSelection instanceof IStructuredSelection){
 			IStructuredSelection structuredSelection = (IStructuredSelection) currentSelection;
 			Object element = structuredSelection.getFirstElement();
-			if(element instanceof ProfileApplicationDecorator){
-				final ProfileApplicationDecorator profileApplication = (ProfileApplicationDecorator) element;
+			if(element instanceof ProfileApplicationWrapper){
+				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
 				ifProfileApplicationDirty_AskToSave(profileApplication);
 				EList<EObject> eObjects = new BasicEList<>();
 				for (StereotypeApplication stereotypeApplication : profileApplication.getStereotypeApplications()) {
@@ -79,7 +79,7 @@ public class UnloadProfileApplicationHandler extends AbstractHandler implements	
 		return null;
 	}
 
-	private final void ifProfileApplicationDirty_AskToSave(ProfileApplicationDecorator profileApplication){
+	private final void ifProfileApplicationDirty_AskToSave(ProfileApplicationWrapper profileApplication){
 		if(profileApplication.isDirty()){
 			if(MessageDialog.openQuestion(null, "Save Profile Application", "Unloading unsaved Profile Application: " 
 					+ profileApplication.getName() + "\nDo you wish to save it?")){

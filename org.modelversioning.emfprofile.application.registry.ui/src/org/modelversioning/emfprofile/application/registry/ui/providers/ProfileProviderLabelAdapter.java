@@ -9,7 +9,7 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 import org.modelversioning.emfprofile.Stereotype;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.views.EMFProfileApplicationsView;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -87,8 +87,8 @@ public class ProfileProviderLabelAdapter implements ILabelProvider {
 
 	@Override
 	public String getText(Object element) {
-		if(element instanceof ProfileApplicationDecorator){
-			ProfileApplicationDecorator profileApplicationDecorator = (ProfileApplicationDecorator) element;
+		if(element instanceof ProfileApplicationWrapper){
+			ProfileApplicationWrapper profileApplicationDecorator = (ProfileApplicationWrapper) element;
 			return profileApplicationDecorator.isDirty() ? "*"+profileApplicationDecorator.getName() : profileApplicationDecorator.getName();
 		}
 		return getLabelProvider(element).getText(element);

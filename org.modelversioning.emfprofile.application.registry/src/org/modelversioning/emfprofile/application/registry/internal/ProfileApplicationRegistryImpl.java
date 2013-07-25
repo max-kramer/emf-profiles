@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.modelversioning.emfprofile.Profile;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 
@@ -43,7 +43,7 @@ public class ProfileApplicationRegistryImpl implements
 	private ResourceSet resourceSet = new ResourceSetImpl();
 
 	@Override
-	public ProfileApplicationDecorator createNewProfileApplicationForModel(String modelId,
+	public ProfileApplicationWrapper createNewProfileApplicationForModel(String modelId,
 			IFile profileApplicationsFile, Collection<Profile> profiles,
 			ResourceSet resourceSet) throws Exception {
 		initializeProfileApplicationManagerIfNecessary(modelId, resourceSet);
@@ -53,7 +53,7 @@ public class ProfileApplicationRegistryImpl implements
 	}
 
 	@Override
-	public ProfileApplicationDecorator loadProfileApplicationForModel(
+	public ProfileApplicationWrapper loadProfileApplicationForModel(
 			String modelId, IFile profileApplicationFile,
 			ResourceSet resourceSet) throws Exception {
 		initializeProfileApplicationManagerIfNecessary(modelId, resourceSet);
@@ -68,8 +68,8 @@ public class ProfileApplicationRegistryImpl implements
 
 	private boolean hasLoadedProfileApplication(ProfileApplicationManager pam,
 			IFile profileApplicationFile) {
-		for (ProfileApplicationDecorator element : pam.getProfileApplications()) {
-			ProfileApplicationDecoratorImpl elementImpl = (ProfileApplicationDecoratorImpl) element;
+		for (ProfileApplicationWrapper element : pam.getProfileApplications()) {
+			ProfileApplicationWrapperImpl elementImpl = (ProfileApplicationWrapperImpl) element;
 			if (hasLoadedProfileApplicationFile(elementImpl,
 					profileApplicationFile))
 				return true;
@@ -78,7 +78,7 @@ public class ProfileApplicationRegistryImpl implements
 	}
 
 	private boolean hasLoadedProfileApplicationFile(
-			ProfileApplicationDecoratorImpl profileApplication,
+			ProfileApplicationWrapperImpl profileApplication,
 			IFile profileApplicationFile) {
 		return profileApplicationFile
 				.getLocation()
@@ -98,7 +98,7 @@ public class ProfileApplicationRegistryImpl implements
 
 	@Override
 	public void unloadProfileApplicationForModel(String modelId,
-			ProfileApplicationDecorator profileApplication) {
+			ProfileApplicationWrapper profileApplication) {
 		if (profileApplicationManagerIdMap.containsKey(modelId)) {
 			ProfileApplicationManager pam = profileApplicationManagerIdMap
 					.get(modelId);
@@ -129,7 +129,7 @@ public class ProfileApplicationRegistryImpl implements
 	}
 
 	@Override
-	public Collection<ProfileApplicationDecorator> getProfileApplications(
+	public Collection<ProfileApplicationWrapper> getProfileApplications(
 			String modelId) {
 		if (modelId == null || !hasProfileApplications(modelId))
 			return Collections.emptyList();
@@ -139,7 +139,7 @@ public class ProfileApplicationRegistryImpl implements
 	}
 
 	@Override
-	public ProfileApplicationDecorator getProfileApplicationDecoratorOfContainedEObject(
+	public ProfileApplicationWrapper getProfileApplicationWrapperOfContainedEObject(
 			String modelId, EObject eObject) {
 		ProfileApplication profileApplication = null;
 		if (eObject instanceof ProfileApplication) {
@@ -162,7 +162,7 @@ public class ProfileApplicationRegistryImpl implements
 		}
 		ProfileApplicationManager pam = profileApplicationManagerIdMap
 				.get(modelId);
-		for (ProfileApplicationDecorator pad : pam.getProfileApplications()) {
+		for (ProfileApplicationWrapper pad : pam.getProfileApplications()) {
 			if (pad.getProfileApplications().contains(profileApplication))
 				return pad;
 		}

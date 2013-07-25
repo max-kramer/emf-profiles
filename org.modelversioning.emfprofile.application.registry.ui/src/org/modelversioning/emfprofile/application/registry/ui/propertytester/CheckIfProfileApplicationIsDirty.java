@@ -8,7 +8,7 @@
 package org.modelversioning.emfprofile.application.registry.ui.propertytester;
 
 import org.eclipse.core.expressions.PropertyTester;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
@@ -30,7 +30,7 @@ public class CheckIfProfileApplicationIsDirty extends PropertyTester {
 			Object expectedValue) {
 		// this property tester is called from command framework only if receiver object is
 		// instance of ProfileApplicationDecorator
-		return ((ProfileApplicationDecorator)receiver).isDirty();
+		return ((ProfileApplicationWrapper)receiver).isDirty();
 	}
 
 }

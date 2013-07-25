@@ -22,7 +22,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
- * This object decorates the {@link ProfileApplication} with additional
+ * This object wraps the {@link ProfileApplication} with additional 
  * functionalities, e.g. the semantic name of the profile application
  * (constructed of profile name and location of profile application resource),
  * the status if profile application has changed and needs to be saved, or
@@ -31,7 +31,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  * 
  */
-public interface ProfileApplicationDecorator {
+public interface ProfileApplicationWrapper {
 
 	/**
 	 * Is this profile application changed and if it needs to be saved

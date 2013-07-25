@@ -30,7 +30,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.commands.handlers.UnloadProfileApplicationHandler;
 import org.modelversioning.emfprofile.application.registry.ui.commands.sourceprovider.ToolbarCommandEnabledState;
@@ -190,8 +190,8 @@ public final class DecoratableEditorPartListener implements IPartListener {
 		cleaningUpForEditorPart = editorPart;
 		ExecutionEvent executionEvent;
 		String modelId = editorPartToModelIdMap.get(editorPart);
-		Collection<ProfileApplicationDecorator> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(modelId));
-		for (ProfileApplicationDecorator profileApplication : profileApplications) {
+		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(modelId));
+		for (ProfileApplicationWrapper profileApplication : profileApplications) {
 			// Create an ExecutionEvent and specify the profile application associated
 			executionEvent = handlerService.createExecutionEvent(unloadCmd, new Event());
 			((IEvaluationContext) executionEvent.getApplicationContext()).addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME, new StructuredSelection(profileApplication));

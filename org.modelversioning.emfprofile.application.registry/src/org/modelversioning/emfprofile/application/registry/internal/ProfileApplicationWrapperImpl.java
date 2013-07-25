@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.impl.ProfileFacadeImpl;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
@@ -32,8 +32,8 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  * 
  */
-public class ProfileApplicationDecoratorImpl implements
-		ProfileApplicationDecorator {
+public class ProfileApplicationWrapperImpl implements
+		ProfileApplicationWrapper {
 
 	private final ResourceSet resourceSet;
 	private final IProfileFacade facade;
@@ -51,7 +51,7 @@ public class ProfileApplicationDecoratorImpl implements
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	public ProfileApplicationDecoratorImpl(IFile profileApplicationFile,
+	public ProfileApplicationWrapperImpl(IFile profileApplicationFile,
 			Collection<Profile> profiles, ResourceSet resourceSet)
 			throws CoreException, IOException {
 		this.profileApplicationFile = profileApplicationFile;
@@ -69,7 +69,7 @@ public class ProfileApplicationDecoratorImpl implements
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	public ProfileApplicationDecoratorImpl(IFile profileApplicationFile,
+	public ProfileApplicationWrapperImpl(IFile profileApplicationFile,
 			ResourceSet resourceSet) throws CoreException, IOException {
 		this.profileApplicationFile = profileApplicationFile;
 		this.resourceSet = resourceSet;

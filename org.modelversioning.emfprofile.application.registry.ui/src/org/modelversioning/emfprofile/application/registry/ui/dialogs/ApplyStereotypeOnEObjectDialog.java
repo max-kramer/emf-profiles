@@ -30,7 +30,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderLabelAdapter;
@@ -45,8 +45,8 @@ public class ApplyStereotypeOnEObjectDialog {
 
 	private ProfileProviderLabelAdapter labelAdapter = new ProfileProviderLabelAdapter(EMFProfileApplicationsView.getAdapterFactory());
 	
-	private final Map<ProfileApplicationDecorator, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap;
-	public ApplyStereotypeOnEObjectDialog(Map<ProfileApplicationDecorator, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap) {
+	private final Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap;
+	public ApplyStereotypeOnEObjectDialog(Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap) {
 		this.profileToStereotypeApplicabilityForEObjectMap = profileToStereotypeApplicabilityForEObjectMap;
 	}
 	
@@ -57,7 +57,7 @@ public class ApplyStereotypeOnEObjectDialog {
 	 */
 	public void openApplyStereotypeDialog(EObject eObject) {
 		Collection<TreeParent> parents = new ArrayList<>();
-		for(ProfileApplicationDecorator profileApplication : profileToStereotypeApplicabilityForEObjectMap.keySet()){
+		for(ProfileApplicationWrapper profileApplication : profileToStereotypeApplicabilityForEObjectMap.keySet()){
 			TreeParent parent = new TreeParent(profileApplication);
 			for(StereotypeApplicability stereotypeApplicability : profileToStereotypeApplicabilityForEObjectMap.get(profileApplication)){
 				parent.addChild(new TreeObject(stereotypeApplicability));
@@ -91,12 +91,12 @@ public class ApplyStereotypeOnEObjectDialog {
 			Object[] treeObjects = dialog.getResult();
 			StringBuilder strBuilder = new StringBuilder();
 			boolean hasNotApplicableStereotypes = false;
-			Collection<ProfileApplicationDecorator> profileApplicationDecoratorToBeRefreshedInView = new ArrayList<>();
+			Collection<ProfileApplicationWrapper> profileApplicationDecoratorToBeRefreshedInView = new ArrayList<>();
 			for (Object object : treeObjects) {
 				if(!(object instanceof TreeParent)){
 					TreeObject child = (TreeObject) object;
 					StereotypeApplicability stereotypeApplicability = ((StereotypeApplicability)child.getElement());
-					ProfileApplicationDecorator profileApplicationDecorator = (ProfileApplicationDecorator)child.getParent().getElement();
+					ProfileApplicationWrapper profileApplicationDecorator = (ProfileApplicationWrapper)child.getParent().getElement();
 					try {
 						profileApplicationDecorator.applyStereotype(stereotypeApplicability, eObject);
 						profileApplicationDecoratorToBeRefreshedInView.add(profileApplicationDecorator);
@@ -206,8 +206,8 @@ public class ApplyStereotypeOnEObjectDialog {
 	final class ViewLabelProvider extends LabelProvider {
 
 		public String getText(Object obj) {
-			if(((TreeObject)obj).getElement() instanceof ProfileApplicationDecorator)
-				return ((ProfileApplicationDecorator)((TreeObject)obj).getElement()).getName();
+			if(((TreeObject)obj).getElement() instanceof ProfileApplicationWrapper)
+				return ((ProfileApplicationWrapper)((TreeObject)obj).getElement()).getName();
 			return labelAdapter.getText(((TreeObject)obj).getElement());
 		}
 		public Image getImage(Object obj) {

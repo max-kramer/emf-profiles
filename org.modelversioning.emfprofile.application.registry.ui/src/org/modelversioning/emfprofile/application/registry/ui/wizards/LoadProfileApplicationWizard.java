@@ -22,7 +22,7 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IWorkbenchPart;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
@@ -67,7 +67,7 @@ public class LoadProfileApplicationWizard extends Wizard {
 			if (modelId == null)
 				throw new RuntimeException(
 						"Could not find modelId for a part: " + targetPart);
-			ProfileApplicationDecorator profileApplication = ProfileApplicationRegistry.INSTANCE
+			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
 					.loadProfileApplicationForModel(modelId,
 							profileApplicationFile,
 							ProfileApplicationConstantsAndUtil

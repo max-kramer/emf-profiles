@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -48,7 +48,7 @@ public class RemoveStereotypeApplicationOrNestedClassHandler extends
 			while (selectedObjectsIterator.hasNext()) {
 					EObject eObject = selectedObjectsIterator.next();
 					if( ! (eObject instanceof ProfileApplication)){
-						ProfileApplicationDecorator profileApplicationDecorator = ActiveEditorObserver.INSTANCE.findProfileApplicationDecorator(eObject);
+						ProfileApplicationWrapper profileApplicationDecorator = ActiveEditorObserver.INSTANCE.findProfileApplicationDecorator(eObject);
 						if(profileApplicationDecorator == null){
 							// if it couldn't be found, that most probably indicates
 							// that any parent in chain to the root (which is profile application)

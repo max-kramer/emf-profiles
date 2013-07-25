@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 
@@ -48,8 +48,8 @@ public class SaveProfileApplicationHandler extends AbstractHandler implements
 		if(currentSelection != null && currentSelection instanceof IStructuredSelection){
 			IStructuredSelection structuredSelection = (IStructuredSelection) currentSelection;
 			Object element = structuredSelection.getFirstElement();
-			if(element instanceof ProfileApplicationDecorator){
-				final ProfileApplicationDecorator profileApplication = (ProfileApplicationDecorator) element;
+			if(element instanceof ProfileApplicationWrapper){
+				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
 				WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 					@Override
 					public void execute(IProgressMonitor monitor) {

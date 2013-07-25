@@ -22,7 +22,7 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
@@ -44,9 +44,9 @@ public class SaveAllProfileApplicationsHandler extends AbstractHandler
 				
 				@Override
 				public void run() {
-					Iterator<ProfileApplicationDecorator> profileApplicationsIterator = ProfileApplicationRegistry.INSTANCE.getProfileApplications(ActiveEditorObserver.INSTANCE.getModelIdForWorkbenchPart(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart())).iterator();
+					Iterator<ProfileApplicationWrapper> profileApplicationsIterator = ProfileApplicationRegistry.INSTANCE.getProfileApplications(ActiveEditorObserver.INSTANCE.getModelIdForWorkbenchPart(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart())).iterator();
 					while(profileApplicationsIterator.hasNext()){
-						final ProfileApplicationDecorator profileApplication = profileApplicationsIterator.next();
+						final ProfileApplicationWrapper profileApplication = profileApplicationsIterator.next();
 						if(profileApplication.isDirty())
 							saveProfileApplication(profileApplication);
 					}
@@ -57,7 +57,7 @@ public class SaveAllProfileApplicationsHandler extends AbstractHandler
 //		MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Info", "Save All Profile Applications!");
 		return null;
 	}
-	private void saveProfileApplication(final ProfileApplicationDecorator profileApplication){
+	private void saveProfileApplication(final ProfileApplicationWrapper profileApplication){
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 			@Override
 			public void execute(IProgressMonitor monitor) {
