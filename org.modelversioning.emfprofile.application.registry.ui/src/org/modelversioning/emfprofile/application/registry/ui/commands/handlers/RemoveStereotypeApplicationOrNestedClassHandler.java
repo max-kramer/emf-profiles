@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.handlers.HandlerUtil;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
@@ -48,25 +49,26 @@ public class RemoveStereotypeApplicationOrNestedClassHandler extends
 			while (selectedObjectsIterator.hasNext()) {
 					EObject eObject = selectedObjectsIterator.next();
 					if( ! (eObject instanceof ProfileApplication)){
-						ProfileApplicationWrapper profileApplicationDecorator = ActiveEditorObserver.INSTANCE.findProfileApplicationDecorator(eObject);
-						if(profileApplicationDecorator == null){
+						ProfileApplicationWrapper profileApplicationWrapper;
+						try {
+							profileApplicationWrapper = ActiveEditorObserver.INSTANCE.findProfileApplicationWrapper(eObject);
+							if(eObject instanceof StereotypeApplication){
+								StereotypeApplication stereotypeApplication = (StereotypeApplication) eObject;
+								profileApplicationWrapper.removeEObject(stereotypeApplication);
+								eObjectsToRefreshTheirDecorations.add(stereotypeApplication.getAppliedTo());
+								elementsToRefreshInView.add(profileApplicationWrapper);
+							} else {
+								elementsToRefreshInView.add(eObject.eContainer());
+								// code for removing nested objects
+								profileApplicationWrapper.removeEObject(eObject);
+							}
+						} catch (TraversingEObjectContainerChainException e) {
 							// if it couldn't be found, that most probably indicates
 							// that any parent in chain to the root (which is profile application)
 							// so, continue
 							continue;
 						}
-							
-						if(eObject instanceof StereotypeApplication){
-							StereotypeApplication stereotypeApplication = (StereotypeApplication) eObject;
-							profileApplicationDecorator.removeEObject(stereotypeApplication);
-							eObjectsToRefreshTheirDecorations.add(stereotypeApplication.getAppliedTo());
-							elementsToRefreshInView.add(profileApplicationDecorator);
-						} else {
-							elementsToRefreshInView.add(eObject.eContainer());
-							// code for removing nested objects
-							profileApplicationDecorator.removeEObject(eObject);
-						}
-						
+													
 					}
 					// TODO Consider removing the resource of profile application with this handler
 				

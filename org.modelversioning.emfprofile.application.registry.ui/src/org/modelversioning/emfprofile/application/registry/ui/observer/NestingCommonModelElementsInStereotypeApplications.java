@@ -33,6 +33,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
@@ -143,14 +144,18 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 			
 			EObject eObject = (EObject) ((IStructuredSelection)selection).getFirstElement();
 			
-			ProfileApplicationWrapper profileApplication = ActiveEditorObserver.INSTANCE.findProfileApplicationDecorator(
-					eObject);
-			createChildActions = generateCreateChildActions(eObject, profileApplication);
-			
-			if(eObject instanceof StereotypeApplication){
-				createSiblingActions = Collections.emptyList();
-			}else{
-				createSiblingActions = generateCreateSiblingActions(eObject, profileApplication);
+			ProfileApplicationWrapper profileApplication;
+			try {
+				profileApplication = ActiveEditorObserver.INSTANCE.findProfileApplicationWrapper(
+						eObject);
+				createChildActions = generateCreateChildActions(eObject, profileApplication);
+				
+				if(eObject instanceof StereotypeApplication){
+					createSiblingActions = Collections.emptyList();
+				}else{
+					createSiblingActions = generateCreateSiblingActions(eObject, profileApplication);
+				}
+			} catch (TraversingEObjectContainerChainException e) {
 			}
 		}
 

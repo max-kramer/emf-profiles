@@ -190,7 +190,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 		cleaningUpForEditorPart = editorPart;
 		ExecutionEvent executionEvent;
 		String modelId = editorPartToModelIdMap.get(editorPart);
-		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(modelId));
+		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(null));
 		for (ProfileApplicationWrapper profileApplication : profileApplications) {
 			// Create an ExecutionEvent and specify the profile application associated
 			executionEvent = handlerService.createExecutionEvent(unloadCmd, new Event());
@@ -205,7 +205,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 				e.printStackTrace();
 			}
 		}
-		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplicationsForModel(modelId);
+		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(null);
 		cleaningUpForEditorPart = null;
 	}
 

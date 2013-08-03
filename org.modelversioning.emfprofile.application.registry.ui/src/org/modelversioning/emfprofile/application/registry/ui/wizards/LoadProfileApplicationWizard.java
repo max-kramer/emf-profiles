@@ -68,10 +68,9 @@ public class LoadProfileApplicationWizard extends Wizard {
 				throw new RuntimeException(
 						"Could not find modelId for a part: " + targetPart);
 			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
-					.loadProfileApplicationForModel(modelId,
-							profileApplicationFile,
-							ProfileApplicationConstantsAndUtil
-									.getResourceSet(targetPart));
+					.loadProfileApplication(ProfileApplicationConstantsAndUtil
+							.getResourceSet(targetPart),
+							profileApplicationFile);
 			if (profileApplication == null) {
 				MessageDialog.openInformation(
 						targetPart.getSite().getShell(),

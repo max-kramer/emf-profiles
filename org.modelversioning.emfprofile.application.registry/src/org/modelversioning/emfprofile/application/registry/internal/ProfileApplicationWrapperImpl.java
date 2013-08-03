@@ -108,8 +108,10 @@ public class ProfileApplicationWrapperImpl implements
 			throws CoreException, IOException {
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		facade.loadProfiles(profiles);
+		facade.save();
 		profileApplicationFile.refreshLocal(IFile.DEPTH_ZERO,
 				new NullProgressMonitor());
+		
 		return facade;
 	}
 
