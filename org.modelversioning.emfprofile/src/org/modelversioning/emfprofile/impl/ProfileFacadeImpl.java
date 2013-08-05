@@ -122,28 +122,30 @@ public class ProfileFacadeImpl implements IProfileFacade {
 			} else {
 				doProfileApplicationResourceSave();
 			}
+			refreshProfileApplicationFileInWorkspace();
 		}
+
 	}
 
 	private void doProfileApplicationResourceSave() {
 		try {
 			profileApplicationResource.save(null);
-			refreshProfileApplicationFile();
+			refreshProfileApplicationFileInWorkspace();
 		} catch (IOException e) {
-			EMFProfilePlugin.getPlugin().log(
-					new Status(IStatus.ERROR, EMFProfilePlugin.ID, e
-							.getMessage(), e));
-		} catch (CoreException e) {
 			EMFProfilePlugin.getPlugin().log(
 					new Status(IStatus.ERROR, EMFProfilePlugin.ID, e
 							.getMessage(), e));
 		}
 	}
 
-	private void refreshProfileApplicationFile() throws CoreException {
+	private void refreshProfileApplicationFileInWorkspace() {
 		if (profileApplicationFile != null) {
-			profileApplicationFile.refreshLocal(IFile.DEPTH_ONE,
-					new NullProgressMonitor());
+			try {
+				profileApplicationFile.refreshLocal(IFile.DEPTH_ONE,
+						new NullProgressMonitor());
+			} catch (CoreException e) {
+				EMFProfilePlugin.getPlugin().log(e.getStatus());
+			}
 		}
 	}
 
@@ -152,6 +154,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 			try {
 				profileApplicationFile.touch(new NullProgressMonitor());
 			} catch (CoreException e) {
+				EMFProfilePlugin.getPlugin().log(e.getStatus());
 			}
 		}
 	}
