@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<emfprofileapplication:ProfileApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ejb_profile="http://www.modelversioning.org/ejb_profile" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xsi:schemaLocation="http://www.modelversioning.org/ejb_profile platform:/resource/EJB_Profile/profile.emfprofile_diagram#_PX1uMYPCEeGsZteK8_iYaA">
+  <stereotypeApplications xsi:type="ejb_profile:EntityBean">
+    <appliedTo href="platform:/resource/TestCaseForProfileApplicationRegistryTest/sample_ecore_model.ecore#//Person"/>
+    <extension href="platform:/resource/EJB_Profile/profile.emfprofile_diagram#_wcOVIIPCEeGsZteK8_iYaA"/>
+    <info name="Description of Person Bean" description="Describing this bean more thoroughly.">
+      <comment name="Persistent Bean" data="This person is an adult."/>
+    </info>
+    <comments name="Adult" data="This person is an adult."/>
+  </stereotypeApplications>
+  <stereotypeApplications xsi:type="ejb_profile:EntityBean">
+    <appliedTo href="platform:/resource/TestCaseForProfileApplicationRegistryTest/sample_ecore_model.ecore#//Car"/>
+    <extension href="platform:/resource/EJB_Profile/profile.emfprofile_diagram#_wcOVIIPCEeGsZteK8_iYaA"/>
+    <comments name="Nice car" data="This is very nice car."/>
+  </stereotypeApplications>
+  <stereotypeApplications xsi:type="ejb_profile:IDAttribute">
+    <appliedTo href="platform:/resource/TestCaseForProfileApplicationRegistryTest/sample_ecore_model.ecore#//Person/firstName"/>
+    <extension href="platform:/resource/EJB_Profile/profile.emfprofile_diagram#_9jGr0IPCEeGsZteK8_iYaA"/>
+  </stereotypeApplications>
+  <stereotypeApplications xsi:type="ejb_profile:IDAttribute">
+    <appliedTo href="platform:/resource/TestCaseForProfileApplicationRegistryTest/sample_ecore_model.ecore#//Person/lastName"/>
+    <extension href="platform:/resource/EJB_Profile/profile.emfprofile_diagram#_9jGr0IPCEeGsZteK8_iYaA"/>
+  </stereotypeApplications>
+  <importedProfiles nsURI="http://www.modelversioning.org/ejb_profile" location="platform:/resource/EJB_Profile/profile.emfprofile_diagram"/>
+</emfprofileapplication:ProfileApplication>
