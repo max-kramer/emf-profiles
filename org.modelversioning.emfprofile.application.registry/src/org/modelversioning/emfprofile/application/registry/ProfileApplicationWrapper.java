@@ -138,9 +138,10 @@ public interface ProfileApplicationWrapper {
 	List<StereotypeApplication> getStereotypeApplications(EObject eObject);
 
 	/**
-	 * Returns all {@link ProfileApplication profile applications}.
+	 * Returns {@link ProfileApplication profile application} instance wrapped by this wrapper.
 	 * 
-	 * @return all {@link ProfileApplication profile applications}.
+	 * @return {@link ProfileApplication}.
+	 * 
 	 */
-	List<ProfileApplication> getProfileApplications();
+	ProfileApplication getProfileApplicationUnwrapped();
 }

@@ -12,10 +12,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -37,7 +35,7 @@ public class ProfileApplicationWrapperImpl implements
 
 	private final ResourceSet resourceSet;
 	private final IProfileFacade facade;
-	private final IFile profileApplicationFile;
+	private final URI profileApplicationURI;
 	private final Collection<Profile> profiles;
 
 	/**
@@ -45,18 +43,18 @@ public class ProfileApplicationWrapperImpl implements
 	 * current state of implementation there will be only one profiles
 	 * application file pro applied profiles.
 	 * 
-	 * @param profileApplicationFile
+	 * @param profileApplicationURI
 	 * @param profiles
 	 * @param resourceSet
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	public ProfileApplicationWrapperImpl(IFile profileApplicationFile,
+	public ProfileApplicationWrapperImpl(URI profileApplicationURI,
 			Collection<Profile> profiles, ResourceSet resourceSet)
 			throws CoreException, IOException {
-		this.profileApplicationFile = profileApplicationFile;
+		this.profileApplicationURI = profileApplicationURI;
 		this.resourceSet = resourceSet;
-		this.facade = createAndInitializeProfileFacade(profileApplicationFile,
+		this.facade = createAndInitializeProfileFacade(profileApplicationURI,
 				profiles);
 		this.profiles = facade.getLoadedProfiles();
 	}
@@ -64,20 +62,21 @@ public class ProfileApplicationWrapperImpl implements
 	/**
 	 * Loads a profiles application from file.
 	 * 
-	 * @param profileApplicationFile
+	 * @param profileApplicationURI
 	 * @param resourceSet
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	public ProfileApplicationWrapperImpl(IFile profileApplicationFile,
+	public ProfileApplicationWrapperImpl(URI profileApplicationURI,
 			ResourceSet resourceSet) throws CoreException, IOException {
-		this.profileApplicationFile = profileApplicationFile;
+		this.profileApplicationURI = profileApplicationURI;
 		this.resourceSet = resourceSet;
-		this.facade = loadProfileApplication(profileApplicationFile);
-		if (facade.getProfileApplications().isEmpty())
-			throw new IOException("The file: "
-					+ profileApplicationFile.getName()
+		this.facade = loadProfileApplication(profileApplicationURI);
+		if (facade.getProfileApplications().isEmpty()){
+			throw new IOException("The resource at "
+					+ profileApplicationURI.toString()
 					+ ", does not contain any profile applications.");
+		}
 		this.profiles = facade.getLoadedProfiles();
 	}
 
@@ -86,8 +85,8 @@ public class ProfileApplicationWrapperImpl implements
 		return facade.getProfileApplicationResource().isModified();
 	}
 
-	public IFile getProfileApplicationFile() {
-		return profileApplicationFile;
+	public URI getProfileApplicationURI() {
+		return profileApplicationURI;
 	}
 	
 	public Resource getProfileApplicationResource(){
@@ -104,14 +103,11 @@ public class ProfileApplicationWrapperImpl implements
 	 * @throws IOException
 	 */
 	private IProfileFacade createAndInitializeProfileFacade(
-			IFile profileApplicationFile, Collection<Profile> profiles)
+			URI profileApplicationFile, Collection<Profile> profiles)
 			throws CoreException, IOException {
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		facade.loadProfiles(profiles);
-		facade.save();
-		profileApplicationFile.refreshLocal(IFile.DEPTH_ZERO,
-				new NullProgressMonitor());
-		
+		facade.save();	
 		return facade;
 	}
 
@@ -126,31 +122,29 @@ public class ProfileApplicationWrapperImpl implements
 	/**
 	 * Loads an existing profiles application.
 	 * 
-	 * @param profileApplicationFile
+	 * @param profileApplicationURI
 	 *            to load.
 	 * @return
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	private IProfileFacade loadProfileApplication(IFile profileApplicationFile)
+	private IProfileFacade loadProfileApplication(URI profileApplicationURI)
 			throws CoreException, IOException {
-		profileApplicationFile.refreshLocal(IFile.DEPTH_ONE,
-				new NullProgressMonitor());
-		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
+		IProfileFacade facade = createNewProfileFacade(profileApplicationURI);
 		return facade;
 	}
 
 	/**
 	 * Creates new instance of {@link IProfileFacade}
 	 * 
-	 * @param profileApplicationFile
+	 * @param profileApplicationURI
 	 * @return
 	 * @throws IOException
 	 */
-	private IProfileFacade createNewProfileFacade(IFile profileApplicationFile)
+	private IProfileFacade createNewProfileFacade(URI profileApplicationURI)
 			throws IOException {
 		IProfileFacade facade = new ProfileFacadeImpl();
-		facade.loadProfileApplication(profileApplicationFile, resourceSet);
+		facade.loadProfileApplication(profileApplicationURI, resourceSet);
 		return facade;
 	}
 
@@ -166,11 +160,11 @@ public class ProfileApplicationWrapperImpl implements
 		}
 		return result
 				+ " - "
-				+ profileApplicationFile
-						.getLocation()
-						.makeRelativeTo(
-								ResourcesPlugin.getWorkspace().getRoot()
-										.getLocation()).toString();
+				+ profileApplicationURI.toPlatformString(true);
+//						.getLocation()
+//						.makeRelativeTo(
+//								ResourcesPlugin.getWorkspace().getRoot()
+//										.getLocation()).toString();
 	}
 
 	@Override
@@ -221,8 +215,8 @@ public class ProfileApplicationWrapperImpl implements
 	}
 
 	@Override
-	public List<ProfileApplication> getProfileApplications() {
-		return facade.getProfileApplications();
+	public ProfileApplication getProfileApplicationUnwrapped() {
+		return facade.getProfileApplications().get(0);
 	}
 
 }

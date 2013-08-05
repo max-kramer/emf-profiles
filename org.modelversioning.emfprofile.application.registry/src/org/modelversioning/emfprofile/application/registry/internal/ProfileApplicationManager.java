@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
@@ -38,16 +38,16 @@ public class ProfileApplicationManager {
 		return !profileApplications.isEmpty();
 	}
 
-	public ProfileApplicationWrapper createNewProfileApplication(IFile profileApplicationFile,
+	public ProfileApplicationWrapper createNewProfileApplication(URI profileApplicationURI,
 			Collection<Profile> profiles) throws CoreException, IOException {
 		ProfileApplicationWrapper pad = new ProfileApplicationWrapperImpl(
-				profileApplicationFile, profiles, resourceSet);
+				profileApplicationURI, profiles, resourceSet);
 		profileApplications.add(pad);
 		return pad;
 	}
 
 	public ProfileApplicationWrapper loadProfileApplication(
-			IFile profileApplicationFile) throws CoreException, IOException {
+			URI profileApplicationFile) throws CoreException, IOException {
 		ProfileApplicationWrapper profileApplication = new ProfileApplicationWrapperImpl(
 				profileApplicationFile, resourceSet);
 		profileApplications.add(profileApplication);
