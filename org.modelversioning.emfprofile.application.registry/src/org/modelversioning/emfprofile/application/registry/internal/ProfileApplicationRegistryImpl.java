@@ -15,9 +15,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
@@ -43,11 +43,11 @@ public class ProfileApplicationRegistryImpl implements
 
 	@Override
 	public ProfileApplicationWrapper createNewProfileApplication(
-			ResourceSet resourceSet, URI profileApplicationURI,
+			ResourceSet resourceSet, IFile profileApplicationFile,
 			Collection<Profile> profiles) throws CoreException, IOException,
 			IllegalArgumentException {
 		assert resourceSet != null;
-		assert profileApplicationURI != null;
+		assert profileApplicationFile != null;
 		assert profiles != null;
 
 		if (profiles.isEmpty()) {
@@ -57,35 +57,30 @@ public class ProfileApplicationRegistryImpl implements
 		initializeProfileApplicationManagerIfNecessary(resourceSet);
 		ProfileApplicationManager pam = profileApplicationManagers
 				.get(resourceSet);
-		return pam.createNewProfileApplication(profileApplicationURI, profiles);
+		return pam.createNewProfileApplication(profileApplicationFile, profiles);
 	}
 
 	@Override
 	public ProfileApplicationWrapper loadProfileApplication(
-			ResourceSet resourceSet, URI profileApplicationURI)
+			ResourceSet resourceSet, IFile profileApplicationFile)
 			throws CoreException, IOException,
 			ProfileApplicationAlreadyLoadedException {
 		assert resourceSet != null;
-		assert profileApplicationURI != null;
-		if(profileApplicationURI.isPlatform()){
-			
-			System.out.println(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile().toString() + URI.createFileURI(profileApplicationURI.toPlatformString(true)).toFileString());
-			if(new File(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile(), URI.createFileURI(profileApplicationURI.toPlatformString(true)).toFileString()).exists() == false)
-				throw new IOException("The platform URI points to non existent resource!\n" + profileApplicationURI.toString());
-		} else {
-			if(new File(profileApplicationURI.toFileString()).exists() == false)
-				throw new IOException("The file URI points to non existent resource!\n" + profileApplicationURI.toString());
-		}
+		assert profileApplicationFile != null;
+		if(profileApplicationFile.exists() == false){
+			System.out.println(profileApplicationFile.toString());
+			throw new IOException("The resource does not exist!\n" + profileApplicationFile.toString());
+		} 
 		
 		
 		try {
 			initializeProfileApplicationManagerIfNecessary(resourceSet);
 			ProfileApplicationManager pam = profileApplicationManagers
 					.get(resourceSet);
-			if (hasLoadedProfileApplication(pam, profileApplicationURI)) {
+			if (hasLoadedProfileApplication(pam, profileApplicationFile)) {
 				throw new ProfileApplicationAlreadyLoadedException();
 			} else {
-				return pam.loadProfileApplication(profileApplicationURI);
+				return pam.loadProfileApplication(profileApplicationFile);
 			}
 		} catch(NullPointerException npe) {
 			npe.printStackTrace();
@@ -101,11 +96,11 @@ public class ProfileApplicationRegistryImpl implements
 	}
 
 	private boolean hasLoadedProfileApplication(ProfileApplicationManager pam,
-			URI profileApplicationURI) {
+			IFile profileApplicationFile) {
 		for (ProfileApplicationWrapper element : pam.getProfileApplications()) {
 			ProfileApplicationWrapperImpl elementImpl = (ProfileApplicationWrapperImpl) element;
 			if (hasLoadedProfileApplicationFile(elementImpl,
-					profileApplicationURI))
+					profileApplicationFile))
 				return true;
 		}
 		return false;
@@ -113,9 +108,12 @@ public class ProfileApplicationRegistryImpl implements
 
 	private boolean hasLoadedProfileApplicationFile(
 			ProfileApplicationWrapperImpl profileApplication,
-			URI profileApplicationURI) {
-		return profileApplicationURI.equals(profileApplication
-				.getProfileApplicationResource().getURI());
+			IFile profileApplicationFile) {
+		return profileApplicationFile
+				.getLocation()
+				.toString()
+				.equals(profileApplication.getProfileApplicationFile()
+						.getLocation().toString());
 	}
 
 	private void initializeProfileApplicationManagerIfNecessary(

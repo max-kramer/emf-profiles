@@ -206,7 +206,8 @@ public final class DecoratableEditorPartListener implements IPartListener {
 //				e.printStackTrace();
 			}
 		}
-		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
+		if(resourceSet != null)
+			ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
 		cleaningUpForEditorPart = null;
 	}
 

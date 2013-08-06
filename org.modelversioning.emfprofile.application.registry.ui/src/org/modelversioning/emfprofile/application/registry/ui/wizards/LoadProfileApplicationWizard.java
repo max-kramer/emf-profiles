@@ -17,7 +17,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -61,6 +60,9 @@ public class LoadProfileApplicationWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
+//		TODO remove me
+		System.out.println(profileApplicationFile.toString());
+		System.out.println(profileApplicationFile.getLocation().toString());
 		try {
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(targetEditorPart);
 			if (resourceSet == null)
@@ -68,7 +70,7 @@ public class LoadProfileApplicationWizard extends Wizard {
 						"Could not find the ResourceSet of this editor part: " + targetEditorPart);
 			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
 					.loadProfileApplication(resourceSet,
-							URI.createPlatformResourceURI(profileApplicationFile.getFullPath().toString(), true));
+							profileApplicationFile);
 			
 			ActiveEditorObserver.INSTANCE.refreshViewer();
 			EList<EObject> eObjects = new BasicEList<>();

@@ -12,7 +12,6 @@ import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
@@ -37,8 +36,8 @@ public interface ProfileApplicationRegistry {
 	 * @param resourceSet
 	 *            is an instance of the {@link ResourceSet} where the model that
 	 *            will be annotated is also loaded.
-	 * @param profileApplicationURI
-	 *            the {@link URI} that points to the resource in the local file
+	 * @param profileApplicationFile
+	 *            the {@link IFile file} that points to the resource in the local file
 	 *            system where the profile application data is stored.
 	 * @param profiles
 	 *            a collection of {@link Profile Profile Definitions} that can
@@ -51,7 +50,7 @@ public interface ProfileApplicationRegistry {
 	 *             if <code>profiles</code> are empty.
 	 */
 	ProfileApplicationWrapper createNewProfileApplication(
-			ResourceSet resourceSet, URI profileApplicationURI,
+			ResourceSet resourceSet, IFile profileApplicationFile,
 			Collection<Profile> profiles) throws CoreException, IOException,
 			IllegalArgumentException;
 
@@ -62,8 +61,8 @@ public interface ProfileApplicationRegistry {
 	 * @param resourceSet
 	 *            is an instance of the {@link ResourceSet} where the model that
 	 *            will be annotated is also loaded.
-	 * @param profileApplicationURI
-	 *            the {@link URI} that points to the resource in the local file
+	 * @param profileApplicationFile
+	 *            the {@link IFile file} that points to the resource in the local file
 	 *            system where the profile application data is stored.
 	 * @return an instance of {@link ProfileApplicationWrapper}.
 	 * @throws CoreException
@@ -79,7 +78,7 @@ public interface ProfileApplicationRegistry {
 	 *             the provided {@link ResourceSet resource set}.
 	 */
 	ProfileApplicationWrapper loadProfileApplication(ResourceSet resourceSet,
-			URI profileApplicationURI) throws CoreException, IOException,
+			IFile profileApplicationFile) throws CoreException, IOException,
 			ProfileApplicationAlreadyLoadedException;
 
 	/**

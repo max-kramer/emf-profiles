@@ -12,8 +12,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.common.util.URI;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -35,7 +38,8 @@ public class ProfileApplicationWrapperImpl implements
 
 	private final ResourceSet resourceSet;
 	private final IProfileFacade facade;
-	private final URI profileApplicationURI;
+//	private final URI profileApplicationURI;
+	private final IFile profileApplicationFile;
 	private final Collection<Profile> profiles;
 
 	/**
@@ -43,18 +47,20 @@ public class ProfileApplicationWrapperImpl implements
 	 * current state of implementation there will be only one profiles
 	 * application file pro applied profiles.
 	 * 
-	 * @param profileApplicationURI
+	 * @param profileApplicationFile
 	 * @param profiles
 	 * @param resourceSet
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	public ProfileApplicationWrapperImpl(URI profileApplicationURI,
+	public ProfileApplicationWrapperImpl(IFile profileApplicationFile,
 			Collection<Profile> profiles, ResourceSet resourceSet)
 			throws CoreException, IOException {
-		this.profileApplicationURI = profileApplicationURI;
+//		this.profileApplicationURI = profileApplicationFile;
+		this.profileApplicationFile = profileApplicationFile;
+		
 		this.resourceSet = resourceSet;
-		this.facade = createAndInitializeProfileFacade(profileApplicationURI,
+		this.facade = createAndInitializeProfileFacade(profileApplicationFile,
 				profiles);
 		this.profiles = facade.getLoadedProfiles();
 	}
@@ -62,19 +68,20 @@ public class ProfileApplicationWrapperImpl implements
 	/**
 	 * Loads a profiles application from file.
 	 * 
-	 * @param profileApplicationURI
+	 * @param profileApplicationFile
 	 * @param resourceSet
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	public ProfileApplicationWrapperImpl(URI profileApplicationURI,
+	public ProfileApplicationWrapperImpl(IFile profileApplicationFile,
 			ResourceSet resourceSet) throws CoreException, IOException {
-		this.profileApplicationURI = profileApplicationURI;
+//		this.profileApplicationURI = profileApplicationFile;
+		this.profileApplicationFile = profileApplicationFile;
 		this.resourceSet = resourceSet;
-		this.facade = loadProfileApplication(profileApplicationURI);
+		this.facade = loadProfileApplication(profileApplicationFile);
 		if (facade.getProfileApplications().isEmpty()){
 			throw new IOException("The resource at "
-					+ profileApplicationURI.toString()
+					+ profileApplicationFile.toString()
 					+ ", does not contain any profile applications.");
 		}
 		this.profiles = facade.getLoadedProfiles();
@@ -85,8 +92,8 @@ public class ProfileApplicationWrapperImpl implements
 		return facade.getProfileApplicationResource().isModified();
 	}
 
-	public URI getProfileApplicationURI() {
-		return profileApplicationURI;
+	public IFile getProfileApplicationFile() {
+		return profileApplicationFile;
 	}
 	
 	public Resource getProfileApplicationResource(){
@@ -103,13 +110,17 @@ public class ProfileApplicationWrapperImpl implements
 	 * @throws IOException
 	 */
 	private IProfileFacade createAndInitializeProfileFacade(
-			URI profileApplicationFile, Collection<Profile> profiles)
+			IFile profileApplicationFile, Collection<Profile> profiles)
 			throws CoreException, IOException {
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		facade.loadProfiles(profiles);
-		// TODO refresh profile application file. Depth zero
-		// now I have added it to the #save() at the beginning of method execution
-		facade.save();	
+		profileApplicationFile.refreshLocal(IFile.DEPTH_ZERO,
+				new NullProgressMonitor());
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+		}
+		facade.save();
 		return facade;
 	}
 
@@ -124,29 +135,29 @@ public class ProfileApplicationWrapperImpl implements
 	/**
 	 * Loads an existing profiles application.
 	 * 
-	 * @param profileApplicationURI
+	 * @param profileApplicationFile
 	 *            to load.
 	 * @return
 	 * @throws CoreException
 	 * @throws IOException
 	 */
-	private IProfileFacade loadProfileApplication(URI profileApplicationURI)
+	private IProfileFacade loadProfileApplication(IFile profileApplicationFile)
 			throws CoreException, IOException {
-		IProfileFacade facade = createNewProfileFacade(profileApplicationURI);
+		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		return facade;
 	}
 
 	/**
 	 * Creates new instance of {@link IProfileFacade}
 	 * 
-	 * @param profileApplicationURI
+	 * @param profileApplicationFile
 	 * @return
 	 * @throws IOException
 	 */
-	private IProfileFacade createNewProfileFacade(URI profileApplicationURI)
+	private IProfileFacade createNewProfileFacade(IFile profileApplicationFile)
 			throws IOException {
 		IProfileFacade facade = new ProfileFacadeImpl();
-		facade.loadProfileApplication(profileApplicationURI, resourceSet);
+		facade.loadProfileApplication(profileApplicationFile, resourceSet);
 		return facade;
 	}
 
@@ -162,11 +173,11 @@ public class ProfileApplicationWrapperImpl implements
 		}
 		return result
 				+ " - "
-				+ profileApplicationURI.toPlatformString(true);
-//						.getLocation()
-//						.makeRelativeTo(
-//								ResourcesPlugin.getWorkspace().getRoot()
-//										.getLocation()).toString();
+				+ profileApplicationFile
+						.getLocation()
+						.makeRelativeTo(
+								ResourcesPlugin.getWorkspace().getRoot()
+										.getLocation()).toString();
 	}
 
 	@Override

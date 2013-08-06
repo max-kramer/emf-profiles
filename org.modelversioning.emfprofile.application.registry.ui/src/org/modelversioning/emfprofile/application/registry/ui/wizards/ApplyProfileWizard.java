@@ -18,7 +18,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.IEditorPart;
@@ -68,7 +67,7 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(targetEditorPart);
 			if(resourceSet == null)
 				throw new RuntimeException("Could not find the ResourceSet of this editor part: " + targetEditorPart);
-			ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, URI.createPlatformResourceURI(profileApplicationFile.getFullPath().toString(), true), profileFilePage.getSelectedProfiles());
+			ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, profileApplicationFile, profileFilePage.getSelectedProfiles());
 			ActiveEditorObserver.INSTANCE.refreshViewer();
 		} catch (Exception e) {
 			IStatus status = new Status(IStatus.ERROR, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,

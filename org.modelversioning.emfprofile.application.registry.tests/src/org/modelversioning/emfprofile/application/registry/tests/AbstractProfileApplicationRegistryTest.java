@@ -8,10 +8,12 @@
 package org.modelversioning.emfprofile.application.registry.tests;
 
 import java.io.File;
+import java.util.Arrays;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -112,14 +114,14 @@ public abstract class AbstractProfileApplicationRegistryTest {
 				.getFile(new Path(uri.toPlatformString(true)));
 	}
 
-	protected URI getTestProfileApplicationURI() {
+	protected IFile getTestProfileApplicationFile() {
 		String path = getAbsolutePath(testProfileApplicationPath);
-		return URI.createFileURI(path);
+		return getFileToResource(path);
 	}
 	
-	protected URI getPrepearedProfileApplicationResourceURI() {
+	protected IFile getPrepearedProfileApplicationResourceFile() {
 		String path = getAbsolutePath(profileApplicationPath);
-		return URI.createFileURI(path);
+		return getFileToResource(path);
 	}
 
 	protected void deleteTestProfileApplicationFileIfExists() {
@@ -133,5 +135,12 @@ public abstract class AbstractProfileApplicationRegistryTest {
 			file.delete();
 		}
 	}
-
+	
+	protected IFile getFileToResource(String fullPath) {
+		System.out.println("full path: " + fullPath);
+		System.out.println(Arrays.toString(ResourcesPlugin.getWorkspace().getRoot().getProjects()));
+		IFile file = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(new Path(fullPath));
+		System.out.println("file: " + file);
+		return file;
+	}
 }

@@ -114,7 +114,6 @@ public class ProfileFacadeImpl implements IProfileFacade {
 	 */
 	@Override
 	public void save() throws IOException {
-		refreshProfileApplicationFileInWorkspace(IFile.DEPTH_ZERO);
 		if (haveProfileApplicationResource()) {
 			if (requireTransaction()) {
 				TransactionalEditingDomain domain = getTransactionalEditingDomain();
@@ -130,6 +129,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 	private void doProfileApplicationResourceSave() {
 		try {
 			profileApplicationResource.save(null);
+			refreshProfileApplicationFileInWorkspace(IFile.DEPTH_ONE);
 		} catch (IOException e) {
 			e.printStackTrace();
 			EMFProfilePlugin.getPlugin().log(
@@ -312,9 +312,8 @@ public class ProfileFacadeImpl implements IProfileFacade {
 
 	private void loadProfileApplicationResource() throws IOException {
 		if (!isProfileApplicationResourceExisting()) {
-			profileApplicationResource.save(null);
 			touchProfileApplicationFile();
-			
+			profileApplicationResource.save(null);
 		} else {
 			readAndLoadImportedProfiles();
 		}
