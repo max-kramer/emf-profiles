@@ -9,11 +9,13 @@ package org.modelversioning.emfprofile.application.registry.internal;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -65,8 +67,16 @@ public class ProfileApplicationRegistryImpl implements
 			ProfileApplicationAlreadyLoadedException {
 		assert resourceSet != null;
 		assert profileApplicationURI != null;
-		if(new File(profileApplicationURI.toFileString()).exists() == false)
-			throw new IOException("URI points to non existent resource!");
+		if(profileApplicationURI.isPlatform()){
+			
+			System.out.println(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile().toString() + URI.createFileURI(profileApplicationURI.toPlatformString(true)).toFileString());
+			if(new File(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile(), URI.createFileURI(profileApplicationURI.toPlatformString(true)).toFileString()).exists() == false)
+				throw new IOException("The platform URI points to non existent resource!\n" + profileApplicationURI.toString());
+		} else {
+			if(new File(profileApplicationURI.toFileString()).exists() == false)
+				throw new IOException("The file URI points to non existent resource!\n" + profileApplicationURI.toString());
+		}
+		
 		
 		try {
 			initializeProfileApplicationManagerIfNecessary(resourceSet);
@@ -77,6 +87,9 @@ public class ProfileApplicationRegistryImpl implements
 			} else {
 				return pam.loadProfileApplication(profileApplicationURI);
 			}
+		} catch(NullPointerException npe) {
+			npe.printStackTrace();
+			throw new IOException("There was a problem with loading the resource which yielded the NPE.\nPleas take a look into the stack trace.\nIt looks that the implementation of the profile importer does not check for corrupted files, i.e., missing elements, which yield NPE.", npe);
 		} catch (Exception e) {
 			if(e instanceof CoreException)
 				throw new CoreException(((CoreException)e).getStatus());

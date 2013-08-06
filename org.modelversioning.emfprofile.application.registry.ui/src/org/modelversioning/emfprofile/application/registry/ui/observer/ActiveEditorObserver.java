@@ -14,13 +14,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -41,25 +41,25 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.RegistryToggleState;
 import org.eclipse.ui.services.ISourceProviderService;
 import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
+import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.commands.handlers.StereotypeApplicationsOnSelectedElementHandler;
 import org.modelversioning.emfprofile.application.registry.ui.commands.sourceprovider.ToolbarCommandEnabledState;
-import org.modelversioning.emfprofile.application.registry.ui.dialogs.ApplyStereotypeOnEObjectDialog;
+import org.modelversioning.emfprofile.application.registry.ui.dialogs.ApplyStereotypeToEObjectDialog;
 import org.modelversioning.emfprofile.application.registry.ui.extensionpoint.decorator.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ui.extensionpoint.decorator.PluginExtensionOperationsListener;
 import org.modelversioning.emfprofile.application.registry.ui.extensionpoint.decorator.handler.EMFProfileApplicationDecoratorHandler;
-import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationDecoratorReflectiveItemProviderAdapterFactory;
+import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationWrapperReflectiveItemProviderAdapterFactory;
 import org.modelversioning.emfprofile.application.registry.ui.views.filters.StereotypesOfEObjectViewerFilter;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
- * It manages mapping of opened editors of interest to 
- * the generated id for an opened model in editor.
+ * It manages editors of interest.
  * It is also a {@link PluginExtensionOperationsListener}.
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  *
@@ -68,7 +68,12 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	
 	public static ActiveEditorObserver INSTANCE = new ActiveEditorObserver();
 	
-	private Map<IWorkbenchPart, String> editorPartToModelIdMap = new HashMap<>();
+	
+	/**
+	 * Every editor of interest will be mapped here in order to easily access its resource set
+	 * and to know if editor parts were just out of focus or newly opened when editor parts are activated
+	 */
+	private Map<IWorkbenchPart, ResourceSet> editorPartToResourceSetMap = new HashMap<>();
 	private Map<IWorkbenchPart, ViewerState> editorPartToViewerStateMap = new HashMap<>();
 	
 	
@@ -85,7 +90,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	private ActiveEditorObserver(){
 	}
 	
-	public IWorkbenchPart getLastActiveEditorPart(){
+	public IEditorPart getLastActiveEditorPart(){
 		return decoratableEditorPartListener.getLastActiveEditPart();
 	}
 	
@@ -123,17 +128,17 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	    
 //		When the plug-in starts, we should check if there is an active editor and if it can be decorated
 		IEditorPart editorPart = activePage.getActiveEditor();
-		IWorkbenchPart lastActiveEditorPart = null;
+		IEditorPart lastActiveEditorPart = null;
 		if(editorPart != null){
 			if(decoratorHandler.hasDecoratorForEditorPart(editorPart)){
-				// Create an id for workbench part and put it into map
-				editorPartToModelIdMap.put(editorPart, UUID.randomUUID().toString());
+				// get the resource set of the editor and put it into map for tracking editors that can be decorated 
+				editorPartToResourceSetMap.put(editorPart, ProfileApplicationConstantsAndUtil.getResourceSet(editorPart));
 				lastActiveEditorPart = editorPart;
 				toolbarCommandEnabeldStateService.setEnabled(true);
 			}
 		}
 		// listener that gets notified for workbench changes and registers editor parts of interest
-		decoratableEditorPartListener = new DecoratableEditorPartListener(decoratorHandler, editorPartToModelIdMap, lastActiveEditorPart, viewer, toolbarCommandEnabeldStateService, editorPartToViewerStateMap);
+		decoratableEditorPartListener = new DecoratableEditorPartListener(decoratorHandler, editorPartToResourceSetMap, lastActiveEditorPart, viewer, toolbarCommandEnabeldStateService, editorPartToViewerStateMap);
 		activePage.addPartListener(decoratableEditorPartListener);
 		
 		// when workbench is about to close, we have to perform clean-up for all 
@@ -164,7 +169,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 			@Override
 			public void run() {
 				if(viewer.getInput().equals(Collections.emptyList())){
-					viewer.setInput(ProfileApplicationRegistry.INSTANCE.getProfileApplications(null));
+					viewer.setInput(ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToResourceSetMap.get(decoratableEditorPartListener.getLastActiveEditPart())));
 				}else{
 					viewer.refresh();
 					viewer.expandToLevel(2);
@@ -226,8 +231,8 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 			}
 		});
 	}
-	public String getModelIdForWorkbenchPart(IWorkbenchPart part) {
-		return editorPartToModelIdMap.get(part);
+	public ResourceSet getResourceSetOfEditorPart(IEditorPart editorPart) {
+		return editorPartToResourceSetMap.get(editorPart);
 	}
 
 	/**
@@ -238,7 +243,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 		Assert.isNotNull(eObject);
 		// we are looking in all loaded profiles if there are any stereotypes applicable on eObject 
 		final Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap = new HashMap<>();
-		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(null)) {
+		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToResourceSetMap.get(decoratableEditorPartListener.getLastActiveEditPart()))) {
 			profileToStereotypeApplicabilityForEObjectMap.put(profileApplication, (Collection<StereotypeApplicability>) profileApplication.getApplicableStereotypes(eObject));
 		}
 		boolean mayApplyStereotype = false;
@@ -249,7 +254,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 			}
 		}
 		if (mayApplyStereotype) {
-			ApplyStereotypeOnEObjectDialog applySteretypeDialog = new ApplyStereotypeOnEObjectDialog(profileToStereotypeApplicabilityForEObjectMap);
+			ApplyStereotypeToEObjectDialog applySteretypeDialog = new ApplyStereotypeToEObjectDialog(profileToStereotypeApplicabilityForEObjectMap);
 			applySteretypeDialog.openApplyStereotypeDialog(eObject);
 		} else {
 			MessageDialog.openInformation(viewer.getControl().getShell(), "Info", "Can not apply any stereotype to EObject: " + eObject.toString() );
@@ -330,7 +335,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 		}
 		final List<Image> images = new ArrayList<>();
 		final List<String> toolTipTexts = new ArrayList<>();
-		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(null)) {
+		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToResourceSetMap.get(getLastActiveEditorPart()))) {
 			Collection<StereotypeApplication> stereotypeApplications = profileApplication.getStereotypeApplications(eObject);
 			for (StereotypeApplication stereotypeApplication : stereotypeApplications) {
 				images.add(((ILabelProvider)viewer.getLabelProvider()).getImage(stereotypeApplication));
@@ -389,7 +394,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	}
 
 	/**
-	 * This method will be called from {@link ProfileApplicationDecoratorReflectiveItemProviderAdapterFactory}
+	 * This method will be called from {@link ProfileApplicationWrapperReflectiveItemProviderAdapterFactory}
 	 * when notification is fired that an attribute is changed in properties view.
 	 * Notifications will be fired for every change, but we are here only interested in scenario
 	 * when only one tree element is selected and we can find profile application decorator from it,
@@ -404,19 +409,23 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 				// and set it to dirty and update the view tree
 				ISelection selection = viewer.getSelection();
 				if(selection != null && selection instanceof IStructuredSelection){
-					EObject eObject = (EObject) ((IStructuredSelection)selection).getFirstElement();
-					if(eObject == null) // probably was deleted, so nothing to do
-						return;
-					ProfileApplicationWrapper profileApplication;
-					try {
-						profileApplication = findProfileApplicationWrapper(eObject);
-						if(profileApplication == null) // could not find it, do nothing
-							return;
+					if(((IStructuredSelection)selection).getFirstElement() instanceof ProfileApplicationWrapper){
+						ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) ((IStructuredSelection)selection).getFirstElement();
 						updateViewer(profileApplication);
-					} catch (TraversingEObjectContainerChainException e) {
-//						e.getLastParentFound();
+					} else {
+						EObject eObject = (EObject) ((IStructuredSelection)selection).getFirstElement();
+						if(eObject == null) // probably was deleted, so nothing to do
+							return;
+						ProfileApplicationWrapper profileApplication;
+						try {
+							profileApplication = findProfileApplicationWrapper(eObject);
+							if(profileApplication == null) // could not find it, do nothing
+								return;
+							updateViewer(profileApplication);
+						} catch (TraversingEObjectContainerChainException e) {
+//							e.getLastParentFound();
+						}
 					}
-					
 				}
 			}
 		});
@@ -433,7 +442,6 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	 * @throws TraversingEObjectContainerChainException 
 	 */
 	public ProfileApplicationWrapper findProfileApplicationWrapper(EObject eObject) throws TraversingEObjectContainerChainException{
-//		TODO must provide an instance of resource set for active editor
-		return ProfileApplicationRegistry.INSTANCE.getProfileApplicationWrapperOfContainedEObject(null, eObject);
+		return ProfileApplicationRegistry.INSTANCE.getProfileApplicationWrapperOfContainedEObject(editorPartToResourceSetMap.get(getLastActiveEditorPart()), eObject);
 	}
 }

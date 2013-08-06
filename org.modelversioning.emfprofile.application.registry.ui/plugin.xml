@@ -216,7 +216,7 @@
                      ifEmpty="false"
                      operator="or">
                   <instanceof
-                        value="org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator">
+                        value="org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper">
                   </instanceof>
                </iterate>
                <count
@@ -247,7 +247,7 @@
                      operator="or">
                   <and>
                      <instanceof
-                           value="org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator">
+                           value="org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper">
                      </instanceof>
                      <test
                            forcePluginActivation="true"
@@ -329,7 +329,7 @@
             id="org.modelversioning.emfprofile.application.registry.ui.propertytester.profileapplicationisdirty"
             namespace="org.modelversioning.emfprofile.application.registry.ui.propertytester"
             properties="profileapplicationisdirty"
-            type="org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator">
+            type="org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper">
       </propertyTester>
    </extension>
    <extension

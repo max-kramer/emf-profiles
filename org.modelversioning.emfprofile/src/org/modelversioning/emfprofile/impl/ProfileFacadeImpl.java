@@ -114,6 +114,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 	 */
 	@Override
 	public void save() throws IOException {
+		refreshProfileApplicationFileInWorkspace(IFile.DEPTH_ZERO);
 		if (haveProfileApplicationResource()) {
 			if (requireTransaction()) {
 				TransactionalEditingDomain domain = getTransactionalEditingDomain();
@@ -122,7 +123,6 @@ public class ProfileFacadeImpl implements IProfileFacade {
 			} else {
 				doProfileApplicationResourceSave();
 			}
-			refreshProfileApplicationFileInWorkspace();
 		}
 
 	}
@@ -130,20 +130,21 @@ public class ProfileFacadeImpl implements IProfileFacade {
 	private void doProfileApplicationResourceSave() {
 		try {
 			profileApplicationResource.save(null);
-			refreshProfileApplicationFileInWorkspace();
 		} catch (IOException e) {
+			e.printStackTrace();
 			EMFProfilePlugin.getPlugin().log(
 					new Status(IStatus.ERROR, EMFProfilePlugin.ID, e
 							.getMessage(), e));
 		}
 	}
 
-	private void refreshProfileApplicationFileInWorkspace() {
+	public void refreshProfileApplicationFileInWorkspace(int depth) {
 		if (profileApplicationFile != null) {
 			try {
-				profileApplicationFile.refreshLocal(IFile.DEPTH_ONE,
+				profileApplicationFile.refreshLocal(depth,
 						new NullProgressMonitor());
 			} catch (CoreException e) {
+				e.printStackTrace();
 				EMFProfilePlugin.getPlugin().log(e.getStatus());
 			}
 		}
@@ -154,6 +155,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 			try {
 				profileApplicationFile.touch(new NullProgressMonitor());
 			} catch (CoreException e) {
+				e.printStackTrace();
 				EMFProfilePlugin.getPlugin().log(e.getStatus());
 			}
 		}
@@ -276,6 +278,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 			return ResourcesPlugin.getWorkspace().getRoot()
 					.getFile(new Path(uri.toPlatformString(true)));
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -309,8 +312,9 @@ public class ProfileFacadeImpl implements IProfileFacade {
 
 	private void loadProfileApplicationResource() throws IOException {
 		if (!isProfileApplicationResourceExisting()) {
-			touchProfileApplicationFile();
 			profileApplicationResource.save(null);
+			touchProfileApplicationFile();
+			
 		} else {
 			readAndLoadImportedProfiles();
 		}

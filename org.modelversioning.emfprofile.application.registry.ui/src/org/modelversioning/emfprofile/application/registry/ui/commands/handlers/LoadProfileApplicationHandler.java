@@ -37,7 +37,7 @@ public class LoadProfileApplicationHandler extends AbstractHandler implements
 		}else{
 			if(EMFProfileApplicationDecoratorHandler.getInstance().hasDecoratorForEditorPart(activeEditor)){
 				LoadProfileApplicationWizard wizard = new LoadProfileApplicationWizard();
-				wizard.setWorkbenchPart(activeEditor);
+				wizard.setEditorPart(activeEditor);
 				
 //				wizard.setSelection(HandlerUtil.getCurrentSelection(event));
 				

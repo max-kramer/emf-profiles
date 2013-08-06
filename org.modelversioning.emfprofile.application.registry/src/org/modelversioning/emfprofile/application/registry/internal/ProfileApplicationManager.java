@@ -47,9 +47,9 @@ public class ProfileApplicationManager {
 	}
 
 	public ProfileApplicationWrapper loadProfileApplication(
-			URI profileApplicationFile) throws CoreException, IOException {
+			URI profileApplicationURI) throws CoreException, IOException {
 		ProfileApplicationWrapper profileApplication = new ProfileApplicationWrapperImpl(
-				profileApplicationFile, resourceSet);
+				profileApplicationURI, resourceSet);
 		profileApplications.add(profileApplication);
 		return profileApplication;
 	}

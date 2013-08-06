@@ -41,7 +41,7 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofile.application.registry.ui.observer.NestingCommonModelElementsInStereotypeApplications;
-import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationDecoratorReflectiveItemProviderAdapterFactory;
+import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationWrapperReflectiveItemProviderAdapterFactory;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderContentAdapter;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderLabelAdapter;
 import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
@@ -137,7 +137,7 @@ public class EMFProfileApplicationsView extends ViewPart {
 
 		// To enable the key binding we need to activate context
 		// The reason why, is because this context overrides the
-		// default key binding of workbench, e.g. key DEL
+		// default key binding of workbench, e.g. the key DEL
 		IContextService contextService = (IContextService) getSite()
 				.getService(IContextService.class);
 		contextService.activateContext(KEYBINDINGCONTEXT_ID);
@@ -243,7 +243,7 @@ public class EMFProfileApplicationsView extends ViewPart {
 			// only set the reflective adapter factory
 			propertySheetPage
 					.setPropertySourceProvider(new AdapterFactoryContentProvider(
-							new ProfileApplicationDecoratorReflectiveItemProviderAdapterFactory()));
+							new ProfileApplicationWrapperReflectiveItemProviderAdapterFactory()));
 		}
 		return propertySheetPage;
 	}

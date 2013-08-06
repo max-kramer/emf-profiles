@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
-import java.util.UUID;
 
 import org.eclipse.core.commands.Command;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -20,6 +19,7 @@ import org.eclipse.core.commands.NotEnabledException;
 import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.core.commands.common.NotDefinedException;
 import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Event;
@@ -30,8 +30,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
+import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.commands.handlers.UnloadProfileApplicationHandler;
 import org.modelversioning.emfprofile.application.registry.ui.commands.sourceprovider.ToolbarCommandEnabledState;
 import org.modelversioning.emfprofile.application.registry.ui.extensionpoint.decorator.handler.EMFProfileApplicationDecoratorHandler;
@@ -43,8 +44,8 @@ import org.modelversioning.emfprofile.application.registry.ui.extensionpoint.dec
 public final class DecoratableEditorPartListener implements IPartListener {
 	
 	private EMFProfileApplicationDecoratorHandler decoratorHandler;
-	private Map<IWorkbenchPart, String> editorPartToModelIdMap;
-	private IWorkbenchPart lastActiveEditorPart;
+	private Map<IWorkbenchPart, ResourceSet> editorPartToResourceSetMap;
+	private IEditorPart lastActiveEditorPart;
 	private IWorkbenchPart cleaningUpForEditorPart = null;
 	private TreeViewer viewer;
 	private ToolbarCommandEnabledState toolbarCommandEnabeldStateService;
@@ -62,12 +63,12 @@ public final class DecoratableEditorPartListener implements IPartListener {
 	
 	public DecoratableEditorPartListener(
 			EMFProfileApplicationDecoratorHandler decoratorHandler,
-			Map<IWorkbenchPart, String> editorPartToModelIdMap,
-			IWorkbenchPart lastActiveEditorPart, TreeViewer viewer,
+			Map<IWorkbenchPart, ResourceSet> editorPartToResourceSetMap,
+			IEditorPart lastActiveEditorPart, TreeViewer viewer,
 			ToolbarCommandEnabledState toolbarCommandEnabeldStateService, Map<IWorkbenchPart, ViewerState> editorPartToViewerStateMap) {
 		super();
 		this.decoratorHandler = decoratorHandler;
-		this.editorPartToModelIdMap = editorPartToModelIdMap;
+		this.editorPartToResourceSetMap = editorPartToResourceSetMap;
 		this.lastActiveEditorPart = lastActiveEditorPart;
 		this.viewer = viewer;
 		this.toolbarCommandEnabeldStateService = toolbarCommandEnabeldStateService;
@@ -88,7 +89,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 	public void partClosed(IWorkbenchPart part) {
 		if(decoratorHandler.hasDecoratorForEditorPart(part)){
 			// check if this part was registered in the map
-			if(editorPartToModelIdMap.containsKey(part)){
+			if(editorPartToResourceSetMap.containsKey(part)){
 				if(part.equals(lastActiveEditorPart)){
 					setLastActiveEditorPart(null);
 					try {
@@ -101,7 +102,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 				cleanUp(part);
 				cleaningUpForClosedEditor = false;
 				editorPartToViewerStateMap.remove(part);
-				editorPartToModelIdMap.remove(part);
+				editorPartToResourceSetMap.remove(part);
 			}
 		}
 	}
@@ -114,7 +115,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 	@Override
 	public void partActivated(IWorkbenchPart part) {
 		if(decoratorHandler.hasDecoratorForEditorPart(part)){
-			if(editorPartToModelIdMap.containsKey(part)){
+			if(editorPartToResourceSetMap.containsKey(part)){
 				// editor part is already known.
 				// it is possible that the user was clicking around at view parts
 				// so, check if last active editor part was this one.
@@ -132,8 +133,8 @@ public final class DecoratableEditorPartListener implements IPartListener {
 				}
 			}else{
 				// editor part first time accessed or editor opened with double click on resource file,
-				// Now, create an id for workbench part and put it into map
-				editorPartToModelIdMap.put(part, UUID.randomUUID().toString());
+				// Now, get the resource set of the editor and put it into the map
+				editorPartToResourceSetMap.put(part, ProfileApplicationConstantsAndUtil.getResourceSet((IEditorPart)part));
 				// Here we need to save last active editor part viewer state if it was not null and clear the view
 				if(lastActiveEditorPart != null){
 					// save last active editor part viewer state
@@ -165,7 +166,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			toolbarCommandEnabeldStateService.setEnabled(true);
 	}
 
-	public IWorkbenchPart getLastActiveEditPart() {
+	public IEditorPart getLastActiveEditPart() {
 		return this.lastActiveEditorPart;
 	}
 	/**
@@ -179,18 +180,18 @@ public final class DecoratableEditorPartListener implements IPartListener {
 	}
 	
 	public void cleanUpForAllEditorParts(){
-		for (IWorkbenchPart editorPart : editorPartToModelIdMap.keySet()) {
+		for (IWorkbenchPart editorPart : editorPartToResourceSetMap.keySet()) {
 			cleanUp(editorPart);
 		}
-		editorPartToModelIdMap.clear();
+		editorPartToResourceSetMap.clear();
 		editorPartToViewerStateMap.clear();			
 	}
 	
 	private void cleanUp(IWorkbenchPart editorPart){
 		cleaningUpForEditorPart = editorPart;
 		ExecutionEvent executionEvent;
-		String modelId = editorPartToModelIdMap.get(editorPart);
-		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(null));
+		ResourceSet resourceSet = editorPartToResourceSetMap.get((IEditorPart)editorPart);
+		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet));
 		for (ProfileApplicationWrapper profileApplication : profileApplications) {
 			// Create an ExecutionEvent and specify the profile application associated
 			executionEvent = handlerService.createExecutionEvent(unloadCmd, new Event());
@@ -201,11 +202,11 @@ public final class DecoratableEditorPartListener implements IPartListener {
 				unloadCmd.executeWithChecks(executionEvent);
 			} catch (ExecutionException | NotDefinedException
 					| NotEnabledException | NotHandledException e) {
-				System.err.println("Calling unload command");
-				e.printStackTrace();
+				System.err.println("Calling unload command throwed following exception: " + e.getMessage());
+//				e.printStackTrace();
 			}
 		}
-		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(null);
+		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
 		cleaningUpForEditorPart = null;
 	}
 

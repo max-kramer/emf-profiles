@@ -41,12 +41,12 @@ import org.modelversioning.emfprofileapplication.StereotypeApplicability;
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  *
  */
-public class ApplyStereotypeOnEObjectDialog {
+public class ApplyStereotypeToEObjectDialog {
 
 	private ProfileProviderLabelAdapter labelAdapter = new ProfileProviderLabelAdapter(EMFProfileApplicationsView.getAdapterFactory());
 	
 	private final Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap;
-	public ApplyStereotypeOnEObjectDialog(Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap) {
+	public ApplyStereotypeToEObjectDialog(Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap) {
 		this.profileToStereotypeApplicabilityForEObjectMap = profileToStereotypeApplicabilityForEObjectMap;
 	}
 	

@@ -107,6 +107,8 @@ public class ProfileApplicationWrapperImpl implements
 			throws CoreException, IOException {
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		facade.loadProfiles(profiles);
+		// TODO refresh profile application file. Depth zero
+		// now I have added it to the #save() at the beginning of method execution
 		facade.save();	
 		return facade;
 	}

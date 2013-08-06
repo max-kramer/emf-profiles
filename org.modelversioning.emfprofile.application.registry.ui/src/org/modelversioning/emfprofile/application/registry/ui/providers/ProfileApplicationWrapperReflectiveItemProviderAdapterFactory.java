@@ -15,13 +15,13 @@ import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEdi
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  *
  */
-public class ProfileApplicationDecoratorReflectiveItemProviderAdapterFactory
+public class ProfileApplicationWrapperReflectiveItemProviderAdapterFactory
 		extends ReflectiveItemProviderAdapterFactory {
 
 	/**
 	 * 
 	 */
-	public ProfileApplicationDecoratorReflectiveItemProviderAdapterFactory() {
+	public ProfileApplicationWrapperReflectiveItemProviderAdapterFactory() {
 		super();
 	}
 

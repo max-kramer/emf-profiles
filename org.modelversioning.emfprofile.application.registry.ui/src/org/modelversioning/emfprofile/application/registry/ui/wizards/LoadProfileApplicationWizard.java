@@ -17,15 +17,15 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.ui.IWorkbenchPart;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
+import org.eclipse.ui.IEditorPart;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
-import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -42,7 +42,7 @@ public class LoadProfileApplicationWizard extends Wizard {
 	private static final String PROFILE_APPLICATION_PAGE_NAME = "newFilePage1"; //$NON-NLS-1$
 	private static final String WINDOW_TITLE = "Select Profile Application File";
 
-	private IWorkbenchPart targetPart = null;
+	private IEditorPart targetEditorPart = null;
 	private SelectProfileApplicationFilePage profileAppFilePage = null;
 //	private ISelection selection;
 
@@ -62,24 +62,14 @@ public class LoadProfileApplicationWizard extends Wizard {
 	public boolean performFinish() {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
 		try {
-			String modelId = ActiveEditorObserver.INSTANCE
-					.getModelIdForWorkbenchPart(targetPart);
-			if (modelId == null)
+			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(targetEditorPart);
+			if (resourceSet == null)
 				throw new RuntimeException(
-						"Could not find modelId for a part: " + targetPart);
+						"Could not find the ResourceSet of this editor part: " + targetEditorPart);
 			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
-					.loadProfileApplication(ProfileApplicationConstantsAndUtil
-							.getResourceSet(targetPart),
-							profileApplicationFile);
-			if (profileApplication == null) {
-				MessageDialog.openInformation(
-						targetPart.getSite().getShell(),
-						"Profile Application already loaded",
-						"Profile Application already loaded from file: "
-								+ profileApplicationFile.getLocation()
-										.toString());
-				return false;
-			}
+					.loadProfileApplication(resourceSet,
+							URI.createPlatformResourceURI(profileApplicationFile.getFullPath().toString(), true));
+			
 			ActiveEditorObserver.INSTANCE.refreshViewer();
 			EList<EObject> eObjects = new BasicEList<>();
 			for (StereotypeApplication stereotypeApplication : profileApplication.getStereotypeApplications()) {
@@ -87,11 +77,12 @@ public class LoadProfileApplicationWizard extends Wizard {
 			}
 			ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
 		} catch (Exception e) {
+			e.printStackTrace();
 			IStatus status = new Status(IStatus.ERROR,
 					EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
 					e.getMessage(), e);
 			ErrorDialog
-					.openError(targetPart.getSite().getShell(),
+					.openError(targetEditorPart.getSite().getShell(),
 							"Error Loading Profile Application",
 							e.getMessage(), status);
 //			EMFProfileApplicationRegistryUIPlugin.getDefault().getLog()
@@ -118,10 +109,10 @@ public class LoadProfileApplicationWizard extends Wizard {
 	/**
 	 * Sets the workbench part to use for profile application creation.
 	 * 
-	 * @param targetPart
+	 * @param editorPart
 	 *            to set.
 	 */
-	public void setWorkbenchPart(IWorkbenchPart targetPart) {
-		this.targetPart = targetPart;
+	public void setEditorPart(IEditorPart editorPart) {
+		this.targetEditorPart = editorPart;
 	}
 }

@@ -29,7 +29,7 @@ public class CheckIfProfileApplicationIsDirty extends PropertyTester {
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 		// this property tester is called from command framework only if receiver object is
-		// instance of ProfileApplicationDecorator
+		// instance of ProfileApplicationWrapper
 		return ((ProfileApplicationWrapper)receiver).isDirty();
 	}
 
