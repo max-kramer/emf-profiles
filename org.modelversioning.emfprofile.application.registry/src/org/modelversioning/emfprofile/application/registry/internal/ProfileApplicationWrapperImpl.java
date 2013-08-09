@@ -116,11 +116,11 @@ public class ProfileApplicationWrapperImpl implements
 		facade.loadProfiles(profiles);
 		profileApplicationFile.refreshLocal(IFile.DEPTH_ZERO,
 				new NullProgressMonitor());
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-		}
-		facade.save();
+//		try {
+//			Thread.sleep(100);
+//		} catch (InterruptedException e) {
+//		}
+//		facade.save();
 		return facade;
 	}
 
@@ -143,6 +143,7 @@ public class ProfileApplicationWrapperImpl implements
 	 */
 	private IProfileFacade loadProfileApplication(IFile profileApplicationFile)
 			throws CoreException, IOException {
+		profileApplicationFile.refreshLocal(IFile.DEPTH_ONE, new NullProgressMonitor());
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		return facade;
 	}

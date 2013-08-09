@@ -7,16 +7,13 @@
  */
 package org.modelversioning.emfprofile.application.registry.internal;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -149,7 +146,7 @@ public class ProfileApplicationRegistryImpl implements
 			profileApplicationManagers.remove(resourceSet);
 		} catch (NullPointerException e) {
 			throw new IllegalArgumentException(
-					"The provided argumnet is unknown to the registry.");
+					"The registry has no profile applications for the argument: " + resourceSet);
 		}
 
 	}

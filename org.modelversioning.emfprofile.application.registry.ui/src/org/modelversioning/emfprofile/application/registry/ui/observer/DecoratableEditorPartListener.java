@@ -19,6 +19,8 @@ import org.eclipse.core.commands.NotEnabledException;
 import org.eclipse.core.commands.NotHandledException;
 import org.eclipse.core.commands.common.NotDefinedException;
 import org.eclipse.core.expressions.IEvaluationContext;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -32,6 +34,7 @@ import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
+import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.commands.handlers.UnloadProfileApplicationHandler;
 import org.modelversioning.emfprofile.application.registry.ui.commands.sourceprovider.ToolbarCommandEnabledState;
@@ -206,8 +209,11 @@ public final class DecoratableEditorPartListener implements IPartListener {
 //				e.printStackTrace();
 			}
 		}
-		if(resourceSet != null)
+		try {
 			ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
+		} catch (IllegalArgumentException e) {
+			EMFProfileApplicationRegistryUIPlugin.getPlugin().log(new Status(IStatus.WARNING, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID, e.getMessage()));
+		}
 		cleaningUpForEditorPart = null;
 	}
 
