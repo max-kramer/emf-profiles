@@ -312,8 +312,8 @@ public class ProfileFacadeImpl implements IProfileFacade {
 
 	private void loadProfileApplicationResource() throws IOException {
 		if (!isProfileApplicationResourceExisting()) {
-			touchProfileApplicationFile();
 			profileApplicationResource.save(null);
+			touchProfileApplicationFile();
 		} else {
 			readAndLoadImportedProfiles();
 		}
