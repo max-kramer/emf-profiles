@@ -13,18 +13,13 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.URIUtil;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.junit.After;
 import org.junit.Before;
@@ -42,9 +37,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  */
 public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRegistryTest {
 	
-	static ResourceSet rs1, rs2;
-	static String pathToTestProfileApplicationFile = "/model/justTestingFile.pa.xmi";
-	static String pathToNonExistentResource = "model/NonExistingFile.pa.xmi";
+	
 	static Collection<Profile> profiles;
 	private IFile testProfileApplicationFile;
 
@@ -53,19 +46,17 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	 */
 	@Before
 	public void setUp() throws Exception {
-		testProfileApplicationFile = getFileToResource(getAbsolutePath(pathToTestProfileApplicationFile));
+		testProfileApplicationFile = getTestProfileApplicationFile();
 		profiles = new ArrayList<>();
 		profiles.add(profile);
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+		
 	@After
-	public void tearDown() throws Exception {
-		deleteIfFileExists(getAbsolutePath(pathToTestProfileApplicationFile));
-		deleteIfFileExists(getAbsolutePath(pathToNonExistentResource));
+	public void deleteTestProfileApplicationResource() {
+		deleteResource(TEST_PROFILE_APPLICATION);
 	}
+	
 
 	/**
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationRegistryImpl#createNewProfileApplication(org.eclipse.emf.ecore.resource.ResourceSet, IFile, java.util.Collection)}.
@@ -76,10 +67,9 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	@Test
 	public final void testCreateNewProfileApplication_shouldCreateNewResourceInLocalFileSystem() throws IllegalArgumentException, CoreException, IOException {
 		
+		assertFalse(getTestProfileApplicationFile().exists());
 		ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, testProfileApplicationFile, profiles);
-		
-		File file = new File(getAbsolutePath(pathToTestProfileApplicationFile));
-		assertTrue(file.exists());
+		assertTrue(getTestProfileApplicationFile().exists());
 	}
 
 	/**
@@ -95,8 +85,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 			ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, testProfileApplicationFile, profiles);
 			fail("Did not throw IllegalArgunmentException as expected!");
 		} catch (IllegalArgumentException e) {
-			File file = new File(getAbsolutePath(pathToTestProfileApplicationFile));
-			assertFalse("The file should not exist!", file.exists());
+			assertFalse("The file should not exist!", getTestProfileApplicationFile().exists());
 		} 
 		
 	}
@@ -110,7 +99,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	 */
 	@Test
 	public final void testLoadProfileApplication_shouldLoadExistingProfileApplicationResource() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException {
-		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile());
+		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication());
 		assertNotNull(testPA);
 		assertEquals(4,testPA.getStereotypeApplications().size());
 	}
@@ -124,10 +113,10 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	@Test()
 	public final void testLoadProfileApplicationWithURIPointingToNonExistingResource_shouldThrowIOExceptionAndNotCreateFile() throws CoreException, ProfileApplicationAlreadyLoadedException {
 		try {
-			ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getFileToResource(getAbsolutePath(pathToNonExistentResource)));
+			ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getFileToResource(NON_EXISTING_RESOURCE));
 			fail("Did not throw IOException as expected!");
 		} catch (IOException e) {
-			assertFalse(new File(getAbsolutePath(pathToNonExistentResource)).exists());
+			assertFalse(getFileToResource(NON_EXISTING_RESOURCE).exists());
 		}
 	}
 
@@ -140,7 +129,8 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	 */
 	@Test(expected=IOException.class)
 	public final void testLoadProfileApplicationWithUnreachableReferences_shouldThrowIOException() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException {
-		ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getFileToResource(getAbsolutePath("model/application-that-has-unreachable-references.pa.xmi")));
+		
+		ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getFileToResource(TEST_PROFILE_APPLICATION_WITH_UNREACHABLE_REFERENCES));
 	}
 
 	/**
@@ -152,8 +142,8 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	@Test
 	public final void testLoadSameProfileApplicationResourceTwoTimes_shouldThrowProfileApplicationAlreadyLoadedException() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException {
 		try {
-			assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile()));
-			assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile()));
+			assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication()));
+			assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication()));
 			fail("Did not throw ProfileApplicationAlreadyLoadedException as expected");
 		} catch (ProfileApplicationAlreadyLoadedException e) {
 			assertEquals(1, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
@@ -168,14 +158,14 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	@Test
 	public final void testUnloadProfileApplication() throws CoreException, IOException {
 		try {
-			ProfileApplicationWrapper testProfileApplication = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile());
+			ProfileApplicationWrapper testProfileApplication = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication());
 			assertNotNull(testProfileApplication);
 			assertEquals(1, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
 			ProfileApplicationRegistry.INSTANCE.unloadProfileApplication(testProfileApplication);
 			assertEquals(0, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
-			ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile());
+			ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication());
 		} catch (ProfileApplicationAlreadyLoadedException e) {
-			fail("The resource was not unloaded from registry: " + getPrepearedProfileApplicationResourceFile().toString());
+			fail("The resource was not unloaded from registry: " + getPrepearedProfileApplication().toString());
 		}
 	}
 
@@ -191,7 +181,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 		assertEquals(0, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
 		assertNotNull(ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, getTestProfileApplicationFile(), profiles));
 		assertEquals(1, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
-		assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile()));
+		assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication()));
 		assertEquals(2, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
 		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
 		assertEquals(0, ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).size());
@@ -206,7 +196,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	@Test
 	public final void testHasProfileApplications() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException {
 		assertFalse(ProfileApplicationRegistry.INSTANCE.hasProfileApplications(resourceSet));
-		assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile()));
+		assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication()));
 		assertTrue(ProfileApplicationRegistry.INSTANCE.hasProfileApplications(resourceSet));
 		ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
 		assertFalse(ProfileApplicationRegistry.INSTANCE.hasProfileApplications(resourceSet));
@@ -221,7 +211,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	@Test
 	public final void testGetProfileApplications_shouldWork() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException {
 		assertTrue(ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).isEmpty());
-		assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile()));
+		assertNotNull(ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication()));
 		assertFalse(ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet).isEmpty());
 	}
 
@@ -235,7 +225,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	 */
 	@Test
 	public final void testGetProfileApplicationWrapperOfContainedEObject_shouldWork() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException, IllegalArgumentException, TraversingEObjectContainerChainException {
-		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile());
+		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication());
 		assertNotNull(testPA);
 		EObject testEObject = getSomeChildOfStereotype(testPA);
 		assertNotNull(testEObject);
@@ -252,7 +242,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public final void testGetProfileApplicationWrapperOfContainedEObject_shouldThrownIllegalArgumentExceptionForUnknownResourceSet() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException, IllegalArgumentException, TraversingEObjectContainerChainException {
-		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile());
+		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication());
 		assertNotNull(testPA);
 		EObject testEObject = getSomeChildOfStereotype(testPA);
 		assertNotNull(testEObject);
@@ -270,7 +260,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	 */
 	@Test(expected=TraversingEObjectContainerChainException.class)
 	public final void testGetProfileApplicationWrapperOfContainedEObject_shouldThrownTraversingEObjectContainerChainException() throws CoreException, IOException, ProfileApplicationAlreadyLoadedException, IllegalArgumentException, TraversingEObjectContainerChainException {
-		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplicationResourceFile());
+		ProfileApplicationWrapper testPA = ProfileApplicationRegistry.INSTANCE.loadProfileApplication(resourceSet, getPrepearedProfileApplication());
 		assertNotNull(testPA);
 		EObject testEObject = getSomeChildOfStereotype(testPA); // it is an object of EClass type named 'Comment'
 		assertNotNull(testEObject);
