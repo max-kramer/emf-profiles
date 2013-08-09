@@ -65,7 +65,6 @@ public class ProfileApplicationRegistryImpl implements
 		assert resourceSet != null;
 		assert profileApplicationFile != null;
 		if(profileApplicationFile.exists() == false){
-			System.out.println(profileApplicationFile.toString());
 			throw new IOException("The resource does not exist!\n" + profileApplicationFile.toString());
 		} 
 		
