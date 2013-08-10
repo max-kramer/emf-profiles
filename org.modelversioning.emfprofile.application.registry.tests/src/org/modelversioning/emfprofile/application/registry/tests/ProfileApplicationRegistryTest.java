@@ -26,8 +26,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry.ProfileApplicationAlreadyLoadedException;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry.TraversingEObjectContainerChainException;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
