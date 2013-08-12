@@ -7,8 +7,12 @@
  */
 package org.modelversioning.emfprofile.application.registry.metadata;
 
-import org.eclipse.emf.ecore.EFactory;
+import java.util.Collection;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
@@ -58,6 +62,16 @@ public interface EMFProfileApplicationRegistryFactory extends EFactory {
 	ProfileApplicationManager createProfileApplicationManager();
 
 	/**
+	 * Returns a new object of class '<em>Profile Application Manager</em>'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return a new object of class '<em>Profile Application Manager</em>'.
+	 * @generated NOT
+	 */
+	ProfileApplicationManager createProfileApplicationManager(
+			ResourceSet resourceSet);
+
+	/**
 	 * Returns the package supported by this factory. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
@@ -65,5 +79,12 @@ public interface EMFProfileApplicationRegistryFactory extends EFactory {
 	 * @generated
 	 */
 	EMFProfileApplicationRegistryPackage getEMFProfileApplicationRegistryPackage();
+
+	ProfileApplicationWrapper createProfileApplicationWrapper(
+			ResourceSet resourceSet, IFile profileApplicationFile,
+			Collection<Profile> profiles);
+
+	ProfileApplicationWrapper createProfileApplicationWrapper(
+			ResourceSet resourceSet, IFile profileApplicationFile);
 
 } // EMFProfileApplicationRegistryFactory

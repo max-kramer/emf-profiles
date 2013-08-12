@@ -7,19 +7,29 @@
  */
 package org.modelversioning.emfprofile.application.registry.impl;
 
+import java.io.IOException;
+import java.util.Collection;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
-
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
-
 import org.modelversioning.emfprofileapplication.ProfileApplication;
+import org.modelversioning.emfprofileapplication.StereotypeApplicability;
+import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -47,6 +57,10 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected ProfileApplication profileApplication;
+	private ResourceSet resourceSet;
+	private IFile profileApplicationFile;
+	private Collection<Profile> profiles;
+	private boolean unloaded;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -55,6 +69,32 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	protected ProfileApplicationWrapperImpl() {
 		super();
+	}
+
+	/**
+	 * constructor which creates new profile application
+	 * 
+	 * @param resourceSet
+	 * @param profileApplicationFile
+	 * @param profiles
+	 */
+	protected ProfileApplicationWrapperImpl(ResourceSet resourceSet,
+			IFile profileApplicationFile, Collection<Profile> profiles) {
+		this.resourceSet = resourceSet;
+		this.profileApplicationFile = profileApplicationFile;
+		this.profiles = profiles;
+	}
+
+	/**
+	 * constructor which loads existing profile application
+	 * 
+	 * @param resourceSet
+	 * @param profileApplicationFile
+	 */
+	protected ProfileApplicationWrapperImpl(ResourceSet resourceSet,
+			IFile profileApplicationFile) {
+		this.resourceSet = resourceSet;
+		this.profileApplicationFile = profileApplicationFile;
 	}
 
 	/**
@@ -100,9 +140,19 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setProfileApplication(ProfileApplication newProfileApplication) {
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Called by the construction of the wrapper.
+	 * 
+	 */
+	private void setProfileApplicationInternal(
+			ProfileApplication newProfileApplication) {
 		ProfileApplication oldProfileApplication = profileApplication;
 		profileApplication = newProfileApplication;
 		if (eNotificationRequired())
@@ -111,6 +161,180 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 					Notification.SET,
 					EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_WRAPPER__PROFILE_APPLICATION,
 					oldProfileApplication, profileApplication));
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<StereotypeApplication> getStereotypeApplications() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<StereotypeApplication> getStereotypeApplications(
+			EObject eObject) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<StereotypeApplication> getStereotypeApplications(
+			EObject eObject, Stereotype stereotype) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<EObject> getAnnotatedObjects() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EObject addNestedEObject(EObject container, EReference reference,
+			EObject eObject) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public StereotypeApplication applyStereotype(
+			StereotypeApplicability stereotypeApplicability, EObject eObject) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EList<StereotypeApplicability> getApplicableStereotypes(
+			EObject eObject) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getName() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String getProfileName() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public boolean isDirty() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EObject removeEObject(EObject eObject) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void save() throws IOException, CoreException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IFile getProfileApplicationIFile() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Resource getProfileApplicationResource() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public void unload() {
+		if (unloaded)
+			return;
+		unloaded = true;
+		// first remove the reference from profile application manager
+		ProfileApplicationManager pam = (ProfileApplicationManager) this.eContainer;
+		pam.unloadProfileApplication(this);
+
 	}
 
 	/**

@@ -14,8 +14,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: org.modelversioning.emfprofile.application.registry,
- org.modelversioning.emfprofile.application.registry.impl,
- org.modelversioning.emfprofile.application.registry.metadata,
- org.modelversioning.emfprofile.application.registry.util,
  org.modelversioning.emfprofile.application.registry.exception
 

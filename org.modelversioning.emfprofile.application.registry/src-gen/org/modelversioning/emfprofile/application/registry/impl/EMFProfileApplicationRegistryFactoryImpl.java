@@ -8,26 +8,19 @@
 package org.modelversioning.emfprofile.application.registry.impl;
 
 import java.io.IOException;
-
 import java.util.Collection;
-
 import org.eclipse.core.resources.IFile;
-
 import org.eclipse.core.runtime.CoreException;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
+import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.*;
-
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
@@ -108,6 +101,8 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return createCollectionFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.RESOURCE_SET:
 			return createResourceSetFromString(eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.RESOURCE:
+			return createResourceFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.IFILE:
 			return createIFileFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
@@ -143,6 +138,8 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return convertCollectionToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.RESOURCE_SET:
 			return convertResourceSetToString(eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.RESOURCE:
+			return convertResourceToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.IFILE:
 			return convertIFileToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
@@ -178,6 +175,30 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 * 
 	 * @generated NOT
 	 */
+	public ProfileApplicationWrapper createProfileApplicationWrapper(
+			ResourceSet resourceSet, IFile file, Collection<Profile> profiles) {
+		ProfileApplicationWrapperImpl profileApplicationWrapper = new ProfileApplicationWrapperImpl(
+				resourceSet, file, profiles);
+		return profileApplicationWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public ProfileApplicationWrapper createProfileApplicationWrapper(
+			ResourceSet resourceSet, IFile file) {
+		ProfileApplicationWrapperImpl profileApplicationWrapper = new ProfileApplicationWrapperImpl(
+				resourceSet, file);
+		return profileApplicationWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public ProfileApplicationRegistry createProfileApplicationRegistry() {
 
 		return profileApplicationRegistry;
@@ -190,6 +211,18 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 */
 	public ProfileApplicationManager createProfileApplicationManager() {
 		ProfileApplicationManagerImpl profileApplicationManager = new ProfileApplicationManagerImpl();
+		return profileApplicationManager;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public ProfileApplicationManager createProfileApplicationManager(
+			ResourceSet resourceSet) {
+		ProfileApplicationManagerImpl profileApplicationManager = new ProfileApplicationManagerImpl(
+				resourceSet);
 		return profileApplicationManager;
 	}
 
@@ -250,6 +283,26 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 * @generated
 	 */
 	public String convertResourceSetToString(EDataType eDataType,
+			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Resource createResourceFromString(EDataType eDataType,
+			String initialValue) {
+		return (Resource) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertResourceToString(EDataType eDataType,
 			Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}

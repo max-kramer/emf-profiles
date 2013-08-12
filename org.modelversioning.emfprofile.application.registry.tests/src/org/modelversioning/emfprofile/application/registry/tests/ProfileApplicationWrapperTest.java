@@ -24,7 +24,6 @@ import org.junit.Test;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
-import org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
@@ -52,7 +51,7 @@ public class ProfileApplicationWrapperTest extends
 	@Before
 	public void initializeProfileApplicationWrapper() throws Exception {
 		profiles.add(profile);
-		paw = ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, getFileToResource(TEST_PROFILE_APPLICATION), profiles);
+		paw = ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet).createNewProfileApplication(getFileToResource(TEST_PROFILE_APPLICATION), profiles);
 		assertThat(paw, notNullValue());
 	}
 
@@ -77,7 +76,7 @@ public class ProfileApplicationWrapperTest extends
 	 */
 	@Test
 	public final void testGetProfileApplicationFile() {
-		IFile pawFile = ((ProfileApplicationWrapperImpl)paw).getProfileApplicationFile();
+		IFile pawFile = paw.getProfileApplicationIFile();
 		assertThat(pawFile.exists(), is(true));
 	}
 

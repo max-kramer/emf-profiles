@@ -67,7 +67,7 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(targetEditorPart);
 			if(resourceSet == null)
 				throw new RuntimeException("Could not find the ResourceSet of this editor part: " + targetEditorPart);
-			ProfileApplicationRegistry.INSTANCE.createNewProfileApplication(resourceSet, profileApplicationFile, profileFilePage.getSelectedProfiles());
+			ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet).createNewProfileApplication(profileApplicationFile, profileFilePage.getSelectedProfiles());
 			ActiveEditorObserver.INSTANCE.refreshViewer();
 		} catch (Exception e) {
 			IStatus status = new Status(IStatus.ERROR, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,

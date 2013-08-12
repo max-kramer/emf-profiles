@@ -44,7 +44,7 @@ public class SaveAllProfileApplicationsHandler extends AbstractHandler
 				
 				@Override
 				public void run() {
-					Iterator<ProfileApplicationWrapper> profileApplicationsIterator = ProfileApplicationRegistry.INSTANCE.getProfileApplications(ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart())).iterator();
+					Iterator<ProfileApplicationWrapper> profileApplicationsIterator = ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart())).getProfileApplications().iterator();
 					while(profileApplicationsIterator.hasNext()){
 						final ProfileApplicationWrapper profileApplication = profileApplicationsIterator.next();
 						if(profileApplication.isDirty())

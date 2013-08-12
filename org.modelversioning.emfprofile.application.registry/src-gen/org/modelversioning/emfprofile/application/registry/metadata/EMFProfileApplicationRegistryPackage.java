@@ -182,6 +182,16 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	int RESOURCE_SET = 5;
 
 	/**
+	 * The meta object id for the '<em>Resource</em>' data type. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.eclipse.emf.ecore.resource.Resource
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getResource()
+	 * @generated
+	 */
+	int RESOURCE = 6;
+
+	/**
 	 * The meta object id for the '<em>IFile</em>' data type. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -189,7 +199,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 6;
+	int IFILE = 7;
 
 	/**
 	 * The meta object id for the '<em>IO Exception</em>' data type. <!--
@@ -199,7 +209,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIOException()
 	 * @generated
 	 */
-	int IO_EXCEPTION = 7;
+	int IO_EXCEPTION = 8;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type. <!--
@@ -209,7 +219,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 8;
+	int CORE_EXCEPTION = 9;
 
 	/**
 	 * The meta object id for the '
@@ -220,7 +230,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationAlreadyLoadedException()
 	 * @generated
 	 */
-	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 9;
+	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 10;
 
 	/**
 	 * The meta object id for the '
@@ -231,7 +241,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getTraversingEObjectContainerChainException()
 	 * @generated
 	 */
-	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 10;
+	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 11;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type. <!--
@@ -241,7 +251,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 11;
+	int EXCEPTION = 12;
 
 	/**
 	 * Returns the meta object for class '
@@ -356,6 +366,18 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getResourceSet();
+
+	/**
+	 * Returns the meta object for data type '
+	 * {@link org.eclipse.emf.ecore.resource.Resource <em>Resource</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Resource</em>'.
+	 * @see org.eclipse.emf.ecore.resource.Resource
+	 * @model instanceClass="org.eclipse.emf.ecore.resource.Resource"
+	 * @generated
+	 */
+	EDataType getResource();
 
 	/**
 	 * Returns the meta object for data type '
@@ -554,6 +576,16 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType RESOURCE_SET = eINSTANCE.getResourceSet();
+
+		/**
+		 * The meta object literal for the '<em>Resource</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see org.eclipse.emf.ecore.resource.Resource
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getResource()
+		 * @generated
+		 */
+		EDataType RESOURCE = eINSTANCE.getResource();
 
 		/**
 		 * The meta object literal for the '<em>IFile</em>' data type. <!--

@@ -194,7 +194,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 		cleaningUpForEditorPart = editorPart;
 		ExecutionEvent executionEvent;
 		ResourceSet resourceSet = editorPartToResourceSetMap.get((IEditorPart)editorPart);
-		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplications(resourceSet));
+		Collection<ProfileApplicationWrapper> profileApplications = new ArrayList<>(ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet).getProfileApplications());
 		for (ProfileApplicationWrapper profileApplication : profileApplications) {
 			// Create an ExecutionEvent and specify the profile application associated
 			executionEvent = handlerService.createExecutionEvent(unloadCmd, new Event());
@@ -210,7 +210,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			}
 		}
 		try {
-			ProfileApplicationRegistry.INSTANCE.unloadAllProfileApplications(resourceSet);
+			ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet).dispose();
 		} catch (IllegalArgumentException e) {
 			EMFProfileApplicationRegistryUIPlugin.getPlugin().log(new Status(IStatus.WARNING, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID, e.getMessage()));
 		}

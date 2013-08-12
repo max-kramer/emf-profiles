@@ -66,7 +66,7 @@ public class UnloadProfileApplicationHandler extends AbstractHandler implements	
 					eObjects.add(stereotypeApplication.getAppliedTo());
 				}
 				IEditorPart activeEditor = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getActiveEditor();
-				ProfileApplicationRegistry.INSTANCE.unloadProfileApplication(profileApplication);
+				profileApplication.unload();
 				ActiveEditorObserver.INSTANCE.refreshViewer();
 				ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
 			}else {

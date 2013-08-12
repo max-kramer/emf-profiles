@@ -10,6 +10,7 @@ import org.junit.runners.Suite.SuiteClasses;
  */
 @RunWith(Suite.class)
 @SuiteClasses({ ProfileApplicationRegistryTest.class,
+		ProfileApplicationManagerTest.class,
 		ProfileApplicationWrapperTest.class })
 public class AllTests {
 

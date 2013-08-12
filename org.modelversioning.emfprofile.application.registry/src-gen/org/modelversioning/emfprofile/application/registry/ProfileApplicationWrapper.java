@@ -7,9 +7,18 @@
  */
 package org.modelversioning.emfprofile.application.registry;
 
-import org.eclipse.emf.ecore.EObject;
+import java.io.IOException;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
+import org.modelversioning.emfprofileapplication.StereotypeApplicability;
+import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -49,8 +58,11 @@ public interface ProfileApplicationWrapper extends EObject {
 	/**
 	 * Sets the value of the '
 	 * {@link org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper#getProfileApplication
-	 * <em>Profile Application</em>}' reference. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
+	 * <em>Profile Application</em>}' reference. <!-- begin-user-doc --> This
+	 * method was generated and it is not intended to be used for manually
+	 * setting the {@link ProfileApplication} reference. This is done by the
+	 * construction of the wrapper. Calling this method will always throw
+	 * {@link UnsupportedOperationException}; <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Profile Application</em>' reference.
@@ -58,5 +70,131 @@ public interface ProfileApplicationWrapper extends EObject {
 	 * @generated
 	 */
 	void setProfileApplication(ProfileApplication value);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" many="false"
+	 * @generated
+	 */
+	EList<StereotypeApplication> getStereotypeApplications();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model many="false"
+	 * @generated
+	 */
+	EList<StereotypeApplication> getStereotypeApplications(EObject eObject);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model many="false"
+	 * @generated
+	 */
+	EList<StereotypeApplication> getStereotypeApplications(EObject eObject,
+			Stereotype stereotype);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" many="false"
+	 * @generated
+	 */
+	EList<EObject> getAnnotatedObjects();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EObject addNestedEObject(EObject container, EReference reference,
+			EObject eObject);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	StereotypeApplication applyStereotype(
+			StereotypeApplicability stereotypeApplicability, EObject eObject);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model many="false"
+	 * @generated
+	 */
+	EList<StereotypeApplicability> getApplicableStereotypes(EObject eObject);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	String getProfileName();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isDirty();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EObject removeEObject(EObject eObject);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
+	 * @generated
+	 */
+	void save() throws IOException, CoreException;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 *        dataType="org.modelversioning.emfprofile.application.registry.IFile"
+	 * @generated
+	 */
+	IFile getProfileApplicationIFile();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 *        dataType="org.modelversioning.emfprofile.application.registry.Resource"
+	 * @generated
+	 */
+	Resource getProfileApplicationResource();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	void unload();
 
 } // ProfileApplicationWrapper

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.EMFProfilePackage;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
@@ -79,6 +80,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * @generated
 	 */
 	private EDataType resourceSetEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType resourceEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -284,6 +292,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	public EDataType getResource() {
+		return resourceEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getIFile() {
 		return iFileEDataType;
 	}
@@ -378,6 +395,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		illegalArgumentExceptionEDataType = createEDataType(ILLEGAL_ARGUMENT_EXCEPTION);
 		collectionEDataType = createEDataType(COLLECTION);
 		resourceSetEDataType = createEDataType(RESOURCE_SET);
+		resourceEDataType = createEDataType(RESOURCE);
 		iFileEDataType = createEDataType(IFILE);
 		ioExceptionEDataType = createEDataType(IO_EXCEPTION);
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
@@ -413,10 +431,10 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		// Obtain other dependent packages
 		EMFProfileApplicationPackage theEMFProfileApplicationPackage = (EMFProfileApplicationPackage) EPackage.Registry.INSTANCE
 				.getEPackage(EMFProfileApplicationPackage.eNS_URI);
-		EMFProfilePackage theEMFProfilePackage = (EMFProfilePackage) EPackage.Registry.INSTANCE
-				.getEPackage(EMFProfilePackage.eNS_URI);
 		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
 				.getEPackage(EcorePackage.eNS_URI);
+		EMFProfilePackage theEMFProfilePackage = (EMFProfilePackage) EPackage.Registry.INSTANCE
+				.getEPackage(EMFProfilePackage.eNS_URI);
 
 		// Create type parameters
 		addETypeParameter(collectionEDataType, "E");
@@ -436,6 +454,104 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = addEOperation(profileApplicationWrapperEClass, null,
+				"getStereotypeApplications", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(theEcorePackage.getEEList());
+		EGenericType g2 = createEGenericType(theEMFProfileApplicationPackage
+				.getStereotypeApplication());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(profileApplicationWrapperEClass, null,
+				"getStereotypeApplications", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theEcorePackage.getEEList());
+		g2 = createEGenericType(theEMFProfileApplicationPackage
+				.getStereotypeApplication());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(profileApplicationWrapperEClass, null,
+				"getStereotypeApplications", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEMFProfilePackage.getStereotype(), "stereotype",
+				0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theEcorePackage.getEEList());
+		g2 = createEGenericType(theEMFProfileApplicationPackage
+				.getStereotypeApplication());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(profileApplicationWrapperEClass, null,
+				"getAnnotatedObjects", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theEcorePackage.getEEList());
+		g2 = createEGenericType(ecorePackage.getEObject());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(profileApplicationWrapperEClass,
+				ecorePackage.getEObject(), "addNestedEObject", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "container", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEReference(), "reference", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass,
+				theEMFProfileApplicationPackage.getStereotypeApplication(),
+				"applyStereotype", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op,
+				theEMFProfileApplicationPackage.getStereotypeApplicability(),
+				"stereotypeApplicability", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass, null,
+				"getApplicableStereotypes", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(theEcorePackage.getEEList());
+		g2 = createEGenericType(theEMFProfileApplicationPackage
+				.getStereotypeApplicability());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		addEOperation(profileApplicationWrapperEClass,
+				theEcorePackage.getEString(), "getName", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		addEOperation(profileApplicationWrapperEClass,
+				theEcorePackage.getEString(), "getProfileName", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(profileApplicationWrapperEClass,
+				theEcorePackage.getEBoolean(), "isDirty", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass,
+				ecorePackage.getEObject(), "removeEObject", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, ecorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass, null, "save", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIOException());
+		addEException(op, this.getCoreException());
+
+		addEOperation(profileApplicationWrapperEClass, this.getIFile(),
+				"getProfileApplicationIFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(profileApplicationWrapperEClass, this.getResource(),
+				"getProfileApplicationResource", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(profileApplicationWrapperEClass, null, "unload", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
 		initEClass(profileApplicationRegistryEClass,
 				ProfileApplicationRegistry.class, "ProfileApplicationRegistry",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -445,76 +561,16 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(profileApplicationRegistryEClass,
-				this.getProfileApplicationWrapper(),
-				"createNewProfileApplication", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResourceSet(), "resourceSet", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIFile(), "profileApplicationFile", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		EGenericType g1 = createEGenericType(this.getCollection());
-		EGenericType g2 = createEGenericType(theEMFProfilePackage.getProfile());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "profiles", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIllegalArgumentException());
-		addEException(op, this.getIOException());
-		addEException(op, this.getCoreException());
-
-		op = addEOperation(profileApplicationRegistryEClass,
-				this.getProfileApplicationWrapper(), "loadProfileApplication",
-				0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getIFile(), "profileApplicationFile", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getProfileApplicationAlreadyLoadedException());
-		addEException(op, this.getIOException());
-		addEException(op, this.getCoreException());
-
-		op = addEOperation(profileApplicationRegistryEClass, null,
-				"unloadProfileApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getProfileApplicationWrapper(),
-				"profileApplication", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(profileApplicationRegistryEClass, null,
-				"unloadAllProfileApplications", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIllegalArgumentException());
-
-		op = addEOperation(profileApplicationRegistryEClass,
-				theEcorePackage.getEBoolean(), "hasProfileApplications", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResourceSet(), "resourceSet", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIllegalArgumentException());
-
-		op = addEOperation(profileApplicationRegistryEClass, null,
-				"getProfileApplications", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getIllegalArgumentException());
-		g1 = createEGenericType(this.getCollection());
-		g2 = createEGenericType(this.getProfileApplicationWrapper());
-		g1.getETypeArguments().add(g2);
-		initEOperation(op, g1);
-
-		op = addEOperation(profileApplicationRegistryEClass,
-				this.getProfileApplicationWrapper(),
-				"getProfileApplicationWrapperOfContainedEObject", 0, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcorePackage.getEObject(), "eobject", 1, 1,
-				IS_UNIQUE, IS_ORDERED);
-		addEException(op, this.getTraversingEObjectContainerChainException());
-		addEException(op, this.getIllegalArgumentException());
-
 		op = addEOperation(profileApplicationRegistryEClass,
 				this.getProfileApplicationManager(),
 				"getProfileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationRegistryEClass, null,
+				"disposeProfileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getProfileApplicationManager(),
+				"profileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(profileApplicationManagerEClass,
 				ProfileApplicationManager.class, "ProfileApplicationManager",
@@ -526,6 +582,48 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = addEOperation(profileApplicationManagerEClass,
+				this.getProfileApplicationWrapper(),
+				"createNewProfileApplication", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIFile(), "profileApplicationFile", 1, 1,
+				IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(theEMFProfilePackage.getProfile());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "profiles", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getIllegalArgumentException());
+		addEException(op, this.getIOException());
+		addEException(op, this.getCoreException());
+
+		addEOperation(profileApplicationManagerEClass,
+				theEcorePackage.getEBoolean(), "hasProfileApplications", 1, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationManagerEClass,
+				this.getProfileApplicationWrapper(), "loadProfileApplication",
+				0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getIFile(), "profileApplicationFile", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getProfileApplicationAlreadyLoadedException());
+		addEException(op, this.getIOException());
+		addEException(op, this.getCoreException());
+
+		op = addEOperation(profileApplicationManagerEClass, null,
+				"unloadProfileApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getProfileApplicationWrapper(),
+				"profileApplication", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(profileApplicationManagerEClass, null, "dispose", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationManagerEClass,
+				this.getProfileApplicationWrapper(),
+				"getProfileApplicationWrapperOfContainedEObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEObject(), "eObject", 1, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getTraversingEObjectContainerChainException());
+
 		// Initialize data types
 		initEDataType(illegalArgumentExceptionEDataType,
 				IllegalArgumentException.class, "IllegalArgumentException",
@@ -533,6 +631,8 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		initEDataType(collectionEDataType, Collection.class, "Collection",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(resourceSetEDataType, ResourceSet.class, "ResourceSet",
+				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(resourceEDataType, Resource.class, "Resource",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iFileEDataType, IFile.class, "IFile", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);

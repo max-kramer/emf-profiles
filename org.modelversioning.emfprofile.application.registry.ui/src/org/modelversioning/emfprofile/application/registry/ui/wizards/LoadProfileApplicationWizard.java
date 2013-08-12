@@ -43,7 +43,8 @@ public class LoadProfileApplicationWizard extends Wizard {
 
 	private IEditorPart targetEditorPart = null;
 	private SelectProfileApplicationFilePage profileAppFilePage = null;
-//	private ISelection selection;
+
+	// private ISelection selection;
 
 	/**
 	 * The default constructor
@@ -60,21 +61,24 @@ public class LoadProfileApplicationWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
-//		TODO remove me
+		// TODO remove me
 		System.out.println(profileApplicationFile.toString());
 		System.out.println(profileApplicationFile.getLocation().toString());
 		try {
-			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(targetEditorPart);
+			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE
+					.getResourceSetOfEditorPart(targetEditorPart);
 			if (resourceSet == null)
 				throw new RuntimeException(
-						"Could not find the ResourceSet of this editor part: " + targetEditorPart);
+						"Could not find the ResourceSet of this editor part: "
+								+ targetEditorPart);
 			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
-					.loadProfileApplication(resourceSet,
-							profileApplicationFile);
-			
+					.getProfileApplicationManager(resourceSet)
+					.loadProfileApplication(profileApplicationFile);
+
 			ActiveEditorObserver.INSTANCE.refreshViewer();
 			EList<EObject> eObjects = new BasicEList<>();
-			for (StereotypeApplication stereotypeApplication : profileApplication.getStereotypeApplications()) {
+			for (StereotypeApplication stereotypeApplication : profileApplication
+					.getStereotypeApplications()) {
 				eObjects.add(stereotypeApplication.getAppliedTo());
 			}
 			ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
@@ -87,8 +91,8 @@ public class LoadProfileApplicationWizard extends Wizard {
 					.openError(targetEditorPart.getSite().getShell(),
 							"Error Loading Profile Application",
 							e.getMessage(), status);
-//			EMFProfileApplicationRegistryUIPlugin.getDefault().getLog()
-//					.log(status);
+			// EMFProfileApplicationRegistryUIPlugin.getDefault().getLog()
+			// .log(status);
 			return false;
 		}
 		return true;

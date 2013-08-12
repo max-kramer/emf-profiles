@@ -3,13 +3,70 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="registry" nsURI="http://org.modelversioning/emfprofile/application/registry"
     nsPrefix="par">
   <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationWrapper">
+    <eOperations name="getStereotypeApplications">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="getStereotypeApplications">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
+      </eGenericType>
+      <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="getStereotypeApplications">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
+      </eGenericType>
+      <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="stereotype" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
+    </eOperations>
+    <eOperations name="getAnnotatedObjects">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="addNestedEObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="container" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      <eParameters name="reference" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EReference"/>
+      <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="applyStereotype" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication">
+      <eParameters name="stereotypeApplicability" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplicability"/>
+      <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="getApplicableStereotypes">
+      <eGenericType eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplicability"/>
+      </eGenericType>
+      <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="getName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eOperations name="getProfileName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eOperations name="isDirty" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eOperations name="removeEObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject">
+      <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="save" eExceptions="#//IOException #//CoreException"/>
+    <eOperations name="getProfileApplicationIFile" eType="#//IFile"/>
+    <eOperations name="getProfileApplicationResource" eType="#//Resource"/>
+    <eOperations name="unload"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileApplication" lowerBound="1"
         eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//ProfileApplication"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationRegistry">
+    <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager">
+      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
+    </eOperations>
+    <eOperations name="disposeProfileApplicationManager">
+      <eParameters name="profileApplicationManager" eType="#//ProfileApplicationManager"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="managers" ordered="false"
+        upperBound="-1" eType="#//ProfileApplicationManager" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationManager">
     <eOperations name="createNewProfileApplication" lowerBound="1" eType="#//ProfileApplicationWrapper"
         eExceptions="#//IllegalArgumentException #//IOException #//CoreException">
-      <eParameters name="resourceSet" eType="#//ResourceSet"/>
       <eParameters name="profileApplicationFile" lowerBound="1" eType="#//IFile"/>
       <eParameters name="profiles" lowerBound="1">
         <eGenericType eClassifier="#//Collection">
@@ -17,39 +74,19 @@
         </eGenericType>
       </eParameters>
     </eOperations>
+    <eOperations name="hasProfileApplications" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eOperations name="loadProfileApplication" eType="#//ProfileApplicationWrapper"
         eExceptions="#//ProfileApplicationAlreadyLoadedException #//IOException #//CoreException">
-      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
       <eParameters name="profileApplicationFile" eType="#//IFile"/>
     </eOperations>
     <eOperations name="unloadProfileApplication">
       <eParameters name="profileApplication" lowerBound="1" eType="#//ProfileApplicationWrapper"/>
     </eOperations>
-    <eOperations name="unloadAllProfileApplications" eExceptions="#//IllegalArgumentException">
-      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
-    </eOperations>
-    <eOperations name="hasProfileApplications" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
-        eExceptions="#//IllegalArgumentException">
-      <eParameters name="resourceSet" eType="#//ResourceSet"/>
-    </eOperations>
-    <eOperations name="getProfileApplications" lowerBound="1" eExceptions="#//IllegalArgumentException">
-      <eGenericType eClassifier="#//Collection">
-        <eTypeArguments eClassifier="#//ProfileApplicationWrapper"/>
-      </eGenericType>
-      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
-    </eOperations>
+    <eOperations name="dispose"/>
     <eOperations name="getProfileApplicationWrapperOfContainedEObject" eType="#//ProfileApplicationWrapper"
-        eExceptions="#//TraversingEObjectContainerChainException #//IllegalArgumentException">
-      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
-      <eParameters name="eobject" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+        eExceptions="#//TraversingEObjectContainerChainException">
+      <eParameters name="eObject" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eOperations>
-    <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager">
-      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="managers" ordered="false"
-        upperBound="-1" eType="#//ProfileApplicationManager" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationManager">
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileApplications" lowerBound="1"
         upperBound="-1" eType="#//ProfileApplicationWrapper" containment="true"/>
   </eClassifiers>
@@ -58,6 +95,7 @@
     <eTypeParameters name="E"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Resource" instanceClassName="org.eclipse.emf.ecore.resource.Resource"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.eclipse.core.resources.IFile"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IOException" instanceClassName="java.io.IOException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>

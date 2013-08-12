@@ -169,7 +169,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 			@Override
 			public void run() {
 				if(viewer.getInput().equals(Collections.emptyList())){
-					viewer.setInput(ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToResourceSetMap.get(decoratableEditorPartListener.getLastActiveEditPart())));
+					viewer.setInput(ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(editorPartToResourceSetMap.get(decoratableEditorPartListener.getLastActiveEditPart())).getProfileApplications());
 				}else{
 					viewer.refresh();
 					viewer.expandToLevel(2);
@@ -243,7 +243,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 		Assert.isNotNull(eObject);
 		// we are looking in all loaded profiles if there are any stereotypes applicable on eObject 
 		final Map<ProfileApplicationWrapper, Collection<StereotypeApplicability>> profileToStereotypeApplicabilityForEObjectMap = new HashMap<>();
-		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToResourceSetMap.get(decoratableEditorPartListener.getLastActiveEditPart()))) {
+		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(editorPartToResourceSetMap.get(decoratableEditorPartListener.getLastActiveEditPart())).getProfileApplications()) {
 			profileToStereotypeApplicabilityForEObjectMap.put(profileApplication, (Collection<StereotypeApplicability>) profileApplication.getApplicableStereotypes(eObject));
 		}
 		boolean mayApplyStereotype = false;
@@ -335,7 +335,7 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 		}
 		final List<Image> images = new ArrayList<>();
 		final List<String> toolTipTexts = new ArrayList<>();
-		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplications(editorPartToResourceSetMap.get(getLastActiveEditorPart()))) {
+		for (ProfileApplicationWrapper profileApplication : ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(editorPartToResourceSetMap.get(getLastActiveEditorPart())).getProfileApplications()) {
 			Collection<StereotypeApplication> stereotypeApplications = profileApplication.getStereotypeApplications(eObject);
 			for (StereotypeApplication stereotypeApplication : stereotypeApplications) {
 				images.add(((ILabelProvider)viewer.getLabelProvider()).getImage(stereotypeApplication));
@@ -442,6 +442,6 @@ public class ActiveEditorObserver implements PluginExtensionOperationsListener {
 	 * @throws TraversingEObjectContainerChainException 
 	 */
 	public ProfileApplicationWrapper findProfileApplicationWrapper(EObject eObject) throws TraversingEObjectContainerChainException{
-		return ProfileApplicationRegistry.INSTANCE.getProfileApplicationWrapperOfContainedEObject(editorPartToResourceSetMap.get(getLastActiveEditorPart()), eObject);
+		return ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(editorPartToResourceSetMap.get(getLastActiveEditorPart())).getProfileApplicationWrapperOfContainedEObject(eObject);
 	}
 }

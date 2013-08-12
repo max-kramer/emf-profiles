@@ -7,8 +7,15 @@
  */
 package org.modelversioning.emfprofile.application.registry;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.Collection;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -46,6 +53,72 @@ public interface ProfileApplicationManager extends EObject {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	List<ProfileApplicationWrapper> getProfileApplications();
+	EList<ProfileApplicationWrapper> getProfileApplications();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model required="true" exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.IllegalArgumentException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
+	 *        profileApplicationFileDataType
+	 *        ="org.modelversioning.emfprofile.application.registry.IFile"
+	 *        profileApplicationFileRequired="true" profilesDataType=
+	 *        "org.modelversioning.emfprofile.application.registry.Collection<org.modelversioning.emfprofile.Profile>"
+	 *        profilesRequired="true"
+	 * @generated
+	 */
+	ProfileApplicationWrapper createNewProfileApplication(
+			IFile profileApplicationFile, Collection<Profile> profiles)
+			throws IllegalArgumentException, IOException, CoreException;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model required="true"
+	 * @generated
+	 */
+	boolean hasProfileApplications();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.ProfileApplicationAlreadyLoadedException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
+	 *        profileApplicationFileDataType
+	 *        ="org.modelversioning.emfprofile.application.registry.IFile"
+	 * @generated
+	 */
+	ProfileApplicationWrapper loadProfileApplication(
+			IFile profileApplicationFile)
+			throws ProfileApplicationAlreadyLoadedException, IOException,
+			CoreException;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model profileApplicationRequired="true"
+	 * @generated
+	 */
+	void unloadProfileApplication(ProfileApplicationWrapper profileApplication)
+			throws IllegalArgumentException;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	void dispose();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.TraversingEObjectContainerChainException"
+	 *        eObjectRequired="true"
+	 * @generated
+	 */
+	ProfileApplicationWrapper getProfileApplicationWrapperOfContainedEObject(
+			EObject eObject) throws TraversingEObjectContainerChainException;
 
 } // ProfileApplicationManager
