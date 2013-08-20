@@ -402,8 +402,9 @@ public interface IProfileFacade {
 	 * {@link ProfileApplication}
 	 * 
 	 * @param eObject
+	 * @return removed eObject
 	 */
-	void removeEObject(EObject eObject);
+	EObject removeEObject(EObject eObject);
 
 	/**
 	 * Adds an instance of nested object to the reference of the container.
@@ -411,7 +412,8 @@ public interface IProfileFacade {
 	 * @param container
 	 * @param eReference
 	 * @param eObject
+	 * @return eObject
 	 */
-	void addNestedEObject(EObject container, EReference eReference,
+	EObject addNestedEObject(EObject container, EReference eReference,
 			EObject eObject);
 }

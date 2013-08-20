@@ -878,7 +878,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 	}
 
 	@Override
-	public void removeEObject(final EObject eObject) {
+	public EObject removeEObject(final EObject eObject) {
 		if (requireTransaction()) {
 			TransactionalEditingDomain domain = getTransactionalEditingDomain();
 			domain.getCommandStack().execute(new RecordingCommand(domain) {
@@ -890,10 +890,11 @@ public class ProfileFacadeImpl implements IProfileFacade {
 		} else {
 			EcoreUtil.remove(eObject);
 		}
+		return eObject;
 	}
 
 	@Override
-	public void addNestedEObject(final EObject container,
+	public EObject addNestedEObject(final EObject container,
 			final EReference eReference, final EObject eObject) {
 		if (requireTransaction()) {
 			TransactionalEditingDomain domain = getTransactionalEditingDomain();
@@ -914,6 +915,7 @@ public class ProfileFacadeImpl implements IProfileFacade {
 				container.eSet(eReference, eObject);
 			}
 		}
+		return eObject;
 	}
 
 	private final class ProfileApplicationResourceFactoryImpl extends
