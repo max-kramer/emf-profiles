@@ -19,33 +19,37 @@ public class ProfileProjectNewPage extends WizardNewProjectCreationPage {
 	private IStructuredSelection selection;
 	private Text profileNameField;
 	private Text profileNamespaceField;
-	
-	private Listener fieldModifyListener = new Listener() {
-        public void handleEvent(Event e) {
-            boolean valid = validatePage();
-            setPageComplete(valid);
-                
-        }
-    };
 
-	public ProfileProjectNewPage(String pageName,
-			ProfileProjectData data, IStructuredSelection selection) {
+	private Listener fieldModifyListener = new Listener() {
+		public void handleEvent(Event e) {
+			boolean valid = validatePage();
+			setPageComplete(valid);
+
+		}
+	};
+
+	public ProfileProjectNewPage(String pageName, ProfileProjectData data,
+			IStructuredSelection selection) {
 		super(pageName);
 		this.selection = selection;
 		this.data = data;
 	}
-	
+
 	@Override
 	public void createControl(Composite parent) {
 		super.createControl(parent);
 		Composite control = (Composite) getControl();
 		GridLayout layout = new GridLayout();
 		control.setLayout(layout);
-		
+
 		createProfileInformationGroup(control);
-		createWorkingSetGroup(control, selection, new String[] {"org.eclipse.jdt.ui.JavaWorkingSetPage", //$NON-NLS-1$
-				"org.eclipse.pde.ui.pluginWorkingSet", "org.eclipse.ui.resourceWorkingSetPage"}); //$NON-NLS-1$ //$NON-NLS-2$
-		
+		createWorkingSetGroup(
+				control,
+				selection,
+				new String[] {
+						"org.eclipse.jdt.ui.JavaWorkingSetPage", //$NON-NLS-1$
+						"org.eclipse.pde.ui.pluginWorkingSet", "org.eclipse.ui.resourceWorkingSetPage" }); //$NON-NLS-1$ //$NON-NLS-2$
+
 		Dialog.applyDialogFont(control);
 		setControl(control);
 	}
@@ -57,69 +61,82 @@ public class ProfileProjectNewPage extends WizardNewProjectCreationPage {
 		layout.numColumns = 2;
 		group.setLayout(layout);
 		group.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		
+
 		// profile name label
 		Label profileLabel = new Label(group, SWT.NONE);
-        profileLabel.setText("Profile name");
-        profileLabel.setFont(container.getFont());
-        
+		profileLabel.setText("Profile name");
+		profileLabel.setFont(container.getFont());
+
 		// new profile name entry field
-        profileNameField = new Text(group, SWT.BORDER);
-        GridData data = new GridData(GridData.FILL_HORIZONTAL);
-        data.widthHint = 250;
-        profileNameField.setLayoutData(data);
-        profileNameField.setFont(container.getFont());
-        profileNameField.addListener(SWT.Modify, fieldModifyListener);
-        
+		profileNameField = new Text(group, SWT.BORDER);
+		GridData data = new GridData(GridData.FILL_HORIZONTAL);
+		data.widthHint = 250;
+		profileNameField.setLayoutData(data);
+		profileNameField.setFont(container.getFont());
+		profileNameField.addListener(SWT.Modify, fieldModifyListener);
+
 		// profile uri label
 		Label profileURILabel = new Label(group, SWT.NONE);
-        profileURILabel.setText("Profile namespace");
-        profileURILabel.setFont(container.getFont());
-        
+		profileURILabel.setText("Profile namespace");
+		profileURILabel.setFont(container.getFont());
+
 		// new profile name entry field
-        profileNamespaceField = new Text(group, SWT.BORDER);
-        data = new GridData(GridData.FILL_HORIZONTAL);
-        data.widthHint = 250;
-        profileNamespaceField.setLayoutData(data);
-        profileNamespaceField.setFont(container.getFont());
-        profileNamespaceField.addListener(SWT.Modify, fieldModifyListener);
+		profileNamespaceField = new Text(group, SWT.BORDER);
+		data = new GridData(GridData.FILL_HORIZONTAL);
+		data.widthHint = 250;
+		profileNamespaceField.setLayoutData(data);
+		profileNamespaceField.setFont(container.getFont());
+		profileNamespaceField.addListener(SWT.Modify, fieldModifyListener);
 	}
-	
+
 	@Override
 	protected boolean validatePage() {
-		if (!super.validatePage()) return false;
-		
-        if (getProfileName().equals("")) { //$NON-NLS-1$
-            setErrorMessage(null);
-            setMessage("Enter a name for the profile.");
-            return false;
-        }
-        
-        if (getProfileNamespace().equals("")) { //$NON-NLS-1$
-            setErrorMessage(null);
-            setMessage("Enter a namespace for the profile.");
-            return false;
-        }
-		
+		if (!super.validatePage())
+			return false;
+
+		if (getProfileName().equals("")) { //$NON-NLS-1$
+			setErrorMessage(null);
+			setMessage("Enter a name for the profile.");
+			return false;
+		}
+
+		if (getProfileNamespace().equals("")) { //$NON-NLS-1$
+			setErrorMessage(null);
+			setMessage("Enter a namespace for the profile.");
+			return false;
+		}
+
 		setErrorMessage(null);
-        setMessage(null);
-        return true;
+		setMessage(null);
+		return true;
 	}
-	
+
 	public String getProfileName() {
-        if (profileNameField == null) {
+		if (profileNameField == null) {
 			return ""; //$NON-NLS-1$
 		}
-        return profileNameField.getText().trim();
-    }
-	
+		return profileNameField.getText().trim();
+	}
+
+	public void setProfileName(String profileName) {
+		if (profileNameField != null && profileName != null) {
+			profileNameField.setText(profileName);
+		}
+	}
+
 	public String getProfileNamespace() {
-        if (profileNamespaceField == null) {
+		if (profileNamespaceField == null) {
 			return ""; //$NON-NLS-1$
 		}
-        return profileNamespaceField.getText().trim();
-    }
-	
+		return profileNamespaceField.getText().trim();
+	}
+
+	public void setProfileNamespace(String profileNamespace) {
+		if (profileNamespaceField != null && profileNamespace != null) {
+			profileNamespaceField.setText(profileNamespace);
+		}
+	}
+
 	public void updateData() {
 		data.setProjectName(getProjectName());
 		data.setProfileName(getProfileName());
