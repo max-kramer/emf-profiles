@@ -7,15 +7,20 @@
  */
 package org.modelversioning.emfprofile.application.registry.tests;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -24,6 +29,8 @@ import org.junit.Test;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
+import org.modelversioning.emfprofileapplication.StereotypeApplicability;
+import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
@@ -31,6 +38,9 @@ import org.modelversioning.emfprofile.application.registry.ProfileApplicationWra
  */
 public class ProfileApplicationWrapperTest extends
 		AbstractProfileApplicationRegistryTest {
+	
+	private static final String EXPECTED_PAW_NAME = "EJB_Profile - ProfileApplicationRegistryTest/model/application_test.pa.xmi";
+	private static final String EXPECTED_PROFILE_NAME = "EJB_Profile";
 
 	private ProfileApplicationWrapper paw = null;
 	Set<Profile> profiles = new HashSet<>();
@@ -75,8 +85,9 @@ public class ProfileApplicationWrapperTest extends
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#getProfileApplicationFile()}.
 	 */
 	@Test
-	public final void testGetProfileApplicationFile() {
+	public final void testGetProfileApplicationFile_shouldExist() {
 		IFile pawFile = paw.getProfileApplicationIFile();
+		assertThat(pawFile, notNullValue());
 		assertThat(pawFile.exists(), is(true));
 	}
 
@@ -84,8 +95,10 @@ public class ProfileApplicationWrapperTest extends
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#getProfileApplicationResource()}.
 	 */
 	@Test
-	public final void testGetProfileApplicationResource() {
-		fail("Not yet implemented"); // TODO
+	public final void testGetProfileApplicationResource_shouldBeLoaded() {
+		Resource resource = paw.getProfileApplicationResource();
+		assertThat(resource, notNullValue());
+		assertThat(resource.isLoaded(), is(true));
 	}
 
 	/**
@@ -93,7 +106,7 @@ public class ProfileApplicationWrapperTest extends
 	 */
 	@Test
 	public final void testGetName() {
-		fail("Not yet implemented"); // TODO
+		assertThat(paw.getName(), equalTo(ProfileApplicationWrapperTest.EXPECTED_PAW_NAME));
 	}
 
 	/**
@@ -101,7 +114,7 @@ public class ProfileApplicationWrapperTest extends
 	 */
 	@Test
 	public final void testGetProfileName() {
-		fail("Not yet implemented"); // TODO
+		assertThat(paw.getProfileName(), equalTo(ProfileApplicationWrapperTest.EXPECTED_PROFILE_NAME));
 	}
 
 	/**
@@ -109,71 +122,47 @@ public class ProfileApplicationWrapperTest extends
 	 */
 	@Test
 	public final void testUnload() {
-		fail("Not yet implemented"); // TODO
+		Resource resource = paw.getProfileApplicationResource();
+		assertThat(resource, notNullValue());
+		assertThat(resource.isLoaded(), is(true));
+		paw.unload();
+		assertThat(resource.isLoaded(), is(false));
 	}
 
 	/**
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#save()}.
+	 * @throws CoreException 
+	 * @throws IOException 
 	 */
 	@Test
-	public final void testSave() {
-		fail("Not yet implemented"); // TODO
+	public final void testSave_shouldSetDirtyStatusToFalse() throws IOException, CoreException {
+		assertThat(paw.isDirty(), is(true));
+		paw.save();
+		assertThat(paw.isDirty(), is(false));
 	}
 
 	/**
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#getApplicableStereotypes(org.eclipse.emf.ecore.EObject)}.
 	 */
 	@Test
-	public final void testGetApplicableStereotypes() {
-		fail("Not yet implemented"); // TODO
+	public final void testGetApplicableStereotypesForPersonModel_shouldReturnTwoApplicableStereotypes() {
+		EList<StereotypeApplicability> applicableStereotypes = paw.getApplicableStereotypes(getModelPersonEClass());
+		assertThat(applicableStereotypes.size(), is(2));
 	}
 
 	/**
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#applyStereotype(org.modelversioning.emfprofileapplication.StereotypeApplicability, org.eclipse.emf.ecore.EObject)}.
 	 */
 	@Test
-	public final void testApplyStereotype() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#addNestedEObject(org.eclipse.emf.ecore.EObject, org.eclipse.emf.ecore.EReference, org.eclipse.emf.ecore.EObject)}.
-	 */
-	@Test
-	public final void testAddNestedEObject() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#removeEObject(org.eclipse.emf.ecore.EObject)}.
-	 */
-	@Test
-	public final void testRemoveEObject() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#getStereotypeApplications()}.
-	 */
-	@Test
-	public final void testGetStereotypeApplications() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#getStereotypeApplications(org.eclipse.emf.ecore.EObject)}.
-	 */
-	@Test
-	public final void testGetStereotypeApplicationsEObject() {
-		fail("Not yet implemented"); // TODO
-	}
-
-	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationWrapperImpl#getProfileApplicationUnwrapped()}.
-	 */
-	@Test
-	public final void testGetProfileApplicationUnwrapped() {
-		fail("Not yet implemented"); // TODO
+	public final void testApplyStereotype_shouldWork() {
+		EObject person = getModelPersonEClass();
+		assertThat(person, notNullValue());
+		StereotypeApplicability stereotypeApplicability = paw.getApplicableStereotypes(person).iterator().next();
+		assertThat(stereotypeApplicability, notNullValue());
+		assertThat(paw.getStereotypeApplications().size(), is(0));
+		StereotypeApplication stereotypeApplication = paw.applyStereotype(stereotypeApplicability, person);
+		assertThat(stereotypeApplication, notNullValue());
+		assertThat(paw.getStereotypeApplications().size(), is(1));
 	}
 
 }

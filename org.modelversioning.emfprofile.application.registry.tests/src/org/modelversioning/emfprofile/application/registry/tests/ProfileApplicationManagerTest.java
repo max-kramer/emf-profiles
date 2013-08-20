@@ -167,7 +167,7 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 			ProfileApplicationWrapper testProfileApplication = testProfileApplicationManager.loadProfileApplication(getPrepearedProfileApplication());
 			assertNotNull(testProfileApplication);
 			assertEquals(1, testProfileApplicationManager.getProfileApplications().size());
-			testProfileApplicationManager.unloadProfileApplication(testProfileApplication);
+			testProfileApplication.unload();
 			assertEquals(0, testProfileApplicationManager.getProfileApplications().size());
 			testProfileApplicationManager.loadProfileApplication(getPrepearedProfileApplication());
 		} catch (ProfileApplicationAlreadyLoadedException e) {
