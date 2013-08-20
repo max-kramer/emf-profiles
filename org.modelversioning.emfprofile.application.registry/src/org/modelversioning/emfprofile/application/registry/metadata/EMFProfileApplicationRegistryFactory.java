@@ -7,9 +7,11 @@
  */
 package org.modelversioning.emfprofile.application.registry.metadata;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EFactory;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
@@ -82,9 +84,9 @@ public interface EMFProfileApplicationRegistryFactory extends EFactory {
 
 	ProfileApplicationWrapper createProfileApplicationWrapper(
 			ResourceSet resourceSet, IFile profileApplicationFile,
-			Collection<Profile> profiles);
+			Collection<Profile> profiles) throws CoreException, IOException;
 
 	ProfileApplicationWrapper createProfileApplicationWrapper(
-			ResourceSet resourceSet, IFile profileApplicationFile);
+			ResourceSet resourceSet, IFile profileApplicationFile) throws CoreException, IOException;
 
 } // EMFProfileApplicationRegistryFactory

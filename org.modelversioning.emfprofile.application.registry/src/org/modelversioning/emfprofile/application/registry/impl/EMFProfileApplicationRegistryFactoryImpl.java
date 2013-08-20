@@ -107,6 +107,8 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return createIFileFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
 			return createIOExceptionFromString(eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.NULL_POINTER_EXCEPTION:
+			return createNullPointerExceptionFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.CORE_EXCEPTION:
 			return createCoreExceptionFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION:
@@ -144,6 +146,8 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return convertIFileToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
 			return convertIOExceptionToString(eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.NULL_POINTER_EXCEPTION:
+			return convertNullPointerExceptionToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.CORE_EXCEPTION:
 			return convertCoreExceptionToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION:
@@ -172,11 +176,13 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @throws CoreException 
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationWrapper createProfileApplicationWrapper(
-			ResourceSet resourceSet, IFile file, Collection<Profile> profiles) {
+			ResourceSet resourceSet, IFile file, Collection<Profile> profiles) throws CoreException, IOException {
 		ProfileApplicationWrapperImpl profileApplicationWrapper = new ProfileApplicationWrapperImpl(
 				resourceSet, file, profiles);
 		return profileApplicationWrapper;
@@ -184,11 +190,13 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws IOException 
+	 * @throws CoreException 
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationWrapper createProfileApplicationWrapper(
-			ResourceSet resourceSet, IFile file) {
+			ResourceSet resourceSet, IFile file) throws CoreException, IOException {
 		ProfileApplicationWrapperImpl profileApplicationWrapper = new ProfileApplicationWrapperImpl(
 				resourceSet, file);
 		return profileApplicationWrapper;
@@ -341,6 +349,27 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 * @generated
 	 */
 	public String convertIOExceptionToString(EDataType eDataType,
+			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public NullPointerException createNullPointerExceptionFromString(
+			EDataType eDataType, String initialValue) {
+		return (NullPointerException) super.createFromString(eDataType,
+				initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertNullPointerExceptionToString(EDataType eDataType,
 			Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}

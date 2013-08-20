@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 modelversioning.org
+ * Copyright (c) 2010 - 2013 modelversioning.org
  * All rights reserved. This program and the accompanying materials are
  * made available under the terms of the Eclipse Public License v1.0 which
  * accompanies this distribution, and is available at
@@ -8,13 +8,13 @@
 package org.modelversioning.emfprofile.application.registry;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.modelversioning.emfprofile.Extension;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
@@ -22,56 +22,115 @@ import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
- * This object wraps the {@link ProfileApplication} with additional 
- * functionalities, e.g. the semantic name of the profile application
- * (constructed of profile name and location of profile application resource),
- * the status if profile application has changed and needs to be saved, or
- * convenience methods to apply/remove stereotypes or nested objects.
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Profile Application Wrapper</b></em>'. This object wraps the
+ * {@link ProfileApplication} with additional functionalities, e.g. the semantic
+ * name of the profile application (constructed of profile name and location of
+ * profile application resource), the status if profile application has changed
+ * and needs to be saved, or convenience methods to apply/remove stereotypes or
+ * nested objects. <!-- end-user-doc -->
  * 
- * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
+ * <p>
+ * The following features are supported:
+ * <ul>
+ * <li>
+ * {@link org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper#getProfileApplication
+ * <em>Profile Application</em>}</li>
+ * </ul>
+ * </p>
  * 
+ * @see org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage#getProfileApplicationWrapper()
+ * @model
+ * @generated
  */
-public interface ProfileApplicationWrapper {
+public interface ProfileApplicationWrapper extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Profile Application</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Profile Application</em>' reference isn't
+	 * clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Profile Application</em>' reference.
+	 * @see #setProfileApplication(ProfileApplication)
+	 * @see org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage#getProfileApplicationWrapper_ProfileApplication()
+	 * @model required="true"
+	 * @generated
+	 */
+	ProfileApplication getProfileApplication();
 
 	/**
-	 * Is this profile application changed and if it needs to be saved
+	 * Sets the value of the '
+	 * {@link org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper#getProfileApplication
+	 * <em>Profile Application</em>}' reference. <!-- begin-user-doc --> This
+	 * method was generated and it is not intended to be used for manually
+	 * setting the {@link ProfileApplication} reference. This is done by the
+	 * construction of the wrapper. <br>
+	 * <em><b>Calling this method will always throw {@link UnsupportedOperationException}</b></em> <!-- end-user-doc -->
 	 * 
-	 * @return
+	 * @param value
+	 *            the new value of the '<em>Profile Application</em>' reference.
+	 * @see #getProfileApplication()
+	 * @generated
 	 */
-	boolean isDirty();
+	void setProfileApplication(ProfileApplication value);
 
 	/**
-	 * Gets the Name of this profile application. <br />
-	 * The name is constructed out of loaded profile name and the location of
-	 * this profile application resource in the workspace.
+	 * <!-- begin-user-doc --> Returns all {@link StereotypeApplication
+	 * stereotype applications} from this profile application. <!-- end-user-doc
+	 * -->
 	 * 
-	 * @return
+	 * @model kind="operation" many="false"
+	 * @generated
 	 */
-	String getName();
+	EList<StereotypeApplication> getStereotypeApplications();
 
 	/**
-	 * To save this profile application
+	 * <!-- begin-user-doc --> Returns all {@link StereotypeApplication
+	 * stereotype applications} from this profile application that are applied
+	 * to provided {@link EObject eObject}. <!-- end-user-doc -->
 	 * 
-	 * @throws IOException
-	 * @throws CoreException
+	 * @model many="false"
+	 * @generated
 	 */
-	void save() throws IOException, CoreException;
+	EList<StereotypeApplication> getStereotypeApplications(EObject eObject);
 
 	/**
-	 * Returns the list of applicable stereotype for the specified type in
-	 * <code>eClass</code>. <br />
-	 * <b>Note:</b> The method is actually implemented in {@link IProfileFacade}
-	 * , so this method forwards the call to the facade.
+	 * <!-- begin-user-doc --> Returns all {@link StereotypeApplication
+	 * stereotype applications} of the same type from this profile application
+	 * that are applied to provided {@link EObject eObject}. <!-- end-user-doc
+	 * -->
 	 * 
-	 * @param eClass
-	 *            to get applicable stereotype for.
-	 * @return the list of applicable {@link Stereotype}s.
+	 * @model many="false"
+	 * @generated
 	 */
-	Collection<? extends StereotypeApplicability> getApplicableStereotypes(
+	EList<StereotypeApplication> getStereotypeApplications(EObject eObject,
+			Stereotype stereotype);
+
+	/**
+	 * <!-- begin-user-doc --> Returns all EObjects from the model that were
+	 * annotated through this profile application. <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" many="false"
+	 * @generated
+	 */
+	EList<EObject> getAnnotatedObjects();
+
+	/**
+	 * <!-- begin-user-doc --> Adds a nested eObject to the container. <!--
+	 * end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	EObject addNestedEObject(EObject container, EReference reference,
 			EObject eObject);
 
 	/**
-	 * Applies the specified <code>applicableStereotype</code>. <br />
+	 * <!-- begin-user-doc --> Applies the specified
+	 * <code>applicableStereotype</code>. <br />
 	 * <b>Note:</b> The method is actually implemented in {@link IProfileFacade}
 	 * , so this method forwards the call to the facade.
 	 * <p>
@@ -79,69 +138,107 @@ public interface ProfileApplicationWrapper {
 	 * {@link #apply(Stereotype, EObject, Extension)}.
 	 * </p>
 	 * 
-	 * It also sets the state of this profile application to dirty.
-	 * 
 	 * @param stereotypeApplicability
 	 *            the applicable stereotype to be applied.
 	 * @param eObject
 	 *            to apply the <code>applicableStereotype</code> to.
-	 * @return the created instance of the {@link Stereotype}.
+	 * @return the created instance of the {@link StereotypeApplication}. <!--
+	 *         end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
 	 */
 	StereotypeApplication applyStereotype(
 			StereotypeApplicability stereotypeApplicability, EObject eObject);
 
 	/**
-	 * Adds a nested eObject to the container and sets this profile application
-	 * to dirty.
+	 * <!-- begin-user-doc --> Returns the list of applicable stereotype for the
+	 * specified type in <code>eClass</code>. <br />
+	 * <b>Note:</b> The method is actually implemented in {@link IProfileFacade}
+	 * , so this method forwards the call to the facade.
 	 * 
-	 * @param container
-	 * @param eReference
-	 * @param eObject
+	 * @param eClass
+	 *            to get applicable stereotype for.
+	 * @return the list of applicable {@link Stereotype}s. <!-- end-user-doc -->
+	 * 
+	 * @model many="false"
+	 * @generated
 	 */
-	void addNestedEObject(EObject container, EReference eReference,
-			EObject eObject);
+	EList<StereotypeApplicability> getApplicableStereotypes(EObject eObject);
 
 	/**
-	 * Removes the nested object from the profile application resource and sets
-	 * it to dirty state.
+	 * <!-- begin-user-doc --> Gets the name of this profile application. <br>
+	 * The name is constructed out of loaded profile name and the location of
+	 * this profile application resource in the workspace. <!-- end-user-doc -->
 	 * 
-	 * @param object
+	 * @model kind="operation"
+	 * @generated
 	 */
-	void removeEObject(EObject object);
+	String getName();
 
 	/**
-	 * Gets the name of the loaded profile.
+	 * <!-- begin-user-doc --> Gets the name of the loaded profile. <!--
+	 * end-user-doc -->
 	 * 
-	 * @return the profile name
+	 * @model kind="operation"
+	 * @generated
 	 */
 	String getProfileName();
 
 	/**
-	 * Returns all {@link StereotypeApplication stereotype applications} in this
-	 * profile application.
+	 * <!-- begin-user-doc -->Is this profile application changed and if it
+	 * needs to be saved.<!-- end-user-doc -->
 	 * 
-	 * @return all contained {@link StereotypeApplication stereotype
-	 *         applications}
+	 * @model kind="operation"
+	 * @generated
 	 */
-	List<StereotypeApplication> getStereotypeApplications();
+	boolean isDirty();
 
 	/**
-	 * Returns all {@link StereotypeApplication stereotype applications} applied
-	 * to the specified {@code eObject}.
+	 * <!-- begin-user-doc -->Removes the {@link EObject eObject} from the
+	 * profile application resource.<!-- end-user-doc -->
 	 * 
-	 * @param eObject
-	 *            to which the {@link StereotypeApplication stereotype
-	 *            applications} are applied
-	 * @return all {@link StereotypeApplication stereotype applications} applied
-	 *         to {@code eObject}
+	 * @model
+	 * @generated
 	 */
-	List<StereotypeApplication> getStereotypeApplications(EObject eObject);
+	EObject removeEObject(EObject eObject);
 
 	/**
-	 * Returns {@link ProfileApplication profile application} instance wrapped by this wrapper.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @return {@link ProfileApplication}.
-	 * 
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
+	 * @generated
 	 */
-	ProfileApplication getProfileApplicationUnwrapped();
-}
+	void save() throws IOException, CoreException;
+
+	/**
+	 * <!-- begin-user-doc --> Returns the {@link IFile} which is a handle to
+	 * the resource in workspace where the profile application data is
+	 * persisted. <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 *        dataType="org.modelversioning.emfprofile.application.registry.IFile"
+	 * @generated
+	 */
+	IFile getProfileApplicationIFile();
+
+	/**
+	 * <!-- begin-user-doc --> Return the EMF {@link Resource} of this profile
+	 * application. <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation"
+	 *        dataType="org.modelversioning.emfprofile.application.registry.Resource"
+	 * @generated
+	 */
+	Resource getProfileApplicationResource();
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	void unload();
+
+} // ProfileApplicationWrapper

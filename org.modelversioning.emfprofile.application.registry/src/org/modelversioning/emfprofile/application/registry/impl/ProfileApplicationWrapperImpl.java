@@ -9,9 +9,12 @@ package org.modelversioning.emfprofile.application.registry.impl;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -22,11 +25,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
+import org.modelversioning.emfprofile.impl.ProfileFacadeImpl;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -57,18 +61,17 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * @ordered
 	 */
 	protected ProfileApplication profileApplication;
-	private ResourceSet resourceSet;
-	private IFile profileApplicationFile;
-	private Collection<Profile> profiles;
-	private boolean unloaded;
+	private final IProfileFacade facade;
+	private final ResourceSet resourceSet;
+	private final IFile profileApplicationFile;
+	private final Collection<Profile> profiles;
+	private final Resource resource;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	protected ProfileApplicationWrapperImpl() {
 		super();
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -77,29 +80,95 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * @param resourceSet
 	 * @param profileApplicationFile
 	 * @param profiles
+	 * @throws IOException 
+	 * @throws CoreException 
 	 */
 	protected ProfileApplicationWrapperImpl(ResourceSet resourceSet,
-			IFile profileApplicationFile, Collection<Profile> profiles) {
-		this.resourceSet = resourceSet;
+			IFile profileApplicationFile, Collection<Profile> profiles) throws CoreException, IOException {
 		this.profileApplicationFile = profileApplicationFile;
-		this.profiles = profiles;
+		
+		this.resourceSet = resourceSet;
+		this.facade = createAndInitializeProfileFacade(profileApplicationFile,
+				profiles);
+		this.profiles = facade.getLoadedProfiles();
+		this.resource = facade.getProfileApplicationResource();
+		setProfileApplicationInternal(facade.getProfileApplications().get(0));
 	}
-
+	
 	/**
 	 * constructor which loads existing profile application
 	 * 
 	 * @param resourceSet
 	 * @param profileApplicationFile
+	 * @throws IOException 
+	 * @throws CoreException 
 	 */
 	protected ProfileApplicationWrapperImpl(ResourceSet resourceSet,
-			IFile profileApplicationFile) {
-		this.resourceSet = resourceSet;
+			IFile profileApplicationFile) throws CoreException, IOException {
 		this.profileApplicationFile = profileApplicationFile;
+		this.resourceSet = resourceSet;
+		this.facade = loadProfileApplication(profileApplicationFile);
+		if (facade.getProfileApplications().isEmpty()){
+			throw new IOException("The resource at "
+					+ profileApplicationFile.toString()
+					+ ", does not contain any profile applications.");
+		}
+		this.profiles = facade.getLoadedProfiles();
+		this.resource = facade.getProfileApplicationResource();
+		setProfileApplicationInternal(facade.getProfileApplications().get(0));
+	}
+	
+	/**
+	 * Creates new profiles application
+	 * 
+	 * @param profileApplicationFile
+	 * @param profiles
+	 * @return
+	 * @throws CoreException
+	 * @throws IOException
+	 */
+	private IProfileFacade createAndInitializeProfileFacade(
+			IFile profileApplicationFile, Collection<Profile> profiles)
+			throws CoreException, IOException {
+		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
+		facade.loadProfiles(profiles);
+		profileApplicationFile.refreshLocal(IFile.DEPTH_ZERO,
+				new NullProgressMonitor());
+
+		return facade;
+	}
+	
+	/**
+	 * Creates new instance of {@link IProfileFacade}
+	 * 
+	 * @param profileApplicationFile
+	 * @return
+	 * @throws IOException
+	 */
+	private IProfileFacade createNewProfileFacade(IFile profileApplicationFile)
+			throws IOException {
+		IProfileFacade facade = new ProfileFacadeImpl();
+		facade.loadProfileApplication(profileApplicationFile, resourceSet);
+		return facade;
+	}
+	
+	/**
+	 * Loads an existing profiles application.
+	 * 
+	 * @param profileApplicationFile
+	 *            to load.
+	 * @return
+	 * @throws CoreException
+	 * @throws IOException
+	 */
+	private IProfileFacade loadProfileApplication(IFile profileApplicationFile)
+			throws CoreException, IOException {
+		profileApplicationFile.refreshLocal(IFile.DEPTH_ONE, new NullProgressMonitor());
+		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
+		return facade;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -108,8 +177,6 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProfileApplication getProfileApplication() {
@@ -129,8 +196,6 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ProfileApplication basicGetProfileApplication() {
@@ -138,9 +203,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
+	 * This method always throws UnsupportedOperationException !
 	 */
 	public void setProfileApplication(ProfileApplication newProfileApplication) {
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -149,7 +212,6 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * Called by the construction of the wrapper.
-	 * 
 	 */
 	private void setProfileApplicationInternal(
 			ProfileApplication newProfileApplication) {
@@ -164,177 +226,124 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EList<StereotypeApplication> getStereotypeApplications() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return facade.getStereotypeApplications();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EList<StereotypeApplication> getStereotypeApplications(
 			EObject eObject) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return facade.getAppliedStereotypes(eObject);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EList<StereotypeApplication> getStereotypeApplications(
 			EObject eObject, Stereotype stereotype) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return profileApplication.getStereotypeApplications(eObject, stereotype);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EList<EObject> getAnnotatedObjects() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return profileApplication.getAnnotatedObjects();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EObject addNestedEObject(EObject container, EReference reference,
 			EObject eObject) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return facade.addNestedEObject(container, reference, eObject);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public StereotypeApplication applyStereotype(
 			StereotypeApplicability stereotypeApplicability, EObject eObject) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return facade.apply(stereotypeApplicability, eObject);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EList<StereotypeApplicability> getApplicableStereotypes(
 			EObject eObject) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return facade.getApplicableStereotypes(eObject);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public String getName() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		String result = "";
+		Collection<Profile> profiles = facade.getLoadedProfiles();
+		Iterator<Profile> iter = profiles.iterator();
+		while (iter.hasNext()) {
+			result += iter.next().getName();
+			if (iter.hasNext())
+				result += ", ";
+		}
+		return result
+				+ " - "
+				+ profileApplicationFile
+						.getLocation()
+						.makeRelativeTo(
+								ResourcesPlugin.getWorkspace().getRoot()
+										.getLocation()).toString();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public String getProfileName() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return profiles.iterator().next().getName();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> 
+	 * Return the modification status of the underlying resource.
+	 * <!-- end-user-doc -->
 	 * 
-	 * @generated
 	 */
 	public boolean isDirty() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.resource.isModified();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public EObject removeEObject(EObject eObject) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return facade.removeEObject(eObject);
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public void save() throws IOException, CoreException {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		facade.save();
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public IFile getProfileApplicationIFile() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.profileApplicationFile;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
 	 */
 	public Resource getProfileApplicationResource() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return this.resource;
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
 	 */
 	public void unload() {
-		if (unloaded)
-			return;
-		unloaded = true;
 		// first remove the reference from profile application manager
-		ProfileApplicationManager pam = (ProfileApplicationManager) this.eContainer;
-		pam.unloadProfileApplication(this);
-
+		ProfileApplicationManagerImpl pam = (ProfileApplicationManagerImpl) this.eContainer();
+		pam.removeProfileApplication(this);
+		
+		// At the moment the IProfileFacade#unload() does nothing
+		// the code for unloading resource should be moved to the facade
+		// TODO investigate moving to code to the #unload() method of the IProfileFacade
+		getProfileApplicationResource().unload();
+		facade.unload();
 	}
 
 	/**

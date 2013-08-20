@@ -107,6 +107,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	private EDataType nullPointerExceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	private EDataType coreExceptionEDataType = null;
 
 	/**
@@ -319,6 +326,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	public EDataType getNullPointerException() {
+		return nullPointerExceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getCoreException() {
 		return coreExceptionEDataType;
 	}
@@ -398,6 +414,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		resourceEDataType = createEDataType(RESOURCE);
 		iFileEDataType = createEDataType(IFILE);
 		ioExceptionEDataType = createEDataType(IO_EXCEPTION);
+		nullPointerExceptionEDataType = createEDataType(NULL_POINTER_EXCEPTION);
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
 		profileApplicationAlreadyLoadedExceptionEDataType = createEDataType(PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION);
 		traversingEObjectContainerChainExceptionEDataType = createEDataType(TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION);
@@ -566,11 +583,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				"getProfileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
 				IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(profileApplicationRegistryEClass, null,
-				"disposeProfileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getProfileApplicationManager(),
-				"profileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getNullPointerException());
 
 		initEClass(profileApplicationManagerEClass,
 				ProfileApplicationManager.class, "ProfileApplicationManager",
@@ -608,11 +621,6 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEException(op, this.getIOException());
 		addEException(op, this.getCoreException());
 
-		op = addEOperation(profileApplicationManagerEClass, null,
-				"unloadProfileApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getProfileApplicationWrapper(),
-				"profileApplication", 1, 1, IS_UNIQUE, IS_ORDERED);
-
 		addEOperation(profileApplicationManagerEClass, null, "dispose", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
@@ -637,6 +645,9 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		initEDataType(iFileEDataType, IFile.class, "IFile", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(ioExceptionEDataType, IOException.class, "IOException",
+				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(nullPointerExceptionEDataType,
+				NullPointerException.class, "NullPointerException",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(coreExceptionEDataType, CoreException.class,
 				"CoreException", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

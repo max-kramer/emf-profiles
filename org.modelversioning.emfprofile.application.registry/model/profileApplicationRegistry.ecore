@@ -55,11 +55,9 @@
         eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//ProfileApplication"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationRegistry">
-    <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager">
+    <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager"
+        eExceptions="#//NullPointerException">
       <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
-    </eOperations>
-    <eOperations name="disposeProfileApplicationManager">
-      <eParameters name="profileApplicationManager" eType="#//ProfileApplicationManager"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="managers" ordered="false"
         upperBound="-1" eType="#//ProfileApplicationManager" containment="true"/>
@@ -79,9 +77,6 @@
         eExceptions="#//ProfileApplicationAlreadyLoadedException #//IOException #//CoreException">
       <eParameters name="profileApplicationFile" eType="#//IFile"/>
     </eOperations>
-    <eOperations name="unloadProfileApplication">
-      <eParameters name="profileApplication" lowerBound="1" eType="#//ProfileApplicationWrapper"/>
-    </eOperations>
     <eOperations name="dispose"/>
     <eOperations name="getProfileApplicationWrapperOfContainedEObject" eType="#//ProfileApplicationWrapper"
         eExceptions="#//TraversingEObjectContainerChainException">
@@ -98,6 +93,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Resource" instanceClassName="org.eclipse.emf.ecore.resource.Resource"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.eclipse.core.resources.IFile"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IOException" instanceClassName="java.io.IOException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="NullPointerException" instanceClassName="java.lang.NullPointerException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ProfileApplicationAlreadyLoadedException"
       instanceClassName="org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException"/>

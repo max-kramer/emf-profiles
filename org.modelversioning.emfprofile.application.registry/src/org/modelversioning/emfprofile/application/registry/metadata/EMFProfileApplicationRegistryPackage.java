@@ -212,6 +212,16 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	int IO_EXCEPTION = 8;
 
 	/**
+	 * The meta object id for the '<em>Null Pointer Exception</em>' data type.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see java.lang.NullPointerException
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getNullPointerException()
+	 * @generated
+	 */
+	int NULL_POINTER_EXCEPTION = 9;
+
+	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -219,7 +229,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 9;
+	int CORE_EXCEPTION = 10;
 
 	/**
 	 * The meta object id for the '
@@ -230,7 +240,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationAlreadyLoadedException()
 	 * @generated
 	 */
-	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 10;
+	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 11;
 
 	/**
 	 * The meta object id for the '
@@ -241,7 +251,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getTraversingEObjectContainerChainException()
 	 * @generated
 	 */
-	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 11;
+	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 12;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type. <!--
@@ -251,7 +261,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 12;
+	int EXCEPTION = 13;
 
 	/**
 	 * Returns the meta object for class '
@@ -401,6 +411,18 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getIOException();
+
+	/**
+	 * Returns the meta object for data type '
+	 * {@link java.lang.NullPointerException <em>Null Pointer Exception</em>}'.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Null Pointer Exception</em>'.
+	 * @see java.lang.NullPointerException
+	 * @model instanceClass="java.lang.NullPointerException"
+	 * @generated
+	 */
+	EDataType getNullPointerException();
 
 	/**
 	 * Returns the meta object for data type '
@@ -606,6 +628,16 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType IO_EXCEPTION = eINSTANCE.getIOException();
+
+		/**
+		 * The meta object literal for the '<em>Null Pointer Exception</em>'
+		 * data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see java.lang.NullPointerException
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getNullPointerException()
+		 * @generated
+		 */
+		EDataType NULL_POINTER_EXCEPTION = eINSTANCE.getNullPointerException();
 
 		/**
 		 * The meta object literal for the '<em>Core Exception</em>' data type.

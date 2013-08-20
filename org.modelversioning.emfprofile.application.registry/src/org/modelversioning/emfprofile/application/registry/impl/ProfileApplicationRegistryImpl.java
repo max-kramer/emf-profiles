@@ -54,6 +54,8 @@ public class ProfileApplicationRegistryImpl extends
 	// resource-set to profile application manager map
 	private Map<ResourceSet, ProfileApplicationManager> profileApplicationManagers = new HashMap<>();
 
+	private boolean cleaning;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -102,7 +104,10 @@ public class ProfileApplicationRegistryImpl extends
 	 * @generated NOT
 	 */
 	public ProfileApplicationManager getProfileApplicationManager(
-			ResourceSet resourceSet) {
+			ResourceSet resourceSet) throws NullPointerException {
+		if (resourceSet == null)
+			throw new NullPointerException(
+					"null value is not allowed as parameter.");
 		if (profileApplicationManagers.containsKey(resourceSet))
 			return profileApplicationManagers.get(resourceSet);
 		ProfileApplicationManager pam = EMFProfileApplicationRegistryFactory.eINSTANCE
@@ -112,14 +117,10 @@ public class ProfileApplicationRegistryImpl extends
 		return pam;
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public void disposeProfileApplicationManager(
+	public void removeProfileApplicationManager(
 			ProfileApplicationManager profileApplicationManager) {
-		profileApplicationManager.dispose();
+		if (cleaning)
+			return;
 		getManagersGen().remove(profileApplicationManager);
 		profileApplicationManagers.remove(profileApplicationManager);
 	}
@@ -199,6 +200,19 @@ public class ProfileApplicationRegistryImpl extends
 			return managers != null && !managers.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * Will call every known manger to dispose itself and afterward will clear
+	 * the collection of managers
+	 */
+	public void cleanUp() {
+		cleaning = true;
+		for (ProfileApplicationManager manager : managers) {
+			manager.dispose();
+		}
+		this.managers.clear();
+		cleaning = false;
 	}
 
 } // ProfileApplicationRegistryImpl

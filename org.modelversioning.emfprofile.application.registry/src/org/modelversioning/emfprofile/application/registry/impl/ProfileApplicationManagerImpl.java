@@ -9,7 +9,6 @@ package org.modelversioning.emfprofile.application.registry.impl;
 
 import java.io.IOException;
 import java.util.Collection;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
@@ -58,7 +56,7 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	 */
 	protected EList<ProfileApplicationWrapper> profileApplications;
 	private ResourceSet resourceSet;
-	private boolean disposed;
+	private boolean disposing;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -121,7 +119,6 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	 */
 	public ProfileApplicationWrapper getProfileApplicationWrapperOfContainedEObject(
 			EObject eObject) throws TraversingEObjectContainerChainException {
-		assert resourceSet != null;
 		assert eObject != null;
 
 		ProfileApplication profileApplication = null;
@@ -180,7 +177,7 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	 * @generated NOT
 	 */
 	public boolean hasProfileApplications() {
-		return !profileApplications.isEmpty();
+		return !getProfileApplicationsGen().isEmpty();
 	}
 
 	/**
@@ -243,21 +240,11 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 						.getLocation().toString());
 	}
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
-	 */
-	public void unloadProfileApplication(
-			ProfileApplicationWrapper profileApplication)
-			throws IllegalArgumentException {
+	public void removeProfileApplication(
+			ProfileApplicationWrapper profileApplication) {
 		assert profileApplication != null;
-		if (profileApplications.contains(profileApplication) == false)
-			throw new IllegalArgumentException(
-					"The manager does not contain the provided profile application: "
-							+ profileApplication);
-		profileApplication.unload();
-		getProfileApplicationsGen().remove(profileApplication);
+		if (disposing == false)
+			getProfileApplicationsGen().remove(profileApplication);
 	}
 
 	/**
@@ -266,17 +253,16 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	 * @generated NOT
 	 */
 	public void dispose() {
-		if (disposed)
-			return;
-		disposed = true;
-		// remove the reference in registry
-		ProfileApplicationRegistry registry = (ProfileApplicationRegistry) this.eContainer;
-		registry.disposeProfileApplicationManager(this);
+		disposing = true;
 		// unload all managed profile applications
-		for (ProfileApplicationWrapper paw : profileApplications) {
+		for (ProfileApplicationWrapper paw : getProfileApplicationsGen()) {
 			paw.unload();
-			getProfileApplicationsGen().remove(paw);
 		}
+		profileApplications.clear();
+		ProfileApplicationRegistryImpl registry = (ProfileApplicationRegistryImpl) this.eContainer();
+		if(registry != null) // if it is null that means that it was already removed from the container
+			registry.removeProfileApplicationManager(this);
+		disposing = false;
 	}
 
 	/**
