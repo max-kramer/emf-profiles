@@ -6,7 +6,8 @@
     forceOverwrite="true" modelName="ProfileApplicationRegistry" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     featureMapWrapperInterface="" featureMapWrapperInternalInterface="" featureMapWrapperClass=""
     codeFormatting="true" commentFormatting="true" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" copyrightFields="false" language="" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile ../../org.modelversioning.emfprofile/model/emfprofileapplication.genmodel#//emfprofileapplication"
+    bundleManifest="false" complianceLevel="7.0" copyrightFields="false" language=""
+    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile ../../org.modelversioning.emfprofile/model/emfprofileapplication.genmodel#//emfprofileapplication"
     classNamePattern="" importOrganizing="true">
   <foreignModel>profileApplicationRegistry.ecore</foreignModel>
   <genPackages prefix="EMFProfileApplicationRegistry" basePackage="org.modelversioning.emfprofile.application"

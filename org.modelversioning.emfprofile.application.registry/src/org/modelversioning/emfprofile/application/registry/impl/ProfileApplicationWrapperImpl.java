@@ -80,13 +80,14 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * @param resourceSet
 	 * @param profileApplicationFile
 	 * @param profiles
-	 * @throws IOException 
-	 * @throws CoreException 
+	 * @throws IOException
+	 * @throws CoreException
 	 */
 	protected ProfileApplicationWrapperImpl(ResourceSet resourceSet,
-			IFile profileApplicationFile, Collection<Profile> profiles) throws CoreException, IOException {
+			IFile profileApplicationFile, Collection<Profile> profiles)
+			throws CoreException, IOException {
 		this.profileApplicationFile = profileApplicationFile;
-		
+
 		this.resourceSet = resourceSet;
 		this.facade = createAndInitializeProfileFacade(profileApplicationFile,
 				profiles);
@@ -94,21 +95,21 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
 	}
-	
+
 	/**
 	 * constructor which loads existing profile application
 	 * 
 	 * @param resourceSet
 	 * @param profileApplicationFile
-	 * @throws IOException 
-	 * @throws CoreException 
+	 * @throws IOException
+	 * @throws CoreException
 	 */
 	protected ProfileApplicationWrapperImpl(ResourceSet resourceSet,
 			IFile profileApplicationFile) throws CoreException, IOException {
 		this.profileApplicationFile = profileApplicationFile;
 		this.resourceSet = resourceSet;
 		this.facade = loadProfileApplication(profileApplicationFile);
-		if (facade.getProfileApplications().isEmpty()){
+		if (facade.getProfileApplications().isEmpty()) {
 			throw new IOException("The resource at "
 					+ profileApplicationFile.toString()
 					+ ", does not contain any profile applications.");
@@ -117,7 +118,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
 	}
-	
+
 	/**
 	 * Creates new profiles application
 	 * 
@@ -137,7 +138,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 
 		return facade;
 	}
-	
+
 	/**
 	 * Creates new instance of {@link IProfileFacade}
 	 * 
@@ -151,7 +152,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		facade.loadProfileApplication(profileApplicationFile, resourceSet);
 		return facade;
 	}
-	
+
 	/**
 	 * Loads an existing profiles application.
 	 * 
@@ -163,7 +164,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	private IProfileFacade loadProfileApplication(IFile profileApplicationFile)
 			throws CoreException, IOException {
-		profileApplicationFile.refreshLocal(IFile.DEPTH_ONE, new NullProgressMonitor());
+		profileApplicationFile.refreshLocal(IFile.DEPTH_ONE,
+				new NullProgressMonitor());
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		return facade;
 	}
@@ -242,7 +244,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	public EList<StereotypeApplication> getStereotypeApplications(
 			EObject eObject, Stereotype stereotype) {
-		return profileApplication.getStereotypeApplications(eObject, stereotype);
+		return profileApplication
+				.getStereotypeApplications(eObject, stereotype);
 	}
 
 	/**
@@ -299,9 +302,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc --> 
-	 * Return the modification status of the underlying resource.
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> Return the modification status of the underlying
+	 * resource. <!-- end-user-doc -->
 	 * 
 	 */
 	public boolean isDirty() {
@@ -336,12 +338,14 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	public void unload() {
 		// first remove the reference from profile application manager
-		ProfileApplicationManagerImpl pam = (ProfileApplicationManagerImpl) this.eContainer();
+		ProfileApplicationManagerImpl pam = (ProfileApplicationManagerImpl) this
+				.eContainer();
 		pam.removeProfileApplication(this);
-		
+
 		// At the moment the IProfileFacade#unload() does nothing
 		// the code for unloading resource should be moved to the facade
-		// TODO investigate moving to code to the #unload() method of the IProfileFacade
+		// TODO investigate moving to code to the #unload() method of the
+		// IProfileFacade
 		getProfileApplicationResource().unload();
 		facade.unload();
 	}

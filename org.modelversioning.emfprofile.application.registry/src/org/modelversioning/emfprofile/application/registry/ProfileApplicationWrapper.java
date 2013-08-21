@@ -68,7 +68,8 @@ public interface ProfileApplicationWrapper extends EObject {
 	 * method was generated and it is not intended to be used for manually
 	 * setting the {@link ProfileApplication} reference. This is done by the
 	 * construction of the wrapper. <br>
-	 * <em><b>Calling this method will always throw {@link UnsupportedOperationException}</b></em> <!-- end-user-doc -->
+	 * <em><b>Calling this method will always throw {@link UnsupportedOperationException}</b></em>
+	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
 	 *            the new value of the '<em>Profile Application</em>' reference.
@@ -144,7 +145,6 @@ public interface ProfileApplicationWrapper extends EObject {
 	 *            to apply the <code>applicableStereotype</code> to.
 	 * @return the created instance of the {@link StereotypeApplication}. <!--
 	 *         end-user-doc -->
-	 * 
 	 * @model
 	 * @generated
 	 */
@@ -160,7 +160,6 @@ public interface ProfileApplicationWrapper extends EObject {
 	 * @param eClass
 	 *            to get applicable stereotype for.
 	 * @return the list of applicable {@link Stereotype}s. <!-- end-user-doc -->
-	 * 
 	 * @model many="false"
 	 * @generated
 	 */

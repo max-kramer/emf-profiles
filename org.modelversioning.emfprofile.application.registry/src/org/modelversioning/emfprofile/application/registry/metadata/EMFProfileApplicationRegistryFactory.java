@@ -87,6 +87,7 @@ public interface EMFProfileApplicationRegistryFactory extends EFactory {
 			Collection<Profile> profiles) throws CoreException, IOException;
 
 	ProfileApplicationWrapper createProfileApplicationWrapper(
-			ResourceSet resourceSet, IFile profileApplicationFile) throws CoreException, IOException;
+			ResourceSet resourceSet, IFile profileApplicationFile)
+			throws CoreException, IOException;
 
 } // EMFProfileApplicationRegistryFactory

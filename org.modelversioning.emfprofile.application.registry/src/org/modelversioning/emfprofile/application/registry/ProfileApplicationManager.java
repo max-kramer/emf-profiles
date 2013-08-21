@@ -73,7 +73,6 @@ public interface ProfileApplicationManager extends EObject {
 	 * @throws IOException
 	 * @throws IllegalArgumentException
 	 *             if <code>profiles</code> are empty. <!-- end-user-doc -->
-	 * 
 	 * @model required="true" exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.IllegalArgumentException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
 	 *        profileApplicationFileDataType
@@ -93,7 +92,6 @@ public interface ProfileApplicationManager extends EObject {
 	 * 
 	 * @return <code>true</code> if any found, <code>false</code> otherwise.
 	 *         <!-- end-user-doc -->
-	 * 
 	 * @model required="true"
 	 * @generated
 	 */
@@ -121,7 +119,6 @@ public interface ProfileApplicationManager extends EObject {
 	 *             if the profile application resource was already loaded for
 	 *             the provided {@link ResourceSet resource set}. <!--
 	 *             end-user-doc -->
-	 * 
 	 * @model exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.ProfileApplicationAlreadyLoadedException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
 	 *        profileApplicationFileDataType
@@ -134,8 +131,9 @@ public interface ProfileApplicationManager extends EObject {
 			CoreException;
 
 	/**
-	 * <!-- begin-user-doc --> Unloads and removes all {@link ProfileApplicationWrapper
-	 * profile applications} held by this manager.<!-- end-user-doc -->
+	 * <!-- begin-user-doc --> Unloads and removes all
+	 * {@link ProfileApplicationWrapper profile applications} held by this
+	 * manager.<!-- end-user-doc -->
 	 * 
 	 * @model
 	 * @generated

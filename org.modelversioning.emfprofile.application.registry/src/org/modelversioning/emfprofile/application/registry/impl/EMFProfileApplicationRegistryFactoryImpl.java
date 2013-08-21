@@ -176,13 +176,15 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws CoreException 
+	 * 
+	 * @throws IOException
+	 * @throws CoreException
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationWrapper createProfileApplicationWrapper(
-			ResourceSet resourceSet, IFile file, Collection<Profile> profiles) throws CoreException, IOException {
+			ResourceSet resourceSet, IFile file, Collection<Profile> profiles)
+			throws CoreException, IOException {
 		ProfileApplicationWrapperImpl profileApplicationWrapper = new ProfileApplicationWrapperImpl(
 				resourceSet, file, profiles);
 		return profileApplicationWrapper;
@@ -190,13 +192,15 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws IOException 
-	 * @throws CoreException 
+	 * 
+	 * @throws IOException
+	 * @throws CoreException
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationWrapper createProfileApplicationWrapper(
-			ResourceSet resourceSet, IFile file) throws CoreException, IOException {
+			ResourceSet resourceSet, IFile file) throws CoreException,
+			IOException {
 		ProfileApplicationWrapperImpl profileApplicationWrapper = new ProfileApplicationWrapperImpl(
 				resourceSet, file);
 		return profileApplicationWrapper;

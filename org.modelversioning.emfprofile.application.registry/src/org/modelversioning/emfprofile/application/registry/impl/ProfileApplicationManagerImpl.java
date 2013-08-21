@@ -259,8 +259,10 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 			paw.unload();
 		}
 		profileApplications.clear();
-		ProfileApplicationRegistryImpl registry = (ProfileApplicationRegistryImpl) this.eContainer();
-		if(registry != null) // if it is null that means that it was already removed from the container
+		ProfileApplicationRegistryImpl registry = (ProfileApplicationRegistryImpl) this
+				.eContainer();
+		if (registry != null) // if it is null that means that it was already
+								// removed from the container
 			registry.removeProfileApplicationManager(this);
 		disposing = false;
 	}
