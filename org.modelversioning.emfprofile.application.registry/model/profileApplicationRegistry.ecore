@@ -52,7 +52,8 @@
     <eOperations name="getProfileApplicationResource" eType="#//Resource"/>
     <eOperations name="unload"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileApplication" lowerBound="1"
-        eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//ProfileApplication"/>
+        eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//ProfileApplication"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationRegistry">
     <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager"
