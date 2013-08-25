@@ -22,42 +22,56 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
 public class SaveAllProfileApplicationsHandler extends AbstractHandler
 		implements IHandler {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.
+	 * ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		if(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart() != null){
+		if (ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener()
+				.getLastActiveEditorPart() != null) {
 			PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
-				
+
 				@Override
 				public void run() {
-					Iterator<ProfileApplicationWrapper> profileApplicationsIterator = ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(ActiveEditorObserver.INSTANCE.getResourceSetOfEditorPart(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart())).getProfileApplications().iterator();
-					while(profileApplicationsIterator.hasNext()){
-						final ProfileApplicationWrapper profileApplication = profileApplicationsIterator.next();
-						if(profileApplication.isDirty())
+					Iterator<ProfileApplicationWrapper> profileApplicationsIterator = ProfileApplicationRegistry.INSTANCE
+							.getProfileApplicationManager(
+									ActiveEditorObserver.INSTANCE
+											.getDecoratableEditorPartListener()
+											.getResourceSetOfDecoratableActiveEditor())
+							.getProfileApplications().iterator();
+					while (profileApplicationsIterator.hasNext()) {
+						final ProfileApplicationWrapper profileApplication = profileApplicationsIterator
+								.next();
+						if (profileApplication.isDirty())
 							saveProfileApplication(profileApplication);
 					}
 				}
 			});
 		}
 
-//		MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Info", "Save All Profile Applications!");
+		// MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(),
+		// "Info", "Save All Profile Applications!");
 		return null;
 	}
-	private void saveProfileApplication(final ProfileApplicationWrapper profileApplication){
+
+	private void saveProfileApplication(
+			final ProfileApplicationWrapper profileApplication) {
 		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 			@Override
 			public void execute(IProgressMonitor monitor) {
@@ -67,23 +81,28 @@ public class SaveAllProfileApplicationsHandler extends AbstractHandler
 					showError(
 							"Error while saving profile application resource",
 							e);
-				}finally {
-					ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
+				} finally {
+					// TODO remove refresh viewer stuff
+					// ActiveEditorObserver.INSTANCE
+					// .updateViewer(profileApplication);
 				}
 			}
 		};
 		try {
-			new ProgressMonitorDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).run(true, false,
+			new ProgressMonitorDialog(PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getShell()).run(true, false,
 					operation);
 		} catch (Exception e) {
 			e.printStackTrace();
 			showError("Error while saving profile application resource", e);
 		}
 	}
+
 	private void showError(String message, Throwable throwable) {
-		ErrorDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error Occured",
+		ErrorDialog.openError(PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getShell(), "Error Occured",
 				message, new Status(IStatus.ERROR,
-						EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID, throwable.getMessage(),
-						throwable));
+						EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
+						throwable.getMessage(), throwable));
 	}
 }

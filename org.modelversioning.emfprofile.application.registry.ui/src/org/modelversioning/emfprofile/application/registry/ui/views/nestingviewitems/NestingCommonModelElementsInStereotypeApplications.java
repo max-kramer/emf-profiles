@@ -5,7 +5,7 @@
  * accompanies this distribution, and is available at
  *  http://www.eclipse.org/legal/epl-v10.html
  */
-package org.modelversioning.emfprofile.application.registry.ui.observer;
+package org.modelversioning.emfprofile.application.registry.ui.views.nestingviewitems;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,44 +35,51 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
+import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
+ * This class provides popup menu contributions to create nested elements under
+ * stereotype applications in the tree view.
+ * 
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
 public class NestingCommonModelElementsInStereotypeApplications implements
 		ISelectionChangedListener, IMenuListener {
-	
+
 	public static final String NESTING_COMMON_MODEL_ELEMENTS_MENU_NAME = "Nesting Common Model Elements Menu";
 	public static final String NESTING_COMMON_MODEL_ELEMENTS_MENU_ID = "EMFProfileApplicationRegistryUI_NestingCommonModelElementsMenuID";
 	public static final String UI_CREATE_CHILD_MENU_ITEM = "&New Child";
 	public static final String UI_CREATE_SIBLING_MENU_ITEM = "N&ew Sibling";
 
 	/**
-	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
-	 * generated for the current selection by the item provider.
+	 * This will contain one
+	 * {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to
+	 * each descriptor generated for the current selection by the item provider.
 	 */
 	private Collection<IAction> createChildActions;
 
 	/**
-	 * This is the menu manager into which menu contribution items should be added for CreateChild actions.
+	 * This is the menu manager into which menu contribution items should be
+	 * added for CreateChild actions.
 	 */
 	private IMenuManager createChildMenuManager;
 
 	/**
-	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
-	 * generated for the current selection by the item provider.
+	 * This will contain one
+	 * {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding
+	 * to each descriptor generated for the current selection by the item
+	 * provider.
 	 */
 	private Collection<IAction> createSiblingActions;
 
 	/**
-	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
+	 * This is the menu manager into which menu contribution items should be
+	 * added for CreateSibling actions.
 	 */
 	private IMenuManager createSiblingMenuManager;
-	
-	
-	
+
 	/**
 	 * Default Constructor
 	 */
@@ -81,12 +88,15 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 	}
 
 	/**
-	 * This adds to the context menu a menu and the sub-menus for object creation items.
+	 * This adds to the context menu a menu and the sub-menus for object
+	 * creation items.
 	 */
 	public void contributeToMenu(IMenuManager menuManager) {
-//		super.contributeToMenu(menuManager);
+		// super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(NESTING_COMMON_MODEL_ELEMENTS_MENU_NAME, NESTING_COMMON_MODEL_ELEMENTS_MENU_ID);
+		IMenuManager submenuManager = new MenuManager(
+				NESTING_COMMON_MODEL_ELEMENTS_MENU_NAME,
+				NESTING_COMMON_MODEL_ELEMENTS_MENU_ID);
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -105,28 +115,29 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 
 		// Force an update because Eclipse hides empty menus now.
 		//
-		submenuManager.addMenuListener
-			(new IMenuListener() {
-				 public void menuAboutToShow(IMenuManager menuManager) {
-					 menuManager.updateAll(true);
-				 }
-			 });
-		
-//		addGlobalActions(submenuManager);
+		submenuManager.addMenuListener(new IMenuListener() {
+			public void menuAboutToShow(IMenuManager menuManager) {
+				menuManager.updateAll(true);
+			}
+		});
+
+		// addGlobalActions(submenuManager);
 	}
 
-	
 	/**
-	 * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener},
-	 * handling {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and siblings
-	 * that can be added to the selected object and updating the menus accordingly.
+	 * This implements
+	 * {@link org.eclipse.jface.viewers.ISelectionChangedListener}, handling
+	 * {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for
+	 * the children and siblings that can be added to the selected object and
+	 * updating the menus accordingly.
 	 */
 	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
-		if(ActiveEditorObserver.INSTANCE.getLastActiveEditorPart() == null){
+		if (ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener()
+				.getLastActiveEditorPart() == null) {
 			return;
 		}
-		
+
 		if (createChildMenuManager != null) {
 			depopulateManager(createChildMenuManager, createChildActions);
 		}
@@ -135,25 +146,29 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 		}
 
 		ISelection selection = event.getSelection();
-		if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1) {
-			
-			// if selected object is ProfileApplicationDecorator then return
-			if(((IStructuredSelection)selection).getFirstElement() instanceof ProfileApplicationWrapper){
-				return;				
+		if (selection instanceof IStructuredSelection
+				&& ((IStructuredSelection) selection).size() == 1) {
+
+			// if selected object is ProfileApplicationWrapper then return
+			if (((IStructuredSelection) selection).getFirstElement() instanceof ProfileApplicationWrapper) {
+				return;
 			}
-			
-			EObject eObject = (EObject) ((IStructuredSelection)selection).getFirstElement();
-			
+
+			EObject eObject = (EObject) ((IStructuredSelection) selection)
+					.getFirstElement();
+
 			ProfileApplicationWrapper profileApplication;
 			try {
-				profileApplication = ActiveEditorObserver.INSTANCE.findProfileApplicationWrapper(
-						eObject);
-				createChildActions = generateCreateChildActions(eObject, profileApplication);
-				
-				if(eObject instanceof StereotypeApplication){
+				profileApplication = ActiveEditorObserver.INSTANCE
+						.findProfileApplicationWrapper(eObject);
+				createChildActions = generateCreateChildActions(eObject,
+						profileApplication);
+
+				if (eObject instanceof StereotypeApplication) {
 					createSiblingActions = Collections.emptyList();
-				}else{
-					createSiblingActions = generateCreateSiblingActions(eObject, profileApplication);
+				} else {
+					createSiblingActions = generateCreateSiblingActions(
+							eObject, profileApplication);
 				}
 			} catch (TraversingEObjectContainerChainException e) {
 			}
@@ -164,61 +179,70 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 			createChildMenuManager.update(true);
 		}
 		if (createSiblingMenuManager != null) {
-			populateManager(createSiblingMenuManager, createSiblingActions, null);
+			populateManager(createSiblingMenuManager, createSiblingActions,
+					null);
 			createSiblingMenuManager.update(true);
 		}
 	}
 
-	private Collection<IAction> generateCreateChildActions(final EObject eObject,
+	private Collection<IAction> generateCreateChildActions(
+			final EObject eObject,
 			final ProfileApplicationWrapper profileApplication) {
 		ArrayList<IAction> actions = new ArrayList<>();
 		EList<EReference> references = eObject.eClass().getEAllContainments();
 		for (final EReference reference : references) {
-			final EClass type = getInstantiableClass(reference.getEReferenceType());
-			if(type == null 
-					|| type.getName().equals("EAnnotation")
+			final EClass type = getInstantiableClass(reference
+					.getEReferenceType());
+			if (type == null || type.getName().equals("EAnnotation")
 					|| type.getName().equals("ETypeParameter")
 					|| type.getName().equals("EOperation")
 					|| type.getName().equals("EAttribute")
-					|| type.getName().equals("EGenericType")){
+					|| type.getName().equals("EGenericType")) {
 				continue;
 			}
 			IAction action = new Action() {
 				@Override
 				public void run() {
 					EObject newEObject = EcoreUtil.create(type);
-					profileApplication.addNestedEObject(eObject, reference, newEObject);
-					
-					ActiveEditorObserver.INSTANCE.refreshViewer(eObject);
-					ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
+					profileApplication.addNestedEObject(eObject, reference,
+							newEObject);
+
+					// TODO remove refresh things
+					// ActiveEditorObserver.INSTANCE.refreshViewer(eObject);
+					// ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
 					ActiveEditorObserver.INSTANCE.revealElement(newEObject);
-					
+
 					boolean isEnabled = false;
-					if(reference.isMany()){
-						if(reference.getUpperBound() == -1 || reference.getUpperBound() == -2)
+					if (reference.isMany()) {
+						if (reference.getUpperBound() == -1
+								|| reference.getUpperBound() == -2)
 							isEnabled = true;
-						else if(((Collection<?>)eObject.eGet(reference)).size() < reference.getUpperBound() )
+						else if (((Collection<?>) eObject.eGet(reference))
+								.size() < reference.getUpperBound())
 							isEnabled = true;
-					}else{
-						if(!eObject.eIsSet(reference))
+					} else {
+						if (!eObject.eIsSet(reference))
 							isEnabled = true;
 					}
 					setEnabled(isEnabled);
 				}
-				
+
 			};
 			action.setText(reference.getName() + " " + type.getName());
 			action.setToolTipText(reference.getName() + " " + type.getName());
-			action.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-					getImageDescriptor(ISharedImages.IMG_OBJ_ELEMENT));
+			action.setImageDescriptor(PlatformUI.getWorkbench()
+					.getSharedImages()
+					.getImageDescriptor(ISharedImages.IMG_OBJ_ELEMENT));
 			boolean isEnabled = false;
-			if(reference.isMany()){
-				if(reference.getUpperBound() == -1 || reference.getUpperBound() == -2)
+			if (reference.isMany()) {
+				if (reference.getUpperBound() == -1
+						|| reference.getUpperBound() == -2)
 					isEnabled = true;
-				else if(((Collection<?>)eObject.eGet(reference)).size() < reference.getUpperBound())
+				else if (((Collection<?>) eObject.eGet(reference)).size() < reference
+						.getUpperBound())
 					isEnabled = true;
-			}else{
-				if(!eObject.eIsSet(reference))
+			} else {
+				if (!eObject.eIsSet(reference))
 					isEnabled = true;
 			}
 			action.setEnabled(isEnabled);
@@ -226,36 +250,42 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 		}
 		return actions;
 	}
-	
+
 	private Collection<IAction> generateCreateSiblingActions(EObject eObject,
 			ProfileApplicationWrapper profileApplication) {
-		return generateCreateChildActions(eObject.eContainer(), profileApplication);
+		return generateCreateChildActions(eObject.eContainer(),
+				profileApplication);
 	}
 
 	/**
-	 * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
-	 * by inserting them before the specified contribution item <code>contributionID</code>.
-	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
+	 * This populates the specified <code>manager</code> with
+	 * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
+	 * {@link org.eclipse.jface.action.IAction}s contained in the
+	 * <code>actions</code> collection, by inserting them before the specified
+	 * contribution item <code>contributionID</code>. If
+	 * <code>contributionID</code> is <code>null</code>, they are simply added.
 	 */
-	public void populateManager(IContributionManager manager, Collection<? extends IAction> actions, String contributionID) {
+	public void populateManager(IContributionManager manager,
+			Collection<? extends IAction> actions, String contributionID) {
 		if (actions != null) {
 			for (IAction action : actions) {
 				if (contributionID != null) {
 					manager.insertBefore(contributionID, action);
-				}
-				else {
+				} else {
 					manager.add(action);
 				}
 			}
 		}
 	}
-		
+
 	/**
-	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
+	 * This removes from the specified <code>manager</code> all
+	 * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
+	 * {@link org.eclipse.jface.action.IAction}s contained in the
+	 * <code>actions</code> collection.
 	 */
-	public void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
+	public void depopulateManager(IContributionManager manager,
+			Collection<? extends IAction> actions) {
 		if (actions != null) {
 			IContributionItem[] items = manager.getItems();
 			for (int i = 0; i < items.length; i++) {
@@ -263,13 +293,15 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 				//
 				IContributionItem contributionItem = items[i];
 				while (contributionItem instanceof SubContributionItem) {
-					contributionItem = ((SubContributionItem)contributionItem).getInnerItem();
+					contributionItem = ((SubContributionItem) contributionItem)
+							.getInnerItem();
 				}
 
 				// Delete the ActionContributionItems with matching action.
 				//
 				if (contributionItem instanceof ActionContributionItem) {
-					IAction action = ((ActionContributionItem)contributionItem).getAction();
+					IAction action = ((ActionContributionItem) contributionItem)
+							.getAction();
 					if (actions.contains(action)) {
 						manager.remove(contributionItem);
 					}
@@ -283,7 +315,7 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 	 */
 	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
-//		super.menuAboutToShow(menuManager);
+		// super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
 		submenuManager = new MenuManager(UI_CREATE_CHILD_MENU_ITEM);
@@ -295,31 +327,32 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 		menuManager.insertBefore("edit", submenuManager);
 	}
 
-	private static EClass getInstantiableClass(EClass target){
-		if(!target.isAbstract()) return target;
+	private static EClass getInstantiableClass(EClass target) {
+		if (!target.isAbstract())
+			return target;
 		List<?> classifiers = target.getEPackage().getEClassifiers();
 		for (Object object : classifiers) {
-			if(object instanceof EClass){
+			if (object instanceof EClass) {
 				EClass eClass = (EClass) object;
-				if(!eClass.isAbstract() && target.isSuperTypeOf(eClass)){
+				if (!eClass.isAbstract() && target.isSuperTypeOf(eClass)) {
 					return eClass;
 				}
 			}
 		}
 		return null;
 	}
-	
-//	/**
-//	 * This inserts global actions before the "additions-end" separator.
-//	 */
-//	public void addGlobalActions(IMenuManager menuManager) {
-//		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
-//		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
-//
-//		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
-//		menuManager.insertAfter("ui-actions", refreshViewerAction);
-//
-//		super.addGlobalActions(menuManager);
-//	}
-	
+
+	// /**
+	// * This inserts global actions before the "additions-end" separator.
+	// */
+	// public void addGlobalActions(IMenuManager menuManager) {
+	// menuManager.insertAfter("additions-end", new Separator("ui-actions"));
+	// menuManager.insertAfter("ui-actions", showPropertiesViewAction);
+	//
+	// refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
+	// menuManager.insertAfter("ui-actions", refreshViewerAction);
+	//
+	// super.addGlobalActions(menuManager);
+	// }
+
 }

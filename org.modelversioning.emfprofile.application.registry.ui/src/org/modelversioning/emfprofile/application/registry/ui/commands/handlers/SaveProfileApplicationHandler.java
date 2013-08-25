@@ -27,28 +27,31 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
-import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
 public class SaveProfileApplicationHandler extends AbstractHandler implements
 		IHandler {
-	
-	public static final String COMMAND_ID = "org.modelversioning.emfprofile.application.registry.ui.commands.saveprofileapplication";
-	
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+	public static final String COMMAND_ID = "org.modelversioning.emfprofile.application.registry.ui.commands.saveprofileapplication";
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.
+	 * ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection currentSelection = HandlerUtil.getCurrentSelection(event);
-		if(currentSelection != null && currentSelection instanceof IStructuredSelection){
+		if (currentSelection != null
+				&& currentSelection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) currentSelection;
 			Object element = structuredSelection.getFirstElement();
-			if(element instanceof ProfileApplicationWrapper){
+			if (element instanceof ProfileApplicationWrapper) {
 				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
 				WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 					@Override
@@ -59,32 +62,42 @@ public class SaveProfileApplicationHandler extends AbstractHandler implements
 							showError(
 									"Error while saving profile application resource",
 									e);
-						}finally {
-							ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
+						} finally {
+							// TODO remove refresh viewer stuff
+							// ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
 						}
 					}
 				};
 				try {
-					new ProgressMonitorDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell()).run(true, false,
-							operation);
+					new ProgressMonitorDialog(PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow().getShell()).run(true,
+							false, operation);
 				} catch (Exception e) {
 					e.printStackTrace();
-					showError("Error while saving profile application resource", e);
+					showError(
+							"Error while saving profile application resource",
+							e);
 				}
-			}else {
-				MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Not a profile facade selected", "selection: " + currentSelection.toString());
+			} else {
+				MessageDialog.openInformation(HandlerUtil
+						.getActiveWorkbenchWindow(event).getShell(),
+						"Not a profile facade selected", "selection: "
+								+ currentSelection.toString());
 			}
-		}else {
-			MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Info", "no selection in view");
+		} else {
+			MessageDialog.openInformation(
+					HandlerUtil.getActiveWorkbenchWindow(event).getShell(),
+					"Info", "no selection in view");
 		}
-		
+
 		return null;
 	}
-	
+
 	private void showError(String message, Throwable throwable) {
-		ErrorDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Error Occured",
+		ErrorDialog.openError(PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getShell(), "Error Occured",
 				message, new Status(IStatus.ERROR,
-						EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID, throwable.getMessage(),
-						throwable));
+						EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
+						throwable.getMessage(), throwable));
 	}
 }

@@ -40,10 +40,10 @@ import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
-import org.modelversioning.emfprofile.application.registry.ui.observer.NestingCommonModelElementsInStereotypeApplications;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationWrapperReflectiveItemProviderAdapterFactory;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderContentAdapter;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderLabelAdapter;
+import org.modelversioning.emfprofile.application.registry.ui.views.nestingviewitems.NestingCommonModelElementsInStereotypeApplications;
 import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
 import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
 

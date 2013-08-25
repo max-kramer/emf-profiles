@@ -39,7 +39,7 @@ public class StereotypeApplicationsOnSelectedElementHandler extends
 			 
 		boolean oldValue = ((Boolean) state.getValue()).booleanValue();
 		state.setValue(new Boolean(!oldValue));
-		ActiveEditorObserver.INSTANCE.setActivateViewFilter(((Boolean)state.getValue()).booleanValue());
+		ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener().setActivateViewFilter(((Boolean)state.getValue()).booleanValue());
 //		MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Info", "profile apps on selected element! State: " + state.getValue().toString());
 		return null;
 	}

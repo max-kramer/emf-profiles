@@ -16,12 +16,11 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  *
  */
-public class StereotypesOfEObjectViewerFilter extends ViewerFilter {
+public class AppliedStereotypesOfSelectedEObjectViewerFilter extends ViewerFilter {
 	
-	private EObject selectedEObject;
+	private EObject selectedEObject = null;
 
-	public StereotypesOfEObjectViewerFilter(EObject eObject) {
-		this.selectedEObject = eObject;
+	public AppliedStereotypesOfSelectedEObjectViewerFilter() {
 	}
 
 	public void setSelectedEObject(EObject eObject){
@@ -34,7 +33,6 @@ public class StereotypesOfEObjectViewerFilter extends ViewerFilter {
 	
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
-//		ProfileApplicationDecorator pa = (ProfileApplicationDecorator) parentElement;
 		if(element instanceof StereotypeApplication){
 			StereotypeApplication sa = (StereotypeApplication) element;
 			if(selectedEObject != null && ! sa.getAppliedTo().equals(selectedEObject))

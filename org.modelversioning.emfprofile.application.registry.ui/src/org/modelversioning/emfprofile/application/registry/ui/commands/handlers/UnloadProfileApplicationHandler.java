@@ -24,68 +24,90 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.ISources;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.commands.ICommandService;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.handlers.IHandlerService;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
-import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
-public class UnloadProfileApplicationHandler extends AbstractHandler implements	IHandler {
+public class UnloadProfileApplicationHandler extends AbstractHandler implements
+		IHandler {
 
 	public static final String COMMAND_ID = "org.modelversioning.emfprofile.application.registry.ui.commands.unloadprofileapplication";
 	// Retrieve the corresponding Services
-		IHandlerService handlerService = (IHandlerService) PlatformUI.getWorkbench().getService(IHandlerService.class);
-		ICommandService commandService = (ICommandService) PlatformUI.getWorkbench().getService(ICommandService.class);
+	IHandlerService handlerService = (IHandlerService) PlatformUI
+			.getWorkbench().getService(IHandlerService.class);
+	ICommandService commandService = (ICommandService) PlatformUI
+			.getWorkbench().getService(ICommandService.class);
 
-		// Retrieve commands
-		Command saveCmd = commandService.getCommand(SaveProfileApplicationHandler.COMMAND_ID);
-		
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+	// Retrieve commands
+	Command saveCmd = commandService
+			.getCommand(SaveProfileApplicationHandler.COMMAND_ID);
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.
+	 * ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection currentSelection = HandlerUtil.getCurrentSelection(event);
-		if(currentSelection != null && currentSelection instanceof IStructuredSelection){
+		if (currentSelection != null
+				&& currentSelection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) currentSelection;
 			Object element = structuredSelection.getFirstElement();
-			if(element instanceof ProfileApplicationWrapper){
+			if (element instanceof ProfileApplicationWrapper) {
 				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
 				ifProfileApplicationDirty_AskToSave(profileApplication);
 				EList<EObject> eObjects = new BasicEList<>();
-				for (StereotypeApplication stereotypeApplication : profileApplication.getStereotypeApplications()) {
+				for (StereotypeApplication stereotypeApplication : profileApplication
+						.getStereotypeApplications()) {
 					eObjects.add(stereotypeApplication.getAppliedTo());
 				}
-				IEditorPart activeEditor = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage().getActiveEditor();
+//				IEditorPart activeEditor = HandlerUtil
+//						.getActiveWorkbenchWindow(event).getActivePage()
+//						.getActiveEditor();
 				profileApplication.unload();
-				ActiveEditorObserver.INSTANCE.refreshViewer();
-				ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
-			}else {
-				MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Not a profile application selected", "selection: " + currentSelection.toString());
+				// TODO remove refresh viewer stuff
+				// ActiveEditorObserver.INSTANCE.refreshViewer();
+				// ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
+			} else {
+				MessageDialog.openInformation(HandlerUtil
+						.getActiveWorkbenchWindow(event).getShell(),
+						"Not a profile application selected", "selection: "
+								+ currentSelection.toString());
 			}
-		}else {
-			MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Info", "no selection in view");
+		} else {
+			MessageDialog.openInformation(
+					HandlerUtil.getActiveWorkbenchWindow(event).getShell(),
+					"Info", "no selection in view");
 		}
 
 		return null;
 	}
 
-	private final void ifProfileApplicationDirty_AskToSave(ProfileApplicationWrapper profileApplication){
-		if(profileApplication.isDirty()){
-			if(MessageDialog.openQuestion(null, "Save Profile Application", "Unloading unsaved Profile Application: " 
-					+ profileApplication.getName() + "\nDo you wish to save it?")){
-				// Create an ExecutionEvent and specify the profile application associated
-				ExecutionEvent executionEvent = handlerService.createExecutionEvent(saveCmd, new Event());
-				((IEvaluationContext) executionEvent.getApplicationContext()).addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME, new StructuredSelection(profileApplication));
+	private final void ifProfileApplicationDirty_AskToSave(
+			ProfileApplicationWrapper profileApplication) {
+		if (profileApplication.isDirty()) {
+			if (MessageDialog.openQuestion(null, "Save Profile Application",
+					"Unloading unsaved Profile Application: "
+							+ profileApplication.getName()
+							+ "\nDo you wish to save it?")) {
+				// Create an ExecutionEvent and specify the profile application
+				// associated
+				ExecutionEvent executionEvent = handlerService
+						.createExecutionEvent(saveCmd, new Event());
+				((IEvaluationContext) executionEvent.getApplicationContext())
+						.addVariable(ISources.ACTIVE_CURRENT_SELECTION_NAME,
+								new StructuredSelection(profileApplication));
 
 				// Launch the command
 				try {
@@ -96,7 +118,7 @@ public class UnloadProfileApplicationHandler extends AbstractHandler implements	
 					e.printStackTrace();
 				}
 			}
-		
+
 		}
 	}
 }

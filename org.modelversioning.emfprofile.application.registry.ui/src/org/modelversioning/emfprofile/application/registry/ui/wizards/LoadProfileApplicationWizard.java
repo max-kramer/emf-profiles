@@ -41,6 +41,7 @@ public class LoadProfileApplicationWizard extends Wizard {
 	private static final String PROFILE_APPLICATION_PAGE_NAME = "newFilePage1"; //$NON-NLS-1$
 	private static final String WINDOW_TITLE = "Select Profile Application File";
 
+	//TODO remove targetEditorPart
 	private IEditorPart targetEditorPart = null;
 	private SelectProfileApplicationFilePage profileAppFilePage = null;
 
@@ -66,7 +67,7 @@ public class LoadProfileApplicationWizard extends Wizard {
 		System.out.println(profileApplicationFile.getLocation().toString());
 		try {
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE
-					.getResourceSetOfEditorPart(targetEditorPart);
+					.getDecoratableEditorPartListener().getResourceSetOfDecoratableActiveEditor();//getResourceSetOfEditorPart(targetEditorPart);
 			if (resourceSet == null)
 				throw new RuntimeException(
 						"Could not find the ResourceSet of this editor part: "
@@ -81,7 +82,8 @@ public class LoadProfileApplicationWizard extends Wizard {
 					.getStereotypeApplications()) {
 				eObjects.add(stereotypeApplication.getAppliedTo());
 			}
-			ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
+//			TODO remove refresh decorations stuff
+//			ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
 		} catch (Exception e) {
 			e.printStackTrace();
 			IStatus status = new Status(IStatus.ERROR,

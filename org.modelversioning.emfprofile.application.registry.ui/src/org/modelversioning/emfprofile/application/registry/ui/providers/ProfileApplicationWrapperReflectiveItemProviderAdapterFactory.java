@@ -9,11 +9,10 @@ package org.modelversioning.emfprofile.application.registry.ui.providers;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
 public class ProfileApplicationWrapperReflectiveItemProviderAdapterFactory
 		extends ReflectiveItemProviderAdapterFactory {
@@ -26,20 +25,20 @@ public class ProfileApplicationWrapperReflectiveItemProviderAdapterFactory
 	}
 
 	@Override
-	public void fireNotifyChanged(org.eclipse.emf.common.notify.Notification notification) {
+	public void fireNotifyChanged(
+			org.eclipse.emf.common.notify.Notification notification) {
 		super.fireNotifyChanged(notification);
 		int eventType = notification.getEventType();
-		if(eventType == Notification.ADD 
-				|| eventType == Notification.ADD_MANY
+		if (eventType == Notification.ADD || eventType == Notification.ADD_MANY
 				|| eventType == Notification.MOVE
 				|| eventType == Notification.REMOVE
 				|| eventType == Notification.REMOVE_MANY
 				|| eventType == Notification.SET
-				|| eventType == Notification.UNSET
-		)
-		{
-			ActiveEditorObserver.INSTANCE.setProfileApplicationChanged();
+				|| eventType == Notification.UNSET) {
+			// TODO check if this is going to be needed when we change something
+			// in properties view, otherwise remove whole class!
+			// ActiveEditorObserver.INSTANCE.setProfileApplicationChanged();
 		}
-		
+
 	}
 }

@@ -29,55 +29,65 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
 public class RemoveStereotypeApplicationOrNestedClassHandler extends
 		AbstractHandler implements IHandler {
 
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.
+	 * ExecutionEvent)
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
-		if(selection != null && selection instanceof IStructuredSelection){
+		if (selection != null && selection instanceof IStructuredSelection) {
 			Collection<Object> elementsToRefreshInView = new ArrayList<>();
 			Set<EObject> eObjectsToRefreshTheirDecorations = new HashSet<>();
-			IStructuredSelection sSelection = (IStructuredSelection)selection;
+			IStructuredSelection sSelection = (IStructuredSelection) selection;
 			Iterator<EObject> selectedObjectsIterator = sSelection.iterator();
 			while (selectedObjectsIterator.hasNext()) {
-					EObject eObject = selectedObjectsIterator.next();
-					if( ! (eObject instanceof ProfileApplication)){
-						ProfileApplicationWrapper profileApplicationWrapper;
-						try {
-							profileApplicationWrapper = ActiveEditorObserver.INSTANCE.findProfileApplicationWrapper(eObject);
-							if(eObject instanceof StereotypeApplication){
-								StereotypeApplication stereotypeApplication = (StereotypeApplication) eObject;
-								profileApplicationWrapper.removeEObject(stereotypeApplication);
-								eObjectsToRefreshTheirDecorations.add(stereotypeApplication.getAppliedTo());
-								elementsToRefreshInView.add(profileApplicationWrapper);
-							} else {
-								elementsToRefreshInView.add(eObject.eContainer());
-								// code for removing nested objects
-								profileApplicationWrapper.removeEObject(eObject);
-							}
-						} catch (TraversingEObjectContainerChainException e) {
-							// if it couldn't be found, that most probably indicates
-							// that any parent in chain to the root (which is profile application)
-							// so, continue
-							continue;
+				EObject eObject = selectedObjectsIterator.next();
+				if (!(eObject instanceof ProfileApplication)) {
+					ProfileApplicationWrapper profileApplicationWrapper;
+					try {
+						profileApplicationWrapper = ActiveEditorObserver.INSTANCE
+								.findProfileApplicationWrapper(eObject);
+						if (eObject instanceof StereotypeApplication) {
+							StereotypeApplication stereotypeApplication = (StereotypeApplication) eObject;
+							profileApplicationWrapper
+									.removeEObject(stereotypeApplication);
+							eObjectsToRefreshTheirDecorations
+									.add(stereotypeApplication.getAppliedTo());
+							elementsToRefreshInView
+									.add(profileApplicationWrapper);
+						} else {
+							elementsToRefreshInView.add(eObject.eContainer());
+							// code for removing nested objects
+							profileApplicationWrapper.removeEObject(eObject);
 						}
-													
+					} catch (TraversingEObjectContainerChainException e) {
+						// if it couldn't be found, that most probably indicates
+						// that any parent in chain to the root (which is
+						// profile application)
+						// so, continue
+						continue;
 					}
-					// TODO Consider removing the resource of profile application with this handler
-				
-				
+
+				}
+				// TODO Consider removing the resource of profile application
+				// with this handler
+
 			}
-			ActiveEditorObserver.INSTANCE.refreshViewer(elementsToRefreshInView);
-			for (EObject eObject : eObjectsToRefreshTheirDecorations) {
-				ActiveEditorObserver.INSTANCE.refreshDecoration(eObject);
-			}
+
+			// TODO remove refresh view stuff
+			// ActiveEditorObserver.INSTANCE.refreshViewer(elementsToRefreshInView);
+			// for (EObject eObject : eObjectsToRefreshTheirDecorations) {
+			// ActiveEditorObserver.INSTANCE.refreshDecoration(eObject);
+			// }
 		}
 		return null;
 	}
