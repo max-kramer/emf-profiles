@@ -194,7 +194,7 @@
                label="Apply Stereotype"
                style="push"
                tooltip="Apply Stereotype">
-           <!-- --><visibleWhen
+           <visibleWhen
                   checkEnabled="false">
                <with
                      variable="activePartId">
@@ -203,7 +203,6 @@
                   </test>
                </with>
             </visibleWhen>
-            <!--  -->
          </command>
          <separator
                name="org.modelversioning.emfprofile.application.registry.ui.separator3" visible="true">
@@ -331,6 +330,23 @@
       <handler
             class="org.modelversioning.emfprofile.application.registry.ui.commands.handlers.ApplyStereotypeHandler"
             commandId="org.modelversioning.emfprofile.application.registry.ui.commands.applystereotype">
+           	<enabledWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false"
+                     operator="or">
+                     <test
+                           forcePluginActivation="true"
+                           property="org.modelversioning.emfprofile.application.registry.ui.propertytester.selectioncontainsmodelobject">
+                     </test>
+                  
+               </iterate>
+               <count
+                     value="1">
+               </count>
+            </with>
+         </enabledWhen>
       </handler>
    </extension>
    <extension
@@ -371,6 +387,13 @@
             namespace="org.modelversioning.emfprofile.application.registry.ui.propertytester"
             properties="apply_stereotype_menu_contribution_visible"
             type="java.lang.String">
+      </propertyTester>
+      <propertyTester
+            class="org.modelversioning.emfprofile.application.registry.ui.propertytester.SelectionContainsModelObjectTester"
+            id="org.modelversioning.emfprofile.application.registry.ui.propertytester.selectioncontainsmodelobject"
+            namespace="org.modelversioning.emfprofile.application.registry.ui.propertytester"
+            properties="selectioncontainsmodelobject"
+            type="java.lang.Object">
       </propertyTester>
    </extension>
    <extension
