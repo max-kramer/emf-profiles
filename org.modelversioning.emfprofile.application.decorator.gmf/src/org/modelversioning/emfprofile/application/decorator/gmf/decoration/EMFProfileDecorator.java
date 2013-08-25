@@ -141,6 +141,7 @@ public class EMFProfileDecorator extends AbstractDecorator {
 				.getDecoratorTargetElement(getDecoratorTarget());
 		if (eObject != null) {
 			EMFProfileApplicationDecoratorImpl.registerDecoratorForEObject(eObject, this);
+			System.out.println("Registering a decorator for EObject: " + eObject);
 		}
 	}
 
@@ -153,6 +154,7 @@ public class EMFProfileDecorator extends AbstractDecorator {
 				.getDecoratorTargetElement(getDecoratorTarget());
 		if (eObject != null) {
 			EMFProfileApplicationDecoratorImpl.unregisterDecoratorForEObject(eObject);
+			System.out.println("Deregistering a decorator for EObject: " + eObject);
 		}
 		super.deactivate();
 	}
