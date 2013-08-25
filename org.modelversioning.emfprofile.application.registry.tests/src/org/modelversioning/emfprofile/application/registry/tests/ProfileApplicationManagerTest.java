@@ -19,7 +19,10 @@ import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -157,7 +160,6 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 	}
 
 	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationRegistryImpl#unloadProfileApplication(org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper)}.
 	 * @throws IOException 
 	 * @throws CoreException 
 	 */
@@ -176,14 +178,14 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 	}
 
 	/**
-	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationRegistryImpl#unloadAllProfileApplications(org.eclipse.emf.ecore.resource.ResourceSet)}.
+	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationRegistryImpl#dispose()}.
 	 * @throws IOException 
 	 * @throws CoreException 
 	 * @throws IllegalArgumentException 
 	 * @throws ProfileApplicationAlreadyLoadedException 
 	 */
 	@Test
-	public final void testUnloadAllProfileApplications() throws IllegalArgumentException, CoreException, IOException, ProfileApplicationAlreadyLoadedException {
+	public final void testDisposingProfileApplicationManager() throws IllegalArgumentException, CoreException, IOException, ProfileApplicationAlreadyLoadedException {
 		assertEquals(0, testProfileApplicationManager.getProfileApplications().size());
 		assertNotNull(testProfileApplicationManager.createNewProfileApplication(getTestProfileApplicationFile(), profiles));
 		assertEquals(1, testProfileApplicationManager.getProfileApplications().size());
@@ -258,6 +260,31 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 		testPA.removeEObject(testEObject.eContainer().eContainer());
 		testProfileApplicationManager.getProfileApplicationWrapperOfContainedEObject(testEObject);
 		fail("Did not throw an TraversingEObjectContainerChainException as expected!");
+	}
+	
+	@Test
+	public final void testNotifications() throws ProfileApplicationAlreadyLoadedException, IOException, CoreException {
+		EContentAdapter adapter1 = new EContentAdapter() {
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				System.out.println("1. Notification fired: " + notification.toString());
+			}
+		};
+		EContentAdapter adapter2 = new EContentAdapter() {
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				System.out.println("2. Notification fired: " + notification.toString());
+			}
+		};
+		testProfileApplicationManager.eAdapters().add(adapter1);
+		ProfileApplicationWrapper testPA = testProfileApplicationManager.loadProfileApplication(getPrepearedProfileApplication());
+//		testPA.getProfileApplication().eAdapters().add(adapter2);
+		assertNotNull(testPA);
+		EObject testEObject = getSomeChildOfStereotype(testPA); // it is an object of EClass type named 'Comment'
+		assertNotNull(testEObject);
+		testPA.removeEObject(testEObject.eContainer().eContainer());
 	}
 
 	private EObject getSomeChildOfStereotype(ProfileApplicationWrapper profileApplication) {

@@ -39,6 +39,9 @@ import org.modelversioning.emfprofile.Stereotype;
  *
  */
 public abstract class AbstractProfileApplicationRegistryTest {
+	
+	public static final String ECORE_EDITOR_ID = "org.eclipse.emf.ecoretools.diagram.part.EcoreDiagramEditorID";
+	
 	protected static final String TEST_PROJECT = "ProfileApplicationRegistryTest";
 	protected static final String FOLDER = "model";
 	protected static final String MODEL = "sample_ecore_model.ecore";

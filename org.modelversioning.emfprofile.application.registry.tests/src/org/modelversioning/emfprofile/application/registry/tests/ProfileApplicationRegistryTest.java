@@ -25,6 +25,7 @@ import org.junit.Test;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.impl.ProfileApplicationRegistryImpl;
 
 /**
@@ -113,4 +114,69 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 		assertThat(size, is(0));
 	}
 	
+	@Test(expected=NullPointerException.class)
+	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForNullResourceSet_shouldThrowNPE() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+		ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(null, "something");
+		fail("Did not throw NPE.");
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForNullEditorId_shouldThrowNPE() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+		ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet, null);
+		fail("Did not throw NPE.");
+	}
+
+	@Test(expected=ProfileApplicationDecoratorNotFoundException.class)
+	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForUnknownEditorId_shouldThrowException() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+		
+		// NOTE: please be sure that there is a GMF decorator extension plug-in present. Otherwise this test could fail for wrong reasons.
+		
+		ProfileApplicationRegistry registry = ProfileApplicationRegistry.INSTANCE;
+		registry.getProfileApplicationManager(resourceSet, "UnknownID");
+		fail("Did not throw ProfileApplicationDecoratorNotFoundException.");
+	}
+
+	@Test()
+	public void testGettingProfileApplicationManagerAndRegisteringDecorator_shouldRetournSameInstanceOfManager() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+		
+		// NOTE: please be sure that there is a GMF decorator extension plug-in present. Otherwise this test could fail for wrong reasons.
+
+		ProfileApplicationRegistry registry = ProfileApplicationRegistry.INSTANCE;
+		ProfileApplicationManager testPAManager1 = registry.getProfileApplicationManager(resourceSet, AbstractProfileApplicationRegistryTest.ECORE_EDITOR_ID);
+		assertNotNull(testPAManager1);
+		assertEquals(testPAManager1, registry.getProfileApplicationManager(resourceSet, AbstractProfileApplicationRegistryTest.ECORE_EDITOR_ID));
+		// also if we provide unknown editor id at this point the method should return the manager instance
+		assertEquals(testPAManager1, registry.getProfileApplicationManager(resourceSet, "doesntMatterID"));
+	}
+
+	
+//	class MockProfileApplicationRegistry extends ProfileApplicationRegistryImpl {
+//		
+//		boolean decoratorBound = false;
+//		
+//		public MockProfileApplicationRegistry() {
+//			super();
+//		}
+//		@Override
+//		public boolean hasProfileApplicationDecoratorForEditorId(String editorId) {
+//			if(editorId.equals(AbstractProfileApplicationRegistryTest.ECORE_EDITOR_ID))
+//				return true;
+//			else
+//				return false;
+//		}
+//		
+//		@Override
+//		public ProfileApplicationManager getProfileApplicationManager(
+//				ResourceSet resourceSet, String editorId)
+//				throws NullPointerException,
+//				ProfileApplicationDecoratorNotFoundException {
+//			ProfileApplicationManager manager =super.getProfileApplicationManager(resourceSet);
+//			if(decoratorBound)
+//				return manager;
+//			if (hasProfileApplicationDecoratorForEditorId(editorId) == false)
+//				throw new ProfileApplicationDecoratorNotFoundException();
+//			decoratorBound = true;
+//			return manager; 
+//		}
+//	}
 }
