@@ -176,9 +176,6 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated NOT
 	 */
 	public EMFProfileApplicationDecorator getProfileApplicationDecorator()
 			throws ProfileApplicationDecoratorNotFoundException {

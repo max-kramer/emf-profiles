@@ -121,4 +121,24 @@ public interface ProfileApplicationRegistry extends EObject {
 	 */
 	boolean hasProfileApplicationDecoratorForEditorId(String editorId);
 
+	/**
+	 * <!-- begin-user-doc -->Will return {@link EMFProfileApplicationDecorator
+	 * profile application decorator} for the given editor id if there is one
+	 * existing. To check if there is one existing see
+	 * {@link #hasProfileApplicationDecoratorForEditorId(String)}.
+	 * 
+	 * @throws NullPointerException
+	 *             if the editor id is <code>null</code> value.
+	 * @throws ProfileApplicationDecoratorNotFoundException
+	 *             if no {@link EMFProfileApplicationDecorator profile
+	 *             application decorator} could be found for the editor id. <!--
+	 *             end-user-doc -->
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
+	 * @generated
+	 */
+	EMFProfileApplicationDecorator getProfileApplicationDecoratorForEditorId(
+			String editorId) throws NullPointerException,
+			ProfileApplicationDecoratorNotFoundException;
+
 } // ProfileApplicationRegistry

@@ -187,19 +187,4 @@ public interface ProfileApplicationManager extends EObject {
 			String editorId) throws NullPointerException,
 			ProfileApplicationDecoratorNotFoundException;
 
-	/**
-	 * <!-- begin-user-doc --> Gets the bounded
-	 * {@link EMFProfileApplicationDecorator profile application decorator}
-	 * bounded to this manager.
-	 * 
-	 * @throws ProfileApplicationDecoratorNotFoundException
-	 *             if there no decorator was previously bounded to this manager.
-	 *             <!-- end-user-doc -->
-	 * @model kind="operation" exceptions=
-	 *        "org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
-	 * @generated
-	 */
-	EMFProfileApplicationDecorator getProfileApplicationDecorator()
-			throws ProfileApplicationDecoratorNotFoundException;
-
 } // ProfileApplicationManager

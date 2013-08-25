@@ -147,9 +147,16 @@ public class ProfileApplicationRegistryImpl extends
 		return manager;
 	}
 
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public EMFProfileApplicationDecorator getProfileApplicationDecoratorForEditorId(
-			String editorId)
-			throws ProfileApplicationDecoratorNotFoundException {
+			String editorId) throws NullPointerException,
+			ProfileApplicationDecoratorNotFoundException {
+		if (editorId == null)
+			throw new NullPointerException("editor id can not be null value.");
 		if (hasProfileApplicationDecoratorForEditorId(editorId) == false)
 			throw new ProfileApplicationDecoratorNotFoundException(
 					"Could not find profile application decorator for editor id: "

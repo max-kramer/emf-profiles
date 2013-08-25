@@ -73,6 +73,7 @@
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId">
         <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId/editorId"/>
       </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationDecoratorForEditorId"/>
     </genClasses>
     <genClasses ecoreClass="profileApplicationRegistry.ecore#//ProfileApplicationManager">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference profileApplicationRegistry.ecore#//ProfileApplicationManager/profileApplications"/>
@@ -91,7 +92,6 @@
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationManager/bindProfileApplicationDecorator">
         <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationManager/bindProfileApplicationDecorator/editorId"/>
       </genOperations>
-      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationManager/getProfileApplicationDecorator"/>
     </genClasses>
     <genClasses image="false" ecoreClass="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator">
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/canDecorateEditorsWithFollowingIDs"/>

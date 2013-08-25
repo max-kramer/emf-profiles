@@ -640,6 +640,16 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEParameter(op, theEcorePackage.getEString(), "editorId", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(profileApplicationRegistryEClass,
+				this.getEMFProfileApplicationDecorator(),
+				"getProfileApplicationDecoratorForEditorId", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "editorId", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getNullPointerException());
+		addEException(op,
+				this.getProfileApplicationDecoratorNotFoundException());
+
 		initEClass(profileApplicationManagerEClass,
 				ProfileApplicationManager.class, "ProfileApplicationManager",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -693,12 +703,6 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEParameter(op, theEcorePackage.getEString(), "editorId", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getNullPointerException());
-		addEException(op,
-				this.getProfileApplicationDecoratorNotFoundException());
-
-		op = addEOperation(profileApplicationManagerEClass,
-				this.getEMFProfileApplicationDecorator(),
-				"getProfileApplicationDecorator", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op,
 				this.getProfileApplicationDecoratorNotFoundException());
 
