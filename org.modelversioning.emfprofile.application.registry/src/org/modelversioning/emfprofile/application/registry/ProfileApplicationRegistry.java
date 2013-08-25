@@ -10,6 +10,7 @@ package org.modelversioning.emfprofile.application.registry;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 
 /**
@@ -76,5 +77,48 @@ public interface ProfileApplicationRegistry extends EObject {
 	 */
 	ProfileApplicationManager getProfileApplicationManager(
 			ResourceSet resourceSet) throws NullPointerException;
+
+	/**
+	 * <!-- begin-user-doc --> Creates and returns
+	 * {@link ProfileApplicationManager profile application manager} for the
+	 * {@link ResourceSet resource set}. Every subsequent call to the method for
+	 * the same resource set will yield the same instance of the profile
+	 * application manager. This method will try to bind a
+	 * {@link EMFProfileApplicationDecorator profile application decorator} to
+	 * this manager. If there is none found for the provided <b>
+	 * <em>editorId</em></b> the exception will be thrown. If a decorator is
+	 * already bound to this manager than no new attempt to bind a decorator
+	 * again will be taken, instead the manager is returned as it is.<br>
+	 * <b>Note:</b> Dispose of manager by calling
+	 * {@link ProfileApplicationManager#dispose()} when it is no longer needed.
+	 * 
+	 * @throws NullPointerException
+	 *             if any parameter is <code>null</code> value.
+	 * @throws ProfileApplicationDecoratorNotFoundException
+	 *             if there is no registered plug-in extension that implements a
+	 *             decorator for the <b><em>editorId</em></b>. <!-- end-user-doc
+	 *             -->
+	 * 
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
+	 *        resourceSetDataType=
+	 *        "org.modelversioning.emfprofile.application.registry.ResourceSet"
+	 *        resourceSetRequired="true"
+	 * @generated
+	 */
+	ProfileApplicationManager getProfileApplicationManager(
+			ResourceSet resourceSet, String editorId)
+			throws NullPointerException,
+			ProfileApplicationDecoratorNotFoundException;
+
+	/**
+	 * <!-- begin-user-doc --> Returns <code>true</code> if there is a profile
+	 * application decorator plug-in implementation for the <b>
+	 * <em>editorId</em></b>. <!-- end-user-doc -->
+	 * 
+	 * @model
+	 * @generated
+	 */
+	boolean hasProfileApplicationDecoratorForEditorId(String editorId);
 
 } // ProfileApplicationRegistry

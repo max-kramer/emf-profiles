@@ -22,10 +22,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.EMFProfilePackage;
+import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
@@ -59,6 +61,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * @generated
 	 */
 	private EClass profileApplicationManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EClass emfProfileApplicationDecoratorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -101,6 +110,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * @generated
 	 */
 	private EDataType ioExceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType profileApplicationDecoratorNotFoundExceptionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -272,6 +288,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	public EClass getEMFProfileApplicationDecorator() {
+		return emfProfileApplicationDecoratorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getIllegalArgumentException() {
 		return illegalArgumentExceptionEDataType;
 	}
@@ -319,6 +344,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 */
 	public EDataType getIOException() {
 		return ioExceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getProfileApplicationDecoratorNotFoundException() {
+		return profileApplicationDecoratorNotFoundExceptionEDataType;
 	}
 
 	/**
@@ -407,6 +441,8 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		createEReference(profileApplicationManagerEClass,
 				PROFILE_APPLICATION_MANAGER__PROFILE_APPLICATIONS);
 
+		emfProfileApplicationDecoratorEClass = createEClass(EMF_PROFILE_APPLICATION_DECORATOR);
+
 		// Create data types
 		illegalArgumentExceptionEDataType = createEDataType(ILLEGAL_ARGUMENT_EXCEPTION);
 		collectionEDataType = createEDataType(COLLECTION);
@@ -414,6 +450,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		resourceEDataType = createEDataType(RESOURCE);
 		iFileEDataType = createEDataType(IFILE);
 		ioExceptionEDataType = createEDataType(IO_EXCEPTION);
+		profileApplicationDecoratorNotFoundExceptionEDataType = createEDataType(PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION);
 		nullPointerExceptionEDataType = createEDataType(NULL_POINTER_EXCEPTION);
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
 		profileApplicationAlreadyLoadedExceptionEDataType = createEDataType(PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION);
@@ -585,6 +622,24 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getNullPointerException());
 
+		op = addEOperation(profileApplicationRegistryEClass,
+				this.getProfileApplicationManager(),
+				"getProfileApplicationManager", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getResourceSet(), "resourceSet", 1, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "editorId", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getNullPointerException());
+		addEException(op,
+				this.getProfileApplicationDecoratorNotFoundException());
+
+		op = addEOperation(profileApplicationRegistryEClass,
+				theEcorePackage.getEBoolean(),
+				"hasProfileApplicationDecoratorForEditorId", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "editorId", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
 		initEClass(profileApplicationManagerEClass,
 				ProfileApplicationManager.class, "ProfileApplicationManager",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -632,6 +687,53 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getTraversingEObjectContainerChainException());
 
+		op = addEOperation(profileApplicationManagerEClass,
+				this.getEMFProfileApplicationDecorator(),
+				"bindProfileApplicationDecorator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEString(), "editorId", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getNullPointerException());
+		addEException(op,
+				this.getProfileApplicationDecoratorNotFoundException());
+
+		op = addEOperation(profileApplicationManagerEClass,
+				this.getEMFProfileApplicationDecorator(),
+				"getProfileApplicationDecorator", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op,
+				this.getProfileApplicationDecoratorNotFoundException());
+
+		initEClass(emfProfileApplicationDecoratorEClass,
+				EMFProfileApplicationDecorator.class,
+				"EMFProfileApplicationDecorator", IS_ABSTRACT, IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(emfProfileApplicationDecoratorEClass, null,
+				"canDecorateEditorsWithFollowingIDs", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		g1 = createEGenericType(this.getCollection());
+		g2 = createEGenericType(theEcorePackage.getEString());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(emfProfileApplicationDecoratorEClass, null,
+				"decorate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op,
+				theEMFProfileApplicationPackage.getStereotypeApplication(),
+				"stereotypeApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(emfProfileApplicationDecoratorEClass, null,
+				"undecorate", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op,
+				theEMFProfileApplicationPackage.getStereotypeApplication(),
+				"stereotypeApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(emfProfileApplicationDecoratorEClass,
+				theEcorePackage.getEObject(),
+				"resolveEObjectFromEditorSelection", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEJavaObject(), "selection", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(illegalArgumentExceptionEDataType,
 				IllegalArgumentException.class, "IllegalArgumentException",
@@ -645,6 +747,10 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		initEDataType(iFileEDataType, IFile.class, "IFile", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(ioExceptionEDataType, IOException.class, "IOException",
+				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(profileApplicationDecoratorNotFoundExceptionEDataType,
+				ProfileApplicationDecoratorNotFoundException.class,
+				"ProfileApplicationDecoratorNotFoundException",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(nullPointerExceptionEDataType,
 				NullPointerException.class, "NullPointerException",

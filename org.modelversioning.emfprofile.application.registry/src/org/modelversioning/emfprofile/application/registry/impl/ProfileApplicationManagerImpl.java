@@ -9,6 +9,7 @@ package org.modelversioning.emfprofile.application.registry.impl;
 
 import java.io.IOException;
 import java.util.Collection;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -21,9 +22,11 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
@@ -57,6 +60,8 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	protected EList<ProfileApplicationWrapper> profileApplications;
 	private ResourceSet resourceSet;
 	private boolean disposing;
+
+	private EMFProfileApplicationDecorator profileApplicationDecorator = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -146,6 +151,41 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 				return paw;
 		}
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EMFProfileApplicationDecorator bindProfileApplicationDecorator(
+			String editorId) throws NullPointerException,
+			ProfileApplicationDecoratorNotFoundException {
+		if (editorId == null)
+			throw new NullPointerException(
+					"null value for editor id is not allowed.");
+
+		// check if already bound.
+		if (profileApplicationDecorator != null)
+			return profileApplicationDecorator;
+		ProfileApplicationRegistryImpl registryImpl = (ProfileApplicationRegistryImpl) this
+				.eContainer();
+		profileApplicationDecorator = registryImpl
+				.getProfileApplicationDecoratorForEditorId(editorId);
+		return profileApplicationDecorator;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public EMFProfileApplicationDecorator getProfileApplicationDecorator()
+			throws ProfileApplicationDecoratorNotFoundException {
+		if (profileApplicationDecorator == null)
+			throw new ProfileApplicationDecoratorNotFoundException(
+					"No decorator found to be bound with this manager.");
+		return profileApplicationDecorator;
 	}
 
 	/**

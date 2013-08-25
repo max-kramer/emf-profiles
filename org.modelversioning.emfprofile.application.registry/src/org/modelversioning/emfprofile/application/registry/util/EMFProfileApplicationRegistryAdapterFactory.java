@@ -93,6 +93,12 @@ public class EMFProfileApplicationRegistryAdapterFactory extends
 		}
 
 		@Override
+		public Adapter caseEMFProfileApplicationDecorator(
+				EMFProfileApplicationDecorator object) {
+			return createEMFProfileApplicationDecoratorAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -157,6 +163,22 @@ public class EMFProfileApplicationRegistryAdapterFactory extends
 	 * @generated
 	 */
 	public Adapter createProfileApplicationManagerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '
+	 * {@link org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+	 * <em>EMF Profile Application Decorator</em>}'. <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore
+	 * cases; it's useful to ignore a case when inheritance will catch all the
+	 * cases anyway. <!-- end-user-doc -->
+	 * 
+	 * @return the new adapter.
+	 * @see org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+	 * @generated
+	 */
+	public Adapter createEMFProfileApplicationDecoratorAdapter() {
 		return null;
 	}
 

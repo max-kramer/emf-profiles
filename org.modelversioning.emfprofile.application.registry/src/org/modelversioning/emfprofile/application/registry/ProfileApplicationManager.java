@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 
@@ -166,5 +167,39 @@ public interface ProfileApplicationManager extends EObject {
 	 */
 	ProfileApplicationWrapper getProfileApplicationWrapperOfContainedEObject(
 			EObject eObject) throws TraversingEObjectContainerChainException;
+
+	/**
+	 * <!-- begin-user-doc --> Binds {@link EMFProfileApplicationDecorator
+	 * profile application decorator} to this manager for a specific editor id.
+	 * 
+	 * @param editorId
+	 *            editor identification
+	 * @throws NullPointerException
+	 *             if editorId is <code>null</code> value.
+	 * @throws ProfileApplicationDecoratorNotFoundException
+	 *             if there is no registered plug-in extension that implements a
+	 *             decorator for the editorId. <!-- end-user-doc -->
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
+	 * @generated
+	 */
+	EMFProfileApplicationDecorator bindProfileApplicationDecorator(
+			String editorId) throws NullPointerException,
+			ProfileApplicationDecoratorNotFoundException;
+
+	/**
+	 * <!-- begin-user-doc --> Gets the bounded
+	 * {@link EMFProfileApplicationDecorator profile application decorator}
+	 * bounded to this manager.
+	 * 
+	 * @throws ProfileApplicationDecoratorNotFoundException
+	 *             if there no decorator was previously bounded to this manager.
+	 *             <!-- end-user-doc -->
+	 * @model kind="operation" exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
+	 * @generated
+	 */
+	EMFProfileApplicationDecorator getProfileApplicationDecorator()
+			throws ProfileApplicationDecoratorNotFoundException;
 
 } // ProfileApplicationManager

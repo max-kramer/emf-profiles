@@ -20,8 +20,10 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
 
@@ -53,6 +55,7 @@ public class ProfileApplicationRegistryImpl extends
 
 	// resource-set to profile application manager map
 	private Map<ResourceSet, ProfileApplicationManager> profileApplicationManagers = new HashMap<>();
+	private EMFProfileApplicationDecoratorHandler decoratorsHandler = new EMFProfileApplicationDecoratorHandler();
 
 	private boolean cleaning;
 
@@ -115,6 +118,52 @@ public class ProfileApplicationRegistryImpl extends
 		profileApplicationManagers.put(resourceSet, pam);
 		getManagersGen().add(pam);
 		return pam;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public ProfileApplicationManager getProfileApplicationManager(
+			ResourceSet resourceSet, String editorId)
+			throws NullPointerException,
+			ProfileApplicationDecoratorNotFoundException {
+		if (resourceSet == null)
+			throw new NullPointerException(
+					"null value for resource set is not allowed.");
+		if (editorId == null)
+			throw new NullPointerException(
+					"null value for editor id is not allowed.");
+		if (profileApplicationManagers.containsKey(resourceSet)) {
+			return profileApplicationManagers.get(resourceSet);
+		}
+		if (hasProfileApplicationDecoratorForEditorId(editorId) == false)
+			throw new ProfileApplicationDecoratorNotFoundException(
+					"Could not find profile application decorator for editor id: "
+							+ editorId);
+		ProfileApplicationManager manager = getProfileApplicationManager(resourceSet);
+		manager.bindProfileApplicationDecorator(editorId);
+		return manager;
+	}
+
+	public EMFProfileApplicationDecorator getProfileApplicationDecoratorForEditorId(
+			String editorId)
+			throws ProfileApplicationDecoratorNotFoundException {
+		if (hasProfileApplicationDecoratorForEditorId(editorId) == false)
+			throw new ProfileApplicationDecoratorNotFoundException(
+					"Could not find profile application decorator for editor id: "
+							+ editorId);
+		return decoratorsHandler.getDecoratorForEditorId(editorId);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public boolean hasProfileApplicationDecoratorForEditorId(String editorId) {
+		return decoratorsHandler.hasDecoratorForPartId(editorId);
 	}
 
 	public void removeProfileApplicationManager(

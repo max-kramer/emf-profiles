@@ -60,6 +60,14 @@
         eExceptions="#//NullPointerException">
       <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
     </eOperations>
+    <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager"
+        eExceptions="#//NullPointerException #//ProfileApplicationDecoratorNotFoundException">
+      <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
+      <eParameters name="editorId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="hasProfileApplicationDecoratorForEditorId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
+      <eParameters name="editorId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="managers" ordered="false"
         upperBound="-1" eType="#//ProfileApplicationManager" containment="true"/>
   </eClassifiers>
@@ -83,6 +91,12 @@
         eExceptions="#//TraversingEObjectContainerChainException">
       <eParameters name="eObject" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eOperations>
+    <eOperations name="bindProfileApplicationDecorator" eType="#//EMFProfileApplicationDecorator"
+        eExceptions="#//NullPointerException #//ProfileApplicationDecoratorNotFoundException">
+      <eParameters name="editorId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    </eOperations>
+    <eOperations name="getProfileApplicationDecorator" eType="#//EMFProfileApplicationDecorator"
+        eExceptions="#//ProfileApplicationDecoratorNotFoundException"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileApplications" lowerBound="1"
         upperBound="-1" eType="#//ProfileApplicationWrapper" containment="true"/>
   </eClassifiers>
@@ -94,6 +108,8 @@
   <eClassifiers xsi:type="ecore:EDataType" name="Resource" instanceClassName="org.eclipse.emf.ecore.resource.Resource"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.eclipse.core.resources.IFile"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IOException" instanceClassName="java.io.IOException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ProfileApplicationDecoratorNotFoundException"
+      instanceClassName="org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="NullPointerException" instanceClassName="java.lang.NullPointerException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ProfileApplicationAlreadyLoadedException"
@@ -101,4 +117,21 @@
   <eClassifiers xsi:type="ecore:EDataType" name="TraversingEObjectContainerChainException"
       instanceClassName="org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EMFProfileApplicationDecorator" abstract="true"
+      interface="true">
+    <eOperations name="canDecorateEditorsWithFollowingIDs">
+      <eGenericType eClassifier="#//Collection">
+        <eTypeArguments eClassifier="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="decorate">
+      <eParameters name="stereotypeApplication" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
+    </eOperations>
+    <eOperations name="undecorate">
+      <eParameters name="stereotypeApplication" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
+    </eOperations>
+    <eOperations name="resolveEObjectFromEditorSelection" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject">
+      <eParameters name="selection" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
+    </eOperations>
+  </eClassifiers>
 </ecore:EPackage>

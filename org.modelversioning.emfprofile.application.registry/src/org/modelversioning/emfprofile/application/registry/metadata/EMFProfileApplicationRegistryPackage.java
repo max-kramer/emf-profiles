@@ -152,6 +152,28 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	int PROFILE_APPLICATION_MANAGER_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '
+	 * {@link org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+	 * <em>EMF Profile Application Decorator</em>}' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @see org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getEMFProfileApplicationDecorator()
+	 * @generated
+	 */
+	int EMF_PROFILE_APPLICATION_DECORATOR = 3;
+
+	/**
+	 * The number of structural features of the '
+	 * <em>EMF Profile Application Decorator</em>' class. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int EMF_PROFILE_APPLICATION_DECORATOR_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Illegal Argument Exception</em>' data
 	 * type. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -159,7 +181,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIllegalArgumentException()
 	 * @generated
 	 */
-	int ILLEGAL_ARGUMENT_EXCEPTION = 3;
+	int ILLEGAL_ARGUMENT_EXCEPTION = 4;
 
 	/**
 	 * The meta object id for the '<em>Collection</em>' data type. <!--
@@ -169,7 +191,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getCollection()
 	 * @generated
 	 */
-	int COLLECTION = 4;
+	int COLLECTION = 5;
 
 	/**
 	 * The meta object id for the '<em>Resource Set</em>' data type. <!--
@@ -179,7 +201,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getResourceSet()
 	 * @generated
 	 */
-	int RESOURCE_SET = 5;
+	int RESOURCE_SET = 6;
 
 	/**
 	 * The meta object id for the '<em>Resource</em>' data type. <!--
@@ -189,7 +211,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 6;
+	int RESOURCE = 7;
 
 	/**
 	 * The meta object id for the '<em>IFile</em>' data type. <!--
@@ -199,7 +221,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIFile()
 	 * @generated
 	 */
-	int IFILE = 7;
+	int IFILE = 8;
 
 	/**
 	 * The meta object id for the '<em>IO Exception</em>' data type. <!--
@@ -209,7 +231,18 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIOException()
 	 * @generated
 	 */
-	int IO_EXCEPTION = 8;
+	int IO_EXCEPTION = 9;
+
+	/**
+	 * The meta object id for the '
+	 * <em>Profile Application Decorator Not Found Exception</em>' data type.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationDecoratorNotFoundException()
+	 * @generated
+	 */
+	int PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION = 10;
 
 	/**
 	 * The meta object id for the '<em>Null Pointer Exception</em>' data type.
@@ -219,7 +252,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getNullPointerException()
 	 * @generated
 	 */
-	int NULL_POINTER_EXCEPTION = 9;
+	int NULL_POINTER_EXCEPTION = 11;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type. <!--
@@ -229,7 +262,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 10;
+	int CORE_EXCEPTION = 12;
 
 	/**
 	 * The meta object id for the '
@@ -240,7 +273,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationAlreadyLoadedException()
 	 * @generated
 	 */
-	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 11;
+	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 13;
 
 	/**
 	 * The meta object id for the '
@@ -251,7 +284,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getTraversingEObjectContainerChainException()
 	 * @generated
 	 */
-	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 12;
+	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 14;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type. <!--
@@ -261,7 +294,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 13;
+	int EXCEPTION = 15;
 
 	/**
 	 * Returns the meta object for class '
@@ -341,6 +374,19 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	EReference getProfileApplicationManager_ProfileApplications();
 
 	/**
+	 * Returns the meta object for class '
+	 * {@link org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+	 * <em>EMF Profile Application Decorator</em>}'. <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for class '
+	 *         <em>EMF Profile Application Decorator</em>'.
+	 * @see org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+	 * @generated
+	 */
+	EClass getEMFProfileApplicationDecorator();
+
+	/**
 	 * Returns the meta object for data type '
 	 * {@link java.lang.IllegalArgumentException
 	 * <em>Illegal Argument Exception</em>}'. <!-- begin-user-doc --> <!--
@@ -411,6 +457,21 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getIOException();
+
+	/**
+	 * Returns the meta object for data type '
+	 * {@link org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException
+	 * <em>Profile Application Decorator Not Found Exception</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '
+	 *         <em>Profile Application Decorator Not Found Exception</em>'.
+	 * @see org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException
+	 * @model instanceClass=
+	 *        "org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException"
+	 * @generated
+	 */
+	EDataType getProfileApplicationDecoratorNotFoundException();
 
 	/**
 	 * Returns the meta object for data type '
@@ -570,6 +631,19 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 				.getProfileApplicationManager_ProfileApplications();
 
 		/**
+		 * The meta object literal for the '
+		 * {@link org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+		 * <em>EMF Profile Application Decorator</em>}' class. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getEMFProfileApplicationDecorator()
+		 * @generated
+		 */
+		EClass EMF_PROFILE_APPLICATION_DECORATOR = eINSTANCE
+				.getEMFProfileApplicationDecorator();
+
+		/**
 		 * The meta object literal for the '<em>Illegal Argument Exception</em>'
 		 * data type. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -629,6 +703,18 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType IO_EXCEPTION = eINSTANCE.getIOException();
+
+		/**
+		 * The meta object literal for the '
+		 * <em>Profile Application Decorator Not Found Exception</em>' data
+		 * type. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationDecoratorNotFoundException()
+		 * @generated
+		 */
+		EDataType PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION = eINSTANCE
+				.getProfileApplicationDecoratorNotFoundException();
 
 		/**
 		 * The meta object literal for the '<em>Null Pointer Exception</em>'

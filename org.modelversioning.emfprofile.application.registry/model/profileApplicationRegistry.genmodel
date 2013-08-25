@@ -21,6 +21,7 @@
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//Resource"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//IFile"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//IOException"/>
+    <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//ProfileApplicationDecoratorNotFoundException"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//NullPointerException"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//CoreException"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//ProfileApplicationAlreadyLoadedException"/>
@@ -65,6 +66,13 @@
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager">
         <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager/resourceSet"/>
       </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager.1">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager.1/resourceSet"/>
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager.1/editorId"/>
+      </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId/editorId"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="profileApplicationRegistry.ecore#//ProfileApplicationManager">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference profileApplicationRegistry.ecore#//ProfileApplicationManager/profileApplications"/>
@@ -79,6 +87,22 @@
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationManager/dispose"/>
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationManager/getProfileApplicationWrapperOfContainedEObject">
         <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationManager/getProfileApplicationWrapperOfContainedEObject/eObject"/>
+      </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationManager/bindProfileApplicationDecorator">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationManager/bindProfileApplicationDecorator/editorId"/>
+      </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationManager/getProfileApplicationDecorator"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator">
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/canDecorateEditorsWithFollowingIDs"/>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/decorate">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/decorate/stereotypeApplication"/>
+      </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/undecorate">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/undecorate/stereotypeApplication"/>
+      </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/resolveEObjectFromEditorSelection">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/resolveEObjectFromEditorSelection/selection"/>
       </genOperations>
     </genClasses>
   </genPackages>

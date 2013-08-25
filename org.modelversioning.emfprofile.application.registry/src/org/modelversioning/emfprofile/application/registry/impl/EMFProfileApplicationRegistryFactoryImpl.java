@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.*;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
@@ -107,6 +108,9 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return createIFileFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
 			return createIOExceptionFromString(eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION:
+			return createProfileApplicationDecoratorNotFoundExceptionFromString(
+					eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.NULL_POINTER_EXCEPTION:
 			return createNullPointerExceptionFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.CORE_EXCEPTION:
@@ -146,6 +150,9 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return convertIFileToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
 			return convertIOExceptionToString(eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION:
+			return convertProfileApplicationDecoratorNotFoundExceptionToString(
+					eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.NULL_POINTER_EXCEPTION:
 			return convertNullPointerExceptionToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.CORE_EXCEPTION:
@@ -354,6 +361,27 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 */
 	public String convertIOExceptionToString(EDataType eDataType,
 			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ProfileApplicationDecoratorNotFoundException createProfileApplicationDecoratorNotFoundExceptionFromString(
+			EDataType eDataType, String initialValue) {
+		return (ProfileApplicationDecoratorNotFoundException) super
+				.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertProfileApplicationDecoratorNotFoundExceptionToString(
+			EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
