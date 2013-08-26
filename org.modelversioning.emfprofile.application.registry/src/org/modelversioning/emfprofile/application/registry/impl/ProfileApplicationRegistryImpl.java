@@ -171,6 +171,10 @@ public class ProfileApplicationRegistryImpl extends
 	 */
 	public boolean hasProfileApplicationManager(ResourceSet resourceSet)
 			throws NullPointerException {
+		if(resourceSet == null)
+			throw new NullPointerException("resource set can not be null value.");
+		if(managers == null)
+			return false;
 		return managers.contains(resourceSet);
 	}
 
