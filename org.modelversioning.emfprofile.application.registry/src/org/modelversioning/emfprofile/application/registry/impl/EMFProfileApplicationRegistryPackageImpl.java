@@ -650,6 +650,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEException(op,
 				this.getProfileApplicationDecoratorNotFoundException());
 
+		op = addEOperation(profileApplicationRegistryEClass,
+				theEcorePackage.getEBoolean(), "hasProfileApplicationManager",
+				0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getResourceSet(), "resourceSet", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+		addEException(op, this.getNullPointerException());
+
 		initEClass(profileApplicationManagerEClass,
 				ProfileApplicationManager.class, "ProfileApplicationManager",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

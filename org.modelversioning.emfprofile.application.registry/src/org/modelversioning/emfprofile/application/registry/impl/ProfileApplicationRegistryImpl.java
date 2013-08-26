@@ -169,6 +169,16 @@ public class ProfileApplicationRegistryImpl extends
 	 * 
 	 * @generated NOT
 	 */
+	public boolean hasProfileApplicationManager(ResourceSet resourceSet)
+			throws NullPointerException {
+		return managers.contains(resourceSet);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
 	public boolean hasProfileApplicationDecoratorForEditorId(String editorId) {
 		return decoratorsHandler.hasDecoratorForPartId(editorId);
 	}

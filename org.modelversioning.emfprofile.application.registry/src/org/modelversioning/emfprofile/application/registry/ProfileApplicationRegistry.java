@@ -141,4 +141,23 @@ public interface ProfileApplicationRegistry extends EObject {
 			String editorId) throws NullPointerException,
 			ProfileApplicationDecoratorNotFoundException;
 
+	/**
+	 * <!-- begin-user-doc --> Returns <code>true</code> if there is
+	 * {@link ProfileApplicationManager profile application manager} managed by
+	 * the registry for the provided <b>
+	 * <em> {@link ResourceSet resourceSet}</em></b>
+	 * 
+	 * @throws NullPointerException
+	 *             if the {@link ResourceSet resource set} is <code>null</code>
+	 *             value. <!-- end-user-doc -->
+	 * 
+	 * @model exceptions=
+	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException"
+	 *        resourceSetDataType=
+	 *        "org.modelversioning.emfprofile.application.registry.ResourceSet"
+	 * @generated
+	 */
+	boolean hasProfileApplicationManager(ResourceSet resourceSet)
+			throws NullPointerException;
+
 } // ProfileApplicationRegistry
