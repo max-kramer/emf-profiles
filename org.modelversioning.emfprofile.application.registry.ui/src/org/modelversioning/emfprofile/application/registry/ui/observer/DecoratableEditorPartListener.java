@@ -130,9 +130,11 @@ public final class DecoratableEditorPartListener implements IPartListener {
 						editorPartToViewerStateMap.put(lastActiveEditorPart, new ViewerState(viewer));
 					}
 					// restore viewer part for already known part
-					editorPartToViewerStateMap.get(part).restoreTreeViewerState(viewer);
-					// remove viewer state from map for this part
-					editorPartToViewerStateMap.remove(part);
+					if(editorPartToViewerStateMap.containsKey(part)){
+						editorPartToViewerStateMap.get(part).restoreTreeViewerState(viewer);
+						// remove viewer state from map for this part
+						editorPartToViewerStateMap.remove(part);	
+					}
 				}
 			}else{
 				// editor part first time accessed or editor opened with double click on resource file,
