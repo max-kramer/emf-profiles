@@ -13,6 +13,7 @@ import java.util.Collection;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -90,16 +91,10 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public EList<ProfileApplicationWrapper> getProfileApplications() {
-		if (profileApplications == null) {
-			profileApplications = new EObjectContainmentEList<ProfileApplicationWrapper>(
-					ProfileApplicationWrapper.class,
-					this,
-					EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_MANAGER__PROFILE_APPLICATIONS);
-		}
-		return profileApplications;
+		return ECollections.unmodifiableEList(getProfileApplicationsGen());
 	}
 
 	/**
