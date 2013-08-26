@@ -45,19 +45,18 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  */
 public interface ProfileApplicationWrapper extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Profile Application</b></em>'
-	 * containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Profile Application</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Profile Application</em>' reference isn't
 	 * clear, there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * 
-	 * @return the value of the '<em>Profile Application</em>' containment
-	 *         reference.
+	 * @return the value of the '<em>Profile Application</em>' reference.
 	 * @see #setProfileApplication(ProfileApplication)
 	 * @see org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage#getProfileApplicationWrapper_ProfileApplication()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	ProfileApplication getProfileApplication();
@@ -65,16 +64,15 @@ public interface ProfileApplicationWrapper extends EObject {
 	/**
 	 * Sets the value of the '
 	 * {@link org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper#getProfileApplication
-	 * <em>Profile Application</em>}' containment reference. <!-- begin-user-doc
-	 * --> This method was generated and it is not intended to be used for
-	 * manually setting the {@link ProfileApplication} reference. This is done
-	 * by the construction of the wrapper. <br>
+	 * <em>Profile Application</em>}' reference. <!-- begin-user-doc --> This
+	 * method was generated and it is not intended to be used for manually
+	 * setting the {@link ProfileApplication} reference. This is done by the
+	 * construction of the wrapper. <br>
 	 * <em><b>Calling this method will always throw {@link UnsupportedOperationException}</b></em>
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param value
-	 *            the new value of the '<em>Profile Application</em>'
-	 *            containment reference.
+	 *            the new value of the '<em>Profile Application</em>' reference.
 	 * @see #getProfileApplication()
 	 * @generated
 	 */

@@ -62,9 +62,6 @@ public class LoadProfileApplicationWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
-		// TODO remove me
-		System.out.println(profileApplicationFile.toString());
-		System.out.println(profileApplicationFile.getLocation().toString());
 		try {
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE
 					.getDecoratableEditorPartListener().getResourceSetOfDecoratableActiveEditor();//getResourceSetOfEditorPart(targetEditorPart);

@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
@@ -39,10 +40,9 @@ import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.modelversioning.emfprofile.application.registry.provider.EMFProfileApplicationRegistryItemProviderAdapterFactory;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationWrapperReflectiveItemProviderAdapterFactory;
-import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderContentAdapter;
-import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileProviderLabelAdapter;
 import org.modelversioning.emfprofile.application.registry.ui.views.nestingviewitems.NestingCommonModelElementsInStereotypeApplications;
 import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
 import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
@@ -82,11 +82,13 @@ public class EMFProfileApplicationsView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
-		viewer.setLabelProvider(new ProfileProviderLabelAdapter(
-				getAdapterFactory()));
-		viewer.setContentProvider(new ProfileProviderContentAdapter(
-				getAdapterFactory()));
-
+//		viewer.setLabelProvider(new ProfileProviderLabelAdapter(
+//				getAdapterFactory()));
+//		viewer.setContentProvider(new ProfileProviderContentAdapter(
+//				getAdapterFactory()));
+		viewer.setContentProvider(new AdapterFactoryContentProvider(EMFProfileApplicationsView.getAdapterFactory()));
+		viewer.setLabelProvider(new AdapterFactoryLabelProvider(EMFProfileApplicationsView.getAdapterFactory()));
+		
 		viewer.setSorter(createGenericEObjectSorter());
 		viewer.setAutoExpandLevel(2);
 		getSite().setSelectionProvider(viewer);
@@ -225,6 +227,7 @@ public class EMFProfileApplicationsView extends ViewPart {
 			return adapterFactory;
 
 		adapterFactory = new ComposedAdapterFactory(); 
+		adapterFactory.addAdapterFactory(new EMFProfileApplicationRegistryItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new EMFProfileItemProviderAdapterFactory());
 		adapterFactory

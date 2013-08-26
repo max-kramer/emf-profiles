@@ -69,7 +69,7 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 				throw new RuntimeException("Could not find the ResourceSet of this editor part: " + targetEditorPart);
 			ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet).createNewProfileApplication(profileApplicationFile, profileFilePage.getSelectedProfiles());
 //			TODO remove refresh viewer stuff
-//			ActiveEditorObserver.INSTANCE.refreshViewer();
+			ActiveEditorObserver.INSTANCE.refreshViewer();
 		} catch (Exception e) {
 			IStatus status = new Status(IStatus.ERROR, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
 					e.getMessage(), e);

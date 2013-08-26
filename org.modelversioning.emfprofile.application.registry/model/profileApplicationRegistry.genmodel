@@ -6,8 +6,7 @@
     forceOverwrite="true" modelName="ProfileApplicationRegistry" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     featureMapWrapperInterface="" featureMapWrapperInternalInterface="" featureMapWrapperClass=""
     codeFormatting="true" commentFormatting="true" importerID="org.eclipse.emf.importer.ecore"
-    bundleManifest="false" complianceLevel="7.0" copyrightFields="false" language=""
-    usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile ../../org.modelversioning.emfprofile/model/emfprofileapplication.genmodel#//emfprofileapplication"
+    complianceLevel="7.0" copyrightFields="false" language="" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile ../../org.modelversioning.emfprofile/model/emfprofileapplication.genmodel#//emfprofileapplication"
     classNamePattern="" importOrganizing="true">
   <foreignModel>profileApplicationRegistry.ecore</foreignModel>
   <genPackages prefix="EMFProfileApplicationRegistry" basePackage="org.modelversioning.emfprofile.application"
@@ -28,7 +27,8 @@
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//TraversingEObjectContainerChainException"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//Exception"/>
     <genClasses ecoreClass="profileApplicationRegistry.ecore#//ProfileApplicationWrapper">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference profileApplicationRegistry.ecore#//ProfileApplicationWrapper/profileApplication"/>
+      <genFeatures children="true" createChild="false" propertyCategory="" propertySortChoices="true"
+          ecoreFeature="ecore:EReference profileApplicationRegistry.ecore#//ProfileApplicationWrapper/profileApplication"/>
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications"/>
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications.1">
         <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications.1/eObject"/>
@@ -73,7 +73,12 @@
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId">
         <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId/editorId"/>
       </genOperations>
-      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationDecoratorForEditorId"/>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationDecoratorForEditorId">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationDecoratorForEditorId/editorId"/>
+      </genOperations>
+      <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationManager">
+        <genParameters ecoreParameter="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationManager/resourceSet"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="profileApplicationRegistry.ecore#//ProfileApplicationManager">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference profileApplicationRegistry.ecore#//ProfileApplicationManager/profileApplications"/>

@@ -10,13 +10,11 @@ package org.modelversioning.emfprofile.application.registry.impl;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -54,8 +52,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		implements ProfileApplicationWrapper {
 	/**
 	 * The cached value of the '{@link #getProfileApplication()
-	 * <em>Profile Application</em>}' containment reference. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
+	 * <em>Profile Application</em>}' reference. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * 
 	 * @see #getProfileApplication()
 	 * @generated
@@ -183,6 +181,18 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	public ProfileApplication getProfileApplication() {
+		if (profileApplication != null && profileApplication.eIsProxy()) {
+			InternalEObject oldProfileApplication = (InternalEObject) profileApplication;
+			profileApplication = (ProfileApplication) eResolveProxy(oldProfileApplication);
+			if (profileApplication != oldProfileApplication) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(
+							this,
+							Notification.RESOLVE,
+							EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_WRAPPER__PROFILE_APPLICATION,
+							oldProfileApplication, profileApplication));
+			}
+		}
 		return profileApplication;
 	}
 
@@ -191,22 +201,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetProfileApplication(
-			ProfileApplication newProfileApplication, NotificationChain msgs) {
-		ProfileApplication oldProfileApplication = profileApplication;
-		profileApplication = newProfileApplication;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(
-					this,
-					Notification.SET,
-					EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_WRAPPER__PROFILE_APPLICATION,
-					oldProfileApplication, newProfileApplication);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public ProfileApplication basicGetProfileApplication() {
+		return profileApplication;
 	}
 
 	/**
@@ -361,25 +357,12 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd,
-			int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_WRAPPER__PROFILE_APPLICATION:
-			return basicSetProfileApplication(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_WRAPPER__PROFILE_APPLICATION:
-			return getProfileApplication();
+			if (resolve)
+				return getProfileApplication();
+			return basicGetProfileApplication();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

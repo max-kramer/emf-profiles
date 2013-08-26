@@ -505,7 +505,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				theEMFProfileApplicationPackage.getProfileApplication(), null,
 				"profileApplication", null, 1, 1,
 				ProfileApplicationWrapper.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(profileApplicationWrapperEClass, null,

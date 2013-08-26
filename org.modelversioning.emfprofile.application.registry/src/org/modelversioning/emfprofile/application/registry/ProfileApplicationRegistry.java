@@ -150,7 +150,6 @@ public interface ProfileApplicationRegistry extends EObject {
 	 * @throws NullPointerException
 	 *             if the {@link ResourceSet resource set} is <code>null</code>
 	 *             value. <!-- end-user-doc -->
-	 * 
 	 * @model exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException"
 	 *        resourceSetDataType=

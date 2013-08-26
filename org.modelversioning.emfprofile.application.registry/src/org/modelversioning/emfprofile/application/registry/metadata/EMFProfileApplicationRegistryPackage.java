@@ -71,8 +71,8 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	int PROFILE_APPLICATION_WRAPPER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Profile Application</b></em>' containment
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Profile Application</b></em>' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
 	 * @generated
 	 * @ordered
@@ -576,8 +576,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '<em><b>Profile Application</b></em>'
-		 * containment reference feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * 
 		 * @generated
 		 */

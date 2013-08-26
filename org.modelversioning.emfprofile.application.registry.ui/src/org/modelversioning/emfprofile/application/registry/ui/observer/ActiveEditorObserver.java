@@ -125,8 +125,8 @@ public class ActiveEditorObserver {
 					viewer.setInput(ProfileApplicationRegistry.INSTANCE
 							.getProfileApplicationManager(
 									decoratableEditorPartListener
-											.getResourceSetOfDecoratableActiveEditor())
-											.getProfileApplications());
+											.getResourceSetOfDecoratableActiveEditor()));
+//											.getProfileApplications());
 				} else {
 					viewer.refresh();
 					viewer.expandToLevel(2);
