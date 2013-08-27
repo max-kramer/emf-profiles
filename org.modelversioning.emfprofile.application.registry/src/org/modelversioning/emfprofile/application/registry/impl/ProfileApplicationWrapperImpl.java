@@ -10,6 +10,7 @@ package org.modelversioning.emfprofile.application.registry.impl;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
@@ -93,6 +95,15 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.profiles = facade.getLoadedProfiles();
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
+		registerTotalNotifier();
+	}
+
+	/**
+	 * adds the {@link TotalNotifier} to observe all changes in and under
+	 * {@link ProfileApplication}
+	 */
+	private void registerTotalNotifier() {
+		getProfileApplication().eAdapters().add(new TotalNotifier());
 	}
 
 	/**
@@ -116,6 +127,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.profiles = facade.getLoadedProfiles();
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
+		registerTotalNotifier();
 	}
 
 	/**
@@ -321,6 +333,11 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	public void save() throws IOException, CoreException {
 		facade.save();
+		eNotify(new ENotificationImpl(
+				ProfileApplicationWrapperImpl.this,
+				Notification.SET,
+				EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER,
+				null, null));
 	}
 
 	/**
@@ -409,6 +426,31 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 			return profileApplication != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/* ///////// NOTIFICATIONS /////////// */
+
+	class TotalNotifier extends EContentAdapter {
+		@Override
+		public void notifyChanged(Notification notification) {
+			super.notifyChanged(notification);
+			if (notification.getNotifier() instanceof ProfileApplication) {
+				System.out.println("TN for ProfileApplication: "
+						+ notification.toString());
+				eNotify(new ENotificationImpl(
+						ProfileApplicationWrapperImpl.this,
+						Notification.SET,
+						EMFProfileApplicationRegistryPackage.REFRESH_AND_UPDATE__PROFILE_APPLICATION_WRAPPER,
+						null, null));
+				return;
+			}
+			eNotify(new ENotificationImpl(
+					ProfileApplicationWrapperImpl.this,
+					Notification.SET,
+					EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER,
+					null, null));
+			System.out.println("TOTAL NOTIFIER: " + notification.toString());
+		}
 	}
 
 } // ProfileApplicationWrapperImpl

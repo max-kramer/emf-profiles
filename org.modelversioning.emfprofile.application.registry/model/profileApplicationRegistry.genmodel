@@ -27,7 +27,7 @@
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//TraversingEObjectContainerChainException"/>
     <genDataTypes ecoreDataType="profileApplicationRegistry.ecore#//Exception"/>
     <genClasses ecoreClass="profileApplicationRegistry.ecore#//ProfileApplicationWrapper">
-      <genFeatures children="true" createChild="false" propertyCategory="" propertySortChoices="true"
+      <genFeatures createChild="false" propertyCategory="" propertySortChoices="true"
           ecoreFeature="ecore:EReference profileApplicationRegistry.ecore#//ProfileApplicationWrapper/profileApplication"/>
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications"/>
       <genOperations ecoreOperation="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications.1">

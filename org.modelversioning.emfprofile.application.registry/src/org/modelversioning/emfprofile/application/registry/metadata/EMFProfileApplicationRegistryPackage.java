@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface EMFProfileApplicationRegistryPackage extends EPackage {
+	
+	
+	// NOTIFICATION CONSTANTS //
+	int REFRESH__PROFILE_APPLICATION_WRAPPER = 1000;
+	int UPDATE__PROFILE_APPLICATION_WRAPPER = 1001;
+	int REFRESH_AND_UPDATE__PROFILE_APPLICATION_WRAPPER = 1002;
+	
 	/**
 	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
