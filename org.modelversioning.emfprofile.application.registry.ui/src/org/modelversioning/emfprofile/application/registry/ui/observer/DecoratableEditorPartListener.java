@@ -210,8 +210,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			if (editorPartToResourceSetMap.containsKey(part)) {
 				// editor part is already known.
 				// it is possible that the user was clicking around at view
-				// parts
-				// so, check if last active editor part was this one.
+				// parts so, check if last active editor part was this one.
 				// if it was then no input model change on viewer is needed.
 				if (!part.equals(lastActiveEditorPart)) {
 					// Restore viewer state and save the viewer state of last
@@ -230,7 +229,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			} else {
 				// editor part first time accessed or editor opened with double
 				// click on resource file,
-				setViewerInputAndTrackEditorPart((IEditorPart)part);
+				
 				// Here we need to save last active editor part viewer state if
 				// it was not null and clear the view
 				if (lastActiveEditorPart != null) {
@@ -239,6 +238,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 							new ViewerState(viewer));
 					viewer.setInput(Collections.emptyList());
 				}
+				setViewerInputAndTrackEditorPart((IEditorPart)part);
 			}
 			setLastActiveEditorPart((IEditorPart) part);
 
