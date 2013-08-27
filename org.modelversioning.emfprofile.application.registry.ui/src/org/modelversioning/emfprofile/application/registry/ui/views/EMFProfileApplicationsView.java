@@ -90,7 +90,7 @@ public class EMFProfileApplicationsView extends ViewPart {
 		viewer.setLabelProvider(new AdapterFactoryLabelProvider(EMFProfileApplicationsView.getAdapterFactory()));
 		
 		viewer.setSorter(createGenericEObjectSorter());
-		viewer.setAutoExpandLevel(2);
+		viewer.setAutoExpandLevel(TreeViewer.ALL_LEVELS);
 		getSite().setSelectionProvider(viewer);
 		EMFProfileApplicationsView.resourceManager = new LocalResourceManager(
 				JFaceResources.getResources());

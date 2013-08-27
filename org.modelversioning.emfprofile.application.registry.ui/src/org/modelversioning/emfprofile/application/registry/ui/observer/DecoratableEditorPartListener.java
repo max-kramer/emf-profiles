@@ -127,20 +127,26 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			if (ProfileApplicationRegistry.INSTANCE
 					.hasProfileApplicationDecoratorForEditorId(ProfileApplicationConstantsAndUtil
 							.getEditorIdFromEditorPart(editorPart))) {
-				// get the resource set of the editor and put it into map for
-				// tracking editors that can be decorated
-				editorPartToResourceSetMap.put(editorPart,
-						ProfileApplicationConstantsAndUtil
-								.getResourceSet(editorPart));
+
 				lastActiveEditorPart = editorPart;
-				// if (viewerFilterActivated)
-				// editorPart.getSite().getPage()
-				// .addSelectionListener(editorSelectionListener);
+				setViewerInputAndTrackEditorPart(editorPart);
 				toolbarCommandEnabeldStateService.setEnabled(true);
+
 			}
 		}
 
 		this.lastActiveEditorPart = lastActiveEditorPart;
+	}
+
+	private void setViewerInputAndTrackEditorPart(IEditorPart editorPart) {
+		// get the resource set of the editor and put it into map for
+		// tracking editors that can be decorated
+		ResourceSet editorResourceSet = ProfileApplicationConstantsAndUtil
+				.getResourceSet(editorPart);
+		editorPartToResourceSetMap.put(editorPart, editorResourceSet);
+		viewer.setInput(ProfileApplicationRegistry.INSTANCE
+				.getProfileApplicationManager(editorResourceSet));
+		viewer.setAutoExpandLevel(TreeViewer.ALL_LEVELS);
 	}
 
 	/**
@@ -224,11 +230,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			} else {
 				// editor part first time accessed or editor opened with double
 				// click on resource file,
-				// Now, get the resource set of the editor and put it into the
-				// map
-				editorPartToResourceSetMap.put(part,
-						ProfileApplicationConstantsAndUtil
-								.getResourceSet((IEditorPart) part));
+				setViewerInputAndTrackEditorPart((IEditorPart)part);
 				// Here we need to save last active editor part viewer state if
 				// it was not null and clear the view
 				if (lastActiveEditorPart != null) {
@@ -262,7 +264,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 			toolbarCommandEnabeldStateService.setEnabled(false);
 		} else {
 			toolbarCommandEnabeldStateService.setEnabled(true);
-			if(viewerFilterActivated)
+			if (viewerFilterActivated)
 				activePage.addSelectionListener(editorSelectionListener);
 		}
 	}

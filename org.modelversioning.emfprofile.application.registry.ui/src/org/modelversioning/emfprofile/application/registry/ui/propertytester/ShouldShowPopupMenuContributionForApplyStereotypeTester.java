@@ -21,7 +21,7 @@ public class ShouldShowPopupMenuContributionForApplyStereotypeTester extends
 	 * 
 	 */
 	public ShouldShowPopupMenuContributionForApplyStereotypeTester() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	/* (non-Javadoc)

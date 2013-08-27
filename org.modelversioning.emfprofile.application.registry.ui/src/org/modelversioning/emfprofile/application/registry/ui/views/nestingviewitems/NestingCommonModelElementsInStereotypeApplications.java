@@ -207,11 +207,6 @@ public class NestingCommonModelElementsInStereotypeApplications implements
 					profileApplication.addNestedEObject(eObject, reference,
 							newEObject);
 
-					// TODO remove refresh things
-					// ActiveEditorObserver.INSTANCE.refreshViewer(eObject);
-					// ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
-					ActiveEditorObserver.INSTANCE.revealElement(newEObject);
-
 					boolean isEnabled = false;
 					if (reference.isMany()) {
 						if (reference.getUpperBound() == -1

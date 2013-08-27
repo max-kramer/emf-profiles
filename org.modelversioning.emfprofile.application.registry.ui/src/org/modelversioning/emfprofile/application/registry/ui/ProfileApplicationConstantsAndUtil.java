@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.part.EditorPart;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
@@ -35,7 +34,8 @@ public final class ProfileApplicationConstantsAndUtil {
 		Object adapter = editorPart.getAdapter(IEditingDomainProvider.class);
 		if (adapter != null && adapter instanceof IEditingDomainProvider) {
 			IEditingDomainProvider editingDomainProvider = (IEditingDomainProvider) adapter;
-			return editingDomainProvider.getEditingDomain().getResourceSet();
+			if(editingDomainProvider.getEditingDomain() != null)
+				return editingDomainProvider.getEditingDomain().getResourceSet();
 		} 
 		throw new NullPointerException("This editor part does not poses an editing domain from which the resource set could be resolved.");
 	}

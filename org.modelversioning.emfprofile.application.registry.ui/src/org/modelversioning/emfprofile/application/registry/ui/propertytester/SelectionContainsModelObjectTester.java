@@ -44,8 +44,14 @@ public class SelectionContainsModelObjectTester extends PropertyTester {
 					.getLastActiveEditorPart();
 			if (editorPart == null)
 				return false;
-			ResourceSet resourceSet = ProfileApplicationConstantsAndUtil
-					.getResourceSet(editorPart);
+			ResourceSet resourceSet = null;
+			try {
+				resourceSet = ProfileApplicationConstantsAndUtil
+						.getResourceSet(editorPart);
+			} catch (NullPointerException e) {
+				// this can happen when editor is closing
+				return false;
+			}
 			if (resourceSet == null)
 				return false;
 			// in case there is no profile application manager for this editor

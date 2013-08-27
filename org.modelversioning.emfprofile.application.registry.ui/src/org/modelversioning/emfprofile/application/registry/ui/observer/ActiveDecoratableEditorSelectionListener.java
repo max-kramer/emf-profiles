@@ -44,8 +44,6 @@ public class ActiveDecoratableEditorSelectionListener implements
 	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
 		if(part.equals(ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener().getLastActiveEditorPart())){
-			System.out.println("Selection Changed: " + selection.toString());
-
 			try {
 				EMFProfileApplicationDecorator decorator = ProfileApplicationRegistry.INSTANCE
 						.getProfileApplicationDecoratorForEditorId(ProfileApplicationConstantsAndUtil
@@ -54,7 +52,6 @@ public class ActiveDecoratableEditorSelectionListener implements
 						.resolveEObjectFromEditorSelection(selection);
 				eObjectSelected(eObject);
 			} catch (ProfileApplicationDecoratorNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

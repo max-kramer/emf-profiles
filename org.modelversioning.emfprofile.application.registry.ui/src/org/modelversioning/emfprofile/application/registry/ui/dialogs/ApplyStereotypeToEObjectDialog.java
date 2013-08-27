@@ -103,38 +103,29 @@ public class ApplyStereotypeToEObjectDialog {
 		if (Dialog.OK == result) {
 			Object[] treeObjects = dialog.getResult();
 			StringBuilder strBuilder = new StringBuilder();
-			boolean hasNotApplicableStereotypes = false;
-			Collection<ProfileApplicationWrapper> profileApplicationDecoratorToBeRefreshedInView = new ArrayList<>();
+			boolean hasNoApplicableStereotypes = false;
 			for (Object object : treeObjects) {
 				if (!(object instanceof TreeParent)) {
 					TreeObject child = (TreeObject) object;
 					StereotypeApplicability stereotypeApplicability = ((StereotypeApplicability) child
 							.getElement());
-					ProfileApplicationWrapper profileApplicationDecorator = (ProfileApplicationWrapper) child
+					ProfileApplicationWrapper profileApplicationWrapper = (ProfileApplicationWrapper) child
 							.getParent().getElement();
 					try {
-						profileApplicationDecorator.applyStereotype(
+						profileApplicationWrapper.applyStereotype(
 								stereotypeApplicability, eObject);
-						profileApplicationDecoratorToBeRefreshedInView
-								.add(profileApplicationDecorator);
 					} catch (IllegalArgumentException e) {
-						hasNotApplicableStereotypes = true;
+						hasNoApplicableStereotypes = true;
 						strBuilder.append(stereotypeApplicability
 								.getStereotype().getName()
 								+ ", from profile: "
-								+ profileApplicationDecorator.getProfileName()
+								+ profileApplicationWrapper.getProfileName()
 								+ "\n");
 					}
 				}
 			}
 
-			// TODO remove refresh viewer stuff also look to remove the
-			// collection that tracks what is to be refreshed in this code
-			// if( ! profileApplicationDecoratorToBeRefreshedInView.isEmpty()){
-			// ActiveEditorObserver.INSTANCE.refreshViewer(profileApplicationDecoratorToBeRefreshedInView);
-			// ActiveEditorObserver.INSTANCE.refreshDecoration(eObject);
-			// }
-			if (hasNotApplicableStereotypes) {
+			if (hasNoApplicableStereotypes) {
 				strBuilder.insert(0, "Not applicable stereotype(s) to object: "
 						+ (eObject == null ? "" : eObject.toString() + "\n"));
 				MessageBox messageBox = new MessageBox(PlatformUI

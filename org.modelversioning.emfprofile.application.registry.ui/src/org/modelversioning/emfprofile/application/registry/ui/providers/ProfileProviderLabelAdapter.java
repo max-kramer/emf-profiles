@@ -88,8 +88,8 @@ public class ProfileProviderLabelAdapter implements ILabelProvider {
 	@Override
 	public String getText(Object element) {
 		if(element instanceof ProfileApplicationWrapper){
-			ProfileApplicationWrapper profileApplicationDecorator = (ProfileApplicationWrapper) element;
-			return profileApplicationDecorator.isDirty() ? "*"+profileApplicationDecorator.getName() : profileApplicationDecorator.getName();
+			ProfileApplicationWrapper profileApplicationWrapper = (ProfileApplicationWrapper) element;
+			return profileApplicationWrapper.isDirty() ? "*"+profileApplicationWrapper.getName() : profileApplicationWrapper.getName();
 		}
 		return getLabelProvider(element).getText(element);
 	}

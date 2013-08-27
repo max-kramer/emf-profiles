@@ -72,13 +72,7 @@ public class UnloadProfileApplicationHandler extends AbstractHandler implements
 						.getStereotypeApplications()) {
 					eObjects.add(stereotypeApplication.getAppliedTo());
 				}
-//				IEditorPart activeEditor = HandlerUtil
-//						.getActiveWorkbenchWindow(event).getActivePage()
-//						.getActiveEditor();
 				profileApplication.unload();
-				// TODO remove refresh viewer stuff
-				// ActiveEditorObserver.INSTANCE.refreshViewer();
-				// ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
 			} else {
 				MessageDialog.openInformation(HandlerUtil
 						.getActiveWorkbenchWindow(event).getShell(),

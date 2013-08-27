@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
@@ -34,15 +34,13 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  * {@link ProfileApplication}.
  * 
  * @author <a href="mailto:langer@big.tuwien.ac.at">Philip Langer</a>
- * 
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  */
 public class LoadProfileApplicationWizard extends Wizard {
 
 	private static final String PROFILE_APPLICATION_PAGE_NAME = "newFilePage1"; //$NON-NLS-1$
 	private static final String WINDOW_TITLE = "Select Profile Application File";
 
-	//TODO remove targetEditorPart
-	private IEditorPart targetEditorPart = null;
 	private SelectProfileApplicationFilePage profileAppFilePage = null;
 
 	// private ISelection selection;
@@ -64,34 +62,33 @@ public class LoadProfileApplicationWizard extends Wizard {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
 		try {
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE
-					.getDecoratableEditorPartListener().getResourceSetOfDecoratableActiveEditor();//getResourceSetOfEditorPart(targetEditorPart);
+					.getDecoratableEditorPartListener()
+					.getResourceSetOfDecoratableActiveEditor();// getResourceSetOfEditorPart(targetEditorPart);
 			if (resourceSet == null)
 				throw new RuntimeException(
 						"Could not find the ResourceSet of this editor part: "
-								+ targetEditorPart);
+								+ ActiveEditorObserver.INSTANCE
+										.getDecoratableEditorPartListener()
+										.getResourceSetOfDecoratableActiveEditor());
 			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
 					.getProfileApplicationManager(resourceSet)
 					.loadProfileApplication(profileApplicationFile);
 
-			ActiveEditorObserver.INSTANCE.refreshViewer();
 			EList<EObject> eObjects = new BasicEList<>();
 			for (StereotypeApplication stereotypeApplication : profileApplication
 					.getStereotypeApplications()) {
 				eObjects.add(stereotypeApplication.getAppliedTo());
 			}
-//			TODO remove refresh decorations stuff
-//			ActiveEditorObserver.INSTANCE.refreshDecorations(eObjects);
 		} catch (Exception e) {
 			e.printStackTrace();
 			IStatus status = new Status(IStatus.ERROR,
 					EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
 					e.getMessage(), e);
 			ErrorDialog
-					.openError(targetEditorPart.getSite().getShell(),
+					.openError(PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow().getShell(),
 							"Error Loading Profile Application",
 							e.getMessage(), status);
-			// EMFProfileApplicationRegistryUIPlugin.getDefault().getLog()
-			// .log(status);
 			return false;
 		}
 		return true;
@@ -111,13 +108,4 @@ public class LoadProfileApplicationWizard extends Wizard {
 		super.addPage(profileAppFilePage);
 	}
 
-	/**
-	 * Sets the workbench part to use for profile application creation.
-	 * 
-	 * @param editorPart
-	 *            to set.
-	 */
-	public void setEditorPart(IEditorPart editorPart) {
-		this.targetEditorPart = editorPart;
-	}
 }

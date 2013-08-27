@@ -62,10 +62,7 @@ public class SaveProfileApplicationHandler extends AbstractHandler implements
 							showError(
 									"Error while saving profile application resource",
 									e);
-						} finally {
-							// TODO remove refresh viewer stuff
-							// ActiveEditorObserver.INSTANCE.updateViewer(profileApplication);
-						}
+						} 
 					}
 				};
 				try {
