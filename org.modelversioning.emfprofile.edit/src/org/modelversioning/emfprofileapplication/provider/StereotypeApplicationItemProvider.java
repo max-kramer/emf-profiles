@@ -30,18 +30,31 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ReflectiveItemProvider;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
- * This is the item provider adapter for a {@link org.modelversioning.emfprofileapplication.StereotypeApplication} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.modelversioning.emfprofileapplication.StereotypeApplication}
+ * object. <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+
+	/////////////////////////////////////////////////////////////////////
+	/**
+	 * Because StereotypeApplications can have dynamically added/removed
+	 * objects, we use reflective item provider in
+	 * {@link #notifyChanged(Notification)} to produce viewer notifications.
+	 */
+	ReflectiveItemProvider rip = new ReflectiveItemProvider(adapterFactory);
+	/////////////////////////////////////////////////////////////////////
+	
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -76,19 +89,17 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addAppliedToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StereotypeApplication_appliedTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StereotypeApplication_appliedTo_feature", "_UI_StereotypeApplication_type"),
-				 EMFProfileApplicationPackage.Literals.STEREOTYPE_APPLICATION__APPLIED_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_StereotypeApplication_appliedTo_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_StereotypeApplication_appliedTo_feature",
+								"_UI_StereotypeApplication_type"),
+						EMFProfileApplicationPackage.Literals.STEREOTYPE_APPLICATION__APPLIED_TO,
+						true, false, true, null, null, null));
 	}
 
 	/**
@@ -98,19 +109,17 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 	 * @generated
 	 */
 	protected void addExtensionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_StereotypeApplication_extension_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StereotypeApplication_extension_feature", "_UI_StereotypeApplication_type"),
-				 EMFProfileApplicationPackage.Literals.STEREOTYPE_APPLICATION__EXTENSION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(
+						((ComposeableAdapterFactory) adapterFactory)
+								.getRootAdapterFactory(),
+						getResourceLocator(),
+						getString("_UI_StereotypeApplication_extension_feature"),
+						getString("_UI_PropertyDescriptor_description",
+								"_UI_StereotypeApplication_extension_feature",
+								"_UI_StereotypeApplication_type"),
+						EMFProfileApplicationPackage.Literals.STEREOTYPE_APPLICATION__EXTENSION,
+						true, false, true, null, null, null));
 	}
 
 	/**
@@ -137,34 +146,40 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 			StereotypeApplication stereotypeApplication = (StereotypeApplication) object;
 			Stereotype stereotype = (stereotypeApplication).getStereotype();
 			EObject eObject = stereotypeApplication.getAppliedTo();
-			if(eObject instanceof ENamedElement){
+			if (eObject instanceof ENamedElement) {
 				ENamedElement namedElement = (ENamedElement) eObject;
 				return stereotype.getName() + " -> " + namedElement.getName();
 			}
 			return getString("_UI_Stereotype_Prefix")
-			+ stereotypeApplication.getStereotype().getName()
-			+ getString("_UI_Stereotype_Postfix")
-			+ " ("
-			+ stereotypeApplication.getExtension().getSource()
-					.getName()
-			+ " -> "
-			+ stereotypeApplication.getExtension().getTarget()
-					.getName() + ")";
+					+ stereotypeApplication.getStereotype().getName()
+					+ getString("_UI_Stereotype_Postfix")
+					+ " ("
+					+ stereotypeApplication.getExtension().getSource()
+							.getName()
+					+ " -> "
+					+ stereotypeApplication.getExtension().getTarget()
+							.getName() + ")";
 		} else {
 			return getString("_UI_StereotypeApplication_type");
 		}
 	}
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc --> <!--
+	 * This handles model notifications by calling {@link #updateChildren} to
+	 * update any cached children and by creating a viewer notification, which
+	 * it passes to {@link #fireNotifyChanged}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @generated
+	 * 
+	 * @generated NOT
 	 */
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+//		TODO remove syso
+		System.out.println("STEREOTYPEAPPLICATIONItemProvider Notification: "
+				+ notification.toString() + " ::: feature id: "
+				+ notification.getFeatureID(StereotypeApplication.class));
+		rip.notifyChanged(notification);
 		super.notifyChanged(notification);
 	}
 
@@ -192,37 +207,33 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 		return EMFProfileApplicationEditPlugin.INSTANCE;
 	}
 
-	 /**
-	  * @generated NOT
-	   */
-	  @Override
-	  protected Collection<? extends EStructuralFeature> getChildrenFeatures(Object object)
-	  {
-	    // if (childrenFeatures == null)
-	    {
-	      childrenFeatures = new ArrayList<EStructuralFeature>();
-	      EObject eObject = (EObject)object;
-	      EClass eClass = eObject.eClass();
-	      if (ExtendedMetaData.INSTANCE.getContentKind(eClass) != ExtendedMetaData.MIXED_CONTENT)
-	      {
-	        for (EReference eReference : eClass.getEAllReferences())
-	        {
-	          if (eReference.isContainment() && ExtendedMetaData.INSTANCE.getGroup(eReference) == null)
-	          {
-	            childrenFeatures.add(eReference);
-	          }
-	        }
-	      }
-	      for (EAttribute eAttribute : eClass.getEAllAttributes())
-	      {
-	        if (ExtendedMetaData.INSTANCE.getGroup(eAttribute) == null && 
-	              eAttribute.getEType().getInstanceClass() == FeatureMap.Entry.class &&
-	              !eAttribute.isDerived())
-	        {
-	          childrenFeatures.add(eAttribute);
-	        }
-	      }
-	    }
-	    return childrenFeatures;
-	  }
+	/**
+	 * @generated NOT
+	 */
+	@Override
+	protected Collection<? extends EStructuralFeature> getChildrenFeatures(
+			Object object) {
+		// if (childrenFeatures == null)
+		{
+			childrenFeatures = new ArrayList<EStructuralFeature>();
+			EObject eObject = (EObject) object;
+			EClass eClass = eObject.eClass();
+			if (ExtendedMetaData.INSTANCE.getContentKind(eClass) != ExtendedMetaData.MIXED_CONTENT) {
+				for (EReference eReference : eClass.getEAllReferences()) {
+					if (eReference.isContainment()
+							&& ExtendedMetaData.INSTANCE.getGroup(eReference) == null) {
+						childrenFeatures.add(eReference);
+					}
+				}
+			}
+			for (EAttribute eAttribute : eClass.getEAllAttributes()) {
+				if (ExtendedMetaData.INSTANCE.getGroup(eAttribute) == null
+						&& eAttribute.getEType().getInstanceClass() == FeatureMap.Entry.class
+						&& !eAttribute.isDerived()) {
+					childrenFeatures.add(eAttribute);
+				}
+			}
+		}
+		return childrenFeatures;
+	}
 }
