@@ -95,15 +95,16 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.profiles = facade.getLoadedProfiles();
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
-		registerTotalNotifier();
+		registerModelNotificationsObserver();
 	}
 
 	/**
-	 * adds the {@link TotalNotifier} to observe all changes in and under
-	 * {@link ProfileApplication}
+	 * adds the {@link ModelNotificationsObserver} to observe all changes in and
+	 * under {@link ProfileApplication}
 	 */
-	private void registerTotalNotifier() {
-		getProfileApplication().eAdapters().add(new TotalNotifier());
+	private void registerModelNotificationsObserver() {
+		getProfileApplication().eAdapters().add(
+				new ModelNotificationsObserver());
 	}
 
 	/**
@@ -127,7 +128,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.profiles = facade.getLoadedProfiles();
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
-		registerTotalNotifier();
+		registerModelNotificationsObserver();
 	}
 
 	/**
@@ -333,11 +334,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	public void save() throws IOException, CoreException {
 		facade.save();
-		eNotify(new ENotificationImpl(
-				ProfileApplicationWrapperImpl.this,
-				Notification.SET,
-				EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER,
-				null, null));
+		sendNotificationToUpdateProfileApplicationWrapperInViewer();
 	}
 
 	/**
@@ -428,29 +425,101 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		return super.eIsSet(featureID);
 	}
 
+	/**
+	 * 
+	 */
+	private void sendNotificationToRefreshProfileApplicationWrapperInViewer() {
+		eNotify(new ENotificationImpl(
+				ProfileApplicationWrapperImpl.this,
+				Notification.SET,
+				EMFProfileApplicationRegistryPackage.REFRESH_AND_UPDATE__PROFILE_APPLICATION_WRAPPER,
+				null, null));
+	}
+
+	/**
+	 * 
+	 */
+	private void sendNotificationToUpdateProfileApplicationWrapperInViewer() {
+		eNotify(new ENotificationImpl(
+				ProfileApplicationWrapperImpl.this,
+				Notification.SET,
+				EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER,
+				null, null));
+	}
+
 	/* ///////// NOTIFICATIONS /////////// */
 
-	class TotalNotifier extends EContentAdapter {
+	/**
+	 * Is used to listen for all model changes under {@link ProfileApplication}.
+	 * 
+	 * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
+	 * 
+	 */
+	class ModelNotificationsObserver extends EContentAdapter {
+
+		/*
+		 * PA ... ProfileApplication
+		 * 
+		 * SA ... StereotypeApplication
+		 * 
+		 * 
+		 * Notifier | Event | Feature | oldValue | newValue | should notify
+		 * decorator? --> (comment)
+		 * 
+		 * 
+		 * NOTIFICATIONS:
+		 * 
+		 * 0: ignore event-type REMOVING_ADAPTER
+		 * 
+		 * 1: PA | ADD/REMOVE | stereotypeApplications | null | SA | Yes -->
+		 * (for Add decorate, for Remove undecorate)
+		 * 
+		 * 2: SA | SET | EAttribute(appliedTo/extension) | null | some-object |
+		 * No --> (they come when SA created, handled by 1.)
+		 * 
+		 * 3: SA | SET | EAttribute(appliedTo/extension) | null/object |
+		 * null/object | No -->(will be ignored because these should not be
+		 * played with, like e.g., in properties view)
+		 * 
+		 * 4: SA | SET | EReference(profileApplication) | PA | null | No -->
+		 * (comes when stereotype removed, handled by 1.)
+		 * 
+		 * 5: SA | SET | EAttribute | any | any | Yes --> (the attribute of a
+		 * stereotype has changed, relevant for decoration)
+		 * 
+		 * 6: SA | SET/ADD | EReference | any | any | No --> (ignoring the
+		 * changes in contained objects, not relevant for decoration. This also
+		 * handles 4.)
+		 * 
+		 * 7: other | any | any | any | any | No --> (ignoring objects that are
+		 * children, grand children, etc., from stereotype applications, not
+		 * relevant for decorations)
+		 * 
+		 * ----------------------------------
+		 * 
+		 * implementation only needs to check for those scenarios (1,5) that
+		 * should send notifications to decorators, all other incoming
+		 * notifications can be swallowed or at least guards against them must
+		 * be implemented.
+		 */
+
 		@Override
 		public void notifyChanged(Notification notification) {
 			super.notifyChanged(notification);
+			// in any case with every incoming notification there has to be a
+			// change in the model
+			sendNotificationToUpdateProfileApplicationWrapperInViewer();
+
 			if (notification.getNotifier() instanceof ProfileApplication) {
-				System.out.println("TN for ProfileApplication: "
+				System.out.println("PROFILE APPLICATION: "
 						+ notification.toString());
-				eNotify(new ENotificationImpl(
-						ProfileApplicationWrapperImpl.this,
-						Notification.SET,
-						EMFProfileApplicationRegistryPackage.REFRESH_AND_UPDATE__PROFILE_APPLICATION_WRAPPER,
-						null, null));
+				sendNotificationToRefreshProfileApplicationWrapperInViewer();
 				return;
 			}
-			eNotify(new ENotificationImpl(
-					ProfileApplicationWrapperImpl.this,
-					Notification.SET,
-					EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER,
-					null, null));
+
 			System.out.println("TOTAL NOTIFIER: " + notification.toString());
 		}
+
 	}
 
 } // ProfileApplicationWrapperImpl

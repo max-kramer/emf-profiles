@@ -175,10 +175,6 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-//		TODO remove syso
-		System.out.println("STEREOTYPEAPPLICATIONItemProvider Notification: "
-				+ notification.toString() + " ::: feature id: "
-				+ notification.getFeatureID(StereotypeApplication.class));
 		rip.notifyChanged(notification);
 		super.notifyChanged(notification);
 	}

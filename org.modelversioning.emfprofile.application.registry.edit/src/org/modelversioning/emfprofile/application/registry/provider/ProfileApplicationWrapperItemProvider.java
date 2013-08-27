@@ -132,21 +132,13 @@ public class ProfileApplicationWrapperItemProvider extends ItemProviderAdapter
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-		// TODO remove syso
-		System.out
-				.println("ProfileApplicationWrapperItemProvider Notification: "
-						+ notification.toString());
 		switch (notification.getFeatureID(ProfileApplicationWrapper.class)) {
 		case EMFProfileApplicationRegistryPackage.REFRESH_AND_UPDATE__PROFILE_APPLICATION_WRAPPER:
-			// TODO remove syso
-			System.out.println("Refreshing and updating paw!");
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), true, true));
 			return;
 
 		case EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER:
-			// TODO remove syso
-			System.out.println("Updating paw!");
 			fireNotifyChanged(new ViewerNotification(notification,
 					notification.getNotifier(), false, true));
 			return;
