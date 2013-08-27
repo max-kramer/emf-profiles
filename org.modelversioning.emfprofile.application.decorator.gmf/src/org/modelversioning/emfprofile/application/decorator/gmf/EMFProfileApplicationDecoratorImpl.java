@@ -37,38 +37,15 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	private final List<String> decorateableEditors = new ArrayList<String>();
 
-	// private static PluginExtensionOperationsListener
-	// pluginExtensionOperationListener;
-	// private IEditorPart activeEditor = null;
-
 	/** {@link EObject} to {@link IDecorator} map. */
 	private static Map<EObject, IDecorator> eObjectToDecoratorMap = new HashMap<EObject, IDecorator>();
 
-	// public static PluginExtensionOperationsListener
-	// getPluginExtensionOperationsListener() {
-	// return
-	// EMFProfileApplicationDecoratorImpl.pluginExtensionOperationListener;
-	// }
-
-	// public IWorkbenchPage getActivePage() {
-	// IWorkbenchWindow window = PlatformUI.getWorkbench()
-	// .getActiveWorkbenchWindow();
-	// if (window == null)
-	// throw new RuntimeException(
-	// "could not locate workbench active window!");
-	// IWorkbenchPage activePage = window.getActivePage();
-	// if (activePage == null)
-	// throw new RuntimeException(
-	// "could not locate active page for active window ");
-	// return activePage;
-	// }
 
 	/**
 	 * default constructor
 	 */
 	public EMFProfileApplicationDecoratorImpl() {
 		obtainRegisteredGMFEditors();
-		// getActiveEditorAndCheckWhetherToDecorate();
 	}
 
 	private void obtainRegisteredGMFEditors() {
@@ -89,117 +66,11 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 		return "gmf-editor".equals(simpleIdentifier); //$NON-NLS-1$
 	}
 
-	// private void getActiveEditorAndCheckWhetherToDecorate() {
-	// // Initialize active editor selection pluginExtensionOperationListener
-	// // for notification of selection to extended plug-in.
-	// // This is needed for tree view filter, when clicking around to know
-	// // which element is selected.
-	// IWorkbenchPage activePage = getActivePage();
-	// IEditorPart editorPart = activePage.getActiveEditor();
-	// if (editorPart != null) {
-	// String editorId = getEditorId(editorPart);
-	// if (isDecorateable(editorId)) {
-	// activeEditor = editorPart;
-	// activeEditor.getSite().getPage()
-	// .addSelectionListener(editorId, this);
-	// }
-	// }
-	// activePage.addPartListener(new IPartListener() {
-	// @Override
-	// public void partOpened(IWorkbenchPart part) {
-	// // ignore
-	// }
-	//
-	// @Override
-	// public void partDeactivated(IWorkbenchPart part) {
-	// // ignore
-	// }
-	//
-	// @Override
-	// public void partClosed(IWorkbenchPart part) {
-	// if (part instanceof IEditorPart && part.equals(activeEditor)) {
-	// activeEditor
-	// .getSite()
-	// .getPage()
-	// .removeSelectionListener(
-	// EMFProfileApplicationDecoratorImpl.this);
-	// }
-	// }
-	//
-	// @Override
-	// public void partBroughtToTop(IWorkbenchPart part) {
-	// // ignore
-	// }
-	//
-	// @Override
-	// public void partActivated(IWorkbenchPart part) {
-	// if (part instanceof IEditorPart) {
-	// IEditorPart editorPart = (IEditorPart) part;
-	// if (isDecorateable(getEditorId(editorPart))) {
-	// if (activeEditor != null) {
-	// activeEditor
-	// .getSite()
-	// .getPage()
-	// .removeSelectionListener(
-	// EMFProfileApplicationDecoratorImpl.this);
-	// }
-	// activeEditor = (IEditorPart) part;
-	// activeEditor
-	// .getSite()
-	// .getPage()
-	// .addSelectionListener(
-	// EMFProfileApplicationDecoratorImpl.this);
-	// }
-	// }
-	// }
-	// });
-	// }
-	//
-	// private String getEditorId(IEditorPart editorPart) {
-	// return editorPart.getSite().getId();
-	// }
-	//
-	// private boolean isDecorateable(String editorId) {
-	// return decorateableEditors.contains(editorId);
-	// }
 
 	@Override
 	public Collection<String> canDecorateEditorsWithFollowingIDs() {
 		return Collections.unmodifiableCollection(decorateableEditors);
 	}
-
-	// @Override
-	// public void setPluginExtensionOperationsListener(
-	// PluginExtensionOperationsListener listener) {
-	// EMFProfileApplicationDecoratorImpl.pluginExtensionOperationListener =
-	// listener;
-	// }
-	//
-	// @Override
-	// public void selectionChanged(IWorkbenchPart part, ISelection selection) {
-	// if (EMFProfileApplicationDecoratorImpl.pluginExtensionOperationListener
-	// != null
-	// && part instanceof IEditorPart && part.equals(activeEditor)) {
-	// if (selection != null && selection instanceof IStructuredSelection) {
-	// IStructuredSelection structuredSelection = (IStructuredSelection)
-	// selection;
-	// EditPart editPart = (EditPart) structuredSelection
-	// .getFirstElement();
-	// Object model = editPart.getModel();
-	// if (model instanceof Node) {
-	// Node node = (Node) model;
-	// EObject selectedEObject = node.getElement();
-	// EMFProfileApplicationDecoratorImpl
-	// .getPluginExtensionOperationsListener()
-	// .eObjectSelected(selectedEObject);
-	// } else {
-	// EMFProfileApplicationDecoratorImpl
-	// .getPluginExtensionOperationsListener()
-	// .eObjectSelected(null);
-	// }
-	// }
-	// }
-	// }
 
 	public static void registerDecoratorForEObject(EObject eObject,
 			IDecorator decorator) {
@@ -214,7 +85,7 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	@Override
 	public void decorate(StereotypeApplication stereotypeApplication) {
-		// TODO Auto-generated method stub
+		// TODO provide decorate implementation
 		System.out.println("Decorating EObject: "
 				+ stereotypeApplication.getAppliedTo().getClass().getName()
 				+ ", with stereotype: "
@@ -223,7 +94,7 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	@Override
 	public void undecorate(StereotypeApplication stereotypeApplication) {
-		// TODO Auto-generated method stub
+		// TODO provide undecorate implementation
 		System.out.println("UNdecorating EObject: "
 				+ stereotypeApplication.getAppliedTo().getClass().getName()
 				+ ", for stereotype: "
