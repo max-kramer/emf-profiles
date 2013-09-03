@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 
 /**
+ * @deprecated
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  * 
  */

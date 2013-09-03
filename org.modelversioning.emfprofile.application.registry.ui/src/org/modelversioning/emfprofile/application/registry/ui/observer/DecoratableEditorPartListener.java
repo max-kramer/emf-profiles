@@ -236,7 +236,7 @@ public final class DecoratableEditorPartListener implements IPartListener {
 					// save last active editor part viewer state
 					editorPartToViewerStateMap.put(lastActiveEditorPart,
 							new ViewerState(viewer));
-					viewer.setInput(Collections.emptyList());
+//					viewer.setInput(Collections.emptyList());
 				}
 				setViewerInputAndTrackEditorPart((IEditorPart)part);
 			}

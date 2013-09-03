@@ -15,19 +15,17 @@ package org.modelversioning.emfprofile.application.registry.ui.wizards;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
+import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * Wizard for collecting necessary information to import a
@@ -61,24 +59,19 @@ public class LoadProfileApplicationWizard extends Wizard {
 	public boolean performFinish() {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
 		try {
+			IEditorPart activeEditor = ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener().getLastActiveEditorPart();
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE
 					.getDecoratableEditorPartListener()
 					.getResourceSetOfDecoratableActiveEditor();// getResourceSetOfEditorPart(targetEditorPart);
 			if (resourceSet == null)
 				throw new RuntimeException(
 						"Could not find the ResourceSet of this editor part: "
-								+ ActiveEditorObserver.INSTANCE
-										.getDecoratableEditorPartListener()
-										.getResourceSetOfDecoratableActiveEditor());
-			ProfileApplicationWrapper profileApplication = ProfileApplicationRegistry.INSTANCE
-					.getProfileApplicationManager(resourceSet)
-					.loadProfileApplication(profileApplicationFile);
-
-			EList<EObject> eObjects = new BasicEList<>();
-			for (StereotypeApplication stereotypeApplication : profileApplication
-					.getStereotypeApplications()) {
-				eObjects.add(stereotypeApplication.getAppliedTo());
-			}
+								+ activeEditor);
+			String editorId = ProfileApplicationConstantsAndUtil.getEditorIdFromEditorPart(activeEditor);
+			ProfileApplicationManager manager = ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet);
+			// bind a decorator of the active editor within the profile application manager
+			manager.bindProfileApplicationDecorator(editorId);
+			manager.loadProfileApplication(profileApplicationFile);
 		} catch (Exception e) {
 			e.printStackTrace();
 			IStatus status = new Status(IStatus.ERROR,

@@ -21,9 +21,11 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.wizards.newresource.BasicNewFileResourceWizard;
 import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
@@ -43,7 +45,6 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 	private static final String WINDOW_TITLE = "Apply Profile";
 
 	private SelectProfileFilePage profileFilePage = null;
-	private IEditorPart targetEditorPart = null;
 	private WizardNewFileCreationPage profileAppFilePage = null;
 
 	/**
@@ -64,14 +65,18 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 		IFile profileApplicationFile = root.getFile(appContainerFullPath
 				.append(profileAppFilePage.getFileName()));
 		try {
+			IEditorPart activeEditor = ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener().getLastActiveEditorPart();
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener().getResourceSetOfDecoratableActiveEditor(); //getResourceSetOfEditorPart(targetEditorPart);
 			if(resourceSet == null)
-				throw new RuntimeException("Could not find the ResourceSet of this editor part: " + targetEditorPart);
-			ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet).createNewProfileApplication(profileApplicationFile, profileFilePage.getSelectedProfiles());
+				throw new RuntimeException("Could not find the ResourceSet of this editor part: " + activeEditor);
+			String editorId = ProfileApplicationConstantsAndUtil.getEditorIdFromEditorPart(activeEditor);
+			// get the manager and instruct the registry to automatically register the decorator for this kind of editor
+			ProfileApplicationManager manager = ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet, editorId);
+			manager.createNewProfileApplication(profileApplicationFile, profileFilePage.getSelectedProfiles());
 		} catch (Exception e) {
 			IStatus status = new Status(IStatus.ERROR, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
 					e.getMessage(), e);
-			ErrorDialog.openError(targetEditorPart.getSite().getShell(),
+			ErrorDialog.openError(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 					"Can not create new profile application!", e.getMessage(), status);
 			EMFProfileApplicationRegistryUIPlugin.getPlugin().getLog().log(status);
 		}
@@ -100,13 +105,5 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 		super.addPage(profileFilePage);
 	}
 
-	/**
-	 * Sets the workbench part to use for profile application creation.
-	 * 
-	 * @param editorPart
-	 *            to set.
-	 */
-	public void setEditorPart(IEditorPart editorPart) {
-		this.targetEditorPart = editorPart;
-	}
+
 }

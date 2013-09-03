@@ -85,8 +85,9 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	@Override
 	public void decorate(StereotypeApplication stereotypeApplication) {
+//		System.out.println("GMF deco SA: " + stereotypeApplication);
 		// TODO provide decorate implementation
-		System.out.println("Decorating EObject: "
+		System.out.println("GMF Decorating EObject: "
 				+ stereotypeApplication.getAppliedTo().getClass().getName()
 				+ ", with stereotype: "
 				+ stereotypeApplication.getStereotype().getName());
@@ -94,8 +95,9 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	@Override
 	public void undecorate(StereotypeApplication stereotypeApplication) {
+//		System.out.println("GMF undeco SA: " + stereotypeApplication);
 		// TODO provide undecorate implementation
-		System.out.println("UNdecorating EObject: "
+		System.out.println("GMF UNdecorating EObject: "
 				+ stereotypeApplication.getAppliedTo().getClass().getName()
 				+ ", for stereotype: "
 				+ stereotypeApplication.getStereotype().getName());

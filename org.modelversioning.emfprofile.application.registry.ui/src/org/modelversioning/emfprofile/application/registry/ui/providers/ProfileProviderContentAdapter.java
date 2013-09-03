@@ -8,6 +8,11 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 
+/**
+ * @deprecated
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
+ *
+ */
 public class ProfileProviderContentAdapter implements ITreeContentProvider {
 
 	private AdapterFactoryContentProvider provider;

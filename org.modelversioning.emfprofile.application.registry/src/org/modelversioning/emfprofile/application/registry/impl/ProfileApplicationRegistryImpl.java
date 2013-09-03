@@ -135,14 +135,23 @@ public class ProfileApplicationRegistryImpl extends
 		if (editorId == null)
 			throw new NullPointerException(
 					"null value for editor id is not allowed.");
-		if (profileApplicationManagers.containsKey(resourceSet)) {
-			return profileApplicationManagers.get(resourceSet);
-		}
 		if (hasProfileApplicationDecoratorForEditorId(editorId) == false)
 			throw new ProfileApplicationDecoratorNotFoundException(
 					"Could not find profile application decorator for editor id: "
 							+ editorId);
-		ProfileApplicationManager manager = getProfileApplicationManager(resourceSet);
+
+		ProfileApplicationManager manager;
+		if (profileApplicationManagers.containsKey(resourceSet)) {
+			manager = profileApplicationManagers.get(resourceSet);
+			try{
+				((ProfileApplicationManagerImpl)manager).getProfileApplicationDecorator();
+			} catch (ProfileApplicationDecoratorNotFoundException e) {
+				manager.bindProfileApplicationDecorator(editorId);
+			}
+			
+			return manager;
+		}
+		manager = getProfileApplicationManager(resourceSet);
 		manager.bindProfileApplicationDecorator(editorId);
 		return manager;
 	}

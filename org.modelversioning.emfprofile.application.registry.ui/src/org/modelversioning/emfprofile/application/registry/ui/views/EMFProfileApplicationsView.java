@@ -244,6 +244,7 @@ public class EMFProfileApplicationsView extends ViewPart {
 		if (propertySheetPage == null) {
 			propertySheetPage = new PropertySheetPage();
 			// only set the reflective adapter factory
+			// TODO look into this to replace it generated item provider.
 			propertySheetPage
 					.setPropertySourceProvider(new AdapterFactoryContentProvider(
 							new ProfileApplicationWrapperReflectiveItemProviderAdapterFactory()));

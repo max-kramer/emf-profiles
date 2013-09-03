@@ -14,6 +14,11 @@ import org.modelversioning.emfprofile.application.registry.ui.views.EMFProfileAp
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
+/**
+ * @deprecated
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
+ *
+ */
 public class ProfileProviderLabelAdapter implements ILabelProvider {
 
 	private AdapterFactoryLabelProvider provider;

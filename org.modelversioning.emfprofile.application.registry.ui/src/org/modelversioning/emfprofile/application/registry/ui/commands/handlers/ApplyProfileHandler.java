@@ -38,7 +38,6 @@ public class ApplyProfileHandler extends AbstractHandler implements IHandler {
 		}else{
 //			if(EMFProfileApplicationDecoratorHandler.getInstance().hasDecoratorForEditorPart(activeEditor)){
 				ApplyProfileWizard wizard = new ApplyProfileWizard();
-				wizard.setEditorPart(activeEditor);
 				wizard.init(PlatformUI.getWorkbench(), (IStructuredSelection)HandlerUtil.getActivePart(event).getSite().getSelectionProvider().getSelection());
 				WizardDialog wizardDialog = new WizardDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), wizard);
 				wizardDialog.open();

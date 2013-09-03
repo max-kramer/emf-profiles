@@ -167,6 +167,12 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 				.eContainer();
 		profileApplicationDecorator = registryImpl
 				.getProfileApplicationDecoratorForEditorId(editorId);
+		// setting decorator into every wrapper that the manager holds
+		for (ProfileApplicationWrapper wrapper : getProfileApplications()) {
+			ProfileApplicationWrapperImpl wrapperImpl = (ProfileApplicationWrapperImpl) wrapper;
+			wrapperImpl.setDecorator(getProfileApplicationDecorator());
+		}
+		
 		return profileApplicationDecorator;
 	}
 
@@ -199,6 +205,9 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 		ProfileApplicationWrapper paw = EMFProfileApplicationRegistryFactory.eINSTANCE
 				.createProfileApplicationWrapper(resourceSet,
 						profileApplicationFile, profiles);
+		if(profileApplicationDecorator != null){
+			((ProfileApplicationWrapperImpl)paw).setDecorator(profileApplicationDecorator);
+		}
 		getProfileApplicationsGen().add(paw);
 		return paw;
 	}
@@ -236,6 +245,9 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 						.createProfileApplicationWrapper(resourceSet,
 								profileApplicationFile);
 				getProfileApplicationsGen().add(paw);
+				if(profileApplicationDecorator != null){
+					((ProfileApplicationWrapperImpl)paw).setDecorator(profileApplicationDecorator);
+				}
 				return paw;
 			}
 		} catch (NullPointerException npe) {

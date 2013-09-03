@@ -42,7 +42,7 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 	@Override
 	public void decorate(StereotypeApplication stereotypeApplication) {
 		// TODO implement decorate for reflective editor
-		
+		System.out.println("Reflective decorating: " + stereotypeApplication.toString());
 	}
 
 
@@ -50,20 +50,26 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 	@Override
 	public void undecorate(StereotypeApplication stereotypeApplication) {
 		// TODO implement undecorate for reflective editor 
-		
+		System.out.println("Reflective undecorating: " + stereotypeApplication.toString());
 	}
 
 
 
 	@Override
 	public EObject resolveEObjectFromEditorSelection(Object selection) {
-		if (selection != null && selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-			Object element = structuredSelection.getFirstElement();
-			if (element instanceof EObject) {
-				EObject selectedEObject = (EObject) element;
-				return selectedEObject;
-			} 
+		if (selection != null) {
+			if(selection instanceof EObject){
+				return (EObject) selection;
+			} else if(selection instanceof IStructuredSelection){
+				IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+				
+				Object element = structuredSelection.getFirstElement();
+				if (element instanceof EObject) {
+					EObject selectedEObject = (EObject) element;
+					return selectedEObject;
+				} 
+			}
+			
 		}
 		return null;
 	}

@@ -17,6 +17,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -29,9 +30,11 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
 import org.modelversioning.emfprofile.impl.ProfileFacadeImpl;
+import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -67,6 +70,16 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	private final IFile profileApplicationFile;
 	private final Collection<Profile> profiles;
 	private final Resource resource;
+	private EMFProfileApplicationDecorator decorator = new SimpleEMFProfileApplicationDecorator();
+
+	public void setDecorator(EMFProfileApplicationDecorator decorator) {
+		this.decorator = decorator;
+		// decorate for already applied stereotypes, e.g. when loading
+		for (StereotypeApplication stereotypeApplication : profileApplication
+				.getStereotypeApplications()) {
+			decorator.decorate(stereotypeApplication);
+		}
+	}
 
 	/**
 	 */
@@ -96,15 +109,6 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		this.resource = facade.getProfileApplicationResource();
 		setProfileApplicationInternal(facade.getProfileApplications().get(0));
 		registerModelNotificationsObserver();
-	}
-
-	/**
-	 * adds the {@link ModelNotificationsObserver} to observe all changes in and
-	 * under {@link ProfileApplication}
-	 */
-	private void registerModelNotificationsObserver() {
-		getProfileApplication().eAdapters().add(
-				new ModelNotificationsObserver());
 	}
 
 	/**
@@ -180,6 +184,16 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 				new NullProgressMonitor());
 		IProfileFacade facade = createNewProfileFacade(profileApplicationFile);
 		return facade;
+	}
+
+	/**
+	 * Attaches the {@link ModelNotificationsObserver} at the
+	 * {@link ProfileApplication} to observe all changes of it and its
+	 * descendant objects.
+	 */
+	private void registerModelNotificationsObserver() {
+		getProfileApplication().eAdapters().add(
+				new ModelNotificationsObserver());
 	}
 
 	/**
@@ -472,7 +486,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		 * 0: ignore event-type REMOVING_ADAPTER
 		 * 
 		 * 1: PA | ADD/REMOVE | stereotypeApplications | null | SA | Yes -->
-		 * (for Add decorate, for Remove undecorate)
+		 * (for Add decorate, for Remove undecorate). For Add we have to wait
+		 * until the applied to was set. So, ADD must be handled differently.
 		 * 
 		 * 2: SA | SET | EAttribute(appliedTo/extension) | null | some-object |
 		 * No --> (they come when SA created, handled by 1.)
@@ -507,19 +522,52 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		public void notifyChanged(Notification notification) {
 			super.notifyChanged(notification);
 			// in any case with every incoming notification there has to be a
-			// change in the model
+			// change in the model, so notification to update the profile
+			// application wrapper in the viewer is desired.
 			sendNotificationToUpdateProfileApplicationWrapperInViewer();
 
-			if (notification.getNotifier() instanceof ProfileApplication) {
+			/* ***** Handling Notifications ***** */
+			Object notifier = notification.getNotifier();
+			if (notifier instanceof ProfileApplication) {
 				System.out.println("PROFILE APPLICATION: "
 						+ notification.toString());
+				// structural change, must refresh
 				sendNotificationToRefreshProfileApplicationWrapperInViewer();
+				if (Notification.ADD == notification.getEventType()) {
+					// NOTE: at this moment the stereotype application does not
+					// have the 'appliedTo' property set, so we have to wait
+					// until that notification comes in order to trigger the
+					// decorator to decorate!
+
+					// decorator.decorate((StereotypeApplication) notification
+					// .getNewValue());
+				} else if (Notification.REMOVE == notification.getEventType()) {
+					decorator.undecorate((StereotypeApplication) notification
+							.getOldValue());
+				}
+				// ignore all other event types
+				return;
+			} else if (notifier instanceof StereotypeApplication) {
+				System.out.println("STEREOTYPE APPLICATION: "
+						+ notification.toString());
+				if (Notification.SET == notification.getEventType()) {
+					// for every attribute set
+					if (notification.getFeature() instanceof EAttribute) {
+						decorator.decorate((StereotypeApplication) notifier);
+					}
+					// if the reference 'appliedTo' was set
+					if (EMFProfileApplicationPackage.eINSTANCE
+							.getStereotypeApplication_AppliedTo().equals(
+									notification.getFeature())) {
+						decorator.decorate((StereotypeApplication) notifier);
+					}
+				}
+				// ignore other
 				return;
 			}
-
+			// All other notifications will be ignored
 			System.out.println("TOTAL NOTIFIER: " + notification.toString());
 		}
-
 	}
 
 } // ProfileApplicationWrapperImpl
