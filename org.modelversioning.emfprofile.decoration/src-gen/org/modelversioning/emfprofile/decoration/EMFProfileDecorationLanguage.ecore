@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="decorationLanguage" nsURI="http://www.modelversioning.org/emfprofile/decoration/EMFProfileDecorationLanguage"
+    nsPrefix="decorationLanguage">
+  <eClassifiers xsi:type="ecore:EClass" name="EMFProfileDecorationModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decorations" upperBound="-1"
+        eType="#//Decoration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Decoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decorations" eType="ecore:EClass ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
+  </eClassifiers>
+</ecore:EPackage>

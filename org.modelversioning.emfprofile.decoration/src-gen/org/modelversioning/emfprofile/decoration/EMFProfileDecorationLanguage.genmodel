@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.modelversioning.emfprofile.decoration/src-gen"
+    editDirectory="/org.modelversioning.emfprofile.decoration.edit/src" editorDirectory="/org.modelversioning.emfprofile.decoration.editor/src"
+    modelPluginID="org.modelversioning.emfprofile.decoration" forceOverwrite="true"
+    modelName="EMFProfileDecorationLanguage" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.modelversioning.emfprofile.decoration.edit"
+    editorPluginID="org.modelversioning.emfprofile.decoration.editor" runtimeVersion="2.9"
+    usedGenPackages="../../../../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile">
+  <genPackages prefix="DecorationLanguage" basePackage="org.modelversioning.emfprofile.decoration"
+      disposableProviderFactory="true" fileExtensions="decoration" ecorePackage="EMFProfileDecorationLanguage.ecore#/">
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//EMFProfileDecorationModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//EMFProfileDecorationModel/importURI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//EMFProfileDecorationModel/decorations"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Decoration">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Decoration/decorations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
