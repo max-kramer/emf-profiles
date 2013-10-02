@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.modelversioning.emfprofile.decoration
-Bundle-Vendor: My Company
+Bundle-Vendor: org.modelversioning
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.modelversioning.emfprofile.decoration; singleton:=true
 Bundle-ActivationPolicy: lazy
