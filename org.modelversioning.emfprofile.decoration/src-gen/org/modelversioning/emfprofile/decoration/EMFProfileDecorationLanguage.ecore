@@ -2,12 +2,58 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="decorationLanguage" nsURI="http://www.modelversioning.org/emfprofile/decoration/EMFProfileDecorationLanguage"
     nsPrefix="decorationLanguage">
-  <eClassifiers xsi:type="ecore:EClass" name="EMFProfileDecorationModel">
+  <eClassifiers xsi:type="ecore:EClass" name="DecorationModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="decorations" upperBound="-1"
-        eType="#//Decoration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namespace" eType="#//Namespace"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decorationDescriptions"
+        upperBound="-1" eType="#//DecorationDescription" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Decoration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="decorations" eType="ecore:EClass ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Namespace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="ecore:EClass ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Profile"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DecorationDescription">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stereotype" eType="ecore:EClass ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decorations" upperBound="-1"
+        eType="#//AbstractDecoration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="active" eType="#//Activation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="active" eType="#//Activation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IconDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location_uri" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BorderDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Activation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//AbstractCondition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//AbstractCondition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="ecore:EClass ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeCondition" eSuperTypes="#//AbstractCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//LogicalOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
+        eType="#//AbstractCondition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
+    <eLiterals name="EQUAL" literal="=="/>
+    <eLiterals name="UNEQUAL" value="1" literal="!="/>
+    <eLiterals name="GREATER" value="2" literal=">"/>
+    <eLiterals name="GREATEROREQUAL" value="3" literal=">="/>
+    <eLiterals name="LOWER" value="4" literal="&lt;"/>
+    <eLiterals name="LOWEROREQUAL" value="5" literal="&lt;="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
+    <eLiterals name="ALL" literal="all"/>
+    <eLiterals name="ANY" value="1" literal="any"/>
   </eClassifiers>
 </ecore:EPackage>

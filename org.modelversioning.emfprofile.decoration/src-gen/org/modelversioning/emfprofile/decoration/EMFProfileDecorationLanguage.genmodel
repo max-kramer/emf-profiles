@@ -9,12 +9,52 @@
     usedGenPackages="../../../../../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile">
   <genPackages prefix="DecorationLanguage" basePackage="org.modelversioning.emfprofile.decoration"
       disposableProviderFactory="true" fileExtensions="decoration" ecorePackage="EMFProfileDecorationLanguage.ecore#/">
-    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//EMFProfileDecorationModel">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//EMFProfileDecorationModel/importURI"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//EMFProfileDecorationModel/decorations"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EMFProfileDecorationLanguage.ecore#//ComparisonOperator">
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//ComparisonOperator/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//ComparisonOperator/UNEQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//ComparisonOperator/GREATER"/>
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//ComparisonOperator/GREATEROREQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//ComparisonOperator/LOWER"/>
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//ComparisonOperator/LOWEROREQUAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="EMFProfileDecorationLanguage.ecore#//LogicalOperator">
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//LogicalOperator/ALL"/>
+      <genEnumLiterals ecoreEnumLiteral="EMFProfileDecorationLanguage.ecore#//LogicalOperator/ANY"/>
+    </genEnums>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//DecorationModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//DecorationModel/importURI"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationModel/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationModel/decorationDescriptions"/>
     </genClasses>
-    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Decoration">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Decoration/decorations"/>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Namespace">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Namespace/profile"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//DecorationDescription">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/stereotype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/decorations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/active"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//AbstractDecoration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//AbstractDecoration/active"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//IconDecoration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//IconDecoration/location_uri"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//BorderDecoration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//BorderDecoration/size"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Activation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Activation/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//AbstractCondition"/>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Condition/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//Condition/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//Condition/value"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//CompositeCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//CompositeCondition/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//CompositeCondition/conditions"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

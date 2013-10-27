@@ -75,14 +75,54 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
     new DecorationLanguageSwitch<Adapter>()
     {
       @Override
-      public Adapter caseEMFProfileDecorationModel(EMFProfileDecorationModel object)
+      public Adapter caseDecorationModel(DecorationModel object)
       {
-        return createEMFProfileDecorationModelAdapter();
+        return createDecorationModelAdapter();
       }
       @Override
-      public Adapter caseDecoration(Decoration object)
+      public Adapter caseNamespace(Namespace object)
       {
-        return createDecorationAdapter();
+        return createNamespaceAdapter();
+      }
+      @Override
+      public Adapter caseDecorationDescription(DecorationDescription object)
+      {
+        return createDecorationDescriptionAdapter();
+      }
+      @Override
+      public Adapter caseAbstractDecoration(AbstractDecoration object)
+      {
+        return createAbstractDecorationAdapter();
+      }
+      @Override
+      public Adapter caseIconDecoration(IconDecoration object)
+      {
+        return createIconDecorationAdapter();
+      }
+      @Override
+      public Adapter caseBorderDecoration(BorderDecoration object)
+      {
+        return createBorderDecorationAdapter();
+      }
+      @Override
+      public Adapter caseActivation(Activation object)
+      {
+        return createActivationAdapter();
+      }
+      @Override
+      public Adapter caseAbstractCondition(AbstractCondition object)
+      {
+        return createAbstractConditionAdapter();
+      }
+      @Override
+      public Adapter caseCondition(Condition object)
+      {
+        return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseCompositeCondition(CompositeCondition object)
+      {
+        return createCompositeConditionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -107,31 +147,151 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.EMFProfileDecorationModel <em>EMF Profile Decoration Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel <em>Decoration Model</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.EMFProfileDecorationModel
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
    * @generated
    */
-  public Adapter createEMFProfileDecorationModelAdapter()
+  public Adapter createDecorationModelAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration <em>Decoration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace <em>Namespace</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace
    * @generated
    */
-  public Adapter createDecorationAdapter()
+  public Adapter createNamespaceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription <em>Decoration Description</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
+   * @generated
+   */
+  public Adapter createDecorationDescriptionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration <em>Abstract Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
+   * @generated
+   */
+  public Adapter createAbstractDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration <em>Icon Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration
+   * @generated
+   */
+  public Adapter createIconDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration <em>Border Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
+   * @generated
+   */
+  public Adapter createBorderDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Activation <em>Activation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Activation
+   * @generated
+   */
+  public Adapter createActivationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition <em>Abstract Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition
+   * @generated
+   */
+  public Adapter createAbstractConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Condition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
+   * @generated
+   */
+  public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition <em>Composite Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition
+   * @generated
+   */
+  public Adapter createCompositeConditionAdapter()
   {
     return null;
   }

@@ -3,8 +3,13 @@
  */
 package org.modelversioning.emfprofile.decoration.formatting;
 
+import com.google.inject.Inject;
+import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
+import org.eclipse.xtext.formatting.impl.FormattingConfig.LinewrapLocator;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.modelversioning.emfprofile.decoration.services.EMFProfileDecorationLanguageGrammarAccess;
 
 /**
  * This class contains custom formatting description.
@@ -16,6 +21,19 @@ import org.eclipse.xtext.formatting.impl.FormattingConfig;
  */
 @SuppressWarnings("all")
 public class EMFProfileDecorationLanguageFormatter extends AbstractDeclarativeFormatter {
+  @Inject
+  @Extension
+  private EMFProfileDecorationLanguageGrammarAccess _eMFProfileDecorationLanguageGrammarAccess;
+  
   protected void configureFormatting(final FormattingConfig c) {
+    LinewrapLocator _setLinewrap = c.setLinewrap(0, 1, 2);
+    TerminalRule _sL_COMMENTRule = this._eMFProfileDecorationLanguageGrammarAccess.getSL_COMMENTRule();
+    _setLinewrap.before(_sL_COMMENTRule);
+    LinewrapLocator _setLinewrap_1 = c.setLinewrap(0, 1, 2);
+    TerminalRule _mL_COMMENTRule = this._eMFProfileDecorationLanguageGrammarAccess.getML_COMMENTRule();
+    _setLinewrap_1.before(_mL_COMMENTRule);
+    LinewrapLocator _setLinewrap_2 = c.setLinewrap(0, 1, 1);
+    TerminalRule _mL_COMMENTRule_1 = this._eMFProfileDecorationLanguageGrammarAccess.getML_COMMENTRule();
+    _setLinewrap_2.after(_mL_COMMENTRule_1);
   }
 }

@@ -3,6 +3,27 @@
  */
 package org.modelversioning.emfprofile.decoration.validation;
 
+import com.google.common.base.Objects;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
+import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage.Literals;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
 import org.modelversioning.emfprofile.decoration.validation.AbstractEMFProfileDecorationLanguageValidator;
 
 /**
@@ -12,4 +33,216 @@ import org.modelversioning.emfprofile.decoration.validation.AbstractEMFProfileDe
  */
 @SuppressWarnings("all")
 public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDecorationLanguageValidator {
+  private final static ExtensibleURIConverterImpl uriConverter = new Function0<ExtensibleURIConverterImpl>() {
+    public ExtensibleURIConverterImpl apply() {
+      ExtensibleURIConverterImpl _extensibleURIConverterImpl = new ExtensibleURIConverterImpl();
+      return _extensibleURIConverterImpl;
+    }
+  }.apply();
+  
+  @Check
+  public void checkThatThereIsOnlyOneDecorationDescriptionForSameStereotype(final DecorationDescription decorationDescription) {
+    EObject _eContainer = decorationDescription.eContainer();
+    EList<DecorationDescription> _decorationDescriptions = ((DecorationModel) _eContainer).getDecorationDescriptions();
+    final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
+        public Boolean apply(final DecorationDescription it) {
+          boolean _and = false;
+          boolean _notEquals = (!Objects.equal(it, decorationDescription));
+          if (!_notEquals) {
+            _and = false;
+          } else {
+            Stereotype _stereotype = it.getStereotype();
+            Stereotype _stereotype_1 = decorationDescription.getStereotype();
+            boolean _equals = Objects.equal(_stereotype, _stereotype_1);
+            _and = (_notEquals && _equals);
+          }
+          return Boolean.valueOf(_and);
+        }
+      };
+    boolean _exists = IterableExtensions.<DecorationDescription>exists(_decorationDescriptions, _function);
+    if (_exists) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Decoration description already defined for the ");
+      Stereotype _stereotype = decorationDescription.getStereotype();
+      String _name = _stereotype.getName();
+      _builder.append(_name, "");
+      this.error(_builder.toString(), decorationDescription, 
+        Literals.DECORATION_DESCRIPTION__STEREOTYPE);
+    }
+  }
+  
+  @Check
+  public void checkIconDecorationLocationURI(final IconDecoration iconDecoration) {
+    try {
+      String _location_uri = iconDecoration.getLocation_uri();
+      final URI locationURI = URI.createPlatformResourceURI(_location_uri, true);
+      boolean _exists = EMFProfileDecorationLanguageValidator.uriConverter.exists(locationURI, null);
+      boolean _equals = (_exists == false);
+      if (_equals) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("The URI does not point to the icon location. Please use the path schema: \"/Project_Name/path_to_icon_file\"");
+        this.error(_builder.toString(), iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+      }
+    } catch (final Throwable _t) {
+      if (_t instanceof IllegalArgumentException) {
+        final IllegalArgumentException iae = (IllegalArgumentException)_t;
+        String _message = iae.getMessage();
+        String _plus = ("\tCould not create URI, illegal argument exception is thrown: " + _message);
+        InputOutput.<String>println(_plus);
+        String _message_1 = iae.getMessage();
+        this.error(_message_1, iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+  }
+  
+  @Check
+  public void checkCondition(final Condition condition) {
+    final EAttribute attribute = condition.getAttribute();
+    final ComparisonOperator operator = condition.getOperator();
+    final String value = condition.getValue();
+    EClassifier _eType = attribute.getEType();
+    final EClassifier _switchValue = _eType;
+    boolean _matched = false;
+    if (!_matched) {
+      boolean _or = false;
+      EClassifier _eType_1 = attribute.getEType();
+      boolean _equals = Objects.equal(_eType_1, org.eclipse.emf.ecore.EcorePackage.Literals.EBOOLEAN);
+      if (_equals) {
+        _or = true;
+      } else {
+        EClassifier _eType_2 = attribute.getEType();
+        boolean _equals_1 = Objects.equal(_eType_2, org.eclipse.emf.ecore.EcorePackage.Literals.ESTRING);
+        _or = (_equals || _equals_1);
+      }
+      if (_or) {
+        _matched=true;
+        boolean _or_1 = false;
+        boolean _equals_2 = Objects.equal(operator, ComparisonOperator.EQUAL);
+        if (_equals_2) {
+          _or_1 = true;
+        } else {
+          boolean _equals_3 = Objects.equal(operator, ComparisonOperator.UNEQUAL);
+          _or_1 = (_equals_2 || _equals_3);
+        }
+        boolean _not = (!_or_1);
+        if (_not) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("The comparison operator is not supported with the attribute type ");
+          EClassifier _eType_3 = attribute.getEType();
+          String _name = _eType_3.getName();
+          _builder.append(_name, "");
+          this.error(_builder.toString(), condition, Literals.CONDITION__OPERATOR);
+        }
+        EClassifier _eType_4 = attribute.getEType();
+        boolean _equals_4 = Objects.equal(_eType_4, org.eclipse.emf.ecore.EcorePackage.Literals.EBOOLEAN);
+        if (_equals_4) {
+          boolean _or_2 = false;
+          boolean _equals_5 = Objects.equal(value, "true");
+          if (_equals_5) {
+            _or_2 = true;
+          } else {
+            boolean _equals_6 = Objects.equal(value, "false");
+            _or_2 = (_equals_5 || _equals_6);
+          }
+          boolean _not_1 = (!_or_2);
+          if (_not_1) {
+            StringConcatenation _builder_1 = new StringConcatenation();
+            _builder_1.append("Expecting a boolean value. Use ctrl-space to acctivate content assist.");
+            this.error(_builder_1.toString(), condition, Literals.CONDITION__VALUE);
+          }
+        } else {
+          boolean _or_3 = false;
+          boolean _and = false;
+          boolean _startsWith = value.startsWith("\"");
+          if (!_startsWith) {
+            _and = false;
+          } else {
+            boolean _endsWith = value.endsWith("\"");
+            _and = (_startsWith && _endsWith);
+          }
+          if (_and) {
+            _or_3 = true;
+          } else {
+            boolean _and_1 = false;
+            boolean _startsWith_1 = value.startsWith("\'");
+            if (!_startsWith_1) {
+              _and_1 = false;
+            } else {
+              boolean _endsWith_1 = value.endsWith("\'");
+              _and_1 = (_startsWith_1 && _endsWith_1);
+            }
+            _or_3 = (_and || _and_1);
+          }
+          boolean _not_2 = (!_or_3);
+          if (_not_2) {
+            StringConcatenation _builder_2 = new StringConcatenation();
+            _builder_2.append("Expecting a string literal.");
+            this.error(_builder_2.toString(), condition, Literals.CONDITION__VALUE);
+          }
+        }
+      }
+    }
+    if (!_matched) {
+      EClassifier _eType_5 = attribute.getEType();
+      boolean _equals_7 = Objects.equal(_eType_5, org.eclipse.emf.ecore.EcorePackage.Literals.EINT);
+      if (_equals_7) {
+        _matched=true;
+        try {
+          Integer.parseInt(value);
+          return;
+        } catch (final Throwable _t) {
+          if (_t instanceof NumberFormatException) {
+            final NumberFormatException nfe = (NumberFormatException)_t;
+            StringConcatenation _builder_3 = new StringConcatenation();
+            _builder_3.append("Expecting an integer number.");
+            this.error(_builder_3.toString(), condition, Literals.CONDITION__VALUE);
+          } else {
+            throw Exceptions.sneakyThrow(_t);
+          }
+        }
+      }
+    }
+    if (!_matched) {
+      boolean _or_4 = false;
+      EClassifier _eType_6 = attribute.getEType();
+      boolean _equals_8 = Objects.equal(_eType_6, org.eclipse.emf.ecore.EcorePackage.Literals.EFLOAT);
+      if (_equals_8) {
+        _or_4 = true;
+      } else {
+        EClassifier _eType_7 = attribute.getEType();
+        boolean _equals_9 = Objects.equal(_eType_7, org.eclipse.emf.ecore.EcorePackage.Literals.EDOUBLE);
+        _or_4 = (_equals_8 || _equals_9);
+      }
+      if (_or_4) {
+        _matched=true;
+        try {
+          Double.parseDouble(value);
+          return;
+        } catch (final Throwable _t_1) {
+          if (_t_1 instanceof NumberFormatException) {
+            final NumberFormatException nfe_1 = (NumberFormatException)_t_1;
+            StringConcatenation _builder_4 = new StringConcatenation();
+            _builder_4.append("Expecting a real number.");
+            this.error(_builder_4.toString(), condition, Literals.CONDITION__VALUE);
+          } else {
+            throw Exceptions.sneakyThrow(_t_1);
+          }
+        }
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder_5 = new StringConcatenation();
+      _builder_5.append("The attribute of the type ");
+      EClassifier _eType_8 = attribute.getEType();
+      String _name_1 = _eType_8.getName();
+      _builder_5.append(_name_1, "");
+      _builder_5.append(" is not supported. ");
+      _builder_5.newLineIfNotEmpty();
+      _builder_5.append("\t\t\t\t");
+      _builder_5.append("Supported types are: Boolean, String, Int, Float, Double");
+      this.error(_builder_5.toString(), condition, Literals.CONDITION__ATTRIBUTE);
+    }
+  }
 }

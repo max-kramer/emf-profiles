@@ -1,54 +1,90 @@
 grammar org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguage with org.eclipse.xtext.common.Terminals
 
 generate decorationLanguage "http://www.modelversioning.org/emfprofile/decoration/EMFProfileDecorationLanguage"
-
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.modelversioning.org/emfprofile/1.1" as profile
 
-EMFProfileDecorationModel:
-	"decorating profile" importURI = STRING	
-	decorations+=Decoration*
-;
-Decoration:
-	'decoration' decorations=[profile::Stereotype | ID] '{'
-	
+DecorationModel:
+	"import resource" importURI = STRING (';')? // makes sense only for ImportURIScopingFragment and SimpleNameProvider
+	(namespace=Namespace (';')?)?
+	decorationDescriptions+=DecorationDescription*;
+
+Namespace:
+//	'import' importedNamespace=QualifiedNameWithWildcard;
+	'profile' profile=[profile::Profile|QualifiedName];
+
+DecorationDescription:
+	'decoration' stereotype=[profile::Stereotype|QualifiedName] '{' 
+	decorations+=(AbstractDecoration)+
+	(active=Activation)? 
 	'}'
 ;
 
-/*
-Domainmodel:
-	(elements+=AbstractElement)*;
+AbstractDecoration:
+	IconDecoration | BorderDecoration;
 
-PackageDeclaration:
-	'package' name=QualifiedName '{'
-	(elements+=AbstractElement)*
+IconDecoration:
+	'icon' '{' 
+		'location-uri' ':' location_uri=STRING (';')? 
+		(active=Activation)? 
 	'}';
 
-AbstractElement:
-	PackageDeclaration | Type | Import;
+BorderDecoration:
+	'border' '{' 
+		'size' ':' size=INT (';')? // possibly I will have to add a unit
+		(active=Activation)?
+	'}';
 
-QualifiedName:
-	ID ('.' ID)*;
+Activation:
+	'active when' condition=AbstractCondition
+;
 
-Import:
-	'import' importedNamespace=QualifiedNameWithWildcard;
+AbstractCondition:
+	Condition | CompositeCondition
+;
+
+Condition:
+	attribute=[ecore::EAttribute|QualifiedName] operator=ComparisonOperator value=Type (';')?
+;
+
+CompositeCondition:
+	operator=LogicalOperator '(' conditions += (AbstractCondition )+  ')'
+;
+
+Type:
+	PossiblySignedInteger | PosiblySignedDouble | STRING | BOOLEAN
+;
+
+PosiblySignedDouble returns ecore::EDouble :
+	'-'? INT '.' INT
+;
+
+PossiblySignedInteger returns ecore::EInt:
+	'-'? INT
+;
+
+terminal BOOLEAN returns ecore::EBoolean:
+	'true' | 'false'
+;
+
+enum ComparisonOperator:
+	EQUAL='==' |
+	UNEQUAL='!=' |
+	GREATER='>' |
+	GREATEROREQUAL='>=' |
+	LOWER='<' |
+	LOWEROREQUAL='<=' 
+;
+
+enum LogicalOperator:
+	ALL='all' |
+	ANY='any' 
+;
 
 QualifiedNameWithWildcard:
 	QualifiedName '.*'?;
 
-Type:
-	DataType | Entity;
+QualifiedName returns ecore::EString:
+	ID ('.' ID)*;
 
-DataType:
-	'datatype' name=ID;
 
-Entity:
-	'entity' name=ID
-	('extends' superType=[Entity|QualifiedName])?
-	'{'
-	(features+=Feature)*
-	'}';
-
-Feature:
-	(many?='many')? name=ID ':' type=[Type|QualifiedName];
-*/

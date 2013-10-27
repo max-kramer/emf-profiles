@@ -3,6 +3,7 @@
 package org.modelversioning.emfprofile.decoration.decorationLanguage.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -64,8 +65,16 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     switch (eClass.getClassifierID())
     {
-      case DecorationLanguagePackage.EMF_PROFILE_DECORATION_MODEL: return createEMFProfileDecorationModel();
-      case DecorationLanguagePackage.DECORATION: return createDecoration();
+      case DecorationLanguagePackage.DECORATION_MODEL: return createDecorationModel();
+      case DecorationLanguagePackage.NAMESPACE: return createNamespace();
+      case DecorationLanguagePackage.DECORATION_DESCRIPTION: return createDecorationDescription();
+      case DecorationLanguagePackage.ABSTRACT_DECORATION: return createAbstractDecoration();
+      case DecorationLanguagePackage.ICON_DECORATION: return createIconDecoration();
+      case DecorationLanguagePackage.BORDER_DECORATION: return createBorderDecoration();
+      case DecorationLanguagePackage.ACTIVATION: return createActivation();
+      case DecorationLanguagePackage.ABSTRACT_CONDITION: return createAbstractCondition();
+      case DecorationLanguagePackage.CONDITION: return createCondition();
+      case DecorationLanguagePackage.COMPOSITE_CONDITION: return createCompositeCondition();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -76,10 +85,18 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EMFProfileDecorationModel createEMFProfileDecorationModel()
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
   {
-    EMFProfileDecorationModelImpl emfProfileDecorationModel = new EMFProfileDecorationModelImpl();
-    return emfProfileDecorationModel;
+    switch (eDataType.getClassifierID())
+    {
+      case DecorationLanguagePackage.COMPARISON_OPERATOR:
+        return createComparisonOperatorFromString(eDataType, initialValue);
+      case DecorationLanguagePackage.LOGICAL_OPERATOR:
+        return createLogicalOperatorFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
   }
 
   /**
@@ -87,10 +104,172 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Decoration createDecoration()
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
   {
-    DecorationImpl decoration = new DecorationImpl();
-    return decoration;
+    switch (eDataType.getClassifierID())
+    {
+      case DecorationLanguagePackage.COMPARISON_OPERATOR:
+        return convertComparisonOperatorToString(eDataType, instanceValue);
+      case DecorationLanguagePackage.LOGICAL_OPERATOR:
+        return convertLogicalOperatorToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DecorationModel createDecorationModel()
+  {
+    DecorationModelImpl decorationModel = new DecorationModelImpl();
+    return decorationModel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Namespace createNamespace()
+  {
+    NamespaceImpl namespace = new NamespaceImpl();
+    return namespace;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DecorationDescription createDecorationDescription()
+  {
+    DecorationDescriptionImpl decorationDescription = new DecorationDescriptionImpl();
+    return decorationDescription;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractDecoration createAbstractDecoration()
+  {
+    AbstractDecorationImpl abstractDecoration = new AbstractDecorationImpl();
+    return abstractDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IconDecoration createIconDecoration()
+  {
+    IconDecorationImpl iconDecoration = new IconDecorationImpl();
+    return iconDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BorderDecoration createBorderDecoration()
+  {
+    BorderDecorationImpl borderDecoration = new BorderDecorationImpl();
+    return borderDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Activation createActivation()
+  {
+    ActivationImpl activation = new ActivationImpl();
+    return activation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractCondition createAbstractCondition()
+  {
+    AbstractConditionImpl abstractCondition = new AbstractConditionImpl();
+    return abstractCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CompositeCondition createCompositeCondition()
+  {
+    CompositeConditionImpl compositeCondition = new CompositeConditionImpl();
+    return compositeCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ComparisonOperator createComparisonOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    ComparisonOperator result = ComparisonOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertComparisonOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicalOperator createLogicalOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    LogicalOperator result = LogicalOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertLogicalOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

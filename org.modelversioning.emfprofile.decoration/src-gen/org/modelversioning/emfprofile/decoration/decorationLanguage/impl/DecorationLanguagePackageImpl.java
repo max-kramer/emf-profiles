@@ -4,6 +4,7 @@ package org.modelversioning.emfprofile.decoration.decorationLanguage.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -12,10 +13,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.modelversioning.emfprofile.EMFProfilePackage;
 
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguageFactory;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.EMFProfileDecorationModel;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,14 +41,84 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass emfProfileDecorationModelEClass = null;
+  private EClass decorationModelEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass decorationEClass = null;
+  private EClass namespaceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass decorationDescriptionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass iconDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass borderDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass activationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractConditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass compositeConditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum comparisonOperatorEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum logicalOperatorEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -110,9 +191,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEMFProfileDecorationModel()
+  public EClass getDecorationModel()
   {
-    return emfProfileDecorationModelEClass;
+    return decorationModelEClass;
   }
 
   /**
@@ -120,9 +201,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEMFProfileDecorationModel_ImportURI()
+  public EAttribute getDecorationModel_ImportURI()
   {
-    return (EAttribute)emfProfileDecorationModelEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)decorationModelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -130,9 +211,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEMFProfileDecorationModel_Decorations()
+  public EReference getDecorationModel_Namespace()
   {
-    return (EReference)emfProfileDecorationModelEClass.getEStructuralFeatures().get(1);
+    return (EReference)decorationModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -140,9 +221,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDecoration()
+  public EReference getDecorationModel_DecorationDescriptions()
   {
-    return decorationEClass;
+    return (EReference)decorationModelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -150,9 +231,239 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDecoration_Decorations()
+  public EClass getNamespace()
   {
-    return (EReference)decorationEClass.getEStructuralFeatures().get(0);
+    return namespaceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNamespace_Profile()
+  {
+    return (EReference)namespaceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDecorationDescription()
+  {
+    return decorationDescriptionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDecorationDescription_Stereotype()
+  {
+    return (EReference)decorationDescriptionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDecorationDescription_Decorations()
+  {
+    return (EReference)decorationDescriptionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDecorationDescription_Active()
+  {
+    return (EReference)decorationDescriptionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractDecoration()
+  {
+    return abstractDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbstractDecoration_Active()
+  {
+    return (EReference)abstractDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getIconDecoration()
+  {
+    return iconDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIconDecoration_Location_uri()
+  {
+    return (EAttribute)iconDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBorderDecoration()
+  {
+    return borderDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBorderDecoration_Size()
+  {
+    return (EAttribute)borderDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getActivation()
+  {
+    return activationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getActivation_Condition()
+  {
+    return (EReference)activationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractCondition()
+  {
+    return abstractConditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCondition_Attribute()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_Operator()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCondition_Value()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCompositeCondition()
+  {
+    return compositeConditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCompositeCondition_Operator()
+  {
+    return (EAttribute)compositeConditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCompositeCondition_Conditions()
+  {
+    return (EReference)compositeConditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getComparisonOperator()
+  {
+    return comparisonOperatorEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getLogicalOperator()
+  {
+    return logicalOperatorEEnum;
   }
 
   /**
@@ -185,12 +496,45 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     isCreated = true;
 
     // Create classes and their features
-    emfProfileDecorationModelEClass = createEClass(EMF_PROFILE_DECORATION_MODEL);
-    createEAttribute(emfProfileDecorationModelEClass, EMF_PROFILE_DECORATION_MODEL__IMPORT_URI);
-    createEReference(emfProfileDecorationModelEClass, EMF_PROFILE_DECORATION_MODEL__DECORATIONS);
+    decorationModelEClass = createEClass(DECORATION_MODEL);
+    createEAttribute(decorationModelEClass, DECORATION_MODEL__IMPORT_URI);
+    createEReference(decorationModelEClass, DECORATION_MODEL__NAMESPACE);
+    createEReference(decorationModelEClass, DECORATION_MODEL__DECORATION_DESCRIPTIONS);
 
-    decorationEClass = createEClass(DECORATION);
-    createEReference(decorationEClass, DECORATION__DECORATIONS);
+    namespaceEClass = createEClass(NAMESPACE);
+    createEReference(namespaceEClass, NAMESPACE__PROFILE);
+
+    decorationDescriptionEClass = createEClass(DECORATION_DESCRIPTION);
+    createEReference(decorationDescriptionEClass, DECORATION_DESCRIPTION__STEREOTYPE);
+    createEReference(decorationDescriptionEClass, DECORATION_DESCRIPTION__DECORATIONS);
+    createEReference(decorationDescriptionEClass, DECORATION_DESCRIPTION__ACTIVE);
+
+    abstractDecorationEClass = createEClass(ABSTRACT_DECORATION);
+    createEReference(abstractDecorationEClass, ABSTRACT_DECORATION__ACTIVE);
+
+    iconDecorationEClass = createEClass(ICON_DECORATION);
+    createEAttribute(iconDecorationEClass, ICON_DECORATION__LOCATION_URI);
+
+    borderDecorationEClass = createEClass(BORDER_DECORATION);
+    createEAttribute(borderDecorationEClass, BORDER_DECORATION__SIZE);
+
+    activationEClass = createEClass(ACTIVATION);
+    createEReference(activationEClass, ACTIVATION__CONDITION);
+
+    abstractConditionEClass = createEClass(ABSTRACT_CONDITION);
+
+    conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__ATTRIBUTE);
+    createEAttribute(conditionEClass, CONDITION__OPERATOR);
+    createEAttribute(conditionEClass, CONDITION__VALUE);
+
+    compositeConditionEClass = createEClass(COMPOSITE_CONDITION);
+    createEAttribute(compositeConditionEClass, COMPOSITE_CONDITION__OPERATOR);
+    createEReference(compositeConditionEClass, COMPOSITE_CONDITION__CONDITIONS);
+
+    // Create enums
+    comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
+    logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
   }
 
   /**
@@ -226,14 +570,60 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    iconDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    borderDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    conditionEClass.getESuperTypes().add(this.getAbstractCondition());
+    compositeConditionEClass.getESuperTypes().add(this.getAbstractCondition());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(emfProfileDecorationModelEClass, EMFProfileDecorationModel.class, "EMFProfileDecorationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEMFProfileDecorationModel_ImportURI(), theEcorePackage.getEString(), "importURI", null, 0, 1, EMFProfileDecorationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEMFProfileDecorationModel_Decorations(), this.getDecoration(), null, "decorations", null, 0, -1, EMFProfileDecorationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(decorationModelEClass, DecorationModel.class, "DecorationModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDecorationModel_ImportURI(), theEcorePackage.getEString(), "importURI", null, 0, 1, DecorationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDecorationModel_Namespace(), this.getNamespace(), null, "namespace", null, 0, 1, DecorationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDecorationModel_DecorationDescriptions(), this.getDecorationDescription(), null, "decorationDescriptions", null, 0, -1, DecorationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(decorationEClass, Decoration.class, "Decoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDecoration_Decorations(), theEMFProfilePackage.getStereotype(), null, "decorations", null, 0, 1, Decoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNamespace_Profile(), theEMFProfilePackage.getProfile(), null, "profile", null, 0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(decorationDescriptionEClass, DecorationDescription.class, "DecorationDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDecorationDescription_Stereotype(), theEMFProfilePackage.getStereotype(), null, "stereotype", null, 0, 1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDecorationDescription_Decorations(), this.getAbstractDecoration(), null, "decorations", null, 0, -1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDecorationDescription_Active(), this.getActivation(), null, "active", null, 0, 1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractDecorationEClass, AbstractDecoration.class, "AbstractDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDecoration_Active(), this.getActivation(), null, "active", null, 0, 1, AbstractDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(iconDecorationEClass, IconDecoration.class, "IconDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getIconDecoration_Location_uri(), theEcorePackage.getEString(), "location_uri", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(borderDecorationEClass, BorderDecoration.class, "BorderDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBorderDecoration_Size(), theEcorePackage.getEInt(), "size", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(activationEClass, Activation.class, "Activation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getActivation_Condition(), this.getAbstractCondition(), null, "condition", null, 0, 1, Activation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractConditionEClass, AbstractCondition.class, "AbstractCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Attribute(), theEcorePackage.getEAttribute(), null, "attribute", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_Operator(), this.getComparisonOperator(), "operator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_Value(), theEcorePackage.getEString(), "value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(compositeConditionEClass, CompositeCondition.class, "CompositeCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCompositeCondition_Operator(), this.getLogicalOperator(), "operator", null, 0, 1, CompositeCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCompositeCondition_Conditions(), this.getAbstractCondition(), null, "conditions", null, 0, -1, CompositeCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.EQUAL);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.UNEQUAL);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATER);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATEROREQUAL);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LOWER);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LOWEROREQUAL);
+
+    initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");
+    addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.ALL);
+    addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.ANY);
 
     // Create resource
     createResource(eNS_URI);

@@ -3,6 +3,21 @@
  */
 package org.modelversioning.emfprofile.decoration.scoping
 
+import java.util.ArrayList
+import java.util.HashSet
+import java.util.Set
+import org.eclipse.emf.ecore.EAttribute
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.IScope
+import org.eclipse.xtext.scoping.Scopes
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+import org.modelversioning.emfprofile.Stereotype
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
+
+import static org.modelversioning.emfprofile.decoration.DecorationLanguageUtil.*
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,6 +25,52 @@ package org.modelversioning.emfprofile.decoration.scoping
  * on how and when to use it 
  *
  */
-class EMFProfileDecorationLanguageScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
+class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarativeScopeProvider {
+
+	/*
+	 * If namespace is used or not, the scopes that are resolved have different
+	 * qualified names in IEObjectDescriptions. So, depending on it, if the namespace is used
+	 * we create the scope directly with stereotypes, otherwise we delegate.
+	 */
+	def IScope scope_DecorationDescription_stereotype(DecorationDescription context, EReference ref){
+//		println()
+//		println('''Scoping for Stereotypes, found:''')
+		
+		val model = context.eContainer as DecorationModel
+//		println("namespace value: " + model.namespace)
+		if(model.namespace != null){
+			val sts = new ArrayList<Stereotype>
+			sts.addAll(model.namespace.profile.stereotypes)
+//			sts.forEach[s | println(s)]
+			Scopes::scopeFor(sts)
+		} else {
+			val scope = delegateGetScope(context, ref)
+//			println(scope)
+			scope
+		}
+	}
+
+	/*
+	 * When resolving the cross-reference to the attribute of a stereotype, which in the decoration language
+	 * only happens in the conditions, we are only interested in attributes of the stereotype
+	 * for which the decoration is defined. 
+	 * We also need to collect the attributes of the parent/extended stereotypes if the steretype has any ESuperTypes.
+	 */
+	def IScope scope_EAttribute(Activation context, EReference ref){
+//		println()
+//		println('''Scoping for Attributes of «getStereotype(context).name», found:''')
+//		getStereotype(context).EAllAttributes.forEach[a|println("\t" + a)]
+		val Set<EAttribute> attributes = new HashSet<EAttribute>
+		val stereotype = getStereotype(context)
+		attributes.addAll(stereotype.EAttributes)
+		stereotype.ESuperTypes.forEach[st | attributes.addAll(st.EAttributes)]
+//		attributes.forEach[a | println(a)]
+		Scopes::scopeFor(attributes)
+		//		new FilteringScope(delegateGetScope(condition, eReference), [
+		//			// here comes the predicate
+		//		])
+	}
+	
 
 }
+	

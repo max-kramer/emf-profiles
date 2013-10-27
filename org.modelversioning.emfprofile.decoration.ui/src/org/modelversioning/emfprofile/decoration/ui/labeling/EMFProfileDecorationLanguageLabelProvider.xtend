@@ -4,16 +4,25 @@
 package org.modelversioning.emfprofile.decoration.ui.labeling
 
 import com.google.inject.Inject
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
+import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class EMFProfileDecorationLanguageLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+class EMFProfileDecorationLanguageLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
@@ -26,4 +35,34 @@ class EMFProfileDecorationLanguageLabelProvider extends org.eclipse.xtext.ui.lab
 //	def image(Greeting ele) {
 //		'Greeting.gif'
 //	}
+	
+	def text(Condition condition){
+		return '''«condition.attribute.name» «condition.operator» «condition.value»'''
+	}
+	
+	def text(CompositeCondition compositeCondition){
+		return '''«compositeCondition.operator»'''
+	}
+	
+	def text(DecorationDescription decorationDescription){
+		return '''«decorationDescription.stereotype.name» - Decoration Description'''
+	}
+
+	def text(DecorationModel model){
+		return '''Imported Resource - "«model.importURI»"'''
+	}
+
+	def text(BorderDecoration border){
+		return '''Border Decoration - size : «border.size»'''
+	}
+	
+	def text(IconDecoration icon){
+		return '''Icon Decoration - location-uri : "«icon.location_uri»"'''
+	}
+
+	def text(Activation activation){
+		return '''active when'''
+	}
+	
+	
 }

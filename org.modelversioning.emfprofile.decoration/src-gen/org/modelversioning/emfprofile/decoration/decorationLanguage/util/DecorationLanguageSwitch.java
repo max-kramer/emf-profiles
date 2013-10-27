@@ -72,17 +72,77 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case DecorationLanguagePackage.EMF_PROFILE_DECORATION_MODEL:
+      case DecorationLanguagePackage.DECORATION_MODEL:
       {
-        EMFProfileDecorationModel emfProfileDecorationModel = (EMFProfileDecorationModel)theEObject;
-        T result = caseEMFProfileDecorationModel(emfProfileDecorationModel);
+        DecorationModel decorationModel = (DecorationModel)theEObject;
+        T result = caseDecorationModel(decorationModel);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DecorationLanguagePackage.DECORATION:
+      case DecorationLanguagePackage.NAMESPACE:
       {
-        Decoration decoration = (Decoration)theEObject;
-        T result = caseDecoration(decoration);
+        Namespace namespace = (Namespace)theEObject;
+        T result = caseNamespace(namespace);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.DECORATION_DESCRIPTION:
+      {
+        DecorationDescription decorationDescription = (DecorationDescription)theEObject;
+        T result = caseDecorationDescription(decorationDescription);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.ABSTRACT_DECORATION:
+      {
+        AbstractDecoration abstractDecoration = (AbstractDecoration)theEObject;
+        T result = caseAbstractDecoration(abstractDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.ICON_DECORATION:
+      {
+        IconDecoration iconDecoration = (IconDecoration)theEObject;
+        T result = caseIconDecoration(iconDecoration);
+        if (result == null) result = caseAbstractDecoration(iconDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.BORDER_DECORATION:
+      {
+        BorderDecoration borderDecoration = (BorderDecoration)theEObject;
+        T result = caseBorderDecoration(borderDecoration);
+        if (result == null) result = caseAbstractDecoration(borderDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.ACTIVATION:
+      {
+        Activation activation = (Activation)theEObject;
+        T result = caseActivation(activation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.ABSTRACT_CONDITION:
+      {
+        AbstractCondition abstractCondition = (AbstractCondition)theEObject;
+        T result = caseAbstractCondition(abstractCondition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.CONDITION:
+      {
+        Condition condition = (Condition)theEObject;
+        T result = caseCondition(condition);
+        if (result == null) result = caseAbstractCondition(condition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.COMPOSITE_CONDITION:
+      {
+        CompositeCondition compositeCondition = (CompositeCondition)theEObject;
+        T result = caseCompositeCondition(compositeCondition);
+        if (result == null) result = caseAbstractCondition(compositeCondition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,33 +151,161 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>EMF Profile Decoration Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Decoration Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>EMF Profile Decoration Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Decoration Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEMFProfileDecorationModel(EMFProfileDecorationModel object)
+  public T caseDecorationModel(DecorationModel object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Decoration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Namespace</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decoration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Namespace</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDecoration(Decoration object)
+  public T caseNamespace(Namespace object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Decoration Description</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Decoration Description</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDecorationDescription(DecorationDescription object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractDecoration(AbstractDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Icon Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Icon Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIconDecoration(IconDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Border Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Border Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBorderDecoration(BorderDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Activation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Activation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseActivation(Activation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractCondition(AbstractCondition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCondition(Condition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Composite Condition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Composite Condition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCompositeCondition(CompositeCondition object)
   {
     return null;
   }

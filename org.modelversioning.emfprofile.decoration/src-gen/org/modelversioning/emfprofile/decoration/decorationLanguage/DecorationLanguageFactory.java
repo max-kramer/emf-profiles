@@ -23,22 +23,94 @@ public interface DecorationLanguageFactory extends EFactory
   DecorationLanguageFactory eINSTANCE = org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguageFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>EMF Profile Decoration Model</em>'.
+   * Returns a new object of class '<em>Decoration Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>EMF Profile Decoration Model</em>'.
+   * @return a new object of class '<em>Decoration Model</em>'.
    * @generated
    */
-  EMFProfileDecorationModel createEMFProfileDecorationModel();
+  DecorationModel createDecorationModel();
 
   /**
-   * Returns a new object of class '<em>Decoration</em>'.
+   * Returns a new object of class '<em>Namespace</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Decoration</em>'.
+   * @return a new object of class '<em>Namespace</em>'.
    * @generated
    */
-  Decoration createDecoration();
+  Namespace createNamespace();
+
+  /**
+   * Returns a new object of class '<em>Decoration Description</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Decoration Description</em>'.
+   * @generated
+   */
+  DecorationDescription createDecorationDescription();
+
+  /**
+   * Returns a new object of class '<em>Abstract Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Decoration</em>'.
+   * @generated
+   */
+  AbstractDecoration createAbstractDecoration();
+
+  /**
+   * Returns a new object of class '<em>Icon Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Icon Decoration</em>'.
+   * @generated
+   */
+  IconDecoration createIconDecoration();
+
+  /**
+   * Returns a new object of class '<em>Border Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Border Decoration</em>'.
+   * @generated
+   */
+  BorderDecoration createBorderDecoration();
+
+  /**
+   * Returns a new object of class '<em>Activation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Activation</em>'.
+   * @generated
+   */
+  Activation createActivation();
+
+  /**
+   * Returns a new object of class '<em>Abstract Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Condition</em>'.
+   * @generated
+   */
+  AbstractCondition createAbstractCondition();
+
+  /**
+   * Returns a new object of class '<em>Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Condition</em>'.
+   * @generated
+   */
+  Condition createCondition();
+
+  /**
+   * Returns a new object of class '<em>Composite Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Composite Condition</em>'.
+   * @generated
+   */
+  CompositeCondition createCompositeCondition();
 
   /**
    * Returns the package supported by this factory.

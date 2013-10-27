@@ -25,7 +25,7 @@ public class EMFProfileDecorationLanguageParser extends org.eclipse.xtext.parser
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "EMFProfileDecorationModel";
+		return "DecorationModel";
 	}
 	
 	public EMFProfileDecorationLanguageGrammarAccess getGrammarAccess() {

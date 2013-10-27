@@ -3,7 +3,27 @@
  */
 package org.modelversioning.emfprofile.decoration.scoping;
 
+import com.google.common.base.Objects;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.decoration.DecorationLanguageUtil;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
 
 /**
  * This class contains custom scoping description.
@@ -13,4 +33,70 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  */
 @SuppressWarnings("all")
 public class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarativeScopeProvider {
+  /**
+   * If namespace is used or not, the scopes that are resolved have different
+   * qualified names in IEObjectDescriptions. So, depending on it, if the namespace is used
+   * we create the scope directly with stereotypes, otherwise we delegate.
+   */
+  public IScope scope_DecorationDescription_stereotype(final DecorationDescription context, final EReference ref) {
+    IScope _xblockexpression = null;
+    {
+      EObject _eContainer = context.eContainer();
+      final DecorationModel model = ((DecorationModel) _eContainer);
+      IScope _xifexpression = null;
+      Namespace _namespace = model.getNamespace();
+      boolean _notEquals = (!Objects.equal(_namespace, null));
+      if (_notEquals) {
+        IScope _xblockexpression_1 = null;
+        {
+          ArrayList<Stereotype> _arrayList = new ArrayList<Stereotype>();
+          final ArrayList<Stereotype> sts = _arrayList;
+          Namespace _namespace_1 = model.getNamespace();
+          Profile _profile = _namespace_1.getProfile();
+          EList<Stereotype> _stereotypes = _profile.getStereotypes();
+          sts.addAll(_stereotypes);
+          IScope _scopeFor = Scopes.scopeFor(sts);
+          _xblockexpression_1 = (_scopeFor);
+        }
+        _xifexpression = _xblockexpression_1;
+      } else {
+        IScope _xblockexpression_2 = null;
+        {
+          final IScope scope = this.delegateGetScope(context, ref);
+          _xblockexpression_2 = (scope);
+        }
+        _xifexpression = _xblockexpression_2;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * When resolving the cross-reference to the attribute of a stereotype, which in the decoration language
+   * only happens in the conditions, we are only interested in attributes of the stereotype
+   * for which the decoration is defined.
+   * We also need to collect the attributes of the parent/extended stereotypes if the steretype has any ESuperTypes.
+   */
+  public IScope scope_EAttribute(final Activation context, final EReference ref) {
+    IScope _xblockexpression = null;
+    {
+      HashSet<EAttribute> _hashSet = new HashSet<EAttribute>();
+      final Set<EAttribute> attributes = _hashSet;
+      final Stereotype stereotype = DecorationLanguageUtil.getStereotype(context);
+      EList<EAttribute> _eAttributes = stereotype.getEAttributes();
+      attributes.addAll(_eAttributes);
+      EList<EClass> _eSuperTypes = stereotype.getESuperTypes();
+      final Procedure1<EClass> _function = new Procedure1<EClass>() {
+          public void apply(final EClass st) {
+            EList<EAttribute> _eAttributes = st.getEAttributes();
+            attributes.addAll(_eAttributes);
+          }
+        };
+      IterableExtensions.<EClass>forEach(_eSuperTypes, _function);
+      IScope _scopeFor = Scopes.scopeFor(attributes);
+      _xblockexpression = (_scopeFor);
+    }
+    return _xblockexpression;
+  }
 }

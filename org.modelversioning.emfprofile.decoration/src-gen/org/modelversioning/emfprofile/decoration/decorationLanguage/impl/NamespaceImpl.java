@@ -10,42 +10,42 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.Profile;
 
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Decoration</b></em>'.
+ * An implementation of the model object '<em><b>Namespace</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationImpl#getDecorations <em>Decorations</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.NamespaceImpl#getProfile <em>Profile</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DecorationImpl extends MinimalEObjectImpl.Container implements Decoration
+public class NamespaceImpl extends MinimalEObjectImpl.Container implements Namespace
 {
   /**
-   * The cached value of the '{@link #getDecorations() <em>Decorations</em>}' reference.
+   * The cached value of the '{@link #getProfile() <em>Profile</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDecorations()
+   * @see #getProfile()
    * @generated
    * @ordered
    */
-  protected Stereotype decorations;
+  protected Profile profile;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DecorationImpl()
+  protected NamespaceImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   @Override
   protected EClass eStaticClass()
   {
-    return DecorationLanguagePackage.Literals.DECORATION;
+    return DecorationLanguagePackage.Literals.NAMESPACE;
   }
 
   /**
@@ -66,19 +66,19 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stereotype getDecorations()
+  public Profile getProfile()
   {
-    if (decorations != null && decorations.eIsProxy())
+    if (profile != null && profile.eIsProxy())
     {
-      InternalEObject oldDecorations = (InternalEObject)decorations;
-      decorations = (Stereotype)eResolveProxy(oldDecorations);
-      if (decorations != oldDecorations)
+      InternalEObject oldProfile = (InternalEObject)profile;
+      profile = (Profile)eResolveProxy(oldProfile);
+      if (profile != oldProfile)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DecorationLanguagePackage.DECORATION__DECORATIONS, oldDecorations, decorations));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, DecorationLanguagePackage.NAMESPACE__PROFILE, oldProfile, profile));
       }
     }
-    return decorations;
+    return profile;
   }
 
   /**
@@ -86,9 +86,9 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stereotype basicGetDecorations()
+  public Profile basicGetProfile()
   {
-    return decorations;
+    return profile;
   }
 
   /**
@@ -96,12 +96,12 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDecorations(Stereotype newDecorations)
+  public void setProfile(Profile newProfile)
   {
-    Stereotype oldDecorations = decorations;
-    decorations = newDecorations;
+    Profile oldProfile = profile;
+    profile = newProfile;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.DECORATION__DECORATIONS, oldDecorations, decorations));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.NAMESPACE__PROFILE, oldProfile, profile));
   }
 
   /**
@@ -114,9 +114,9 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__DECORATIONS:
-        if (resolve) return getDecorations();
-        return basicGetDecorations();
+      case DecorationLanguagePackage.NAMESPACE__PROFILE:
+        if (resolve) return getProfile();
+        return basicGetProfile();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -131,8 +131,8 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__DECORATIONS:
-        setDecorations((Stereotype)newValue);
+      case DecorationLanguagePackage.NAMESPACE__PROFILE:
+        setProfile((Profile)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -148,8 +148,8 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__DECORATIONS:
-        setDecorations((Stereotype)null);
+      case DecorationLanguagePackage.NAMESPACE__PROFILE:
+        setProfile((Profile)null);
         return;
     }
     super.eUnset(featureID);
@@ -165,10 +165,10 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__DECORATIONS:
-        return decorations != null;
+      case DecorationLanguagePackage.NAMESPACE__PROFILE:
+        return profile != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DecorationImpl
+} //NamespaceImpl
