@@ -50,36 +50,10 @@ public class SaveProfileApplicationHandler extends AbstractHandler implements
 		if (currentSelection != null
 				&& currentSelection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) currentSelection;
-			Object element = structuredSelection.getFirstElement();
-			if (element instanceof ProfileApplicationWrapper) {
-				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
-				WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-					@Override
-					public void execute(IProgressMonitor monitor) {
-						try {
-							profileApplication.save();
-						} catch (IOException | CoreException e) {
-							showError(
-									"Error while saving profile application resource",
-									e);
-						} 
-					}
-				};
-				try {
-					new ProgressMonitorDialog(PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow().getShell()).run(true,
-							false, operation);
-				} catch (Exception e) {
-					e.printStackTrace();
-					showError(
-							"Error while saving profile application resource",
-							e);
+			for (Object selectedObject : structuredSelection.toArray()) {
+				if (selectedObject instanceof ProfileApplicationWrapper) {
+					saveProfileApplication((ProfileApplicationWrapper)selectedObject);
 				}
-			} else {
-				MessageDialog.openInformation(HandlerUtil
-						.getActiveWorkbenchWindow(event).getShell(),
-						"Not a profile facade selected", "selection: "
-								+ currentSelection.toString());
 			}
 		} else {
 			MessageDialog.openInformation(
@@ -88,6 +62,34 @@ public class SaveProfileApplicationHandler extends AbstractHandler implements
 		}
 
 		return null;
+	}
+
+	/**
+	 * @param element
+	 */
+	private void saveProfileApplication(final ProfileApplicationWrapper profileApplication) {
+		WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+			@Override
+			public void execute(IProgressMonitor monitor) {
+				try {
+					profileApplication.save();
+				} catch (IOException | CoreException e) {
+					showError(
+							"Error while saving profile application resource",
+							e);
+				} 
+			}
+		};
+		try {
+			new ProgressMonitorDialog(PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getShell()).run(true,
+					false, operation);
+		} catch (Exception e) {
+			e.printStackTrace();
+			showError(
+					"Error while saving profile application resource",
+					e);
+		}
 	}
 
 	private void showError(String message, Throwable throwable) {

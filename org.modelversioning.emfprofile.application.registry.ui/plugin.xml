@@ -248,9 +248,9 @@
                         value="org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper">
                   </instanceof>
                </iterate>
-               <count
+               <!--<count
                      value="1">
-               </count>
+               </count>-->
             </with></enabledWhen>
       </handler>
       <handler
@@ -284,9 +284,9 @@
                      </test>
                   </and>
                </iterate>
-               <count
+               <!--<count
                      value="1">
-               </count>
+               </count>-->
             </with>
          </enabledWhen>
       </handler>

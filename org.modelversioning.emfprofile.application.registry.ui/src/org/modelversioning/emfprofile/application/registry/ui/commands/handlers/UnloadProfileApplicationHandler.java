@@ -63,22 +63,29 @@ public class UnloadProfileApplicationHandler extends AbstractHandler implements
 		if (currentSelection != null
 				&& currentSelection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) currentSelection;
-			Object element = structuredSelection.getFirstElement();
-			if (element instanceof ProfileApplicationWrapper) {
-				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
-				ifProfileApplicationDirty_AskToSave(profileApplication);
-				EList<EObject> eObjects = new BasicEList<>();
-				for (StereotypeApplication stereotypeApplication : profileApplication
-						.getStereotypeApplications()) {
-					eObjects.add(stereotypeApplication.getAppliedTo());
+			for (Object selectedObject : structuredSelection.toArray()) {
+				if(selectedObject instanceof ProfileApplicationWrapper){
+					final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) selectedObject;
+					ifProfileApplicationDirty_AskToSave(profileApplication);
+					profileApplication.unload();
 				}
-				profileApplication.unload();
-			} else {
-				MessageDialog.openInformation(HandlerUtil
-						.getActiveWorkbenchWindow(event).getShell(),
-						"Not a profile application selected", "selection: "
-								+ currentSelection.toString());
 			}
+//			if (element instanceof ProfileApplicationWrapper) {
+//				final ProfileApplicationWrapper profileApplication = (ProfileApplicationWrapper) element;
+//				ifProfileApplicationDirty_AskToSave(profileApplication);
+//				// TODO remove the commented code. Believe it is a left over from the past implementation to refresh graphical decorators
+////				EList<EObject> eObjects = new BasicEList<>();
+////				for (StereotypeApplication stereotypeApplication : profileApplication
+////						.getStereotypeApplications()) {
+////					eObjects.add(stereotypeApplication.getAppliedTo());
+////				}
+//				profileApplication.unload();
+//			} else {
+//				MessageDialog.openInformation(HandlerUtil
+//						.getActiveWorkbenchWindow(event).getShell(),
+//						"Not a profile application selected", "selection: "
+//								+ currentSelection.toString());
+//			}
 		} else {
 			MessageDialog.openInformation(
 					HandlerUtil.getActiveWorkbenchWindow(event).getShell(),
