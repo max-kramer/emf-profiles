@@ -239,7 +239,7 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 
 		try {
 			if (hasLoadedProfileApplication(profileApplicationFile)) {
-				throw new ProfileApplicationAlreadyLoadedException();
+				throw new ProfileApplicationAlreadyLoadedException("The profile application already loaded!\n" + profileApplicationFile.toString());
 			} else {
 				ProfileApplicationWrapper paw = EMFProfileApplicationRegistryFactory.eINSTANCE
 						.createProfileApplicationWrapper(resourceSet,
