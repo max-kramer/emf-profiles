@@ -9,6 +9,7 @@ import java.util.Arrays;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
@@ -29,11 +30,21 @@ import org.modelversioning.emfprofile.diagram.part.EMFProfileDiagramEditorUtil;
 import org.modelversioning.emfprofile.project.EMFProfileProjectNature;
 import org.modelversioning.emfprofile.project.EMFProfileProjectNatureUtil;
 
+/**
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a> (initial API and
+ *         implementation)
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a> (creating a
+ *         resource for decoration descriptions and adding Xtext nature to the
+ *         Profile Project)
+ * 
+ */
 public class NewProfileProjectOperation extends WorkspaceModifyOperation {
 
 	private static final String BUILD_PROP_FILE_NAME = "build.properties";
 	private static final String DEFAULT_VERSION = "1.0.0.qualifier";
 	private static final String PDE_PLUGIN_NATURE = "org.eclipse.pde.PluginNature";
+	private static final String XTEXT_PLUGIN_NATURE = "org.eclipse.xtext.ui.shared.xtextNature";
+	private static final String PROFILE_APPLICATION_DECORATION_DESCRIPTIONS_FILE_NAME = "profileapplication.decoration";
 
 	private ProfileProjectData projectData;
 	private IProject project;
@@ -99,18 +110,23 @@ public class NewProfileProjectOperation extends WorkspaceModifyOperation {
 
 	private void configureNatures(IProject project) throws CoreException {
 		if (!project.hasNature(PDE_PLUGIN_NATURE))
-			addPDENature();
+			addNature(PDE_PLUGIN_NATURE);
 		if (!project.hasNature(EMFProfileProjectNature.NATURE_ID))
 			EMFProfileProjectNatureUtil.addNature(project);
+		// at the moment it seems that the decoration descriptions editor works
+		// also without adding xtext nature to the profile project, nevertheless
+		// if at some point in time it is needed uncomment next two lines.
+		// if(!project.hasNature(XTEXT_PLUGIN_NATURE))
+		// addNature(XTEXT_PLUGIN_NATURE);
 	}
 
-	public void addPDENature() throws CoreException {
+	public void addNature(String natureId) throws CoreException {
 		IProjectDescription description = project.getDescription();
 		String[] natures = description.getNatureIds();
-		if (!Arrays.asList(natures).contains(PDE_PLUGIN_NATURE)) {
+		if (!Arrays.asList(natures).contains(natureId)) {
 			String[] newNatures = new String[natures.length + 1];
 			System.arraycopy(natures, 0, newNatures, 1, natures.length);
-			newNatures[0] = PDE_PLUGIN_NATURE;
+			newNatures[0] = natureId;
 			description.setNatureIds(newNatures);
 			project.setDescription(description, null);
 		}
@@ -202,6 +218,19 @@ public class NewProfileProjectOperation extends WorkspaceModifyOperation {
 		} catch (IOException e) {
 			throw new InvocationTargetException(e);
 		}
+		createProfileApplicationDecorationDescriptionsFile(monitor, project);
+	}
+
+	private void createProfileApplicationDecorationDescriptionsFile(
+			IProgressMonitor monitor, IProject project) throws CoreException {
+		StringBuilder contents = new StringBuilder();
+		contents.append("import resource '"
+				+ EMFProfileProjectNature.DEFAULT_PROFILE_DIAGRAM_FILE_NAME
+				+ "'\n\n");
+		contents.append("profile " + projectData.getProfileName() + "\n");
+		project.getFile(PROFILE_APPLICATION_DECORATION_DESCRIPTIONS_FILE_NAME)
+				.create(new ByteArrayInputStream(contents.toString().getBytes()),
+						IResource.NONE, new SubProgressMonitor(monitor, 0));
 	}
 
 	private void createIconFolder(IProgressMonitor monitor, IProject project)
