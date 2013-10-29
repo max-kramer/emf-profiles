@@ -17,11 +17,13 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
@@ -58,6 +60,14 @@ public class LoadProfileApplicationWizard extends Wizard {
 	@Override
 	public boolean performFinish() {
 		IFile profileApplicationFile = profileAppFilePage.getSelectedFile();
+		return loadProfileApplicationFile(profileApplicationFile);
+	}
+
+	/**
+	 * @param profileApplicationFile
+	 * @return <code>true</code> if the load was successful, <code>false</code> otherwise.
+	 */
+	public boolean loadProfileApplicationFile(IFile profileApplicationFile) {
 		try {
 			IEditorPart activeEditor = ActiveEditorObserver.INSTANCE.getDecoratableEditorPartListener().getLastActiveEditorPart();
 			ResourceSet resourceSet = ActiveEditorObserver.INSTANCE
@@ -72,8 +82,13 @@ public class LoadProfileApplicationWizard extends Wizard {
 			// bind a decorator of the active editor within the profile application manager
 			manager.bindProfileApplicationDecorator(editorId);
 			manager.loadProfileApplication(profileApplicationFile);
+		} catch (ProfileApplicationAlreadyLoadedException paale){
+			MessageDialog.openInformation(PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow().getShell(),"Won't load!",
+							paale.getMessage());
+			return false;
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 			IStatus status = new Status(IStatus.ERROR,
 					EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
 					e.getMessage(), e);

@@ -31,16 +31,22 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerSorter;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.FileTransfer;
+import org.eclipse.swt.dnd.TextTransfer;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.contexts.IContextService;
 import org.eclipse.ui.part.DrillDownAdapter;
+import org.eclipse.ui.part.ResourceTransfer;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.modelversioning.emfprofile.application.registry.provider.EMFProfileApplicationRegistryItemProviderAdapterFactory;
+import org.modelversioning.emfprofile.application.registry.ui.dnd.ProfileApplicationResourceDropListener;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
 import org.modelversioning.emfprofile.application.registry.ui.providers.ProfileApplicationWrapperReflectiveItemProviderAdapterFactory;
 import org.modelversioning.emfprofile.application.registry.ui.views.nestingviewitems.NestingCommonModelElementsInStereotypeApplications;
@@ -82,6 +88,11 @@ public class EMFProfileApplicationsView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
+		
+		// DND: drop support for loading profile application resource
+		int operations = DND.DROP_COPY | DND.DROP_MOVE;
+		Transfer[] transferTypes = new Transfer[]{FileTransfer.getInstance()};
+		viewer.addDropSupport(operations, transferTypes, new ProfileApplicationResourceDropListener(viewer));
 //		viewer.setLabelProvider(new ProfileProviderLabelAdapter(
 //				getAdapterFactory()));
 //		viewer.setContentProvider(new ProfileProviderContentAdapter(
