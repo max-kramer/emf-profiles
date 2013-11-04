@@ -24,6 +24,7 @@ import org.modelversioning.emfprofile.application.registry.EMFProfileApplication
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
 
@@ -122,13 +123,14 @@ public class ProfileApplicationRegistryImpl extends
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws ReadingDecorationDescriptionsException 
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationManager getProfileApplicationManager(
 			ResourceSet resourceSet, String editorId)
 			throws NullPointerException,
-			ProfileApplicationDecoratorNotFoundException {
+			ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException {
 		if (resourceSet == null)
 			throw new NullPointerException(
 					"null value for resource set is not allowed.");

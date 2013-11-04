@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
@@ -27,6 +28,7 @@ import org.eclipse.ui.wizards.newresource.BasicNewFileResourceWizard;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
@@ -73,6 +75,8 @@ public class ApplyProfileWizard extends BasicNewFileResourceWizard {
 			// get the manager and instruct the registry to automatically register the decorator for this kind of editor
 			ProfileApplicationManager manager = ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet, editorId);
 			manager.createNewProfileApplication(profileApplicationFile, profileFilePage.getSelectedProfiles());
+		} catch (ReadingDecorationDescriptionsException rdde){
+			MessageDialog.openWarning(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Decoration Descriptions", rdde.getMessage());
 		} catch (Exception e) {
 			IStatus status = new Status(IStatus.ERROR, EMFProfileApplicationRegistryUIPlugin.PLUGIN_ID,
 					e.getMessage(), e);

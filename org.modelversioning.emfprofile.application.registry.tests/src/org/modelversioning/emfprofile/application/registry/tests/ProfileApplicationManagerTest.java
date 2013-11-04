@@ -31,6 +31,7 @@ import org.modelversioning.emfprofile.application.registry.ProfileApplicationMan
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
@@ -72,9 +73,10 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 	 * @throws IOException 
 	 * @throws CoreException 
 	 * @throws IllegalArgumentException
+	 * @throws ReadingDecorationDescriptionsException 
 	 */
 	@Test
-	public final void testCreateNewProfileApplication_shouldCreateNewResourceInLocalFileSystem() throws IllegalArgumentException, CoreException, IOException {
+	public final void testCreateNewProfileApplication_shouldCreateNewResourceInLocalFileSystem() throws IllegalArgumentException, CoreException, IOException, ReadingDecorationDescriptionsException {
 		
 		assertFalse(getTestProfileApplicationFile().exists());
 		testProfileApplicationManager.createNewProfileApplication(testProfileApplicationFile, profiles);
@@ -85,10 +87,11 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 	 * Test method for {@link org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationRegistryImpl#createNewProfileApplication(org.eclipse.emf.ecore.resource.ResourceSet, IFile, java.util.Collection)}.
 	 * @throws IOException 
 	 * @throws CoreException 
+	 * @throws ReadingDecorationDescriptionsException 
 	 * @throws IllegalArgumentException
 	 */
 	@Test
-	public final void testCreateNewProfileApplication_shouldThrowIllegalArgumentExceptionAndNotCreateResourceFile() throws CoreException, IOException {
+	public final void testCreateNewProfileApplication_shouldThrowIllegalArgumentExceptionAndNotCreateResourceFile() throws CoreException, IOException, ReadingDecorationDescriptionsException {
 		profiles.clear();
 		try {
 			testProfileApplicationManager.createNewProfileApplication(testProfileApplicationFile, profiles);
@@ -183,9 +186,10 @@ public class ProfileApplicationManagerTest extends AbstractProfileApplicationReg
 	 * @throws CoreException 
 	 * @throws IllegalArgumentException 
 	 * @throws ProfileApplicationAlreadyLoadedException 
+	 * @throws ReadingDecorationDescriptionsException 
 	 */
 	@Test
-	public final void testDisposingProfileApplicationManager() throws IllegalArgumentException, CoreException, IOException, ProfileApplicationAlreadyLoadedException {
+	public final void testDisposingProfileApplicationManager() throws IllegalArgumentException, CoreException, IOException, ProfileApplicationAlreadyLoadedException, ReadingDecorationDescriptionsException {
 		assertEquals(0, testProfileApplicationManager.getProfileApplications().size());
 		assertNotNull(testProfileApplicationManager.createNewProfileApplication(getTestProfileApplicationFile(), profiles));
 		assertEquals(1, testProfileApplicationManager.getProfileApplications().size());

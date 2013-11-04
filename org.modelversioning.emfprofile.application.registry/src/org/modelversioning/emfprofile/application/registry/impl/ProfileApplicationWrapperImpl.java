@@ -32,6 +32,8 @@ import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
+import org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsReader;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
 import org.modelversioning.emfprofile.impl.ProfileFacadeImpl;
 import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
@@ -72,12 +74,10 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	private final Resource resource;
 	private EMFProfileApplicationDecorator decorator = new SimpleEMFProfileApplicationDecorator();
 
-	// TODO here we instantiate decoration descriptions handler to look for the
-	// resource, check its syntax/semantical validity and
-	//
-	public void setDecorator(EMFProfileApplicationDecorator decorator) {
+	public void setDecorator(EMFProfileApplicationDecorator decorator) throws ReadingDecorationDescriptionsException {
 		this.decorator = decorator;
 		Profile profile = profiles.iterator().next();
+		DecorationDescriptionsReader decorationDescriptionsReader = new DecorationDescriptionsReader(profile);
 		System.out.println("Setting decorator, profile resource uri: " + profile.eResource().getURI());
 		// decorate for already applied stereotypes, e.g. when loading
 		for (StereotypeApplication stereotypeApplication : profileApplication

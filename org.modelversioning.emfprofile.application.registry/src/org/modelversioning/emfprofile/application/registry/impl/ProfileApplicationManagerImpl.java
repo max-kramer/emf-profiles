@@ -28,6 +28,7 @@ import org.modelversioning.emfprofile.application.registry.ProfileApplicationMan
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
@@ -150,12 +151,13 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws ReadingDecorationDescriptionsException 
 	 * 
 	 * @generated NOT
 	 */
 	public EMFProfileApplicationDecorator bindProfileApplicationDecorator(
 			String editorId) throws NullPointerException,
-			ProfileApplicationDecoratorNotFoundException {
+			ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException {
 		if (editorId == null)
 			throw new NullPointerException(
 					"null value for editor id is not allowed.");
@@ -188,12 +190,13 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @throws ReadingDecorationDescriptionsException 
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationWrapper createNewProfileApplication(
 			IFile profileApplicationFile, Collection<Profile> profiles)
-			throws IllegalArgumentException, IOException, CoreException {
+			throws IllegalArgumentException, IOException, CoreException, ReadingDecorationDescriptionsException {
 		assert resourceSet != null;
 		assert profileApplicationFile != null;
 		assert profiles != null;

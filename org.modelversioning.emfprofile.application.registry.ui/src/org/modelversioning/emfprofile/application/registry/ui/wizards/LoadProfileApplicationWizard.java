@@ -24,6 +24,7 @@ import org.eclipse.ui.PlatformUI;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.ui.EMFProfileApplicationRegistryUIPlugin;
 import org.modelversioning.emfprofile.application.registry.ui.ProfileApplicationConstantsAndUtil;
 import org.modelversioning.emfprofile.application.registry.ui.observer.ActiveEditorObserver;
@@ -87,6 +88,8 @@ public class LoadProfileApplicationWizard extends Wizard {
 							.getActiveWorkbenchWindow().getShell(),"Won't load!",
 							paale.getMessage());
 			return false;
+		} catch (ReadingDecorationDescriptionsException rdde){
+			MessageDialog.openWarning(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), "Decoration Descriptions", rdde.getMessage());
 		} catch (Exception e) {
 //			e.printStackTrace();
 			IStatus status = new Status(IStatus.ERROR,

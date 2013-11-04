@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 
@@ -73,7 +74,13 @@ public interface ProfileApplicationManager extends EObject {
 	 * @throws CoreException
 	 * @throws IOException
 	 * @throws IllegalArgumentException
-	 *             if <code>profiles</code> are empty. <!-- end-user-doc -->
+	 *             if <code>profiles</code> are empty.
+	 * @throws ReadingDecorationDescriptionsException
+	 *             will be thrown if there is no decoration descriptions
+	 *             resource found in the profile project or the syntax has
+	 *             errors or there are semantical violations in. These are
+	 *             visible when the decoration descriptions resource is opened
+	 *             in editor.<!-- end-user-doc -->
 	 * @model required="true" exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.IllegalArgumentException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
 	 *        profileApplicationFileDataType
@@ -85,7 +92,8 @@ public interface ProfileApplicationManager extends EObject {
 	 */
 	ProfileApplicationWrapper createNewProfileApplication(
 			IFile profileApplicationFile, Collection<Profile> profiles)
-			throws IllegalArgumentException, IOException, CoreException;
+			throws IllegalArgumentException, IOException, CoreException,
+			ReadingDecorationDescriptionsException;
 
 	/**
 	 * <!-- begin-user-doc --> Checks if there are any profile applications
@@ -178,13 +186,20 @@ public interface ProfileApplicationManager extends EObject {
 	 *             if editorId is <code>null</code> value.
 	 * @throws ProfileApplicationDecoratorNotFoundException
 	 *             if there is no registered plug-in extension that implements a
-	 *             decorator for the editorId. <!-- end-user-doc -->
+	 *             decorator for the editorId.
+	 * @throws ReadingDecorationDescriptionsException
+	 *             will be thrown if there is no decoration descriptions
+	 *             resource found in the profile project or the syntax has
+	 *             errors or there are semantical violations in. These are
+	 *             visible when the decoration descriptions resource is opened
+	 *             in editor. <!-- end-user-doc -->
 	 * @model exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
 	 * @generated
 	 */
 	EMFProfileApplicationDecorator bindProfileApplicationDecorator(
 			String editorId) throws NullPointerException,
-			ProfileApplicationDecoratorNotFoundException;
+			ProfileApplicationDecoratorNotFoundException,
+			ReadingDecorationDescriptionsException;
 
 } // ProfileApplicationManager

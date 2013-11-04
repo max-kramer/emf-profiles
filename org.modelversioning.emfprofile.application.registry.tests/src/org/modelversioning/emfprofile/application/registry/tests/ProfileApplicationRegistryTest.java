@@ -26,6 +26,7 @@ import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.impl.ProfileApplicationRegistryImpl;
 
 /**
@@ -115,19 +116,19 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	}
 	
 	@Test(expected=NullPointerException.class)
-	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForNullResourceSet_shouldThrowNPE() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForNullResourceSet_shouldThrowNPE() throws NullPointerException, ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException{
 		ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(null, "something");
 		fail("Did not throw NPE.");
 	}
 	
 	@Test(expected=NullPointerException.class)
-	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForNullEditorId_shouldThrowNPE() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForNullEditorId_shouldThrowNPE() throws NullPointerException, ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException{
 		ProfileApplicationRegistry.INSTANCE.getProfileApplicationManager(resourceSet, null);
 		fail("Did not throw NPE.");
 	}
 
 	@Test(expected=ProfileApplicationDecoratorNotFoundException.class)
-	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForUnknownEditorId_shouldThrowException() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+	public void testGettingProfileApplicationManagerAndRegisteringDecoratorForUnknownEditorId_shouldThrowException() throws NullPointerException, ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException{
 		
 		// NOTE: please be sure that there is a GMF decorator extension plug-in present. Otherwise this test could fail for wrong reasons.
 		
@@ -137,7 +138,7 @@ public class ProfileApplicationRegistryTest extends AbstractProfileApplicationRe
 	}
 
 	@Test()
-	public void testGettingProfileApplicationManagerAndRegisteringDecorator_shouldRetournSameInstanceOfManager() throws NullPointerException, ProfileApplicationDecoratorNotFoundException{
+	public void testGettingProfileApplicationManagerAndRegisteringDecorator_shouldRetournSameInstanceOfManager() throws NullPointerException, ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException{
 		
 		// NOTE: please be sure that there is a GMF decorator extension plug-in present. Otherwise this test could fail for wrong reasons.
 

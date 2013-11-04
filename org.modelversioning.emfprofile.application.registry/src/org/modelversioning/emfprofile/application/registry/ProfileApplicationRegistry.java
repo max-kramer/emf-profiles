@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 
 /**
@@ -96,9 +97,13 @@ public interface ProfileApplicationRegistry extends EObject {
 	 *             if any parameter is <code>null</code> value.
 	 * @throws ProfileApplicationDecoratorNotFoundException
 	 *             if there is no registered plug-in extension that implements a
-	 *             decorator for the <b><em>editorId</em></b>. <!-- end-user-doc
-	 *             -->
-	 * 
+	 *             decorator for the <b><em>editorId</em></b>.
+	 * @throws ReadingDecorationDescriptionsException
+	 *             will be thrown if there is no decoration descriptions
+	 *             resource found in the profile project or the syntax has
+	 *             errors or there are semantical violations in. These are
+	 *             visible when the decoration descriptions resource is opened
+	 *             in editor.<!-- end-user-doc -->
 	 * @model exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
 	 *        resourceSetDataType=
@@ -109,7 +114,8 @@ public interface ProfileApplicationRegistry extends EObject {
 	ProfileApplicationManager getProfileApplicationManager(
 			ResourceSet resourceSet, String editorId)
 			throws NullPointerException,
-			ProfileApplicationDecoratorNotFoundException;
+			ProfileApplicationDecoratorNotFoundException,
+			ReadingDecorationDescriptionsException;
 
 	/**
 	 * <!-- begin-user-doc --> Returns <code>true</code> if there is a profile

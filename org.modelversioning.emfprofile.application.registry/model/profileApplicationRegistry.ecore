@@ -60,7 +60,7 @@
       <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
     </eOperations>
     <eOperations name="getProfileApplicationManager" eType="#//ProfileApplicationManager"
-        eExceptions="#//NullPointerException #//ProfileApplicationDecoratorNotFoundException">
+        eExceptions="#//NullPointerException #//ProfileApplicationDecoratorNotFoundException #//ReadingDecorationDescriptionsException">
       <eParameters name="resourceSet" lowerBound="1" eType="#//ResourceSet"/>
       <eParameters name="editorId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eOperations>
@@ -80,7 +80,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileApplicationManager">
     <eOperations name="createNewProfileApplication" lowerBound="1" eType="#//ProfileApplicationWrapper"
-        eExceptions="#//IllegalArgumentException #//IOException #//CoreException">
+        eExceptions="#//IllegalArgumentException #//IOException #//CoreException #//ReadingDecorationDescriptionsException">
       <eParameters name="profileApplicationFile" lowerBound="1" eType="#//IFile"/>
       <eParameters name="profiles" lowerBound="1">
         <eGenericType eClassifier="#//Collection">
@@ -99,7 +99,7 @@
       <eParameters name="eObject" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
     </eOperations>
     <eOperations name="bindProfileApplicationDecorator" eType="#//EMFProfileApplicationDecorator"
-        eExceptions="#//NullPointerException #//ProfileApplicationDecoratorNotFoundException">
+        eExceptions="#//NullPointerException #//ProfileApplicationDecoratorNotFoundException #//ReadingDecorationDescriptionsException">
       <eParameters name="editorId" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileApplications" lowerBound="1"
@@ -119,6 +119,8 @@
   <eClassifiers xsi:type="ecore:EDataType" name="CoreException" instanceClassName="org.eclipse.core.runtime.CoreException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ProfileApplicationAlreadyLoadedException"
       instanceClassName="org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="ReadingDecorationDescriptionsException"
+      instanceClassName="org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="TraversingEObjectContainerChainException"
       instanceClassName="org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Exception" instanceClassName="java.lang.Exception"/>
