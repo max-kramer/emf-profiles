@@ -23,6 +23,7 @@ import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.*;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
@@ -118,6 +119,9 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION:
 			return createProfileApplicationAlreadyLoadedExceptionFromString(
 					eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.READING_DECORATION_DESCRIPTIONS_EXCEPTION:
+			return createReadingDecorationDescriptionsExceptionFromString(
+					eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION:
 			return createTraversingEObjectContainerChainExceptionFromString(
 					eDataType, initialValue);
@@ -159,6 +163,9 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return convertCoreExceptionToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION:
 			return convertProfileApplicationAlreadyLoadedExceptionToString(
+					eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.READING_DECORATION_DESCRIPTIONS_EXCEPTION:
+			return convertReadingDecorationDescriptionsExceptionToString(
 					eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION:
 			return convertTraversingEObjectContainerChainExceptionToString(
@@ -443,6 +450,27 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 * @generated
 	 */
 	public String convertProfileApplicationAlreadyLoadedExceptionToString(
+			EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public ReadingDecorationDescriptionsException createReadingDecorationDescriptionsExceptionFromString(
+			EDataType eDataType, String initialValue) {
+		return (ReadingDecorationDescriptionsException) super.createFromString(
+				eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertReadingDecorationDescriptionsExceptionToString(
 			EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}

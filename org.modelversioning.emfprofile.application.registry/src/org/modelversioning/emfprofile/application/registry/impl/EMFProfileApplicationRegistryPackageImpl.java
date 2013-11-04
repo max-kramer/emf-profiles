@@ -28,6 +28,7 @@ import org.modelversioning.emfprofile.application.registry.ProfileApplicationReg
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.exception.TraversingEObjectContainerChainException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryFactory;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
@@ -138,6 +139,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * @generated
 	 */
 	private EDataType profileApplicationAlreadyLoadedExceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType readingDecorationDescriptionsExceptionEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -387,6 +395,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	public EDataType getReadingDecorationDescriptionsException() {
+		return readingDecorationDescriptionsExceptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getTraversingEObjectContainerChainException() {
 		return traversingEObjectContainerChainExceptionEDataType;
 	}
@@ -454,6 +471,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		nullPointerExceptionEDataType = createEDataType(NULL_POINTER_EXCEPTION);
 		coreExceptionEDataType = createEDataType(CORE_EXCEPTION);
 		profileApplicationAlreadyLoadedExceptionEDataType = createEDataType(PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION);
+		readingDecorationDescriptionsExceptionEDataType = createEDataType(READING_DECORATION_DESCRIPTIONS_EXCEPTION);
 		traversingEObjectContainerChainExceptionEDataType = createEDataType(TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION);
 		exceptionEDataType = createEDataType(EXCEPTION);
 	}
@@ -632,6 +650,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEException(op, this.getNullPointerException());
 		addEException(op,
 				this.getProfileApplicationDecoratorNotFoundException());
+		addEException(op, this.getReadingDecorationDescriptionsException());
 
 		op = addEOperation(profileApplicationRegistryEClass,
 				theEcorePackage.getEBoolean(),
@@ -679,6 +698,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEException(op, this.getIllegalArgumentException());
 		addEException(op, this.getIOException());
 		addEException(op, this.getCoreException());
+		addEException(op, this.getReadingDecorationDescriptionsException());
 
 		addEOperation(profileApplicationManagerEClass,
 				theEcorePackage.getEBoolean(), "hasProfileApplications", 1, 1,
@@ -712,6 +732,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEException(op, this.getNullPointerException());
 		addEException(op,
 				this.getProfileApplicationDecoratorNotFoundException());
+		addEException(op, this.getReadingDecorationDescriptionsException());
 
 		initEClass(emfProfileApplicationDecoratorEClass,
 				EMFProfileApplicationDecorator.class,
@@ -771,6 +792,10 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		initEDataType(profileApplicationAlreadyLoadedExceptionEDataType,
 				ProfileApplicationAlreadyLoadedException.class,
 				"ProfileApplicationAlreadyLoadedException", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(readingDecorationDescriptionsExceptionEDataType,
+				ReadingDecorationDescriptionsException.class,
+				"ReadingDecorationDescriptionsException", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(traversingEObjectContainerChainExceptionEDataType,
 				TraversingEObjectContainerChainException.class,

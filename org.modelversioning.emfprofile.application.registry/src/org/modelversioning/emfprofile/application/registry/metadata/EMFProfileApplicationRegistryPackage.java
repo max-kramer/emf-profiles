@@ -28,13 +28,12 @@ import org.eclipse.emf.ecore.EReference;
  * @generated
  */
 public interface EMFProfileApplicationRegistryPackage extends EPackage {
-	
-	
+
 	// NOTIFICATION CONSTANTS //
 	int REFRESH__PROFILE_APPLICATION_WRAPPER = 1000;
 	int UPDATE__PROFILE_APPLICATION_WRAPPER = 1001;
 	int REFRESH_AND_UPDATE__PROFILE_APPLICATION_WRAPPER = 1002;
-	
+
 	/**
 	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -284,6 +283,16 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '
+	 * <em>Reading Decoration Descriptions Exception</em>' data type. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getReadingDecorationDescriptionsException()
+	 * @generated
+	 */
+	int READING_DECORATION_DESCRIPTIONS_EXCEPTION = 14;
+	/**
+	 * The meta object id for the '
 	 * <em>Traversing EObject Container Chain Exception</em>' data type. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -291,7 +300,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getTraversingEObjectContainerChainException()
 	 * @generated
 	 */
-	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 14;
+	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 15;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type. <!--
@@ -301,7 +310,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 15;
+	int EXCEPTION = 16;
 
 	/**
 	 * Returns the meta object for class '
@@ -518,6 +527,21 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getProfileApplicationAlreadyLoadedException();
+
+	/**
+	 * Returns the meta object for data type '
+	 * {@link org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
+	 * <em>Reading Decoration Descriptions Exception</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '
+	 *         <em>Reading Decoration Descriptions Exception</em>'.
+	 * @see org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
+	 * @model instanceClass=
+	 *        "org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException"
+	 * @generated
+	 */
+	EDataType getReadingDecorationDescriptionsException();
 
 	/**
 	 * Returns the meta object for data type '
@@ -753,6 +777,18 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 		 */
 		EDataType PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = eINSTANCE
 				.getProfileApplicationAlreadyLoadedException();
+
+		/**
+		 * The meta object literal for the '
+		 * <em>Reading Decoration Descriptions Exception</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getReadingDecorationDescriptionsException()
+		 * @generated
+		 */
+		EDataType READING_DECORATION_DESCRIPTIONS_EXCEPTION = eINSTANCE
+				.getReadingDecorationDescriptionsException();
 
 		/**
 		 * The meta object literal for the '

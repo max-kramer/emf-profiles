@@ -151,13 +151,15 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws ReadingDecorationDescriptionsException 
+	 * 
+	 * @throws ReadingDecorationDescriptionsException
 	 * 
 	 * @generated NOT
 	 */
 	public EMFProfileApplicationDecorator bindProfileApplicationDecorator(
 			String editorId) throws NullPointerException,
-			ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException {
+			ProfileApplicationDecoratorNotFoundException,
+			ReadingDecorationDescriptionsException {
 		if (editorId == null)
 			throw new NullPointerException(
 					"null value for editor id is not allowed.");
@@ -174,7 +176,7 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 			ProfileApplicationWrapperImpl wrapperImpl = (ProfileApplicationWrapperImpl) wrapper;
 			wrapperImpl.setDecorator(getProfileApplicationDecorator());
 		}
-		
+
 		return profileApplicationDecorator;
 	}
 
@@ -190,13 +192,15 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws ReadingDecorationDescriptionsException 
+	 * 
+	 * @throws ReadingDecorationDescriptionsException
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationWrapper createNewProfileApplication(
 			IFile profileApplicationFile, Collection<Profile> profiles)
-			throws IllegalArgumentException, IOException, CoreException, ReadingDecorationDescriptionsException {
+			throws IllegalArgumentException, IOException, CoreException,
+			ReadingDecorationDescriptionsException {
 		assert resourceSet != null;
 		assert profileApplicationFile != null;
 		assert profiles != null;
@@ -208,8 +212,9 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 		ProfileApplicationWrapper paw = EMFProfileApplicationRegistryFactory.eINSTANCE
 				.createProfileApplicationWrapper(resourceSet,
 						profileApplicationFile, profiles);
-		if(profileApplicationDecorator != null){
-			((ProfileApplicationWrapperImpl)paw).setDecorator(profileApplicationDecorator);
+		if (profileApplicationDecorator != null) {
+			((ProfileApplicationWrapperImpl) paw)
+					.setDecorator(profileApplicationDecorator);
 		}
 		getProfileApplicationsGen().add(paw);
 		return paw;
@@ -242,14 +247,17 @@ public class ProfileApplicationManagerImpl extends MinimalEObjectImpl.Container
 
 		try {
 			if (hasLoadedProfileApplication(profileApplicationFile)) {
-				throw new ProfileApplicationAlreadyLoadedException("The profile application already loaded!\n" + profileApplicationFile.toString());
+				throw new ProfileApplicationAlreadyLoadedException(
+						"The profile application already loaded!\n"
+								+ profileApplicationFile.toString());
 			} else {
 				ProfileApplicationWrapper paw = EMFProfileApplicationRegistryFactory.eINSTANCE
 						.createProfileApplicationWrapper(resourceSet,
 								profileApplicationFile);
 				getProfileApplicationsGen().add(paw);
-				if(profileApplicationDecorator != null){
-					((ProfileApplicationWrapperImpl)paw).setDecorator(profileApplicationDecorator);
+				if (profileApplicationDecorator != null) {
+					((ProfileApplicationWrapperImpl) paw)
+							.setDecorator(profileApplicationDecorator);
 				}
 				return paw;
 			}

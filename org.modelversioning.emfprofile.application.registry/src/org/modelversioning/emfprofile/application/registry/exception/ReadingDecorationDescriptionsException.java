@@ -8,8 +8,13 @@
 package org.modelversioning.emfprofile.application.registry.exception;
 
 /**
+ * Will be thrown if there is no decoration descriptions resource found in the
+ * profile project or the syntax has errors or there are semantical violations.
+ * These are visible when the decoration descriptions resource is opened in
+ * editor.
+ * 
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- *
+ * 
  */
 public class ReadingDecorationDescriptionsException extends Exception {
 

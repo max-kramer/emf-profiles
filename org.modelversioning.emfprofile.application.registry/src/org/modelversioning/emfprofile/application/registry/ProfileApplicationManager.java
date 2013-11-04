@@ -78,11 +78,11 @@ public interface ProfileApplicationManager extends EObject {
 	 * @throws ReadingDecorationDescriptionsException
 	 *             will be thrown if there is no decoration descriptions
 	 *             resource found in the profile project or the syntax has
-	 *             errors or there are semantical violations in. These are
-	 *             visible when the decoration descriptions resource is opened
-	 *             in editor.<!-- end-user-doc -->
+	 *             errors or there are semantical violations. These are visible
+	 *             when the decoration descriptions resource is opened in
+	 *             editor.<!-- end-user-doc -->
 	 * @model required="true" exceptions=
-	 *        "org.modelversioning.emfprofile.application.registry.IllegalArgumentException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException"
+	 *        "org.modelversioning.emfprofile.application.registry.IllegalArgumentException org.modelversioning.emfprofile.application.registry.IOException org.modelversioning.emfprofile.application.registry.CoreException org.modelversioning.emfprofile.application.registry.ReadingDecorationDescriptionsException"
 	 *        profileApplicationFileDataType
 	 *        ="org.modelversioning.emfprofile.application.registry.IFile"
 	 *        profileApplicationFileRequired="true" profilesDataType=
@@ -190,11 +190,11 @@ public interface ProfileApplicationManager extends EObject {
 	 * @throws ReadingDecorationDescriptionsException
 	 *             will be thrown if there is no decoration descriptions
 	 *             resource found in the profile project or the syntax has
-	 *             errors or there are semantical violations in. These are
-	 *             visible when the decoration descriptions resource is opened
-	 *             in editor. <!-- end-user-doc -->
+	 *             errors or there are semantical violations. These are visible
+	 *             when the decoration descriptions resource is opened in
+	 *             editor. <!-- end-user-doc -->
 	 * @model exceptions=
-	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException"
+	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException org.modelversioning.emfprofile.application.registry.ReadingDecorationDescriptionsException"
 	 * @generated
 	 */
 	EMFProfileApplicationDecorator bindProfileApplicationDecorator(

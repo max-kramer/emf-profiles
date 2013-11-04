@@ -123,14 +123,16 @@ public class ProfileApplicationRegistryImpl extends
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @throws ReadingDecorationDescriptionsException 
+	 * 
+	 * @throws ReadingDecorationDescriptionsException
 	 * 
 	 * @generated NOT
 	 */
 	public ProfileApplicationManager getProfileApplicationManager(
 			ResourceSet resourceSet, String editorId)
 			throws NullPointerException,
-			ProfileApplicationDecoratorNotFoundException, ReadingDecorationDescriptionsException {
+			ProfileApplicationDecoratorNotFoundException,
+			ReadingDecorationDescriptionsException {
 		if (resourceSet == null)
 			throw new NullPointerException(
 					"null value for resource set is not allowed.");
@@ -138,12 +140,13 @@ public class ProfileApplicationRegistryImpl extends
 		ProfileApplicationManager manager;
 		if (profileApplicationManagers.containsKey(resourceSet)) {
 			manager = profileApplicationManagers.get(resourceSet);
-			try{
-				((ProfileApplicationManagerImpl)manager).getProfileApplicationDecorator();
+			try {
+				((ProfileApplicationManagerImpl) manager)
+						.getProfileApplicationDecorator();
 			} catch (ProfileApplicationDecoratorNotFoundException e) {
 				manager.bindProfileApplicationDecorator(editorId);
 			}
-			
+
 			return manager;
 		} else {
 			if (editorId == null)

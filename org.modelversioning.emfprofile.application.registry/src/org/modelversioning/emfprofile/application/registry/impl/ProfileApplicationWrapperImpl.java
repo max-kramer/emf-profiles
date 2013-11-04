@@ -74,11 +74,14 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	private final Resource resource;
 	private EMFProfileApplicationDecorator decorator = new SimpleEMFProfileApplicationDecorator();
 
-	public void setDecorator(EMFProfileApplicationDecorator decorator) throws ReadingDecorationDescriptionsException {
+	public void setDecorator(EMFProfileApplicationDecorator decorator)
+			throws ReadingDecorationDescriptionsException {
 		this.decorator = decorator;
 		Profile profile = profiles.iterator().next();
-		DecorationDescriptionsReader decorationDescriptionsReader = new DecorationDescriptionsReader(profile);
-		System.out.println("Setting decorator, profile resource uri: " + profile.eResource().getURI());
+		DecorationDescriptionsReader decorationDescriptionsReader = new DecorationDescriptionsReader(
+				profile);
+		System.out.println("Setting decorator, profile resource uri: "
+				+ profile.eResource().getURI());
 		// decorate for already applied stereotypes, e.g. when loading
 		for (StereotypeApplication stereotypeApplication : profileApplication
 				.getStereotypeApplications()) {
