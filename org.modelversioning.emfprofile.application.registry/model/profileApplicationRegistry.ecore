@@ -132,13 +132,11 @@
       </eGenericType>
     </eOperations>
     <eOperations name="decorate">
-      <eParameters name="stereotypeApplication" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
-    </eOperations>
-    <eOperations name="undecorate">
-      <eParameters name="stereotypeApplication" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication"/>
+      <eParameters name="decoration" eType="#//GraphicalDecoration"/>
     </eOperations>
     <eOperations name="resolveEObjectFromEditorSelection" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject">
       <eParameters name="selection" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="GraphicalDecoration" instanceClassName="org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration"/>
 </ecore:EPackage>
