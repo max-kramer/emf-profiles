@@ -20,7 +20,7 @@ import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.services.Graphiti;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
-import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
@@ -42,18 +42,6 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 	@Override
 	public Collection<String> canDecorateEditorsWithFollowingIDs() {
 		return Collections.unmodifiableCollection(decorateableEditors);
-	}
-
-	@Override
-	public void decorate(StereotypeApplication stereotypeApplication) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void undecorate(StereotypeApplication stereotypeApplication) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -113,5 +101,11 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 //			}
 		}
 		return null;
+	}
+
+	@Override
+	public void decorate(GraphicalDecorationDescription decorationDescription) {
+		// TODO Auto-generated method stub
+		
 	}
 }

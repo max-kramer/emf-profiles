@@ -111,17 +111,16 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cStereotypeStereotypeQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cStereotypeStereotypeCrossReference_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDecorationsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDecorationsAbstractDecorationParserRuleCall_3_0 = (RuleCall)cDecorationsAssignment_3.eContents().get(0);
-		private final Assignment cActiveAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cActiveActivationParserRuleCall_4_0 = (RuleCall)cActiveAssignment_4.eContents().get(0);
+		private final RuleCall cDecorationsDecorationParserRuleCall_3_0 = (RuleCall)cDecorationsAssignment_3.eContents().get(0);
+		private final Assignment cActivationAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cActivationActivationParserRuleCall_4_0 = (RuleCall)cActivationAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//DecorationDescription:
-		//	"decoration" stereotype=[profile::Stereotype|QualifiedName] "{" decorations+=AbstractDecoration+ active=Activation?
-		//	"}";
+		//	"decoration" stereotype=[profile::Stereotype|QualifiedName] "{" decorations+=Decoration+ activation=Activation? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"decoration" stereotype=[profile::Stereotype|QualifiedName] "{" decorations+=AbstractDecoration+ active=Activation? "}"
+		//"decoration" stereotype=[profile::Stereotype|QualifiedName] "{" decorations+=Decoration+ activation=Activation? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"decoration"
@@ -139,29 +138,29 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//decorations+=AbstractDecoration+
+		//decorations+=Decoration+
 		public Assignment getDecorationsAssignment_3() { return cDecorationsAssignment_3; }
 
-		//AbstractDecoration
-		public RuleCall getDecorationsAbstractDecorationParserRuleCall_3_0() { return cDecorationsAbstractDecorationParserRuleCall_3_0; }
+		//Decoration
+		public RuleCall getDecorationsDecorationParserRuleCall_3_0() { return cDecorationsDecorationParserRuleCall_3_0; }
 
-		//active=Activation?
-		public Assignment getActiveAssignment_4() { return cActiveAssignment_4; }
+		//activation=Activation?
+		public Assignment getActivationAssignment_4() { return cActivationAssignment_4; }
 
 		//Activation
-		public RuleCall getActiveActivationParserRuleCall_4_0() { return cActiveActivationParserRuleCall_4_0; }
+		public RuleCall getActivationActivationParserRuleCall_4_0() { return cActivationActivationParserRuleCall_4_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
-	public class AbstractDecorationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractDecoration");
+	public class DecorationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Decoration");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIconDecorationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBorderDecorationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//AbstractDecoration:
+		//Decoration:
 		//	IconDecoration | BorderDecoration;
 		public ParserRule getRule() { return rule; }
 
@@ -185,15 +184,15 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Assignment cLocation_uriAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cLocation_uriSTRINGTerminalRuleCall_4_0 = (RuleCall)cLocation_uriAssignment_4.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cActiveAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActiveActivationParserRuleCall_6_0 = (RuleCall)cActiveAssignment_6.eContents().get(0);
+		private final Assignment cActivationAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cActivationActivationParserRuleCall_6_0 = (RuleCall)cActivationAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//IconDecoration:
-		//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? active=Activation? "}";
+		//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? activation=Activation? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"icon" "{" "location-uri" ":" location_uri=STRING ";"? active=Activation? "}"
+		//"icon" "{" "location-uri" ":" location_uri=STRING ";"? activation=Activation? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"icon"
@@ -217,11 +216,11 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//";"?
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 
-		//active=Activation?
-		public Assignment getActiveAssignment_6() { return cActiveAssignment_6; }
+		//activation=Activation?
+		public Assignment getActivationAssignment_6() { return cActivationAssignment_6; }
 
 		//Activation
-		public RuleCall getActiveActivationParserRuleCall_6_0() { return cActiveActivationParserRuleCall_6_0; }
+		public RuleCall getActivationActivationParserRuleCall_6_0() { return cActivationActivationParserRuleCall_6_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -237,17 +236,17 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Assignment cSizeAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cSizeINTTerminalRuleCall_4_0 = (RuleCall)cSizeAssignment_4.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cActiveAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActiveActivationParserRuleCall_6_0 = (RuleCall)cActiveAssignment_6.eContents().get(0);
+		private final Assignment cActivationAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cActivationActivationParserRuleCall_6_0 = (RuleCall)cActivationAssignment_6.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//BorderDecoration:
 		//	"border" "{" "size" ":" size=INT ";"? // possibly I will have to add a unit
-		//	active=Activation? "}";
+		//	activation=Activation? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"border" "{" "size" ":" size=INT ";"? // possibly I will have to add a unit
-		//active=Activation? "}"
+		//activation=Activation? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"border"
@@ -271,11 +270,11 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//";"?
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 
-		//active=Activation?
-		public Assignment getActiveAssignment_6() { return cActiveAssignment_6; }
+		//activation=Activation?
+		public Assignment getActivationAssignment_6() { return cActivationAssignment_6; }
 
 		//Activation
-		public RuleCall getActiveActivationParserRuleCall_6_0() { return cActiveActivationParserRuleCall_6_0; }
+		public RuleCall getActivationActivationParserRuleCall_6_0() { return cActivationActivationParserRuleCall_6_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -621,7 +620,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	private DecorationModelElements pDecorationModel;
 	private NamespaceElements pNamespace;
 	private DecorationDescriptionElements pDecorationDescription;
-	private AbstractDecorationElements pAbstractDecoration;
+	private DecorationElements pDecoration;
 	private IconDecorationElements pIconDecoration;
 	private BorderDecorationElements pBorderDecoration;
 	private ActivationElements pActivation;
@@ -697,8 +696,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//DecorationDescription:
-	//	"decoration" stereotype=[profile::Stereotype|QualifiedName] "{" decorations+=AbstractDecoration+ active=Activation?
-	//	"}";
+	//	"decoration" stereotype=[profile::Stereotype|QualifiedName] "{" decorations+=Decoration+ activation=Activation? "}";
 	public DecorationDescriptionElements getDecorationDescriptionAccess() {
 		return (pDecorationDescription != null) ? pDecorationDescription : (pDecorationDescription = new DecorationDescriptionElements());
 	}
@@ -707,18 +705,18 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getDecorationDescriptionAccess().getRule();
 	}
 
-	//AbstractDecoration:
+	//Decoration:
 	//	IconDecoration | BorderDecoration;
-	public AbstractDecorationElements getAbstractDecorationAccess() {
-		return (pAbstractDecoration != null) ? pAbstractDecoration : (pAbstractDecoration = new AbstractDecorationElements());
+	public DecorationElements getDecorationAccess() {
+		return (pDecoration != null) ? pDecoration : (pDecoration = new DecorationElements());
 	}
 	
-	public ParserRule getAbstractDecorationRule() {
-		return getAbstractDecorationAccess().getRule();
+	public ParserRule getDecorationRule() {
+		return getDecorationAccess().getRule();
 	}
 
 	//IconDecoration:
-	//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? active=Activation? "}";
+	//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? activation=Activation? "}";
 	public IconDecorationElements getIconDecorationAccess() {
 		return (pIconDecoration != null) ? pIconDecoration : (pIconDecoration = new IconDecorationElements());
 	}
@@ -729,7 +727,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 
 	//BorderDecoration:
 	//	"border" "{" "size" ":" size=INT ";"? // possibly I will have to add a unit
-	//	active=Activation? "}";
+	//	activation=Activation? "}";
 	public BorderDecorationElements getBorderDecorationAccess() {
 		return (pBorderDecoration != null) ? pBorderDecoration : (pBorderDecoration = new BorderDecorationElements());
 	}

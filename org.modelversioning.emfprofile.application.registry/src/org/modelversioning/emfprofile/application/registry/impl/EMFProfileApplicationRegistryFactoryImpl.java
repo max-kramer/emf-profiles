@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.*;
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
@@ -127,6 +128,9 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 					eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.EXCEPTION:
 			return createExceptionFromString(eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.GRAPHICAL_DECORATION_DESCRIPTION:
+			return createGraphicalDecorationDescriptionFromString(eDataType,
+					initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -172,6 +176,9 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 					eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.EXCEPTION:
 			return convertExceptionToString(eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.GRAPHICAL_DECORATION_DESCRIPTION:
+			return convertGraphicalDecorationDescriptionToString(eDataType,
+					instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '"
 					+ eDataType.getName() + "' is not a valid classifier");
@@ -513,6 +520,27 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 */
 	public String convertExceptionToString(EDataType eDataType,
 			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public GraphicalDecorationDescription createGraphicalDecorationDescriptionFromString(
+			EDataType eDataType, String initialValue) {
+		return (GraphicalDecorationDescription) super.createFromString(
+				eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertGraphicalDecorationDescriptionToString(
+			EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 

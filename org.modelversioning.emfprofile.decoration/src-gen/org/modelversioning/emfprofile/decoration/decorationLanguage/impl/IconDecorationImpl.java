@@ -24,7 +24,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecorati
  *
  * @generated
  */
-public class IconDecorationImpl extends AbstractDecorationImpl implements IconDecoration
+public class IconDecorationImpl extends DecorationImpl implements IconDecoration
 {
   /**
    * The default value of the '{@link #getLocation_uri() <em>Location uri</em>}' attribute.

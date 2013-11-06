@@ -101,9 +101,9 @@ public interface ProfileApplicationRegistry extends EObject {
 	 * @throws ReadingDecorationDescriptionsException
 	 *             will be thrown if there is no decoration descriptions
 	 *             resource found in the profile project or the syntax has
-	 *             errors or there are semantical violations. These are
-	 *             visible when the decoration descriptions resource is opened
-	 *             in editor.<!-- end-user-doc -->
+	 *             errors or there are semantical violations. These are visible
+	 *             when the decoration descriptions resource is opened in
+	 *             editor.<!-- end-user-doc -->
 	 * @model exceptions=
 	 *        "org.modelversioning.emfprofile.application.registry.NullPointerException org.modelversioning.emfprofile.application.registry.ProfileApplicationDecoratorNotFoundException org.modelversioning.emfprofile.application.registry.ReadingDecorationDescriptionsException"
 	 *        resourceSetDataType=

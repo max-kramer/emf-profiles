@@ -19,7 +19,7 @@ package org.modelversioning.emfprofile.decoration.decorationLanguage;
  * @model
  * @generated
  */
-public interface IconDecoration extends AbstractDecoration
+public interface IconDecoration extends Decoration
 {
   /**
    * Returns the value of the '<em><b>Location uri</b></em>' attribute.

@@ -24,7 +24,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLa
  *
  * @generated
  */
-public class BorderDecorationImpl extends AbstractDecorationImpl implements BorderDecoration
+public class BorderDecorationImpl extends DecorationImpl implements BorderDecoration
 {
   /**
    * The default value of the '{@link #getSize() <em>Size</em>}' attribute.

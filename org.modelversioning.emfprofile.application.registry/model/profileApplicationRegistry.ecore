@@ -132,11 +132,11 @@
       </eGenericType>
     </eOperations>
     <eOperations name="decorate">
-      <eParameters name="decoration" eType="#//GraphicalDecoration"/>
+      <eParameters name="decorationDescription" eType="#//GraphicalDecorationDescription"/>
     </eOperations>
     <eOperations name="resolveEObjectFromEditorSelection" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject">
       <eParameters name="selection" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="GraphicalDecoration" instanceClassName="org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="GraphicalDecorationDescription" instanceClassName="org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription"/>
 </ecore:EPackage>

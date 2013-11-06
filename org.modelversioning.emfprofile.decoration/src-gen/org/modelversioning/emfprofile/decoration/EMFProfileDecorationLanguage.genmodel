@@ -32,10 +32,10 @@
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//DecorationDescription">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/stereotype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/decorations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/active"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//DecorationDescription/activation"/>
     </genClasses>
-    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//AbstractDecoration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//AbstractDecoration/active"/>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Decoration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Decoration/activation"/>
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//IconDecoration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//IconDecoration/location_uri"/>

@@ -85,7 +85,8 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		// decorate for already applied stereotypes, e.g. when loading
 		for (StereotypeApplication stereotypeApplication : profileApplication
 				.getStereotypeApplications()) {
-			decorator.decorate(stereotypeApplication);
+			// TODO
+			// decorator.decorate(stereotypeApplication);
 		}
 	}
 
@@ -550,8 +551,9 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 					// decorator.decorate((StereotypeApplication) notification
 					// .getNewValue());
 				} else if (Notification.REMOVE == notification.getEventType()) {
-					decorator.undecorate((StereotypeApplication) notification
-							.getOldValue());
+					// TODO
+					// decorator.undecorate((StereotypeApplication) notification
+					// .getOldValue());
 				}
 				// ignore all other event types
 				return;
@@ -561,13 +563,15 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 				if (Notification.SET == notification.getEventType()) {
 					// for every attribute set
 					if (notification.getFeature() instanceof EAttribute) {
-						decorator.decorate((StereotypeApplication) notifier);
+						// TODO
+						// decorator.decorate((StereotypeApplication) notifier);
 					}
 					// if the reference 'appliedTo' was set
 					if (EMFProfileApplicationPackage.eINSTANCE
 							.getStereotypeApplication_AppliedTo().equals(
 									notification.getFeature())) {
-						decorator.decorate((StereotypeApplication) notifier);
+						// TODO
+						// decorator.decorate((StereotypeApplication) notifier);
 					}
 				}
 				// ignore other

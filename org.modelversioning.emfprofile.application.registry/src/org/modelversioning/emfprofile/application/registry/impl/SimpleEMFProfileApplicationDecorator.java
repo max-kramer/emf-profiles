@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
-import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 
 /**
  * This class is intended to be used as place holder in the initialization of
@@ -43,34 +43,6 @@ public class SimpleEMFProfileApplicationDecorator extends MinimalEObjectImpl
 	}
 
 	/**
-	 * Can not decorate anything.
-	 * 
-	 * @see org.modelversioning.emfprofile.application.registry.
-	 * EMFProfileApplicationDecorator
-	 * #decorate(org.modelversioning.emfprofileapplication
-	 * .StereotypeApplication)
-	 */
-	@Override
-	public void decorate(StereotypeApplication stereotypeApplication) {
-		// does nothing
-		System.out.println("Simple DECORATING: " + stereotypeApplication.toString());
-	}
-
-	/**
-	 * Can not undecorate anything.
-	 * 
-	 * @see org.modelversioning.emfprofile.application.registry.
-	 * EMFProfileApplicationDecorator
-	 * #undecorate(org.modelversioning.emfprofileapplication
-	 * .StereotypeApplication)
-	 */
-	@Override
-	public void undecorate(StereotypeApplication stereotypeApplication) {
-		// does nothing
-		System.out.println("Simple UNDECORATING: " + stereotypeApplication.toString());
-	}
-
-	/**
 	 * Always returns <code>null</code>.
 	 * 
 	 * @see org.modelversioning.emfprofile.application.registry.
@@ -80,6 +52,15 @@ public class SimpleEMFProfileApplicationDecorator extends MinimalEObjectImpl
 	@Override
 	public EObject resolveEObjectFromEditorSelection(Object selection) {
 		return null;
+	}
+
+	/* Can not decorate anything.
+	 * (non-Javadoc)
+	 * @see org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator#decorate(org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration)
+	 */
+	@Override
+	public void decorate(GraphicalDecorationDescription decorationDescription) {
+		System.out.println("Simple DECORATING: " + decorationDescription.toString());
 	}
 
 }

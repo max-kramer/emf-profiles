@@ -231,9 +231,9 @@ ruleDecorationDescription returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getDecorationsAbstractDecorationParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getDecorationsDecorationParserRuleCall_3_0()); 
 	    }
-		lv_decorations_3_0=ruleAbstractDecoration		{
+		lv_decorations_3_0=ruleDecoration		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDecorationDescriptionRule());
 	        }
@@ -241,7 +241,7 @@ ruleDecorationDescription returns [EObject current=null]
        			$current, 
        			"decorations",
         		lv_decorations_3_0, 
-        		"AbstractDecoration");
+        		"Decoration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -249,16 +249,16 @@ ruleDecorationDescription returns [EObject current=null]
 )+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getActiveActivationParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getActivationActivationParserRuleCall_4_0()); 
 	    }
-		lv_active_4_0=ruleActivation		{
+		lv_activation_4_0=ruleActivation		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDecorationDescriptionRule());
 	        }
        		set(
        			$current, 
-       			"active",
-        		lv_active_4_0, 
+       			"activation",
+        		lv_activation_4_0, 
         		"Activation");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -275,23 +275,23 @@ ruleDecorationDescription returns [EObject current=null]
 
 
 
-// Entry rule entryRuleAbstractDecoration
-entryRuleAbstractDecoration returns [EObject current=null] 
+// Entry rule entryRuleDecoration
+entryRuleDecoration returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getAbstractDecorationRule()); }
-	 iv_ruleAbstractDecoration=ruleAbstractDecoration 
-	 { $current=$iv_ruleAbstractDecoration.current; } 
+	{ newCompositeNode(grammarAccess.getDecorationRule()); }
+	 iv_ruleDecoration=ruleDecoration 
+	 { $current=$iv_ruleDecoration.current; } 
 	 EOF 
 ;
 
-// Rule AbstractDecoration
-ruleAbstractDecoration returns [EObject current=null] 
+// Rule Decoration
+ruleDecoration returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getIconDecorationParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getDecorationAccess().getIconDecorationParserRuleCall_0()); 
     }
     this_IconDecoration_0=ruleIconDecoration
     { 
@@ -301,7 +301,7 @@ ruleAbstractDecoration returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getDecorationAccess().getBorderDecorationParserRuleCall_1()); 
     }
     this_BorderDecoration_1=ruleBorderDecoration
     { 
@@ -370,16 +370,16 @@ ruleIconDecoration returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getIconDecorationAccess().getActiveActivationParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getIconDecorationAccess().getActivationActivationParserRuleCall_6_0()); 
 	    }
-		lv_active_6_0=ruleActivation		{
+		lv_activation_6_0=ruleActivation		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getIconDecorationRule());
 	        }
        		set(
        			$current, 
-       			"active",
-        		lv_active_6_0, 
+       			"activation",
+        		lv_activation_6_0, 
         		"Activation");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -451,16 +451,16 @@ ruleBorderDecoration returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBorderDecorationAccess().getActiveActivationParserRuleCall_6_0()); 
+	        newCompositeNode(grammarAccess.getBorderDecorationAccess().getActivationActivationParserRuleCall_6_0()); 
 	    }
-		lv_active_6_0=ruleActivation		{
+		lv_activation_6_0=ruleActivation		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBorderDecorationRule());
 	        }
        		set(
        			$current, 
-       			"active",
-        		lv_active_6_0, 
+       			"activation",
+        		lv_activation_6_0, 
         		"Activation");
 	        afterParserOrEnumRuleCall();
 	    }

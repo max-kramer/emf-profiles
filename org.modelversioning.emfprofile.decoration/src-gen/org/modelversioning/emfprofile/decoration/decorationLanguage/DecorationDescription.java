@@ -18,7 +18,7 @@ import org.modelversioning.emfprofile.Stereotype;
  * <ul>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription#getStereotype <em>Stereotype</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription#getDecorations <em>Decorations</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription#getActive <em>Active</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription#getActivation <em>Activation</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,7 +56,7 @@ public interface DecorationDescription extends EObject
 
   /**
    * Returns the value of the '<em><b>Decorations</b></em>' containment reference list.
-   * The list contents are of type {@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration}.
+   * The list contents are of type {@link org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Decorations</em>' containment reference list isn't clear,
@@ -68,32 +68,32 @@ public interface DecorationDescription extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<AbstractDecoration> getDecorations();
+  EList<Decoration> getDecorations();
 
   /**
-   * Returns the value of the '<em><b>Active</b></em>' containment reference.
+   * Returns the value of the '<em><b>Activation</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Active</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Activation</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Active</em>' containment reference.
-   * @see #setActive(Activation)
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage#getDecorationDescription_Active()
+   * @return the value of the '<em>Activation</em>' containment reference.
+   * @see #setActivation(Activation)
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage#getDecorationDescription_Activation()
    * @model containment="true"
    * @generated
    */
-  Activation getActive();
+  Activation getActivation();
 
   /**
-   * Sets the value of the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription#getActive <em>Active</em>}' containment reference.
+   * Sets the value of the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription#getActivation <em>Activation</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Active</em>' containment reference.
-   * @see #getActive()
+   * @param value the new value of the '<em>Activation</em>' containment reference.
+   * @see #getActivation()
    * @generated
    */
-  void setActive(Activation value);
+  void setActivation(Activation value);
 
 } // DecorationDescription

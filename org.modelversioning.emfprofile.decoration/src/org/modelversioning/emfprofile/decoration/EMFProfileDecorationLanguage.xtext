@@ -15,24 +15,24 @@ Namespace:
 
 DecorationDescription:
 	'decoration' stereotype=[profile::Stereotype|QualifiedName] '{' 
-	decorations+=(AbstractDecoration)+
-	(active=Activation)? 
+	decorations+=(Decoration)+
+	(activation=Activation)? 
 	'}'
 ;
 
-AbstractDecoration:
+Decoration:
 	IconDecoration | BorderDecoration;
 
 IconDecoration:
 	'icon' '{' 
 		'location-uri' ':' location_uri=STRING (';')? 
-		(active=Activation)? 
+		(activation=Activation)? 
 	'}';
 
 BorderDecoration:
 	'border' '{' 
 		'size' ':' size=INT (';')? // possibly I will have to add a unit
-		(active=Activation)?
+		(activation=Activation)?
 	'}';
 
 Activation:

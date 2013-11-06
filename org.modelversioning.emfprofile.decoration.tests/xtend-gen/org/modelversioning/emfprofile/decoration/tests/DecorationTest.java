@@ -17,7 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguageInjectorProvider;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 
@@ -40,8 +40,8 @@ public class DecorationTest {
       final DecorationDescription entity = ((DecorationDescription) _head);
       Stereotype _stereotype = entity.getStereotype();
       InputOutput.<Stereotype>println(((Stereotype) _stereotype));
-      EList<AbstractDecoration> _decorations = entity.getDecorations();
-      AbstractDecoration _head_1 = IterableExtensions.<AbstractDecoration>head(_decorations);
+      EList<Decoration> _decorations = entity.getDecorations();
+      Decoration _head_1 = IterableExtensions.<Decoration>head(_decorations);
       EObject _eContainer = _head_1.eContainer();
       Assert.assertSame(entity, _eContainer);
       Resource _eResource = model.eResource();

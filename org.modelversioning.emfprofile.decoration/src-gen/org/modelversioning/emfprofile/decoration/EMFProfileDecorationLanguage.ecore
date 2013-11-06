@@ -15,18 +15,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="DecorationDescription">
     <eStructuralFeatures xsi:type="ecore:EReference" name="stereotype" eType="ecore:EClass ../../../../../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decorations" upperBound="-1"
-        eType="#//AbstractDecoration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="active" eType="#//Activation"
+        eType="#//Decoration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activation" eType="#//Activation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractDecoration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="active" eType="#//Activation"
+  <eClassifiers xsi:type="ecore:EClass" name="Decoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="activation" eType="#//Activation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IconDecoration" eSuperTypes="#//AbstractDecoration">
+  <eClassifiers xsi:type="ecore:EClass" name="IconDecoration" eSuperTypes="#//Decoration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location_uri" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BorderDecoration" eSuperTypes="#//AbstractDecoration">
+  <eClassifiers xsi:type="ecore:EClass" name="BorderDecoration" eSuperTypes="#//Decoration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activation">

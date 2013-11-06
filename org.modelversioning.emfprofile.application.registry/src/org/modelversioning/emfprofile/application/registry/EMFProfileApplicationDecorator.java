@@ -9,7 +9,7 @@ package org.modelversioning.emfprofile.application.registry;
 
 import java.util.Collection;
 import org.eclipse.emf.ecore.EObject;
-import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -33,24 +33,13 @@ public interface EMFProfileApplicationDecorator extends EObject {
 	Collection<String> canDecorateEditorsWithFollowingIDs();
 
 	/**
-	 * <!-- begin-user-doc -->Will decorate graphical representation of
-	 * {@link EObject} found in {@link StereotypeApplication#getAppliedTo()}
-	 * with decoration description that can be found for a
-	 * {@link StereotypeApplication#getStereotype()}.<!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @model
+	 * @model decorationDescriptionDataType=
+	 *        "org.modelversioning.emfprofile.application.registry.GraphicalDecorationDescription"
 	 * @generated
 	 */
-	void decorate(StereotypeApplication stereotypeApplication);
-
-	/**
-	 * <!-- begin-user-doc -->Undecorates graphical representation of an
-	 * {@link EObject}.<!-- end-user-doc -->
-	 * 
-	 * @model
-	 * @generated
-	 */
-	void undecorate(StereotypeApplication stereotypeApplication);
+	void decorate(GraphicalDecorationDescription decorationDescription);
 
 	/**
 	 * <!-- begin-user-doc -->The implementation of this method will try to

@@ -19,7 +19,7 @@ package org.modelversioning.emfprofile.decoration.decorationLanguage;
  * @model
  * @generated
  */
-public interface BorderDecoration extends AbstractDecoration
+public interface BorderDecoration extends Decoration
 {
   /**
    * Returns the value of the '<em><b>Size</b></em>' attribute.

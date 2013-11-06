@@ -39,8 +39,8 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 				}
 				else break;
 			case DecorationLanguagePackage.BORDER_DECORATION:
-				if(context == grammarAccess.getAbstractDecorationRule() ||
-				   context == grammarAccess.getBorderDecorationRule()) {
+				if(context == grammarAccess.getBorderDecorationRule() ||
+				   context == grammarAccess.getDecorationRule()) {
 					sequence_BorderDecoration(context, (BorderDecoration) semanticObject); 
 					return; 
 				}
@@ -72,7 +72,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 				}
 				else break;
 			case DecorationLanguagePackage.ICON_DECORATION:
-				if(context == grammarAccess.getAbstractDecorationRule() ||
+				if(context == grammarAccess.getDecorationRule() ||
 				   context == grammarAccess.getIconDecorationRule()) {
 					sequence_IconDecoration(context, (IconDecoration) semanticObject); 
 					return; 
@@ -106,7 +106,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (size=INT active=Activation?)
+	 *     (size=INT activation=Activation?)
 	 */
 	protected void sequence_BorderDecoration(EObject context, BorderDecoration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -146,7 +146,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (stereotype=[Stereotype|QualifiedName] decorations+=AbstractDecoration+ active=Activation?)
+	 *     (stereotype=[Stereotype|QualifiedName] decorations+=Decoration+ activation=Activation?)
 	 */
 	protected void sequence_DecorationDescription(EObject context, DecorationDescription semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -164,7 +164,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (location_uri=STRING active=Activation?)
+	 *     (location_uri=STRING activation=Activation?)
 	 */
 	protected void sequence_IconDecoration(EObject context, IconDecoration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

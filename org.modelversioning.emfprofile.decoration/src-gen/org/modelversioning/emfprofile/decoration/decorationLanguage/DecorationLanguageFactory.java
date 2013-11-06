@@ -50,13 +50,13 @@ public interface DecorationLanguageFactory extends EFactory
   DecorationDescription createDecorationDescription();
 
   /**
-   * Returns a new object of class '<em>Abstract Decoration</em>'.
+   * Returns a new object of class '<em>Decoration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Decoration</em>'.
+   * @return a new object of class '<em>Decoration</em>'.
    * @generated
    */
-  AbstractDecoration createAbstractDecoration();
+  Decoration createDecoration();
 
   /**
    * Returns a new object of class '<em>Icon Decoration</em>'.

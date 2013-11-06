@@ -313,6 +313,16 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	int EXCEPTION = 16;
 
 	/**
+	 * The meta object id for the '<em>Graphical Decoration Description</em>'
+	 * data type. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getGraphicalDecorationDescription()
+	 * @generated
+	 */
+	int GRAPHICAL_DECORATION_DESCRIPTION = 17;
+
+	/**
 	 * Returns the meta object for class '
 	 * {@link org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper
 	 * <em>Profile Application Wrapper</em>}'. <!-- begin-user-doc --> <!--
@@ -570,6 +580,21 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	EDataType getException();
 
 	/**
+	 * Returns the meta object for data type '
+	 * {@link org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
+	 * <em>Graphical Decoration Description</em>}'. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @return the meta object for data type '
+	 *         <em>Graphical Decoration Description</em>'.
+	 * @see org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
+	 * @model instanceClass=
+	 *        "org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription"
+	 * @generated
+	 */
+	EDataType getGraphicalDecorationDescription();
+
+	/**
 	 * Returns the factory that creates the instances of the model. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -811,6 +836,18 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType EXCEPTION = eINSTANCE.getException();
+
+		/**
+		 * The meta object literal for the '
+		 * <em>Graphical Decoration Description</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getGraphicalDecorationDescription()
+		 * @generated
+		 */
+		EDataType GRAPHICAL_DECORATION_DESCRIPTION = eINSTANCE
+				.getGraphicalDecorationDescription();
 
 	}
 

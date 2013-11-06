@@ -26,6 +26,7 @@ import org.modelversioning.emfprofile.application.registry.EMFProfileApplication
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationAlreadyLoadedException;
 import org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException;
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
@@ -160,6 +161,13 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * @generated
 	 */
 	private EDataType exceptionEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType graphicalDecorationDescriptionEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -422,6 +430,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	public EDataType getGraphicalDecorationDescription() {
+		return graphicalDecorationDescriptionEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EMFProfileApplicationRegistryFactory getEMFProfileApplicationRegistryFactory() {
 		return (EMFProfileApplicationRegistryFactory) getEFactoryInstance();
 	}
@@ -474,6 +491,7 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		readingDecorationDescriptionsExceptionEDataType = createEDataType(READING_DECORATION_DESCRIPTIONS_EXCEPTION);
 		traversingEObjectContainerChainExceptionEDataType = createEDataType(TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION);
 		exceptionEDataType = createEDataType(EXCEPTION);
+		graphicalDecorationDescriptionEDataType = createEDataType(GRAPHICAL_DECORATION_DESCRIPTION);
 	}
 
 	/**
@@ -749,15 +767,8 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 
 		op = addEOperation(emfProfileApplicationDecoratorEClass, null,
 				"decorate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op,
-				theEMFProfileApplicationPackage.getStereotypeApplication(),
-				"stereotypeApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(emfProfileApplicationDecoratorEClass, null,
-				"undecorate", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op,
-				theEMFProfileApplicationPackage.getStereotypeApplication(),
-				"stereotypeApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGraphicalDecorationDescription(),
+				"decorationDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(emfProfileApplicationDecoratorEClass,
 				theEcorePackage.getEObject(),
@@ -803,6 +814,10 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(exceptionEDataType, Exception.class, "Exception",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(graphicalDecorationDescriptionEDataType,
+				GraphicalDecorationDescription.class,
+				"GraphicalDecorationDescription", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

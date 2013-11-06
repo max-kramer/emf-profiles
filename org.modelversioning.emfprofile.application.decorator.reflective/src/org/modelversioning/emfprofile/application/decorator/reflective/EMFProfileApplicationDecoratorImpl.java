@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
-import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 
 /**
  * @author Philip Langer (langer@big.tuwien.ac.at)
@@ -38,23 +38,6 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 		return Arrays.asList(CAN_DECORATE_EDITORS);
 	}
 
-
-	@Override
-	public void decorate(StereotypeApplication stereotypeApplication) {
-		// TODO implement decorate for reflective editor
-		System.out.println("Reflective decorating: " + stereotypeApplication.toString());
-	}
-
-
-
-	@Override
-	public void undecorate(StereotypeApplication stereotypeApplication) {
-		// TODO implement undecorate for reflective editor 
-		System.out.println("Reflective undecorating: " + stereotypeApplication.toString());
-	}
-
-
-
 	@Override
 	public EObject resolveEObjectFromEditorSelection(Object selection) {
 		if (selection != null) {
@@ -72,6 +55,12 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 			
 		}
 		return null;
+	}
+
+	@Override
+	public void decorate(GraphicalDecorationDescription decorationDescription) {
+		// TODO Auto-generated method stub
+		System.out.println("Reflective decorating: " + decorationDescription.getStereotypeApplication().toString());		
 	}
 
 }

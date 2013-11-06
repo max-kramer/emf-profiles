@@ -37,7 +37,7 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getAbstractDecorationAccess().getAlternatives(), "rule__AbstractDecoration__Alternatives");
+					put(grammarAccess.getDecorationAccess().getAlternatives(), "rule__Decoration__Alternatives");
 					put(grammarAccess.getAbstractConditionAccess().getAlternatives(), "rule__AbstractCondition__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getComparisonOperatorAccess().getAlternatives(), "rule__ComparisonOperator__Alternatives");
@@ -62,11 +62,11 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getNamespaceAccess().getProfileAssignment_1(), "rule__Namespace__ProfileAssignment_1");
 					put(grammarAccess.getDecorationDescriptionAccess().getStereotypeAssignment_1(), "rule__DecorationDescription__StereotypeAssignment_1");
 					put(grammarAccess.getDecorationDescriptionAccess().getDecorationsAssignment_3(), "rule__DecorationDescription__DecorationsAssignment_3");
-					put(grammarAccess.getDecorationDescriptionAccess().getActiveAssignment_4(), "rule__DecorationDescription__ActiveAssignment_4");
+					put(grammarAccess.getDecorationDescriptionAccess().getActivationAssignment_4(), "rule__DecorationDescription__ActivationAssignment_4");
 					put(grammarAccess.getIconDecorationAccess().getLocation_uriAssignment_4(), "rule__IconDecoration__Location_uriAssignment_4");
-					put(grammarAccess.getIconDecorationAccess().getActiveAssignment_6(), "rule__IconDecoration__ActiveAssignment_6");
+					put(grammarAccess.getIconDecorationAccess().getActivationAssignment_6(), "rule__IconDecoration__ActivationAssignment_6");
 					put(grammarAccess.getBorderDecorationAccess().getSizeAssignment_4(), "rule__BorderDecoration__SizeAssignment_4");
-					put(grammarAccess.getBorderDecorationAccess().getActiveAssignment_6(), "rule__BorderDecoration__ActiveAssignment_6");
+					put(grammarAccess.getBorderDecorationAccess().getActivationAssignment_6(), "rule__BorderDecoration__ActivationAssignment_6");
 					put(grammarAccess.getActivationAccess().getConditionAssignment_1(), "rule__Activation__ConditionAssignment_1");
 					put(grammarAccess.getConditionAccess().getAttributeAssignment_0(), "rule__Condition__AttributeAssignment_0");
 					put(grammarAccess.getConditionAccess().getOperatorAssignment_1(), "rule__Condition__OperatorAssignment_1");
