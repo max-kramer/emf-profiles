@@ -23,6 +23,8 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 	}
 
 	/*
+	 * ----------------------------------
+	 * 
 	 * PA ... ProfileApplication
 	 * 
 	 * SA ... StereotypeApplication
@@ -36,14 +38,15 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 	 * 
 	 * 0: ignore event-type REMOVING_ADAPTER
 	 * 
-	 * 1: PA | ADD/REMOVE | stereotypeApplications | null | SA | Yes -->
-	 * (for Add decorate, for Remove undecorate). For Add we have to wait
-	 * until the applied to was set. So, ADD must be handled differently.
+	 * 1: PA | ADD/REMOVE/REMOVING_ADAPTER | stereotypeApplications | null | SA | Yes -->
+	 * (for Add do nothing because appliedTo is still not set, for Remove refresh viewer,
+	 * for Removing_Adapter we unload the profile application wrapper). 
+	 * For Add we have to wait until the applied to was set. So, ADD must be handled differently.
 	 * 
-	 * 2: SA | SET | EAttribute(appliedTo/extension) | null | some-object |
-	 * No --> (they come when SA created, handled by 1.)
+	 * 2: SA | SET | EAttribute(appliedTo) | null | some-object |
+	 * Yes 
 	 * 
-	 * 3: SA | SET | EAttribute(appliedTo/extension) | null/object |
+	 * 3: SA | SET | EAttribute(extension) | null/object |
 	 * null/object | No -->(will be ignored because these should not be
 	 * played with, like e.g., in properties view)
 	 * 
@@ -56,17 +59,15 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 	 * 6: SA | SET/ADD | EReference | any | any | No --> (ignoring the
 	 * changes in contained objects, not relevant for decoration. This also
 	 * handles 4.)
+	 *
+	 * 7: SA | Removing_Adapter | EReference | any | any | Yes --> 
+	 * observer is removed so the decoration will be removed		
 	 * 
-	 * 7: other | any | any | any | any | No --> (ignoring objects that are
+	 * 8: other | any | any | any | any | No --> (ignoring objects that are
 	 * children, grand children, etc., from stereotype applications, not
 	 * relevant for decorations)
 	 * 
 	 * ----------------------------------
-	 * 
-	 * implementation only needs to check for those scenarios (1,5) that
-	 * should send notifications to decorators, all other incoming
-	 * notifications can be swallowed or at least guards against them must
-	 * be implemented.
 	 */
 	 
 	override def notifyChanged(Notification notification){
@@ -89,9 +90,13 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 						// have the 'appliedTo' property set, so we have to wait
 						// until that notification comes in order to trigger the
 						// process of decoration!
+						
+						// structural change, must refresh
+						profileApplicationWrapper.sendNotificationToRefreshProfileApplicationWrapperInViewer
 					}
 					case eventType == Notification.REMOVE : {
-						profileApplicationWrapper.dispatcher.acceptRemoveNotification(notification.oldValue as StereotypeApplication)						
+						// structural change, must refresh
+						profileApplicationWrapper.sendNotificationToRefreshProfileApplicationWrapperInViewer
 					}
 					case eventType == Notification.REMOVING_ADAPTER : {
 						// this happens in most cases when the model resource is unloading

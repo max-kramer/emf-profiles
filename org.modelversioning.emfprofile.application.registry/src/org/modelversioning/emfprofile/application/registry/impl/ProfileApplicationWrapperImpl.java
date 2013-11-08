@@ -17,7 +17,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -26,7 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
@@ -39,7 +37,6 @@ import org.modelversioning.emfprofile.application.registry.decoration.notificati
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
 import org.modelversioning.emfprofile.impl.ProfileFacadeImpl;
-import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -480,116 +477,6 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 				Notification.SET,
 				EMFProfileApplicationRegistryPackage.UPDATE__PROFILE_APPLICATION_WRAPPER,
 				null, null));
-	}
-
-	/* ///////// NOTIFICATIONS /////////// */
-
-	/**
-	 * Is used to listen for all model changes under {@link ProfileApplication}.
-	 * 
-	 * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
-	 * 
-	 */
-	class ModelNotificationsObserver extends EContentAdapter {
-
-		/*
-		 * PA ... ProfileApplication
-		 * 
-		 * SA ... StereotypeApplication
-		 * 
-		 * 
-		 * Notifier | Event | Feature | oldValue | newValue | should notify
-		 * decorator? --> (comment)
-		 * 
-		 * 
-		 * NOTIFICATIONS:
-		 * 
-		 * 0: ignore event-type REMOVING_ADAPTER
-		 * 
-		 * 1: PA | ADD/REMOVE | stereotypeApplications | null | SA | Yes -->
-		 * (for Add decorate, for Remove undecorate). For Add we have to wait
-		 * until the applied to was set. So, ADD must be handled differently.
-		 * 
-		 * 2: SA | SET | EAttribute(appliedTo/extension) | null | some-object |
-		 * No --> (they come when SA created, handled by 1.)
-		 * 
-		 * 3: SA | SET | EAttribute(appliedTo/extension) | null/object |
-		 * null/object | No -->(will be ignored because these should not be
-		 * played with, like e.g., in properties view)
-		 * 
-		 * 4: SA | SET | EReference(profileApplication) | PA | null | No -->
-		 * (comes when stereotype removed, handled by 1.)
-		 * 
-		 * 5: SA | SET | EAttribute | any | any | Yes --> (the attribute of a
-		 * stereotype has changed, relevant for decoration)
-		 * 
-		 * 6: SA | SET/ADD | EReference | any | any | No --> (ignoring the
-		 * changes in contained objects, not relevant for decoration. This also
-		 * handles 4.)
-		 * 
-		 * 7: other | any | any | any | any | No --> (ignoring objects that are
-		 * children, grand children, etc., from stereotype applications, not
-		 * relevant for decorations)
-		 * 
-		 * ----------------------------------
-		 * 
-		 * implementation only needs to check for those scenarios (1,5) that
-		 * should send notifications to decorators, all other incoming
-		 * notifications can be swallowed or at least guards against them must
-		 * be implemented.
-		 */
-
-		@Override
-		public void notifyChanged(Notification notification) {
-			super.notifyChanged(notification);
-			// in any case with every incoming notification there has to be a
-			// change in the model, so notification to update the profile
-			// application wrapper in the viewer is desired.
-			sendNotificationToUpdateProfileApplicationWrapperInViewer();
-
-			/* ***** Handling Notifications ***** */
-			Object notifier = notification.getNotifier();
-			if (notifier instanceof ProfileApplication) {
-				System.out.println("PROFILE APPLICATION: "
-						+ notification.toString());
-				// structural change, must refresh
-				sendNotificationToRefreshProfileApplicationWrapperInViewer();
-				if (Notification.ADD == notification.getEventType()) {
-					// NOTE: at this moment the stereotype application does not
-					// have the 'appliedTo' property set, so we have to wait
-					// until that notification comes in order to trigger the
-					// decorator to decorate!
-
-				} else if (Notification.REMOVE == notification.getEventType()) {
-					dispatcher
-							.acceptRemoveNotification((StereotypeApplication) notification
-									.getOldValue());
-				}
-				// ignore all other event types
-				return;
-			} else if (notifier instanceof StereotypeApplication) {
-				System.out.println("STEREOTYPE APPLICATION: "
-						+ notification.toString());
-				if (Notification.SET == notification.getEventType()) {
-					// for every attribute set
-					if (notification.getFeature() instanceof EAttribute) {
-						dispatcher
-								.acceptSetNotification((StereotypeApplication) notifier);
-					}
-					// if the reference 'appliedTo' was set
-					if (EMFProfileApplicationPackage.eINSTANCE
-							.getStereotypeApplication_AppliedTo().equals(
-									notification.getFeature())) {
-						dispatcher
-								.acceptAddNotification((StereotypeApplication) notifier);
-					}
-				}
-				// ignore other
-				return;
-			}
-			// All other notifications will be ignored
-			System.out.println("TOTAL NOTIFIER: " + notification.toString());
-		}
 	}
 
 } // ProfileApplicationWrapperImpl
