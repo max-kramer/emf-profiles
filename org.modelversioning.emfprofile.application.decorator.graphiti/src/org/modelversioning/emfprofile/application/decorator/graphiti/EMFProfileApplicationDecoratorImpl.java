@@ -108,4 +108,11 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void removeDecoration(
+			GraphicalDecorationDescription decorationDescription) {
+		// TODO Auto-generated method stub
+		
+	}
 }

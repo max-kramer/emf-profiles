@@ -118,7 +118,9 @@ public class ProfileApplicationWrapperItemProvider extends ItemProviderAdapter
 	public String getText(Object object) {
 		ProfileApplicationWrapper profileApplicationWrapper = ((ProfileApplicationWrapper) object);
 		// return getString("_UI_ProfileApplicationWrapper_type");
-		return profileApplicationWrapper.isDirty() ? "*"+profileApplicationWrapper.getName() : profileApplicationWrapper.getName();
+		return profileApplicationWrapper.isDirty() ? "*"
+				+ profileApplicationWrapper.getName()
+				: profileApplicationWrapper.getName();
 	}
 
 	/**

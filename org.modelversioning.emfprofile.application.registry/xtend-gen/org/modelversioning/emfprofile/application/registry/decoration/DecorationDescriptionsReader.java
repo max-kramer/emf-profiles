@@ -1,5 +1,13 @@
+/**
+ * Copyright (c) 2010 - 2013 modelversioning.org
+ * All rights reserved. This program and the accompanying materials are
+ * made available under the terms of the Eclipse Public License v1.0 which
+ * accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.modelversioning.emfprofile.application.registry.decoration;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import java.util.List;
@@ -13,6 +21,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -30,8 +39,12 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.ui.internal.EMFProfileDecorationLanguageActivator;
 
 @SuppressWarnings("all")
@@ -201,5 +214,42 @@ public class DecorationDescriptionsReader {
       _xblockexpression = (xtextResource);
     }
     return _xblockexpression;
+  }
+  
+  public DecorationDescription getDecorationDescription(final Stereotype stereotype) {
+    DecorationDescription _xblockexpression = null;
+    {
+      EList<EObject> _contents = this.decorationDescriptionsResource.getContents();
+      EObject _head = IterableExtensions.<EObject>head(_contents);
+      final DecorationModel model = ((DecorationModel) _head);
+      EList<DecorationDescription> _decorationDescriptions = model.getDecorationDescriptions();
+      final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
+          public Boolean apply(final DecorationDescription it) {
+            Stereotype _stereotype = it.getStereotype();
+            String _name = _stereotype.getName();
+            String _name_1 = stereotype.getName();
+            boolean _equals = Objects.equal(_name, _name_1);
+            return Boolean.valueOf(_equals);
+          }
+        };
+      DecorationDescription _findFirst = IterableExtensions.<DecorationDescription>findFirst(_decorationDescriptions, _function);
+      _xblockexpression = (_findFirst);
+    }
+    return _xblockexpression;
+  }
+  
+  /**
+   * Unloads all resources from the resource set.
+   */
+  public void dispose() {
+    EList<Resource> _resources = this.rs.getResources();
+    final Procedure1<Resource> _function = new Procedure1<Resource>() {
+        public void apply(final Resource r) {
+          r.unload();
+        }
+      };
+    IterableExtensions.<Resource>forEach(_resources, _function);
+    EList<Resource> _resources_1 = this.rs.getResources();
+    _resources_1.clear();
   }
 }

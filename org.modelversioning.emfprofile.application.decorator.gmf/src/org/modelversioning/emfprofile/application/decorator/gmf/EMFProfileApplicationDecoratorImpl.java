@@ -140,6 +140,17 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	}
 
+	@Override
+	public void removeDecoration(
+			GraphicalDecorationDescription decorationDescription) {
+		// TODO provide remove decoration implementation
+		System.out.println("GMF UNdecorating EObject: "
+		+ decorationDescription.getStereotypeApplication().getAppliedTo().getClass().getName()
+		+ ", for stereotype: "
+		+ decorationDescription.getStereotypeApplication().getStereotype().getName());
+	
+	}
+
 	// @Override
 	// public void decorate(EObject eObject, List<Image> images,
 	// List<String> toolTipTexts) {

@@ -1,4 +1,11 @@
-package org.modelversioning.emfprofile.application.registry.decoration
+/**
+ * Copyright (c) 2010 - 2013 modelversioning.org
+ * All rights reserved. This program and the accompanying materials are
+ * made available under the terms of the Eclipse Public License v1.0 which
+ * accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ */
+ package org.modelversioning.emfprofile.application.registry.decoration
 
 import com.google.inject.Inject
 import org.eclipse.core.resources.IFile
@@ -13,6 +20,8 @@ import org.eclipse.xtext.validation.CheckMode
 import org.modelversioning.emfprofile.Profile
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
 import org.modelversioning.emfprofile.decoration.ui.internal.EMFProfileDecorationLanguageActivator
+import org.modelversioning.emfprofile.Stereotype
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
 
 class DecorationDescriptionsReader {
 
@@ -94,4 +103,17 @@ class DecorationDescriptionsReader {
 		}
 		xtextResource
 	}
+	
+	def getDecorationDescription(Stereotype stereotype) {
+		val model = decorationDescriptionsResource.contents.head as DecorationModel
+		model.decorationDescriptions.findFirst[it.stereotype.name == stereotype.name]
+	}
+	/**
+	 * Unloads all resources from the resource set.
+	 */
+	def dispose() {
+		rs.resources.forEach[r | r.unload]
+		rs.resources.clear
+	}
+	
 }

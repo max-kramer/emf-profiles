@@ -63,4 +63,11 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl imple
 		System.out.println("Reflective decorating: " + decorationDescription.getStereotypeApplication().toString());		
 	}
 
+	@Override
+	public void removeDecoration(
+			GraphicalDecorationDescription decorationDescription) {
+		// TODO Auto-generated method stub
+		System.out.println("Reflective removing decoration: " + decorationDescription.getStereotypeApplication().toString());
+	}
+
 }

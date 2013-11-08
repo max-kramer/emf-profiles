@@ -33,6 +33,9 @@ import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsReader;
+import org.modelversioning.emfprofile.application.registry.decoration.notification.DecorationNotificationDispatcher;
+import org.modelversioning.emfprofile.application.registry.decoration.notification.ProfileApplicationNotificationsObserver;
+import org.modelversioning.emfprofile.application.registry.decoration.notification.SimpleDecorationNotificationDispatcher;
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.application.registry.metadata.EMFProfileApplicationRegistryPackage;
 import org.modelversioning.emfprofile.impl.ProfileFacadeImpl;
@@ -72,21 +75,27 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	private final IFile profileApplicationFile;
 	private final Collection<Profile> profiles;
 	private final Resource resource;
-	private EMFProfileApplicationDecorator decorator = new SimpleEMFProfileApplicationDecorator();
+	private DecorationNotificationDispatcher dispatcher = new SimpleDecorationNotificationDispatcher(
+			new SimpleEMFProfileApplicationDecorator(), null);
+
+	public DecorationNotificationDispatcher getDispatcher() {
+		return dispatcher;
+	}
 
 	public void setDecorator(EMFProfileApplicationDecorator decorator)
 			throws ReadingDecorationDescriptionsException {
-		this.decorator = decorator;
 		Profile profile = profiles.iterator().next();
 		DecorationDescriptionsReader decorationDescriptionsReader = new DecorationDescriptionsReader(
 				profile);
+		this.dispatcher = new DecorationNotificationDispatcher(decorator,
+				decorationDescriptionsReader);
+
 		System.out.println("Setting decorator, profile resource uri: "
 				+ profile.eResource().getURI());
 		// decorate for already applied stereotypes, e.g. when loading
 		for (StereotypeApplication stereotypeApplication : profileApplication
 				.getStereotypeApplications()) {
-			// TODO
-			// decorator.decorate(stereotypeApplication);
+			dispatcher.acceptAddNotification(stereotypeApplication);
 		}
 	}
 
@@ -202,7 +211,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	private void registerModelNotificationsObserver() {
 		getProfileApplication().eAdapters().add(
-				new ModelNotificationsObserver());
+				new ProfileApplicationNotificationsObserver(this));
 	}
 
 	/**
@@ -378,14 +387,17 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 		// first remove the reference from profile application manager
 		ProfileApplicationManagerImpl pam = (ProfileApplicationManagerImpl) this
 				.eContainer();
-		pam.removeProfileApplication(this);
+		// pam is null if already unloaded
+		if(pam != null){
+			pam.removeProfileApplication(this);
 
-		// At the moment the IProfileFacade#unload() does nothing
-		// the code for unloading resource should be moved to the facade
-		// TODO investigate moving to code to the #unload() method of the
-		// IProfileFacade
-		getProfileApplicationResource().unload();
-		facade.unload();
+			// At the moment the IProfileFacade#unload() does nothing
+			// the code for unloading resource should be moved to the facade
+			// TODO investigate moving the code to the #unload() method of the
+			// IProfileFacade
+			getProfileApplicationResource().unload();
+			facade.unload();
+		}
 	}
 
 	/**
@@ -451,7 +463,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	/**
 	 * 
 	 */
-	private void sendNotificationToRefreshProfileApplicationWrapperInViewer() {
+	public void sendNotificationToRefreshProfileApplicationWrapperInViewer() {
 		eNotify(new ENotificationImpl(
 				ProfileApplicationWrapperImpl.this,
 				Notification.SET,
@@ -462,7 +474,7 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	/**
 	 * 
 	 */
-	private void sendNotificationToUpdateProfileApplicationWrapperInViewer() {
+	public void sendNotificationToUpdateProfileApplicationWrapperInViewer() {
 		eNotify(new ENotificationImpl(
 				ProfileApplicationWrapperImpl.this,
 				Notification.SET,
@@ -548,12 +560,10 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 					// until that notification comes in order to trigger the
 					// decorator to decorate!
 
-					// decorator.decorate((StereotypeApplication) notification
-					// .getNewValue());
 				} else if (Notification.REMOVE == notification.getEventType()) {
-					// TODO
-					// decorator.undecorate((StereotypeApplication) notification
-					// .getOldValue());
+					dispatcher
+							.acceptRemoveNotification((StereotypeApplication) notification
+									.getOldValue());
 				}
 				// ignore all other event types
 				return;
@@ -563,15 +573,15 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 				if (Notification.SET == notification.getEventType()) {
 					// for every attribute set
 					if (notification.getFeature() instanceof EAttribute) {
-						// TODO
-						// decorator.decorate((StereotypeApplication) notifier);
+						dispatcher
+								.acceptSetNotification((StereotypeApplication) notifier);
 					}
 					// if the reference 'appliedTo' was set
 					if (EMFProfileApplicationPackage.eINSTANCE
 							.getStereotypeApplication_AppliedTo().equals(
 									notification.getFeature())) {
-						// TODO
-						// decorator.decorate((StereotypeApplication) notifier);
+						dispatcher
+								.acceptAddNotification((StereotypeApplication) notifier);
 					}
 				}
 				// ignore other

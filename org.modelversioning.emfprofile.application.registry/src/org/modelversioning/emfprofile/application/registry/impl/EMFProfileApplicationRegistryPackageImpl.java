@@ -777,6 +777,11 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		addEParameter(op, theEcorePackage.getEJavaObject(), "selection", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
 
+		op = addEOperation(emfProfileApplicationDecoratorEClass, null,
+				"removeDecoration", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getGraphicalDecorationDescription(),
+				"decorationDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Initialize data types
 		initEDataType(illegalArgumentExceptionEDataType,
 				IllegalArgumentException.class, "IllegalArgumentException",

@@ -137,6 +137,9 @@
     <eOperations name="resolveEObjectFromEditorSelection" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject">
       <eParameters name="selection" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EJavaObject"/>
     </eOperations>
+    <eOperations name="removeDecoration">
+      <eParameters name="decorationDescription" eType="#//GraphicalDecorationDescription"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="GraphicalDecorationDescription" instanceClassName="org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription"/>
 </ecore:EPackage>

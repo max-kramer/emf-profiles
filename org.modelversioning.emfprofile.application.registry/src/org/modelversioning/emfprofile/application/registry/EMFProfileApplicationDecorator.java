@@ -54,4 +54,13 @@ public interface EMFProfileApplicationDecorator extends EObject {
 	 * @generated
 	 */
 	EObject resolveEObjectFromEditorSelection(Object selection);
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @model decorationDescriptionDataType=
+	 *        "org.modelversioning.emfprofile.application.registry.GraphicalDecorationDescription"
+	 * @generated
+	 */
+	void removeDecoration(GraphicalDecorationDescription decorationDescription);
 } // EMFProfileApplicationDecorator

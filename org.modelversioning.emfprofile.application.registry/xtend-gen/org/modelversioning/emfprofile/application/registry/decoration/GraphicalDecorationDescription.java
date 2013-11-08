@@ -1,99 +1,103 @@
+/**
+ * Copyright (c) 2010 - 2013 modelversioning.org
+ * All rights reserved. This program and the accompanying materials are
+ * made available under the terms of the Eclipse Public License v1.0 which
+ * accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ */
 package org.modelversioning.emfprofile.application.registry.decoration;
 
+import com.google.common.base.Objects;
+import java.util.HashSet;
 import java.util.Set;
-import org.eclipse.xtend.lib.Data;
-import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.modelversioning.emfprofile.application.registry.decoration.ConditionEvaluator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguageFactory;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
  * Describes decorations that will be attached to the graphical
  * representation of the EObject at which the stereotype was applied.
- * Decoration status must be evaluated from the conditions.
+ * Decoration status must be evaluated from the conditions to decide weather to
+ * show or hide the decorations.
+ * 
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  */
-@Data
 @SuppressWarnings("all")
 public class GraphicalDecorationDescription {
-  private final StereotypeApplication _stereotypeApplication;
+  private final StereotypeApplication stereotypeApplication;
   
-  public StereotypeApplication getStereotypeApplication() {
-    return this._stereotypeApplication;
+  private final Set<GraphicalDecoration> decorations;
+  
+  private final AbstractCondition condition;
+  
+  private DecorationStatus decorationStatus;
+  
+  public GraphicalDecorationDescription(final StereotypeApplication stereotypeApplication, final DecorationDescription decorationDescription) {
+    this.stereotypeApplication = stereotypeApplication;
+    boolean _notEquals = (!Objects.equal(decorationDescription, null));
+    if (_notEquals) {
+      HashSet<GraphicalDecoration> _hashSet = new HashSet<GraphicalDecoration>();
+      this.decorations = _hashSet;
+      EList<Decoration> _decorations = decorationDescription.getDecorations();
+      final Procedure1<Decoration> _function = new Procedure1<Decoration>() {
+          public void apply(final Decoration d) {
+            GraphicalDecoration _graphicalDecoration = new GraphicalDecoration(d, stereotypeApplication);
+            GraphicalDecorationDescription.this.decorations.add(_graphicalDecoration);
+          }
+        };
+      IterableExtensions.<Decoration>forEach(_decorations, _function);
+      Activation _activation = decorationDescription.getActivation();
+      AbstractCondition _condition = null;
+      if (_activation!=null) {
+        _condition=_activation.getCondition();
+      }
+      this.condition = _condition;
+      this.reevaluate();
+    } else {
+      Set<GraphicalDecoration> _emptySet = CollectionLiterals.<GraphicalDecoration>emptySet();
+      this.decorations = _emptySet;
+      AbstractCondition _createAbstractCondition = DecorationLanguageFactory.eINSTANCE.createAbstractCondition();
+      this.condition = _createAbstractCondition;
+      this.decorationStatus = DecorationStatus.UNKNOWN;
+    }
   }
   
-  private final Set<GraphicalDecoration> _decorations;
+  public void reevaluate() {
+    final Procedure1<GraphicalDecoration> _function = new Procedure1<GraphicalDecoration>() {
+        public void apply(final GraphicalDecoration it) {
+          it.reevaluate();
+        }
+      };
+    IterableExtensions.<GraphicalDecoration>forEach(this.decorations, _function);
+    boolean _equals = Objects.equal(this.condition, null);
+    if (_equals) {
+      this.decorationStatus = DecorationStatus.ACTIVE;
+    } else {
+      DecorationStatus _execute = ConditionEvaluator.execute(this.condition, this.stereotypeApplication);
+      this.decorationStatus = _execute;
+    }
+    return;
+  }
   
   public Set<GraphicalDecoration> getDecorations() {
-    return this._decorations;
+    return this.decorations;
   }
   
-  private final AbstractCondition _condition;
-  
-  public AbstractCondition getCondition() {
-    return this._condition;
+  public StereotypeApplication getStereotypeApplication() {
+    return this.stereotypeApplication;
   }
-  
-  private final DecorationStatus _decorationStatus;
   
   public DecorationStatus getDecorationStatus() {
-    return this._decorationStatus;
-  }
-  
-  public GraphicalDecorationDescription(final StereotypeApplication stereotypeApplication, final Set<GraphicalDecoration> decorations, final AbstractCondition condition, final DecorationStatus decorationStatus) {
-    super();
-    this._stereotypeApplication = stereotypeApplication;
-    this._decorations = decorations;
-    this._condition = condition;
-    this._decorationStatus = decorationStatus;
-  }
-  
-  @Override
-  public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((_stereotypeApplication== null) ? 0 : _stereotypeApplication.hashCode());
-    result = prime * result + ((_decorations== null) ? 0 : _decorations.hashCode());
-    result = prime * result + ((_condition== null) ? 0 : _condition.hashCode());
-    result = prime * result + ((_decorationStatus== null) ? 0 : _decorationStatus.hashCode());
-    return result;
-  }
-  
-  @Override
-  public boolean equals(final Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
-    GraphicalDecorationDescription other = (GraphicalDecorationDescription) obj;
-    if (_stereotypeApplication == null) {
-      if (other._stereotypeApplication != null)
-        return false;
-    } else if (!_stereotypeApplication.equals(other._stereotypeApplication))
-      return false;
-    if (_decorations == null) {
-      if (other._decorations != null)
-        return false;
-    } else if (!_decorations.equals(other._decorations))
-      return false;
-    if (_condition == null) {
-      if (other._condition != null)
-        return false;
-    } else if (!_condition.equals(other._condition))
-      return false;
-    if (_decorationStatus == null) {
-      if (other._decorationStatus != null)
-        return false;
-    } else if (!_decorationStatus.equals(other._decorationStatus))
-      return false;
-    return true;
-  }
-  
-  @Override
-  public String toString() {
-    String result = new ToStringHelper().toString(this);
-    return result;
+    return this.decorationStatus;
   }
 }

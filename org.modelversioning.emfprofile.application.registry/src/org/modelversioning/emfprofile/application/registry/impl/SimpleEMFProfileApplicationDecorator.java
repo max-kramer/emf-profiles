@@ -60,7 +60,12 @@ public class SimpleEMFProfileApplicationDecorator extends MinimalEObjectImpl
 	 */
 	@Override
 	public void decorate(GraphicalDecorationDescription decorationDescription) {
-		System.out.println("Simple DECORATING: " + decorationDescription.toString());
+		System.out.println("SIMPLE ADD DECORATION: " + decorationDescription.toString() + ", decoration status: " + decorationDescription.getDecorationStatus());
+	}
+
+	@Override
+	public void removeDecoration(GraphicalDecorationDescription decorationDescription) {
+		System.out.println("SIMPLE REMOVE DECORATION: " + decorationDescription.toString() + ", decoration status: " + decorationDescription.getDecorationStatus());
 	}
 
 }
