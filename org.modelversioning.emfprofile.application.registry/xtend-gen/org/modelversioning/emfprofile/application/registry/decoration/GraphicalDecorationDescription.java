@@ -9,12 +9,14 @@ package org.modelversioning.emfprofile.application.registry.decoration;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
-import java.util.HashSet;
-import java.util.Set;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Stereotype;
@@ -33,6 +35,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  * representation of the EObject at which the stereotype was applied.
  * Decoration status must be evaluated from the conditions to decide weather to
  * show or hide the decorations.
+ * @see #reevaluate()
  * 
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  */
@@ -40,7 +43,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
 public class GraphicalDecorationDescription {
   private final StereotypeApplication stereotypeApplication;
   
-  private final Set<GraphicalDecoration> decorations;
+  private final List<GraphicalDecoration> decorations;
   
   private final AbstractCondition condition;
   
@@ -50,16 +53,17 @@ public class GraphicalDecorationDescription {
     this.stereotypeApplication = stereotypeApplication;
     boolean _notEquals = (!Objects.equal(decorationDescription, null));
     if (_notEquals) {
-      HashSet<GraphicalDecoration> _hashSet = new HashSet<GraphicalDecoration>();
-      this.decorations = _hashSet;
+      final List<GraphicalDecoration> tempList = Lists.<GraphicalDecoration>newArrayList();
       EList<Decoration> _decorations = decorationDescription.getDecorations();
       final Procedure1<Decoration> _function = new Procedure1<Decoration>() {
           public void apply(final Decoration d) {
             GraphicalDecoration _graphicalDecoration = new GraphicalDecoration(d, stereotypeApplication);
-            GraphicalDecorationDescription.this.decorations.add(_graphicalDecoration);
+            tempList.add(_graphicalDecoration);
           }
         };
       IterableExtensions.<Decoration>forEach(_decorations, _function);
+      ImmutableList<GraphicalDecoration> _copyOf = ImmutableList.<GraphicalDecoration>copyOf(tempList);
+      this.decorations = _copyOf;
       Activation _activation = decorationDescription.getActivation();
       AbstractCondition _condition = null;
       if (_activation!=null) {
@@ -68,32 +72,54 @@ public class GraphicalDecorationDescription {
       this.condition = _condition;
       this.reevaluate();
     } else {
-      Set<GraphicalDecoration> _emptySet = CollectionLiterals.<GraphicalDecoration>emptySet();
-      this.decorations = _emptySet;
+      List<GraphicalDecoration> _emptyList = CollectionLiterals.<GraphicalDecoration>emptyList();
+      this.decorations = _emptyList;
       AbstractCondition _createAbstractCondition = DecorationLanguageFactory.eINSTANCE.createAbstractCondition();
       this.condition = _createAbstractCondition;
       this.decorationStatus = DecorationStatus.UNKNOWN;
     }
   }
   
-  public void reevaluate() {
-    final Procedure1<GraphicalDecoration> _function = new Procedure1<GraphicalDecoration>() {
-        public void apply(final GraphicalDecoration it) {
-          it.reevaluate();
-        }
-      };
-    IterableExtensions.<GraphicalDecoration>forEach(this.decorations, _function);
-    boolean _equals = Objects.equal(this.condition, null);
+  /**
+   * Reevaluates the decoration status by examining the conditions found in {@link DecorationDescription}
+   * 
+   * @returns <code>true</code> if the activation status has changed.
+   */
+  public boolean reevaluate() {
+    boolean changeOccured = false;
+    boolean _isEmpty = this.decorations.isEmpty();
+    boolean _equals = (_isEmpty == false);
     if (_equals) {
+      final Function1<GraphicalDecoration,Boolean> _function = new Function1<GraphicalDecoration,Boolean>() {
+          public Boolean apply(final GraphicalDecoration it) {
+            boolean _reevaluate = it.reevaluate();
+            boolean _equals = (_reevaluate == false);
+            return Boolean.valueOf(_equals);
+          }
+        };
+      boolean _forall = IterableExtensions.<GraphicalDecoration>forall(this.decorations, _function);
+      boolean _not = (!_forall);
+      changeOccured = _not;
+    }
+    boolean _equals_1 = Objects.equal(this.condition, null);
+    if (_equals_1) {
       this.decorationStatus = DecorationStatus.ACTIVE;
     } else {
-      DecorationStatus _execute = ConditionEvaluator.execute(this.condition, this.stereotypeApplication);
-      this.decorationStatus = _execute;
+      final DecorationStatus newDecorationStatus = ConditionEvaluator.execute(this.condition, this.stereotypeApplication);
+      boolean _equals_2 = Objects.equal(this.decorationStatus, DecorationStatus.INANCTIVE);
+      if (_equals_2) {
+        changeOccured = false;
+      }
+      boolean _notEquals = (!Objects.equal(newDecorationStatus, this.decorationStatus));
+      if (_notEquals) {
+        changeOccured = true;
+      }
+      this.decorationStatus = newDecorationStatus;
     }
-    return;
+    return changeOccured;
   }
   
-  public Set<GraphicalDecoration> getDecorations() {
+  public List<GraphicalDecoration> getDecorations() {
     return this.decorations;
   }
   
@@ -119,8 +145,8 @@ public class GraphicalDecorationDescription {
       } else {
         Class<? extends Object> _class = obj.getClass();
         Class<? extends GraphicalDecorationDescription> _class_1 = this.getClass();
-        boolean _notEquals = (!Objects.equal(_class, _class_1));
-        _or = (_tripleEquals_1 || _notEquals);
+        boolean _tripleNotEquals = (_class != _class_1);
+        _or = (_tripleEquals_1 || _tripleNotEquals);
       }
       if (_or) {
         return false;
@@ -152,24 +178,28 @@ public class GraphicalDecorationDescription {
   }
   
   public String toString() {
-    Class<? extends GraphicalDecorationDescription> _class = this.getClass();
-    String _simpleName = _class.getSimpleName();
-    String _plus = (_simpleName + "@");
-    int _hashCode = this.hashCode();
-    String _hexString = Integer.toHexString(_hashCode);
-    String _plus_1 = (_plus + _hexString);
-    ToStringHelper _stringHelper = Objects.toStringHelper(_plus_1);
-    Stereotype _stereotype = this.stereotypeApplication.getStereotype();
-    String _name = _stereotype.getName();
-    ToStringHelper _add = _stringHelper.add("Stereotype", _name);
-    EObject _appliedTo = this.stereotypeApplication.getAppliedTo();
-    String _name_1 = ((ENamedElement) _appliedTo).getName();
-    ToStringHelper _add_1 = _add.add("appliedTo", _name_1);
-    ToStringHelper _add_2 = _add_1.add("Status", this.decorationStatus);
-    int _size = this.decorations.size();
-    ToStringHelper _add_3 = _add_2.add("decorations size", _size);
-    ToStringHelper _add_4 = _add_3.add("stereotypeApplication", this.stereotypeApplication);
-    String _string = _add_4.toString();
-    return _string;
+    String _xblockexpression = null;
+    {
+      Class<? extends GraphicalDecorationDescription> _class = this.getClass();
+      String _simpleName = _class.getSimpleName();
+      String _plus = (_simpleName + "@");
+      int _hashCode = this.hashCode();
+      String _hexString = Integer.toHexString(_hashCode);
+      String _plus_1 = (_plus + _hexString);
+      ToStringHelper _stringHelper = Objects.toStringHelper(_plus_1);
+      ToStringHelper _add = _stringHelper.add("Status", this.decorationStatus);
+      Stereotype _stereotype = this.stereotypeApplication.getStereotype();
+      String _name = _stereotype.getName();
+      ToStringHelper _add_1 = _add.add("Stereotype", _name);
+      EObject _appliedTo = this.stereotypeApplication.getAppliedTo();
+      String _name_1 = ((ENamedElement) _appliedTo).getName();
+      ToStringHelper _add_2 = _add_1.add("appliedTo", _name_1);
+      int _size = this.decorations.size();
+      ToStringHelper _add_3 = _add_2.add("decorations size", _size);
+      final ToStringHelper toStringHelper = _add_3.addValue(this.decorations);
+      String _string = toStringHelper.toString();
+      _xblockexpression = (_string);
+    }
+    return _xblockexpression;
   }
 }

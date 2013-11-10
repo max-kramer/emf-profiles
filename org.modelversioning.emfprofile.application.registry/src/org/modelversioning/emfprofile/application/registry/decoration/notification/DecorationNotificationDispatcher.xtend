@@ -23,6 +23,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication
  * in order to decide if the notification will be sent to the decorator or not.
  * Mostly it depends of the previous {@link DecorationStatus} of a particular 
  * {@link GraphicalDecorationDescription} or {@link GraphicalDecoration}.
+ * 
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  */
 class DecorationNotificationDispatcher {
@@ -49,26 +50,22 @@ class DecorationNotificationDispatcher {
 	}
 
 	def acceptRemoveNotification(StereotypeApplication stereotypeApplication) {
-		val decorationDescription = new GraphicalDecorationDescription(stereotypeApplication,
-			reader.getDecorationDescription(stereotypeApplication.stereotype))
-		if (tracker.containsKey(decorationDescription.stereotypeApplication)) {
-			tracker.remove(decorationDescription.stereotypeApplication)
+		if (tracker.containsKey(stereotypeApplication)) {
+			val decorationDescription = tracker.remove(stereotypeApplication)
 			decorator.removeDecoration(decorationDescription)
 		} else {
-			throw new IllegalStateException('''REMOVE --- The elemet is unknown in the set: «decorationDescription»''')
+			throw new IllegalStateException('''REMOVE --- The elemet is unknown in the set for the: «stereotypeApplication»''')
 		}
 	}
 
 	def acceptSetNotification(StereotypeApplication stereotypeApplication) {
-		val decorationDescription = new GraphicalDecorationDescription(stereotypeApplication,
-			reader.getDecorationDescription(stereotypeApplication.stereotype))
-		if (tracker.containsKey(decorationDescription.stereotypeApplication)) {
-			if (tracker.get(decorationDescription.stereotypeApplication) != decorationDescription) {
-				tracker.put(decorationDescription.stereotypeApplication, decorationDescription)
+		if (tracker.containsKey(stereotypeApplication)) {
+			val decorationDescription = tracker.get(stereotypeApplication)
+			if (decorationDescription.reevaluate) {
 				decorator.decorate(decorationDescription)
 			}
 		} else {
-			throw new IllegalStateException('''SET --- The elemet is unknown in the set: «decorationDescription»''')
+			throw new IllegalStateException('''SET --- The elemet is unknown in the set for the: «stereotypeApplication»''')
 		}
 	}
 

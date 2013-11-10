@@ -27,16 +27,27 @@ class GraphicalDecoration {
 	}
 
 	def reevaluate() {
+		var changeOccured = false
 		val condition = decoration.activation?.condition
 		if (condition == null) {
 			decorationStatus = DecorationStatus::ACTIVE
 		} else {
-			decorationStatus = ConditionEvaluator::execute(
-				condition,
-				stereotypeApplication
-			)
+			val newDecorationStatus = ConditionEvaluator::execute(condition, stereotypeApplication)
+			if (newDecorationStatus != decorationStatus) {
+				changeOccured = true
+			}
+			decorationStatus = newDecorationStatus
 		}
-		return
+		return changeOccured
+	}
+
+	//	/**
+	//	 * returns a copy of the {@link Decoration}
+	//	 */
+	def getDecoration() {
+
+		//		EcoreUtil2.copy(decoration)
+		decoration
 	}
 
 	def getStereotypeApplication() {
@@ -51,7 +62,7 @@ class GraphicalDecoration {
 		if (obj === this) {
 			return true;
 		}
-		if (obj === null || obj.getClass() != this.getClass()) {
+		if (obj === null || obj.getClass() !== this.getClass()) {
 			return false;
 		}
 		val guest = obj as GraphicalDecoration
@@ -65,9 +76,9 @@ class GraphicalDecoration {
 	}
 
 	override toString() {
-		Objects.toStringHelper(this.class.simpleName + "@" + Integer.toHexString(this.hashCode)).add("Stereotype", stereotypeApplication.stereotype.name).add("appliedTo",
-			(stereotypeApplication.appliedTo as ENamedElement).name).add("Decoration", decoration.eClass.name).add("Status",
-			decorationStatus).toString
+		Objects.toStringHelper(this.class.simpleName + "@" + Integer.toHexString(this.hashCode)).addValue(decoration).
+			add("Status", decorationStatus).add("Stereotype", stereotypeApplication.stereotype.name).add("appliedTo",
+				(stereotypeApplication.appliedTo as ENamedElement).name).toString
 	}
 
 }

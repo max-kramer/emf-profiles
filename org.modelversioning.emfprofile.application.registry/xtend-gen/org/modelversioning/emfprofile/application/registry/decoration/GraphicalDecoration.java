@@ -9,7 +9,6 @@ package org.modelversioning.emfprofile.application.registry.decoration;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.modelversioning.emfprofile.Stereotype;
@@ -37,7 +36,8 @@ public class GraphicalDecoration {
     this.reevaluate();
   }
   
-  public void reevaluate() {
+  public boolean reevaluate() {
+    boolean changeOccured = false;
     Activation _activation = this.decoration.getActivation();
     AbstractCondition _condition = null;
     if (_activation!=null) {
@@ -48,11 +48,18 @@ public class GraphicalDecoration {
     if (_equals) {
       this.decorationStatus = DecorationStatus.ACTIVE;
     } else {
-      DecorationStatus _execute = ConditionEvaluator.execute(condition, 
-        this.stereotypeApplication);
-      this.decorationStatus = _execute;
+      final DecorationStatus newDecorationStatus = ConditionEvaluator.execute(condition, this.stereotypeApplication);
+      boolean _notEquals = (!Objects.equal(newDecorationStatus, this.decorationStatus));
+      if (_notEquals) {
+        changeOccured = true;
+      }
+      this.decorationStatus = newDecorationStatus;
     }
-    return;
+    return changeOccured;
+  }
+  
+  public Decoration getDecoration() {
+    return this.decoration;
   }
   
   public StereotypeApplication getStereotypeApplication() {
@@ -77,8 +84,8 @@ public class GraphicalDecoration {
       } else {
         Class<? extends Object> _class = obj.getClass();
         Class<? extends GraphicalDecoration> _class_1 = this.getClass();
-        boolean _notEquals = (!Objects.equal(_class, _class_1));
-        _or = (_tripleEquals_1 || _notEquals);
+        boolean _tripleNotEquals = (_class != _class_1);
+        _or = (_tripleEquals_1 || _tripleNotEquals);
       }
       if (_or) {
         return false;
@@ -117,18 +124,15 @@ public class GraphicalDecoration {
     String _hexString = Integer.toHexString(_hashCode);
     String _plus_1 = (_plus + _hexString);
     ToStringHelper _stringHelper = Objects.toStringHelper(_plus_1);
+    ToStringHelper _addValue = _stringHelper.addValue(this.decoration);
+    ToStringHelper _add = _addValue.add("Status", this.decorationStatus);
     Stereotype _stereotype = this.stereotypeApplication.getStereotype();
     String _name = _stereotype.getName();
-    ToStringHelper _add = _stringHelper.add("Stereotype", _name);
+    ToStringHelper _add_1 = _add.add("Stereotype", _name);
     EObject _appliedTo = this.stereotypeApplication.getAppliedTo();
     String _name_1 = ((ENamedElement) _appliedTo).getName();
-    ToStringHelper _add_1 = _add.add("appliedTo", _name_1);
-    EClass _eClass = this.decoration.eClass();
-    String _name_2 = _eClass.getName();
-    ToStringHelper _add_2 = _add_1.add("Decoration", _name_2);
-    ToStringHelper _add_3 = _add_2.add("Status", 
-      this.decorationStatus);
-    String _string = _add_3.toString();
+    ToStringHelper _add_2 = _add_1.add("appliedTo", _name_1);
+    String _string = _add_2.toString();
     return _string;
   }
 }

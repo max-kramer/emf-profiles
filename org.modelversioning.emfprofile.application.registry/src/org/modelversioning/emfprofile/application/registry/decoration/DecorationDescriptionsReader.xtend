@@ -7,22 +7,27 @@
  */
  package org.modelversioning.emfprofile.application.registry.decoration
 
+import com.google.common.collect.Lists
 import com.google.inject.Inject
 import org.eclipse.core.resources.IFile
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.Path
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.validation.CheckMode
 import org.modelversioning.emfprofile.Profile
-import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
-import org.modelversioning.emfprofile.decoration.ui.internal.EMFProfileDecorationLanguageActivator
 import org.modelversioning.emfprofile.Stereotype
+import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
+import org.modelversioning.emfprofile.decoration.ui.internal.EMFProfileDecorationLanguageActivator
 
+/**
+ * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
+ */
 class DecorationDescriptionsReader {
 
 	val Profile profile
@@ -106,7 +111,48 @@ class DecorationDescriptionsReader {
 	
 	def getDecorationDescription(Stereotype stereotype) {
 		val model = decorationDescriptionsResource.contents.head as DecorationModel
-		model.decorationDescriptions.findFirst[it.stereotype.name == stereotype.name]
+		
+		val decorationDescription = model.decorationDescriptions.findFirst[it.stereotype.name == stereotype.name]
+		
+		val stereotypeSuperTypes = stereotype.ESuperTypes.filter[s | 
+			switch s {
+				Stereotype: true
+				default: false
+			}
+		]
+//		println('''stereotype «stereotype.name» super types: ''') stereotypeSuperTypes.forEach[s|println("\t" + s)]
+		
+		val allDecorationDescriptions = Lists.newArrayList
+		
+		if(decorationDescription != null) allDecorationDescriptions.add(decorationDescription)
+		stereotypeSuperTypes.forEach[sst | 
+			val dd = model.decorationDescriptions.findFirst[it.stereotype.name == sst.name]
+			if (dd != null) allDecorationDescriptions.add(dd)
+		]
+//		println('''Found decoration descriptions: ''')
+//		allDecorationDescriptions.forEach[dd | println("\t" + dd)]
+		
+		if(allDecorationDescriptions.empty) return null
+		
+		val temp = allDecorationDescriptions.head
+		allDecorationDescriptions.remove(temp)
+		val resultDecorationDescription = EcoreUtil2.copy(temp)
+		// checking if the decoration description has activation.
+		// if not then we have to look if there are any other decoration descriptions of the stereotype super types
+		// with the activation to be used.
+		if(resultDecorationDescription.activation == null) {
+			val activation = allDecorationDescriptions.findFirst[it.activation != null]?.activation
+			if(activation != null)
+				resultDecorationDescription.setActivation(EcoreUtil2.copy(activation))
+		}		
+		// also we need to collect decorations of the super types to be included in the set of the decorations.
+		// the resulting set should be in reversed order: steretype's decorations last, super type's decorations first
+		// so, when they are rendered the more specialized decorations are rendered last.
+		val resultDecorations = Lists.newArrayList
+		allDecorationDescriptions.forEach[resultDecorations.addAll(it.decorations)]
+		resultDecorationDescription.decorations.addAll(EcoreUtil2.copyAll(resultDecorations))
+		
+		return resultDecorationDescription
 	}
 	/**
 	 * Unloads all resources from the resource set.
