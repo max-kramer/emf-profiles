@@ -40,7 +40,6 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 	/** {@link EObject} to {@link IDecorator} map. */
 	private static Map<EObject, IDecorator> eObjectToDecoratorMap = new HashMap<EObject, IDecorator>();
 
-
 	/**
 	 * default constructor
 	 */
@@ -66,7 +65,6 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 		return "gmf-editor".equals(simpleIdentifier); //$NON-NLS-1$
 	}
 
-
 	@Override
 	public Collection<String> canDecorateEditorsWithFollowingIDs() {
 		return Collections.unmodifiableCollection(decorateableEditors);
@@ -83,25 +81,25 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 				.remove(eObject);
 	}
 
-//	@Override
-//	public void decorate(StereotypeApplication stereotypeApplication) {
-////		System.out.println("GMF deco SA: " + stereotypeApplication);
-//		// TODO provide decorate implementation
-//		System.out.println("GMF Decorating EObject: "
-//				+ stereotypeApplication.getAppliedTo().getClass().getName()
-//				+ ", with stereotype: "
-//				+ stereotypeApplication.getStereotype().getName());
-//	}
-//
-//	@Override
-//	public void undecorate(StereotypeApplication stereotypeApplication) {
-////		System.out.println("GMF undeco SA: " + stereotypeApplication);
-//		// TODO provide undecorate implementation
-//		System.out.println("GMF UNdecorating EObject: "
-//				+ stereotypeApplication.getAppliedTo().getClass().getName()
-//				+ ", for stereotype: "
-//				+ stereotypeApplication.getStereotype().getName());
-//	}
+	// @Override
+	// public void decorate(StereotypeApplication stereotypeApplication) {
+	// // System.out.println("GMF deco SA: " + stereotypeApplication);
+	// // TODO provide decorate implementation
+	// System.out.println("GMF Decorating EObject: "
+	// + stereotypeApplication.getAppliedTo().getClass().getName()
+	// + ", with stereotype: "
+	// + stereotypeApplication.getStereotype().getName());
+	// }
+	//
+	// @Override
+	// public void undecorate(StereotypeApplication stereotypeApplication) {
+	// // System.out.println("GMF undeco SA: " + stereotypeApplication);
+	// // TODO provide undecorate implementation
+	// System.out.println("GMF UNdecorating EObject: "
+	// + stereotypeApplication.getAppliedTo().getClass().getName()
+	// + ", for stereotype: "
+	// + stereotypeApplication.getStereotype().getName());
+	// }
 
 	@Override
 	public EObject resolveEObjectFromEditorSelection(Object selection) {
@@ -131,12 +129,9 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 
 	@Override
 	public void decorate(GraphicalDecorationDescription decorationDescription) {
-//	System.out.println("GMF deco SA: " + stereotypeApplication);
-	// TODO provide decorate implementation
-	System.out.println("GMF Decorating EObject: "
-			+ decorationDescription.getStereotypeApplication().getAppliedTo().getClass().getName()
-			+ ", with stereotype: "
-			+ decorationDescription.getStereotypeApplication().getStereotype().getName());
+		// System.out.println("GMF deco SA: " + stereotypeApplication);
+		// TODO provide decorate implementation
+		System.out.println("GMF DECORATING: " + decorationDescription);
 
 	}
 
@@ -144,11 +139,7 @@ public class EMFProfileApplicationDecoratorImpl extends MinimalEObjectImpl
 	public void removeDecoration(
 			GraphicalDecorationDescription decorationDescription) {
 		// TODO provide remove decoration implementation
-		System.out.println("GMF UNdecorating EObject: "
-		+ decorationDescription.getStereotypeApplication().getAppliedTo().getClass().getName()
-		+ ", for stereotype: "
-		+ decorationDescription.getStereotypeApplication().getStereotype().getName());
-	
+		System.out.println("GMF REMOVING DECORATION: " + decorationDescription);
 	}
 
 	// @Override

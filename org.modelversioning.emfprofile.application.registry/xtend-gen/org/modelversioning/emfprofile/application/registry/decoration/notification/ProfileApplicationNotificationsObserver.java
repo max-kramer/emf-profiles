@@ -5,7 +5,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.modelversioning.emfprofile.application.registry.decoration.notification.DecorationNotificationDispatcher;
 import org.modelversioning.emfprofile.application.registry.impl.ProfileApplicationWrapperImpl;
 import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
@@ -82,9 +81,6 @@ public class ProfileApplicationNotificationsObserver extends EContentAdapter {
       if (notifier instanceof ProfileApplication) {
         final ProfileApplication _profileApplication = (ProfileApplication)notifier;
         _matched=true;
-        String _string = notification.toString();
-        String _plus = ("PROFILE APPLICATION NOTIFICATION: " + _string);
-        InputOutput.<String>println(_plus);
         boolean _matched_1 = false;
         if (!_matched_1) {
           boolean _equals = (eventType == Notification.ADD);
@@ -113,9 +109,6 @@ public class ProfileApplicationNotificationsObserver extends EContentAdapter {
       if (notifier instanceof StereotypeApplication) {
         final StereotypeApplication _stereotypeApplication = (StereotypeApplication)notifier;
         _matched=true;
-        String _string = notification.toString();
-        String _plus = ("STEREOTYPE APPLICATION NOTIFICATION: " + _string);
-        InputOutput.<String>println(_plus);
         boolean _matched_1 = false;
         if (!_matched_1) {
           boolean _equals = (eventType == Notification.SET);
@@ -155,9 +148,7 @@ public class ProfileApplicationNotificationsObserver extends EContentAdapter {
       }
     }
     if (!_matched) {
-      String _string = notification.toString();
-      String _plus = ("IGNORED NOTIFICATION: " + _string);
-      InputOutput.<String>println(_plus);
+      return;
     }
   }
 }

@@ -7,8 +7,14 @@
  */
 package org.modelversioning.emfprofile.application.registry.decoration.notification
 
+import com.google.common.collect.Maps
+import java.util.Map
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationWrapper
+import org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsReader
+import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
 import org.modelversioning.emfprofileapplication.StereotypeApplication
 
 /**
@@ -22,33 +28,57 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication
 class DecorationNotificationDispatcher {
 
 	protected val EMFProfileApplicationDecorator decorator
-	val org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsReader reader
+	val DecorationDescriptionsReader reader
 
-	new(EMFProfileApplicationDecorator decorator, org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsReader reader) {
+	val Map<StereotypeApplication, GraphicalDecorationDescription> tracker = Maps.newHashMap()
+
+	new(EMFProfileApplicationDecorator decorator, DecorationDescriptionsReader reader) {
 		this.decorator = decorator
 		this.reader = reader
 	}
-	
-	def acceptAddNotification(StereotypeApplication stereotypeApplication){
-		decorator.decorate(new org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription(stereotypeApplication, reader.getDecorationDescription(stereotypeApplication.stereotype)))
+
+	def acceptAddNotification(StereotypeApplication stereotypeApplication) {
+		val decorationDescription = new GraphicalDecorationDescription(stereotypeApplication,
+			reader.getDecorationDescription(stereotypeApplication.stereotype))
+		if (tracker.containsKey(decorationDescription.stereotypeApplication) == false) {
+			tracker.put(decorationDescription.stereotypeApplication, decorationDescription)
+			decorator.decorate(decorationDescription)
+		} else {
+			throw new IllegalStateException('''ADD --- The elemet is already in the set: «decorationDescription»''')
+		}
 	}
 
-	def acceptRemoveNotification(StereotypeApplication stereotypeApplication){
-		decorator.removeDecoration(new org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription(stereotypeApplication, reader.getDecorationDescription(stereotypeApplication.stereotype)))
+	def acceptRemoveNotification(StereotypeApplication stereotypeApplication) {
+		val decorationDescription = new GraphicalDecorationDescription(stereotypeApplication,
+			reader.getDecorationDescription(stereotypeApplication.stereotype))
+		if (tracker.containsKey(decorationDescription.stereotypeApplication)) {
+			tracker.remove(decorationDescription.stereotypeApplication)
+			decorator.removeDecoration(decorationDescription)
+		} else {
+			throw new IllegalStateException('''REMOVE --- The elemet is unknown in the set: «decorationDescription»''')
+		}
 	}
 
-	def acceptSetNotification(StereotypeApplication stereotypeApplication){
-		decorator.decorate(new org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription(stereotypeApplication, reader.getDecorationDescription(stereotypeApplication.stereotype)))
+	def acceptSetNotification(StereotypeApplication stereotypeApplication) {
+		val decorationDescription = new GraphicalDecorationDescription(stereotypeApplication,
+			reader.getDecorationDescription(stereotypeApplication.stereotype))
+		if (tracker.containsKey(decorationDescription.stereotypeApplication)) {
+			if (tracker.get(decorationDescription.stereotypeApplication) != decorationDescription) {
+				tracker.put(decorationDescription.stereotypeApplication, decorationDescription)
+				decorator.decorate(decorationDescription)
+			}
+		} else {
+			throw new IllegalStateException('''SET --- The elemet is unknown in the set: «decorationDescription»''')
+		}
 	}
-	
+
 	/**
 	 * Disposes of the {@link DecorationDescriptionsReader}
 	 */
-	def dispose(){
+	def dispose() {
 		reader?.dispose
 	}
 }
-
 
 ///////////////////// SimpleDecorationNotificationDispatcher /////////////////////////
 /**
@@ -59,16 +89,19 @@ class DecorationNotificationDispatcher {
  * {@link DecorationNotificationDispatcher}.
  */
 class SimpleDecorationNotificationDispatcher extends DecorationNotificationDispatcher {
-	new(EMFProfileApplicationDecorator decorator, org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsReader reader) {
+	new(EMFProfileApplicationDecorator decorator, DecorationDescriptionsReader reader) {
 		super(decorator, reader)
 	}
+
 	override def acceptAddNotification(StereotypeApplication stereotypeApplication) {
-		decorator.decorate(new org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription(stereotypeApplication, null))
+		decorator.decorate(new GraphicalDecorationDescription(stereotypeApplication, null))
 	}
-	override def acceptRemoveNotification(StereotypeApplication stereotypeApplication){
-		decorator.removeDecoration(new org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription(stereotypeApplication, null))
+
+	override def acceptRemoveNotification(StereotypeApplication stereotypeApplication) {
+		decorator.removeDecoration(new GraphicalDecorationDescription(stereotypeApplication, null))
 	}
-	override def acceptSetNotification(StereotypeApplication stereotypeApplication){
-		decorator.decorate(new org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription(stereotypeApplication, null))
+
+	override def acceptSetNotification(StereotypeApplication stereotypeApplication) {
+		decorator.decorate(new GraphicalDecorationDescription(stereotypeApplication, null))
 	}
 }

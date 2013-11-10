@@ -8,3 +8,7 @@
 /.DecorationNotificationDispatcher.java._trace
 /.SimpleDecorationNotificationDispatcher.java._trace
 /.ConditionEvaluator.java._trace
+/ConditionEvaluator.java
+/DecorationDescriptionsReader.java
+/GraphicalDecoration.java
+/GraphicalDecorationDescription.java

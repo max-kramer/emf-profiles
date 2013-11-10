@@ -7,8 +7,10 @@
  */
 package org.modelversioning.emfprofile.application.registry.decoration
 
+import com.google.common.base.Objects
 import java.util.HashSet
 import java.util.Set
+import org.eclipse.emf.ecore.ENamedElement
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguageFactory
@@ -51,13 +53,6 @@ class GraphicalDecorationDescription {
 		} else {
 			decorationStatus = ConditionEvaluator::execute(condition, stereotypeApplication)
 		}
-
-//		println(
-//'''
-//REEVALUATING stereotype: «stereotypeApplication.stereotype.name», 
-//	eobject: «stereotypeApplication.appliedTo»,
-//	decoration status: «decorationStatus»
-//''')		
 		return
 	}
 
@@ -72,4 +67,27 @@ class GraphicalDecorationDescription {
 	def getDecorationStatus() {
 		decorationStatus
 	}
+
+	override def equals(Object obj) {
+		if (obj === this) {
+			return true;
+		}
+		if (obj === null || obj.getClass() != this.getClass()) {
+			return false;
+		}
+		val guest = obj as GraphicalDecorationDescription
+		Objects.equal(this.stereotypeApplication, guest.stereotypeApplication) &&
+			Objects.equal(this.decorationStatus, guest.decorationStatus) && this.decorations.equals(guest.decorations)
+	}
+
+	override hashCode() {
+		Objects.hashCode(stereotypeApplication, "a1b2c3d4e5")
+	}
+
+	override toString() {
+		Objects.toStringHelper(this.class.simpleName + "@" + Integer.toHexString(this.hashCode)).add("Stereotype", stereotypeApplication.stereotype.name).add("appliedTo",
+			(stereotypeApplication.appliedTo as ENamedElement).name).add("Status", decorationStatus).add("decorations size",
+			decorations.size).add("stereotypeApplication",stereotypeApplication).toString
+	}
+
 }

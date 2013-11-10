@@ -7,6 +7,8 @@
  */
 package org.modelversioning.emfprofile.application.registry.decoration
 
+import com.google.common.base.Objects
+import org.eclipse.emf.ecore.ENamedElement
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration
 import org.modelversioning.emfprofileapplication.StereotypeApplication
 
@@ -44,4 +46,28 @@ class GraphicalDecoration {
 	def getDecorationStatus() {
 		decorationStatus
 	}
+
+	override equals(Object obj) {
+		if (obj === this) {
+			return true;
+		}
+		if (obj === null || obj.getClass() != this.getClass()) {
+			return false;
+		}
+		val guest = obj as GraphicalDecoration
+		Objects.equal(this.stereotypeApplication, guest.stereotypeApplication) &&
+			Objects.equal(this.decoration, guest.decoration) &&
+			Objects.equal(this.decorationStatus, guest.decorationStatus)
+	}
+
+	override hashCode() {
+		Objects.hashCode(stereotypeApplication, decoration)
+	}
+
+	override toString() {
+		Objects.toStringHelper(this.class.simpleName + "@" + Integer.toHexString(this.hashCode)).add("Stereotype", stereotypeApplication.stereotype.name).add("appliedTo",
+			(stereotypeApplication.appliedTo as ENamedElement).name).add("Decoration", decoration.eClass.name).add("Status",
+			decorationStatus).toString
+	}
+
 }

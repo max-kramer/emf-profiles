@@ -83,7 +83,7 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 		switch notifier {
 			
 			ProfileApplication : {
-				println("PROFILE APPLICATION NOTIFICATION: " + notification.toString())
+//				println("PROFILE APPLICATION NOTIFICATION: " + notification.toString())
 				switch eventType {
 					case eventType == Notification.ADD : {
 						// NOTE: at this moment the stereotype application does not
@@ -108,7 +108,7 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 			}
 			
 			StereotypeApplication : {
-				println("STEREOTYPE APPLICATION NOTIFICATION: " + notification.toString())
+//				println("STEREOTYPE APPLICATION NOTIFICATION: " + notification.toString())
 				switch eventType {
 					case eventType == Notification.SET : {
 						
@@ -134,7 +134,8 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 			
 			default:
 				// All other notifications will be ignored
-				println("IGNORED NOTIFICATION: " + notification.toString())
+//				println("IGNORED NOTIFICATION: " + notification.toString())
+				return
 		}
 		
 	}
