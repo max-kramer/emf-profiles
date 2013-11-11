@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.modelversioning.emfprofile.Stereotype;
 
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 
@@ -60,7 +60,7 @@ public class DecorationDescriptionImpl extends MinimalEObjectImpl.Container impl
    * @generated
    * @ordered
    */
-  protected EList<Decoration> decorations;
+  protected EList<AbstractDecoration> decorations;
 
   /**
    * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference.
@@ -141,11 +141,11 @@ public class DecorationDescriptionImpl extends MinimalEObjectImpl.Container impl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Decoration> getDecorations()
+  public EList<AbstractDecoration> getDecorations()
   {
     if (decorations == null)
     {
-      decorations = new EObjectContainmentEList<Decoration>(Decoration.class, this, DecorationLanguagePackage.DECORATION_DESCRIPTION__DECORATIONS);
+      decorations = new EObjectContainmentEList<AbstractDecoration>(AbstractDecoration.class, this, DecorationLanguagePackage.DECORATION_DESCRIPTION__DECORATIONS);
     }
     return decorations;
   }
@@ -253,7 +253,7 @@ public class DecorationDescriptionImpl extends MinimalEObjectImpl.Container impl
         return;
       case DecorationLanguagePackage.DECORATION_DESCRIPTION__DECORATIONS:
         getDecorations().clear();
-        getDecorations().addAll((Collection<? extends Decoration>)newValue);
+        getDecorations().addAll((Collection<? extends AbstractDecoration>)newValue);
         return;
       case DecorationLanguagePackage.DECORATION_DESCRIPTION__ACTIVATION:
         setActivation((Activation)newValue);

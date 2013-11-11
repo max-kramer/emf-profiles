@@ -48,8 +48,8 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.ui.internal.EMFProfileDecorationLanguageActivator;
@@ -86,22 +86,22 @@ public class DecorationDescriptionsReader {
       final IProject profileIProject = profileIFile.getProject();
       IResource[] _members = profileIProject.members();
       final Function1<IResource,Boolean> _function = new Function1<IResource,Boolean>() {
-          public Boolean apply(final IResource r) {
-            boolean _matched = false;
-            if (!_matched) {
-              if (r instanceof IFile) {
-                final IFile _iFile = (IFile)r;
-                String _name = _iFile.getName();
-                boolean _endsWith = _name.endsWith(".decoration");
-                if (_endsWith) {
-                  _matched=true;
-                  return Boolean.valueOf(true);
-                }
+        public Boolean apply(final IResource r) {
+          boolean _matched = false;
+          if (!_matched) {
+            if (r instanceof IFile) {
+              final IFile _iFile = (IFile)r;
+              String _name = _iFile.getName();
+              boolean _endsWith = _name.endsWith(".decoration");
+              if (_endsWith) {
+                _matched=true;
+                return Boolean.valueOf(true);
               }
             }
-            return Boolean.valueOf(false);
           }
-        };
+          return Boolean.valueOf(false);
+        }
+      };
       final Iterable<IResource> decorationIFiles = IterableExtensions.<IResource>filter(((Iterable<IResource>)Conversions.doWrapArray(_members)), _function);
       boolean _isEmpty = IterableExtensions.isEmpty(decorationIFiles);
       if (_isEmpty) {
@@ -232,33 +232,33 @@ public class DecorationDescriptionsReader {
     final DecorationModel model = ((DecorationModel) _head);
     EList<DecorationDescription> _decorationDescriptions = model.getDecorationDescriptions();
     final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
-        public Boolean apply(final DecorationDescription it) {
-          Stereotype _stereotype = it.getStereotype();
-          String _name = _stereotype.getName();
-          String _name_1 = stereotype.getName();
-          boolean _equals = Objects.equal(_name, _name_1);
-          return Boolean.valueOf(_equals);
-        }
-      };
+      public Boolean apply(final DecorationDescription it) {
+        Stereotype _stereotype = it.getStereotype();
+        String _name = _stereotype.getName();
+        String _name_1 = stereotype.getName();
+        boolean _equals = Objects.equal(_name, _name_1);
+        return Boolean.valueOf(_equals);
+      }
+    };
     final DecorationDescription decorationDescription = IterableExtensions.<DecorationDescription>findFirst(_decorationDescriptions, _function);
     EList<EClass> _eSuperTypes = stereotype.getESuperTypes();
     final Function1<EClass,Boolean> _function_1 = new Function1<EClass,Boolean>() {
-        public Boolean apply(final EClass s) {
-          boolean _switchResult = false;
-          boolean _matched = false;
-          if (!_matched) {
-            if (s instanceof Stereotype) {
-              final Stereotype _stereotype = (Stereotype)s;
-              _matched=true;
-              _switchResult = true;
-            }
+      public Boolean apply(final EClass s) {
+        boolean _switchResult = false;
+        boolean _matched = false;
+        if (!_matched) {
+          if (s instanceof Stereotype) {
+            final Stereotype _stereotype = (Stereotype)s;
+            _matched=true;
+            _switchResult = true;
           }
-          if (!_matched) {
-            _switchResult = false;
-          }
-          return Boolean.valueOf(_switchResult);
         }
-      };
+        if (!_matched) {
+          _switchResult = false;
+        }
+        return Boolean.valueOf(_switchResult);
+      }
+    };
     final Iterable<EClass> stereotypeSuperTypes = IterableExtensions.<EClass>filter(_eSuperTypes, _function_1);
     final ArrayList<DecorationDescription> allDecorationDescriptions = Lists.<DecorationDescription>newArrayList();
     boolean _notEquals = (!Objects.equal(decorationDescription, null));
@@ -266,24 +266,24 @@ public class DecorationDescriptionsReader {
       allDecorationDescriptions.add(decorationDescription);
     }
     final Procedure1<EClass> _function_2 = new Procedure1<EClass>() {
-        public void apply(final EClass sst) {
-          EList<DecorationDescription> _decorationDescriptions = model.getDecorationDescriptions();
-          final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
-              public Boolean apply(final DecorationDescription it) {
-                Stereotype _stereotype = it.getStereotype();
-                String _name = _stereotype.getName();
-                String _name_1 = sst.getName();
-                boolean _equals = Objects.equal(_name, _name_1);
-                return Boolean.valueOf(_equals);
-              }
-            };
-          final DecorationDescription dd = IterableExtensions.<DecorationDescription>findFirst(_decorationDescriptions, _function);
-          boolean _notEquals = (!Objects.equal(dd, null));
-          if (_notEquals) {
-            allDecorationDescriptions.add(dd);
+      public void apply(final EClass sst) {
+        EList<DecorationDescription> _decorationDescriptions = model.getDecorationDescriptions();
+        final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
+          public Boolean apply(final DecorationDescription it) {
+            Stereotype _stereotype = it.getStereotype();
+            String _name = _stereotype.getName();
+            String _name_1 = sst.getName();
+            boolean _equals = Objects.equal(_name, _name_1);
+            return Boolean.valueOf(_equals);
           }
+        };
+        final DecorationDescription dd = IterableExtensions.<DecorationDescription>findFirst(_decorationDescriptions, _function);
+        boolean _notEquals = (!Objects.equal(dd, null));
+        if (_notEquals) {
+          allDecorationDescriptions.add(dd);
         }
-      };
+      }
+    };
     IterableExtensions.<EClass>forEach(stereotypeSuperTypes, _function_2);
     boolean _isEmpty = allDecorationDescriptions.isEmpty();
     if (_isEmpty) {
@@ -296,12 +296,12 @@ public class DecorationDescriptionsReader {
     boolean _equals = Objects.equal(_activation, null);
     if (_equals) {
       final Function1<DecorationDescription,Boolean> _function_3 = new Function1<DecorationDescription,Boolean>() {
-          public Boolean apply(final DecorationDescription it) {
-            Activation _activation = it.getActivation();
-            boolean _notEquals = (!Objects.equal(_activation, null));
-            return Boolean.valueOf(_notEquals);
-          }
-        };
+        public Boolean apply(final DecorationDescription it) {
+          Activation _activation = it.getActivation();
+          boolean _notEquals = (!Objects.equal(_activation, null));
+          return Boolean.valueOf(_notEquals);
+        }
+      };
       DecorationDescription _findFirst = IterableExtensions.<DecorationDescription>findFirst(allDecorationDescriptions, _function_3);
       Activation _activation_1 = null;
       if (_findFirst!=null) {
@@ -314,16 +314,16 @@ public class DecorationDescriptionsReader {
         resultDecorationDescription.setActivation(_copy);
       }
     }
-    final ArrayList<Decoration> resultDecorations = Lists.<Decoration>newArrayList();
+    final ArrayList<AbstractDecoration> resultDecorations = Lists.<AbstractDecoration>newArrayList();
     final Procedure1<DecorationDescription> _function_4 = new Procedure1<DecorationDescription>() {
-        public void apply(final DecorationDescription it) {
-          EList<Decoration> _decorations = it.getDecorations();
-          resultDecorations.addAll(_decorations);
-        }
-      };
+      public void apply(final DecorationDescription it) {
+        EList<AbstractDecoration> _decorations = it.getDecorations();
+        resultDecorations.addAll(_decorations);
+      }
+    };
     IterableExtensions.<DecorationDescription>forEach(allDecorationDescriptions, _function_4);
-    EList<Decoration> _decorations = resultDecorationDescription.getDecorations();
-    Collection<Decoration> _copyAll = EcoreUtil2.<Decoration>copyAll(resultDecorations);
+    EList<AbstractDecoration> _decorations = resultDecorationDescription.getDecorations();
+    Collection<AbstractDecoration> _copyAll = EcoreUtil2.<AbstractDecoration>copyAll(resultDecorations);
     _decorations.addAll(_copyAll);
     return resultDecorationDescription;
   }
@@ -334,10 +334,10 @@ public class DecorationDescriptionsReader {
   public void dispose() {
     EList<Resource> _resources = this.rs.getResources();
     final Procedure1<Resource> _function = new Procedure1<Resource>() {
-        public void apply(final Resource r) {
-          r.unload();
-        }
-      };
+      public void apply(final Resource r) {
+        r.unload();
+      }
+    };
     IterableExtensions.<Resource>forEach(_resources, _function);
     EList<Resource> _resources_1 = this.rs.getResources();
     _resources_1.clear();

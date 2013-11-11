@@ -37,7 +37,7 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getDecorationAccess().getAlternatives(), "rule__Decoration__Alternatives");
+					put(grammarAccess.getAbstractDecorationAccess().getAlternatives(), "rule__AbstractDecoration__Alternatives");
 					put(grammarAccess.getAbstractConditionAccess().getAlternatives(), "rule__AbstractCondition__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getComparisonOperatorAccess().getAlternatives(), "rule__ComparisonOperator__Alternatives");

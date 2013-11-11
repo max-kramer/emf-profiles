@@ -68,7 +68,7 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.DECORATION_MODEL: return createDecorationModel();
       case DecorationLanguagePackage.NAMESPACE: return createNamespace();
       case DecorationLanguagePackage.DECORATION_DESCRIPTION: return createDecorationDescription();
-      case DecorationLanguagePackage.DECORATION: return createDecoration();
+      case DecorationLanguagePackage.ABSTRACT_DECORATION: return createAbstractDecoration();
       case DecorationLanguagePackage.ICON_DECORATION: return createIconDecoration();
       case DecorationLanguagePackage.BORDER_DECORATION: return createBorderDecoration();
       case DecorationLanguagePackage.ACTIVATION: return createActivation();
@@ -156,10 +156,10 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public Decoration createDecoration()
+  public AbstractDecoration createAbstractDecoration()
   {
-    DecorationImpl decoration = new DecorationImpl();
-    return decoration;
+    AbstractDecorationImpl abstractDecoration = new AbstractDecorationImpl();
+    return abstractDecoration;
   }
 
   /**

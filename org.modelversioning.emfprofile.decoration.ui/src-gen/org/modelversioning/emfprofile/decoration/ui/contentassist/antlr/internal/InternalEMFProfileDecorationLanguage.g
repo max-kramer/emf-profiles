@@ -140,25 +140,25 @@ finally {
 
 
 
-// Entry rule entryRuleDecoration
-entryRuleDecoration 
+// Entry rule entryRuleAbstractDecoration
+entryRuleAbstractDecoration 
 :
-{ before(grammarAccess.getDecorationRule()); }
-	 ruleDecoration
-{ after(grammarAccess.getDecorationRule()); } 
+{ before(grammarAccess.getAbstractDecorationRule()); }
+	 ruleAbstractDecoration
+{ after(grammarAccess.getAbstractDecorationRule()); } 
 	 EOF 
 ;
 
-// Rule Decoration
-ruleDecoration
+// Rule AbstractDecoration
+ruleAbstractDecoration
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
-{ before(grammarAccess.getDecorationAccess().getAlternatives()); }
-(rule__Decoration__Alternatives)
-{ after(grammarAccess.getDecorationAccess().getAlternatives()); }
+{ before(grammarAccess.getAbstractDecorationAccess().getAlternatives()); }
+(rule__AbstractDecoration__Alternatives)
+{ after(grammarAccess.getAbstractDecorationAccess().getAlternatives()); }
 )
 
 ;
@@ -489,21 +489,21 @@ finally {
 
 
 
-rule__Decoration__Alternatives
+rule__AbstractDecoration__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDecorationAccess().getIconDecorationParserRuleCall_0()); }
+{ before(grammarAccess.getAbstractDecorationAccess().getIconDecorationParserRuleCall_0()); }
 	ruleIconDecoration
-{ after(grammarAccess.getDecorationAccess().getIconDecorationParserRuleCall_0()); }
+{ after(grammarAccess.getAbstractDecorationAccess().getIconDecorationParserRuleCall_0()); }
 )
 
     |(
-{ before(grammarAccess.getDecorationAccess().getBorderDecorationParserRuleCall_1()); }
+{ before(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_1()); }
 	ruleBorderDecoration
-{ after(grammarAccess.getDecorationAccess().getBorderDecorationParserRuleCall_1()); }
+{ after(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_1()); }
 )
 
 ;
@@ -2372,8 +2372,8 @@ rule__DecorationDescription__DecorationsAssignment_3
     }
 :
 (
-{ before(grammarAccess.getDecorationDescriptionAccess().getDecorationsDecorationParserRuleCall_3_0()); }
-	ruleDecoration{ after(grammarAccess.getDecorationDescriptionAccess().getDecorationsDecorationParserRuleCall_3_0()); }
+{ before(grammarAccess.getDecorationDescriptionAccess().getDecorationsAbstractDecorationParserRuleCall_3_0()); }
+	ruleAbstractDecoration{ after(grammarAccess.getDecorationDescriptionAccess().getDecorationsAbstractDecorationParserRuleCall_3_0()); }
 )
 
 ;

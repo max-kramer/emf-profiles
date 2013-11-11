@@ -14,12 +14,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.modelversioning.emfprofile.EMFProfilePackage;
 
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguageFactory;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
@@ -62,7 +62,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass decorationEClass = null;
+  private EClass abstractDecorationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -291,9 +291,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDecoration()
+  public EClass getAbstractDecoration()
   {
-    return decorationEClass;
+    return abstractDecorationEClass;
   }
 
   /**
@@ -301,9 +301,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDecoration_Activation()
+  public EReference getAbstractDecoration_Activation()
   {
-    return (EReference)decorationEClass.getEStructuralFeatures().get(0);
+    return (EReference)abstractDecorationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -509,8 +509,8 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     createEReference(decorationDescriptionEClass, DECORATION_DESCRIPTION__DECORATIONS);
     createEReference(decorationDescriptionEClass, DECORATION_DESCRIPTION__ACTIVATION);
 
-    decorationEClass = createEClass(DECORATION);
-    createEReference(decorationEClass, DECORATION__ACTIVATION);
+    abstractDecorationEClass = createEClass(ABSTRACT_DECORATION);
+    createEReference(abstractDecorationEClass, ABSTRACT_DECORATION__ACTIVATION);
 
     iconDecorationEClass = createEClass(ICON_DECORATION);
     createEAttribute(iconDecorationEClass, ICON_DECORATION__LOCATION_URI);
@@ -570,8 +570,8 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    iconDecorationEClass.getESuperTypes().add(this.getDecoration());
-    borderDecorationEClass.getESuperTypes().add(this.getDecoration());
+    iconDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    borderDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     conditionEClass.getESuperTypes().add(this.getAbstractCondition());
     compositeConditionEClass.getESuperTypes().add(this.getAbstractCondition());
 
@@ -586,11 +586,11 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(decorationDescriptionEClass, DecorationDescription.class, "DecorationDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDecorationDescription_Stereotype(), theEMFProfilePackage.getStereotype(), null, "stereotype", null, 0, 1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDecorationDescription_Decorations(), this.getDecoration(), null, "decorations", null, 0, -1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDecorationDescription_Decorations(), this.getAbstractDecoration(), null, "decorations", null, 0, -1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDecorationDescription_Activation(), this.getActivation(), null, "activation", null, 0, 1, DecorationDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(decorationEClass, Decoration.class, "Decoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDecoration_Activation(), this.getActivation(), null, "activation", null, 0, 1, Decoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(abstractDecorationEClass, AbstractDecoration.class, "AbstractDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbstractDecoration_Activation(), this.getActivation(), null, "activation", null, 0, 1, AbstractDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(iconDecorationEClass, IconDecoration.class, "IconDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIconDecoration_Location_uri(), theEcorePackage.getEString(), "location_uri", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

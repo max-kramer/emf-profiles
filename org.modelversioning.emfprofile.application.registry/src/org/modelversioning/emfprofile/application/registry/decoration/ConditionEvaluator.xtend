@@ -88,10 +88,10 @@ class ConditionEvaluator {
 	def private static dispatch Boolean compare(String data, ComparisonOperator operator, String value){
 		switch operator {
 			case operator == ComparisonOperator::EQUAL : {
-				data.equals(value)
+				data.equals(value.substring(1,value.length-1))
 			}
 			case operator == ComparisonOperator::UNEQUAL : {
-				! data.equals(value)
+				! data.equals(value.substring(1,value.length-1))
 			}
 			default :
 				throw new IllegalArgumentException('''Wrong comparison operator with String type: «operator»''')

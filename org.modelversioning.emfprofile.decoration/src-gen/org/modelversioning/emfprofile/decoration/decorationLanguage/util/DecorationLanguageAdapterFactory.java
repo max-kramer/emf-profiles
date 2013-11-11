@@ -90,9 +90,9 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createDecorationDescriptionAdapter();
       }
       @Override
-      public Adapter caseDecoration(Decoration object)
+      public Adapter caseAbstractDecoration(AbstractDecoration object)
       {
-        return createDecorationAdapter();
+        return createAbstractDecorationAdapter();
       }
       @Override
       public Adapter caseIconDecoration(IconDecoration object)
@@ -192,16 +192,16 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration <em>Decoration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration <em>Abstract Decoration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
    * @generated
    */
-  public Adapter createDecorationAdapter()
+  public Adapter createAbstractDecorationAdapter()
   {
     return null;
   }

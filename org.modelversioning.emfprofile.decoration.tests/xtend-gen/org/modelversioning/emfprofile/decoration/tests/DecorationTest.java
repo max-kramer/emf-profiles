@@ -17,7 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguageInjectorProvider;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 
@@ -40,17 +40,17 @@ public class DecorationTest {
       final DecorationDescription entity = ((DecorationDescription) _head);
       Stereotype _stereotype = entity.getStereotype();
       InputOutput.<Stereotype>println(((Stereotype) _stereotype));
-      EList<Decoration> _decorations = entity.getDecorations();
-      Decoration _head_1 = IterableExtensions.<Decoration>head(_decorations);
+      EList<AbstractDecoration> _decorations = entity.getDecorations();
+      AbstractDecoration _head_1 = IterableExtensions.<AbstractDecoration>head(_decorations);
       EObject _eContainer = _head_1.eContainer();
       Assert.assertSame(entity, _eContainer);
       Resource _eResource = model.eResource();
       EList<Diagnostic> _errors = _eResource.getErrors();
       final Procedure1<Diagnostic> _function = new Procedure1<Diagnostic>() {
-          public void apply(final Diagnostic e) {
-            InputOutput.<Diagnostic>println(e);
-          }
-        };
+        public void apply(final Diagnostic e) {
+          InputOutput.<Diagnostic>println(e);
+        }
+      };
       IterableExtensions.<Diagnostic>forEach(_errors, _function);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

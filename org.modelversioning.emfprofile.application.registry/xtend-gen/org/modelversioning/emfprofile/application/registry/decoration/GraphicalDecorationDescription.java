@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Stereotype;
@@ -24,8 +23,8 @@ import org.modelversioning.emfprofile.application.registry.decoration.ConditionE
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguageFactory;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -54,14 +53,14 @@ public class GraphicalDecorationDescription {
     boolean _notEquals = (!Objects.equal(decorationDescription, null));
     if (_notEquals) {
       final List<GraphicalDecoration> tempList = Lists.<GraphicalDecoration>newArrayList();
-      EList<Decoration> _decorations = decorationDescription.getDecorations();
-      final Procedure1<Decoration> _function = new Procedure1<Decoration>() {
-          public void apply(final Decoration d) {
-            GraphicalDecoration _graphicalDecoration = new GraphicalDecoration(d, stereotypeApplication);
-            tempList.add(_graphicalDecoration);
-          }
-        };
-      IterableExtensions.<Decoration>forEach(_decorations, _function);
+      EList<AbstractDecoration> _decorations = decorationDescription.getDecorations();
+      final Procedure1<AbstractDecoration> _function = new Procedure1<AbstractDecoration>() {
+        public void apply(final AbstractDecoration d) {
+          GraphicalDecoration _graphicalDecoration = new GraphicalDecoration(d, stereotypeApplication);
+          tempList.add(_graphicalDecoration);
+        }
+      };
+      IterableExtensions.<AbstractDecoration>forEach(_decorations, _function);
       ImmutableList<GraphicalDecoration> _copyOf = ImmutableList.<GraphicalDecoration>copyOf(tempList);
       this.decorations = _copyOf;
       Activation _activation = decorationDescription.getActivation();
@@ -90,16 +89,12 @@ public class GraphicalDecorationDescription {
     boolean _isEmpty = this.decorations.isEmpty();
     boolean _equals = (_isEmpty == false);
     if (_equals) {
-      final Function1<GraphicalDecoration,Boolean> _function = new Function1<GraphicalDecoration,Boolean>() {
-          public Boolean apply(final GraphicalDecoration it) {
-            boolean _reevaluate = it.reevaluate();
-            boolean _equals = (_reevaluate == false);
-            return Boolean.valueOf(_equals);
-          }
-        };
-      boolean _forall = IterableExtensions.<GraphicalDecoration>forall(this.decorations, _function);
-      boolean _not = (!_forall);
-      changeOccured = _not;
+      for (final GraphicalDecoration d : this.decorations) {
+        boolean _reevaluate = d.reevaluate();
+        if (_reevaluate) {
+          changeOccured = true;
+        }
+      }
     }
     boolean _equals_1 = Objects.equal(this.condition, null);
     if (_equals_1) {
@@ -153,19 +148,12 @@ public class GraphicalDecorationDescription {
       }
       final GraphicalDecorationDescription guest = ((GraphicalDecorationDescription) obj);
       boolean _and = false;
-      boolean _and_1 = false;
       boolean _equal = Objects.equal(this.stereotypeApplication, guest.stereotypeApplication);
       if (!_equal) {
-        _and_1 = false;
-      } else {
-        boolean _equal_1 = Objects.equal(this.decorationStatus, guest.decorationStatus);
-        _and_1 = (_equal && _equal_1);
-      }
-      if (!_and_1) {
         _and = false;
       } else {
         boolean _equals = this.decorations.equals(guest.decorations);
-        _and = (_and_1 && _equals);
+        _and = (_equal && _equals);
       }
       _xblockexpression = (_and);
     }

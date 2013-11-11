@@ -56,7 +56,7 @@ public interface DecorationDescription extends EObject
 
   /**
    * Returns the value of the '<em><b>Decorations</b></em>' containment reference list.
-   * The list contents are of type {@link org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration}.
+   * The list contents are of type {@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Decorations</em>' containment reference list isn't clear,
@@ -68,7 +68,7 @@ public interface DecorationDescription extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Decoration> getDecorations();
+  EList<AbstractDecoration> getDecorations();
 
   /**
    * Returns the value of the '<em><b>Activation</b></em>' containment reference.

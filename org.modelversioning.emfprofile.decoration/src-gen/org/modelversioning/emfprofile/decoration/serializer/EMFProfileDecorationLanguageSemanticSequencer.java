@@ -39,8 +39,8 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 				}
 				else break;
 			case DecorationLanguagePackage.BORDER_DECORATION:
-				if(context == grammarAccess.getBorderDecorationRule() ||
-				   context == grammarAccess.getDecorationRule()) {
+				if(context == grammarAccess.getAbstractDecorationRule() ||
+				   context == grammarAccess.getBorderDecorationRule()) {
 					sequence_BorderDecoration(context, (BorderDecoration) semanticObject); 
 					return; 
 				}
@@ -72,7 +72,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 				}
 				else break;
 			case DecorationLanguagePackage.ICON_DECORATION:
-				if(context == grammarAccess.getDecorationRule() ||
+				if(context == grammarAccess.getAbstractDecorationRule() ||
 				   context == grammarAccess.getIconDecorationRule()) {
 					sequence_IconDecoration(context, (IconDecoration) semanticObject); 
 					return; 
@@ -146,7 +146,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (stereotype=[Stereotype|QualifiedName] decorations+=Decoration+ activation=Activation?)
+	 *     (stereotype=[Stereotype|QualifiedName] decorations+=AbstractDecoration+ activation=Activation?)
 	 */
 	protected void sequence_DecorationDescription(EObject context, DecorationDescription semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

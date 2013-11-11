@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Decorator
+Bundle-SymbolicName: org.modelversioning.emfprofile.application.decorator
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: org.modelversioning
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.modelversioning.emfprofile;bundle-version="1.1.0",
+ org.modelversioning.emfprofile.application.registry;bundle-version="1.0.0",
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib
+Export-Package: org.modelversioning.emfprofile.application.decorator
+

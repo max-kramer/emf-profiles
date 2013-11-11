@@ -74,14 +74,14 @@ public class ConditionEvaluator {
           EClass _eClass = application.eClass();
           EList<EAttribute> _eAllAttributes = _eClass.getEAllAttributes();
           final Function1<EAttribute,Boolean> _function = new Function1<EAttribute,Boolean>() {
-              public Boolean apply(final EAttribute it) {
-                String _name = it.getName();
-                EAttribute _attribute = _condition.getAttribute();
-                String _name_1 = _attribute.getName();
-                boolean _equals = Objects.equal(_name, _name_1);
-                return Boolean.valueOf(_equals);
-              }
-            };
+            public Boolean apply(final EAttribute it) {
+              String _name = it.getName();
+              EAttribute _attribute = _condition.getAttribute();
+              String _name_1 = _attribute.getName();
+              boolean _equals = Objects.equal(_name, _name_1);
+              return Boolean.valueOf(_equals);
+            }
+          };
           final EAttribute attribute = IterableExtensions.<EAttribute>findFirst(_eAllAttributes, _function);
           Object _eGet = application.eGet(attribute);
           ComparisonOperator _operator = _condition.getOperator();
@@ -107,12 +107,12 @@ public class ConditionEvaluator {
               _matched_1=true;
               EList<AbstractCondition> _conditions = _compositeCondition.getConditions();
               final Function1<AbstractCondition,Boolean> _function = new Function1<AbstractCondition,Boolean>() {
-                  public Boolean apply(final AbstractCondition c) {
-                    Boolean _evaluate = ConditionEvaluator.evaluate(c, application);
-                    boolean _equals = ((_evaluate).booleanValue() == true);
-                    return Boolean.valueOf(_equals);
-                  }
-                };
+                public Boolean apply(final AbstractCondition c) {
+                  Boolean _evaluate = ConditionEvaluator.evaluate(c, application);
+                  boolean _equals = ((_evaluate).booleanValue() == true);
+                  return Boolean.valueOf(_equals);
+                }
+              };
               boolean _forall = IterableExtensions.<AbstractCondition>forall(_conditions, _function);
               _switchResult_1 = Boolean.valueOf(_forall);
             }
@@ -123,12 +123,12 @@ public class ConditionEvaluator {
               _matched_1=true;
               EList<AbstractCondition> _conditions_1 = _compositeCondition.getConditions();
               final Function1<AbstractCondition,Boolean> _function_1 = new Function1<AbstractCondition,Boolean>() {
-                  public Boolean apply(final AbstractCondition c) {
-                    Boolean _evaluate = ConditionEvaluator.evaluate(c, application);
-                    boolean _equals = ((_evaluate).booleanValue() == true);
-                    return Boolean.valueOf(_equals);
-                  }
-                };
+                public Boolean apply(final AbstractCondition c) {
+                  Boolean _evaluate = ConditionEvaluator.evaluate(c, application);
+                  boolean _equals = ((_evaluate).booleanValue() == true);
+                  return Boolean.valueOf(_equals);
+                }
+              };
               boolean _exists = IterableExtensions.<AbstractCondition>exists(_conditions_1, _function_1);
               _switchResult_1 = Boolean.valueOf(_exists);
             }
@@ -210,7 +210,10 @@ public class ConditionEvaluator {
       boolean _equals = Objects.equal(operator, ComparisonOperator.EQUAL);
       if (_equals) {
         _matched=true;
-        boolean _equals_1 = data.equals(value);
+        int _length = value.length();
+        int _minus = (_length - 1);
+        String _substring = value.substring(1, _minus);
+        boolean _equals_1 = data.equals(_substring);
         _switchResult = _equals_1;
       }
     }
@@ -218,7 +221,10 @@ public class ConditionEvaluator {
       boolean _equals_2 = Objects.equal(operator, ComparisonOperator.UNEQUAL);
       if (_equals_2) {
         _matched=true;
-        boolean _equals_3 = data.equals(value);
+        int _length_1 = value.length();
+        int _minus_1 = (_length_1 - 1);
+        String _substring_1 = value.substring(1, _minus_1);
+        boolean _equals_3 = data.equals(_substring_1);
         boolean _not = (!_equals_3);
         _switchResult = _not;
       }

@@ -9,18 +9,18 @@ package org.modelversioning.emfprofile.application.registry.decoration
 
 import com.google.common.base.Objects
 import org.eclipse.emf.ecore.ENamedElement
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
 import org.modelversioning.emfprofileapplication.StereotypeApplication
 
 /**
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  */
 class GraphicalDecoration {
-	val Decoration decoration
+	val AbstractDecoration decoration
 	val StereotypeApplication stereotypeApplication
 	var DecorationStatus decorationStatus
 
-	new(Decoration decoration, StereotypeApplication stereotypeApplication) {
+	new(AbstractDecoration decoration, StereotypeApplication stereotypeApplication) {
 		this.decoration = decoration
 		this.stereotypeApplication = stereotypeApplication
 		reevaluate()
@@ -67,8 +67,8 @@ class GraphicalDecoration {
 		}
 		val guest = obj as GraphicalDecoration
 		Objects.equal(this.stereotypeApplication, guest.stereotypeApplication) &&
-			Objects.equal(this.decoration, guest.decoration) &&
-			Objects.equal(this.decorationStatus, guest.decorationStatus)
+			Objects.equal(this.decoration, guest.decoration) 
+//			&&	Objects.equal(this.decorationStatus, guest.decorationStatus)
 	}
 
 	override hashCode() {

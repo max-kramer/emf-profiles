@@ -4,17 +4,24 @@
    <extension
          point="org.modelversioning.emfprofile.application.registry.extensionpoint.decorator">
       <decorator
-            class="org.modelversioning.emfprofile.application.decorator.gmf.EMFProfileApplicationDecoratorImpl">
+            class="org.modelversioning.emfprofile.application.decorator.gmf.GMFProfileApplicationDecorator">
       </decorator>
    </extension>
   
    <extension
          point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <decoratorProvider
-            class="org.modelversioning.emfprofile.application.decorator.gmf.decoration.provider.GMFProfileDecoratorProvider">
+            class="org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.provider.GMFProfileDecoratorProvider">
          <Priority
                name="High">
          </Priority>
+         	<object
+                 class="org.eclipse.gmf.runtime.notation.Node(org.eclipse.gmf.runtime.notation)"
+                 id="NODE">
+           	</object>
+           	<context
+                 decoratorTargets="NODE">
+           	</context>
       </decoratorProvider>
    </extension>
 

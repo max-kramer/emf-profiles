@@ -231,9 +231,9 @@ ruleDecorationDescription returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getDecorationsDecorationParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getDecorationsAbstractDecorationParserRuleCall_3_0()); 
 	    }
-		lv_decorations_3_0=ruleDecoration		{
+		lv_decorations_3_0=ruleAbstractDecoration		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDecorationDescriptionRule());
 	        }
@@ -241,7 +241,7 @@ ruleDecorationDescription returns [EObject current=null]
        			$current, 
        			"decorations",
         		lv_decorations_3_0, 
-        		"Decoration");
+        		"AbstractDecoration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -275,23 +275,23 @@ ruleDecorationDescription returns [EObject current=null]
 
 
 
-// Entry rule entryRuleDecoration
-entryRuleDecoration returns [EObject current=null] 
+// Entry rule entryRuleAbstractDecoration
+entryRuleAbstractDecoration returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getDecorationRule()); }
-	 iv_ruleDecoration=ruleDecoration 
-	 { $current=$iv_ruleDecoration.current; } 
+	{ newCompositeNode(grammarAccess.getAbstractDecorationRule()); }
+	 iv_ruleAbstractDecoration=ruleAbstractDecoration 
+	 { $current=$iv_ruleAbstractDecoration.current; } 
 	 EOF 
 ;
 
-// Rule Decoration
-ruleDecoration returns [EObject current=null] 
+// Rule AbstractDecoration
+ruleAbstractDecoration returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getDecorationAccess().getIconDecorationParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getIconDecorationParserRuleCall_0()); 
     }
     this_IconDecoration_0=ruleIconDecoration
     { 
@@ -301,7 +301,7 @@ ruleDecoration returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getDecorationAccess().getBorderDecorationParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_1()); 
     }
     this_BorderDecoration_1=ruleBorderDecoration
     { 

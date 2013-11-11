@@ -15,12 +15,12 @@ Namespace:
 
 DecorationDescription:
 	'decoration' stereotype=[profile::Stereotype|QualifiedName] '{' 
-	decorations+=(Decoration)+
+	decorations+=(AbstractDecoration)+
 	(activation=Activation)? 
 	'}'
 ;
 
-Decoration:
+AbstractDecoration:
 	IconDecoration | BorderDecoration;
 
 IconDecoration:

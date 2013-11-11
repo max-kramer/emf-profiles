@@ -10,7 +10,7 @@
  * </copyright>
  */
 
-package org.modelversioning.emfprofile.application.decorator.gmf.decoration;
+package org.modelversioning.emfprofile.application.decorator.gmf.decoration.service;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,7 +29,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Image;
 import org.modelversioning.emfprofile.application.decorator.gmf.EMFProfileApplicationDecoratorImpl;
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.provider.GMFProfileDecoratorProvider;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.provider.GMFProfileDecoratorProviderOld;
 
 /**
  * Decorator for EMF profiles.
@@ -137,7 +137,7 @@ public class EMFProfileDecorator extends AbstractDecorator {
 	 */
 	@Override
 	public void activate() {
-		EObject eObject = GMFProfileDecoratorProvider
+		EObject eObject = GMFProfileDecoratorProviderOld
 				.getDecoratorTargetElement(getDecoratorTarget());
 		if (eObject != null) {
 			EMFProfileApplicationDecoratorImpl.registerDecoratorForEObject(eObject, this);
@@ -150,7 +150,7 @@ public class EMFProfileDecorator extends AbstractDecorator {
 	 */
 	@Override
 	public void deactivate() {
-		EObject eObject = GMFProfileDecoratorProvider
+		EObject eObject = GMFProfileDecoratorProviderOld
 				.getDecoratorTargetElement(getDecoratorTarget());
 		if (eObject != null) {
 			EMFProfileApplicationDecoratorImpl.unregisterDecoratorForEObject(eObject);

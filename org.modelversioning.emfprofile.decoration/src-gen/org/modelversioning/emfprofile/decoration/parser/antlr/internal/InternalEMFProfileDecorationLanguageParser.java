@@ -485,7 +485,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleDecorationDescription"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:204:1: ruleDecorationDescription returns [EObject current=null] : (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:204:1: ruleDecorationDescription returns [EObject current=null] : (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleAbstractDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' ) ;
     public final EObject ruleDecorationDescription() throws RecognitionException {
         EObject current = null;
 
@@ -500,11 +500,11 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:207:28: ( (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:208:1: (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:207:28: ( (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleAbstractDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:208:1: (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleAbstractDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:208:1: (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:208:3: otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:208:1: (otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleAbstractDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:208:3: otherlv_0= 'decoration' ( ( ruleQualifiedName ) ) otherlv_2= '{' ( (lv_decorations_3_0= ruleAbstractDecoration ) )+ ( (lv_activation_4_0= ruleActivation ) )? otherlv_5= '}'
             {
             otherlv_0=(Token)match(input,15,FOLLOW_15_in_ruleDecorationDescription409); 
 
@@ -542,7 +542,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 	newLeafNode(otherlv_2, grammarAccess.getDecorationDescriptionAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:231:1: ( (lv_decorations_3_0= ruleDecoration ) )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:231:1: ( (lv_decorations_3_0= ruleAbstractDecoration ) )+
             int cnt5=0;
             loop5:
             do {
@@ -556,16 +556,16 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:232:1: (lv_decorations_3_0= ruleDecoration )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:232:1: (lv_decorations_3_0= ruleAbstractDecoration )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:232:1: (lv_decorations_3_0= ruleDecoration )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:233:3: lv_decorations_3_0= ruleDecoration
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:232:1: (lv_decorations_3_0= ruleAbstractDecoration )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:233:3: lv_decorations_3_0= ruleAbstractDecoration
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getDecorationsDecorationParserRuleCall_3_0()); 
+            	    	        newCompositeNode(grammarAccess.getDecorationDescriptionAccess().getDecorationsAbstractDecorationParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleDecoration_in_ruleDecorationDescription465);
-            	    lv_decorations_3_0=ruleDecoration();
+            	    pushFollow(FOLLOW_ruleAbstractDecoration_in_ruleDecorationDescription465);
+            	    lv_decorations_3_0=ruleAbstractDecoration();
 
             	    state._fsp--;
 
@@ -577,7 +577,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	           			current, 
             	           			"decorations",
             	            		lv_decorations_3_0, 
-            	            		"Decoration");
+            	            		"AbstractDecoration");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -662,26 +662,26 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
     // $ANTLR end "ruleDecorationDescription"
 
 
-    // $ANTLR start "entryRuleDecoration"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:279:1: entryRuleDecoration returns [EObject current=null] : iv_ruleDecoration= ruleDecoration EOF ;
-    public final EObject entryRuleDecoration() throws RecognitionException {
+    // $ANTLR start "entryRuleAbstractDecoration"
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:279:1: entryRuleAbstractDecoration returns [EObject current=null] : iv_ruleAbstractDecoration= ruleAbstractDecoration EOF ;
+    public final EObject entryRuleAbstractDecoration() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleDecoration = null;
+        EObject iv_ruleAbstractDecoration = null;
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:280:2: (iv_ruleDecoration= ruleDecoration EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:281:2: iv_ruleDecoration= ruleDecoration EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:280:2: (iv_ruleAbstractDecoration= ruleAbstractDecoration EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:281:2: iv_ruleAbstractDecoration= ruleAbstractDecoration EOF
             {
-             newCompositeNode(grammarAccess.getDecorationRule()); 
-            pushFollow(FOLLOW_ruleDecoration_in_entryRuleDecoration536);
-            iv_ruleDecoration=ruleDecoration();
+             newCompositeNode(grammarAccess.getAbstractDecorationRule()); 
+            pushFollow(FOLLOW_ruleAbstractDecoration_in_entryRuleAbstractDecoration536);
+            iv_ruleAbstractDecoration=ruleAbstractDecoration();
 
             state._fsp--;
 
-             current =iv_ruleDecoration; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDecoration546); 
+             current =iv_ruleAbstractDecoration; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbstractDecoration546); 
 
             }
 
@@ -695,12 +695,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
         }
         return current;
     }
-    // $ANTLR end "entryRuleDecoration"
+    // $ANTLR end "entryRuleAbstractDecoration"
 
 
-    // $ANTLR start "ruleDecoration"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:288:1: ruleDecoration returns [EObject current=null] : (this_IconDecoration_0= ruleIconDecoration | this_BorderDecoration_1= ruleBorderDecoration ) ;
-    public final EObject ruleDecoration() throws RecognitionException {
+    // $ANTLR start "ruleAbstractDecoration"
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:288:1: ruleAbstractDecoration returns [EObject current=null] : (this_IconDecoration_0= ruleIconDecoration | this_BorderDecoration_1= ruleBorderDecoration ) ;
+    public final EObject ruleAbstractDecoration() throws RecognitionException {
         EObject current = null;
 
         EObject this_IconDecoration_0 = null;
@@ -735,9 +735,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:293:5: this_IconDecoration_0= ruleIconDecoration
                     {
                      
-                            newCompositeNode(grammarAccess.getDecorationAccess().getIconDecorationParserRuleCall_0()); 
+                            newCompositeNode(grammarAccess.getAbstractDecorationAccess().getIconDecorationParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleIconDecoration_in_ruleDecoration593);
+                    pushFollow(FOLLOW_ruleIconDecoration_in_ruleAbstractDecoration593);
                     this_IconDecoration_0=ruleIconDecoration();
 
                     state._fsp--;
@@ -753,9 +753,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:303:5: this_BorderDecoration_1= ruleBorderDecoration
                     {
                      
-                            newCompositeNode(grammarAccess.getDecorationAccess().getBorderDecorationParserRuleCall_1()); 
+                            newCompositeNode(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleBorderDecoration_in_ruleDecoration620);
+                    pushFollow(FOLLOW_ruleBorderDecoration_in_ruleAbstractDecoration620);
                     this_BorderDecoration_1=ruleBorderDecoration();
 
                     state._fsp--;
@@ -784,7 +784,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
         }
         return current;
     }
-    // $ANTLR end "ruleDecoration"
+    // $ANTLR end "ruleAbstractDecoration"
 
 
     // $ANTLR start "entryRuleIconDecoration"
@@ -2582,13 +2582,13 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
     public static final BitSet FOLLOW_15_in_ruleDecorationDescription409 = new BitSet(new long[]{0x0000000000000080L});
     public static final BitSet FOLLOW_ruleQualifiedName_in_ruleDecorationDescription432 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_16_in_ruleDecorationDescription444 = new BitSet(new long[]{0x0000000000240000L});
-    public static final BitSet FOLLOW_ruleDecoration_in_ruleDecorationDescription465 = new BitSet(new long[]{0x0000000000A60000L});
+    public static final BitSet FOLLOW_ruleAbstractDecoration_in_ruleDecorationDescription465 = new BitSet(new long[]{0x0000000000A60000L});
     public static final BitSet FOLLOW_ruleActivation_in_ruleDecorationDescription487 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_17_in_ruleDecorationDescription500 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDecoration_in_entryRuleDecoration536 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDecoration546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIconDecoration_in_ruleDecoration593 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBorderDecoration_in_ruleDecoration620 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractDecoration_in_entryRuleAbstractDecoration536 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbstractDecoration546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIconDecoration_in_ruleAbstractDecoration593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBorderDecoration_in_ruleAbstractDecoration620 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleIconDecoration_in_entryRuleIconDecoration655 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleIconDecoration665 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_ruleIconDecoration702 = new BitSet(new long[]{0x0000000000010000L});

@@ -45,20 +45,20 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
     EObject _eContainer = decorationDescription.eContainer();
     EList<DecorationDescription> _decorationDescriptions = ((DecorationModel) _eContainer).getDecorationDescriptions();
     final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
-        public Boolean apply(final DecorationDescription it) {
-          boolean _and = false;
-          boolean _notEquals = (!Objects.equal(it, decorationDescription));
-          if (!_notEquals) {
-            _and = false;
-          } else {
-            Stereotype _stereotype = it.getStereotype();
-            Stereotype _stereotype_1 = decorationDescription.getStereotype();
-            boolean _equals = Objects.equal(_stereotype, _stereotype_1);
-            _and = (_notEquals && _equals);
-          }
-          return Boolean.valueOf(_and);
+      public Boolean apply(final DecorationDescription it) {
+        boolean _and = false;
+        boolean _notEquals = (!Objects.equal(it, decorationDescription));
+        if (!_notEquals) {
+          _and = false;
+        } else {
+          Stereotype _stereotype = it.getStereotype();
+          Stereotype _stereotype_1 = decorationDescription.getStereotype();
+          boolean _equals = Objects.equal(_stereotype, _stereotype_1);
+          _and = (_notEquals && _equals);
         }
-      };
+        return Boolean.valueOf(_and);
+      }
+    };
     boolean _exists = IterableExtensions.<DecorationDescription>exists(_decorationDescriptions, _function);
     if (_exists) {
       StringConcatenation _builder = new StringConcatenation();
@@ -66,8 +66,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
       Stereotype _stereotype = decorationDescription.getStereotype();
       String _name = _stereotype.getName();
       _builder.append(_name, "");
-      this.error(_builder.toString(), decorationDescription, 
-        Literals.DECORATION_DESCRIPTION__STEREOTYPE);
+      this.error(_builder.toString(), decorationDescription, Literals.DECORATION_DESCRIPTION__STEREOTYPE);
     }
   }
   
@@ -75,13 +74,35 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
   public void checkIconDecorationLocationURI(final IconDecoration iconDecoration) {
     try {
       String _location_uri = iconDecoration.getLocation_uri();
-      final URI locationURI = URI.createPlatformResourceURI(_location_uri, true);
-      boolean _exists = EMFProfileDecorationLanguageValidator.uriConverter.exists(locationURI, null);
+      URI iconURI = URI.createURI(_location_uri);
+      boolean _isRelative = iconURI.isRelative();
+      if (_isRelative) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("The URI must be absolute. Please use the path schema like: ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\"platform:/resource/Project_Name/path_to_icon_file\"");
+        _builder.newLine();
+        _builder.append("or");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\"platform:/plugin/Plugin_ID/path_to_icon_file\"");
+        this.error(_builder.toString(), iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+      }
+      boolean _exists = EMFProfileDecorationLanguageValidator.uriConverter.exists(iconURI, null);
       boolean _equals = (_exists == false);
       if (_equals) {
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("The URI does not point to the icon location. Please use the path schema: \"/Project_Name/path_to_icon_file\"");
-        this.error(_builder.toString(), iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("The URI does not point to the icon location. Please use the path schema like: ");
+        _builder_1.newLine();
+        _builder_1.append("\t");
+        _builder_1.append("\"platform:/resource/Project_Name/path_to_icon_file\"");
+        _builder_1.newLine();
+        _builder_1.append("or");
+        _builder_1.newLine();
+        _builder_1.append("\t");
+        _builder_1.append("\"platform:/plugin/Plugin_ID/path_to_icon_file\"");
+        this.error(_builder_1.toString(), iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
       }
     } catch (final Throwable _t) {
       if (_t instanceof IllegalArgumentException) {
@@ -150,7 +171,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
           if (_not_1) {
             StringConcatenation _builder_1 = new StringConcatenation();
             _builder_1.append("Expecting a boolean value. Use ctrl-space to acctivate content assist.");
-            this.error(_builder_1.toString(), condition, Literals.CONDITION__VALUE);
+            this.error(_builder_1.toString(), condition, 
+              Literals.CONDITION__VALUE);
           }
         } else {
           boolean _or_3 = false;
@@ -179,7 +201,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
           if (_not_2) {
             StringConcatenation _builder_2 = new StringConcatenation();
             _builder_2.append("Expecting a string literal.");
-            this.error(_builder_2.toString(), condition, Literals.CONDITION__VALUE);
+            this.error(_builder_2.toString(), condition, 
+              Literals.CONDITION__VALUE);
           }
         }
       }
@@ -197,7 +220,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
             final NumberFormatException nfe = (NumberFormatException)_t;
             StringConcatenation _builder_3 = new StringConcatenation();
             _builder_3.append("Expecting an integer number.");
-            this.error(_builder_3.toString(), condition, Literals.CONDITION__VALUE);
+            this.error(_builder_3.toString(), condition, 
+              Literals.CONDITION__VALUE);
           } else {
             throw Exceptions.sneakyThrow(_t);
           }
@@ -242,7 +266,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
       _builder_5.newLineIfNotEmpty();
       _builder_5.append("\t\t\t\t");
       _builder_5.append("Supported types are: Boolean, String, Int, Float, Double");
-      this.error(_builder_5.toString(), condition, Literals.CONDITION__ATTRIBUTE);
+      this.error(_builder_5.toString(), condition, 
+        Literals.CONDITION__ATTRIBUTE);
     }
   }
 }

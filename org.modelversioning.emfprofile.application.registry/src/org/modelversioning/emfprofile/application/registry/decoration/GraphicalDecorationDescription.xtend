@@ -25,7 +25,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication
  * @see #reevaluate()
  * 
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
- */ 
+ */
 class GraphicalDecorationDescription {
 	val StereotypeApplication stereotypeApplication
 	val List<GraphicalDecoration> decorations
@@ -56,8 +56,12 @@ class GraphicalDecorationDescription {
 	 */
 	def boolean reevaluate() {
 		var changeOccured = false
-		if (decorations.empty == false)
-			changeOccured = ! decorations.forall[it.reevaluate == false]
+		if (decorations.empty == false){
+			for(GraphicalDecoration d : decorations){
+				if(d.reevaluate)
+					changeOccured = true
+			}
+		}
 		if (condition == null) {
 			decorationStatus = DecorationStatus::ACTIVE
 		} else {
@@ -96,8 +100,9 @@ class GraphicalDecorationDescription {
 			return false;
 		}
 		val guest = obj as GraphicalDecorationDescription
-		Objects.equal(this.stereotypeApplication, guest.stereotypeApplication) &&
-			Objects.equal(this.decorationStatus, guest.decorationStatus) && this.decorations.equals(guest.decorations)
+		Objects.equal(this.stereotypeApplication, guest.stereotypeApplication) 
+//			&& Objects.equal(this.decorationStatus, guest.decorationStatus) 
+			&& this.decorations.equals(guest.decorations)
 	}
 
 	override hashCode() {

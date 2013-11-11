@@ -201,10 +201,10 @@ public class ReadingTheModelResourceTest {
       InputOutput.<String>println("All elements in the resource: ");
       TreeIterator<EObject> _allContents = resource.getAllContents();
       final Procedure1<EObject> _function = new Procedure1<EObject>() {
-          public void apply(final EObject e) {
-            InputOutput.<EObject>println(e);
-          }
-        };
+        public void apply(final EObject e) {
+          InputOutput.<EObject>println(e);
+        }
+      };
       IteratorExtensions.<EObject>forEach(_allContents, _function);
       EList<Diagnostic> _errors = resource.getErrors();
       int _size = _errors.size();
@@ -212,10 +212,10 @@ public class ReadingTheModelResourceTest {
       InputOutput.<String>println(_plus_17);
       EList<Diagnostic> _errors_1 = resource.getErrors();
       final Procedure1<Diagnostic> _function_1 = new Procedure1<Diagnostic>() {
-          public void apply(final Diagnostic err) {
-            InputOutput.<Diagnostic>println(err);
-          }
-        };
+        public void apply(final Diagnostic err) {
+          InputOutput.<Diagnostic>println(err);
+        }
+      };
       IterableExtensions.<Diagnostic>forEach(_errors_1, _function_1);
       EList<Diagnostic> _errors_2 = resource.getErrors();
       boolean _isEmpty = _errors_2.isEmpty();
@@ -281,10 +281,10 @@ public class ReadingTheModelResourceTest {
     InputOutput.<String>println("All elements in the resource: ");
     TreeIterator<EObject> _allContents = resource.getAllContents();
     final Procedure1<EObject> _function = new Procedure1<EObject>() {
-        public void apply(final EObject e) {
-          InputOutput.<EObject>println(e);
-        }
-      };
+      public void apply(final EObject e) {
+        InputOutput.<EObject>println(e);
+      }
+    };
     IteratorExtensions.<EObject>forEach(_allContents, _function);
     EList<Diagnostic> _errors = resource.getErrors();
     int _size = _errors.size();
@@ -292,10 +292,10 @@ public class ReadingTheModelResourceTest {
     InputOutput.<String>println(_plus_17);
     EList<Diagnostic> _errors_1 = resource.getErrors();
     final Procedure1<Diagnostic> _function_1 = new Procedure1<Diagnostic>() {
-        public void apply(final Diagnostic err) {
-          InputOutput.<Diagnostic>println(err);
-        }
-      };
+      public void apply(final Diagnostic err) {
+        InputOutput.<Diagnostic>println(err);
+      }
+    };
     IterableExtensions.<Diagnostic>forEach(_errors_1, _function_1);
     EList<Diagnostic> _warnings = resource.getWarnings();
     int _size_1 = _warnings.size();
@@ -303,10 +303,10 @@ public class ReadingTheModelResourceTest {
     InputOutput.<String>println(_plus_18);
     EList<Diagnostic> _warnings_1 = resource.getWarnings();
     final Procedure1<Diagnostic> _function_2 = new Procedure1<Diagnostic>() {
-        public void apply(final Diagnostic w) {
-          InputOutput.<Diagnostic>println(w);
-        }
-      };
+      public void apply(final Diagnostic w) {
+        InputOutput.<Diagnostic>println(w);
+      }
+    };
     IterableExtensions.<Diagnostic>forEach(_warnings_1, _function_2);
     EList<Diagnostic> _errors_2 = resource.getErrors();
     boolean _isEmpty = _errors_2.isEmpty();
@@ -324,10 +324,10 @@ public class ReadingTheModelResourceTest {
     String _plus_20 = ("validation errors size: " + Integer.valueOf(_size_2));
     InputOutput.<String>println(_plus_20);
     final Procedure1<org.eclipse.emf.common.util.Diagnostic> _function_3 = new Procedure1<org.eclipse.emf.common.util.Diagnostic>() {
-        public void apply(final org.eclipse.emf.common.util.Diagnostic vd) {
-          InputOutput.<org.eclipse.emf.common.util.Diagnostic>println(vd);
-        }
-      };
+      public void apply(final org.eclipse.emf.common.util.Diagnostic vd) {
+        InputOutput.<org.eclipse.emf.common.util.Diagnostic>println(vd);
+      }
+    };
     IterableExtensions.<org.eclipse.emf.common.util.Diagnostic>forEach(validationDiagnostics, _function_3);
     boolean _isEmpty_1 = validationDiagnostics.isEmpty();
     Assert.assertTrue(_isEmpty_1);
@@ -346,10 +346,10 @@ public class ReadingTheModelResourceTest {
     String _plus_22 = ("validation issues size: " + Integer.valueOf(_size_3));
     InputOutput.<String>println(_plus_22);
     final Procedure1<Issue> _function_4 = new Procedure1<Issue>() {
-        public void apply(final Issue i) {
-          InputOutput.<Issue>println(i);
-        }
-      };
+      public void apply(final Issue i) {
+        InputOutput.<Issue>println(i);
+      }
+    };
     IterableExtensions.<Issue>forEach(issues, _function_4);
     ExtensibleURIConverterImpl _extensibleURIConverterImpl_1 = new ExtensibleURIConverterImpl();
     URI _createPlatformResourceURI = URI.createPlatformResourceURI("EJB_Profile/icons/nav_refresh.gif", true);

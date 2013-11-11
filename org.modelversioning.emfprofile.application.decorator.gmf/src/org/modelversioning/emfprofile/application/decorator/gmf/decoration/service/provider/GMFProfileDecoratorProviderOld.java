@@ -10,7 +10,7 @@
  * </copyright>
  */
 
-package org.modelversioning.emfprofile.application.decorator.gmf.decoration.provider;
+package org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.provider;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -26,7 +26,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorProvider;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.EMFProfileDecorator;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EMFProfileDecorator;
 
 /**
  * GMF {@link IDecoratorProvider} for stereotype applications.
@@ -34,8 +34,15 @@ import org.modelversioning.emfprofile.application.decorator.gmf.decoration.EMFPr
  * @author <a href="mailto:langer@big.tuwien.ac.at">Philip Langer</a>
  * 
  */
-public class GMFProfileDecoratorProvider extends AbstractProvider implements
+public class GMFProfileDecoratorProviderOld extends AbstractProvider implements
 		IDecoratorProvider {
+	
+	
+
+	public GMFProfileDecoratorProviderOld() {
+		super();
+		System.out.println("GMF DECORATOR PROVIDER IS INITIALIZED");
+	}
 
 	/** The key used for the profile decoration */
 	public static final String PROFILE = "EMFProfile_Decorator"; //$NON-NLS-1$

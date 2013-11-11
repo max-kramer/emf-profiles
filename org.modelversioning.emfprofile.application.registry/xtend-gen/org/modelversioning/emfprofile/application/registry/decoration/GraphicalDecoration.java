@@ -15,8 +15,8 @@ import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.decoration.ConditionEvaluator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
@@ -24,13 +24,13 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
  */
 @SuppressWarnings("all")
 public class GraphicalDecoration {
-  private final Decoration decoration;
+  private final AbstractDecoration decoration;
   
   private final StereotypeApplication stereotypeApplication;
   
   private DecorationStatus decorationStatus;
   
-  public GraphicalDecoration(final Decoration decoration, final StereotypeApplication stereotypeApplication) {
+  public GraphicalDecoration(final AbstractDecoration decoration, final StereotypeApplication stereotypeApplication) {
     this.decoration = decoration;
     this.stereotypeApplication = stereotypeApplication;
     this.reevaluate();
@@ -58,7 +58,7 @@ public class GraphicalDecoration {
     return changeOccured;
   }
   
-  public Decoration getDecoration() {
+  public AbstractDecoration getDecoration() {
     return this.decoration;
   }
   
@@ -92,19 +92,12 @@ public class GraphicalDecoration {
       }
       final GraphicalDecoration guest = ((GraphicalDecoration) obj);
       boolean _and = false;
-      boolean _and_1 = false;
       boolean _equal = Objects.equal(this.stereotypeApplication, guest.stereotypeApplication);
       if (!_equal) {
-        _and_1 = false;
-      } else {
-        boolean _equal_1 = Objects.equal(this.decoration, guest.decoration);
-        _and_1 = (_equal && _equal_1);
-      }
-      if (!_and_1) {
         _and = false;
       } else {
-        boolean _equal_2 = Objects.equal(this.decorationStatus, guest.decorationStatus);
-        _and = (_and_1 && _equal_2);
+        boolean _equal_1 = Objects.equal(this.decoration, guest.decoration);
+        _and = (_equal && _equal_1);
       }
       _xblockexpression = (_and);
     }

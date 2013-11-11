@@ -178,14 +178,14 @@ public interface DecorationLanguagePackage extends EPackage
   int DECORATION_DESCRIPTION_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationImpl <em>Decoration</em>}' class.
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.AbstractDecorationImpl <em>Abstract Decoration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationImpl
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDecoration()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.AbstractDecorationImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getAbstractDecoration()
    * @generated
    */
-  int DECORATION = 3;
+  int ABSTRACT_DECORATION = 3;
 
   /**
    * The feature id for the '<em><b>Activation</b></em>' containment reference.
@@ -194,16 +194,16 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECORATION__ACTIVATION = 0;
+  int ABSTRACT_DECORATION__ACTIVATION = 0;
 
   /**
-   * The number of structural features of the '<em>Decoration</em>' class.
+   * The number of structural features of the '<em>Abstract Decoration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECORATION_FEATURE_COUNT = 1;
+  int ABSTRACT_DECORATION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl <em>Icon Decoration</em>}' class.
@@ -222,7 +222,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION__ACTIVATION = DECORATION__ACTIVATION;
+  int ICON_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
 
   /**
    * The feature id for the '<em><b>Location uri</b></em>' attribute.
@@ -231,7 +231,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION__LOCATION_URI = DECORATION_FEATURE_COUNT + 0;
+  int ICON_DECORATION__LOCATION_URI = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Icon Decoration</em>' class.
@@ -240,7 +240,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION_FEATURE_COUNT = DECORATION_FEATURE_COUNT + 1;
+  int ICON_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl <em>Border Decoration</em>}' class.
@@ -259,7 +259,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BORDER_DECORATION__ACTIVATION = DECORATION__ACTIVATION;
+  int BORDER_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
 
   /**
    * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -268,7 +268,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BORDER_DECORATION__SIZE = DECORATION_FEATURE_COUNT + 0;
+  int BORDER_DECORATION__SIZE = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Border Decoration</em>' class.
@@ -277,7 +277,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int BORDER_DECORATION_FEATURE_COUNT = DECORATION_FEATURE_COUNT + 1;
+  int BORDER_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ActivationImpl <em>Activation</em>}' class.
@@ -538,25 +538,25 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getDecorationDescription_Activation();
 
   /**
-   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration <em>Decoration</em>}'.
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration <em>Abstract Decoration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Decoration</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration
+   * @return the meta object for class '<em>Abstract Decoration</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
    * @generated
    */
-  EClass getDecoration();
+  EClass getAbstractDecoration();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration#getActivation <em>Activation</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration#getActivation <em>Activation</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Activation</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration#getActivation()
-   * @see #getDecoration()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration#getActivation()
+   * @see #getAbstractDecoration()
    * @generated
    */
-  EReference getDecoration_Activation();
+  EReference getAbstractDecoration_Activation();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration <em>Icon Decoration</em>}'.
@@ -836,14 +836,14 @@ public interface DecorationLanguagePackage extends EPackage
     EReference DECORATION_DESCRIPTION__ACTIVATION = eINSTANCE.getDecorationDescription_Activation();
 
     /**
-     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationImpl <em>Decoration</em>}' class.
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.AbstractDecorationImpl <em>Abstract Decoration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationImpl
-     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDecoration()
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.AbstractDecorationImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getAbstractDecoration()
      * @generated
      */
-    EClass DECORATION = eINSTANCE.getDecoration();
+    EClass ABSTRACT_DECORATION = eINSTANCE.getAbstractDecoration();
 
     /**
      * The meta object literal for the '<em><b>Activation</b></em>' containment reference feature.
@@ -851,7 +851,7 @@ public interface DecorationLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DECORATION__ACTIVATION = eINSTANCE.getDecoration_Activation();
+    EReference ABSTRACT_DECORATION__ACTIVATION = eINSTANCE.getAbstractDecoration_Activation();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl <em>Icon Decoration</em>}' class.

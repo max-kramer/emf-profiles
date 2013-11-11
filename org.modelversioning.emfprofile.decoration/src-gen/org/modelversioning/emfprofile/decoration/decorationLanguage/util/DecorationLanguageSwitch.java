@@ -93,10 +93,10 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DecorationLanguagePackage.DECORATION:
+      case DecorationLanguagePackage.ABSTRACT_DECORATION:
       {
-        Decoration decoration = (Decoration)theEObject;
-        T result = caseDecoration(decoration);
+        AbstractDecoration abstractDecoration = (AbstractDecoration)theEObject;
+        T result = caseAbstractDecoration(abstractDecoration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -104,7 +104,7 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
       {
         IconDecoration iconDecoration = (IconDecoration)theEObject;
         T result = caseIconDecoration(iconDecoration);
-        if (result == null) result = caseDecoration(iconDecoration);
+        if (result == null) result = caseAbstractDecoration(iconDecoration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -112,7 +112,7 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
       {
         BorderDecoration borderDecoration = (BorderDecoration)theEObject;
         T result = caseBorderDecoration(borderDecoration);
-        if (result == null) result = caseDecoration(borderDecoration);
+        if (result == null) result = caseAbstractDecoration(borderDecoration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -199,17 +199,17 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Decoration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Decoration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Decoration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Decoration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDecoration(Decoration object)
+  public T caseAbstractDecoration(AbstractDecoration object)
   {
     return null;
   }

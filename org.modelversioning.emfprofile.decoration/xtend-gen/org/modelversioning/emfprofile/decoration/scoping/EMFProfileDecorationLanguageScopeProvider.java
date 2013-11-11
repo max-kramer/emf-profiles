@@ -88,11 +88,11 @@ public class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarati
       attributes.addAll(_eAttributes);
       EList<EClass> _eSuperTypes = stereotype.getESuperTypes();
       final Procedure1<EClass> _function = new Procedure1<EClass>() {
-          public void apply(final EClass st) {
-            EList<EAttribute> _eAttributes = st.getEAttributes();
-            attributes.addAll(_eAttributes);
-          }
-        };
+        public void apply(final EClass st) {
+          EList<EAttribute> _eAttributes = st.getEAttributes();
+          attributes.addAll(_eAttributes);
+        }
+      };
       IterableExtensions.<EClass>forEach(_eSuperTypes, _function);
       IScope _scopeFor = Scopes.scopeFor(attributes);
       _xblockexpression = (_scopeFor);

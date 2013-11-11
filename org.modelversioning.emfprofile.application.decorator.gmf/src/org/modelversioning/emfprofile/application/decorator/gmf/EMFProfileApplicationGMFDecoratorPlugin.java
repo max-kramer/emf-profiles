@@ -1,5 +1,10 @@
 package org.modelversioning.emfprofile.application.decorator.gmf;
 
+import java.util.Map.Entry;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.swt.graphics.Image;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.IconDecorator;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -25,6 +30,11 @@ public class EMFProfileApplicationGMFDecoratorPlugin implements BundleActivator 
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		EMFProfileApplicationGMFDecoratorPlugin.context = null;
+
+		// dispose created images
+		for (Entry<URI, Image> entry : IconDecorator.imageRegistry.entrySet()) {
+			entry.getValue().dispose();
+		}
 	}
 
 }

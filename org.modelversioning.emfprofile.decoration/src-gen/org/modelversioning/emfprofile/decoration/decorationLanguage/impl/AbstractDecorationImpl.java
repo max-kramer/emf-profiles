@@ -11,24 +11,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Decoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Decoration</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Decoration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationImpl#getActivation <em>Activation</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.AbstractDecorationImpl#getActivation <em>Activation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DecorationImpl extends MinimalEObjectImpl.Container implements Decoration
+public class AbstractDecorationImpl extends MinimalEObjectImpl.Container implements AbstractDecoration
 {
   /**
    * The cached value of the '{@link #getActivation() <em>Activation</em>}' containment reference.
@@ -45,7 +45,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DecorationImpl()
+  protected AbstractDecorationImpl()
   {
     super();
   }
@@ -58,7 +58,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   @Override
   protected EClass eStaticClass()
   {
-    return DecorationLanguagePackage.Literals.DECORATION;
+    return DecorationLanguagePackage.Literals.ABSTRACT_DECORATION;
   }
 
   /**
@@ -82,7 +82,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
     activation = newActivation;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.DECORATION__ACTIVATION, oldActivation, newActivation);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION, oldActivation, newActivation);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -99,14 +99,14 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
     {
       NotificationChain msgs = null;
       if (activation != null)
-        msgs = ((InternalEObject)activation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.DECORATION__ACTIVATION, null, msgs);
+        msgs = ((InternalEObject)activation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION, null, msgs);
       if (newActivation != null)
-        msgs = ((InternalEObject)newActivation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.DECORATION__ACTIVATION, null, msgs);
+        msgs = ((InternalEObject)newActivation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION, null, msgs);
       msgs = basicSetActivation(newActivation, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.DECORATION__ACTIVATION, newActivation, newActivation));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION, newActivation, newActivation));
   }
 
   /**
@@ -119,7 +119,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__ACTIVATION:
+      case DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION:
         return basicSetActivation(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -135,7 +135,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__ACTIVATION:
+      case DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION:
         return getActivation();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -151,7 +151,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__ACTIVATION:
+      case DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION:
         setActivation((Activation)newValue);
         return;
     }
@@ -168,7 +168,7 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__ACTIVATION:
+      case DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION:
         setActivation((Activation)null);
         return;
     }
@@ -185,10 +185,10 @@ public class DecorationImpl extends MinimalEObjectImpl.Container implements Deco
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.DECORATION__ACTIVATION:
+      case DecorationLanguagePackage.ABSTRACT_DECORATION__ACTIVATION:
         return activation != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DecorationImpl
+} //AbstractDecorationImpl
