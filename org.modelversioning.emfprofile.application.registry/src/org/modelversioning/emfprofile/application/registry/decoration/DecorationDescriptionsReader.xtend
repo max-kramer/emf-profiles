@@ -33,16 +33,22 @@ class DecorationDescriptionsReader {
 	val Profile profile
 	val URI decorationDescriptionsResourceURI
 	val XtextResource decorationDescriptionsResource
+	
+	var shouldExecuteDependencyInjection = true
 
 	@Inject
 	XtextResourceSet rs
 	@Inject
 	IResourceServiceProvider.Registry serviceProviderRegistry
+	
+	var DecorationDescriptionsChangeListener changesListener
+	var DecorationLanguageResourceChangeListener resourceChangeListener
 
 	new(Profile profile) throws ReadingDecorationDescriptionsException {
 		this.profile = profile
 		decorationDescriptionsResourceURI = provideDecorationDescriptionsResourceURI
 		decorationDescriptionsResource = loadDecorationDescriptionsResource
+		resourceChangeListener = new DecorationLanguageResourceChangeListener(this)
 	}
 
 	private def URI provideDecorationDescriptionsResourceURI() {
@@ -86,8 +92,11 @@ class DecorationDescriptionsReader {
 	}
 
 	private def loadDecorationDescriptionsResource() throws ReadingDecorationDescriptionsException {
-		EMFProfileDecorationLanguageActivator.getInstance().getInjector(
-			"org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguage").injectMembers(this);
+		if(shouldExecuteDependencyInjection){
+			EMFProfileDecorationLanguageActivator.getInstance().getInjector(
+				"org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguage").injectMembers(this);
+			shouldExecuteDependencyInjection = false	
+		}
 
 		rs.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE)
 		// load profile resource into the xtext resource set
@@ -99,6 +108,11 @@ class DecorationDescriptionsReader {
 //		decorationDescriptionsResource.warnings.forEach[w|println(w)]
 		val xtextResource = decorationDescriptionsResource as XtextResource
 
+		performResourceValidation(xtextResource)
+		xtextResource
+	}
+	
+	private def performResourceValidation(XtextResource decorationDescriptionsResource) {
 		val issues = serviceProviderRegistry.getResourceServiceProvider(decorationDescriptionsResource.URI).
 			resourceValidator.validate(decorationDescriptionsResource, CheckMode.ALL, null)
 		if(decorationDescriptionsResource.errors.empty == false) {
@@ -106,7 +120,6 @@ class DecorationDescriptionsReader {
 		} else if(issues.empty == false){
 			throw new ReadingDecorationDescriptionsException('''Decoration descriptions can not be used! They are not sematnically valid. Correct the problem and load the profile application again.''')
 		}
-		xtextResource
 	}
 	
 	def getDecorationDescription(Stereotype stereotype) {
@@ -154,12 +167,40 @@ class DecorationDescriptionsReader {
 		
 		return resultDecorationDescription
 	}
+	
+	def addDecorationDescriptionsChangeListener(DecorationDescriptionsChangeListener listener) {
+		println("Adding changes listener: " + listener)
+		this.changesListener = listener
+	}
+	
+	def IFile getDecorationDescriptionsIFile(){
+		resourceEMFtoIFile(this.decorationDescriptionsResource)
+	}
+	
+	def void reloadResource(){
+		decorationDescriptionsResource.unload
+		decorationDescriptionsResource.load(null)
+		try{
+			performResourceValidation(decorationDescriptionsResource)	
+			changesListener.decorationDescriptionsChanged
+		}catch(ReadingDecorationDescriptionsException e){
+			changesListener.decorationDescriptionsChangedButHaveValidationProblems
+		}
+	}
+	
+	def void resourceRemoved() {
+		// this will also bring the decoration notification dispatcher to stop reacting on change events form semantic model 
+		changesListener.decorationDescriptionsChangedButHaveValidationProblems
+	}
+	
 	/**
 	 * Unloads all resources from the resource set.
 	 */
 	def dispose() {
+		resourceChangeListener?.dispose
 		rs.resources.forEach[r | r.unload]
 		rs.resources.clear
+		
 	}
 	
 }

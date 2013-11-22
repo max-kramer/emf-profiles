@@ -320,9 +320,9 @@ public final class DecoratableEditorPartListener implements IPartListener {
 				unloadCmd.executeWithChecks(executionEvent);
 			} catch (ExecutionException | NotDefinedException
 					| NotEnabledException | NotHandledException e) {
-				System.err
-						.println("Calling unload command throwed following exception: "
-								+ e.getMessage());
+//				System.err
+//						.println("Calling unload command throwed following exception: "
+//								+ e.getMessage());
 				// e.printStackTrace();
 			}
 		}

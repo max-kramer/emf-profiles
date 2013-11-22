@@ -381,10 +381,15 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	/**
 	 */
 	public void unload() {
-		// first remove the reference from profile application manager
+		// dispose of notifications dispatcher
+		if(dispatcher != null){
+			dispatcher.dispose();
+			dispatcher = null;
+		}
+		// then remove the reference from profile application manager
 		ProfileApplicationManagerImpl pam = (ProfileApplicationManagerImpl) this
 				.eContainer();
-		// pam is null if already unloaded
+		// if already unloaded pam is null 
 		if(pam != null){
 			pam.removeProfileApplication(this);
 

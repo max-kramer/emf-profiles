@@ -142,7 +142,9 @@ public class ProfileApplicationNotificationsObserver extends EContentAdapter {
           if (_equals_2) {
             _matched_1=true;
             DecorationNotificationDispatcher _dispatcher_1 = this.profileApplicationWrapper.getDispatcher();
-            _dispatcher_1.acceptRemoveNotification(_stereotypeApplication);
+            if (_dispatcher_1!=null) {
+              _dispatcher_1.acceptRemoveNotification(_stereotypeApplication);
+            }
           }
         }
       }

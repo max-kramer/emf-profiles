@@ -127,7 +127,7 @@ class ProfileApplicationNotificationsObserver extends EContentAdapter {
 					case eventType == Notification.REMOVING_ADAPTER : {
  						// when the observer detaches itself from the stereotype application object
  						// we must send remove notification to the decorator
- 						profileApplicationWrapper.dispatcher.acceptRemoveNotification(notifier)   
+ 						profileApplicationWrapper.dispatcher?.acceptRemoveNotification(notifier)   
 					}
 				}
 			}

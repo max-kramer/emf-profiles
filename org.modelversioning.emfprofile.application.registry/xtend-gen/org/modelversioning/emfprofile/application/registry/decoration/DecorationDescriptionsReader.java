@@ -47,6 +47,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsChangeListener;
+import org.modelversioning.emfprofile.application.registry.decoration.DecorationLanguageResourceChangeListener;
 import org.modelversioning.emfprofile.application.registry.exception.ReadingDecorationDescriptionsException;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
@@ -65,11 +67,17 @@ public class DecorationDescriptionsReader {
   
   private final XtextResource decorationDescriptionsResource;
   
+  private boolean shouldExecuteDependencyInjection = true;
+  
   @Inject
   private XtextResourceSet rs;
   
   @Inject
   private Registry serviceProviderRegistry;
+  
+  private DecorationDescriptionsChangeListener changesListener;
+  
+  private DecorationLanguageResourceChangeListener resourceChangeListener;
   
   public DecorationDescriptionsReader(final Profile profile) throws ReadingDecorationDescriptionsException {
     this.profile = profile;
@@ -77,6 +85,8 @@ public class DecorationDescriptionsReader {
     this.decorationDescriptionsResourceURI = _provideDecorationDescriptionsResourceURI;
     XtextResource _loadDecorationDescriptionsResource = this.loadDecorationDescriptionsResource();
     this.decorationDescriptionsResource = _loadDecorationDescriptionsResource;
+    DecorationLanguageResourceChangeListener _decorationLanguageResourceChangeListener = new DecorationLanguageResourceChangeListener(this);
+    this.resourceChangeListener = _decorationLanguageResourceChangeListener;
   }
   
   private URI provideDecorationDescriptionsResourceURI() {
@@ -189,18 +199,29 @@ public class DecorationDescriptionsReader {
   private XtextResource loadDecorationDescriptionsResource() throws ReadingDecorationDescriptionsException {
     XtextResource _xblockexpression = null;
     {
-      EMFProfileDecorationLanguageActivator _instance = EMFProfileDecorationLanguageActivator.getInstance();
-      Injector _injector = _instance.getInjector(
-        "org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguage");
-      _injector.injectMembers(this);
+      if (this.shouldExecuteDependencyInjection) {
+        EMFProfileDecorationLanguageActivator _instance = EMFProfileDecorationLanguageActivator.getInstance();
+        Injector _injector = _instance.getInjector(
+          "org.modelversioning.emfprofile.decoration.EMFProfileDecorationLanguage");
+        _injector.injectMembers(this);
+        this.shouldExecuteDependencyInjection = false;
+      }
       this.rs.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
       Resource _eResource = this.profile.eResource();
       URI _uRI = _eResource.getURI();
       this.rs.getResource(_uRI, true);
       final Resource decorationDescriptionsResource = this.rs.getResource(this.decorationDescriptionsResourceURI, true);
       final XtextResource xtextResource = ((XtextResource) decorationDescriptionsResource);
-      URI _uRI_1 = decorationDescriptionsResource.getURI();
-      IResourceServiceProvider _resourceServiceProvider = this.serviceProviderRegistry.getResourceServiceProvider(_uRI_1);
+      this.performResourceValidation(xtextResource);
+      _xblockexpression = (xtextResource);
+    }
+    return _xblockexpression;
+  }
+  
+  private void performResourceValidation(final XtextResource decorationDescriptionsResource) {
+    try {
+      URI _uRI = decorationDescriptionsResource.getURI();
+      IResourceServiceProvider _resourceServiceProvider = this.serviceProviderRegistry.getResourceServiceProvider(_uRI);
       IResourceValidator _resourceValidator = _resourceServiceProvider.getResourceValidator();
       final List<Issue> issues = _resourceValidator.validate(decorationDescriptionsResource, CheckMode.ALL, null);
       EList<Diagnostic> _errors = decorationDescriptionsResource.getErrors();
@@ -221,9 +242,9 @@ public class DecorationDescriptionsReader {
           throw _readingDecorationDescriptionsException_1;
         }
       }
-      _xblockexpression = (xtextResource);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return _xblockexpression;
   }
   
   public DecorationDescription getDecorationDescription(final Stereotype stereotype) {
@@ -328,10 +349,53 @@ public class DecorationDescriptionsReader {
     return resultDecorationDescription;
   }
   
+  public DecorationDescriptionsChangeListener addDecorationDescriptionsChangeListener(final DecorationDescriptionsChangeListener listener) {
+    DecorationDescriptionsChangeListener _xblockexpression = null;
+    {
+      String _plus = ("Adding changes listener: " + listener);
+      InputOutput.<String>println(_plus);
+      DecorationDescriptionsChangeListener _changesListener = this.changesListener = listener;
+      _xblockexpression = (_changesListener);
+    }
+    return _xblockexpression;
+  }
+  
+  public IFile getDecorationDescriptionsIFile() {
+    IFile _resourceEMFtoIFile = this.resourceEMFtoIFile(this.decorationDescriptionsResource);
+    return _resourceEMFtoIFile;
+  }
+  
+  public void reloadResource() {
+    try {
+      this.decorationDescriptionsResource.unload();
+      this.decorationDescriptionsResource.load(null);
+      try {
+        this.performResourceValidation(this.decorationDescriptionsResource);
+        this.changesListener.decorationDescriptionsChanged();
+      } catch (final Throwable _t) {
+        if (_t instanceof ReadingDecorationDescriptionsException) {
+          final ReadingDecorationDescriptionsException e = (ReadingDecorationDescriptionsException)_t;
+          this.changesListener.decorationDescriptionsChangedButHaveValidationProblems();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public void resourceRemoved() {
+    this.changesListener.decorationDescriptionsChangedButHaveValidationProblems();
+  }
+  
   /**
    * Unloads all resources from the resource set.
    */
   public void dispose() {
+    if (this.resourceChangeListener!=null) {
+      this.resourceChangeListener.dispose();
+    }
     EList<Resource> _resources = this.rs.getResources();
     final Procedure1<Resource> _function = new Procedure1<Resource>() {
       public void apply(final Resource r) {
