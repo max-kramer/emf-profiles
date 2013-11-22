@@ -20,20 +20,68 @@ DecorationDescription:
 	'}'
 ;
 
+// For all decorations if they have optional values then some default value will be used. see comments below 
 AbstractDecoration:
-	IconDecoration | BorderDecoration;
+	IconDecoration | BorderDecoration | ConnectionDecoration;
 
 IconDecoration:
 	'icon' '{' 
 		'location-uri' ':' location_uri=STRING (';')? 
+		(direction=Direction)? // default value will be: for node = north_west; for edge = center
+		(margin=Margin)? // default value will be: 5 ; margin has no effect on nodes
 		(activation=Activation)? 
-	'}';
+	'}'
+;
 
-BorderDecoration:
-	'border' '{' 
-		'size' ':' size=INT (';')? // possibly I will have to add a unit
+BorderDecoration: // this will have effect only on nodes
+	{BorderDecoration}
+	'border' ('{' 
+		size=Size? // default value will be: 1
+		color=Color? // default value will be: red
+		style=Style?// default value will be: solid
 		(activation=Activation)?
-	'}';
+	'}')?
+;
+
+ConnectionDecoration: // this will have effect only on edges
+	{ConnectionDecoration}
+	'connection' ( '{'
+		size=Size?
+		color=Color?
+		('foreground' foregroundColor=Color)?
+		('background' backgroundColor=Color)?
+		(activation=Activation)?
+	'}')?
+;
+
+Style:
+	'style' ':' value=LineStyle (';')?
+;
+
+Size:
+	'size' ':' value=INT (';')?
+;
+
+Direction:
+	'direction' ':' value=Directions (';')?
+;
+
+Margin:
+	'margin' ':' value=SignedInteger (';')?
+;
+
+Color:
+	{Color}
+	'color' ':' value=ColorConstant | 'color' ':' concret = ConcreteColor
+;
+
+ConcreteColor:
+	'RGB' '(' red=INT ',' green=INT ',' blue = INT ')' (';')?
+;
+
+ColorConstant:
+	value=Colors (';')?
+;
 
 Activation:
 	'active when' condition=AbstractCondition
@@ -52,16 +100,23 @@ CompositeCondition:
 ;
 
 Type:
-	PossiblySignedInteger | PosiblySignedDouble | STRING | BOOLEAN
+	SignedInteger | SignedDouble | STRING | BOOLEAN
 ;
 
-PosiblySignedDouble returns ecore::EDouble :
+SignedDouble returns ecore::EDouble :
 	'-'? INT '.' INT
 ;
 
-PossiblySignedInteger returns ecore::EInt:
+SignedInteger returns ecore::EInt:
 	'-'? INT
 ;
+
+QualifiedNameWithWildcard:
+	QualifiedName '.*'?;
+
+QualifiedName returns ecore::EString:
+	ID ('.' ID)*;
+
 
 terminal BOOLEAN returns ecore::EBoolean:
 	'true' | 'false'
@@ -81,10 +136,42 @@ enum LogicalOperator:
 	ANY='any' 
 ;
 
-QualifiedNameWithWildcard:
-	QualifiedName '.*'?;
+enum LineStyle:
+	LINE_SOLID = 'solid' |
+	LINE_DOT = 'dots' |
+	LINE_DASH = 'dashes' |
+	LINE_DASHDOT = 'dash_dots' |
+	LINE_DASHDOTDOT = 'dash_dot_dot'
+;
 
-QualifiedName returns ecore::EString:
-	ID ('.' ID)*;
+enum Colors:
+	RED = 'red' |
+	BLACK = 'black' |
+	WHITE = 'white' |
+	GREEN = 'green' |
+	GREEN_LIGHT = 'green_light' |
+	GREEN_DARK = 'green_dark' |
+	BLUE = 'blue' |
+	BLUE_LIGHT = 'blue_light' |
+	BLUE_DARK = 'blue_dark' |
+	GRAY = 'gray' |
+	GRAY_LIGHT = 'gray_light' |
+	GRAY_DARK = 'gray_dark' |
+	ORANGE = 'orange' |
+	YELLOW = 'yellow' |
+	CYAN = 'cyan'
+	;
+
+enum Directions:
+	CENTER = 'center' |
+	NORHT = 'north' |
+	SOUTH = 'south' |
+	WEST = 'west' |
+	EAST = 'east' |
+	NORTH_EAST = 'north_east' |
+	NORTH_WEST = 'north_west' |
+	SOUTH_EAST = 'south_east' |
+	SOUTH_WEST = 'south_west'
+;
 
 

@@ -71,6 +71,14 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.ABSTRACT_DECORATION: return createAbstractDecoration();
       case DecorationLanguagePackage.ICON_DECORATION: return createIconDecoration();
       case DecorationLanguagePackage.BORDER_DECORATION: return createBorderDecoration();
+      case DecorationLanguagePackage.CONNECTION_DECORATION: return createConnectionDecoration();
+      case DecorationLanguagePackage.STYLE: return createStyle();
+      case DecorationLanguagePackage.SIZE: return createSize();
+      case DecorationLanguagePackage.DIRECTION: return createDirection();
+      case DecorationLanguagePackage.MARGIN: return createMargin();
+      case DecorationLanguagePackage.COLOR: return createColor();
+      case DecorationLanguagePackage.CONCRETE_COLOR: return createConcreteColor();
+      case DecorationLanguagePackage.COLOR_CONSTANT: return createColorConstant();
       case DecorationLanguagePackage.ACTIVATION: return createActivation();
       case DecorationLanguagePackage.ABSTRACT_CONDITION: return createAbstractCondition();
       case DecorationLanguagePackage.CONDITION: return createCondition();
@@ -94,6 +102,12 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
         return createComparisonOperatorFromString(eDataType, initialValue);
       case DecorationLanguagePackage.LOGICAL_OPERATOR:
         return createLogicalOperatorFromString(eDataType, initialValue);
+      case DecorationLanguagePackage.LINE_STYLE:
+        return createLineStyleFromString(eDataType, initialValue);
+      case DecorationLanguagePackage.COLORS:
+        return createColorsFromString(eDataType, initialValue);
+      case DecorationLanguagePackage.DIRECTIONS:
+        return createDirectionsFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -113,6 +127,12 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
         return convertComparisonOperatorToString(eDataType, instanceValue);
       case DecorationLanguagePackage.LOGICAL_OPERATOR:
         return convertLogicalOperatorToString(eDataType, instanceValue);
+      case DecorationLanguagePackage.LINE_STYLE:
+        return convertLineStyleToString(eDataType, instanceValue);
+      case DecorationLanguagePackage.COLORS:
+        return convertColorsToString(eDataType, instanceValue);
+      case DecorationLanguagePackage.DIRECTIONS:
+        return convertDirectionsToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -182,6 +202,94 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     BorderDecorationImpl borderDecoration = new BorderDecorationImpl();
     return borderDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConnectionDecoration createConnectionDecoration()
+  {
+    ConnectionDecorationImpl connectionDecoration = new ConnectionDecorationImpl();
+    return connectionDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Style createStyle()
+  {
+    StyleImpl style = new StyleImpl();
+    return style;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Size createSize()
+  {
+    SizeImpl size = new SizeImpl();
+    return size;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Direction createDirection()
+  {
+    DirectionImpl direction = new DirectionImpl();
+    return direction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Margin createMargin()
+  {
+    MarginImpl margin = new MarginImpl();
+    return margin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Color createColor()
+  {
+    ColorImpl color = new ColorImpl();
+    return color;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ConcreteColor createConcreteColor()
+  {
+    ConcreteColorImpl concreteColor = new ConcreteColorImpl();
+    return concreteColor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ColorConstant createColorConstant()
+  {
+    ColorConstantImpl colorConstant = new ColorConstantImpl();
+    return colorConstant;
   }
 
   /**
@@ -268,6 +376,72 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * @generated
    */
   public String convertLogicalOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LineStyle createLineStyleFromString(EDataType eDataType, String initialValue)
+  {
+    LineStyle result = LineStyle.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertLineStyleToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Colors createColorsFromString(EDataType eDataType, String initialValue)
+  {
+    Colors result = Colors.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertColorsToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Directions createDirectionsFromString(EDataType eDataType, String initialValue)
+  {
+    Directions result = Directions.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertDirectionsToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

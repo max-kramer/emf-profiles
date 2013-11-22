@@ -22,6 +22,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDeco
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 @Data
@@ -109,8 +110,8 @@ public class EObjectDecorators {
             AbstractDecoration _decoration_3 = gd.getDecoration();
             if ((_decoration_3 instanceof BorderDecoration)) {
               AbstractDecoration _decoration_4 = gd.getDecoration();
-              int _size = ((BorderDecoration) _decoration_4).getSize();
-              String _plus_1 = ("border: " + Integer.valueOf(_size));
+              Size _size = ((BorderDecoration) _decoration_4).getSize();
+              String _plus_1 = ("border: " + _size);
               _xifexpression_1 = _plus_1;
             }
             _xifexpression = _xifexpression_1;

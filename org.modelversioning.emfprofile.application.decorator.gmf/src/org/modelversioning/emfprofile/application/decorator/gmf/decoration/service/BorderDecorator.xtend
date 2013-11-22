@@ -2,13 +2,14 @@ package org.modelversioning.emfprofile.application.decorator.gmf.decoration.serv
 
 import com.google.common.base.Objects
 import org.eclipse.draw2d.Border
-import org.eclipse.draw2d.ColorConstants
-import org.eclipse.draw2d.Graphics
 import org.eclipse.draw2d.IFigure
 import org.eclipse.draw2d.LineBorder
 import org.eclipse.draw2d.PolylineConnection
 import org.eclipse.gef.editparts.AbstractConnectionEditPart
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure
 import org.eclipse.swt.graphics.Color
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl
@@ -18,6 +19,8 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 	public static val String KEY = "PROFILE_APPLICATION_BORDER_DECORATION"
 
 	val originalBorder = targetEditPart.figure.border
+	
+	
 
 	new(IDecoratorTarget decoratorTarget) {
 		super(decoratorTarget)
@@ -33,12 +36,15 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 				targetEditPart.figure.setBorder(originalBorder)
 			}
 		} else {
-
+			val size = if(borderDecoration.size != null) borderDecoration.size.value else 1;
+			val color = provideColor(borderDecoration.color)
+			val style = provideStyle(borderDecoration.style)
 			//			println('''BORDER WILL BE SET at«GMFProfileDecoratorProvider::getEObjectFromDecoratorTarget(decoratorTarget)»''')
-			highlightNode(targetEditPart.figure, ColorConstants.red, borderDecoration.size, Graphics.LINE_SOLID)
+			highlightNode(targetEditPart.figure, color, size, style)
 		}
 
 	}
+	
 
 	override getDecorationType() {
 		return BorderDecorationImpl
@@ -79,7 +85,23 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 	 *            the line border style
 	 */
 	protected def highlightNode(IFigure figure, Color color, int size, int style) {
+//		println("Figure: " + figure)
+//		println('''Backgournd color: «getFigureForColoring(targetEditPart).backgroundColor»''')
+//		println('''Foreground color: «getFigureForColoring(targetEditPart).foregroundColor»''')
+//		getFigureForColoring(targetEditPart).setBackgroundColor(color)
+//		getFigureForColoring(targetEditPart).setForegroundColor(color)
 		figure.setBorder(new LineBorder(color, size, style));
 		figure.setOpaque(false);
+	}
+	
+	protected def IFigure getFigureForColoring(IGraphicalEditPart editPart) {
+		var IFigure figure = editPart.getFigure();
+		if (figure instanceof BorderedNodeFigure) {
+			figure = figure.getChildren().get(0) as IFigure
+		}
+		if (figure instanceof DefaultSizeNodeFigure) {
+			figure = figure.getChildren().get(0) as IFigure
+		}
+		return figure;
 	}
 }

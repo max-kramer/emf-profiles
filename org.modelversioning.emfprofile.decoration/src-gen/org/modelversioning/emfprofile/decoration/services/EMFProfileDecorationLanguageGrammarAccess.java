@@ -161,12 +161,14 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIconDecorationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBorderDecorationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cConnectionDecorationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
+		//// For all decorations if they have optional values then some default value will be used. see comments below 
 		//AbstractDecoration:
-		//	IconDecoration | BorderDecoration;
+		//	IconDecoration | BorderDecoration | ConnectionDecoration;
 		public ParserRule getRule() { return rule; }
 
-		//IconDecoration | BorderDecoration
+		//IconDecoration | BorderDecoration | ConnectionDecoration
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//IconDecoration
@@ -174,6 +176,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 
 		//BorderDecoration
 		public RuleCall getBorderDecorationParserRuleCall_1() { return cBorderDecorationParserRuleCall_1; }
+
+		//ConnectionDecoration
+		public RuleCall getConnectionDecorationParserRuleCall_2() { return cConnectionDecorationParserRuleCall_2; }
 	}
 
 	public class IconDecorationElements extends AbstractParserRuleElementFinder {
@@ -186,15 +191,23 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Assignment cLocation_uriAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cLocation_uriSTRINGTerminalRuleCall_4_0 = (RuleCall)cLocation_uriAssignment_4.eContents().get(0);
 		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cActivationAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActivationActivationParserRuleCall_6_0 = (RuleCall)cActivationAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cDirectionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cDirectionDirectionParserRuleCall_6_0 = (RuleCall)cDirectionAssignment_6.eContents().get(0);
+		private final Assignment cMarginAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cMarginMarginParserRuleCall_7_0 = (RuleCall)cMarginAssignment_7.eContents().get(0);
+		private final Assignment cActivationAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cActivationActivationParserRuleCall_8_0 = (RuleCall)cActivationAssignment_8.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//IconDecoration:
-		//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? activation=Activation? "}";
+		//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? direction=Direction? // default value will be: for node = north_west; for edge = center
+		//	margin=Margin? // default value will be: 5 ; margin has no effect on nodes
+		//	activation=Activation? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"icon" "{" "location-uri" ":" location_uri=STRING ";"? activation=Activation? "}"
+		//"icon" "{" "location-uri" ":" location_uri=STRING ";"? direction=Direction? // default value will be: for node = north_west; for edge = center
+		//margin=Margin? // default value will be: 5 ; margin has no effect on nodes
+		//activation=Activation? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"icon"
@@ -218,68 +231,463 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//";"?
 		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
 
+		//direction=Direction?
+		public Assignment getDirectionAssignment_6() { return cDirectionAssignment_6; }
+
+		//Direction
+		public RuleCall getDirectionDirectionParserRuleCall_6_0() { return cDirectionDirectionParserRuleCall_6_0; }
+
+		//margin=Margin?
+		public Assignment getMarginAssignment_7() { return cMarginAssignment_7; }
+
+		//Margin
+		public RuleCall getMarginMarginParserRuleCall_7_0() { return cMarginMarginParserRuleCall_7_0; }
+
 		//activation=Activation?
-		public Assignment getActivationAssignment_6() { return cActivationAssignment_6; }
+		public Assignment getActivationAssignment_8() { return cActivationAssignment_8; }
 
 		//Activation
-		public RuleCall getActivationActivationParserRuleCall_6_0() { return cActivationActivationParserRuleCall_6_0; }
+		public RuleCall getActivationActivationParserRuleCall_8_0() { return cActivationActivationParserRuleCall_8_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 
 	public class BorderDecorationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BorderDecoration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBorderKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cSizeKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cSizeAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cSizeINTTerminalRuleCall_4_0 = (RuleCall)cSizeAssignment_4.eContents().get(0);
-		private final Keyword cSemicolonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cActivationAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cActivationActivationParserRuleCall_6_0 = (RuleCall)cActivationAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Action cBorderDecorationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cBorderKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSizeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cSizeSizeParserRuleCall_2_1_0 = (RuleCall)cSizeAssignment_2_1.eContents().get(0);
+		private final Assignment cColorAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cColorColorParserRuleCall_2_2_0 = (RuleCall)cColorAssignment_2_2.eContents().get(0);
+		private final Assignment cStyleAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cStyleStyleParserRuleCall_2_3_0 = (RuleCall)cStyleAssignment_2_3.eContents().get(0);
+		private final Assignment cActivationAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
+		private final RuleCall cActivationActivationParserRuleCall_2_4_0 = (RuleCall)cActivationAssignment_2_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_5 = (Keyword)cGroup_2.eContents().get(5);
 		
+		//// this will have effect only on nodes
 		//BorderDecoration:
-		//	"border" "{" "size" ":" size=INT ";"? // possibly I will have to add a unit
-		//	activation=Activation? "}";
+		//	{BorderDecoration} "border" ("{" // default value will be: 1
+		//	size=Size? // default value will be: red
+		//	color=Color? // default value will be: solid
+		//	style=Style? activation=Activation? "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//"border" "{" "size" ":" size=INT ";"? // possibly I will have to add a unit
-		//activation=Activation? "}"
+		//{BorderDecoration} "border" ("{" // default value will be: 1
+		//size=Size? // default value will be: red
+		//color=Color? // default value will be: solid
+		//style=Style? activation=Activation? "}")?
 		public Group getGroup() { return cGroup; }
 
+		//{BorderDecoration}
+		public Action getBorderDecorationAction_0() { return cBorderDecorationAction_0; }
+
 		//"border"
-		public Keyword getBorderKeyword_0() { return cBorderKeyword_0; }
+		public Keyword getBorderKeyword_1() { return cBorderKeyword_1; }
+
+		//("{" // default value will be: 1
+		//size=Size? // default value will be: red
+		//color=Color? // default value will be: solid
+		//style=Style? activation=Activation? "}")?
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
 
-		//"size"
-		public Keyword getSizeKeyword_2() { return cSizeKeyword_2; }
+		//// default value will be: 1
+		//size=Size?
+		public Assignment getSizeAssignment_2_1() { return cSizeAssignment_2_1; }
 
-		//":"
-		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		//Size
+		public RuleCall getSizeSizeParserRuleCall_2_1_0() { return cSizeSizeParserRuleCall_2_1_0; }
 
-		//size=INT
-		public Assignment getSizeAssignment_4() { return cSizeAssignment_4; }
+		//// default value will be: red
+		//color=Color?
+		public Assignment getColorAssignment_2_2() { return cColorAssignment_2_2; }
 
-		//INT
-		public RuleCall getSizeINTTerminalRuleCall_4_0() { return cSizeINTTerminalRuleCall_4_0; }
+		//Color
+		public RuleCall getColorColorParserRuleCall_2_2_0() { return cColorColorParserRuleCall_2_2_0; }
 
-		//";"?
-		public Keyword getSemicolonKeyword_5() { return cSemicolonKeyword_5; }
+		//// default value will be: solid
+		//style=Style?
+		public Assignment getStyleAssignment_2_3() { return cStyleAssignment_2_3; }
+
+		//Style
+		public RuleCall getStyleStyleParserRuleCall_2_3_0() { return cStyleStyleParserRuleCall_2_3_0; }
 
 		//activation=Activation?
-		public Assignment getActivationAssignment_6() { return cActivationAssignment_6; }
+		public Assignment getActivationAssignment_2_4() { return cActivationAssignment_2_4; }
 
 		//Activation
-		public RuleCall getActivationActivationParserRuleCall_6_0() { return cActivationActivationParserRuleCall_6_0; }
+		public RuleCall getActivationActivationParserRuleCall_2_4_0() { return cActivationActivationParserRuleCall_2_4_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_2_5() { return cRightCurlyBracketKeyword_2_5; }
+	}
+
+	public class ConnectionDecorationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConnectionDecoration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConnectionDecorationAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cConnectionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSizeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cSizeSizeParserRuleCall_2_1_0 = (RuleCall)cSizeAssignment_2_1.eContents().get(0);
+		private final Assignment cColorAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cColorColorParserRuleCall_2_2_0 = (RuleCall)cColorAssignment_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cGroup_2.eContents().get(3);
+		private final Keyword cForegroundKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cForegroundColorAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cForegroundColorColorParserRuleCall_2_3_1_0 = (RuleCall)cForegroundColorAssignment_2_3_1.eContents().get(0);
+		private final Group cGroup_2_4 = (Group)cGroup_2.eContents().get(4);
+		private final Keyword cBackgroundKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Assignment cBackgroundColorAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
+		private final RuleCall cBackgroundColorColorParserRuleCall_2_4_1_0 = (RuleCall)cBackgroundColorAssignment_2_4_1.eContents().get(0);
+		private final Assignment cActivationAssignment_2_5 = (Assignment)cGroup_2.eContents().get(5);
+		private final RuleCall cActivationActivationParserRuleCall_2_5_0 = (RuleCall)cActivationAssignment_2_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_6 = (Keyword)cGroup_2.eContents().get(6);
+		
+		//// this will have effect only on edges
+		//ConnectionDecoration:
+		//	{ConnectionDecoration} "connection" ("{" size=Size? color=Color? ("foreground" foregroundColor=Color)? ("background"
+		//	backgroundColor=Color)? activation=Activation? "}")?;
+		public ParserRule getRule() { return rule; }
+
+		//{ConnectionDecoration} "connection" ("{" size=Size? color=Color? ("foreground" foregroundColor=Color)? ("background"
+		//backgroundColor=Color)? activation=Activation? "}")?
+		public Group getGroup() { return cGroup; }
+
+		//{ConnectionDecoration}
+		public Action getConnectionDecorationAction_0() { return cConnectionDecorationAction_0; }
+
+		//"connection"
+		public Keyword getConnectionKeyword_1() { return cConnectionKeyword_1; }
+
+		//("{" size=Size? color=Color? ("foreground" foregroundColor=Color)? ("background" backgroundColor=Color)?
+		//activation=Activation? "}")?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2_0() { return cLeftCurlyBracketKeyword_2_0; }
+
+		//size=Size?
+		public Assignment getSizeAssignment_2_1() { return cSizeAssignment_2_1; }
+
+		//Size
+		public RuleCall getSizeSizeParserRuleCall_2_1_0() { return cSizeSizeParserRuleCall_2_1_0; }
+
+		//color=Color?
+		public Assignment getColorAssignment_2_2() { return cColorAssignment_2_2; }
+
+		//Color
+		public RuleCall getColorColorParserRuleCall_2_2_0() { return cColorColorParserRuleCall_2_2_0; }
+
+		//("foreground" foregroundColor=Color)?
+		public Group getGroup_2_3() { return cGroup_2_3; }
+
+		//"foreground"
+		public Keyword getForegroundKeyword_2_3_0() { return cForegroundKeyword_2_3_0; }
+
+		//foregroundColor=Color
+		public Assignment getForegroundColorAssignment_2_3_1() { return cForegroundColorAssignment_2_3_1; }
+
+		//Color
+		public RuleCall getForegroundColorColorParserRuleCall_2_3_1_0() { return cForegroundColorColorParserRuleCall_2_3_1_0; }
+
+		//("background" backgroundColor=Color)?
+		public Group getGroup_2_4() { return cGroup_2_4; }
+
+		//"background"
+		public Keyword getBackgroundKeyword_2_4_0() { return cBackgroundKeyword_2_4_0; }
+
+		//backgroundColor=Color
+		public Assignment getBackgroundColorAssignment_2_4_1() { return cBackgroundColorAssignment_2_4_1; }
+
+		//Color
+		public RuleCall getBackgroundColorColorParserRuleCall_2_4_1_0() { return cBackgroundColorColorParserRuleCall_2_4_1_0; }
+
+		//activation=Activation?
+		public Assignment getActivationAssignment_2_5() { return cActivationAssignment_2_5; }
+
+		//Activation
+		public RuleCall getActivationActivationParserRuleCall_2_5_0() { return cActivationActivationParserRuleCall_2_5_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2_6() { return cRightCurlyBracketKeyword_2_6; }
+	}
+
+	public class StyleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Style");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStyleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueLineStyleEnumRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Style:
+		//	"style" ":" value=LineStyle ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//"style" ":" value=LineStyle ";"?
+		public Group getGroup() { return cGroup; }
+
+		//"style"
+		public Keyword getStyleKeyword_0() { return cStyleKeyword_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//value=LineStyle
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//LineStyle
+		public RuleCall getValueLineStyleEnumRuleCall_2_0() { return cValueLineStyleEnumRuleCall_2_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class SizeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Size");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSizeKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueINTTerminalRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Size:
+		//	"size" ":" value=INT ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//"size" ":" value=INT ";"?
+		public Group getGroup() { return cGroup; }
+
+		//"size"
+		public Keyword getSizeKeyword_0() { return cSizeKeyword_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//value=INT
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_2_0() { return cValueINTTerminalRuleCall_2_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class DirectionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Direction");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDirectionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueDirectionsEnumRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Direction:
+		//	"direction" ":" value=Directions ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//"direction" ":" value=Directions ";"?
+		public Group getGroup() { return cGroup; }
+
+		//"direction"
+		public Keyword getDirectionKeyword_0() { return cDirectionKeyword_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//value=Directions
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//Directions
+		public RuleCall getValueDirectionsEnumRuleCall_2_0() { return cValueDirectionsEnumRuleCall_2_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class MarginElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Margin");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMarginKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSignedIntegerParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Margin:
+		//	"margin" ":" value=SignedInteger ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//"margin" ":" value=SignedInteger ";"?
+		public Group getGroup() { return cGroup; }
+
+		//"margin"
+		public Keyword getMarginKeyword_0() { return cMarginKeyword_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//value=SignedInteger
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//SignedInteger
+		public RuleCall getValueSignedIntegerParserRuleCall_2_0() { return cValueSignedIntegerParserRuleCall_2_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class ColorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Color");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cColorAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final Keyword cColorKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cColonKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Assignment cValueAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cValueColorConstantParserRuleCall_0_3_0 = (RuleCall)cValueAssignment_0_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cColorKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cConcretAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cConcretConcreteColorParserRuleCall_1_2_0 = (RuleCall)cConcretAssignment_1_2.eContents().get(0);
+		
+		//Color:
+		//	{Color} "color" ":" value=ColorConstant | "color" ":" concret=ConcreteColor;
+		public ParserRule getRule() { return rule; }
+
+		//{Color} "color" ":" value=ColorConstant | "color" ":" concret=ConcreteColor
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{Color} "color" ":" value=ColorConstant
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{Color}
+		public Action getColorAction_0_0() { return cColorAction_0_0; }
+
+		//"color"
+		public Keyword getColorKeyword_0_1() { return cColorKeyword_0_1; }
+
+		//":"
+		public Keyword getColonKeyword_0_2() { return cColonKeyword_0_2; }
+
+		//value=ColorConstant
+		public Assignment getValueAssignment_0_3() { return cValueAssignment_0_3; }
+
+		//ColorConstant
+		public RuleCall getValueColorConstantParserRuleCall_0_3_0() { return cValueColorConstantParserRuleCall_0_3_0; }
+
+		//"color" ":" concret=ConcreteColor
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"color"
+		public Keyword getColorKeyword_1_0() { return cColorKeyword_1_0; }
+
+		//":"
+		public Keyword getColonKeyword_1_1() { return cColonKeyword_1_1; }
+
+		//concret=ConcreteColor
+		public Assignment getConcretAssignment_1_2() { return cConcretAssignment_1_2; }
+
+		//ConcreteColor
+		public RuleCall getConcretConcreteColorParserRuleCall_1_2_0() { return cConcretConcreteColorParserRuleCall_1_2_0; }
+	}
+
+	public class ConcreteColorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConcreteColor");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRGBKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cRedAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRedINTTerminalRuleCall_2_0 = (RuleCall)cRedAssignment_2.eContents().get(0);
+		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cGreenAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cGreenINTTerminalRuleCall_4_0 = (RuleCall)cGreenAssignment_4.eContents().get(0);
+		private final Keyword cCommaKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cBlueAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cBlueINTTerminalRuleCall_6_0 = (RuleCall)cBlueAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		
+		//ConcreteColor:
+		//	"RGB" "(" red=INT "," green=INT "," blue=INT ")" ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//"RGB" "(" red=INT "," green=INT "," blue=INT ")" ";"?
+		public Group getGroup() { return cGroup; }
+
+		//"RGB"
+		public Keyword getRGBKeyword_0() { return cRGBKeyword_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//red=INT
+		public Assignment getRedAssignment_2() { return cRedAssignment_2; }
+
+		//INT
+		public RuleCall getRedINTTerminalRuleCall_2_0() { return cRedINTTerminalRuleCall_2_0; }
+
+		//","
+		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+
+		//green=INT
+		public Assignment getGreenAssignment_4() { return cGreenAssignment_4; }
+
+		//INT
+		public RuleCall getGreenINTTerminalRuleCall_4_0() { return cGreenINTTerminalRuleCall_4_0; }
+
+		//","
+		public Keyword getCommaKeyword_5() { return cCommaKeyword_5; }
+
+		//blue=INT
+		public Assignment getBlueAssignment_6() { return cBlueAssignment_6; }
+
+		//INT
+		public RuleCall getBlueINTTerminalRuleCall_6_0() { return cBlueINTTerminalRuleCall_6_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
+	}
+
+	public class ColorConstantElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ColorConstant");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cValueAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cValueColorsEnumRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		//ColorConstant:
+		//	value=Colors ";"?;
+		public ParserRule getRule() { return rule; }
+
+		//value=Colors ";"?
+		public Group getGroup() { return cGroup; }
+
+		//value=Colors
+		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
+
+		//Colors
+		public RuleCall getValueColorsEnumRuleCall_0_0() { return cValueColorsEnumRuleCall_0_0; }
+
+		//";"?
+		public Keyword getSemicolonKeyword_1() { return cSemicolonKeyword_1; }
 	}
 
 	public class ActivationElements extends AbstractParserRuleElementFinder {
@@ -409,23 +817,23 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cPossiblySignedIntegerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cPosiblySignedDoubleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSignedIntegerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSignedDoubleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cBOOLEANTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Type:
-		//	PossiblySignedInteger | PosiblySignedDouble | STRING | BOOLEAN;
+		//	SignedInteger | SignedDouble | STRING | BOOLEAN;
 		public ParserRule getRule() { return rule; }
 
-		//PossiblySignedInteger | PosiblySignedDouble | STRING | BOOLEAN
+		//SignedInteger | SignedDouble | STRING | BOOLEAN
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//PossiblySignedInteger
-		public RuleCall getPossiblySignedIntegerParserRuleCall_0() { return cPossiblySignedIntegerParserRuleCall_0; }
+		//SignedInteger
+		public RuleCall getSignedIntegerParserRuleCall_0() { return cSignedIntegerParserRuleCall_0; }
 
-		//PosiblySignedDouble
-		public RuleCall getPosiblySignedDoubleParserRuleCall_1() { return cPosiblySignedDoubleParserRuleCall_1; }
+		//SignedDouble
+		public RuleCall getSignedDoubleParserRuleCall_1() { return cSignedDoubleParserRuleCall_1; }
 
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_2() { return cSTRINGTerminalRuleCall_2; }
@@ -434,15 +842,15 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		public RuleCall getBOOLEANTerminalRuleCall_3() { return cBOOLEANTerminalRuleCall_3; }
 	}
 
-	public class PosiblySignedDoubleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PosiblySignedDouble");
+	public class SignedDoubleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SignedDouble");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cINTTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		
-		//PosiblySignedDouble returns ecore::EDouble:
+		//SignedDouble returns ecore::EDouble:
 		//	"-"? INT "." INT;
 		public ParserRule getRule() { return rule; }
 
@@ -462,13 +870,13 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		public RuleCall getINTTerminalRuleCall_3() { return cINTTerminalRuleCall_3; }
 	}
 
-	public class PossiblySignedIntegerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PossiblySignedInteger");
+	public class SignedIntegerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SignedInteger");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//PossiblySignedInteger returns ecore::EInt:
+		//SignedInteger returns ecore::EInt:
 		//	"-"? INT;
 		public ParserRule getRule() { return rule; }
 
@@ -618,6 +1026,280 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"any"
 		public Keyword getANYAnyKeyword_1_0() { return cANYAnyKeyword_1_0; }
 	}
+
+	public class LineStyleElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "LineStyle");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cLINE_SOLIDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cLINE_SOLIDSolidKeyword_0_0 = (Keyword)cLINE_SOLIDEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cLINE_DOTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cLINE_DOTDotsKeyword_1_0 = (Keyword)cLINE_DOTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cLINE_DASHEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cLINE_DASHDashesKeyword_2_0 = (Keyword)cLINE_DASHEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cLINE_DASHDOTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cLINE_DASHDOTDash_dotsKeyword_3_0 = (Keyword)cLINE_DASHDOTEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cLINE_DASHDOTDOTEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cLINE_DASHDOTDOTDash_dot_dotKeyword_4_0 = (Keyword)cLINE_DASHDOTDOTEnumLiteralDeclaration_4.eContents().get(0);
+		
+		//enum LineStyle:
+		//	LINE_SOLID="solid" | LINE_DOT="dots" | LINE_DASH="dashes" | LINE_DASHDOT="dash_dots" | LINE_DASHDOTDOT="dash_dot_dot";
+		public EnumRule getRule() { return rule; }
+
+		//LINE_SOLID="solid" | LINE_DOT="dots" | LINE_DASH="dashes" | LINE_DASHDOT="dash_dots" | LINE_DASHDOTDOT="dash_dot_dot"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//LINE_SOLID="solid"
+		public EnumLiteralDeclaration getLINE_SOLIDEnumLiteralDeclaration_0() { return cLINE_SOLIDEnumLiteralDeclaration_0; }
+
+		//"solid"
+		public Keyword getLINE_SOLIDSolidKeyword_0_0() { return cLINE_SOLIDSolidKeyword_0_0; }
+
+		//LINE_DOT="dots"
+		public EnumLiteralDeclaration getLINE_DOTEnumLiteralDeclaration_1() { return cLINE_DOTEnumLiteralDeclaration_1; }
+
+		//"dots"
+		public Keyword getLINE_DOTDotsKeyword_1_0() { return cLINE_DOTDotsKeyword_1_0; }
+
+		//LINE_DASH="dashes"
+		public EnumLiteralDeclaration getLINE_DASHEnumLiteralDeclaration_2() { return cLINE_DASHEnumLiteralDeclaration_2; }
+
+		//"dashes"
+		public Keyword getLINE_DASHDashesKeyword_2_0() { return cLINE_DASHDashesKeyword_2_0; }
+
+		//LINE_DASHDOT="dash_dots"
+		public EnumLiteralDeclaration getLINE_DASHDOTEnumLiteralDeclaration_3() { return cLINE_DASHDOTEnumLiteralDeclaration_3; }
+
+		//"dash_dots"
+		public Keyword getLINE_DASHDOTDash_dotsKeyword_3_0() { return cLINE_DASHDOTDash_dotsKeyword_3_0; }
+
+		//LINE_DASHDOTDOT="dash_dot_dot"
+		public EnumLiteralDeclaration getLINE_DASHDOTDOTEnumLiteralDeclaration_4() { return cLINE_DASHDOTDOTEnumLiteralDeclaration_4; }
+
+		//"dash_dot_dot"
+		public Keyword getLINE_DASHDOTDOTDash_dot_dotKeyword_4_0() { return cLINE_DASHDOTDOTDash_dot_dotKeyword_4_0; }
+	}
+
+	public class ColorsElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Colors");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cREDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cREDRedKeyword_0_0 = (Keyword)cREDEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cBLACKEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cBLACKBlackKeyword_1_0 = (Keyword)cBLACKEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cWHITEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cWHITEWhiteKeyword_2_0 = (Keyword)cWHITEEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cGREENEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cGREENGreenKeyword_3_0 = (Keyword)cGREENEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cGREEN_LIGHTEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cGREEN_LIGHTGreen_lightKeyword_4_0 = (Keyword)cGREEN_LIGHTEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cGREEN_DARKEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cGREEN_DARKGreen_darkKeyword_5_0 = (Keyword)cGREEN_DARKEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cBLUEEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cBLUEBlueKeyword_6_0 = (Keyword)cBLUEEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cBLUE_LIGHTEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cBLUE_LIGHTBlue_lightKeyword_7_0 = (Keyword)cBLUE_LIGHTEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cBLUE_DARKEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cBLUE_DARKBlue_darkKeyword_8_0 = (Keyword)cBLUE_DARKEnumLiteralDeclaration_8.eContents().get(0);
+		private final EnumLiteralDeclaration cGRAYEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
+		private final Keyword cGRAYGrayKeyword_9_0 = (Keyword)cGRAYEnumLiteralDeclaration_9.eContents().get(0);
+		private final EnumLiteralDeclaration cGRAY_LIGHTEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
+		private final Keyword cGRAY_LIGHTGray_lightKeyword_10_0 = (Keyword)cGRAY_LIGHTEnumLiteralDeclaration_10.eContents().get(0);
+		private final EnumLiteralDeclaration cGRAY_DARKEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
+		private final Keyword cGRAY_DARKGray_darkKeyword_11_0 = (Keyword)cGRAY_DARKEnumLiteralDeclaration_11.eContents().get(0);
+		private final EnumLiteralDeclaration cORANGEEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
+		private final Keyword cORANGEOrangeKeyword_12_0 = (Keyword)cORANGEEnumLiteralDeclaration_12.eContents().get(0);
+		private final EnumLiteralDeclaration cYELLOWEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
+		private final Keyword cYELLOWYellowKeyword_13_0 = (Keyword)cYELLOWEnumLiteralDeclaration_13.eContents().get(0);
+		private final EnumLiteralDeclaration cCYANEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
+		private final Keyword cCYANCyanKeyword_14_0 = (Keyword)cCYANEnumLiteralDeclaration_14.eContents().get(0);
+		
+		//enum Colors:
+		//	RED="red" | BLACK="black" | WHITE="white" | GREEN="green" | GREEN_LIGHT="green_light" | GREEN_DARK="green_dark" |
+		//	BLUE="blue" | BLUE_LIGHT="blue_light" | BLUE_DARK="blue_dark" | GRAY="gray" | GRAY_LIGHT="gray_light" |
+		//	GRAY_DARK="gray_dark" | ORANGE="orange" | YELLOW="yellow" | CYAN="cyan";
+		public EnumRule getRule() { return rule; }
+
+		//RED="red" | BLACK="black" | WHITE="white" | GREEN="green" | GREEN_LIGHT="green_light" | GREEN_DARK="green_dark" |
+		//BLUE="blue" | BLUE_LIGHT="blue_light" | BLUE_DARK="blue_dark" | GRAY="gray" | GRAY_LIGHT="gray_light" |
+		//GRAY_DARK="gray_dark" | ORANGE="orange" | YELLOW="yellow" | CYAN="cyan"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//RED="red"
+		public EnumLiteralDeclaration getREDEnumLiteralDeclaration_0() { return cREDEnumLiteralDeclaration_0; }
+
+		//"red"
+		public Keyword getREDRedKeyword_0_0() { return cREDRedKeyword_0_0; }
+
+		//BLACK="black"
+		public EnumLiteralDeclaration getBLACKEnumLiteralDeclaration_1() { return cBLACKEnumLiteralDeclaration_1; }
+
+		//"black"
+		public Keyword getBLACKBlackKeyword_1_0() { return cBLACKBlackKeyword_1_0; }
+
+		//WHITE="white"
+		public EnumLiteralDeclaration getWHITEEnumLiteralDeclaration_2() { return cWHITEEnumLiteralDeclaration_2; }
+
+		//"white"
+		public Keyword getWHITEWhiteKeyword_2_0() { return cWHITEWhiteKeyword_2_0; }
+
+		//GREEN="green"
+		public EnumLiteralDeclaration getGREENEnumLiteralDeclaration_3() { return cGREENEnumLiteralDeclaration_3; }
+
+		//"green"
+		public Keyword getGREENGreenKeyword_3_0() { return cGREENGreenKeyword_3_0; }
+
+		//GREEN_LIGHT="green_light"
+		public EnumLiteralDeclaration getGREEN_LIGHTEnumLiteralDeclaration_4() { return cGREEN_LIGHTEnumLiteralDeclaration_4; }
+
+		//"green_light"
+		public Keyword getGREEN_LIGHTGreen_lightKeyword_4_0() { return cGREEN_LIGHTGreen_lightKeyword_4_0; }
+
+		//GREEN_DARK="green_dark"
+		public EnumLiteralDeclaration getGREEN_DARKEnumLiteralDeclaration_5() { return cGREEN_DARKEnumLiteralDeclaration_5; }
+
+		//"green_dark"
+		public Keyword getGREEN_DARKGreen_darkKeyword_5_0() { return cGREEN_DARKGreen_darkKeyword_5_0; }
+
+		//BLUE="blue"
+		public EnumLiteralDeclaration getBLUEEnumLiteralDeclaration_6() { return cBLUEEnumLiteralDeclaration_6; }
+
+		//"blue"
+		public Keyword getBLUEBlueKeyword_6_0() { return cBLUEBlueKeyword_6_0; }
+
+		//BLUE_LIGHT="blue_light"
+		public EnumLiteralDeclaration getBLUE_LIGHTEnumLiteralDeclaration_7() { return cBLUE_LIGHTEnumLiteralDeclaration_7; }
+
+		//"blue_light"
+		public Keyword getBLUE_LIGHTBlue_lightKeyword_7_0() { return cBLUE_LIGHTBlue_lightKeyword_7_0; }
+
+		//BLUE_DARK="blue_dark"
+		public EnumLiteralDeclaration getBLUE_DARKEnumLiteralDeclaration_8() { return cBLUE_DARKEnumLiteralDeclaration_8; }
+
+		//"blue_dark"
+		public Keyword getBLUE_DARKBlue_darkKeyword_8_0() { return cBLUE_DARKBlue_darkKeyword_8_0; }
+
+		//GRAY="gray"
+		public EnumLiteralDeclaration getGRAYEnumLiteralDeclaration_9() { return cGRAYEnumLiteralDeclaration_9; }
+
+		//"gray"
+		public Keyword getGRAYGrayKeyword_9_0() { return cGRAYGrayKeyword_9_0; }
+
+		//GRAY_LIGHT="gray_light"
+		public EnumLiteralDeclaration getGRAY_LIGHTEnumLiteralDeclaration_10() { return cGRAY_LIGHTEnumLiteralDeclaration_10; }
+
+		//"gray_light"
+		public Keyword getGRAY_LIGHTGray_lightKeyword_10_0() { return cGRAY_LIGHTGray_lightKeyword_10_0; }
+
+		//GRAY_DARK="gray_dark"
+		public EnumLiteralDeclaration getGRAY_DARKEnumLiteralDeclaration_11() { return cGRAY_DARKEnumLiteralDeclaration_11; }
+
+		//"gray_dark"
+		public Keyword getGRAY_DARKGray_darkKeyword_11_0() { return cGRAY_DARKGray_darkKeyword_11_0; }
+
+		//ORANGE="orange"
+		public EnumLiteralDeclaration getORANGEEnumLiteralDeclaration_12() { return cORANGEEnumLiteralDeclaration_12; }
+
+		//"orange"
+		public Keyword getORANGEOrangeKeyword_12_0() { return cORANGEOrangeKeyword_12_0; }
+
+		//YELLOW="yellow"
+		public EnumLiteralDeclaration getYELLOWEnumLiteralDeclaration_13() { return cYELLOWEnumLiteralDeclaration_13; }
+
+		//"yellow"
+		public Keyword getYELLOWYellowKeyword_13_0() { return cYELLOWYellowKeyword_13_0; }
+
+		//CYAN="cyan"
+		public EnumLiteralDeclaration getCYANEnumLiteralDeclaration_14() { return cCYANEnumLiteralDeclaration_14; }
+
+		//"cyan"
+		public Keyword getCYANCyanKeyword_14_0() { return cCYANCyanKeyword_14_0; }
+	}
+
+	public class DirectionsElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Directions");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cCENTEREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cCENTERCenterKeyword_0_0 = (Keyword)cCENTEREnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNORHTEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNORHTNorthKeyword_1_0 = (Keyword)cNORHTEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSOUTHEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSOUTHSouthKeyword_2_0 = (Keyword)cSOUTHEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cWESTEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cWESTWestKeyword_3_0 = (Keyword)cWESTEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cEASTEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cEASTEastKeyword_4_0 = (Keyword)cEASTEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cNORTH_EASTEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cNORTH_EASTNorth_eastKeyword_5_0 = (Keyword)cNORTH_EASTEnumLiteralDeclaration_5.eContents().get(0);
+		private final EnumLiteralDeclaration cNORTH_WESTEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
+		private final Keyword cNORTH_WESTNorth_westKeyword_6_0 = (Keyword)cNORTH_WESTEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cSOUTH_EASTEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cSOUTH_EASTSouth_eastKeyword_7_0 = (Keyword)cSOUTH_EASTEnumLiteralDeclaration_7.eContents().get(0);
+		private final EnumLiteralDeclaration cSOUTH_WESTEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
+		private final Keyword cSOUTH_WESTSouth_westKeyword_8_0 = (Keyword)cSOUTH_WESTEnumLiteralDeclaration_8.eContents().get(0);
+		
+		//enum Directions:
+		//	CENTER="center" | NORHT="north" | SOUTH="south" | WEST="west" | EAST="east" | NORTH_EAST="north_east" |
+		//	NORTH_WEST="north_west" | SOUTH_EAST="south_east" | SOUTH_WEST="south_west";
+		public EnumRule getRule() { return rule; }
+
+		//CENTER="center" | NORHT="north" | SOUTH="south" | WEST="west" | EAST="east" | NORTH_EAST="north_east" |
+		//NORTH_WEST="north_west" | SOUTH_EAST="south_east" | SOUTH_WEST="south_west"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//CENTER="center"
+		public EnumLiteralDeclaration getCENTEREnumLiteralDeclaration_0() { return cCENTEREnumLiteralDeclaration_0; }
+
+		//"center"
+		public Keyword getCENTERCenterKeyword_0_0() { return cCENTERCenterKeyword_0_0; }
+
+		//NORHT="north"
+		public EnumLiteralDeclaration getNORHTEnumLiteralDeclaration_1() { return cNORHTEnumLiteralDeclaration_1; }
+
+		//"north"
+		public Keyword getNORHTNorthKeyword_1_0() { return cNORHTNorthKeyword_1_0; }
+
+		//SOUTH="south"
+		public EnumLiteralDeclaration getSOUTHEnumLiteralDeclaration_2() { return cSOUTHEnumLiteralDeclaration_2; }
+
+		//"south"
+		public Keyword getSOUTHSouthKeyword_2_0() { return cSOUTHSouthKeyword_2_0; }
+
+		//WEST="west"
+		public EnumLiteralDeclaration getWESTEnumLiteralDeclaration_3() { return cWESTEnumLiteralDeclaration_3; }
+
+		//"west"
+		public Keyword getWESTWestKeyword_3_0() { return cWESTWestKeyword_3_0; }
+
+		//EAST="east"
+		public EnumLiteralDeclaration getEASTEnumLiteralDeclaration_4() { return cEASTEnumLiteralDeclaration_4; }
+
+		//"east"
+		public Keyword getEASTEastKeyword_4_0() { return cEASTEastKeyword_4_0; }
+
+		//NORTH_EAST="north_east"
+		public EnumLiteralDeclaration getNORTH_EASTEnumLiteralDeclaration_5() { return cNORTH_EASTEnumLiteralDeclaration_5; }
+
+		//"north_east"
+		public Keyword getNORTH_EASTNorth_eastKeyword_5_0() { return cNORTH_EASTNorth_eastKeyword_5_0; }
+
+		//NORTH_WEST="north_west"
+		public EnumLiteralDeclaration getNORTH_WESTEnumLiteralDeclaration_6() { return cNORTH_WESTEnumLiteralDeclaration_6; }
+
+		//"north_west"
+		public Keyword getNORTH_WESTNorth_westKeyword_6_0() { return cNORTH_WESTNorth_westKeyword_6_0; }
+
+		//SOUTH_EAST="south_east"
+		public EnumLiteralDeclaration getSOUTH_EASTEnumLiteralDeclaration_7() { return cSOUTH_EASTEnumLiteralDeclaration_7; }
+
+		//"south_east"
+		public Keyword getSOUTH_EASTSouth_eastKeyword_7_0() { return cSOUTH_EASTSouth_eastKeyword_7_0; }
+
+		//SOUTH_WEST="south_west"
+		public EnumLiteralDeclaration getSOUTH_WESTEnumLiteralDeclaration_8() { return cSOUTH_WESTEnumLiteralDeclaration_8; }
+
+		//"south_west"
+		public Keyword getSOUTH_WESTSouth_westKeyword_8_0() { return cSOUTH_WESTSouth_westKeyword_8_0; }
+	}
 	
 	private DecorationModelElements pDecorationModel;
 	private NamespaceElements pNamespace;
@@ -625,18 +1307,29 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	private AbstractDecorationElements pAbstractDecoration;
 	private IconDecorationElements pIconDecoration;
 	private BorderDecorationElements pBorderDecoration;
+	private ConnectionDecorationElements pConnectionDecoration;
+	private StyleElements pStyle;
+	private SizeElements pSize;
+	private DirectionElements pDirection;
+	private MarginElements pMargin;
+	private ColorElements pColor;
+	private ConcreteColorElements pConcreteColor;
+	private ColorConstantElements pColorConstant;
 	private ActivationElements pActivation;
 	private AbstractConditionElements pAbstractCondition;
 	private ConditionElements pCondition;
 	private CompositeConditionElements pCompositeCondition;
 	private TypeElements pType;
-	private PosiblySignedDoubleElements pPosiblySignedDouble;
-	private PossiblySignedIntegerElements pPossiblySignedInteger;
+	private SignedDoubleElements pSignedDouble;
+	private SignedIntegerElements pSignedInteger;
+	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
+	private QualifiedNameElements pQualifiedName;
 	private TerminalRule tBOOLEAN;
 	private ComparisonOperatorElements unknownRuleComparisonOperator;
 	private LogicalOperatorElements unknownRuleLogicalOperator;
-	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
-	private QualifiedNameElements pQualifiedName;
+	private LineStyleElements unknownRuleLineStyle;
+	private ColorsElements unknownRuleColors;
+	private DirectionsElements unknownRuleDirections;
 	
 	private final Grammar grammar;
 
@@ -708,8 +1401,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getDecorationDescriptionAccess().getRule();
 	}
 
+	//// For all decorations if they have optional values then some default value will be used. see comments below 
 	//AbstractDecoration:
-	//	IconDecoration | BorderDecoration;
+	//	IconDecoration | BorderDecoration | ConnectionDecoration;
 	public AbstractDecorationElements getAbstractDecorationAccess() {
 		return (pAbstractDecoration != null) ? pAbstractDecoration : (pAbstractDecoration = new AbstractDecorationElements());
 	}
@@ -719,7 +1413,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//IconDecoration:
-	//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? activation=Activation? "}";
+	//	"icon" "{" "location-uri" ":" location_uri=STRING ";"? direction=Direction? // default value will be: for node = north_west; for edge = center
+	//	margin=Margin? // default value will be: 5 ; margin has no effect on nodes
+	//	activation=Activation? "}";
 	public IconDecorationElements getIconDecorationAccess() {
 		return (pIconDecoration != null) ? pIconDecoration : (pIconDecoration = new IconDecorationElements());
 	}
@@ -728,15 +1424,100 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getIconDecorationAccess().getRule();
 	}
 
+	//// this will have effect only on nodes
 	//BorderDecoration:
-	//	"border" "{" "size" ":" size=INT ";"? // possibly I will have to add a unit
-	//	activation=Activation? "}";
+	//	{BorderDecoration} "border" ("{" // default value will be: 1
+	//	size=Size? // default value will be: red
+	//	color=Color? // default value will be: solid
+	//	style=Style? activation=Activation? "}")?;
 	public BorderDecorationElements getBorderDecorationAccess() {
 		return (pBorderDecoration != null) ? pBorderDecoration : (pBorderDecoration = new BorderDecorationElements());
 	}
 	
 	public ParserRule getBorderDecorationRule() {
 		return getBorderDecorationAccess().getRule();
+	}
+
+	//// this will have effect only on edges
+	//ConnectionDecoration:
+	//	{ConnectionDecoration} "connection" ("{" size=Size? color=Color? ("foreground" foregroundColor=Color)? ("background"
+	//	backgroundColor=Color)? activation=Activation? "}")?;
+	public ConnectionDecorationElements getConnectionDecorationAccess() {
+		return (pConnectionDecoration != null) ? pConnectionDecoration : (pConnectionDecoration = new ConnectionDecorationElements());
+	}
+	
+	public ParserRule getConnectionDecorationRule() {
+		return getConnectionDecorationAccess().getRule();
+	}
+
+	//Style:
+	//	"style" ":" value=LineStyle ";"?;
+	public StyleElements getStyleAccess() {
+		return (pStyle != null) ? pStyle : (pStyle = new StyleElements());
+	}
+	
+	public ParserRule getStyleRule() {
+		return getStyleAccess().getRule();
+	}
+
+	//Size:
+	//	"size" ":" value=INT ";"?;
+	public SizeElements getSizeAccess() {
+		return (pSize != null) ? pSize : (pSize = new SizeElements());
+	}
+	
+	public ParserRule getSizeRule() {
+		return getSizeAccess().getRule();
+	}
+
+	//Direction:
+	//	"direction" ":" value=Directions ";"?;
+	public DirectionElements getDirectionAccess() {
+		return (pDirection != null) ? pDirection : (pDirection = new DirectionElements());
+	}
+	
+	public ParserRule getDirectionRule() {
+		return getDirectionAccess().getRule();
+	}
+
+	//Margin:
+	//	"margin" ":" value=SignedInteger ";"?;
+	public MarginElements getMarginAccess() {
+		return (pMargin != null) ? pMargin : (pMargin = new MarginElements());
+	}
+	
+	public ParserRule getMarginRule() {
+		return getMarginAccess().getRule();
+	}
+
+	//Color:
+	//	{Color} "color" ":" value=ColorConstant | "color" ":" concret=ConcreteColor;
+	public ColorElements getColorAccess() {
+		return (pColor != null) ? pColor : (pColor = new ColorElements());
+	}
+	
+	public ParserRule getColorRule() {
+		return getColorAccess().getRule();
+	}
+
+	//ConcreteColor:
+	//	"RGB" "(" red=INT "," green=INT "," blue=INT ")" ";"?;
+	public ConcreteColorElements getConcreteColorAccess() {
+		return (pConcreteColor != null) ? pConcreteColor : (pConcreteColor = new ConcreteColorElements());
+	}
+	
+	public ParserRule getConcreteColorRule() {
+		return getConcreteColorAccess().getRule();
+	}
+
+	//ColorConstant:
+	//	value=Colors ";"?;
+	public ColorConstantElements getColorConstantAccess() {
+		return (pColorConstant != null) ? pColorConstant : (pColorConstant = new ColorConstantElements());
+	}
+	
+	public ParserRule getColorConstantRule() {
+		return getColorConstantAccess().getRule();
 	}
 
 	//Activation:
@@ -780,7 +1561,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//Type:
-	//	PossiblySignedInteger | PosiblySignedDouble | STRING | BOOLEAN;
+	//	SignedInteger | SignedDouble | STRING | BOOLEAN;
 	public TypeElements getTypeAccess() {
 		return (pType != null) ? pType : (pType = new TypeElements());
 	}
@@ -789,24 +1570,44 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getTypeAccess().getRule();
 	}
 
-	//PosiblySignedDouble returns ecore::EDouble:
+	//SignedDouble returns ecore::EDouble:
 	//	"-"? INT "." INT;
-	public PosiblySignedDoubleElements getPosiblySignedDoubleAccess() {
-		return (pPosiblySignedDouble != null) ? pPosiblySignedDouble : (pPosiblySignedDouble = new PosiblySignedDoubleElements());
+	public SignedDoubleElements getSignedDoubleAccess() {
+		return (pSignedDouble != null) ? pSignedDouble : (pSignedDouble = new SignedDoubleElements());
 	}
 	
-	public ParserRule getPosiblySignedDoubleRule() {
-		return getPosiblySignedDoubleAccess().getRule();
+	public ParserRule getSignedDoubleRule() {
+		return getSignedDoubleAccess().getRule();
 	}
 
-	//PossiblySignedInteger returns ecore::EInt:
+	//SignedInteger returns ecore::EInt:
 	//	"-"? INT;
-	public PossiblySignedIntegerElements getPossiblySignedIntegerAccess() {
-		return (pPossiblySignedInteger != null) ? pPossiblySignedInteger : (pPossiblySignedInteger = new PossiblySignedIntegerElements());
+	public SignedIntegerElements getSignedIntegerAccess() {
+		return (pSignedInteger != null) ? pSignedInteger : (pSignedInteger = new SignedIntegerElements());
 	}
 	
-	public ParserRule getPossiblySignedIntegerRule() {
-		return getPossiblySignedIntegerAccess().getRule();
+	public ParserRule getSignedIntegerRule() {
+		return getSignedIntegerAccess().getRule();
+	}
+
+	//QualifiedNameWithWildcard:
+	//	QualifiedName ".*"?;
+	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
+		return (pQualifiedNameWithWildcard != null) ? pQualifiedNameWithWildcard : (pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements());
+	}
+	
+	public ParserRule getQualifiedNameWithWildcardRule() {
+		return getQualifiedNameWithWildcardAccess().getRule();
+	}
+
+	//QualifiedName returns ecore::EString:
+	//	ID ("." ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return (pQualifiedName != null) ? pQualifiedName : (pQualifiedName = new QualifiedNameElements());
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
 	}
 
 	//terminal BOOLEAN returns ecore::EBoolean:
@@ -835,24 +1636,37 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getLogicalOperatorAccess().getRule();
 	}
 
-	//QualifiedNameWithWildcard:
-	//	QualifiedName ".*"?;
-	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
-		return (pQualifiedNameWithWildcard != null) ? pQualifiedNameWithWildcard : (pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements());
+	//enum LineStyle:
+	//	LINE_SOLID="solid" | LINE_DOT="dots" | LINE_DASH="dashes" | LINE_DASHDOT="dash_dots" | LINE_DASHDOTDOT="dash_dot_dot";
+	public LineStyleElements getLineStyleAccess() {
+		return (unknownRuleLineStyle != null) ? unknownRuleLineStyle : (unknownRuleLineStyle = new LineStyleElements());
 	}
 	
-	public ParserRule getQualifiedNameWithWildcardRule() {
-		return getQualifiedNameWithWildcardAccess().getRule();
+	public EnumRule getLineStyleRule() {
+		return getLineStyleAccess().getRule();
 	}
 
-	//QualifiedName returns ecore::EString:
-	//	ID ("." ID)*;
-	public QualifiedNameElements getQualifiedNameAccess() {
-		return (pQualifiedName != null) ? pQualifiedName : (pQualifiedName = new QualifiedNameElements());
+	//enum Colors:
+	//	RED="red" | BLACK="black" | WHITE="white" | GREEN="green" | GREEN_LIGHT="green_light" | GREEN_DARK="green_dark" |
+	//	BLUE="blue" | BLUE_LIGHT="blue_light" | BLUE_DARK="blue_dark" | GRAY="gray" | GRAY_LIGHT="gray_light" |
+	//	GRAY_DARK="gray_dark" | ORANGE="orange" | YELLOW="yellow" | CYAN="cyan";
+	public ColorsElements getColorsAccess() {
+		return (unknownRuleColors != null) ? unknownRuleColors : (unknownRuleColors = new ColorsElements());
 	}
 	
-	public ParserRule getQualifiedNameRule() {
-		return getQualifiedNameAccess().getRule();
+	public EnumRule getColorsRule() {
+		return getColorsAccess().getRule();
+	}
+
+	//enum Directions:
+	//	CENTER="center" | NORHT="north" | SOUTH="south" | WEST="west" | EAST="east" | NORTH_EAST="north_east" |
+	//	NORTH_WEST="north_west" | SOUTH_EAST="south_east" | SOUTH_WEST="south_west";
+	public DirectionsElements getDirectionsAccess() {
+		return (unknownRuleDirections != null) ? unknownRuleDirections : (unknownRuleDirections = new DirectionsElements());
+	}
+	
+	public EnumRule getDirectionsRule() {
+		return getDirectionsAccess().getRule();
 	}
 
 	//terminal ID:

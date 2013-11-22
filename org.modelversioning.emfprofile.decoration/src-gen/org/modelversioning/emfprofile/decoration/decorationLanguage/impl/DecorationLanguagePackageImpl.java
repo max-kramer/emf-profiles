@@ -17,16 +17,27 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCond
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Colors;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguageFactory;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Direction;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,6 +94,62 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass connectionDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass styleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sizeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass directionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass marginEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass colorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass concreteColorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass colorConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass activationEClass = null;
 
   /**
@@ -119,6 +186,27 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * @generated
    */
   private EEnum logicalOperatorEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum lineStyleEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum colorsEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum directionsEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -331,6 +419,26 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getIconDecoration_Direction()
+  {
+    return (EReference)iconDecorationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getIconDecoration_Margin()
+  {
+    return (EReference)iconDecorationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBorderDecoration()
   {
     return borderDecorationEClass;
@@ -341,9 +449,249 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBorderDecoration_Size()
+  public EReference getBorderDecoration_Size()
   {
-    return (EAttribute)borderDecorationEClass.getEStructuralFeatures().get(0);
+    return (EReference)borderDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBorderDecoration_Color()
+  {
+    return (EReference)borderDecorationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBorderDecoration_Style()
+  {
+    return (EReference)borderDecorationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getConnectionDecoration()
+  {
+    return connectionDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConnectionDecoration_Size()
+  {
+    return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConnectionDecoration_Color()
+  {
+    return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConnectionDecoration_ForegroundColor()
+  {
+    return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConnectionDecoration_BackgroundColor()
+  {
+    return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStyle()
+  {
+    return styleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStyle_Value()
+  {
+    return (EAttribute)styleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSize()
+  {
+    return sizeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSize_Value()
+  {
+    return (EAttribute)sizeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDirection()
+  {
+    return directionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDirection_Value()
+  {
+    return (EAttribute)directionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMargin()
+  {
+    return marginEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMargin_Value()
+  {
+    return (EAttribute)marginEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getColor()
+  {
+    return colorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getColor_Value()
+  {
+    return (EReference)colorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getColor_Concret()
+  {
+    return (EReference)colorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getConcreteColor()
+  {
+    return concreteColorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConcreteColor_Red()
+  {
+    return (EAttribute)concreteColorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConcreteColor_Green()
+  {
+    return (EAttribute)concreteColorEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getConcreteColor_Blue()
+  {
+    return (EAttribute)concreteColorEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getColorConstant()
+  {
+    return colorConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getColorConstant_Value()
+  {
+    return (EAttribute)colorConstantEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -471,6 +819,36 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getLineStyle()
+  {
+    return lineStyleEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getColors()
+  {
+    return colorsEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getDirections()
+  {
+    return directionsEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public DecorationLanguageFactory getDecorationLanguageFactory()
   {
     return (DecorationLanguageFactory)getEFactoryInstance();
@@ -514,9 +892,43 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     iconDecorationEClass = createEClass(ICON_DECORATION);
     createEAttribute(iconDecorationEClass, ICON_DECORATION__LOCATION_URI);
+    createEReference(iconDecorationEClass, ICON_DECORATION__DIRECTION);
+    createEReference(iconDecorationEClass, ICON_DECORATION__MARGIN);
 
     borderDecorationEClass = createEClass(BORDER_DECORATION);
-    createEAttribute(borderDecorationEClass, BORDER_DECORATION__SIZE);
+    createEReference(borderDecorationEClass, BORDER_DECORATION__SIZE);
+    createEReference(borderDecorationEClass, BORDER_DECORATION__COLOR);
+    createEReference(borderDecorationEClass, BORDER_DECORATION__STYLE);
+
+    connectionDecorationEClass = createEClass(CONNECTION_DECORATION);
+    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__SIZE);
+    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__COLOR);
+    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__FOREGROUND_COLOR);
+    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__BACKGROUND_COLOR);
+
+    styleEClass = createEClass(STYLE);
+    createEAttribute(styleEClass, STYLE__VALUE);
+
+    sizeEClass = createEClass(SIZE);
+    createEAttribute(sizeEClass, SIZE__VALUE);
+
+    directionEClass = createEClass(DIRECTION);
+    createEAttribute(directionEClass, DIRECTION__VALUE);
+
+    marginEClass = createEClass(MARGIN);
+    createEAttribute(marginEClass, MARGIN__VALUE);
+
+    colorEClass = createEClass(COLOR);
+    createEReference(colorEClass, COLOR__VALUE);
+    createEReference(colorEClass, COLOR__CONCRET);
+
+    concreteColorEClass = createEClass(CONCRETE_COLOR);
+    createEAttribute(concreteColorEClass, CONCRETE_COLOR__RED);
+    createEAttribute(concreteColorEClass, CONCRETE_COLOR__GREEN);
+    createEAttribute(concreteColorEClass, CONCRETE_COLOR__BLUE);
+
+    colorConstantEClass = createEClass(COLOR_CONSTANT);
+    createEAttribute(colorConstantEClass, COLOR_CONSTANT__VALUE);
 
     activationEClass = createEClass(ACTIVATION);
     createEReference(activationEClass, ACTIVATION__CONDITION);
@@ -535,6 +947,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     // Create enums
     comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
     logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
+    lineStyleEEnum = createEEnum(LINE_STYLE);
+    colorsEEnum = createEEnum(COLORS);
+    directionsEEnum = createEEnum(DIRECTIONS);
   }
 
   /**
@@ -572,6 +987,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     // Add supertypes to classes
     iconDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     borderDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    connectionDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     conditionEClass.getESuperTypes().add(this.getAbstractCondition());
     compositeConditionEClass.getESuperTypes().add(this.getAbstractCondition());
 
@@ -594,9 +1010,43 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(iconDecorationEClass, IconDecoration.class, "IconDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIconDecoration_Location_uri(), theEcorePackage.getEString(), "location_uri", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIconDecoration_Direction(), this.getDirection(), null, "direction", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getIconDecoration_Margin(), this.getMargin(), null, "margin", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(borderDecorationEClass, BorderDecoration.class, "BorderDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBorderDecoration_Size(), theEcorePackage.getEInt(), "size", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBorderDecoration_Size(), this.getSize(), null, "size", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBorderDecoration_Color(), this.getColor(), null, "color", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBorderDecoration_Style(), this.getStyle(), null, "style", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(connectionDecorationEClass, ConnectionDecoration.class, "ConnectionDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConnectionDecoration_Size(), this.getSize(), null, "size", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnectionDecoration_Color(), this.getColor(), null, "color", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnectionDecoration_ForegroundColor(), this.getColor(), null, "foregroundColor", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnectionDecoration_BackgroundColor(), this.getColor(), null, "backgroundColor", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStyle_Value(), this.getLineStyle(), "value", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sizeEClass, Size.class, "Size", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSize_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, Size.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(directionEClass, Direction.class, "Direction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDirection_Value(), this.getDirections(), "value", null, 0, 1, Direction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(marginEClass, Margin.class, "Margin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMargin_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, Margin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getColor_Value(), this.getColorConstant(), null, "value", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColor_Concret(), this.getConcreteColor(), null, "concret", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(concreteColorEClass, ConcreteColor.class, "ConcreteColor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConcreteColor_Red(), theEcorePackage.getEInt(), "red", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConcreteColor_Green(), theEcorePackage.getEInt(), "green", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConcreteColor_Blue(), theEcorePackage.getEInt(), "blue", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(colorConstantEClass, ColorConstant.class, "ColorConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getColorConstant_Value(), this.getColors(), "value", null, 0, 1, ColorConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(activationEClass, Activation.class, "Activation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getActivation_Condition(), this.getAbstractCondition(), null, "condition", null, 0, 1, Activation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -624,6 +1074,41 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEEnum(logicalOperatorEEnum, LogicalOperator.class, "LogicalOperator");
     addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.ALL);
     addEEnumLiteral(logicalOperatorEEnum, LogicalOperator.ANY);
+
+    initEEnum(lineStyleEEnum, LineStyle.class, "LineStyle");
+    addEEnumLiteral(lineStyleEEnum, LineStyle.LINE_SOLID);
+    addEEnumLiteral(lineStyleEEnum, LineStyle.LINE_DOT);
+    addEEnumLiteral(lineStyleEEnum, LineStyle.LINE_DASH);
+    addEEnumLiteral(lineStyleEEnum, LineStyle.LINE_DASHDOT);
+    addEEnumLiteral(lineStyleEEnum, LineStyle.LINE_DASHDOTDOT);
+
+    initEEnum(colorsEEnum, Colors.class, "Colors");
+    addEEnumLiteral(colorsEEnum, Colors.RED);
+    addEEnumLiteral(colorsEEnum, Colors.BLACK);
+    addEEnumLiteral(colorsEEnum, Colors.WHITE);
+    addEEnumLiteral(colorsEEnum, Colors.GREEN);
+    addEEnumLiteral(colorsEEnum, Colors.GREEN_LIGHT);
+    addEEnumLiteral(colorsEEnum, Colors.GREEN_DARK);
+    addEEnumLiteral(colorsEEnum, Colors.BLUE);
+    addEEnumLiteral(colorsEEnum, Colors.BLUE_LIGHT);
+    addEEnumLiteral(colorsEEnum, Colors.BLUE_DARK);
+    addEEnumLiteral(colorsEEnum, Colors.GRAY);
+    addEEnumLiteral(colorsEEnum, Colors.GRAY_LIGHT);
+    addEEnumLiteral(colorsEEnum, Colors.GRAY_DARK);
+    addEEnumLiteral(colorsEEnum, Colors.ORANGE);
+    addEEnumLiteral(colorsEEnum, Colors.YELLOW);
+    addEEnumLiteral(colorsEEnum, Colors.CYAN);
+
+    initEEnum(directionsEEnum, Directions.class, "Directions");
+    addEEnumLiteral(directionsEEnum, Directions.CENTER);
+    addEEnumLiteral(directionsEEnum, Directions.NORHT);
+    addEEnumLiteral(directionsEEnum, Directions.SOUTH);
+    addEEnumLiteral(directionsEEnum, Directions.WEST);
+    addEEnumLiteral(directionsEEnum, Directions.EAST);
+    addEEnumLiteral(directionsEEnum, Directions.NORTH_EAST);
+    addEEnumLiteral(directionsEEnum, Directions.NORTH_WEST);
+    addEEnumLiteral(directionsEEnum, Directions.SOUTH_EAST);
+    addEEnumLiteral(directionsEEnum, Directions.SOUTH_WEST);
 
     // Create resource
     createResource(eNS_URI);

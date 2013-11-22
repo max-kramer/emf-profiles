@@ -77,6 +77,78 @@ public interface DecorationLanguageFactory extends EFactory
   BorderDecoration createBorderDecoration();
 
   /**
+   * Returns a new object of class '<em>Connection Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Connection Decoration</em>'.
+   * @generated
+   */
+  ConnectionDecoration createConnectionDecoration();
+
+  /**
+   * Returns a new object of class '<em>Style</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Style</em>'.
+   * @generated
+   */
+  Style createStyle();
+
+  /**
+   * Returns a new object of class '<em>Size</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Size</em>'.
+   * @generated
+   */
+  Size createSize();
+
+  /**
+   * Returns a new object of class '<em>Direction</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Direction</em>'.
+   * @generated
+   */
+  Direction createDirection();
+
+  /**
+   * Returns a new object of class '<em>Margin</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Margin</em>'.
+   * @generated
+   */
+  Margin createMargin();
+
+  /**
+   * Returns a new object of class '<em>Color</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Color</em>'.
+   * @generated
+   */
+  Color createColor();
+
+  /**
+   * Returns a new object of class '<em>Concrete Color</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Concrete Color</em>'.
+   * @generated
+   */
+  ConcreteColor createConcreteColor();
+
+  /**
+   * Returns a new object of class '<em>Color Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Color Constant</em>'.
+   * @generated
+   */
+  ColorConstant createColorConstant();
+
+  /**
    * Returns a new object of class '<em>Activation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

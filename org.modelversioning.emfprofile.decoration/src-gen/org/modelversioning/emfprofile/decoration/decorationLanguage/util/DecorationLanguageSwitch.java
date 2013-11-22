@@ -116,6 +116,63 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DecorationLanguagePackage.CONNECTION_DECORATION:
+      {
+        ConnectionDecoration connectionDecoration = (ConnectionDecoration)theEObject;
+        T result = caseConnectionDecoration(connectionDecoration);
+        if (result == null) result = caseAbstractDecoration(connectionDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.STYLE:
+      {
+        Style style = (Style)theEObject;
+        T result = caseStyle(style);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.SIZE:
+      {
+        Size size = (Size)theEObject;
+        T result = caseSize(size);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.DIRECTION:
+      {
+        Direction direction = (Direction)theEObject;
+        T result = caseDirection(direction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.MARGIN:
+      {
+        Margin margin = (Margin)theEObject;
+        T result = caseMargin(margin);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.COLOR:
+      {
+        Color color = (Color)theEObject;
+        T result = caseColor(color);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.CONCRETE_COLOR:
+      {
+        ConcreteColor concreteColor = (ConcreteColor)theEObject;
+        T result = caseConcreteColor(concreteColor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.COLOR_CONSTANT:
+      {
+        ColorConstant colorConstant = (ColorConstant)theEObject;
+        T result = caseColorConstant(colorConstant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DecorationLanguagePackage.ACTIVATION:
       {
         Activation activation = (Activation)theEObject;
@@ -242,6 +299,134 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBorderDecoration(BorderDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Connection Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Connection Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConnectionDecoration(ConnectionDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Style</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Style</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStyle(Style object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Size</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Size</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSize(Size object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Direction</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Direction</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDirection(Direction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Margin</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Margin</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMargin(Margin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Color</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Color</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColor(Color object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concrete Color</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concrete Color</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConcreteColor(ConcreteColor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Color Constant</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Color Constant</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseColorConstant(ColorConstant object)
   {
     return null;
   }

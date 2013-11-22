@@ -234,13 +234,31 @@ public interface DecorationLanguagePackage extends EPackage
   int ICON_DECORATION__LOCATION_URI = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Direction</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ICON_DECORATION__DIRECTION = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Margin</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ICON_DECORATION__MARGIN = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Icon Decoration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ICON_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+  int ICON_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl <em>Border Decoration</em>}' class.
@@ -262,7 +280,7 @@ public interface DecorationLanguagePackage extends EPackage
   int BORDER_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
 
   /**
-   * The feature id for the '<em><b>Size</b></em>' attribute.
+   * The feature id for the '<em><b>Size</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -271,13 +289,318 @@ public interface DecorationLanguagePackage extends EPackage
   int BORDER_DECORATION__SIZE = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Color</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BORDER_DECORATION__COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BORDER_DECORATION__STYLE = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Border Decoration</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BORDER_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+  int BORDER_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl <em>Connection Decoration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConnectionDecoration()
+   * @generated
+   */
+  int CONNECTION_DECORATION = 6;
+
+  /**
+   * The feature id for the '<em><b>Activation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
+
+  /**
+   * The feature id for the '<em><b>Size</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_DECORATION__SIZE = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Color</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_DECORATION__COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Foreground Color</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_DECORATION__FOREGROUND_COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Background Color</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_DECORATION__BACKGROUND_COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Connection Decoration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNECTION_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.StyleImpl <em>Style</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.StyleImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getStyle()
+   * @generated
+   */
+  int STYLE = 7;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Style</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STYLE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SizeImpl <em>Size</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SizeImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getSize()
+   * @generated
+   */
+  int SIZE = 8;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIZE__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Size</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIZE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DirectionImpl <em>Direction</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DirectionImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirection()
+   * @generated
+   */
+  int DIRECTION = 9;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTION__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Direction</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DIRECTION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.MarginImpl <em>Margin</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.MarginImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getMargin()
+   * @generated
+   */
+  int MARGIN = 10;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARGIN__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Margin</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARGIN_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl <em>Color</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColor()
+   * @generated
+   */
+  int COLOR = 11;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLOR__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Concret</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLOR__CONCRET = 1;
+
+  /**
+   * The number of structural features of the '<em>Color</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLOR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConcreteColorImpl <em>Concrete Color</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConcreteColorImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConcreteColor()
+   * @generated
+   */
+  int CONCRETE_COLOR = 12;
+
+  /**
+   * The feature id for the '<em><b>Red</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_COLOR__RED = 0;
+
+  /**
+   * The feature id for the '<em><b>Green</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_COLOR__GREEN = 1;
+
+  /**
+   * The feature id for the '<em><b>Blue</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_COLOR__BLUE = 2;
+
+  /**
+   * The number of structural features of the '<em>Concrete Color</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_COLOR_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorConstantImpl <em>Color Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorConstantImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColorConstant()
+   * @generated
+   */
+  int COLOR_CONSTANT = 13;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLOR_CONSTANT__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Color Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLOR_CONSTANT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ActivationImpl <em>Activation</em>}' class.
@@ -287,7 +610,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getActivation()
    * @generated
    */
-  int ACTIVATION = 6;
+  int ACTIVATION = 14;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -315,7 +638,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getAbstractCondition()
    * @generated
    */
-  int ABSTRACT_CONDITION = 7;
+  int ABSTRACT_CONDITION = 15;
 
   /**
    * The number of structural features of the '<em>Abstract Condition</em>' class.
@@ -334,7 +657,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 8;
+  int CONDITION = 16;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -380,7 +703,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCompositeCondition()
    * @generated
    */
-  int COMPOSITE_CONDITION = 9;
+  int COMPOSITE_CONDITION = 17;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -417,7 +740,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 10;
+  int COMPARISON_OPERATOR = 18;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -427,7 +750,37 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLogicalOperator()
    * @generated
    */
-  int LOGICAL_OPERATOR = 11;
+  int LOGICAL_OPERATOR = 19;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle <em>Line Style</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLineStyle()
+   * @generated
+   */
+  int LINE_STYLE = 20;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Colors <em>Colors</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Colors
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColors()
+   * @generated
+   */
+  int COLORS = 21;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Directions <em>Directions</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Directions
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirections()
+   * @generated
+   */
+  int DIRECTIONS = 22;
 
 
   /**
@@ -580,6 +933,28 @@ public interface DecorationLanguagePackage extends EPackage
   EAttribute getIconDecoration_Location_uri();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getDirection <em>Direction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Direction</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getDirection()
+   * @see #getIconDecoration()
+   * @generated
+   */
+  EReference getIconDecoration_Direction();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getMargin <em>Margin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Margin</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getMargin()
+   * @see #getIconDecoration()
+   * @generated
+   */
+  EReference getIconDecoration_Margin();
+
+  /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration <em>Border Decoration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -590,15 +965,271 @@ public interface DecorationLanguagePackage extends EPackage
   EClass getBorderDecoration();
 
   /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getSize <em>Size</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getSize <em>Size</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Size</em>'.
+   * @return the meta object for the containment reference '<em>Size</em>'.
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getSize()
    * @see #getBorderDecoration()
    * @generated
    */
-  EAttribute getBorderDecoration_Size();
+  EReference getBorderDecoration_Size();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getColor <em>Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getColor()
+   * @see #getBorderDecoration()
+   * @generated
+   */
+  EReference getBorderDecoration_Color();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getStyle <em>Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Style</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration#getStyle()
+   * @see #getBorderDecoration()
+   * @generated
+   */
+  EReference getBorderDecoration_Style();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration <em>Connection Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Connection Decoration</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration
+   * @generated
+   */
+  EClass getConnectionDecoration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getSize <em>Size</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Size</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getSize()
+   * @see #getConnectionDecoration()
+   * @generated
+   */
+  EReference getConnectionDecoration_Size();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getColor <em>Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getColor()
+   * @see #getConnectionDecoration()
+   * @generated
+   */
+  EReference getConnectionDecoration_Color();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getForegroundColor <em>Foreground Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Foreground Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getForegroundColor()
+   * @see #getConnectionDecoration()
+   * @generated
+   */
+  EReference getConnectionDecoration_ForegroundColor();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getBackgroundColor <em>Background Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Background Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getBackgroundColor()
+   * @see #getConnectionDecoration()
+   * @generated
+   */
+  EReference getConnectionDecoration_BackgroundColor();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Style <em>Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Style</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Style
+   * @generated
+   */
+  EClass getStyle();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Style#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Style#getValue()
+   * @see #getStyle()
+   * @generated
+   */
+  EAttribute getStyle_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Size <em>Size</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Size</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Size
+   * @generated
+   */
+  EClass getSize();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Size#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Size#getValue()
+   * @see #getSize()
+   * @generated
+   */
+  EAttribute getSize_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Direction <em>Direction</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Direction</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Direction
+   * @generated
+   */
+  EClass getDirection();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Direction#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Direction#getValue()
+   * @see #getDirection()
+   * @generated
+   */
+  EAttribute getDirection_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Margin <em>Margin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Margin</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Margin
+   * @generated
+   */
+  EClass getMargin();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Margin#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Margin#getValue()
+   * @see #getMargin()
+   * @generated
+   */
+  EAttribute getMargin_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Color <em>Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Color
+   * @generated
+   */
+  EClass getColor();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getValue()
+   * @see #getColor()
+   * @generated
+   */
+  EReference getColor_Value();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getConcret <em>Concret</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Concret</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getConcret()
+   * @see #getColor()
+   * @generated
+   */
+  EReference getColor_Concret();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor <em>Concrete Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Concrete Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor
+   * @generated
+   */
+  EClass getConcreteColor();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getRed <em>Red</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Red</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getRed()
+   * @see #getConcreteColor()
+   * @generated
+   */
+  EAttribute getConcreteColor_Red();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getGreen <em>Green</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Green</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getGreen()
+   * @see #getConcreteColor()
+   * @generated
+   */
+  EAttribute getConcreteColor_Green();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getBlue <em>Blue</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Blue</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getBlue()
+   * @see #getConcreteColor()
+   * @generated
+   */
+  EAttribute getConcreteColor_Blue();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant <em>Color Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Color Constant</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant
+   * @generated
+   */
+  EClass getColorConstant();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant#getValue()
+   * @see #getColorConstant()
+   * @generated
+   */
+  EAttribute getColorConstant_Value();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Activation <em>Activation</em>}'.
@@ -725,6 +1356,36 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    */
   EEnum getLogicalOperator();
+
+  /**
+   * Returns the meta object for enum '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle <em>Line Style</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Line Style</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle
+   * @generated
+   */
+  EEnum getLineStyle();
+
+  /**
+   * Returns the meta object for enum '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Colors <em>Colors</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Colors</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Colors
+   * @generated
+   */
+  EEnum getColors();
+
+  /**
+   * Returns the meta object for enum '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Directions <em>Directions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Directions</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Directions
+   * @generated
+   */
+  EEnum getDirections();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -872,6 +1533,22 @@ public interface DecorationLanguagePackage extends EPackage
     EAttribute ICON_DECORATION__LOCATION_URI = eINSTANCE.getIconDecoration_Location_uri();
 
     /**
+     * The meta object literal for the '<em><b>Direction</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ICON_DECORATION__DIRECTION = eINSTANCE.getIconDecoration_Direction();
+
+    /**
+     * The meta object literal for the '<em><b>Margin</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ICON_DECORATION__MARGIN = eINSTANCE.getIconDecoration_Margin();
+
+    /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl <em>Border Decoration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -882,12 +1559,220 @@ public interface DecorationLanguagePackage extends EPackage
     EClass BORDER_DECORATION = eINSTANCE.getBorderDecoration();
 
     /**
-     * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BORDER_DECORATION__SIZE = eINSTANCE.getBorderDecoration_Size();
+    EReference BORDER_DECORATION__SIZE = eINSTANCE.getBorderDecoration_Size();
+
+    /**
+     * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BORDER_DECORATION__COLOR = eINSTANCE.getBorderDecoration_Color();
+
+    /**
+     * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BORDER_DECORATION__STYLE = eINSTANCE.getBorderDecoration_Style();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl <em>Connection Decoration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConnectionDecoration()
+     * @generated
+     */
+    EClass CONNECTION_DECORATION = eINSTANCE.getConnectionDecoration();
+
+    /**
+     * The meta object literal for the '<em><b>Size</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONNECTION_DECORATION__SIZE = eINSTANCE.getConnectionDecoration_Size();
+
+    /**
+     * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONNECTION_DECORATION__COLOR = eINSTANCE.getConnectionDecoration_Color();
+
+    /**
+     * The meta object literal for the '<em><b>Foreground Color</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONNECTION_DECORATION__FOREGROUND_COLOR = eINSTANCE.getConnectionDecoration_ForegroundColor();
+
+    /**
+     * The meta object literal for the '<em><b>Background Color</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONNECTION_DECORATION__BACKGROUND_COLOR = eINSTANCE.getConnectionDecoration_BackgroundColor();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.StyleImpl <em>Style</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.StyleImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getStyle()
+     * @generated
+     */
+    EClass STYLE = eINSTANCE.getStyle();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STYLE__VALUE = eINSTANCE.getStyle_Value();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SizeImpl <em>Size</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SizeImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getSize()
+     * @generated
+     */
+    EClass SIZE = eINSTANCE.getSize();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIZE__VALUE = eINSTANCE.getSize_Value();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DirectionImpl <em>Direction</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DirectionImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirection()
+     * @generated
+     */
+    EClass DIRECTION = eINSTANCE.getDirection();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DIRECTION__VALUE = eINSTANCE.getDirection_Value();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.MarginImpl <em>Margin</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.MarginImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getMargin()
+     * @generated
+     */
+    EClass MARGIN = eINSTANCE.getMargin();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MARGIN__VALUE = eINSTANCE.getMargin_Value();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl <em>Color</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColor()
+     * @generated
+     */
+    EClass COLOR = eINSTANCE.getColor();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLOR__VALUE = eINSTANCE.getColor_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Concret</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLOR__CONCRET = eINSTANCE.getColor_Concret();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConcreteColorImpl <em>Concrete Color</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConcreteColorImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConcreteColor()
+     * @generated
+     */
+    EClass CONCRETE_COLOR = eINSTANCE.getConcreteColor();
+
+    /**
+     * The meta object literal for the '<em><b>Red</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONCRETE_COLOR__RED = eINSTANCE.getConcreteColor_Red();
+
+    /**
+     * The meta object literal for the '<em><b>Green</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONCRETE_COLOR__GREEN = eINSTANCE.getConcreteColor_Green();
+
+    /**
+     * The meta object literal for the '<em><b>Blue</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONCRETE_COLOR__BLUE = eINSTANCE.getConcreteColor_Blue();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorConstantImpl <em>Color Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorConstantImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColorConstant()
+     * @generated
+     */
+    EClass COLOR_CONSTANT = eINSTANCE.getColorConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLOR_CONSTANT__VALUE = eINSTANCE.getColorConstant_Value();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ActivationImpl <em>Activation</em>}' class.
@@ -996,6 +1881,36 @@ public interface DecorationLanguagePackage extends EPackage
      * @generated
      */
     EEnum LOGICAL_OPERATOR = eINSTANCE.getLogicalOperator();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle <em>Line Style</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLineStyle()
+     * @generated
+     */
+    EEnum LINE_STYLE = eINSTANCE.getLineStyle();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Colors <em>Colors</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Colors
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColors()
+     * @generated
+     */
+    EEnum COLORS = eINSTANCE.getColors();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Directions <em>Directions</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Directions
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirections()
+     * @generated
+     */
+    EEnum DIRECTIONS = eINSTANCE.getDirections();
 
   }
 

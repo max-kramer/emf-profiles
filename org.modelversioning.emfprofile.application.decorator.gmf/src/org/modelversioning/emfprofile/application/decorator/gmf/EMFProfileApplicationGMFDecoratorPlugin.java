@@ -3,7 +3,10 @@ package org.modelversioning.emfprofile.application.decorator.gmf;
 import java.util.Map.Entry;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.RGB;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.AbstractDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.IconDecorator;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -33,6 +36,11 @@ public class EMFProfileApplicationGMFDecoratorPlugin implements BundleActivator 
 
 		// dispose created images
 		for (Entry<URI, Image> entry : IconDecorator.imageRegistry.entrySet()) {
+			entry.getValue().dispose();
+		}
+		
+		// displose created colors
+		for (Entry<RGB, Color> entry : AbstractDecorator.createdColors.entrySet()){
 			entry.getValue().dispose();
 		}
 	}
