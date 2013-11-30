@@ -81,7 +81,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
+    public static final int T__76=76;
     public static final int RULE_WS=10;
+    public static final int T__75=75;
+    public static final int T__74=74;
     public static final int T__73=73;
 
     // delegates
@@ -123,10 +126,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:12:7: ( ';' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:12:9: ';'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:12:7: ( 'profile' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:12:9: 'profile'
             {
-            match(';'); 
+            match("profile"); 
+
 
             }
 
@@ -143,10 +147,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:13:7: ( 'profile' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:13:9: 'profile'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:13:7: ( 'decoration' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:13:9: 'decoration'
             {
-            match("profile"); 
+            match("decoration"); 
 
 
             }
@@ -164,11 +168,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:14:7: ( 'decoration' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:14:9: 'decoration'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:14:7: ( '{' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:14:9: '{'
             {
-            match("decoration"); 
-
+            match('{'); 
 
             }
 
@@ -185,10 +188,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:15:7: ( '{' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:15:9: '{'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:15:7: ( '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:15:9: '}'
             {
-            match('{'); 
+            match('}'); 
 
             }
 
@@ -205,10 +208,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:16:7: ( '}' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:16:9: '}'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:16:7: ( 'image' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:16:9: 'image'
             {
-            match('}'); 
+            match("image"); 
+
 
             }
 
@@ -225,10 +229,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:17:7: ( 'icon' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:17:9: 'icon'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:17:7: ( 'location-uri' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:17:9: 'location-uri'
             {
-            match("icon"); 
+            match("location-uri"); 
 
 
             }
@@ -246,11 +250,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:18:7: ( 'location-uri' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:18:9: 'location-uri'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:18:7: ( '=' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:18:9: '='
             {
-            match("location-uri"); 
-
+            match('='); 
 
             }
 
@@ -267,10 +270,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:19:7: ( ':' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:19:9: ':'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:19:7: ( 'tooltip' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:19:9: 'tooltip'
             {
-            match(':'); 
+            match("tooltip"); 
+
 
             }
 
@@ -308,10 +312,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:21:7: ( 'connection' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:21:9: 'connection'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:21:7: ( 'color' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:21:9: 'color'
             {
-            match("connection"); 
+            match("color"); 
 
 
             }
@@ -329,10 +333,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:22:7: ( 'foreground' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:22:9: 'foreground'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:22:7: ( 'background' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:22:9: 'background'
             {
-            match("foreground"); 
+            match("background"); 
 
 
             }
@@ -350,10 +354,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:23:7: ( 'background' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:23:9: 'background'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:23:7: ( 'foreground' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:23:9: 'foreground'
             {
-            match("background"); 
+            match("foreground"); 
 
 
             }
@@ -371,10 +375,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:24:7: ( 'style' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:24:9: 'style'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:24:7: ( 'connection' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:24:9: 'connection'
             {
-            match("style"); 
+            match("connection"); 
 
 
             }
@@ -392,10 +396,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:25:7: ( 'size' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:25:9: 'size'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:25:7: ( 'foreground-color' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:25:9: 'foreground-color'
             {
-            match("size"); 
+            match("foreground-color"); 
 
 
             }
@@ -413,10 +417,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:26:7: ( 'direction' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:26:9: 'direction'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:26:7: ( 'background-color' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:26:9: 'background-color'
             {
-            match("direction"); 
+            match("background-color"); 
 
 
             }
@@ -434,11 +438,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:27:7: ( 'margin' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:27:9: 'margin'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:27:7: ( '+' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:27:9: '+'
             {
-            match("margin"); 
-
+            match('+'); 
 
             }
 
@@ -455,10 +458,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:28:7: ( 'color' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:28:9: 'color'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:28:7: ( 'line-style' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:28:9: 'line-style'
             {
-            match("color"); 
+            match("line-style"); 
 
 
             }
@@ -476,10 +479,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:29:7: ( 'RGB' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:29:9: 'RGB'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:29:7: ( 'size' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:29:9: 'size'
             {
-            match("RGB"); 
+            match("size"); 
 
 
             }
@@ -497,10 +500,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:30:7: ( '(' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:30:9: '('
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:30:7: ( 'direction' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:30:9: 'direction'
             {
-            match('('); 
+            match("direction"); 
+
 
             }
 
@@ -517,10 +521,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:31:7: ( ',' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:31:9: ','
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:31:7: ( 'margin' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:31:9: 'margin'
             {
-            match(','); 
+            match("margin"); 
+
 
             }
 
@@ -537,10 +542,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:32:7: ( ')' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:32:9: ')'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:32:7: ( 'RGB' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:32:9: 'RGB'
             {
-            match(')'); 
+            match("RGB"); 
+
 
             }
 
@@ -557,11 +563,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:33:7: ( 'active when' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:33:9: 'active when'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:33:7: ( '(' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:33:9: '('
             {
-            match("active when"); 
-
+            match('('); 
 
             }
 
@@ -578,10 +583,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:34:7: ( '-' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:34:9: '-'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:34:7: ( ',' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:34:9: ','
             {
-            match('-'); 
+            match(','); 
 
             }
 
@@ -598,10 +603,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:35:7: ( '.' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:35:9: '.'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:35:7: ( ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:35:9: ')'
             {
-            match('.'); 
+            match(')'); 
 
             }
 
@@ -618,10 +623,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:36:7: ( '==' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:36:9: '=='
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:36:7: ( 'active when' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:36:9: 'active when'
             {
-            match("=="); 
+            match("active when"); 
 
 
             }
@@ -639,11 +644,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:37:7: ( '!=' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:37:9: '!='
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:37:7: ( '-' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:37:9: '-'
             {
-            match("!="); 
-
+            match('-'); 
 
             }
 
@@ -660,10 +664,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:38:7: ( '>' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:38:9: '>'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:38:7: ( '.' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:38:9: '.'
             {
-            match('>'); 
+            match('.'); 
 
             }
 
@@ -680,10 +684,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:39:7: ( '>=' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:39:9: '>='
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:39:7: ( '==' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:39:9: '=='
             {
-            match(">="); 
+            match("=="); 
 
 
             }
@@ -701,10 +705,11 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:40:7: ( '<' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:40:9: '<'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:40:7: ( '!=' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:40:9: '!='
             {
-            match('<'); 
+            match("!="); 
+
 
             }
 
@@ -721,11 +726,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:41:7: ( '<=' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:41:9: '<='
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:41:7: ( '>' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:41:9: '>'
             {
-            match("<="); 
-
+            match('>'); 
 
             }
 
@@ -742,10 +746,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:42:7: ( 'all' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:42:9: 'all'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:42:7: ( '>=' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:42:9: '>='
             {
-            match("all"); 
+            match(">="); 
 
 
             }
@@ -763,11 +767,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:43:7: ( 'any' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:43:9: 'any'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:43:7: ( '<' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:43:9: '<'
             {
-            match("any"); 
-
+            match('<'); 
 
             }
 
@@ -784,10 +787,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:44:7: ( 'solid' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:44:9: 'solid'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:44:7: ( '<=' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:44:9: '<='
             {
-            match("solid"); 
+            match("<="); 
 
 
             }
@@ -805,10 +808,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:45:7: ( 'dots' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:45:9: 'dots'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:45:7: ( 'all' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:45:9: 'all'
             {
-            match("dots"); 
+            match("all"); 
 
 
             }
@@ -826,10 +829,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:46:7: ( 'dashes' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:46:9: 'dashes'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:46:7: ( 'any' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:46:9: 'any'
             {
-            match("dashes"); 
+            match("any"); 
 
 
             }
@@ -847,10 +850,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:47:7: ( 'dash_dots' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:47:9: 'dash_dots'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:47:7: ( 'solid' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:47:9: 'solid'
             {
-            match("dash_dots"); 
+            match("solid"); 
 
 
             }
@@ -868,10 +871,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:48:7: ( 'dash_dot_dot' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:48:9: 'dash_dot_dot'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:48:7: ( 'dot' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:48:9: 'dot'
             {
-            match("dash_dot_dot"); 
+            match("dot"); 
 
 
             }
@@ -889,10 +892,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:49:7: ( 'red' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:49:9: 'red'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:49:7: ( 'dash' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:49:9: 'dash'
             {
-            match("red"); 
+            match("dash"); 
 
 
             }
@@ -910,10 +913,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:50:7: ( 'black' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:50:9: 'black'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:50:7: ( 'dash_dot' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:50:9: 'dash_dot'
             {
-            match("black"); 
+            match("dash_dot"); 
 
 
             }
@@ -931,10 +934,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:51:7: ( 'white' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:51:9: 'white'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:51:7: ( 'dash_dot_dot' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:51:9: 'dash_dot_dot'
             {
-            match("white"); 
+            match("dash_dot_dot"); 
 
 
             }
@@ -952,10 +955,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:52:7: ( 'green' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:52:9: 'green'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:52:7: ( 'red' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:52:9: 'red'
             {
-            match("green"); 
+            match("red"); 
 
 
             }
@@ -973,10 +976,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:53:7: ( 'green_light' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:53:9: 'green_light'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:53:7: ( 'black' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:53:9: 'black'
             {
-            match("green_light"); 
+            match("black"); 
 
 
             }
@@ -994,10 +997,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:54:7: ( 'green_dark' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:54:9: 'green_dark'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:54:7: ( 'white' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:54:9: 'white'
             {
-            match("green_dark"); 
+            match("white"); 
 
 
             }
@@ -1015,10 +1018,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:55:7: ( 'blue' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:55:9: 'blue'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:55:7: ( 'green' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:55:9: 'green'
             {
-            match("blue"); 
+            match("green"); 
 
 
             }
@@ -1036,10 +1039,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:56:7: ( 'blue_light' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:56:9: 'blue_light'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:56:7: ( 'green_light' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:56:9: 'green_light'
             {
-            match("blue_light"); 
+            match("green_light"); 
 
 
             }
@@ -1057,10 +1060,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:57:7: ( 'blue_dark' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:57:9: 'blue_dark'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:57:7: ( 'green_dark' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:57:9: 'green_dark'
             {
-            match("blue_dark"); 
+            match("green_dark"); 
 
 
             }
@@ -1078,10 +1081,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:58:7: ( 'gray' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:58:9: 'gray'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:58:7: ( 'blue' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:58:9: 'blue'
             {
-            match("gray"); 
+            match("blue"); 
 
 
             }
@@ -1099,10 +1102,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:59:7: ( 'gray_light' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:59:9: 'gray_light'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:59:7: ( 'blue_light' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:59:9: 'blue_light'
             {
-            match("gray_light"); 
+            match("blue_light"); 
 
 
             }
@@ -1120,10 +1123,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:60:7: ( 'gray_dark' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:60:9: 'gray_dark'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:60:7: ( 'blue_dark' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:60:9: 'blue_dark'
             {
-            match("gray_dark"); 
+            match("blue_dark"); 
 
 
             }
@@ -1141,10 +1144,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:61:7: ( 'orange' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:61:9: 'orange'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:61:7: ( 'gray' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:61:9: 'gray'
             {
-            match("orange"); 
+            match("gray"); 
 
 
             }
@@ -1162,10 +1165,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:7: ( 'yellow' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:9: 'yellow'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:7: ( 'gray_light' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:9: 'gray_light'
             {
-            match("yellow"); 
+            match("gray_light"); 
 
 
             }
@@ -1183,10 +1186,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:7: ( 'cyan' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:9: 'cyan'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:7: ( 'gray_dark' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:9: 'gray_dark'
             {
-            match("cyan"); 
+            match("gray_dark"); 
 
 
             }
@@ -1204,10 +1207,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:7: ( 'center' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:9: 'center'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:7: ( 'orange' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:9: 'orange'
             {
-            match("center"); 
+            match("orange"); 
 
 
             }
@@ -1225,10 +1228,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:65:7: ( 'north' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:65:9: 'north'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:65:7: ( 'yellow' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:65:9: 'yellow'
             {
-            match("north"); 
+            match("yellow"); 
 
 
             }
@@ -1246,10 +1249,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:66:7: ( 'south' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:66:9: 'south'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:66:7: ( 'cyan' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:66:9: 'cyan'
             {
-            match("south"); 
+            match("cyan"); 
 
 
             }
@@ -1267,10 +1270,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:67:7: ( 'west' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:67:9: 'west'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:67:7: ( 'center' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:67:9: 'center'
             {
-            match("west"); 
+            match("center"); 
 
 
             }
@@ -1288,10 +1291,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:68:7: ( 'east' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:68:9: 'east'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:68:7: ( 'north' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:68:9: 'north'
             {
-            match("east"); 
+            match("north"); 
 
 
             }
@@ -1309,10 +1312,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:69:7: ( 'north_east' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:69:9: 'north_east'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:69:7: ( 'south' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:69:9: 'south'
             {
-            match("north_east"); 
+            match("south"); 
 
 
             }
@@ -1330,10 +1333,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:70:7: ( 'north_west' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:70:9: 'north_west'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:70:7: ( 'west' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:70:9: 'west'
             {
-            match("north_west"); 
+            match("west"); 
 
 
             }
@@ -1351,10 +1354,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:7: ( 'south_east' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:9: 'south_east'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:7: ( 'east' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:9: 'east'
             {
-            match("south_east"); 
+            match("east"); 
 
 
             }
@@ -1372,10 +1375,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:72:7: ( 'south_west' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:72:9: 'south_west'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:72:7: ( 'north_east' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:72:9: 'north_east'
             {
-            match("south_west"); 
+            match("north_east"); 
 
 
             }
@@ -1388,15 +1391,78 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
     }
     // $ANTLR end "T__73"
 
+    // $ANTLR start "T__74"
+    public final void mT__74() throws RecognitionException {
+        try {
+            int _type = T__74;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:73:7: ( 'north_west' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:73:9: 'north_west'
+            {
+            match("north_west"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__74"
+
+    // $ANTLR start "T__75"
+    public final void mT__75() throws RecognitionException {
+        try {
+            int _type = T__75;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:74:7: ( 'south_east' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:74:9: 'south_east'
+            {
+            match("south_east"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__75"
+
+    // $ANTLR start "T__76"
+    public final void mT__76() throws RecognitionException {
+        try {
+            int _type = T__76;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:75:7: ( 'south_west' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:75:9: 'south_west'
+            {
+            match("south_west"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__76"
+
     // $ANTLR start "RULE_BOOLEAN"
     public final void mRULE_BOOLEAN() throws RecognitionException {
         try {
             int _type = RULE_BOOLEAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1784:14: ( ( 'true' | 'false' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1784:16: ( 'true' | 'false' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:14: ( ( 'true' | 'false' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:16: ( 'true' | 'false' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1784:16: ( 'true' | 'false' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:16: ( 'true' | 'false' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1414,7 +1480,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1784:17: 'true'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:17: 'true'
                     {
                     match("true"); 
 
@@ -1422,7 +1488,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1784:24: 'false'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:24: 'false'
                     {
                     match("false"); 
 
@@ -1448,10 +1514,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1786:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1786:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2458:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2458:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1786:11: ( '^' )?
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2458:11: ( '^' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1460,7 +1526,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1786:11: '^'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2458:11: '^'
                     {
                     match('^'); 
 
@@ -1478,7 +1544,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1786:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2458:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -1527,10 +1593,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1788:10: ( ( '0' .. '9' )+ )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1788:12: ( '0' .. '9' )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2460:10: ( ( '0' .. '9' )+ )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2460:12: ( '0' .. '9' )+
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1788:12: ( '0' .. '9' )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2460:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -1544,7 +1610,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1788:13: '0' .. '9'
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2460:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1576,10 +1642,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1597,10 +1663,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1616,7 +1682,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1632,7 +1698,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1657,10 +1723,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -1676,7 +1742,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1692,7 +1758,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1790:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2462:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1735,12 +1801,12 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1792:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1792:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2464:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2464:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1792:24: ( options {greedy=false; } : . )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2464:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -1765,7 +1831,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1792:52: .
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2464:52: .
             	    {
             	    matchAny(); 
 
@@ -1795,12 +1861,12 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -1813,7 +1879,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1833,7 +1899,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:40: ( ( '\\r' )? '\\n' )?
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:40: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1842,9 +1908,9 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:41: ( '\\r' )? '\\n'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:41: ( '\\r' )?
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:41: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -1853,7 +1919,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1794:41: '\\r'
+                            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2466:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1885,10 +1951,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1796:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1796:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2468:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2468:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1796:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2468:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt12=0;
             loop12:
             do {
@@ -1942,8 +2008,8 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1798:16: ( . )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1798:18: .
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2470:16: ( . )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2470:18: .
             {
             matchAny(); 
 
@@ -1958,8 +2024,8 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt13=70;
+        // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt13=73;
         alt13 = dfa13.predict(input);
         switch (alt13) {
             case 1 :
@@ -2397,56 +2463,77 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                 }
                 break;
             case 63 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:382: RULE_BOOLEAN
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:382: T__74
+                {
+                mT__74(); 
+
+                }
+                break;
+            case 64 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:388: T__75
+                {
+                mT__75(); 
+
+                }
+                break;
+            case 65 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:394: T__76
+                {
+                mT__76(); 
+
+                }
+                break;
+            case 66 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:400: RULE_BOOLEAN
                 {
                 mRULE_BOOLEAN(); 
 
                 }
                 break;
-            case 64 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:395: RULE_ID
+            case 67 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:413: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 65 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:403: RULE_INT
+            case 68 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:421: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 66 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:412: RULE_STRING
+            case 69 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:430: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 67 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:424: RULE_ML_COMMENT
+            case 70 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:442: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 68 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:440: RULE_SL_COMMENT
+            case 71 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:458: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 69 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:456: RULE_WS
+            case 72 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:474: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 70 :
-                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:464: RULE_ANY_OTHER
+            case 73 :
+                // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1:482: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2460,121 +2547,124 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
     protected DFA13 dfa13 = new DFA13(this);
     static final String DFA13_eotS =
-        "\1\uffff\1\53\1\uffff\2\53\2\uffff\1\53\1\uffff\6\53\3\uffff\1\53"+
-        "\2\uffff\2\50\1\116\1\120\10\53\1\50\2\uffff\3\50\2\uffff\2\53\2"+
-        "\uffff\5\53\2\uffff\1\53\1\uffff\15\53\3\uffff\3\53\10\uffff\11"+
-        "\53\5\uffff\27\53\1\u009b\1\53\1\u009d\1\u009e\1\u009f\12\53\1\u00aa"+
-        "\3\53\1\u00ae\5\53\1\u00b6\2\53\1\u00b9\4\53\1\u00be\3\53\1\uffff"+
-        "\1\53\3\uffff\1\53\1\u00c4\1\53\1\u00c7\3\53\1\u00cb\1\u00cc\1\53"+
-        "\1\uffff\3\53\1\uffff\5\53\1\u00d6\1\53\1\uffff\1\53\1\u00da\1\uffff"+
-        "\2\53\1\u00cc\1\u00dd\1\uffff\1\u00de\1\u00e0\2\53\1\u00e3\1\uffff"+
-        "\1\u00e5\1\53\1\uffff\2\53\1\u00eb\2\uffff\4\53\1\u00f0\2\53\1\u00f3"+
-        "\1\53\1\uffff\3\53\1\uffff\1\u00f8\1\53\2\uffff\1\53\1\uffff\1\u00fc"+
-        "\1\53\1\uffff\1\53\1\uffff\2\53\1\u0102\1\u0103\1\53\2\uffff\1\u0106"+
-        "\2\53\1\uffff\2\53\1\uffff\4\53\1\uffff\3\53\2\uffff\4\53\2\uffff"+
-        "\2\53\1\uffff\22\53\1\u012b\1\u012c\1\53\1\uffff\2\53\1\u0130\7"+
-        "\53\1\u0138\2\53\1\u013b\2\uffff\1\53\1\u013d\1\u013e\1\uffff\1"+
-        "\u013f\1\u0140\1\u0141\1\u0142\1\53\1\u0144\1\u0145\1\uffff\1\u0146"+
-        "\1\u0147\1\uffff\1\53\6\uffff\1\u0149\4\uffff\1\u014a\2\uffff";
+        "\1\uffff\3\51\2\uffff\1\51\1\64\4\51\1\uffff\3\51\3\uffff\1\51\2"+
+        "\uffff\1\47\1\116\1\120\7\51\1\47\2\uffff\3\47\2\uffff\1\51\1\uffff"+
+        "\5\51\2\uffff\2\51\2\uffff\12\51\1\uffff\4\51\3\uffff\3\51\7\uffff"+
+        "\10\51\5\uffff\5\51\1\u0089\23\51\1\u009d\1\51\1\u009f\1\u00a0\1"+
+        "\u00a1\15\51\1\uffff\1\u00b0\3\51\1\u00b4\3\51\1\u00b9\2\51\1\u00bc"+
+        "\3\51\1\u00c0\3\51\1\uffff\1\51\3\uffff\1\51\1\u00c6\1\51\1\u00c9"+
+        "\3\51\1\u00cd\1\51\1\u00cf\4\51\1\uffff\1\51\1\uffff\1\51\1\uffff"+
+        "\2\51\1\u00d8\1\51\1\uffff\1\u00db\1\51\1\uffff\2\51\1\u00b4\1\uffff"+
+        "\1\u00df\1\u00e1\2\51\1\u00e4\1\uffff\1\u00e6\1\51\1\uffff\2\51"+
+        "\1\u00ec\1\uffff\1\51\1\uffff\6\51\1\u00f4\1\51\1\uffff\2\51\1\uffff"+
+        "\1\51\1\u00f9\1\51\1\uffff\1\51\1\uffff\1\u00fd\1\51\1\uffff\1\51"+
+        "\1\uffff\2\51\1\u0103\1\u0104\1\51\2\uffff\1\u0107\4\51\1\u010c"+
+        "\1\uffff\4\51\1\uffff\3\51\2\uffff\4\51\2\uffff\2\51\1\uffff\2\51"+
+        "\1\u011d\1\51\1\uffff\16\51\1\u012d\1\51\2\uffff\2\51\1\u0131\7"+
+        "\51\1\u0139\2\51\1\u013c\1\uffff\1\51\1\u013f\1\u0140\1\uffff\1"+
+        "\u0141\1\u0143\1\u0144\1\u0145\1\51\1\u0147\1\u0148\1\uffff\1\u0149"+
+        "\1\u014a\1\uffff\1\51\10\uffff\1\u014c\4\uffff\1\u014d\2\uffff";
     static final String DFA13_eofS =
-        "\u014b\uffff";
+        "\u014e\uffff";
     static final String DFA13_minS =
-        "\1\0\1\143\1\uffff\1\162\1\141\2\uffff\1\157\1\uffff\1\141\1\145"+
-        "\1\141\1\151\1\141\1\107\3\uffff\1\143\2\uffff\4\75\2\145\2\162"+
-        "\1\145\1\157\1\141\1\162\1\101\2\uffff\2\0\1\52\2\uffff\1\160\1"+
-        "\157\2\uffff\1\157\1\143\1\162\1\164\1\163\2\uffff\1\143\1\uffff"+
-        "\1\162\1\143\1\141\1\154\1\141\1\156\1\162\1\154\1\171\1\172\1\154"+
-        "\1\162\1\102\3\uffff\1\164\1\154\1\171\10\uffff\1\144\1\151\1\163"+
-        "\2\141\1\154\1\162\1\163\1\165\5\uffff\1\157\1\156\1\146\1\157\1"+
-        "\145\1\163\1\150\1\141\1\144\1\153\1\143\1\145\1\156\1\157\1\156"+
-        "\1\164\1\145\1\163\1\154\1\145\1\151\1\164\1\147\1\60\1\151\3\60"+
-        "\2\164\1\145\1\171\1\156\1\154\2\164\1\145\1\162\1\60\1\151\1\162"+
-        "\1\143\1\60\1\137\1\164\1\145\1\147\1\153\1\60\1\145\1\162\1\60"+
-        "\1\145\1\147\2\145\1\60\1\144\1\150\1\151\1\uffff\1\166\3\uffff"+
-        "\1\145\1\60\1\156\1\60\1\147\1\157\1\150\2\60\1\164\1\uffff\1\154"+
-        "\1\141\1\164\1\uffff\1\163\1\144\1\151\2\162\1\60\1\144\1\uffff"+
-        "\1\143\1\60\1\uffff\2\162\2\60\1\uffff\2\60\1\156\1\145\1\60\1\uffff"+
-        "\1\60\1\144\1\uffff\1\145\1\167\1\60\2\uffff\1\40\1\145\1\164\1"+
-        "\151\1\60\2\157\1\60\1\157\1\uffff\1\151\1\141\1\164\1\uffff\1\60"+
-        "\1\157\2\uffff\1\145\1\uffff\1\60\1\40\1\uffff\1\144\1\uffff\1\151"+
-        "\1\141\2\60\1\145\2\uffff\1\60\1\151\1\157\1\uffff\1\164\1\156\1"+
-        "\uffff\1\165\1\147\1\162\1\151\1\uffff\1\165\1\141\1\145\2\uffff"+
-        "\1\151\1\141\1\147\1\162\2\uffff\1\141\1\145\1\uffff\1\157\1\156"+
-        "\1\137\1\55\1\156\1\150\1\153\1\157\1\156\2\163\1\147\1\162\1\150"+
-        "\1\153\2\163\1\156\2\60\1\144\1\uffff\1\144\1\164\1\60\1\156\1\144"+
-        "\2\164\1\150\1\153\1\164\1\60\2\164\1\60\2\uffff\1\157\2\60\1\uffff"+
-        "\4\60\1\164\2\60\1\uffff\2\60\1\uffff\1\164\6\uffff\1\60\4\uffff"+
+        "\1\0\1\155\1\162\1\141\2\uffff\1\151\1\75\1\157\1\141\1\145\1\141"+
+        "\1\uffff\1\151\1\141\1\107\3\uffff\1\143\2\uffff\3\75\2\145\2\162"+
+        "\1\145\1\157\1\141\1\101\2\uffff\2\0\1\52\2\uffff\1\141\1\uffff"+
+        "\1\157\1\143\1\162\1\164\1\163\2\uffff\1\143\1\156\2\uffff\1\157"+
+        "\1\165\1\162\1\143\1\141\1\154\1\141\1\156\1\162\1\154\1\uffff\1"+
+        "\172\1\154\1\162\1\102\3\uffff\1\164\1\154\1\171\7\uffff\1\144\1"+
+        "\151\1\163\2\141\1\154\1\162\1\163\5\uffff\1\157\1\147\1\146\1\157"+
+        "\1\145\1\60\1\150\1\141\1\145\1\154\1\145\1\144\1\153\1\143\1\145"+
+        "\1\157\2\156\1\164\1\145\1\163\1\145\1\151\1\164\1\147\1\60\1\151"+
+        "\3\60\2\164\1\145\1\171\1\156\1\154\2\164\1\162\1\145\1\151\1\162"+
+        "\1\143\1\uffff\1\60\1\164\1\55\1\164\1\60\1\145\1\147\1\153\1\60"+
+        "\1\162\1\145\1\60\1\145\1\147\1\145\1\60\1\144\1\150\1\151\1\uffff"+
+        "\1\166\3\uffff\1\145\1\60\1\156\1\60\1\147\1\157\1\150\1\60\1\164"+
+        "\1\60\1\154\1\141\1\164\1\144\1\uffff\1\151\1\uffff\1\151\1\uffff"+
+        "\2\162\1\60\1\144\1\uffff\1\60\1\143\1\uffff\2\162\1\60\1\uffff"+
+        "\2\60\1\156\1\145\1\60\1\uffff\1\60\1\144\1\uffff\1\145\1\167\1"+
+        "\60\1\uffff\1\40\1\uffff\1\145\1\164\1\151\2\157\1\160\1\60\1\157"+
+        "\1\uffff\1\151\1\141\1\uffff\1\164\1\60\1\157\1\uffff\1\145\1\uffff"+
+        "\1\60\1\40\1\uffff\1\144\1\uffff\1\151\1\141\2\60\1\145\2\uffff"+
+        "\1\60\1\151\1\157\1\164\1\156\1\60\1\uffff\1\165\1\147\1\162\1\151"+
+        "\1\uffff\1\165\1\141\1\145\2\uffff\1\151\1\141\1\147\1\162\2\uffff"+
+        "\1\141\1\145\1\uffff\1\157\1\156\1\60\1\55\1\uffff\1\156\1\150\1"+
+        "\153\1\157\1\156\2\163\1\147\1\162\1\150\1\153\2\163\1\156\1\60"+
+        "\1\144\2\uffff\1\144\1\164\1\60\1\156\1\144\2\164\1\150\1\153\1"+
+        "\164\1\60\2\164\1\60\1\uffff\1\157\1\55\1\60\1\uffff\1\60\1\55\2"+
+        "\60\1\164\2\60\1\uffff\2\60\1\uffff\1\164\10\uffff\1\60\4\uffff"+
         "\1\60\2\uffff";
     static final String DFA13_maxS =
-        "\1\uffff\1\155\1\uffff\1\162\1\157\2\uffff\1\157\1\uffff\1\157\1"+
-        "\171\1\157\1\164\1\141\1\107\3\uffff\1\156\2\uffff\4\75\1\145\1"+
-        "\150\2\162\1\145\1\157\1\141\1\162\1\172\2\uffff\2\uffff\1\57\2"+
-        "\uffff\1\160\1\157\2\uffff\1\157\1\143\1\162\1\164\1\163\2\uffff"+
-        "\1\143\1\uffff\1\162\1\143\1\165\1\156\1\141\1\156\1\162\1\154\1"+
-        "\171\1\172\1\165\1\162\1\102\3\uffff\1\164\1\154\1\171\10\uffff"+
-        "\1\144\1\151\1\163\1\145\1\141\1\154\1\162\1\163\1\165\5\uffff\1"+
-        "\157\1\156\1\146\1\157\1\145\1\163\1\150\1\141\1\144\1\153\1\143"+
-        "\1\145\1\156\1\157\1\156\1\164\1\145\1\163\1\154\1\145\1\151\1\164"+
-        "\1\147\1\172\1\151\3\172\2\164\1\145\1\171\1\156\1\154\2\164\1\145"+
-        "\1\162\1\172\1\151\1\162\1\143\1\172\1\145\1\164\1\145\1\147\1\153"+
-        "\1\172\1\145\1\162\1\172\1\145\1\147\2\145\1\172\1\144\1\150\1\151"+
-        "\1\uffff\1\166\3\uffff\1\145\1\172\1\156\1\172\1\147\1\157\1\150"+
-        "\2\172\1\164\1\uffff\1\154\1\141\1\164\1\uffff\1\163\1\144\1\151"+
-        "\2\162\1\172\1\154\1\uffff\1\143\1\172\1\uffff\2\162\2\172\1\uffff"+
-        "\2\172\1\156\1\145\1\172\1\uffff\1\172\1\154\1\uffff\1\145\1\167"+
-        "\1\172\2\uffff\1\40\1\145\1\164\1\151\1\172\2\157\1\172\1\157\1"+
-        "\uffff\1\151\1\141\1\164\1\uffff\1\172\1\157\2\uffff\1\167\1\uffff"+
-        "\1\172\1\40\1\uffff\1\154\1\uffff\1\151\1\141\2\172\1\167\2\uffff"+
-        "\1\172\1\151\1\157\1\uffff\1\164\1\156\1\uffff\1\165\1\147\1\162"+
-        "\1\151\1\uffff\1\165\1\141\1\145\2\uffff\1\151\1\141\1\147\1\162"+
-        "\2\uffff\1\141\1\145\1\uffff\1\157\1\156\1\163\1\55\1\156\1\150"+
-        "\1\153\1\157\1\156\2\163\1\147\1\162\1\150\1\153\2\163\1\156\2\172"+
-        "\1\144\1\uffff\1\144\1\164\1\172\1\156\1\144\2\164\1\150\1\153\1"+
-        "\164\1\172\2\164\1\172\2\uffff\1\157\2\172\1\uffff\4\172\1\164\2"+
-        "\172\1\uffff\2\172\1\uffff\1\164\6\uffff\1\172\4\uffff\1\172\2\uffff";
+        "\1\uffff\1\155\1\162\1\157\2\uffff\1\157\1\75\1\162\1\157\1\171"+
+        "\1\157\1\uffff\1\157\1\141\1\107\3\uffff\1\156\2\uffff\3\75\1\145"+
+        "\1\150\2\162\1\145\1\157\1\141\1\172\2\uffff\2\uffff\1\57\2\uffff"+
+        "\1\160\1\uffff\1\157\1\143\1\162\1\164\1\163\2\uffff\1\143\1\156"+
+        "\2\uffff\1\157\1\165\1\162\1\143\1\165\1\156\1\141\1\156\1\162\1"+
+        "\154\1\uffff\1\172\1\165\1\162\1\102\3\uffff\1\164\1\154\1\171\7"+
+        "\uffff\1\144\1\151\1\163\1\145\1\141\1\154\1\162\1\163\5\uffff\1"+
+        "\157\1\147\1\146\1\157\1\145\1\172\1\150\1\141\1\145\1\154\1\145"+
+        "\1\144\1\153\1\143\1\145\1\157\2\156\1\164\1\145\1\163\1\145\1\151"+
+        "\1\164\1\147\1\172\1\151\3\172\2\164\1\145\1\171\1\156\1\154\2\164"+
+        "\1\162\1\145\1\151\1\162\1\143\1\uffff\1\172\1\164\1\55\1\164\1"+
+        "\172\1\145\1\147\1\153\1\172\1\162\1\145\1\172\1\145\1\147\1\145"+
+        "\1\172\1\144\1\150\1\151\1\uffff\1\166\3\uffff\1\145\1\172\1\156"+
+        "\1\172\1\147\1\157\1\150\1\172\1\164\1\172\1\154\1\141\1\164\1\144"+
+        "\1\uffff\1\151\1\uffff\1\151\1\uffff\2\162\1\172\1\154\1\uffff\1"+
+        "\172\1\143\1\uffff\2\162\1\172\1\uffff\2\172\1\156\1\145\1\172\1"+
+        "\uffff\1\172\1\154\1\uffff\1\145\1\167\1\172\1\uffff\1\40\1\uffff"+
+        "\1\145\1\164\1\151\2\157\1\160\1\172\1\157\1\uffff\1\151\1\141\1"+
+        "\uffff\1\164\1\172\1\157\1\uffff\1\167\1\uffff\1\172\1\40\1\uffff"+
+        "\1\154\1\uffff\1\151\1\141\2\172\1\167\2\uffff\1\172\1\151\1\157"+
+        "\1\164\1\156\1\172\1\uffff\1\165\1\147\1\162\1\151\1\uffff\1\165"+
+        "\1\141\1\145\2\uffff\1\151\1\141\1\147\1\162\2\uffff\1\141\1\145"+
+        "\1\uffff\1\157\1\156\1\172\1\55\1\uffff\1\156\1\150\1\153\1\157"+
+        "\1\156\2\163\1\147\1\162\1\150\1\153\2\163\1\156\1\172\1\144\2\uffff"+
+        "\1\144\1\164\1\172\1\156\1\144\2\164\1\150\1\153\1\164\1\172\2\164"+
+        "\1\172\1\uffff\1\157\2\172\1\uffff\4\172\1\164\2\172\1\uffff\2\172"+
+        "\1\uffff\1\164\10\uffff\1\172\4\uffff\1\172\2\uffff";
     static final String DFA13_acceptS =
-        "\2\uffff\1\2\2\uffff\1\5\1\6\1\uffff\1\11\6\uffff\1\24\1\25\1\26"+
-        "\1\uffff\1\30\1\31\15\uffff\1\100\1\101\3\uffff\1\105\1\106\2\uffff"+
-        "\1\100\1\2\5\uffff\1\5\1\6\1\uffff\1\11\15\uffff\1\24\1\25\1\26"+
-        "\3\uffff\1\30\1\31\1\32\1\33\1\35\1\34\1\37\1\36\11\uffff\1\101"+
-        "\1\102\1\103\1\104\1\105\74\uffff\1\23\1\uffff\1\40\1\41\1\47\12"+
-        "\uffff\1\7\3\uffff\1\43\7\uffff\1\55\2\uffff\1\65\4\uffff\1\17\5"+
-        "\uffff\1\71\2\uffff\1\60\3\uffff\1\72\1\77\11\uffff\1\50\3\uffff"+
-        "\1\22\2\uffff\1\16\1\42\1\uffff\1\70\2\uffff\1\51\1\uffff\1\52\5"+
-        "\uffff\1\67\1\1\3\uffff\1\44\2\uffff\1\12\4\uffff\1\66\3\uffff\1"+
-        "\21\1\27\4\uffff\1\63\1\64\2\uffff\1\3\25\uffff\1\10\16\uffff\1"+
-        "\20\1\45\3\uffff\1\57\7\uffff\1\62\2\uffff\1\4\1\uffff\1\15\1\56"+
-        "\1\13\1\14\1\75\1\76\1\uffff\1\54\1\61\1\73\1\74\1\uffff\1\53\1"+
-        "\46";
+        "\4\uffff\1\4\1\5\6\uffff\1\21\3\uffff\1\27\1\30\1\31\1\uffff\1\33"+
+        "\1\34\13\uffff\1\103\1\104\3\uffff\1\110\1\111\1\uffff\1\103\5\uffff"+
+        "\1\4\1\5\2\uffff\1\35\1\10\12\uffff\1\21\4\uffff\1\27\1\30\1\31"+
+        "\3\uffff\1\33\1\34\1\36\1\40\1\37\1\42\1\41\10\uffff\1\104\1\105"+
+        "\1\106\1\107\1\110\53\uffff\1\46\23\uffff\1\26\1\uffff\1\43\1\44"+
+        "\1\52\16\uffff\1\47\1\uffff\1\22\1\uffff\1\102\4\uffff\1\60\2\uffff"+
+        "\1\70\3\uffff\1\23\5\uffff\1\74\2\uffff\1\63\3\uffff\1\75\1\uffff"+
+        "\1\6\10\uffff\1\53\2\uffff\1\13\3\uffff\1\45\1\uffff\1\73\2\uffff"+
+        "\1\54\1\uffff\1\55\5\uffff\1\72\1\1\6\uffff\1\12\4\uffff\1\71\3"+
+        "\uffff\1\25\1\32\4\uffff\1\66\1\67\2\uffff\1\2\4\uffff\1\11\20\uffff"+
+        "\1\50\1\7\16\uffff\1\24\3\uffff\1\62\7\uffff\1\65\2\uffff\1\3\1"+
+        "\uffff\1\20\1\14\1\61\1\16\1\17\1\15\1\100\1\101\1\uffff\1\57\1"+
+        "\64\1\76\1\77\1\uffff\1\56\1\51";
     static final String DFA13_specialS =
-        "\1\0\43\uffff\1\1\1\2\u0125\uffff}>";
+        "\1\1\42\uffff\1\2\1\0\u0129\uffff}>";
     static final String[] DFA13_transitionS = {
-            "\11\50\2\47\2\50\1\47\22\50\1\47\1\26\1\44\4\50\1\45\1\17\1"+
-            "\21\2\50\1\20\1\23\1\24\1\46\12\43\1\10\1\2\1\30\1\25\1\27\2"+
-            "\50\21\42\1\16\10\42\3\50\1\41\1\42\1\50\1\22\1\11\1\12\1\4"+
-            "\1\37\1\13\1\33\1\42\1\1\2\42\1\7\1\15\1\36\1\34\1\3\1\42\1"+
-            "\31\1\14\1\40\2\42\1\32\1\42\1\35\1\42\1\5\1\50\1\6\uff82\50",
-            "\1\52\11\uffff\1\51",
+            "\11\47\2\46\2\47\1\46\22\47\1\46\1\26\1\43\4\47\1\44\1\20\1"+
+            "\22\1\47\1\14\1\21\1\24\1\25\1\45\12\42\2\47\1\30\1\7\1\27\2"+
+            "\47\21\41\1\17\10\41\3\47\1\40\1\41\1\47\1\23\1\11\1\12\1\3"+
+            "\1\37\1\13\1\33\1\41\1\1\2\41\1\6\1\16\1\36\1\34\1\2\1\41\1"+
+            "\31\1\15\1\10\2\41\1\32\1\41\1\35\1\41\1\4\1\47\1\5\uff82\47",
+            "\1\50",
+            "\1\52",
+            "\1\56\3\uffff\1\53\3\uffff\1\54\5\uffff\1\55",
             "",
-            "\1\55",
-            "\1\61\3\uffff\1\56\3\uffff\1\57\5\uffff\1\60",
             "",
+            "\1\62\5\uffff\1\61",
+            "\1\63",
+            "\1\65\2\uffff\1\66",
+            "\1\70\12\uffff\1\71\2\uffff\1\67",
+            "\1\74\11\uffff\1\72\11\uffff\1\73",
+            "\1\76\15\uffff\1\75",
             "",
-            "\1\64",
-            "",
-            "\1\67\12\uffff\1\70\2\uffff\1\66",
-            "\1\73\11\uffff\1\71\11\uffff\1\72",
-            "\1\75\15\uffff\1\74",
-            "\1\77\5\uffff\1\100\4\uffff\1\76",
-            "\1\101",
+            "\1\100\5\uffff\1\101",
             "\1\102",
+            "\1\103",
             "",
             "",
             "",
-            "\1\106\10\uffff\1\107\1\uffff\1\110",
+            "\1\107\10\uffff\1\110\1\uffff\1\111",
             "",
             "",
-            "\1\113",
             "\1\114",
             "\1\115",
             "\1\117",
@@ -2585,60 +2675,59 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "\1\126",
             "\1\127",
             "\1\130",
-            "\1\131",
-            "\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "",
-            "\0\133",
-            "\0\133",
-            "\1\134\4\uffff\1\135",
+            "\0\132",
+            "\0\132",
+            "\1\133\4\uffff\1\134",
             "",
             "",
-            "\1\137",
+            "\1\137\16\uffff\1\136",
+            "",
             "\1\140",
-            "",
-            "",
             "\1\141",
             "\1\142",
             "\1\143",
             "\1\144",
+            "",
+            "",
             "\1\145",
-            "",
-            "",
             "\1\146",
+            "",
             "",
             "\1\147",
             "\1\150",
-            "\1\151\23\uffff\1\152",
-            "\1\154\1\uffff\1\153",
-            "\1\155",
-            "\1\156",
+            "\1\151",
+            "\1\152",
+            "\1\153\23\uffff\1\154",
+            "\1\155\1\uffff\1\156",
             "\1\157",
             "\1\160",
             "\1\161",
             "\1\162",
-            "\1\163\10\uffff\1\164",
-            "\1\165",
+            "",
+            "\1\163",
+            "\1\164\10\uffff\1\165",
             "\1\166",
-            "",
-            "",
-            "",
             "\1\167",
+            "",
+            "",
+            "",
             "\1\170",
             "\1\171",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\172",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\173",
             "\1\174",
-            "\1\176\3\uffff\1\175",
-            "\1\177",
+            "\1\175",
+            "\1\177\3\uffff\1\176",
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
@@ -2653,7 +2742,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "\1\u0086",
             "\1\u0087",
             "\1\u0088",
-            "\1\u0089",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u008a",
             "\1\u008b",
             "\1\u008c",
@@ -2671,13 +2760,13 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "\1\u0098",
             "\1\u0099",
             "\1\u009a",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u009b",
             "\1\u009c",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00a0",
-            "\1\u00a1",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u009e",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00a2",
             "\1\u00a3",
             "\1\u00a4",
@@ -2686,142 +2775,143 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "\1\u00a7",
             "\1\u00a8",
             "\1\u00a9",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u00aa",
             "\1\u00ab",
             "\1\u00ac",
             "\1\u00ad",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00b0\5\uffff\1\u00af",
+            "\1\u00ae",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\u00af\1\uffff\32\51",
             "\1\u00b1",
             "\1\u00b2",
             "\1\u00b3",
-            "\1\u00b4",
-            "\12\53\7\uffff\32\53\4\uffff\1\u00b5\1\uffff\32\53",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00b5",
+            "\1\u00b6",
             "\1\u00b7",
-            "\1\u00b8",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\12\51\7\uffff\32\51\4\uffff\1\u00b8\1\uffff\32\51",
             "\1\u00ba",
             "\1\u00bb",
-            "\1\u00bc",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00bd",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u00be",
             "\1\u00bf",
-            "\1\u00c0",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00c1",
-            "",
             "\1\u00c2",
-            "",
-            "",
-            "",
             "\1\u00c3",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "",
+            "\1\u00c4",
+            "",
+            "",
+            "",
             "\1\u00c5",
-            "\12\53\7\uffff\32\53\4\uffff\1\u00c6\1\uffff\32\53",
-            "\1\u00c8",
-            "\1\u00c9",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00c7",
+            "\12\51\7\uffff\32\51\4\uffff\1\u00c8\1\uffff\32\51",
             "\1\u00ca",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00cd",
-            "",
+            "\1\u00cb",
+            "\1\u00cc",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00ce",
-            "\1\u00cf",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00d0",
-            "",
             "\1\u00d1",
             "\1\u00d2",
             "\1\u00d3",
+            "",
             "\1\u00d4",
+            "",
             "\1\u00d5",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00d8\7\uffff\1\u00d7",
             "",
-            "\1\u00d9",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u00d6",
+            "\1\u00d7",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00da\7\uffff\1\u00d9",
             "",
-            "\1\u00db",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00dc",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\u00df\1\uffff\32\53",
-            "\1\u00e1",
+            "\1\u00dd",
+            "\1\u00de",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\u00e0\1\uffff\32\51",
             "\1\u00e2",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u00e3",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\u00e4\1\uffff\32\53",
-            "\1\u00e7\7\uffff\1\u00e6",
+            "\12\51\7\uffff\32\51\4\uffff\1\u00e5\1\uffff\32\51",
+            "\1\u00e8\7\uffff\1\u00e7",
             "",
-            "\1\u00e8",
             "\1\u00e9",
-            "\12\53\7\uffff\32\53\4\uffff\1\u00ea\1\uffff\32\53",
+            "\1\u00ea",
+            "\12\51\7\uffff\32\51\4\uffff\1\u00eb\1\uffff\32\51",
             "",
-            "",
-            "\1\u00ec",
             "\1\u00ed",
+            "",
             "\1\u00ee",
             "\1\u00ef",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u00f0",
             "\1\u00f1",
             "\1\u00f2",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00f4",
-            "",
+            "\1\u00f3",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00f5",
+            "",
             "\1\u00f6",
             "\1\u00f7",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00f9",
+            "\1\u00f8",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00fa",
             "",
+            "\1\u00fb\21\uffff\1\u00fc",
             "",
-            "\1\u00fa\21\uffff\1\u00fb",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00fe",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u00fd",
+            "\1\u0100\7\uffff\1\u00ff",
             "",
-            "\1\u00ff\7\uffff\1\u00fe",
-            "",
-            "\1\u0100",
             "\1\u0101",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u0104\21\uffff\1\u0105",
+            "\1\u0102",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0105\21\uffff\1\u0106",
             "",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u0107",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u0108",
-            "",
             "\1\u0109",
             "\1\u010a",
-            "",
             "\1\u010b",
-            "\1\u010c",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
             "\1\u010d",
             "\1\u010e",
-            "",
             "\1\u010f",
             "\1\u0110",
+            "",
             "\1\u0111",
-            "",
-            "",
             "\1\u0112",
             "\1\u0113",
+            "",
+            "",
             "\1\u0114",
             "\1\u0115",
-            "",
-            "",
             "\1\u0116",
             "\1\u0117",
             "",
+            "",
             "\1\u0118",
             "\1\u0119",
-            "\1\u011b\23\uffff\1\u011a",
-            "\1\u011c",
-            "\1\u011d",
+            "",
+            "\1\u011a",
+            "\1\u011b",
+            "\12\51\7\uffff\32\51\4\uffff\1\u011c\1\uffff\32\51",
             "\1\u011e",
+            "",
             "\1\u011f",
             "\1\u0120",
             "\1\u0121",
@@ -2834,54 +2924,59 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "\1\u0128",
             "\1\u0129",
             "\1\u012a",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u012d",
-            "",
+            "\1\u012b",
+            "\1\u012c",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u012e",
+            "",
+            "",
             "\1\u012f",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u0131",
+            "\1\u0130",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u0132",
             "\1\u0133",
             "\1\u0134",
             "\1\u0135",
             "\1\u0136",
             "\1\u0137",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u0139",
+            "\1\u0138",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u013a",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u013b",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
+            "\1\u013d",
+            "\1\u013e\2\uffff\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32"+
+            "\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\1\u013c",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0142\2\uffff\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32"+
+            "\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0146",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\1\u0143",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
-            "",
-            "\1\u0148",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "\1\u014b",
             "",
             "",
             "",
             "",
-            "\12\53\7\uffff\32\53\4\uffff\1\53\1\uffff\32\53",
+            "",
+            "",
+            "",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "",
+            "",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             ""
     };
@@ -2916,31 +3011,41 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | RULE_BOOLEAN | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA13_36 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA13_36>='\u0000' && LA13_36<='\uFFFF')) ) {s = 90;}
+
+                        else s = 39;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA13_0 = input.LA(1);
 
                         s = -1;
                         if ( (LA13_0=='i') ) {s = 1;}
 
-                        else if ( (LA13_0==';') ) {s = 2;}
+                        else if ( (LA13_0=='p') ) {s = 2;}
 
-                        else if ( (LA13_0=='p') ) {s = 3;}
+                        else if ( (LA13_0=='d') ) {s = 3;}
 
-                        else if ( (LA13_0=='d') ) {s = 4;}
+                        else if ( (LA13_0=='{') ) {s = 4;}
 
-                        else if ( (LA13_0=='{') ) {s = 5;}
+                        else if ( (LA13_0=='}') ) {s = 5;}
 
-                        else if ( (LA13_0=='}') ) {s = 6;}
+                        else if ( (LA13_0=='l') ) {s = 6;}
 
-                        else if ( (LA13_0=='l') ) {s = 7;}
+                        else if ( (LA13_0=='=') ) {s = 7;}
 
-                        else if ( (LA13_0==':') ) {s = 8;}
+                        else if ( (LA13_0=='t') ) {s = 8;}
 
                         else if ( (LA13_0=='b') ) {s = 9;}
 
@@ -2948,25 +3053,25 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                         else if ( (LA13_0=='f') ) {s = 11;}
 
-                        else if ( (LA13_0=='s') ) {s = 12;}
+                        else if ( (LA13_0=='+') ) {s = 12;}
 
-                        else if ( (LA13_0=='m') ) {s = 13;}
+                        else if ( (LA13_0=='s') ) {s = 13;}
 
-                        else if ( (LA13_0=='R') ) {s = 14;}
+                        else if ( (LA13_0=='m') ) {s = 14;}
 
-                        else if ( (LA13_0=='(') ) {s = 15;}
+                        else if ( (LA13_0=='R') ) {s = 15;}
 
-                        else if ( (LA13_0==',') ) {s = 16;}
+                        else if ( (LA13_0=='(') ) {s = 16;}
 
-                        else if ( (LA13_0==')') ) {s = 17;}
+                        else if ( (LA13_0==',') ) {s = 17;}
 
-                        else if ( (LA13_0=='a') ) {s = 18;}
+                        else if ( (LA13_0==')') ) {s = 18;}
 
-                        else if ( (LA13_0=='-') ) {s = 19;}
+                        else if ( (LA13_0=='a') ) {s = 19;}
 
-                        else if ( (LA13_0=='.') ) {s = 20;}
+                        else if ( (LA13_0=='-') ) {s = 20;}
 
-                        else if ( (LA13_0=='=') ) {s = 21;}
+                        else if ( (LA13_0=='.') ) {s = 21;}
 
                         else if ( (LA13_0=='!') ) {s = 22;}
 
@@ -2988,43 +3093,31 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                         else if ( (LA13_0=='e') ) {s = 31;}
 
-                        else if ( (LA13_0=='t') ) {s = 32;}
+                        else if ( (LA13_0=='^') ) {s = 32;}
 
-                        else if ( (LA13_0=='^') ) {s = 33;}
+                        else if ( ((LA13_0>='A' && LA13_0<='Q')||(LA13_0>='S' && LA13_0<='Z')||LA13_0=='_'||LA13_0=='h'||(LA13_0>='j' && LA13_0<='k')||LA13_0=='q'||(LA13_0>='u' && LA13_0<='v')||LA13_0=='x'||LA13_0=='z') ) {s = 33;}
 
-                        else if ( ((LA13_0>='A' && LA13_0<='Q')||(LA13_0>='S' && LA13_0<='Z')||LA13_0=='_'||LA13_0=='h'||(LA13_0>='j' && LA13_0<='k')||LA13_0=='q'||(LA13_0>='u' && LA13_0<='v')||LA13_0=='x'||LA13_0=='z') ) {s = 34;}
+                        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 34;}
 
-                        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 35;}
+                        else if ( (LA13_0=='\"') ) {s = 35;}
 
-                        else if ( (LA13_0=='\"') ) {s = 36;}
+                        else if ( (LA13_0=='\'') ) {s = 36;}
 
-                        else if ( (LA13_0=='\'') ) {s = 37;}
+                        else if ( (LA13_0=='/') ) {s = 37;}
 
-                        else if ( (LA13_0=='/') ) {s = 38;}
+                        else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 38;}
 
-                        else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 39;}
-
-                        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||(LA13_0>='#' && LA13_0<='&')||(LA13_0>='*' && LA13_0<='+')||(LA13_0>='?' && LA13_0<='@')||(LA13_0>='[' && LA13_0<=']')||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFF')) ) {s = 40;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA13_36 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA13_36>='\u0000' && LA13_36<='\uFFFF')) ) {s = 91;}
-
-                        else s = 40;
+                        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||(LA13_0>='#' && LA13_0<='&')||LA13_0=='*'||(LA13_0>=':' && LA13_0<=';')||(LA13_0>='?' && LA13_0<='@')||(LA13_0>='[' && LA13_0<=']')||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFF')) ) {s = 39;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA13_37 = input.LA(1);
+                        int LA13_35 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA13_37>='\u0000' && LA13_37<='\uFFFF')) ) {s = 91;}
+                        if ( ((LA13_35>='\u0000' && LA13_35<='\uFFFF')) ) {s = 90;}
 
-                        else s = 40;
+                        else s = 39;
 
                         if ( s>=0 ) return s;
                         break;

@@ -95,9 +95,9 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createAbstractDecorationAdapter();
       }
       @Override
-      public Adapter caseIconDecoration(IconDecoration object)
+      public Adapter caseImageDecoration(ImageDecoration object)
       {
-        return createIconDecorationAdapter();
+        return createImageDecorationAdapter();
       }
       @Override
       public Adapter caseBorderDecoration(BorderDecoration object)
@@ -105,9 +105,34 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createBorderDecorationAdapter();
       }
       @Override
+      public Adapter caseBackgroundDecoration(BackgroundDecoration object)
+      {
+        return createBackgroundDecorationAdapter();
+      }
+      @Override
+      public Adapter caseForegroundDecoration(ForegroundDecoration object)
+      {
+        return createForegroundDecorationAdapter();
+      }
+      @Override
       public Adapter caseConnectionDecoration(ConnectionDecoration object)
       {
         return createConnectionDecorationAdapter();
+      }
+      @Override
+      public Adapter caseText(Text object)
+      {
+        return createTextAdapter();
+      }
+      @Override
+      public Adapter caseSimpleText(SimpleText object)
+      {
+        return createSimpleTextAdapter();
+      }
+      @Override
+      public Adapter caseComplexText(ComplexText object)
+      {
+        return createComplexTextAdapter();
       }
       @Override
       public Adapter caseStyle(Style object)
@@ -247,16 +272,16 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration <em>Icon Decoration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration <em>Image Decoration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
    * @generated
    */
-  public Adapter createIconDecorationAdapter()
+  public Adapter createImageDecorationAdapter()
   {
     return null;
   }
@@ -277,6 +302,36 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration <em>Background Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration
+   * @generated
+   */
+  public Adapter createBackgroundDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration <em>Foreground Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration
+   * @generated
+   */
+  public Adapter createForegroundDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration <em>Connection Decoration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -287,6 +342,51 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConnectionDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Text <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Text
+   * @generated
+   */
+  public Adapter createTextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText <em>Simple Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText
+   * @generated
+   */
+  public Adapter createSimpleTextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText <em>Complex Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText
+   * @generated
+   */
+  public Adapter createComplexTextAdapter()
   {
     return null;
   }

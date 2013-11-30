@@ -23,11 +23,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="activation" eType="#//Activation"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IconDecoration" eSuperTypes="#//AbstractDecoration">
+  <eClassifiers xsi:type="ecore:EClass" name="ImageDecoration" eSuperTypes="#//AbstractDecoration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location_uri" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="direction" eType="#//Direction"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="margin" eType="#//Margin"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tooltip" eType="#//Text"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BorderDecoration" eSuperTypes="#//AbstractDecoration">
@@ -37,13 +39,32 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BackgroundDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForegroundDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionDecoration" eSuperTypes="#//AbstractDecoration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Size" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="foregroundColor" eType="#//Color"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundColor" eType="#//Color"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleText" eSuperTypes="#//Text">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="ecore:EClass ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexText" eSuperTypes="#//Text">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//SimpleText"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Text"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Style">
@@ -61,7 +82,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Color">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ColorConstant"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concret" eType="#//ConcreteColor"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concrete" eType="#//ConcreteColor"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConcreteColor">
@@ -101,9 +122,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LineStyle">
     <eLiterals name="LINE_SOLID" literal="solid"/>
-    <eLiterals name="LINE_DOT" value="1" literal="dots"/>
-    <eLiterals name="LINE_DASH" value="2" literal="dashes"/>
-    <eLiterals name="LINE_DASHDOT" value="3" literal="dash_dots"/>
+    <eLiterals name="LINE_DOT" value="1" literal="dot"/>
+    <eLiterals name="LINE_DASH" value="2" literal="dash"/>
+    <eLiterals name="LINE_DASHDOT" value="3" literal="dash_dot"/>
     <eLiterals name="LINE_DASHDOTDOT" value="4" literal="dash_dot_dot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Colors">

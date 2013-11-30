@@ -9,11 +9,12 @@ import org.eclipse.emf.ecore.EcorePackage.Literals
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl
 import org.eclipse.xtext.validation.Check
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
-import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -34,31 +35,31 @@ class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDecoration
 	}
 
 	@Check
-	def checkIconDecorationLocationURI(IconDecoration iconDecoration) {
+	def checkImageDecorationLocationURI(ImageDecoration imageDecoration) {
 		try {
 
-			var URI iconURI = URI.createURI(iconDecoration.location_uri);
+			var URI iconURI = URI.createURI(imageDecoration.location_uri);
 			if (iconURI.isRelative()) {
 				error(
 '''The URI must be absolute. Please use the path schema like: 
-	"platform:/resource/Project_Name/path_to_icon_file"
+	"platform:/resource/Project_Name/path_to_image_file"
 or
-	"platform:/plugin/Plugin_ID/path_to_icon_file"''',
-					iconDecoration, DecorationLanguagePackage.Literals.ICON_DECORATION__LOCATION_URI)
+	"platform:/plugin/Plugin_ID/path_to_image_file"''',
+					imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
 			}
 
 
 			if (uriConverter.exists(iconURI, null) == false) {
 				error(
 '''The URI does not point to the icon location. Please use the path schema like: 
-	"platform:/resource/Project_Name/path_to_icon_file"
+	"platform:/resource/Project_Name/path_to_image_file"
 or
 	"platform:/plugin/Plugin_ID/path_to_icon_file"''',
-					iconDecoration, DecorationLanguagePackage.Literals.ICON_DECORATION__LOCATION_URI)
+					imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
 			}
 		} catch (IllegalArgumentException iae) {
 			println("\tCould not create URI, illegal argument exception is thrown: " + iae.message)
-			error(iae.message, iconDecoration, DecorationLanguagePackage.Literals.ICON_DECORATION__LOCATION_URI)
+			error(iae.message, imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
 		}
 	}
 
@@ -112,6 +113,21 @@ or
 					'''The attribute of the type «attribute.EType.name» is not supported. 
 				Supported types are: Boolean, String, Int, Float, Double''', condition,
 					DecorationLanguagePackage.Literals.CONDITION__ATTRIBUTE)
+		}
+	}
+	
+	@Check
+	def checkRGBColor(ConcreteColor color) {
+		if(color.red < 0 ||	color.red > 255){
+			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.CONCRETE_COLOR__RED)
+		} 
+		else if(color.green < 0 || color.green > 255)
+		{
+			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.CONCRETE_COLOR__GREEN)
+		}
+		else if(color.blue < 0 || color.blue > 255)
+		{
+			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.CONCRETE_COLOR__BLUE)
 		}
 	}
 }

@@ -9,3 +9,8 @@
 /.SupplierImpl.java._trace
 /.AbstractManyDecorationsDecorator.java._trace
 /.AbstractOnlyOneDecorationDecorator.java._trace
+/.ImageDecorator.java._trace
+/.ConnectionDecorator.java._trace
+/.ConnectionValues.java._trace
+/.BackgroundDecorator.java._trace
+/.ForegroundDecorator.java._trace

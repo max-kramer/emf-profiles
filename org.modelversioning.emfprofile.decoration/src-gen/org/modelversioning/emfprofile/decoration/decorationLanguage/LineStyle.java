@@ -37,7 +37,7 @@ public enum LineStyle implements Enumerator
    * @generated
    * @ordered
    */
-  LINE_DOT(1, "LINE_DOT", "dots"),
+  LINE_DOT(1, "LINE_DOT", "dot"),
 
   /**
    * The '<em><b>LINE DASH</b></em>' literal object.
@@ -47,7 +47,7 @@ public enum LineStyle implements Enumerator
    * @generated
    * @ordered
    */
-  LINE_DASH(2, "LINE_DASH", "dashes"),
+  LINE_DASH(2, "LINE_DASH", "dash"),
 
   /**
    * The '<em><b>LINE DASHDOT</b></em>' literal object.
@@ -57,7 +57,7 @@ public enum LineStyle implements Enumerator
    * @generated
    * @ordered
    */
-  LINE_DASHDOT(3, "LINE_DASHDOT", "dash_dots"),
+  LINE_DASHDOT(3, "LINE_DASHDOT", "dash_dot"),
 
   /**
    * The '<em><b>LINE DASHDOTDOT</b></em>' literal object.
@@ -93,7 +93,7 @@ public enum LineStyle implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #LINE_DOT
-   * @model literal="dots"
+   * @model literal="dot"
    * @generated
    * @ordered
    */
@@ -108,7 +108,7 @@ public enum LineStyle implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #LINE_DASH
-   * @model literal="dashes"
+   * @model literal="dash"
    * @generated
    * @ordered
    */
@@ -123,7 +123,7 @@ public enum LineStyle implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #LINE_DASHDOT
-   * @model literal="dash_dots"
+   * @model literal="dash_dot"
    * @generated
    * @ordered
    */

@@ -19,11 +19,12 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage.Literals;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.validation.AbstractEMFProfileDecorationLanguageValidator;
 
 /**
@@ -71,9 +72,9 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
   }
   
   @Check
-  public void checkIconDecorationLocationURI(final IconDecoration iconDecoration) {
+  public void checkImageDecorationLocationURI(final ImageDecoration imageDecoration) {
     try {
-      String _location_uri = iconDecoration.getLocation_uri();
+      String _location_uri = imageDecoration.getLocation_uri();
       URI iconURI = URI.createURI(_location_uri);
       boolean _isRelative = iconURI.isRelative();
       if (_isRelative) {
@@ -81,13 +82,13 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         _builder.append("The URI must be absolute. Please use the path schema like: ");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\"platform:/resource/Project_Name/path_to_icon_file\"");
+        _builder.append("\"platform:/resource/Project_Name/path_to_image_file\"");
         _builder.newLine();
         _builder.append("or");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\"platform:/plugin/Plugin_ID/path_to_icon_file\"");
-        this.error(_builder.toString(), iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+        _builder.append("\"platform:/plugin/Plugin_ID/path_to_image_file\"");
+        this.error(_builder.toString(), imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
       }
       boolean _exists = EMFProfileDecorationLanguageValidator.uriConverter.exists(iconURI, null);
       boolean _equals = (_exists == false);
@@ -96,13 +97,13 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         _builder_1.append("The URI does not point to the icon location. Please use the path schema like: ");
         _builder_1.newLine();
         _builder_1.append("\t");
-        _builder_1.append("\"platform:/resource/Project_Name/path_to_icon_file\"");
+        _builder_1.append("\"platform:/resource/Project_Name/path_to_image_file\"");
         _builder_1.newLine();
         _builder_1.append("or");
         _builder_1.newLine();
         _builder_1.append("\t");
         _builder_1.append("\"platform:/plugin/Plugin_ID/path_to_icon_file\"");
-        this.error(_builder_1.toString(), iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+        this.error(_builder_1.toString(), imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
       }
     } catch (final Throwable _t) {
       if (_t instanceof IllegalArgumentException) {
@@ -111,7 +112,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         String _plus = ("\tCould not create URI, illegal argument exception is thrown: " + _message);
         InputOutput.<String>println(_plus);
         String _message_1 = iae.getMessage();
-        this.error(_message_1, iconDecoration, Literals.ICON_DECORATION__LOCATION_URI);
+        this.error(_message_1, imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
       } else {
         throw Exceptions.sneakyThrow(_t);
       }
@@ -268,6 +269,57 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
       _builder_5.append("Supported types are: Boolean, String, Int, Float, Double");
       this.error(_builder_5.toString(), condition, 
         Literals.CONDITION__ATTRIBUTE);
+    }
+  }
+  
+  @Check
+  public void checkRGBColor(final ConcreteColor color) {
+    boolean _or = false;
+    int _red = color.getRed();
+    boolean _lessThan = (_red < 0);
+    if (_lessThan) {
+      _or = true;
+    } else {
+      int _red_1 = color.getRed();
+      boolean _greaterThan = (_red_1 > 255);
+      _or = (_lessThan || _greaterThan);
+    }
+    if (_or) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Color values must be in range 0 - 255");
+      this.error(_builder.toString(), color, Literals.CONCRETE_COLOR__RED);
+    } else {
+      boolean _or_1 = false;
+      int _green = color.getGreen();
+      boolean _lessThan_1 = (_green < 0);
+      if (_lessThan_1) {
+        _or_1 = true;
+      } else {
+        int _green_1 = color.getGreen();
+        boolean _greaterThan_1 = (_green_1 > 255);
+        _or_1 = (_lessThan_1 || _greaterThan_1);
+      }
+      if (_or_1) {
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("Color values must be in range 0 - 255");
+        this.error(_builder_1.toString(), color, Literals.CONCRETE_COLOR__GREEN);
+      } else {
+        boolean _or_2 = false;
+        int _blue = color.getBlue();
+        boolean _lessThan_2 = (_blue < 0);
+        if (_lessThan_2) {
+          _or_2 = true;
+        } else {
+          int _blue_1 = color.getBlue();
+          boolean _greaterThan_2 = (_blue_1 > 255);
+          _or_2 = (_lessThan_2 || _greaterThan_2);
+        }
+        if (_or_2) {
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("Color values must be in range 0 - 255");
+          this.error(_builder_2.toString(), color, Literals.CONCRETE_COLOR__BLUE);
+        }
+      }
     }
   }
 }

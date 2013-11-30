@@ -1,16 +1,12 @@
 package org.modelversioning.emfprofile.application.decorator.gmf.decoration.service;
 
 import com.google.common.base.Objects;
-import java.util.List;
 import org.eclipse.draw2d.Border;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
-import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.gef.editparts.AbstractConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.AbstractOnlyOneDecorationDecorator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
@@ -74,7 +70,7 @@ public class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
       final int style = this.provideStyle(_style);
       IGraphicalEditPart _targetEditPart_3 = this.getTargetEditPart();
       IFigure _figure_2 = _targetEditPart_3.getFigure();
-      this.highlightNode(_figure_2, color, size, style);
+      this.setBorder(_figure_2, color, size, style);
     }
   }
   
@@ -88,25 +84,7 @@ public class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
   }
   
   /**
-   * Utility method to highlight an edge with specified color and line width.
-   * 
-   * @param figure
-   *            the connection figure to highlight
-   * @param color
-   *            the highlight color to use
-   * @param size
-   *            the line width
-   */
-  protected void highlightEdge(final IFigure figure, final org.eclipse.swt.graphics.Color color, final int size) {
-    if ((figure instanceof PolylineConnection)) {
-      figure.setBackgroundColor(color);
-      figure.setForegroundColor(color);
-      ((PolylineConnection) figure).setLineWidth(size);
-    }
-  }
-  
-  /**
-   * Utility method to highlight a node.
+   * Will create a border and set it on provided figure.
    * 
    * @param figure
    *            the node to highlight
@@ -117,24 +95,9 @@ public class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
    * @param style
    *            the line border style
    */
-  protected void highlightNode(final IFigure figure, final org.eclipse.swt.graphics.Color color, final int size, final int style) {
+  protected void setBorder(final IFigure figure, final org.eclipse.swt.graphics.Color color, final int size, final int style) {
     LineBorder _lineBorder = new LineBorder(color, size, style);
     figure.setBorder(_lineBorder);
     figure.setOpaque(false);
-  }
-  
-  protected IFigure getFigureForColoring(final IGraphicalEditPart editPart) {
-    IFigure figure = editPart.getFigure();
-    if ((figure instanceof BorderedNodeFigure)) {
-      List _children = figure.getChildren();
-      Object _get = _children.get(0);
-      figure = ((IFigure) _get);
-    }
-    if ((figure instanceof DefaultSizeNodeFigure)) {
-      List _children_1 = figure.getChildren();
-      Object _get_1 = _children_1.get(0);
-      figure = ((IFigure) _get_1);
-    }
-    return figure;
   }
 }

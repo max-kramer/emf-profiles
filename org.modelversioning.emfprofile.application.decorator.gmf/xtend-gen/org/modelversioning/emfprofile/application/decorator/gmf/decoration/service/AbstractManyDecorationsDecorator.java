@@ -77,8 +77,7 @@ public abstract class AbstractManyDecorationsDecorator extends AbstractDecorator
                 boolean _equals = Objects.equal(decorationStatus, DecorationStatus.ACTIVE);
                 if (_equals) {
                   _matched=true;
-                  AbstractDecoration _decoration = gd.getDecoration();
-                  Decoration _processAddDecoration = AbstractManyDecorationsDecorator.this.processAddDecoration(_decoration);
+                  Decoration _processAddDecoration = AbstractManyDecorationsDecorator.this.processAddDecoration(gd);
                   AbstractManyDecorationsDecorator.this.decorationsOnEObject.add(_processAddDecoration);
                 }
               }
@@ -107,7 +106,7 @@ public abstract class AbstractManyDecorationsDecorator extends AbstractDecorator
   /**
    * instructs the decorator to visualize the decoration on the decoration target.
    */
-  public abstract Decoration processAddDecoration(final AbstractDecoration decoration);
+  public abstract Decoration processAddDecoration(final GraphicalDecoration graphicalDecoration);
   
   /**
    * instructs the decorator to remove the visualized decoration from the decoration target.

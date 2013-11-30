@@ -24,7 +24,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLa
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl#getConcret <em>Concret</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl#getConcrete <em>Concrete</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,14 +43,14 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
   protected ColorConstant value;
 
   /**
-   * The cached value of the '{@link #getConcret() <em>Concret</em>}' containment reference.
+   * The cached value of the '{@link #getConcrete() <em>Concrete</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getConcret()
+   * @see #getConcrete()
    * @generated
    * @ordered
    */
-  protected ConcreteColor concret;
+  protected ConcreteColor concrete;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,9 +126,9 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
    * <!-- end-user-doc -->
    * @generated
    */
-  public ConcreteColor getConcret()
+  public ConcreteColor getConcrete()
   {
-    return concret;
+    return concrete;
   }
 
   /**
@@ -136,13 +136,13 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetConcret(ConcreteColor newConcret, NotificationChain msgs)
+  public NotificationChain basicSetConcrete(ConcreteColor newConcrete, NotificationChain msgs)
   {
-    ConcreteColor oldConcret = concret;
-    concret = newConcret;
+    ConcreteColor oldConcrete = concrete;
+    concrete = newConcrete;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.COLOR__CONCRET, oldConcret, newConcret);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.COLOR__CONCRETE, oldConcrete, newConcrete);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setConcret(ConcreteColor newConcret)
+  public void setConcrete(ConcreteColor newConcrete)
   {
-    if (newConcret != concret)
+    if (newConcrete != concrete)
     {
       NotificationChain msgs = null;
-      if (concret != null)
-        msgs = ((InternalEObject)concret).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.COLOR__CONCRET, null, msgs);
-      if (newConcret != null)
-        msgs = ((InternalEObject)newConcret).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.COLOR__CONCRET, null, msgs);
-      msgs = basicSetConcret(newConcret, msgs);
+      if (concrete != null)
+        msgs = ((InternalEObject)concrete).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.COLOR__CONCRETE, null, msgs);
+      if (newConcrete != null)
+        msgs = ((InternalEObject)newConcrete).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.COLOR__CONCRETE, null, msgs);
+      msgs = basicSetConcrete(newConcrete, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.COLOR__CONCRET, newConcret, newConcret));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.COLOR__CONCRETE, newConcrete, newConcrete));
   }
 
   /**
@@ -181,8 +181,8 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
     {
       case DecorationLanguagePackage.COLOR__VALUE:
         return basicSetValue(null, msgs);
-      case DecorationLanguagePackage.COLOR__CONCRET:
-        return basicSetConcret(null, msgs);
+      case DecorationLanguagePackage.COLOR__CONCRETE:
+        return basicSetConcrete(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -199,8 +199,8 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
     {
       case DecorationLanguagePackage.COLOR__VALUE:
         return getValue();
-      case DecorationLanguagePackage.COLOR__CONCRET:
-        return getConcret();
+      case DecorationLanguagePackage.COLOR__CONCRETE:
+        return getConcrete();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,8 +218,8 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
       case DecorationLanguagePackage.COLOR__VALUE:
         setValue((ColorConstant)newValue);
         return;
-      case DecorationLanguagePackage.COLOR__CONCRET:
-        setConcret((ConcreteColor)newValue);
+      case DecorationLanguagePackage.COLOR__CONCRETE:
+        setConcrete((ConcreteColor)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,8 +238,8 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
       case DecorationLanguagePackage.COLOR__VALUE:
         setValue((ColorConstant)null);
         return;
-      case DecorationLanguagePackage.COLOR__CONCRET:
-        setConcret((ConcreteColor)null);
+      case DecorationLanguagePackage.COLOR__CONCRETE:
+        setConcrete((ConcreteColor)null);
         return;
     }
     super.eUnset(featureID);
@@ -257,8 +257,8 @@ public class ColorImpl extends MinimalEObjectImpl.Container implements Color
     {
       case DecorationLanguagePackage.COLOR__VALUE:
         return value != null;
-      case DecorationLanguagePackage.COLOR__CONCRET:
-        return concret != null;
+      case DecorationLanguagePackage.COLOR__CONCRETE:
+        return concrete != null;
     }
     return super.eIsSet(featureID);
   }

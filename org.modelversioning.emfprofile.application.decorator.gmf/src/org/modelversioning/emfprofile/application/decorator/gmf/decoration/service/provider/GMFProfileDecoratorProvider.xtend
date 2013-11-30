@@ -15,10 +15,13 @@ import org.eclipse.gmf.runtime.notation.Diagram
 import org.eclipse.gmf.runtime.notation.Edge
 import org.eclipse.gmf.runtime.notation.Node
 import org.eclipse.gmf.runtime.notation.View
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BackgroundDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ConnectionDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ForegroundDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.HighlightingDecorator
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.IconDecorator
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ImageDecorator
 import org.modelversioning.emfprofile.diagram.edit.parts.EAttributeEditPart
 import org.modelversioning.emfprofile.diagram.edit.parts.EClassAttributesEditPart
 import org.modelversioning.emfprofile.diagram.edit.parts.EClassEditPart
@@ -109,52 +112,58 @@ class GMFProfileDecoratorProvider extends AbstractProvider implements IDecorator
 	//			}
 	//		}
 	//	}
-	def installNodeDecorators(IDecoratorTarget decoratorTarget) {
-		installEdgeDecorators(decoratorTarget)
-	}
-
-	def installEdgeDecorators(IDecoratorTarget decoratorTarget) {
-		val eObject = getEObjectFromDecoratorTarget(decoratorTarget)
-		if (eObject != null) {
-
-			//			val decorator = new EMFProfileDecorator(decoratorTarget);
-			val iconDecorator = new IconDecorator(decoratorTarget)
-			val borderDecorator = new BorderDecorator(decoratorTarget)
-			val highlightingDecorator = new HighlightingDecorator(decoratorTarget)
-
-			decoratorTarget.installDecorator(IconDecorator::KEY, iconDecorator)
-			decoratorTarget.installDecorator(BorderDecorator::KEY, borderDecorator)
-			decoratorTarget.installDecorator(HighlightingDecorator::KEY, highlightingDecorator)
-			
-			mapper.put(eObject,
-				new EObjectDecorators(
-					decoratorTarget,
-					iconDecorator,
-					borderDecorator,
-					highlightingDecorator
-				))
-		}
-
-	}
+//	def installNodeDecorators(IDecoratorTarget decoratorTarget) {
+//		installEdgeDecorators(decoratorTarget)
+//	}
+//
+//	def installEdgeDecorators(IDecoratorTarget decoratorTarget) {
+//		val eObject = getEObjectFromDecoratorTarget(decoratorTarget)
+//		if (eObject != null) {
+//
+//			//			val decorator = new EMFProfileDecorator(decoratorTarget);
+//			val imageDecorator = new ImageDecorator(decoratorTarget)
+//			val borderDecorator = new BorderDecorator(decoratorTarget)
+//			val highlightingDecorator = new HighlightingDecorator(decoratorTarget)
+//
+//			decoratorTarget.installDecorator(ImageDecorator::KEY, imageDecorator)
+//			decoratorTarget.installDecorator(BorderDecorator::KEY, borderDecorator)
+//			decoratorTarget.installDecorator(HighlightingDecorator::KEY, highlightingDecorator)
+//			
+//			mapper.put(eObject,
+//				new EObjectDecorators(
+//					decoratorTarget,
+//					imageDecorator,
+//					borderDecorator,
+//					highlightingDecorator
+//				))
+//		}
+//
+//	}
 
 	override createDecorators(IDecoratorTarget decoratorTarget) {
 		val eObject = getEObjectFromDecoratorTarget(decoratorTarget)
 		if (eObject != null) {
 
 			//			val decorator = new EMFProfileDecorator(decoratorTarget);
-			val iconDecorator = new IconDecorator(decoratorTarget)
+			val imageDecorator = new ImageDecorator(decoratorTarget)
 			val borderDecorator = new BorderDecorator(decoratorTarget)
+			val backgroundDecorator = new BackgroundDecorator(decoratorTarget)
+			val foregroundDecorator = new ForegroundDecorator(decoratorTarget)
+			val connectionDecorator = new ConnectionDecorator(decoratorTarget)
 			val highlightingDecorator = new HighlightingDecorator(decoratorTarget)
 
-			decoratorTarget.installDecorator(IconDecorator::KEY, iconDecorator)
+			decoratorTarget.installDecorator(ImageDecorator::KEY, imageDecorator)
 			decoratorTarget.installDecorator(BorderDecorator::KEY, borderDecorator)
 			decoratorTarget.installDecorator(HighlightingDecorator::KEY, highlightingDecorator)
 println('''Creating decorators for: «eObject», node: «getDecoratorTargetNode(decoratorTarget)»''')
 			mapper.put(eObject,
 				new EObjectDecorators(
 					decoratorTarget,
-					iconDecorator,
+					imageDecorator,
 					borderDecorator,
+					backgroundDecorator,
+					foregroundDecorator,
+					connectionDecorator,
 					highlightingDecorator
 				))
 		}

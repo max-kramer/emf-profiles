@@ -3,7 +3,6 @@
  */
 package org.modelversioning.emfprofile.decoration.ui.contentassist
 
-import com.google.inject.Inject
 import org.eclipse.emf.ecore.EAttribute
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EcorePackage
@@ -19,10 +18,10 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOp
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
-import org.modelversioning.emfprofile.decoration.scoping.EMFProfileDecorationLanguageScopeProvider
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
+ * 
  */
 class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDecorationLanguageProposalProvider {
 
@@ -88,11 +87,11 @@ class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDec
 						}
 					}
 					default : 
-					super.completeKeyword(object, context, acceptor)
+						super.completeKeyword(object, context, acceptor)
 				}
 			}
 			default : 
-			super.completeKeyword(object, context, acceptor)
+				super.completeKeyword(object, context, acceptor)
 		}
 	}
 	
@@ -127,4 +126,6 @@ class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDec
 				super.completeRuleCall(assignment.terminal as RuleCall, context, acceptor)			
 		}
 	}
+	
+	
 }

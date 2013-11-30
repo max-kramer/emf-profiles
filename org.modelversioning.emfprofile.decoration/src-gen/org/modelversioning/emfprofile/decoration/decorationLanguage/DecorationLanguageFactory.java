@@ -59,13 +59,13 @@ public interface DecorationLanguageFactory extends EFactory
   AbstractDecoration createAbstractDecoration();
 
   /**
-   * Returns a new object of class '<em>Icon Decoration</em>'.
+   * Returns a new object of class '<em>Image Decoration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Icon Decoration</em>'.
+   * @return a new object of class '<em>Image Decoration</em>'.
    * @generated
    */
-  IconDecoration createIconDecoration();
+  ImageDecoration createImageDecoration();
 
   /**
    * Returns a new object of class '<em>Border Decoration</em>'.
@@ -77,6 +77,24 @@ public interface DecorationLanguageFactory extends EFactory
   BorderDecoration createBorderDecoration();
 
   /**
+   * Returns a new object of class '<em>Background Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Background Decoration</em>'.
+   * @generated
+   */
+  BackgroundDecoration createBackgroundDecoration();
+
+  /**
+   * Returns a new object of class '<em>Foreground Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Foreground Decoration</em>'.
+   * @generated
+   */
+  ForegroundDecoration createForegroundDecoration();
+
+  /**
    * Returns a new object of class '<em>Connection Decoration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -84,6 +102,33 @@ public interface DecorationLanguageFactory extends EFactory
    * @generated
    */
   ConnectionDecoration createConnectionDecoration();
+
+  /**
+   * Returns a new object of class '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text</em>'.
+   * @generated
+   */
+  Text createText();
+
+  /**
+   * Returns a new object of class '<em>Simple Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Text</em>'.
+   * @generated
+   */
+  SimpleText createSimpleText();
+
+  /**
+   * Returns a new object of class '<em>Complex Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex Text</em>'.
+   * @generated
+   */
+  ComplexText createComplexText();
 
   /**
    * Returns a new object of class '<em>Style</em>'.

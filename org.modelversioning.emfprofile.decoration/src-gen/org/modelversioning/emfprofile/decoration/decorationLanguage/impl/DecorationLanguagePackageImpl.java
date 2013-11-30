@@ -16,11 +16,13 @@ import org.modelversioning.emfprofile.EMFProfilePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Colors;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
@@ -31,13 +33,16 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLa
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Direction;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Text;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +85,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass iconDecorationEClass = null;
+  private EClass imageDecorationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -94,7 +99,42 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass backgroundDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass foregroundDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass connectionDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleTextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass complexTextEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -399,9 +439,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getIconDecoration()
+  public EClass getImageDecoration()
   {
-    return iconDecorationEClass;
+    return imageDecorationEClass;
   }
 
   /**
@@ -409,9 +449,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIconDecoration_Location_uri()
+  public EAttribute getImageDecoration_Location_uri()
   {
-    return (EAttribute)iconDecorationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)imageDecorationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -419,9 +459,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIconDecoration_Direction()
+  public EReference getImageDecoration_Direction()
   {
-    return (EReference)iconDecorationEClass.getEStructuralFeatures().get(1);
+    return (EReference)imageDecorationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -429,9 +469,19 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIconDecoration_Margin()
+  public EReference getImageDecoration_Margin()
   {
-    return (EReference)iconDecorationEClass.getEStructuralFeatures().get(2);
+    return (EReference)imageDecorationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImageDecoration_Tooltip()
+  {
+    return (EReference)imageDecorationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -479,6 +529,46 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBackgroundDecoration()
+  {
+    return backgroundDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBackgroundDecoration_Color()
+  {
+    return (EReference)backgroundDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getForegroundDecoration()
+  {
+    return foregroundDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getForegroundDecoration_Color()
+  {
+    return (EReference)foregroundDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getConnectionDecoration()
   {
     return connectionDecorationEClass;
@@ -499,7 +589,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConnectionDecoration_Color()
+  public EReference getConnectionDecoration_Style()
   {
     return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(1);
   }
@@ -522,6 +612,76 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
   public EReference getConnectionDecoration_BackgroundColor()
   {
     return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getText()
+  {
+    return textEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSimpleText()
+  {
+    return simpleTextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSimpleText_Text()
+  {
+    return (EAttribute)simpleTextEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleText_Attribute()
+  {
+    return (EReference)simpleTextEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getComplexText()
+  {
+    return complexTextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getComplexText_Left()
+  {
+    return (EReference)complexTextEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getComplexText_Right()
+  {
+    return (EReference)complexTextEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -629,7 +789,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getColor_Concret()
+  public EReference getColor_Concrete()
   {
     return (EReference)colorEClass.getEStructuralFeatures().get(1);
   }
@@ -890,21 +1050,38 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     abstractDecorationEClass = createEClass(ABSTRACT_DECORATION);
     createEReference(abstractDecorationEClass, ABSTRACT_DECORATION__ACTIVATION);
 
-    iconDecorationEClass = createEClass(ICON_DECORATION);
-    createEAttribute(iconDecorationEClass, ICON_DECORATION__LOCATION_URI);
-    createEReference(iconDecorationEClass, ICON_DECORATION__DIRECTION);
-    createEReference(iconDecorationEClass, ICON_DECORATION__MARGIN);
+    imageDecorationEClass = createEClass(IMAGE_DECORATION);
+    createEAttribute(imageDecorationEClass, IMAGE_DECORATION__LOCATION_URI);
+    createEReference(imageDecorationEClass, IMAGE_DECORATION__DIRECTION);
+    createEReference(imageDecorationEClass, IMAGE_DECORATION__MARGIN);
+    createEReference(imageDecorationEClass, IMAGE_DECORATION__TOOLTIP);
 
     borderDecorationEClass = createEClass(BORDER_DECORATION);
     createEReference(borderDecorationEClass, BORDER_DECORATION__SIZE);
     createEReference(borderDecorationEClass, BORDER_DECORATION__COLOR);
     createEReference(borderDecorationEClass, BORDER_DECORATION__STYLE);
 
+    backgroundDecorationEClass = createEClass(BACKGROUND_DECORATION);
+    createEReference(backgroundDecorationEClass, BACKGROUND_DECORATION__COLOR);
+
+    foregroundDecorationEClass = createEClass(FOREGROUND_DECORATION);
+    createEReference(foregroundDecorationEClass, FOREGROUND_DECORATION__COLOR);
+
     connectionDecorationEClass = createEClass(CONNECTION_DECORATION);
     createEReference(connectionDecorationEClass, CONNECTION_DECORATION__SIZE);
-    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__COLOR);
+    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__STYLE);
     createEReference(connectionDecorationEClass, CONNECTION_DECORATION__FOREGROUND_COLOR);
     createEReference(connectionDecorationEClass, CONNECTION_DECORATION__BACKGROUND_COLOR);
+
+    textEClass = createEClass(TEXT);
+
+    simpleTextEClass = createEClass(SIMPLE_TEXT);
+    createEAttribute(simpleTextEClass, SIMPLE_TEXT__TEXT);
+    createEReference(simpleTextEClass, SIMPLE_TEXT__ATTRIBUTE);
+
+    complexTextEClass = createEClass(COMPLEX_TEXT);
+    createEReference(complexTextEClass, COMPLEX_TEXT__LEFT);
+    createEReference(complexTextEClass, COMPLEX_TEXT__RIGHT);
 
     styleEClass = createEClass(STYLE);
     createEAttribute(styleEClass, STYLE__VALUE);
@@ -920,7 +1097,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     colorEClass = createEClass(COLOR);
     createEReference(colorEClass, COLOR__VALUE);
-    createEReference(colorEClass, COLOR__CONCRET);
+    createEReference(colorEClass, COLOR__CONCRETE);
 
     concreteColorEClass = createEClass(CONCRETE_COLOR);
     createEAttribute(concreteColorEClass, CONCRETE_COLOR__RED);
@@ -985,9 +1162,13 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    iconDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    imageDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     borderDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    backgroundDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    foregroundDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     connectionDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    simpleTextEClass.getESuperTypes().add(this.getText());
+    complexTextEClass.getESuperTypes().add(this.getText());
     conditionEClass.getESuperTypes().add(this.getAbstractCondition());
     compositeConditionEClass.getESuperTypes().add(this.getAbstractCondition());
 
@@ -1008,21 +1189,38 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEClass(abstractDecorationEClass, AbstractDecoration.class, "AbstractDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAbstractDecoration_Activation(), this.getActivation(), null, "activation", null, 0, 1, AbstractDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(iconDecorationEClass, IconDecoration.class, "IconDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getIconDecoration_Location_uri(), theEcorePackage.getEString(), "location_uri", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIconDecoration_Direction(), this.getDirection(), null, "direction", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIconDecoration_Margin(), this.getMargin(), null, "margin", null, 0, 1, IconDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(imageDecorationEClass, ImageDecoration.class, "ImageDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImageDecoration_Location_uri(), theEcorePackage.getEString(), "location_uri", null, 0, 1, ImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImageDecoration_Direction(), this.getDirection(), null, "direction", null, 0, 1, ImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImageDecoration_Margin(), this.getMargin(), null, "margin", null, 0, 1, ImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImageDecoration_Tooltip(), this.getText(), null, "tooltip", null, 0, 1, ImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(borderDecorationEClass, BorderDecoration.class, "BorderDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBorderDecoration_Size(), this.getSize(), null, "size", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBorderDecoration_Color(), this.getColor(), null, "color", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBorderDecoration_Style(), this.getStyle(), null, "style", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(backgroundDecorationEClass, BackgroundDecoration.class, "BackgroundDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBackgroundDecoration_Color(), this.getColor(), null, "color", null, 0, 1, BackgroundDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(foregroundDecorationEClass, ForegroundDecoration.class, "ForegroundDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getForegroundDecoration_Color(), this.getColor(), null, "color", null, 0, 1, ForegroundDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(connectionDecorationEClass, ConnectionDecoration.class, "ConnectionDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConnectionDecoration_Size(), this.getSize(), null, "size", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConnectionDecoration_Color(), this.getColor(), null, "color", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnectionDecoration_Style(), this.getStyle(), null, "style", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnectionDecoration_ForegroundColor(), this.getColor(), null, "foregroundColor", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnectionDecoration_BackgroundColor(), this.getColor(), null, "backgroundColor", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(simpleTextEClass, SimpleText.class, "SimpleText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleText_Text(), theEcorePackage.getEString(), "text", null, 0, 1, SimpleText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleText_Attribute(), theEcorePackage.getEAttribute(), null, "attribute", null, 0, 1, SimpleText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(complexTextEClass, ComplexText.class, "ComplexText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComplexText_Left(), this.getSimpleText(), null, "left", null, 0, 1, ComplexText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getComplexText_Right(), this.getText(), null, "right", null, 0, 1, ComplexText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStyle_Value(), this.getLineStyle(), "value", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1038,7 +1236,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getColor_Value(), this.getColorConstant(), null, "value", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getColor_Concret(), this.getConcreteColor(), null, "concret", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getColor_Concrete(), this.getConcreteColor(), null, "concrete", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(concreteColorEClass, ConcreteColor.class, "ConcreteColor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConcreteColor_Red(), theEcorePackage.getEInt(), "red", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

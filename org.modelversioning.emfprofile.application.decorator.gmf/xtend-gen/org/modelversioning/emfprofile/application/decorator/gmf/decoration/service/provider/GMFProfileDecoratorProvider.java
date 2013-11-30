@@ -18,10 +18,13 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BackgroundDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ConnectionDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ForegroundDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.HighlightingDecorator;
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.IconDecorator;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ImageDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.provider.EObjectToDecoratorsMapper;
 import org.modelversioning.emfprofile.diagram.edit.parts.EAttributeEditPart;
 import org.modelversioning.emfprofile.diagram.edit.parts.EClassAttributesEditPart;
@@ -86,51 +89,23 @@ public class GMFProfileDecoratorProvider extends AbstractProvider implements IDe
     final Node node = null;
   }
   
-  public Boolean installNodeDecorators(final IDecoratorTarget decoratorTarget) {
-    Boolean _installEdgeDecorators = this.installEdgeDecorators(decoratorTarget);
-    return _installEdgeDecorators;
-  }
-  
-  public Boolean installEdgeDecorators(final IDecoratorTarget decoratorTarget) {
-    Boolean _xblockexpression = null;
-    {
-      final EObject eObject = GMFProfileDecoratorProvider.getEObjectFromDecoratorTarget(decoratorTarget);
-      Boolean _xifexpression = null;
-      boolean _notEquals = (!Objects.equal(eObject, null));
-      if (_notEquals) {
-        boolean _xblockexpression_1 = false;
-        {
-          IconDecorator _iconDecorator = new IconDecorator(decoratorTarget);
-          final IconDecorator iconDecorator = _iconDecorator;
-          BorderDecorator _borderDecorator = new BorderDecorator(decoratorTarget);
-          final BorderDecorator borderDecorator = _borderDecorator;
-          HighlightingDecorator _highlightingDecorator = new HighlightingDecorator(decoratorTarget);
-          final HighlightingDecorator highlightingDecorator = _highlightingDecorator;
-          decoratorTarget.installDecorator(IconDecorator.KEY, iconDecorator);
-          decoratorTarget.installDecorator(BorderDecorator.KEY, borderDecorator);
-          decoratorTarget.installDecorator(HighlightingDecorator.KEY, highlightingDecorator);
-          EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, iconDecorator, borderDecorator, highlightingDecorator);
-          boolean _put = this.mapper.put(eObject, _eObjectDecorators);
-          _xblockexpression_1 = (_put);
-        }
-        _xifexpression = Boolean.valueOf(_xblockexpression_1);
-      }
-      _xblockexpression = (_xifexpression);
-    }
-    return _xblockexpression;
-  }
-  
   public void createDecorators(final IDecoratorTarget decoratorTarget) {
     final EObject eObject = GMFProfileDecoratorProvider.getEObjectFromDecoratorTarget(decoratorTarget);
     boolean _notEquals = (!Objects.equal(eObject, null));
     if (_notEquals) {
-      IconDecorator _iconDecorator = new IconDecorator(decoratorTarget);
-      final IconDecorator iconDecorator = _iconDecorator;
+      ImageDecorator _imageDecorator = new ImageDecorator(decoratorTarget);
+      final ImageDecorator imageDecorator = _imageDecorator;
       BorderDecorator _borderDecorator = new BorderDecorator(decoratorTarget);
       final BorderDecorator borderDecorator = _borderDecorator;
+      BackgroundDecorator _backgroundDecorator = new BackgroundDecorator(decoratorTarget);
+      final BackgroundDecorator backgroundDecorator = _backgroundDecorator;
+      ForegroundDecorator _foregroundDecorator = new ForegroundDecorator(decoratorTarget);
+      final ForegroundDecorator foregroundDecorator = _foregroundDecorator;
+      ConnectionDecorator _connectionDecorator = new ConnectionDecorator(decoratorTarget);
+      final ConnectionDecorator connectionDecorator = _connectionDecorator;
       HighlightingDecorator _highlightingDecorator = new HighlightingDecorator(decoratorTarget);
       final HighlightingDecorator highlightingDecorator = _highlightingDecorator;
-      decoratorTarget.installDecorator(IconDecorator.KEY, iconDecorator);
+      decoratorTarget.installDecorator(ImageDecorator.KEY, imageDecorator);
       decoratorTarget.installDecorator(BorderDecorator.KEY, borderDecorator);
       decoratorTarget.installDecorator(HighlightingDecorator.KEY, highlightingDecorator);
       StringConcatenation _builder = new StringConcatenation();
@@ -140,7 +115,7 @@ public class GMFProfileDecoratorProvider extends AbstractProvider implements IDe
       Node _decoratorTargetNode = GMFProfileDecoratorProvider.getDecoratorTargetNode(decoratorTarget);
       _builder.append(_decoratorTargetNode, "");
       InputOutput.<String>println(_builder.toString());
-      EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, iconDecorator, borderDecorator, highlightingDecorator);
+      EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, imageDecorator, borderDecorator, backgroundDecorator, foregroundDecorator, connectionDecorator, highlightingDecorator);
       this.mapper.put(eObject, _eObjectDecorators);
     }
   }

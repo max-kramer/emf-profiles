@@ -12,7 +12,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCon
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
-import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
 
 /**
  * Provides labels for a EObjects.
@@ -56,8 +56,8 @@ class EMFProfileDecorationLanguageLabelProvider extends DefaultEObjectLabelProvi
 		return '''Border Decoration - size : «border.size»'''
 	}
 	
-	def text(IconDecoration icon){
-		return '''Icon Decoration - location-uri : "«icon.location_uri»"'''
+	def text(ImageDecoration image){
+		return '''Image Decoration - location-uri : "«image.location_uri»"'''
 	}
 
 	def text(Activation activation){

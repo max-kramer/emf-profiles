@@ -206,14 +206,14 @@ public interface DecorationLanguagePackage extends EPackage
   int ABSTRACT_DECORATION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl <em>Icon Decoration</em>}' class.
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl <em>Image Decoration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getIconDecoration()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getImageDecoration()
    * @generated
    */
-  int ICON_DECORATION = 4;
+  int IMAGE_DECORATION = 4;
 
   /**
    * The feature id for the '<em><b>Activation</b></em>' containment reference.
@@ -222,7 +222,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
+  int IMAGE_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
 
   /**
    * The feature id for the '<em><b>Location uri</b></em>' attribute.
@@ -231,7 +231,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION__LOCATION_URI = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
+  int IMAGE_DECORATION__LOCATION_URI = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Direction</b></em>' containment reference.
@@ -240,7 +240,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION__DIRECTION = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+  int IMAGE_DECORATION__DIRECTION = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Margin</b></em>' containment reference.
@@ -249,16 +249,25 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ICON_DECORATION__MARGIN = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
+  int IMAGE_DECORATION__MARGIN = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Icon Decoration</em>' class.
+   * The feature id for the '<em><b>Tooltip</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ICON_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
+  int IMAGE_DECORATION__TOOLTIP = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Image Decoration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMAGE_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl <em>Border Decoration</em>}' class.
@@ -316,6 +325,80 @@ public interface DecorationLanguagePackage extends EPackage
   int BORDER_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
 
   /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BackgroundDecorationImpl <em>Background Decoration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BackgroundDecorationImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getBackgroundDecoration()
+   * @generated
+   */
+  int BACKGROUND_DECORATION = 6;
+
+  /**
+   * The feature id for the '<em><b>Activation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BACKGROUND_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
+
+  /**
+   * The feature id for the '<em><b>Color</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BACKGROUND_DECORATION__COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Background Decoration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BACKGROUND_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ForegroundDecorationImpl <em>Foreground Decoration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ForegroundDecorationImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getForegroundDecoration()
+   * @generated
+   */
+  int FOREGROUND_DECORATION = 7;
+
+  /**
+   * The feature id for the '<em><b>Activation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREGROUND_DECORATION__ACTIVATION = ABSTRACT_DECORATION__ACTIVATION;
+
+  /**
+   * The feature id for the '<em><b>Color</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREGROUND_DECORATION__COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Foreground Decoration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREGROUND_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl <em>Connection Decoration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -323,7 +406,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConnectionDecoration()
    * @generated
    */
-  int CONNECTION_DECORATION = 6;
+  int CONNECTION_DECORATION = 8;
 
   /**
    * The feature id for the '<em><b>Activation</b></em>' containment reference.
@@ -344,13 +427,13 @@ public interface DecorationLanguagePackage extends EPackage
   int CONNECTION_DECORATION__SIZE = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Color</b></em>' containment reference.
+   * The feature id for the '<em><b>Style</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONNECTION_DECORATION__COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+  int CONNECTION_DECORATION__STYLE = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Foreground Color</b></em>' containment reference.
@@ -380,6 +463,99 @@ public interface DecorationLanguagePackage extends EPackage
   int CONNECTION_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 4;
 
   /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.TextImpl <em>Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.TextImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getText()
+   * @generated
+   */
+  int TEXT = 9;
+
+  /**
+   * The number of structural features of the '<em>Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TEXT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SimpleTextImpl <em>Simple Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SimpleTextImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getSimpleText()
+   * @generated
+   */
+  int SIMPLE_TEXT = 10;
+
+  /**
+   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TEXT__TEXT = TEXT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TEXT__ATTRIBUTE = TEXT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Simple Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TEXT_FEATURE_COUNT = TEXT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ComplexTextImpl <em>Complex Text</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ComplexTextImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getComplexText()
+   * @generated
+   */
+  int COMPLEX_TEXT = 11;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_TEXT__LEFT = TEXT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_TEXT__RIGHT = TEXT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Complex Text</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPLEX_TEXT_FEATURE_COUNT = TEXT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.StyleImpl <em>Style</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -387,7 +563,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getStyle()
    * @generated
    */
-  int STYLE = 7;
+  int STYLE = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -415,7 +591,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getSize()
    * @generated
    */
-  int SIZE = 8;
+  int SIZE = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -443,7 +619,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirection()
    * @generated
    */
-  int DIRECTION = 9;
+  int DIRECTION = 14;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -471,7 +647,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getMargin()
    * @generated
    */
-  int MARGIN = 10;
+  int MARGIN = 15;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -499,7 +675,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColor()
    * @generated
    */
-  int COLOR = 11;
+  int COLOR = 16;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -511,13 +687,13 @@ public interface DecorationLanguagePackage extends EPackage
   int COLOR__VALUE = 0;
 
   /**
-   * The feature id for the '<em><b>Concret</b></em>' containment reference.
+   * The feature id for the '<em><b>Concrete</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COLOR__CONCRET = 1;
+  int COLOR__CONCRETE = 1;
 
   /**
    * The number of structural features of the '<em>Color</em>' class.
@@ -536,7 +712,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConcreteColor()
    * @generated
    */
-  int CONCRETE_COLOR = 12;
+  int CONCRETE_COLOR = 17;
 
   /**
    * The feature id for the '<em><b>Red</b></em>' attribute.
@@ -582,7 +758,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColorConstant()
    * @generated
    */
-  int COLOR_CONSTANT = 13;
+  int COLOR_CONSTANT = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -610,7 +786,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getActivation()
    * @generated
    */
-  int ACTIVATION = 14;
+  int ACTIVATION = 19;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -638,7 +814,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getAbstractCondition()
    * @generated
    */
-  int ABSTRACT_CONDITION = 15;
+  int ABSTRACT_CONDITION = 20;
 
   /**
    * The number of structural features of the '<em>Abstract Condition</em>' class.
@@ -657,7 +833,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 16;
+  int CONDITION = 21;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -703,7 +879,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCompositeCondition()
    * @generated
    */
-  int COMPOSITE_CONDITION = 17;
+  int COMPOSITE_CONDITION = 22;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -740,7 +916,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 18;
+  int COMPARISON_OPERATOR = 23;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -750,7 +926,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLogicalOperator()
    * @generated
    */
-  int LOGICAL_OPERATOR = 19;
+  int LOGICAL_OPERATOR = 24;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle <em>Line Style</em>}' enum.
@@ -760,7 +936,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLineStyle()
    * @generated
    */
-  int LINE_STYLE = 20;
+  int LINE_STYLE = 25;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Colors <em>Colors</em>}' enum.
@@ -770,7 +946,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColors()
    * @generated
    */
-  int COLORS = 21;
+  int COLORS = 26;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Directions <em>Directions</em>}' enum.
@@ -780,7 +956,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirections()
    * @generated
    */
-  int DIRECTIONS = 22;
+  int DIRECTIONS = 27;
 
 
   /**
@@ -912,47 +1088,58 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getAbstractDecoration_Activation();
 
   /**
-   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration <em>Icon Decoration</em>}'.
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration <em>Image Decoration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Icon Decoration</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration
+   * @return the meta object for class '<em>Image Decoration</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
    * @generated
    */
-  EClass getIconDecoration();
+  EClass getImageDecoration();
 
   /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getLocation_uri <em>Location uri</em>}'.
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getLocation_uri <em>Location uri</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Location uri</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getLocation_uri()
-   * @see #getIconDecoration()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getLocation_uri()
+   * @see #getImageDecoration()
    * @generated
    */
-  EAttribute getIconDecoration_Location_uri();
+  EAttribute getImageDecoration_Location_uri();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getDirection <em>Direction</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getDirection <em>Direction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Direction</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getDirection()
-   * @see #getIconDecoration()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getDirection()
+   * @see #getImageDecoration()
    * @generated
    */
-  EReference getIconDecoration_Direction();
+  EReference getImageDecoration_Direction();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getMargin <em>Margin</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getMargin <em>Margin</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Margin</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration#getMargin()
-   * @see #getIconDecoration()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getMargin()
+   * @see #getImageDecoration()
    * @generated
    */
-  EReference getIconDecoration_Margin();
+  EReference getImageDecoration_Margin();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getTooltip <em>Tooltip</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tooltip</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration#getTooltip()
+   * @see #getImageDecoration()
+   * @generated
+   */
+  EReference getImageDecoration_Tooltip();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration <em>Border Decoration</em>}'.
@@ -998,6 +1185,48 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getBorderDecoration_Style();
 
   /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration <em>Background Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Background Decoration</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration
+   * @generated
+   */
+  EClass getBackgroundDecoration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration#getColor <em>Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration#getColor()
+   * @see #getBackgroundDecoration()
+   * @generated
+   */
+  EReference getBackgroundDecoration_Color();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration <em>Foreground Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Foreground Decoration</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration
+   * @generated
+   */
+  EClass getForegroundDecoration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration#getColor <em>Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration#getColor()
+   * @see #getForegroundDecoration()
+   * @generated
+   */
+  EReference getForegroundDecoration_Color();
+
+  /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration <em>Connection Decoration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1019,15 +1248,15 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getConnectionDecoration_Size();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getColor <em>Color</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getStyle <em>Style</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Color</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getColor()
+   * @return the meta object for the containment reference '<em>Style</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getStyle()
    * @see #getConnectionDecoration()
    * @generated
    */
-  EReference getConnectionDecoration_Color();
+  EReference getConnectionDecoration_Style();
 
   /**
    * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getForegroundColor <em>Foreground Color</em>}'.
@@ -1050,6 +1279,80 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    */
   EReference getConnectionDecoration_BackgroundColor();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Text <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Text</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Text
+   * @generated
+   */
+  EClass getText();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText <em>Simple Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Text</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText
+   * @generated
+   */
+  EClass getSimpleText();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Text</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText#getText()
+   * @see #getSimpleText()
+   * @generated
+   */
+  EAttribute getSimpleText_Text();
+
+  /**
+   * Returns the meta object for the reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Attribute</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText#getAttribute()
+   * @see #getSimpleText()
+   * @generated
+   */
+  EReference getSimpleText_Attribute();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText <em>Complex Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Complex Text</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText
+   * @generated
+   */
+  EClass getComplexText();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText#getLeft()
+   * @see #getComplexText()
+   * @generated
+   */
+  EReference getComplexText_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText#getRight()
+   * @see #getComplexText()
+   * @generated
+   */
+  EReference getComplexText_Right();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Style <em>Style</em>}'.
@@ -1157,15 +1460,15 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getColor_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getConcret <em>Concret</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getConcrete <em>Concrete</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Concret</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getConcret()
+   * @return the meta object for the containment reference '<em>Concrete</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Color#getConcrete()
    * @see #getColor()
    * @generated
    */
-  EReference getColor_Concret();
+  EReference getColor_Concrete();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor <em>Concrete Color</em>}'.
@@ -1515,14 +1818,14 @@ public interface DecorationLanguagePackage extends EPackage
     EReference ABSTRACT_DECORATION__ACTIVATION = eINSTANCE.getAbstractDecoration_Activation();
 
     /**
-     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl <em>Icon Decoration</em>}' class.
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl <em>Image Decoration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl
-     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getIconDecoration()
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getImageDecoration()
      * @generated
      */
-    EClass ICON_DECORATION = eINSTANCE.getIconDecoration();
+    EClass IMAGE_DECORATION = eINSTANCE.getImageDecoration();
 
     /**
      * The meta object literal for the '<em><b>Location uri</b></em>' attribute feature.
@@ -1530,7 +1833,7 @@ public interface DecorationLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ICON_DECORATION__LOCATION_URI = eINSTANCE.getIconDecoration_Location_uri();
+    EAttribute IMAGE_DECORATION__LOCATION_URI = eINSTANCE.getImageDecoration_Location_uri();
 
     /**
      * The meta object literal for the '<em><b>Direction</b></em>' containment reference feature.
@@ -1538,7 +1841,7 @@ public interface DecorationLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ICON_DECORATION__DIRECTION = eINSTANCE.getIconDecoration_Direction();
+    EReference IMAGE_DECORATION__DIRECTION = eINSTANCE.getImageDecoration_Direction();
 
     /**
      * The meta object literal for the '<em><b>Margin</b></em>' containment reference feature.
@@ -1546,7 +1849,15 @@ public interface DecorationLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ICON_DECORATION__MARGIN = eINSTANCE.getIconDecoration_Margin();
+    EReference IMAGE_DECORATION__MARGIN = eINSTANCE.getImageDecoration_Margin();
+
+    /**
+     * The meta object literal for the '<em><b>Tooltip</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMAGE_DECORATION__TOOLTIP = eINSTANCE.getImageDecoration_Tooltip();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl <em>Border Decoration</em>}' class.
@@ -1583,6 +1894,42 @@ public interface DecorationLanguagePackage extends EPackage
     EReference BORDER_DECORATION__STYLE = eINSTANCE.getBorderDecoration_Style();
 
     /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BackgroundDecorationImpl <em>Background Decoration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BackgroundDecorationImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getBackgroundDecoration()
+     * @generated
+     */
+    EClass BACKGROUND_DECORATION = eINSTANCE.getBackgroundDecoration();
+
+    /**
+     * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BACKGROUND_DECORATION__COLOR = eINSTANCE.getBackgroundDecoration_Color();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ForegroundDecorationImpl <em>Foreground Decoration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ForegroundDecorationImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getForegroundDecoration()
+     * @generated
+     */
+    EClass FOREGROUND_DECORATION = eINSTANCE.getForegroundDecoration();
+
+    /**
+     * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOREGROUND_DECORATION__COLOR = eINSTANCE.getForegroundDecoration_Color();
+
+    /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl <em>Connection Decoration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1601,12 +1948,12 @@ public interface DecorationLanguagePackage extends EPackage
     EReference CONNECTION_DECORATION__SIZE = eINSTANCE.getConnectionDecoration_Size();
 
     /**
-     * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Style</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONNECTION_DECORATION__COLOR = eINSTANCE.getConnectionDecoration_Color();
+    EReference CONNECTION_DECORATION__STYLE = eINSTANCE.getConnectionDecoration_Style();
 
     /**
      * The meta object literal for the '<em><b>Foreground Color</b></em>' containment reference feature.
@@ -1623,6 +1970,68 @@ public interface DecorationLanguagePackage extends EPackage
      * @generated
      */
     EReference CONNECTION_DECORATION__BACKGROUND_COLOR = eINSTANCE.getConnectionDecoration_BackgroundColor();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.TextImpl <em>Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.TextImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getText()
+     * @generated
+     */
+    EClass TEXT = eINSTANCE.getText();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SimpleTextImpl <em>Simple Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.SimpleTextImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getSimpleText()
+     * @generated
+     */
+    EClass SIMPLE_TEXT = eINSTANCE.getSimpleText();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_TEXT__TEXT = eINSTANCE.getSimpleText_Text();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_TEXT__ATTRIBUTE = eINSTANCE.getSimpleText_Attribute();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ComplexTextImpl <em>Complex Text</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ComplexTextImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getComplexText()
+     * @generated
+     */
+    EClass COMPLEX_TEXT = eINSTANCE.getComplexText();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEX_TEXT__LEFT = eINSTANCE.getComplexText_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPLEX_TEXT__RIGHT = eINSTANCE.getComplexText_Right();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.StyleImpl <em>Style</em>}' class.
@@ -1715,12 +2124,12 @@ public interface DecorationLanguagePackage extends EPackage
     EReference COLOR__VALUE = eINSTANCE.getColor_Value();
 
     /**
-     * The meta object literal for the '<em><b>Concret</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Concrete</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COLOR__CONCRET = eINSTANCE.getColor_Concret();
+    EReference COLOR__CONCRETE = eINSTANCE.getColor_Concrete();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConcreteColorImpl <em>Concrete Color</em>}' class.

@@ -72,21 +72,37 @@
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//AbstractDecoration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//AbstractDecoration/activation"/>
     </genClasses>
-    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//IconDecoration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//IconDecoration/location_uri"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//IconDecoration/direction"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//IconDecoration/margin"/>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//ImageDecoration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//ImageDecoration/location_uri"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ImageDecoration/direction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ImageDecoration/margin"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ImageDecoration/tooltip"/>
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//BorderDecoration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BorderDecoration/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BorderDecoration/color"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BorderDecoration/style"/>
     </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//BackgroundDecoration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BackgroundDecoration/color"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//ForegroundDecoration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ForegroundDecoration/color"/>
+    </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//ConnectionDecoration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/size"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/color"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/style"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/foregroundColor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/backgroundColor"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Text"/>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//SimpleText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//SimpleText/text"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//SimpleText/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//ComplexText">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ComplexText/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ComplexText/right"/>
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Style">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//Style/value"/>
@@ -102,7 +118,7 @@
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Color">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Color/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Color/concret"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Color/concrete"/>
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//ConcreteColor">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//ConcreteColor/red"/>

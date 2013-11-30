@@ -24,6 +24,8 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Text;
 
 /**
  * This class contains custom scoping description.
@@ -73,12 +75,33 @@ public class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarati
   }
   
   /**
+   * for scopes in conditions
+   */
+  public IScope scope_EAttribute(final Activation context, final EReference ref) {
+    return this.getScopesOfEAttributes(context, ref);
+  }
+  
+  /**
+   * For scopes in texts.
+   * <p>
+   * NOTE: for content assist to work right with cross-references,
+   * you have to provide the right argument type for the context parameter.
+   * E.g., in this case do not use {@link SimpleText} as a type for context although
+   * the stereotype's attribute is set in here, but use the most common super type for context.
+   * As in this case {@link Text} is.
+   * </p>
+   */
+  public IScope scope_EAttribute(final Text context, final EReference ref) {
+    return this.getScopesOfEAttributes(context, ref);
+  }
+  
+  /**
    * When resolving the cross-reference to the attribute of a stereotype, which in the decoration language
-   * only happens in the conditions, we are only interested in attributes of the stereotype
+   * only happens in conditions and Text objects, we are only interested in attributes of the stereotype
    * for which the decoration is defined.
    * We also need to collect the attributes of the parent/extended stereotypes if the steretype has any ESuperTypes.
    */
-  public IScope scope_EAttribute(final Activation context, final EReference ref) {
+  private IScope getScopesOfEAttributes(final EObject context, final EReference ref) {
     IScope _xblockexpression = null;
     {
       HashSet<EAttribute> _hashSet = new HashSet<EAttribute>();

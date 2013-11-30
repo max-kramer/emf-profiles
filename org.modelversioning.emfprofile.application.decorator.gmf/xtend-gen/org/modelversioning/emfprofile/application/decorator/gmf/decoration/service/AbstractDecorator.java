@@ -37,6 +37,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDeco
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Colors;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -167,8 +168,8 @@ public abstract class AbstractDecorator implements IDecorator {
    * Adds figure decoration to the connection
    */
   protected Decoration addConnectionDecoration(final IFigure figure, final int percentageFromSource, final boolean isVolatile) {
-    int _correctPercentageValue = this.correctPercentageValue(percentageFromSource);
-    IDecoration _addConnectionDecoration = this.decoratorTarget.addConnectionDecoration(figure, _correctPercentageValue, isVolatile);
+    int _providePercentageValue = this.providePercentageValue(percentageFromSource);
+    IDecoration _addConnectionDecoration = this.decoratorTarget.addConnectionDecoration(figure, _providePercentageValue, isVolatile);
     return ((Decoration) _addConnectionDecoration);
   }
   
@@ -176,8 +177,8 @@ public abstract class AbstractDecorator implements IDecorator {
    * Adds image decoration to the connection
    */
   protected Decoration addConnectionDecoration(final Image image, final int percentageFromSource, final boolean isVolatile) {
-    int _correctPercentageValue = this.correctPercentageValue(percentageFromSource);
-    IDecoration _addConnectionDecoration = this.decoratorTarget.addConnectionDecoration(image, _correctPercentageValue, isVolatile);
+    int _providePercentageValue = this.providePercentageValue(percentageFromSource);
+    IDecoration _addConnectionDecoration = this.decoratorTarget.addConnectionDecoration(image, _providePercentageValue, isVolatile);
     return ((Decoration) _addConnectionDecoration);
   }
   
@@ -185,8 +186,7 @@ public abstract class AbstractDecorator implements IDecorator {
    * Adds figure decoration to the shape
    */
   protected Decoration addShapeDecoration(final IFigure figure, final Direction direction, final int margin, final boolean isVolatile) {
-    int _minus = (-1);
-    IDecoration _addShapeDecoration = this.decoratorTarget.addShapeDecoration(figure, Direction.NORTH_EAST, _minus, false);
+    IDecoration _addShapeDecoration = this.decoratorTarget.addShapeDecoration(figure, direction, margin, isVolatile);
     return ((Decoration) _addShapeDecoration);
   }
   
@@ -194,12 +194,11 @@ public abstract class AbstractDecorator implements IDecorator {
    * Adds image decoration to the shape
    */
   protected Decoration addShapeDecoration(final Image image, final Direction direction, final int margin, final boolean isVolatile) {
-    int _minus = (-1);
-    IDecoration _addShapeDecoration = this.decoratorTarget.addShapeDecoration(image, Direction.NORTH_EAST, _minus, false);
+    IDecoration _addShapeDecoration = this.decoratorTarget.addShapeDecoration(image, direction, margin, isVolatile);
     return ((Decoration) _addShapeDecoration);
   }
   
-  private int correctPercentageValue(final int number) {
+  protected int providePercentageValue(final int number) {
     boolean _greaterThan = (number > 100);
     if (_greaterThan) {
       return 100;
@@ -211,6 +210,9 @@ public abstract class AbstractDecorator implements IDecorator {
     return number;
   }
   
+  /**
+   * utility method to convert styles from decoration description language to types acceptable by GMF
+   */
   protected int provideStyle(final Style style) {
     int _xblockexpression = (int) 0;
     {
@@ -264,12 +266,15 @@ public abstract class AbstractDecorator implements IDecorator {
     return _xblockexpression;
   }
   
+  /**
+   * utility method to convert colors from decoration description language to types acceptable by GMF
+   */
   protected Color provideColor(final org.modelversioning.emfprofile.decoration.decorationLanguage.Color color) {
     boolean _equals = Objects.equal(color, null);
     if (_equals) {
-      return ColorConstants.red;
+      return ColorConstants.black;
     }
-    final ConcreteColor concreteColor = color.getConcret();
+    final ConcreteColor concreteColor = color.getConcrete();
     boolean _notEquals = (!Objects.equal(concreteColor, null));
     if (_notEquals) {
       int _red = concreteColor.getRed();
@@ -400,7 +405,83 @@ public abstract class AbstractDecorator implements IDecorator {
           return ColorConstants.yellow;
         }
       }
-      return ColorConstants.red;
+      return ColorConstants.black;
     }
+  }
+  
+  /**
+   * utility method to convert directions from decoration description language to types acceptable by GMF
+   */
+  protected Direction provideDirection(final org.modelversioning.emfprofile.decoration.decorationLanguage.Direction direction) {
+    boolean _equals = Objects.equal(direction, null);
+    if (_equals) {
+      return Direction.NORTH_WEST;
+    }
+    final Directions concreteDirectionValue = direction.getValue();
+    boolean _matched = false;
+    if (!_matched) {
+      boolean _equals_1 = Objects.equal(concreteDirectionValue, Directions.CENTER);
+      if (_equals_1) {
+        _matched=true;
+        return Direction.CENTER;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_2 = Objects.equal(concreteDirectionValue, Directions.EAST);
+      if (_equals_2) {
+        _matched=true;
+        return Direction.EAST;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_3 = Objects.equal(concreteDirectionValue, Directions.NORHT);
+      if (_equals_3) {
+        _matched=true;
+        return Direction.NORTH;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_4 = Objects.equal(concreteDirectionValue, Directions.NORTH_EAST);
+      if (_equals_4) {
+        _matched=true;
+        return Direction.NORTH_EAST;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_5 = Objects.equal(concreteDirectionValue, Directions.NORTH_WEST);
+      if (_equals_5) {
+        _matched=true;
+        return Direction.NORTH_WEST;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_6 = Objects.equal(concreteDirectionValue, Directions.SOUTH);
+      if (_equals_6) {
+        _matched=true;
+        return Direction.SOUTH;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_7 = Objects.equal(concreteDirectionValue, Directions.SOUTH_EAST);
+      if (_equals_7) {
+        _matched=true;
+        return Direction.SOUTH_EAST;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_8 = Objects.equal(concreteDirectionValue, Directions.SOUTH_WEST);
+      if (_equals_8) {
+        _matched=true;
+        return Direction.SOUTH_WEST;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_9 = Objects.equal(concreteDirectionValue, Directions.WEST);
+      if (_equals_9) {
+        _matched=true;
+        return Direction.WEST;
+      }
+    }
+    return Direction.NORTH_WEST;
   }
 }

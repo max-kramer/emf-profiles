@@ -12,25 +12,27 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Direction;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Text;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Icon Decoration</b></em>'.
+ * An implementation of the model object '<em><b>Image Decoration</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl#getLocation_uri <em>Location uri</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl#getDirection <em>Direction</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.IconDecorationImpl#getMargin <em>Margin</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl#getLocation_uri <em>Location uri</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl#getDirection <em>Direction</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl#getMargin <em>Margin</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl#getTooltip <em>Tooltip</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IconDecorationImpl extends AbstractDecorationImpl implements IconDecoration
+public class ImageDecorationImpl extends AbstractDecorationImpl implements ImageDecoration
 {
   /**
    * The default value of the '{@link #getLocation_uri() <em>Location uri</em>}' attribute.
@@ -73,11 +75,21 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   protected Margin margin;
 
   /**
+   * The cached value of the '{@link #getTooltip() <em>Tooltip</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTooltip()
+   * @generated
+   * @ordered
+   */
+  protected Text tooltip;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IconDecorationImpl()
+  protected ImageDecorationImpl()
   {
     super();
   }
@@ -90,7 +102,7 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   @Override
   protected EClass eStaticClass()
   {
-    return DecorationLanguagePackage.Literals.ICON_DECORATION;
+    return DecorationLanguagePackage.Literals.IMAGE_DECORATION;
   }
 
   /**
@@ -113,7 +125,7 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
     String oldLocation_uri = location_uri;
     location_uri = newLocation_uri;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ICON_DECORATION__LOCATION_URI, oldLocation_uri, location_uri));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__LOCATION_URI, oldLocation_uri, location_uri));
   }
 
   /**
@@ -137,7 +149,7 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
     direction = newDirection;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ICON_DECORATION__DIRECTION, oldDirection, newDirection);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION, oldDirection, newDirection);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -154,14 +166,14 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
     {
       NotificationChain msgs = null;
       if (direction != null)
-        msgs = ((InternalEObject)direction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.ICON_DECORATION__DIRECTION, null, msgs);
+        msgs = ((InternalEObject)direction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION, null, msgs);
       if (newDirection != null)
-        msgs = ((InternalEObject)newDirection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.ICON_DECORATION__DIRECTION, null, msgs);
+        msgs = ((InternalEObject)newDirection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION, null, msgs);
       msgs = basicSetDirection(newDirection, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ICON_DECORATION__DIRECTION, newDirection, newDirection));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION, newDirection, newDirection));
   }
 
   /**
@@ -185,7 +197,7 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
     margin = newMargin;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ICON_DECORATION__MARGIN, oldMargin, newMargin);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__MARGIN, oldMargin, newMargin);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -202,14 +214,62 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
     {
       NotificationChain msgs = null;
       if (margin != null)
-        msgs = ((InternalEObject)margin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.ICON_DECORATION__MARGIN, null, msgs);
+        msgs = ((InternalEObject)margin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.IMAGE_DECORATION__MARGIN, null, msgs);
       if (newMargin != null)
-        msgs = ((InternalEObject)newMargin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.ICON_DECORATION__MARGIN, null, msgs);
+        msgs = ((InternalEObject)newMargin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.IMAGE_DECORATION__MARGIN, null, msgs);
       msgs = basicSetMargin(newMargin, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.ICON_DECORATION__MARGIN, newMargin, newMargin));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__MARGIN, newMargin, newMargin));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Text getTooltip()
+  {
+    return tooltip;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTooltip(Text newTooltip, NotificationChain msgs)
+  {
+    Text oldTooltip = tooltip;
+    tooltip = newTooltip;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP, oldTooltip, newTooltip);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTooltip(Text newTooltip)
+  {
+    if (newTooltip != tooltip)
+    {
+      NotificationChain msgs = null;
+      if (tooltip != null)
+        msgs = ((InternalEObject)tooltip).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP, null, msgs);
+      if (newTooltip != null)
+        msgs = ((InternalEObject)newTooltip).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP, null, msgs);
+      msgs = basicSetTooltip(newTooltip, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP, newTooltip, newTooltip));
   }
 
   /**
@@ -222,10 +282,12 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.ICON_DECORATION__DIRECTION:
+      case DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION:
         return basicSetDirection(null, msgs);
-      case DecorationLanguagePackage.ICON_DECORATION__MARGIN:
+      case DecorationLanguagePackage.IMAGE_DECORATION__MARGIN:
         return basicSetMargin(null, msgs);
+      case DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP:
+        return basicSetTooltip(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -240,12 +302,14 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.ICON_DECORATION__LOCATION_URI:
+      case DecorationLanguagePackage.IMAGE_DECORATION__LOCATION_URI:
         return getLocation_uri();
-      case DecorationLanguagePackage.ICON_DECORATION__DIRECTION:
+      case DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION:
         return getDirection();
-      case DecorationLanguagePackage.ICON_DECORATION__MARGIN:
+      case DecorationLanguagePackage.IMAGE_DECORATION__MARGIN:
         return getMargin();
+      case DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP:
+        return getTooltip();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -260,14 +324,17 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.ICON_DECORATION__LOCATION_URI:
+      case DecorationLanguagePackage.IMAGE_DECORATION__LOCATION_URI:
         setLocation_uri((String)newValue);
         return;
-      case DecorationLanguagePackage.ICON_DECORATION__DIRECTION:
+      case DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION:
         setDirection((Direction)newValue);
         return;
-      case DecorationLanguagePackage.ICON_DECORATION__MARGIN:
+      case DecorationLanguagePackage.IMAGE_DECORATION__MARGIN:
         setMargin((Margin)newValue);
+        return;
+      case DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP:
+        setTooltip((Text)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,14 +350,17 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.ICON_DECORATION__LOCATION_URI:
+      case DecorationLanguagePackage.IMAGE_DECORATION__LOCATION_URI:
         setLocation_uri(LOCATION_URI_EDEFAULT);
         return;
-      case DecorationLanguagePackage.ICON_DECORATION__DIRECTION:
+      case DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION:
         setDirection((Direction)null);
         return;
-      case DecorationLanguagePackage.ICON_DECORATION__MARGIN:
+      case DecorationLanguagePackage.IMAGE_DECORATION__MARGIN:
         setMargin((Margin)null);
+        return;
+      case DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP:
+        setTooltip((Text)null);
         return;
     }
     super.eUnset(featureID);
@@ -306,12 +376,14 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.ICON_DECORATION__LOCATION_URI:
+      case DecorationLanguagePackage.IMAGE_DECORATION__LOCATION_URI:
         return LOCATION_URI_EDEFAULT == null ? location_uri != null : !LOCATION_URI_EDEFAULT.equals(location_uri);
-      case DecorationLanguagePackage.ICON_DECORATION__DIRECTION:
+      case DecorationLanguagePackage.IMAGE_DECORATION__DIRECTION:
         return direction != null;
-      case DecorationLanguagePackage.ICON_DECORATION__MARGIN:
+      case DecorationLanguagePackage.IMAGE_DECORATION__MARGIN:
         return margin != null;
+      case DecorationLanguagePackage.IMAGE_DECORATION__TOOLTIP:
+        return tooltip != null;
     }
     return super.eIsSet(featureID);
   }
@@ -333,4 +405,4 @@ public class IconDecorationImpl extends AbstractDecorationImpl implements IconDe
     return result.toString();
   }
 
-} //IconDecorationImpl
+} //ImageDecorationImpl

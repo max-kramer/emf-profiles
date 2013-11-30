@@ -7,6 +7,7 @@ import java.util.ArrayList
 import java.util.HashSet
 import java.util.Set
 import org.eclipse.emf.ecore.EAttribute
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
@@ -15,6 +16,8 @@ import org.modelversioning.emfprofile.Stereotype
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
+import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Text
 
 import static org.modelversioning.emfprofile.decoration.DecorationLanguageUtil.*
 
@@ -33,44 +36,54 @@ class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarativeScope
 	 * we create the scope directly with stereotypes, otherwise we delegate.
 	 */
 	def IScope scope_DecorationDescription_stereotype(DecorationDescription context, EReference ref){
-//		println()
-//		println('''Scoping for Stereotypes, found:''')
 		
 		val model = context.eContainer as DecorationModel
-//		println("namespace value: " + model.namespace)
 		if(model.namespace != null){
 			val sts = new ArrayList<Stereotype>
 			sts.addAll(model.namespace.profile.stereotypes)
-//			sts.forEach[s | println(s)]
 			Scopes::scopeFor(sts)
 		} else {
 			val scope = delegateGetScope(context, ref)
-//			println(scope)
 			scope
 		}
 	}
 
 	/*
+	 * for scopes in conditions 
+	 */
+	def IScope scope_EAttribute(Activation context, EReference ref){
+		return getScopesOfEAttributes(context, ref)
+	}
+	
+	/**
+	 * For scopes in texts.
+	 * <p>
+	 * NOTE: for content assist to work right with cross-references,
+	 * you have to provide the right argument type for the context parameter.
+	 * E.g., in this case do not use {@link SimpleText} as a type for context although 
+	 * the stereotype's attribute is set in here, but use the most common super type for context.
+	 * As in this case {@link Text} is.
+	 * </p> 
+	 */
+	def IScope scope_EAttribute(Text context, EReference ref){
+		return getScopesOfEAttributes(context, ref)
+	}
+
+	/*
 	 * When resolving the cross-reference to the attribute of a stereotype, which in the decoration language
-	 * only happens in the conditions, we are only interested in attributes of the stereotype
+	 * only happens in conditions and Text objects, we are only interested in attributes of the stereotype
 	 * for which the decoration is defined. 
 	 * We also need to collect the attributes of the parent/extended stereotypes if the steretype has any ESuperTypes.
 	 */
-	def IScope scope_EAttribute(Activation context, EReference ref){
-//		println()
-//		println('''Scoping for Attributes of «getStereotype(context).name», found:''')
-//		getStereotype(context).EAllAttributes.forEach[a|println("\t" + a)]
+	private def IScope getScopesOfEAttributes(EObject context, EReference ref){
 		val Set<EAttribute> attributes = new HashSet<EAttribute>
 		val stereotype = getStereotype(context)
 		attributes.addAll(stereotype.EAttributes)
 		stereotype.ESuperTypes.forEach[st | attributes.addAll(st.EAttributes)]
-//		attributes.forEach[a | println(a)]
 		Scopes::scopeFor(attributes)
 		//		new FilteringScope(delegateGetScope(condition, eReference), [
 		//			// here comes the predicate
 		//		])
 	}
-	
-
 }
 	

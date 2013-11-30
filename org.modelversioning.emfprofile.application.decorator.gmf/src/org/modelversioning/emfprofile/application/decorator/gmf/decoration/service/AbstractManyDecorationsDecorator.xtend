@@ -5,7 +5,7 @@ import java.util.Set
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.Decoration
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus
-import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
+import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration
 
 abstract class AbstractManyDecorationsDecorator extends AbstractDecorator {
 
@@ -48,7 +48,7 @@ abstract class AbstractManyDecorationsDecorator extends AbstractDecorator {
 					val decorationStatus = gd.decorationStatus
 					switch decorationStatus {
 						case decorationStatus == DecorationStatus::ACTIVE: {
-							decorationsOnEObject.add(processAddDecoration(gd.decoration))
+							decorationsOnEObject.add(processAddDecoration(gd))
 						}
 						case decorationStatus == DecorationStatus::INANCTIVE: {
 							//						do nothing
@@ -64,7 +64,7 @@ abstract class AbstractManyDecorationsDecorator extends AbstractDecorator {
 	/**
 	 * instructs the decorator to visualize the decoration on the decoration target.
 	 */
-	abstract def Decoration processAddDecoration(AbstractDecoration decoration)
+	abstract def Decoration processAddDecoration(GraphicalDecoration graphicalDecoration)
 
 	/**
 	 * instructs the decorator to remove the visualized decoration from the decoration target.

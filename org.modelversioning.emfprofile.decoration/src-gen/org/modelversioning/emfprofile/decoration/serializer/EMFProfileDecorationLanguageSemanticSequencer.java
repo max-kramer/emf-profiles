@@ -14,9 +14,11 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
@@ -25,9 +27,11 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDe
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Direction;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.IconDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 import org.modelversioning.emfprofile.decoration.services.EMFProfileDecorationLanguageGrammarAccess;
@@ -43,6 +47,13 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 			case DecorationLanguagePackage.ACTIVATION:
 				if(context == grammarAccess.getActivationRule()) {
 					sequence_Activation(context, (Activation) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.BACKGROUND_DECORATION:
+				if(context == grammarAccess.getAbstractDecorationRule() ||
+				   context == grammarAccess.getBackgroundDecorationRule()) {
+					sequence_BackgroundDecoration(context, (BackgroundDecoration) semanticObject); 
 					return; 
 				}
 				else break;
@@ -62,6 +73,13 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 			case DecorationLanguagePackage.COLOR_CONSTANT:
 				if(context == grammarAccess.getColorConstantRule()) {
 					sequence_ColorConstant(context, (ColorConstant) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.COMPLEX_TEXT:
+				if(context == grammarAccess.getComplexTextRule() ||
+				   context == grammarAccess.getTextRule()) {
+					sequence_ComplexText(context, (ComplexText) semanticObject); 
 					return; 
 				}
 				else break;
@@ -110,10 +128,17 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 					return; 
 				}
 				else break;
-			case DecorationLanguagePackage.ICON_DECORATION:
+			case DecorationLanguagePackage.FOREGROUND_DECORATION:
 				if(context == grammarAccess.getAbstractDecorationRule() ||
-				   context == grammarAccess.getIconDecorationRule()) {
-					sequence_IconDecoration(context, (IconDecoration) semanticObject); 
+				   context == grammarAccess.getForegroundDecorationRule()) {
+					sequence_ForegroundDecoration(context, (ForegroundDecoration) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.IMAGE_DECORATION:
+				if(context == grammarAccess.getAbstractDecorationRule() ||
+				   context == grammarAccess.getImageDecorationRule()) {
+					sequence_ImageDecoration(context, (ImageDecoration) semanticObject); 
 					return; 
 				}
 				else break;
@@ -126,6 +151,13 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 			case DecorationLanguagePackage.NAMESPACE:
 				if(context == grammarAccess.getNamespaceRule()) {
 					sequence_Namespace(context, (Namespace) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.SIMPLE_TEXT:
+				if(context == grammarAccess.getSimpleTextRule() ||
+				   context == grammarAccess.getTextRule()) {
+					sequence_SimpleText(context, (SimpleText) semanticObject); 
 					return; 
 				}
 				else break;
@@ -163,7 +195,16 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     ((size=Size? color=Color? style=Style? activation=Activation?)?)
+	 *     (color=Color? activation=Activation?)
+	 */
+	protected void sequence_BackgroundDecoration(EObject context, BackgroundDecoration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (size=Size? color=Color? style=Style? activation=Activation?)
 	 */
 	protected void sequence_BorderDecoration(EObject context, BorderDecoration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -181,7 +222,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getColorConstantAccess().getValueColorsEnumRuleCall_0_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getColorConstantAccess().getValueColorsEnumRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -192,6 +233,25 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	 */
 	protected void sequence_Color(EObject context, Color semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (left=SimpleText right=Text)
+	 */
+	protected void sequence_ComplexText(EObject context, ComplexText semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.COMPLEX_TEXT__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.COMPLEX_TEXT__LEFT));
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.COMPLEX_TEXT__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.COMPLEX_TEXT__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getComplexTextAccess().getLeftSimpleTextParserRuleCall_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getComplexTextAccess().getRightTextParserRuleCall_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -250,7 +310,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     ((size=Size? color=Color? foregroundColor=Color? backgroundColor=Color? activation=Activation?)?)
+	 *     (size=Size? style=Style? foregroundColor=Color? backgroundColor=Color? activation=Activation?)
 	 */
 	protected void sequence_ConnectionDecoration(EObject context, ConnectionDecoration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -293,9 +353,18 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (location_uri=STRING direction=Direction? margin=Margin? activation=Activation?)
+	 *     (color=Color? activation=Activation?)
 	 */
-	protected void sequence_IconDecoration(EObject context, IconDecoration semanticObject) {
+	protected void sequence_ForegroundDecoration(EObject context, ForegroundDecoration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (location_uri=STRING direction=Direction? margin=Margin? tooltip=Text? activation=Activation?)
+	 */
+	protected void sequence_ImageDecoration(EObject context, ImageDecoration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -329,6 +398,15 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getNamespaceAccess().getProfileProfileQualifiedNameParserRuleCall_1_0_1(), semanticObject.getProfile());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (text=STRING | attribute=[EAttribute|QualifiedName])
+	 */
+	protected void sequence_SimpleText(EObject context, SimpleText semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

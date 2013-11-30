@@ -100,11 +100,11 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DecorationLanguagePackage.ICON_DECORATION:
+      case DecorationLanguagePackage.IMAGE_DECORATION:
       {
-        IconDecoration iconDecoration = (IconDecoration)theEObject;
-        T result = caseIconDecoration(iconDecoration);
-        if (result == null) result = caseAbstractDecoration(iconDecoration);
+        ImageDecoration imageDecoration = (ImageDecoration)theEObject;
+        T result = caseImageDecoration(imageDecoration);
+        if (result == null) result = caseAbstractDecoration(imageDecoration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -116,11 +116,50 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DecorationLanguagePackage.BACKGROUND_DECORATION:
+      {
+        BackgroundDecoration backgroundDecoration = (BackgroundDecoration)theEObject;
+        T result = caseBackgroundDecoration(backgroundDecoration);
+        if (result == null) result = caseAbstractDecoration(backgroundDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.FOREGROUND_DECORATION:
+      {
+        ForegroundDecoration foregroundDecoration = (ForegroundDecoration)theEObject;
+        T result = caseForegroundDecoration(foregroundDecoration);
+        if (result == null) result = caseAbstractDecoration(foregroundDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DecorationLanguagePackage.CONNECTION_DECORATION:
       {
         ConnectionDecoration connectionDecoration = (ConnectionDecoration)theEObject;
         T result = caseConnectionDecoration(connectionDecoration);
         if (result == null) result = caseAbstractDecoration(connectionDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.TEXT:
+      {
+        Text text = (Text)theEObject;
+        T result = caseText(text);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.SIMPLE_TEXT:
+      {
+        SimpleText simpleText = (SimpleText)theEObject;
+        T result = caseSimpleText(simpleText);
+        if (result == null) result = caseText(simpleText);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.COMPLEX_TEXT:
+      {
+        ComplexText complexText = (ComplexText)theEObject;
+        T result = caseComplexText(complexText);
+        if (result == null) result = caseText(complexText);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,17 +311,17 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Icon Decoration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Image Decoration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Icon Decoration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Image Decoration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseIconDecoration(IconDecoration object)
+  public T caseImageDecoration(ImageDecoration object)
   {
     return null;
   }
@@ -304,6 +343,38 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Background Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Background Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBackgroundDecoration(BackgroundDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Foreground Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Foreground Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForegroundDecoration(ForegroundDecoration object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Connection Decoration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -315,6 +386,54 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConnectionDecoration(ConnectionDecoration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseText(Text object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleText(SimpleText object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexText(ComplexText object)
   {
     return null;
   }

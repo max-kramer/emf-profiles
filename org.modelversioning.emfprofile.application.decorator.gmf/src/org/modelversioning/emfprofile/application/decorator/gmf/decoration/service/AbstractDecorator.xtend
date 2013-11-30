@@ -26,6 +26,7 @@ import org.modelversioning.emfprofile.application.registry.decoration.GraphicalD
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Colors
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style
 import org.modelversioning.emfprofileapplication.StereotypeApplication
@@ -125,31 +126,31 @@ abstract class AbstractDecorator implements IDecorator {
 	 * Adds figure decoration to the connection 
 	 */
 	protected def Decoration addConnectionDecoration(IFigure figure, int percentageFromSource, boolean isVolatile){
-		decoratorTarget.addConnectionDecoration(figure, correctPercentageValue(percentageFromSource), isVolatile) as Decoration
+		decoratorTarget.addConnectionDecoration(figure, providePercentageValue(percentageFromSource), isVolatile) as Decoration
 	}
 	
 	/**
 	 * Adds image decoration to the connection 
 	 */
 	protected def Decoration addConnectionDecoration(Image image, int percentageFromSource, boolean isVolatile){
-		decoratorTarget.addConnectionDecoration(image, correctPercentageValue(percentageFromSource), isVolatile) as Decoration
+		decoratorTarget.addConnectionDecoration(image, providePercentageValue(percentageFromSource), isVolatile) as Decoration
 	}
 
 	/**
 	 * Adds figure decoration to the shape 
 	 */	
 	protected def Decoration addShapeDecoration(IFigure figure, Direction direction, int margin, boolean isVolatile){
-		decoratorTarget.addShapeDecoration(figure, IDecoratorTarget.Direction.NORTH_EAST, -1, false) as Decoration
+		decoratorTarget.addShapeDecoration(figure, direction, margin, isVolatile) as Decoration
 	}
 	
 	/**
 	 * Adds image decoration to the shape 
 	 */
 	protected def Decoration addShapeDecoration(Image image, Direction direction, int margin, boolean isVolatile){
-		decoratorTarget.addShapeDecoration(image, IDecoratorTarget.Direction.NORTH_EAST, -1, false) as Decoration
+		decoratorTarget.addShapeDecoration(image, direction, margin, isVolatile) as Decoration
 	}
 	
-	private def int correctPercentageValue(int number){
+	protected def int providePercentageValue(int number){
 		if(number > 100)
 			return 100
 		if(number < 0)
@@ -157,7 +158,10 @@ abstract class AbstractDecorator implements IDecorator {
 		return number
 	}
 	
-		protected def int provideStyle(Style style) {
+	/**
+	 * utility method to convert styles from decoration description language to types acceptable by GMF
+	 */
+	protected def int provideStyle(Style style) {
 		if(style == null)
 			return Graphics.LINE_SOLID
 		val ls = style.value
@@ -172,11 +176,14 @@ abstract class AbstractDecorator implements IDecorator {
 		}
 	}
 	
+	/**
+	 * utility method to convert colors from decoration description language to types acceptable by GMF
+	 */
 	protected def Color provideColor(org.modelversioning.emfprofile.decoration.decorationLanguage.Color color) {
 		if(color == null)
-			return ColorConstants.red
+			return ColorConstants.black
 		
-		val concreteColor = color.concret
+		val concreteColor = color.concrete 
 		if(concreteColor != null) {
 			val rgb = new RGB(concreteColor.red,concreteColor.green,concreteColor.blue)
 			if(createdColors.containsKey(rgb)){
@@ -207,8 +214,31 @@ abstract class AbstractDecorator implements IDecorator {
 				case colorCode == Colors::WHITE : return ColorConstants.white
 				case colorCode == Colors::YELLOW : return ColorConstants.yellow
 				default:
-					return ColorConstants.red
+					return ColorConstants.black
 			}
+		}
+		
+	}
+	
+	/**
+	 * utility method to convert directions from decoration description language to types acceptable by GMF
+	 */
+	protected def Direction provideDirection(org.modelversioning.emfprofile.decoration.decorationLanguage.Direction direction){
+		if(direction == null)
+			return Direction.NORTH_WEST
+		val concreteDirectionValue = direction.value
+		switch concreteDirectionValue {
+			case concreteDirectionValue == Directions::CENTER : return Direction.CENTER
+			case concreteDirectionValue == Directions::EAST : return Direction.EAST
+			case concreteDirectionValue == Directions::NORHT : return Direction.NORTH
+			case concreteDirectionValue == Directions::NORTH_EAST : return Direction.NORTH_EAST
+			case concreteDirectionValue == Directions::NORTH_WEST : return Direction.NORTH_WEST
+			case concreteDirectionValue == Directions::SOUTH : return Direction.SOUTH
+			case concreteDirectionValue == Directions::SOUTH_EAST : return Direction.SOUTH_EAST
+			case concreteDirectionValue == Directions::SOUTH_WEST : return Direction.SOUTH_WEST
+			case concreteDirectionValue == Directions::WEST : return Direction.WEST
+			default:
+				return Direction.NORTH_WEST			
 		}
 		
 	}

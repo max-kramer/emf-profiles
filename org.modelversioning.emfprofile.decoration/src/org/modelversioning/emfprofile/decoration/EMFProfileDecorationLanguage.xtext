@@ -5,8 +5,8 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 import "http://www.modelversioning.org/emfprofile/1.1" as profile
 
 DecorationModel:
-	"import resource" importURI = STRING (';')? // makes sense only for ImportURIScopingFragment and SimpleNameProvider
-	(namespace=Namespace (';')?)?
+	"import resource" importURI = STRING  // makes sense only for ImportURIScopingFragment and SimpleNameProvider
+	(namespace=Namespace)?
 	decorationDescriptions+=DecorationDescription*;
 
 Namespace:
@@ -15,72 +15,120 @@ Namespace:
 
 DecorationDescription:
 	'decoration' stereotype=[profile::Stereotype|QualifiedName] '{' 
-	decorations+=(AbstractDecoration)+
-	(activation=Activation)? 
+	(decorations+=(AbstractDecoration)+
+	& (activation=Activation)?) 
 	'}'
 ;
 
 // For all decorations if they have optional values then some default value will be used. see comments below 
 AbstractDecoration:
-	IconDecoration | BorderDecoration | ConnectionDecoration;
+	ImageDecoration // have effect on both nodes and edges
+	| BorderDecoration | BackgroundDecoration | ForegroundDecoration // have effect only on nodes
+	| ConnectionDecoration; // has effect only on edges
 
-IconDecoration:
-	'icon' '{' 
-		'location-uri' ':' location_uri=STRING (';')? 
-		(direction=Direction)? // default value will be: for node = north_west; for edge = center
-		(margin=Margin)? // default value will be: 5 ; margin has no effect on nodes
-		(activation=Activation)? 
+
+ImageDecoration:
+	{ImageDecoration}
+	'image' '{' 
+		(
+			('location-uri' '=' location_uri=STRING) 
+			& (direction=Direction)? // default value will be: for node = north_west; for edge = center
+			& (margin=Margin)? // default value will be: -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+			& ('tooltip' '=' tooltip=Text)?
+			& (activation=Activation)? 
+		)
 	'}'
 ;
 
-BorderDecoration: // this will have effect only on nodes
+
+BorderDecoration:
 	{BorderDecoration}
-	'border' ('{' 
-		size=Size? // default value will be: 1
-		color=Color? // default value will be: red
-		style=Style?// default value will be: solid
-		(activation=Activation)?
-	'}')?
+	'border' '{' 
+		(
+			(size=Size)? // default value will be: 1
+			& ('color' '=' color=Color)? // default value will be: black
+			& (style=Style)?// default value will be: solid
+			& (activation=Activation)?
+		)
+	'}'
 ;
 
-ConnectionDecoration: // this will have effect only on edges
+BackgroundDecoration:
+	{BackgroundDecoration}
+	'background' '{'
+		(
+			('color' '=' color=Color)?
+			& (activation=Activation)?
+		)	
+	'}'
+;
+
+ForegroundDecoration:
+	{ForegroundDecoration}
+	'foreground'  '{'
+		(
+			('color' '=' color=Color)?
+			& (activation=Activation)?
+		)
+	'}'
+	
+;
+
+ConnectionDecoration:
 	{ConnectionDecoration}
-	'connection' ( '{'
-		size=Size?
-		color=Color?
-		('foreground' foregroundColor=Color)?
-		('background' backgroundColor=Color)?
-		(activation=Activation)?
-	'}')?
+	'connection' '{'
+		(
+			(size=Size)?
+			& (style=Style)?
+			& ('foreground-color' '=' foregroundColor=Color)?
+			& ('background-color' '=' backgroundColor=Color)?
+			& (activation=Activation)?
+		)
+	'}'
+;
+
+/**
+ * Text which we can include in the visualization, e.g., hover text over image decoration.
+ * Can be build out of Strings and attribute values of the applied stereotype.
+ */
+Text:
+	SimpleText | ComplexText
+;
+
+SimpleText:
+	text=STRING | attribute=[ecore::EAttribute|QualifiedName]
+;
+ComplexText:
+	left=SimpleText '+' right=Text
 ;
 
 Style:
-	'style' ':' value=LineStyle (';')?
+	'line-style' '=' value=LineStyle
 ;
 
 Size:
-	'size' ':' value=INT (';')?
+	'size' '=' value=INT
 ;
 
 Direction:
-	'direction' ':' value=Directions (';')?
+	'direction' '=' value=Directions
 ;
 
 Margin:
-	'margin' ':' value=SignedInteger (';')?
+	'margin' '=' value=SignedInteger
 ;
 
 Color:
 	{Color}
-	'color' ':' value=ColorConstant | 'color' ':' concret = ConcreteColor
+	value=ColorConstant | concrete = ConcreteColor
 ;
 
 ConcreteColor:
-	'RGB' '(' red=INT ',' green=INT ',' blue = INT ')' (';')?
+	'RGB' '(' red=INT ',' green=INT ',' blue = INT ')'
 ;
 
 ColorConstant:
-	value=Colors (';')?
+	value=Colors
 ;
 
 Activation:
@@ -92,7 +140,7 @@ AbstractCondition:
 ;
 
 Condition:
-	attribute=[ecore::EAttribute|QualifiedName] operator=ComparisonOperator value=Type (';')?
+	attribute=[ecore::EAttribute|QualifiedName] operator=ComparisonOperator value=Type
 ;
 
 CompositeCondition:
@@ -138,9 +186,9 @@ enum LogicalOperator:
 
 enum LineStyle:
 	LINE_SOLID = 'solid' |
-	LINE_DOT = 'dots' |
-	LINE_DASH = 'dashes' |
-	LINE_DASHDOT = 'dash_dots' |
+	LINE_DOT = 'dot' |
+	LINE_DASH = 'dash' |
+	LINE_DASHDOT = 'dash_dot' |
 	LINE_DASHDOTDOT = 'dash_dot_dot'
 ;
 

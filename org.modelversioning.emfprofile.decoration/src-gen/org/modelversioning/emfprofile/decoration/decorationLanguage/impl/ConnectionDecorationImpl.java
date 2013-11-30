@@ -14,6 +14,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +24,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl#getSize <em>Size</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl#getColor <em>Color</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl#getStyle <em>Style</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl#getForegroundColor <em>Foreground Color</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl#getBackgroundColor <em>Background Color</em>}</li>
  * </ul>
@@ -44,14 +45,14 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
   protected Size size;
 
   /**
-   * The cached value of the '{@link #getColor() <em>Color</em>}' containment reference.
+   * The cached value of the '{@link #getStyle() <em>Style</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getColor()
+   * @see #getStyle()
    * @generated
    * @ordered
    */
-  protected Color color;
+  protected Style style;
 
   /**
    * The cached value of the '{@link #getForegroundColor() <em>Foreground Color</em>}' containment reference.
@@ -147,9 +148,9 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Color getColor()
+  public Style getStyle()
   {
-    return color;
+    return style;
   }
 
   /**
@@ -157,13 +158,13 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetColor(Color newColor, NotificationChain msgs)
+  public NotificationChain basicSetStyle(Style newStyle, NotificationChain msgs)
   {
-    Color oldColor = color;
-    color = newColor;
+    Style oldStyle = style;
+    style = newStyle;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.CONNECTION_DECORATION__COLOR, oldColor, newColor);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.CONNECTION_DECORATION__STYLE, oldStyle, newStyle);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -174,20 +175,20 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setColor(Color newColor)
+  public void setStyle(Style newStyle)
   {
-    if (newColor != color)
+    if (newStyle != style)
     {
       NotificationChain msgs = null;
-      if (color != null)
-        msgs = ((InternalEObject)color).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.CONNECTION_DECORATION__COLOR, null, msgs);
-      if (newColor != null)
-        msgs = ((InternalEObject)newColor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.CONNECTION_DECORATION__COLOR, null, msgs);
-      msgs = basicSetColor(newColor, msgs);
+      if (style != null)
+        msgs = ((InternalEObject)style).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.CONNECTION_DECORATION__STYLE, null, msgs);
+      if (newStyle != null)
+        msgs = ((InternalEObject)newStyle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.CONNECTION_DECORATION__STYLE, null, msgs);
+      msgs = basicSetStyle(newStyle, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.CONNECTION_DECORATION__COLOR, newColor, newColor));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.CONNECTION_DECORATION__STYLE, newStyle, newStyle));
   }
 
   /**
@@ -298,8 +299,8 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
     {
       case DecorationLanguagePackage.CONNECTION_DECORATION__SIZE:
         return basicSetSize(null, msgs);
-      case DecorationLanguagePackage.CONNECTION_DECORATION__COLOR:
-        return basicSetColor(null, msgs);
+      case DecorationLanguagePackage.CONNECTION_DECORATION__STYLE:
+        return basicSetStyle(null, msgs);
       case DecorationLanguagePackage.CONNECTION_DECORATION__FOREGROUND_COLOR:
         return basicSetForegroundColor(null, msgs);
       case DecorationLanguagePackage.CONNECTION_DECORATION__BACKGROUND_COLOR:
@@ -320,8 +321,8 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
     {
       case DecorationLanguagePackage.CONNECTION_DECORATION__SIZE:
         return getSize();
-      case DecorationLanguagePackage.CONNECTION_DECORATION__COLOR:
-        return getColor();
+      case DecorationLanguagePackage.CONNECTION_DECORATION__STYLE:
+        return getStyle();
       case DecorationLanguagePackage.CONNECTION_DECORATION__FOREGROUND_COLOR:
         return getForegroundColor();
       case DecorationLanguagePackage.CONNECTION_DECORATION__BACKGROUND_COLOR:
@@ -343,8 +344,8 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
       case DecorationLanguagePackage.CONNECTION_DECORATION__SIZE:
         setSize((Size)newValue);
         return;
-      case DecorationLanguagePackage.CONNECTION_DECORATION__COLOR:
-        setColor((Color)newValue);
+      case DecorationLanguagePackage.CONNECTION_DECORATION__STYLE:
+        setStyle((Style)newValue);
         return;
       case DecorationLanguagePackage.CONNECTION_DECORATION__FOREGROUND_COLOR:
         setForegroundColor((Color)newValue);
@@ -369,8 +370,8 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
       case DecorationLanguagePackage.CONNECTION_DECORATION__SIZE:
         setSize((Size)null);
         return;
-      case DecorationLanguagePackage.CONNECTION_DECORATION__COLOR:
-        setColor((Color)null);
+      case DecorationLanguagePackage.CONNECTION_DECORATION__STYLE:
+        setStyle((Style)null);
         return;
       case DecorationLanguagePackage.CONNECTION_DECORATION__FOREGROUND_COLOR:
         setForegroundColor((Color)null);
@@ -394,8 +395,8 @@ public class ConnectionDecorationImpl extends AbstractDecorationImpl implements 
     {
       case DecorationLanguagePackage.CONNECTION_DECORATION__SIZE:
         return size != null;
-      case DecorationLanguagePackage.CONNECTION_DECORATION__COLOR:
-        return color != null;
+      case DecorationLanguagePackage.CONNECTION_DECORATION__STYLE:
+        return style != null;
       case DecorationLanguagePackage.CONNECTION_DECORATION__FOREGROUND_COLOR:
         return foregroundColor != null;
       case DecorationLanguagePackage.CONNECTION_DECORATION__BACKGROUND_COLOR:

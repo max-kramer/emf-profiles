@@ -69,9 +69,14 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.NAMESPACE: return createNamespace();
       case DecorationLanguagePackage.DECORATION_DESCRIPTION: return createDecorationDescription();
       case DecorationLanguagePackage.ABSTRACT_DECORATION: return createAbstractDecoration();
-      case DecorationLanguagePackage.ICON_DECORATION: return createIconDecoration();
+      case DecorationLanguagePackage.IMAGE_DECORATION: return createImageDecoration();
       case DecorationLanguagePackage.BORDER_DECORATION: return createBorderDecoration();
+      case DecorationLanguagePackage.BACKGROUND_DECORATION: return createBackgroundDecoration();
+      case DecorationLanguagePackage.FOREGROUND_DECORATION: return createForegroundDecoration();
       case DecorationLanguagePackage.CONNECTION_DECORATION: return createConnectionDecoration();
+      case DecorationLanguagePackage.TEXT: return createText();
+      case DecorationLanguagePackage.SIMPLE_TEXT: return createSimpleText();
+      case DecorationLanguagePackage.COMPLEX_TEXT: return createComplexText();
       case DecorationLanguagePackage.STYLE: return createStyle();
       case DecorationLanguagePackage.SIZE: return createSize();
       case DecorationLanguagePackage.DIRECTION: return createDirection();
@@ -187,10 +192,10 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public IconDecoration createIconDecoration()
+  public ImageDecoration createImageDecoration()
   {
-    IconDecorationImpl iconDecoration = new IconDecorationImpl();
-    return iconDecoration;
+    ImageDecorationImpl imageDecoration = new ImageDecorationImpl();
+    return imageDecoration;
   }
 
   /**
@@ -209,10 +214,65 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public BackgroundDecoration createBackgroundDecoration()
+  {
+    BackgroundDecorationImpl backgroundDecoration = new BackgroundDecorationImpl();
+    return backgroundDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ForegroundDecoration createForegroundDecoration()
+  {
+    ForegroundDecorationImpl foregroundDecoration = new ForegroundDecorationImpl();
+    return foregroundDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ConnectionDecoration createConnectionDecoration()
   {
     ConnectionDecorationImpl connectionDecoration = new ConnectionDecorationImpl();
     return connectionDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Text createText()
+  {
+    TextImpl text = new TextImpl();
+    return text;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleText createSimpleText()
+  {
+    SimpleTextImpl simpleText = new SimpleTextImpl();
+    return simpleText;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ComplexText createComplexText()
+  {
+    ComplexTextImpl complexText = new ComplexTextImpl();
+    return complexText;
   }
 
   /**

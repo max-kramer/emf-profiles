@@ -4,12 +4,8 @@ import com.google.common.base.Objects
 import org.eclipse.draw2d.Border
 import org.eclipse.draw2d.IFigure
 import org.eclipse.draw2d.LineBorder
-import org.eclipse.draw2d.PolylineConnection
 import org.eclipse.gef.editparts.AbstractConnectionEditPart
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure
 import org.eclipse.swt.graphics.Color
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl
@@ -40,7 +36,7 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 			val color = provideColor(borderDecoration.color)
 			val style = provideStyle(borderDecoration.style)
 			//			println('''BORDER WILL BE SET at«GMFProfileDecoratorProvider::getEObjectFromDecoratorTarget(decoratorTarget)»''')
-			highlightNode(targetEditPart.figure, color, size, style)
+			setBorder(targetEditPart.figure, color, size, style)
 		}
 
 	}
@@ -55,25 +51,7 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 	}
 
 	/**
-	 * Utility method to highlight an edge with specified color and line width.
-	 * 
-	 * @param figure
-	 *            the connection figure to highlight
-	 * @param color
-	 *            the highlight color to use
-	 * @param size
-	 *            the line width
-	 */
-	protected def highlightEdge(IFigure figure, Color color, int size) {
-		if (figure instanceof PolylineConnection) {
-			figure.setBackgroundColor(color);
-			figure.setForegroundColor(color);
-			(figure as PolylineConnection).setLineWidth(size);
-		}
-	}
-
-	/**
-	 * Utility method to highlight a node.
+	 * Will create a border and set it on provided figure.
 	 * 
 	 * @param figure
 	 *            the node to highlight
@@ -84,24 +62,15 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 	 * @param style
 	 *            the line border style
 	 */
-	protected def highlightNode(IFigure figure, Color color, int size, int style) {
+	protected def setBorder(IFigure figure, Color color, int size, int style) {
 //		println("Figure: " + figure)
 //		println('''Backgournd color: «getFigureForColoring(targetEditPart).backgroundColor»''')
 //		println('''Foreground color: «getFigureForColoring(targetEditPart).foregroundColor»''')
 //		getFigureForColoring(targetEditPart).setBackgroundColor(color)
 //		getFigureForColoring(targetEditPart).setForegroundColor(color)
-		figure.setBorder(new LineBorder(color, size, style));
+//		figure.setBorder(new LineBorder(color, size, style));
+		figure.setBorder(new LineBorder(color, size, style))
 		figure.setOpaque(false);
 	}
 	
-	protected def IFigure getFigureForColoring(IGraphicalEditPart editPart) {
-		var IFigure figure = editPart.getFigure();
-		if (figure instanceof BorderedNodeFigure) {
-			figure = figure.getChildren().get(0) as IFigure
-		}
-		if (figure instanceof DefaultSizeNodeFigure) {
-			figure = figure.getChildren().get(0) as IFigure
-		}
-		return figure;
-	}
 }
