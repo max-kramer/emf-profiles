@@ -10,7 +10,9 @@ package org.modelversioning.emfprofile.application.registry.decoration.notificat
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -179,9 +181,17 @@ public class DecorationNotificationDispatcher implements DecorationDescriptionsC
   }
   
   /**
-   * Disposes of the {@link DecorationDescriptionsReader}
+   * Removes all tracked decorations and disposes of the {@link DecorationDescriptionsReader}
    */
   public void dispose() {
+    Set<StereotypeApplication> _keySet = this.tracker.keySet();
+    HashSet<StereotypeApplication> _newHashSet = Sets.<StereotypeApplication>newHashSet(_keySet);
+    final Procedure1<StereotypeApplication> _function = new Procedure1<StereotypeApplication>() {
+      public void apply(final StereotypeApplication sa) {
+        DecorationNotificationDispatcher.this.acceptRemoveNotification(sa);
+      }
+    };
+    IterableExtensions.<StereotypeApplication>forEach(_newHashSet, _function);
     if (this.reader!=null) {
       this.reader.dispose();
     }
