@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -306,6 +307,13 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 
 	/**
 	 */
+	public StereotypeApplication applyStereotype(Stereotype stereotype,
+			EObject eObject) {
+		return facade.apply(stereotype, eObject);
+	}
+
+	/**
+	 */
 	public StereotypeApplication applyStereotype(
 			StereotypeApplicability stereotypeApplicability, EObject eObject) {
 		return facade.apply(stereotypeApplicability, eObject);
@@ -316,6 +324,12 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	public EList<StereotypeApplicability> getApplicableStereotypes(
 			EObject eObject) {
 		return facade.getApplicableStereotypes(eObject);
+	}
+
+	/**
+	 */
+	public EList<EStructuralFeature> getStereotypeFeatures(Stereotype stereotype) {
+		return facade.getStereotypeFeatures(stereotype);
 	}
 
 	/**
@@ -382,15 +396,15 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 	 */
 	public void unload() {
 		// dispose of notifications dispatcher
-		if(dispatcher != null){
+		if (dispatcher != null) {
 			dispatcher.dispose();
 			dispatcher = null;
 		}
 		// then remove the reference from profile application manager
 		ProfileApplicationManagerImpl pam = (ProfileApplicationManagerImpl) this
 				.eContainer();
-		// if already unloaded pam is null 
-		if(pam != null){
+		// if already unloaded pam is null
+		if (pam != null) {
 			pam.removeProfileApplication(this);
 
 			// At the moment the IProfileFacade#unload() does nothing
@@ -400,6 +414,26 @@ public class ProfileApplicationWrapperImpl extends MinimalEObjectImpl.Container
 			getProfileApplicationResource().unload();
 			facade.unload();
 		}
+	}
+
+	/**
+	 */
+	public Object getTaggedValue(EObject stereotypeApplication,
+			EStructuralFeature structuralFeatureOfTaggedValue) {
+		return facade.getTaggedValue(stereotypeApplication, structuralFeatureOfTaggedValue);
+	}
+
+	/**
+	 */
+	public void setTaggedValue(EObject stereotypeApplication,
+			EStructuralFeature structuralFeatureOfTaggedValue, Object newValue) {
+		facade.setTaggedValue(stereotypeApplication, structuralFeatureOfTaggedValue, newValue);
+	}
+
+	/**
+	 */
+	public IProfileFacade getProfileFacade() {
+		return facade;
 	}
 
 	/**

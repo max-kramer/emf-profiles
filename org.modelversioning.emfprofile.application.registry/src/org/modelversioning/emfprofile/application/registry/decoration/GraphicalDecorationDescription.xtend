@@ -106,13 +106,13 @@ class GraphicalDecorationDescription {
 	}
 
 	override hashCode() {
-		Objects.hashCode(stereotypeApplication, "a1b2c3d4e5")
+		Objects.hashCode(stereotypeApplication, "31")
 	}
 
 	override toString() {
 		val toStringHelper = Objects.toStringHelper(this.class.simpleName + "@" + Integer.toHexString(this.hashCode)).
 			add("Status", decorationStatus).add("Stereotype", stereotypeApplication.stereotype.name).add("appliedTo",
-				(stereotypeApplication.appliedTo as ENamedElement).name).add("decorations size", decorations.size).
+				stereotypeApplication.appliedTo.eClass.name).add("decorations size", decorations.size).
 			addValue(decorations)
 
 		toStringHelper.toString

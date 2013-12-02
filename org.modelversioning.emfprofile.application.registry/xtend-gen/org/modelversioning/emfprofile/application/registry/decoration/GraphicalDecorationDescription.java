@@ -13,7 +13,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.ENamedElement;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -161,7 +161,7 @@ public class GraphicalDecorationDescription {
   }
   
   public int hashCode() {
-    int _hashCode = Objects.hashCode(this.stereotypeApplication, "a1b2c3d4e5");
+    int _hashCode = Objects.hashCode(this.stereotypeApplication, "31");
     return _hashCode;
   }
   
@@ -180,7 +180,8 @@ public class GraphicalDecorationDescription {
       String _name = _stereotype.getName();
       ToStringHelper _add_1 = _add.add("Stereotype", _name);
       EObject _appliedTo = this.stereotypeApplication.getAppliedTo();
-      String _name_1 = ((ENamedElement) _appliedTo).getName();
+      EClass _eClass = _appliedTo.eClass();
+      String _name_1 = _eClass.getName();
       ToStringHelper _add_2 = _add_1.add("appliedTo", _name_1);
       int _size = this.decorations.size();
       ToStringHelper _add_3 = _add_2.add("decorations size", _size);

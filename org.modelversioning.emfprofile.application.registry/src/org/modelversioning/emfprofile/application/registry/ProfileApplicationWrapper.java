@@ -14,8 +14,11 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.modelversioning.emfprofile.Extension;
 import org.modelversioning.emfprofile.IProfileFacade;
+import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplicability;
@@ -130,6 +133,18 @@ public interface ProfileApplicationWrapper extends EObject {
 			EObject eObject);
 
 	/**
+	 * <!-- begin-user-doc --> Applies {@link Stereotype stereotype} to the
+	 * {@link EObject eObject}
+	 * 
+	 * @return returns the resulting instance of the
+	 *         {@link StereotypeApplication stereotype application.} <!--
+	 *         end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	StereotypeApplication applyStereotype(Stereotype stereotype, EObject eObject);
+
+	/**
 	 * <!-- begin-user-doc --> Applies the specified
 	 * <code>applicableStereotype</code>. <br />
 	 * <b>Note:</b> The method is actually implemented in {@link IProfileFacade}
@@ -166,6 +181,18 @@ public interface ProfileApplicationWrapper extends EObject {
 	EList<StereotypeApplicability> getApplicableStereotypes(EObject eObject);
 
 	/**
+	 * <!-- begin-user-doc --> Returns a list of {@link EStructuralFeature
+	 * structural features} of the {@link Stereotype stereotype} which can be
+	 * used to access/modify tagged values.
+	 * 
+	 * @return the list of structural features of the provided stereotype. <!--
+	 *         end-user-doc -->
+	 * @model many="false"
+	 * @generated
+	 */
+	EList<EStructuralFeature> getStereotypeFeatures(Stereotype stereotype);
+
+	/**
 	 * <!-- begin-user-doc --> Gets the name of this profile application. <br>
 	 * The name is constructed out of loaded profile name and the location of
 	 * this profile application resource in the workspace. <!-- end-user-doc -->
@@ -195,8 +222,9 @@ public interface ProfileApplicationWrapper extends EObject {
 
 	/**
 	 * <!-- begin-user-doc -->Removes the {@link EObject eObject} from the
-	 * profile application resource.<!-- end-user-doc -->
+	 * profile application resource. It doesn't matter which one :)
 	 * 
+	 * @return the removed eObject itself. <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
@@ -239,5 +267,58 @@ public interface ProfileApplicationWrapper extends EObject {
 	 * @generated
 	 */
 	void unload();
+
+	/**
+	 * <!-- begin-user-doc --> Can be used to access the the tagged value of the
+	 * {@link StereotypeApplication stereotype application}.
+	 * <p>
+	 * Note: this method can be used to access value of any
+	 * {@link EStructuralFeature structural feature} of any {@link EObject}.
+	 * </p>
+	 * 
+	 * @return the value as an {@link Object}. You have to cast to correct type.
+	 *         <!-- end-user-doc -->
+	 * @model 
+	 *        dataType="org.modelversioning.emfprofile.application.registry.Object"
+	 * @generated
+	 */
+	Object getTaggedValue(EObject stereotypeApplication,
+			EStructuralFeature structuralFeatureOfTaggedValue);
+
+	/**
+	 * <!-- begin-user-doc --> Can be used to modify the the tagged value of the
+	 * {@link StereotypeApplication stereotype application}.
+	 * <p>
+	 * Note: this method can be used to modify value of any
+	 * {@link EStructuralFeature structural feature} of any {@link EObject}.
+	 * </p>
+	 * 
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model newValueDataType=
+	 *        "org.modelversioning.emfprofile.application.registry.Object"
+	 * @generated
+	 */
+	void setTaggedValue(EObject stereotypeApplication,
+			EStructuralFeature structuralFeatureOfTaggedValue, Object newValue);
+
+	/**
+	 * <!-- begin-user-doc --> {@link IProfileFacade} is the facade for
+	 * processing and creating {@link Profile profile} and
+	 * {@link StereotypeApplication}s. <br />
+	 * The {@link ProfileApplicationWrapper} delegates many method invocations
+	 * to the facade, e.g, {@link #applyStereotype(Stereotype, EObject)},
+	 * {@link #setTaggedValue(EObject, EStructuralFeature, Object)}, etc. <br />
+	 * The facade offers actually more functionality. So, take look at it before
+	 * you decide to implement it yourself.
+	 * 
+	 * @return The profile facade instance that can be used to manipulate this profile application. 
+	 * <!-- end-user-doc -->
+	 * 
+	 * @model kind="operation" dataType=
+	 *        "org.modelversioning.emfprofile.application.registry.IProfileFacade"
+	 * @generated
+	 */
+	IProfileFacade getProfileFacade();
 
 } // ProfileApplicationWrapper

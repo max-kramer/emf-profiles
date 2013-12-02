@@ -230,6 +230,24 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	int IFILE = 8;
 
 	/**
+	 * The meta object id for the '<em>IProfile Facade</em>' data type. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see org.modelversioning.emfprofile.IProfileFacade
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIProfileFacade()
+	 * @generated
+	 */
+	int IPROFILE_FACADE = 9;
+	/**
+	 * The meta object id for the '<em>Object</em>' data type. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see java.lang.Object
+	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getObject()
+	 * @generated
+	 */
+	int OBJECT = 10;
+	/**
 	 * The meta object id for the '<em>IO Exception</em>' data type. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -237,7 +255,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIOException()
 	 * @generated
 	 */
-	int IO_EXCEPTION = 9;
+	int IO_EXCEPTION = 11;
 
 	/**
 	 * The meta object id for the '
@@ -248,7 +266,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationDecoratorNotFoundException()
 	 * @generated
 	 */
-	int PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION = 10;
+	int PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION = 12;
 
 	/**
 	 * The meta object id for the '<em>Null Pointer Exception</em>' data type.
@@ -258,7 +276,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getNullPointerException()
 	 * @generated
 	 */
-	int NULL_POINTER_EXCEPTION = 11;
+	int NULL_POINTER_EXCEPTION = 13;
 
 	/**
 	 * The meta object id for the '<em>Core Exception</em>' data type. <!--
@@ -268,7 +286,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getCoreException()
 	 * @generated
 	 */
-	int CORE_EXCEPTION = 12;
+	int CORE_EXCEPTION = 14;
 
 	/**
 	 * The meta object id for the '
@@ -279,7 +297,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getProfileApplicationAlreadyLoadedException()
 	 * @generated
 	 */
-	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 13;
+	int PROFILE_APPLICATION_ALREADY_LOADED_EXCEPTION = 15;
 
 	/**
 	 * The meta object id for the '
@@ -290,7 +308,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getReadingDecorationDescriptionsException()
 	 * @generated
 	 */
-	int READING_DECORATION_DESCRIPTIONS_EXCEPTION = 14;
+	int READING_DECORATION_DESCRIPTIONS_EXCEPTION = 16;
 	/**
 	 * The meta object id for the '
 	 * <em>Traversing EObject Container Chain Exception</em>' data type. <!--
@@ -300,7 +318,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getTraversingEObjectContainerChainException()
 	 * @generated
 	 */
-	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 15;
+	int TRAVERSING_EOBJECT_CONTAINER_CHAIN_EXCEPTION = 17;
 
 	/**
 	 * The meta object id for the '<em>Exception</em>' data type. <!--
@@ -310,7 +328,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getException()
 	 * @generated
 	 */
-	int EXCEPTION = 16;
+	int EXCEPTION = 18;
 
 	/**
 	 * The meta object id for the '<em>Graphical Decoration Description</em>'
@@ -320,7 +338,7 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getGraphicalDecorationDescription()
 	 * @generated
 	 */
-	int GRAPHICAL_DECORATION_DESCRIPTION = 17;
+	int GRAPHICAL_DECORATION_DESCRIPTION = 19;
 
 	/**
 	 * Returns the meta object for class '
@@ -472,6 +490,29 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getIFile();
+
+	/**
+	 * Returns the meta object for data type '
+	 * {@link org.modelversioning.emfprofile.IProfileFacade
+	 * <em>IProfile Facade</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>IProfile Facade</em>'.
+	 * @see org.modelversioning.emfprofile.IProfileFacade
+	 * @model instanceClass="org.modelversioning.emfprofile.IProfileFacade"
+	 * @generated
+	 */
+	EDataType getIProfileFacade();
+
+	/**
+	 * Returns the meta object for data type '{@link java.lang.Object
+	 * <em>Object</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for data type '<em>Object</em>'.
+	 * @see java.lang.Object
+	 * @model instanceClass="java.lang.Object"
+	 * @generated
+	 */
+	EDataType getObject();
 
 	/**
 	 * Returns the meta object for data type '{@link java.io.IOException
@@ -748,6 +789,26 @@ public interface EMFProfileApplicationRegistryPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType IFILE = eINSTANCE.getIFile();
+
+		/**
+		 * The meta object literal for the '<em>IProfile Facade</em>' data type.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see org.modelversioning.emfprofile.IProfileFacade
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getIProfileFacade()
+		 * @generated
+		 */
+		EDataType IPROFILE_FACADE = eINSTANCE.getIProfileFacade();
+
+		/**
+		 * The meta object literal for the '<em>Object</em>' data type. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
+		 * @see java.lang.Object
+		 * @see org.modelversioning.emfprofile.application.registry.impl.EMFProfileApplicationRegistryPackageImpl#getObject()
+		 * @generated
+		 */
+		EDataType OBJECT = eINSTANCE.getObject();
 
 		/**
 		 * The meta object literal for the '<em>IO Exception</em>' data type.

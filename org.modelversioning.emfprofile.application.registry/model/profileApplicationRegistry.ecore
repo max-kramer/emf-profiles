@@ -32,6 +32,10 @@
       <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
     <eOperations name="applyStereotype" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication">
+      <eParameters name="stereotype" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
+      <eParameters name="eObject" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="applyStereotype" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplication">
       <eParameters name="stereotypeApplicability" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplicability"/>
       <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
     </eOperations>
@@ -40,6 +44,12 @@
         <eTypeArguments eClassifier="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//StereotypeApplicability"/>
       </eGenericType>
       <eParameters name="eObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+    </eOperations>
+    <eOperations name="getStereotypeFeatures">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+      </eGenericType>
+      <eParameters name="stereotype" eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
     </eOperations>
     <eOperations name="getName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eOperations name="getProfileName" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
@@ -51,6 +61,16 @@
     <eOperations name="getProfileApplicationIFile" eType="#//IFile"/>
     <eOperations name="getProfileApplicationResource" eType="#//Resource"/>
     <eOperations name="unload"/>
+    <eOperations name="getTaggedValue" eType="#//Object">
+      <eParameters name="stereotypeApplication" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+      <eParameters name="structuralFeatureOfTaggedValue" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+    </eOperations>
+    <eOperations name="setTaggedValue">
+      <eParameters name="stereotypeApplication" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+      <eParameters name="structuralFeatureOfTaggedValue" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EStructuralFeature"/>
+      <eParameters name="newValue" eType="#//Object"/>
+    </eOperations>
+    <eOperations name="getProfileFacade" eType="#//IProfileFacade"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileApplication" lowerBound="1"
         eType="ecore:EClass ../../org.modelversioning.emfprofile/model/emfprofileapplication.ecore#//ProfileApplication"/>
   </eClassifiers>
@@ -112,6 +132,8 @@
   <eClassifiers xsi:type="ecore:EDataType" name="ResourceSet" instanceClassName="org.eclipse.emf.ecore.resource.ResourceSet"/>
   <eClassifiers xsi:type="ecore:EDataType" name="Resource" instanceClassName="org.eclipse.emf.ecore.resource.Resource"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IFile" instanceClassName="org.eclipse.core.resources.IFile"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="IProfileFacade" instanceClassName="org.modelversioning.emfprofile.IProfileFacade"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Object" instanceClassName="java.lang.Object"/>
   <eClassifiers xsi:type="ecore:EDataType" name="IOException" instanceClassName="java.io.IOException"/>
   <eClassifiers xsi:type="ecore:EDataType" name="ProfileApplicationDecoratorNotFoundException"
       instanceClassName="org.modelversioning.emfprofile.application.registry.exception.ProfileApplicationDecoratorNotFoundException"/>

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.modelversioning.emfprofile.EMFProfilePackage;
+import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationManager;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
@@ -105,6 +106,20 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * @generated
 	 */
 	private EDataType iFileEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType iProfileFacadeEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType objectEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -358,6 +373,24 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 	 * 
 	 * @generated
 	 */
+	public EDataType getIProfileFacade() {
+		return iProfileFacadeEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EDataType getObject() {
+		return objectEDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public EDataType getIOException() {
 		return ioExceptionEDataType;
 	}
@@ -483,6 +516,8 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		resourceSetEDataType = createEDataType(RESOURCE_SET);
 		resourceEDataType = createEDataType(RESOURCE);
 		iFileEDataType = createEDataType(IFILE);
+		iProfileFacadeEDataType = createEDataType(IPROFILE_FACADE);
+		objectEDataType = createEDataType(OBJECT);
 		ioExceptionEDataType = createEDataType(IO_EXCEPTION);
 		profileApplicationDecoratorNotFoundExceptionEDataType = createEDataType(PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION);
 		nullPointerExceptionEDataType = createEDataType(NULL_POINTER_EXCEPTION);
@@ -594,6 +629,14 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		op = addEOperation(profileApplicationWrapperEClass,
 				theEMFProfileApplicationPackage.getStereotypeApplication(),
 				"applyStereotype", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEMFProfilePackage.getStereotype(), "stereotype",
+				0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEObject(), "eObject", 0, 1,
+				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass,
+				theEMFProfileApplicationPackage.getStereotypeApplication(),
+				"applyStereotype", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op,
 				theEMFProfileApplicationPackage.getStereotypeApplicability(),
 				"stereotypeApplicability", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -607,6 +650,15 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		g1 = createEGenericType(theEcorePackage.getEEList());
 		g2 = createEGenericType(theEMFProfileApplicationPackage
 				.getStereotypeApplicability());
+		g1.getETypeArguments().add(g2);
+		initEOperation(op, g1);
+
+		op = addEOperation(profileApplicationWrapperEClass, null,
+				"getStereotypeFeatures", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEMFProfilePackage.getStereotype(), "stereotype",
+				0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEEList());
+		g2 = createEGenericType(theEcorePackage.getEStructuralFeature());
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
@@ -641,6 +693,26 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 
 		addEOperation(profileApplicationWrapperEClass, null, "unload", 0, 1,
 				IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass, this.getObject(),
+				"getTaggedValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEObject(),
+				"stereotypeApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEStructuralFeature(),
+				"structuralFeatureOfTaggedValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(profileApplicationWrapperEClass, null,
+				"setTaggedValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEObject(),
+				"stereotypeApplication", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcorePackage.getEStructuralFeature(),
+				"structuralFeatureOfTaggedValue", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getObject(), "newValue", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
+
+		addEOperation(profileApplicationWrapperEClass,
+				this.getIProfileFacade(), "getProfileFacade", 0, 1, IS_UNIQUE,
+				IS_ORDERED);
 
 		initEClass(profileApplicationRegistryEClass,
 				ProfileApplicationRegistry.class, "ProfileApplicationRegistry",
@@ -793,6 +865,10 @@ public class EMFProfileApplicationRegistryPackageImpl extends EPackageImpl
 		initEDataType(resourceEDataType, Resource.class, "Resource",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(iFileEDataType, IFile.class, "IFile", IS_SERIALIZABLE,
+				!IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(iProfileFacadeEDataType, IProfileFacade.class,
+				"IProfileFacade", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(objectEDataType, Object.class, "Object", IS_SERIALIZABLE,
 				!IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(ioExceptionEDataType, IOException.class, "IOException",
 				IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

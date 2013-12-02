@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.modelversioning.emfprofile.IProfileFacade;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.*;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
@@ -108,6 +109,10 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return createResourceFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.IFILE:
 			return createIFileFromString(eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.IPROFILE_FACADE:
+			return createIProfileFacadeFromString(eDataType, initialValue);
+		case EMFProfileApplicationRegistryPackage.OBJECT:
+			return createObjectFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
 			return createIOExceptionFromString(eDataType, initialValue);
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION:
@@ -156,6 +161,10 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 			return convertResourceToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.IFILE:
 			return convertIFileToString(eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.IPROFILE_FACADE:
+			return convertIProfileFacadeToString(eDataType, instanceValue);
+		case EMFProfileApplicationRegistryPackage.OBJECT:
+			return convertObjectToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.IO_EXCEPTION:
 			return convertIOExceptionToString(eDataType, instanceValue);
 		case EMFProfileApplicationRegistryPackage.PROFILE_APPLICATION_DECORATOR_NOT_FOUND_EXCEPTION:
@@ -355,6 +364,46 @@ public class EMFProfileApplicationRegistryFactoryImpl extends EFactoryImpl
 	 * @generated
 	 */
 	public String convertIFileToString(EDataType eDataType, Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public IProfileFacade createIProfileFacadeFromString(EDataType eDataType,
+			String initialValue) {
+		return (IProfileFacade) super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertIProfileFacadeToString(EDataType eDataType,
+			Object instanceValue) {
+		return super.convertToString(eDataType, instanceValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public Object createObjectFromString(EDataType eDataType,
+			String initialValue) {
+		return super.createFromString(eDataType, initialValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public String convertObjectToString(EDataType eDataType,
+			Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
 
