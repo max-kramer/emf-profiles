@@ -2,5 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="org.modelversioning.emfprofile.profile" name="EMF Profile" schema="schema/org.modelversioning.emfprofile.profile.exsd"/>
+   <extension-point id="org.modelversioning.emfprofile.stereotypeaction" name="EMF Profile Stereotype Action" schema="schema/org.modelversioning.emfprofile.stereotypeaction.exsd"/>
 
 </plugin>
