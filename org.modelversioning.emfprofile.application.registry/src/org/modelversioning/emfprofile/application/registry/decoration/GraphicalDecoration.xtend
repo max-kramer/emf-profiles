@@ -78,7 +78,13 @@ class GraphicalDecoration {
 	override toString() {
 		Objects.toStringHelper(this.class.simpleName + "@" + Integer.toHexString(this.hashCode)).addValue(decoration).
 			add("Status", decorationStatus).add("Stereotype", stereotypeApplication.stereotype.name).add("appliedTo",
-				(stereotypeApplication.appliedTo as ENamedElement).name).toString
+				if(stereotypeApplication.appliedTo instanceof ENamedElement){
+					(stereotypeApplication.appliedTo as ENamedElement).name
+				} else {
+					stereotypeApplication.appliedTo.eClass.name
+				}
+				
+				).toString
 	}
 
 }

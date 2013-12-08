@@ -9,6 +9,7 @@ package org.modelversioning.emfprofile.application.registry.decoration;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Objects.ToStringHelper;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.modelversioning.emfprofile.Stereotype;
@@ -122,9 +123,19 @@ public class GraphicalDecoration {
     Stereotype _stereotype = this.stereotypeApplication.getStereotype();
     String _name = _stereotype.getName();
     ToStringHelper _add_1 = _add.add("Stereotype", _name);
+    String _xifexpression = null;
     EObject _appliedTo = this.stereotypeApplication.getAppliedTo();
-    String _name_1 = ((ENamedElement) _appliedTo).getName();
-    ToStringHelper _add_2 = _add_1.add("appliedTo", _name_1);
+    if ((_appliedTo instanceof ENamedElement)) {
+      EObject _appliedTo_1 = this.stereotypeApplication.getAppliedTo();
+      String _name_1 = ((ENamedElement) _appliedTo_1).getName();
+      _xifexpression = _name_1;
+    } else {
+      EObject _appliedTo_2 = this.stereotypeApplication.getAppliedTo();
+      EClass _eClass = _appliedTo_2.eClass();
+      String _name_2 = _eClass.getName();
+      _xifexpression = _name_2;
+    }
+    ToStringHelper _add_2 = _add_1.add("appliedTo", _xifexpression);
     String _string = _add_2.toString();
     return _string;
   }

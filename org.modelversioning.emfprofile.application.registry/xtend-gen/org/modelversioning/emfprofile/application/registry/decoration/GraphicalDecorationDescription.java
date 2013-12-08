@@ -14,6 +14,7 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -179,10 +180,19 @@ public class GraphicalDecorationDescription {
       Stereotype _stereotype = this.stereotypeApplication.getStereotype();
       String _name = _stereotype.getName();
       ToStringHelper _add_1 = _add.add("Stereotype", _name);
+      String _xifexpression = null;
       EObject _appliedTo = this.stereotypeApplication.getAppliedTo();
-      EClass _eClass = _appliedTo.eClass();
-      String _name_1 = _eClass.getName();
-      ToStringHelper _add_2 = _add_1.add("appliedTo", _name_1);
+      if ((_appliedTo instanceof ENamedElement)) {
+        EObject _appliedTo_1 = this.stereotypeApplication.getAppliedTo();
+        String _name_1 = ((ENamedElement) _appliedTo_1).getName();
+        _xifexpression = _name_1;
+      } else {
+        EObject _appliedTo_2 = this.stereotypeApplication.getAppliedTo();
+        EClass _eClass = _appliedTo_2.eClass();
+        String _name_2 = _eClass.getName();
+        _xifexpression = _name_2;
+      }
+      ToStringHelper _add_2 = _add_1.add("appliedTo", _xifexpression);
       int _size = this.decorations.size();
       ToStringHelper _add_3 = _add_2.add("decorations size", _size);
       final ToStringHelper toStringHelper = _add_3.addValue(this.decorations);
