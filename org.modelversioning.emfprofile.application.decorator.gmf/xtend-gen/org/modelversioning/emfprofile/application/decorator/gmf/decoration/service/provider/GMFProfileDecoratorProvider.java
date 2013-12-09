@@ -18,11 +18,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BackgroundDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ColorDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ConnectionDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators;
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ForegroundDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.HighlightingDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ImageDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.provider.EObjectToDecoratorsMapper;
@@ -97,10 +96,8 @@ public class GMFProfileDecoratorProvider extends AbstractProvider implements IDe
       final ImageDecorator imageDecorator = _imageDecorator;
       BorderDecorator _borderDecorator = new BorderDecorator(decoratorTarget);
       final BorderDecorator borderDecorator = _borderDecorator;
-      BackgroundDecorator _backgroundDecorator = new BackgroundDecorator(decoratorTarget);
-      final BackgroundDecorator backgroundDecorator = _backgroundDecorator;
-      ForegroundDecorator _foregroundDecorator = new ForegroundDecorator(decoratorTarget);
-      final ForegroundDecorator foregroundDecorator = _foregroundDecorator;
+      ColorDecorator _colorDecorator = new ColorDecorator(decoratorTarget);
+      final ColorDecorator colorDecorator = _colorDecorator;
       ConnectionDecorator _connectionDecorator = new ConnectionDecorator(decoratorTarget);
       final ConnectionDecorator connectionDecorator = _connectionDecorator;
       HighlightingDecorator _highlightingDecorator = new HighlightingDecorator(decoratorTarget);
@@ -115,7 +112,7 @@ public class GMFProfileDecoratorProvider extends AbstractProvider implements IDe
       Node _decoratorTargetNode = GMFProfileDecoratorProvider.getDecoratorTargetNode(decoratorTarget);
       _builder.append(_decoratorTargetNode, "");
       InputOutput.<String>println(_builder.toString());
-      EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, imageDecorator, borderDecorator, backgroundDecorator, foregroundDecorator, connectionDecorator, highlightingDecorator);
+      EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, imageDecorator, borderDecorator, colorDecorator, connectionDecorator, highlightingDecorator);
       this.mapper.put(eObject, _eObjectDecorators);
     }
   }

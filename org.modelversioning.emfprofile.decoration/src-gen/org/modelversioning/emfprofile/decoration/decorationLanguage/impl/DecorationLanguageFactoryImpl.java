@@ -71,8 +71,7 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.ABSTRACT_DECORATION: return createAbstractDecoration();
       case DecorationLanguagePackage.IMAGE_DECORATION: return createImageDecoration();
       case DecorationLanguagePackage.BORDER_DECORATION: return createBorderDecoration();
-      case DecorationLanguagePackage.BACKGROUND_DECORATION: return createBackgroundDecoration();
-      case DecorationLanguagePackage.FOREGROUND_DECORATION: return createForegroundDecoration();
+      case DecorationLanguagePackage.COLOR_DECORATION: return createColorDecoration();
       case DecorationLanguagePackage.CONNECTION_DECORATION: return createConnectionDecoration();
       case DecorationLanguagePackage.TEXT: return createText();
       case DecorationLanguagePackage.SIMPLE_TEXT: return createSimpleText();
@@ -214,21 +213,10 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public BackgroundDecoration createBackgroundDecoration()
+  public ColorDecoration createColorDecoration()
   {
-    BackgroundDecorationImpl backgroundDecoration = new BackgroundDecorationImpl();
-    return backgroundDecoration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ForegroundDecoration createForegroundDecoration()
-  {
-    ForegroundDecorationImpl foregroundDecoration = new ForegroundDecorationImpl();
-    return foregroundDecoration;
+    ColorDecorationImpl colorDecoration = new ColorDecorationImpl();
+    return colorDecoration;
   }
 
   /**

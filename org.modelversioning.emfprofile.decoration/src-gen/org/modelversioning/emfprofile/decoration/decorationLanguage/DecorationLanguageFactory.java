@@ -77,22 +77,13 @@ public interface DecorationLanguageFactory extends EFactory
   BorderDecoration createBorderDecoration();
 
   /**
-   * Returns a new object of class '<em>Background Decoration</em>'.
+   * Returns a new object of class '<em>Color Decoration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Background Decoration</em>'.
+   * @return a new object of class '<em>Color Decoration</em>'.
    * @generated
    */
-  BackgroundDecoration createBackgroundDecoration();
-
-  /**
-   * Returns a new object of class '<em>Foreground Decoration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Foreground Decoration</em>'.
-   * @generated
-   */
-  ForegroundDecoration createForegroundDecoration();
+  ColorDecoration createColorDecoration();
 
   /**
    * Returns a new object of class '<em>Connection Decoration</em>'.

@@ -23,7 +23,7 @@ DecorationDescription:
 // For all decorations if they have optional values then some default value will be used. see comments below 
 AbstractDecoration:
 	ImageDecoration // have effect on both nodes and edges
-	| BorderDecoration | BackgroundDecoration | ForegroundDecoration // have effect only on nodes
+	| BorderDecoration | ColorDecoration // have effect only on nodes
 	| ConnectionDecoration; // has effect only on edges
 
 
@@ -53,26 +53,17 @@ BorderDecoration:
 	'}'
 ;
 
-BackgroundDecoration:
-	{BackgroundDecoration}
-	'background' '{'
+ColorDecoration:
+	{ColorDecoration}
+	'color' '{'
 		(
-			('color' '=' color=Color)?
+			('background' '=' background=Color)?
+			& ('foreground' '=' foreground=Color)?
 			& (activation=Activation)?
 		)	
 	'}'
 ;
 
-ForegroundDecoration:
-	{ForegroundDecoration}
-	'foreground'  '{'
-		(
-			('color' '=' color=Color)?
-			& (activation=Activation)?
-		)
-	'}'
-	
-;
 
 ConnectionDecoration:
 	{ConnectionDecoration}

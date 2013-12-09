@@ -105,14 +105,9 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createBorderDecorationAdapter();
       }
       @Override
-      public Adapter caseBackgroundDecoration(BackgroundDecoration object)
+      public Adapter caseColorDecoration(ColorDecoration object)
       {
-        return createBackgroundDecorationAdapter();
-      }
-      @Override
-      public Adapter caseForegroundDecoration(ForegroundDecoration object)
-      {
-        return createForegroundDecorationAdapter();
+        return createColorDecorationAdapter();
       }
       @Override
       public Adapter caseConnectionDecoration(ConnectionDecoration object)
@@ -302,31 +297,16 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration <em>Background Decoration</em>}'.
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration <em>Color Decoration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration
    * @generated
    */
-  public Adapter createBackgroundDecorationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration <em>Foreground Decoration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration
-   * @generated
-   */
-  public Adapter createForegroundDecorationAdapter()
+  public Adapter createColorDecorationAdapter()
   {
     return null;
   }

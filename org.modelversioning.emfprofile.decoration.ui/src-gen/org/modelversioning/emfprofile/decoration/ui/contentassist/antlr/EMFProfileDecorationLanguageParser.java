@@ -56,10 +56,9 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getImageDecorationAccess().getGroup_3_3(), "rule__ImageDecoration__Group_3_3__0");
 					put(grammarAccess.getBorderDecorationAccess().getGroup(), "rule__BorderDecoration__Group__0");
 					put(grammarAccess.getBorderDecorationAccess().getGroup_3_1(), "rule__BorderDecoration__Group_3_1__0");
-					put(grammarAccess.getBackgroundDecorationAccess().getGroup(), "rule__BackgroundDecoration__Group__0");
-					put(grammarAccess.getBackgroundDecorationAccess().getGroup_3_0(), "rule__BackgroundDecoration__Group_3_0__0");
-					put(grammarAccess.getForegroundDecorationAccess().getGroup(), "rule__ForegroundDecoration__Group__0");
-					put(grammarAccess.getForegroundDecorationAccess().getGroup_3_0(), "rule__ForegroundDecoration__Group_3_0__0");
+					put(grammarAccess.getColorDecorationAccess().getGroup(), "rule__ColorDecoration__Group__0");
+					put(grammarAccess.getColorDecorationAccess().getGroup_3_0(), "rule__ColorDecoration__Group_3_0__0");
+					put(grammarAccess.getColorDecorationAccess().getGroup_3_1(), "rule__ColorDecoration__Group_3_1__0");
 					put(grammarAccess.getConnectionDecorationAccess().getGroup(), "rule__ConnectionDecoration__Group__0");
 					put(grammarAccess.getConnectionDecorationAccess().getGroup_3_2(), "rule__ConnectionDecoration__Group_3_2__0");
 					put(grammarAccess.getConnectionDecorationAccess().getGroup_3_3(), "rule__ConnectionDecoration__Group_3_3__0");
@@ -94,10 +93,9 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getBorderDecorationAccess().getColorAssignment_3_1_2(), "rule__BorderDecoration__ColorAssignment_3_1_2");
 					put(grammarAccess.getBorderDecorationAccess().getStyleAssignment_3_2(), "rule__BorderDecoration__StyleAssignment_3_2");
 					put(grammarAccess.getBorderDecorationAccess().getActivationAssignment_3_3(), "rule__BorderDecoration__ActivationAssignment_3_3");
-					put(grammarAccess.getBackgroundDecorationAccess().getColorAssignment_3_0_2(), "rule__BackgroundDecoration__ColorAssignment_3_0_2");
-					put(grammarAccess.getBackgroundDecorationAccess().getActivationAssignment_3_1(), "rule__BackgroundDecoration__ActivationAssignment_3_1");
-					put(grammarAccess.getForegroundDecorationAccess().getColorAssignment_3_0_2(), "rule__ForegroundDecoration__ColorAssignment_3_0_2");
-					put(grammarAccess.getForegroundDecorationAccess().getActivationAssignment_3_1(), "rule__ForegroundDecoration__ActivationAssignment_3_1");
+					put(grammarAccess.getColorDecorationAccess().getBackgroundAssignment_3_0_2(), "rule__ColorDecoration__BackgroundAssignment_3_0_2");
+					put(grammarAccess.getColorDecorationAccess().getForegroundAssignment_3_1_2(), "rule__ColorDecoration__ForegroundAssignment_3_1_2");
+					put(grammarAccess.getColorDecorationAccess().getActivationAssignment_3_2(), "rule__ColorDecoration__ActivationAssignment_3_2");
 					put(grammarAccess.getConnectionDecorationAccess().getSizeAssignment_3_0(), "rule__ConnectionDecoration__SizeAssignment_3_0");
 					put(grammarAccess.getConnectionDecorationAccess().getStyleAssignment_3_1(), "rule__ConnectionDecoration__StyleAssignment_3_1");
 					put(grammarAccess.getConnectionDecorationAccess().getForegroundColorAssignment_3_2_2(), "rule__ConnectionDecoration__ForegroundColorAssignment_3_2_2");
@@ -126,8 +124,7 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getDecorationDescriptionAccess().getUnorderedGroup_3(), "rule__DecorationDescription__UnorderedGroup_3");
 					put(grammarAccess.getImageDecorationAccess().getUnorderedGroup_3(), "rule__ImageDecoration__UnorderedGroup_3");
 					put(grammarAccess.getBorderDecorationAccess().getUnorderedGroup_3(), "rule__BorderDecoration__UnorderedGroup_3");
-					put(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3(), "rule__BackgroundDecoration__UnorderedGroup_3");
-					put(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3(), "rule__ForegroundDecoration__UnorderedGroup_3");
+					put(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), "rule__ColorDecoration__UnorderedGroup_3");
 					put(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), "rule__ConnectionDecoration__UnorderedGroup_3");
 				}
 			};

@@ -344,31 +344,21 @@ ruleAbstractDecoration returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getBackgroundDecorationParserRuleCall_2()); 
+        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getColorDecorationParserRuleCall_2()); 
     }
-    this_BackgroundDecoration_2=ruleBackgroundDecoration
+    this_ColorDecoration_2=ruleColorDecoration
     { 
-        $current = $this_BackgroundDecoration_2.current; 
+        $current = $this_ColorDecoration_2.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getForegroundDecorationParserRuleCall_3()); 
+        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getConnectionDecorationParserRuleCall_3()); 
     }
-    this_ForegroundDecoration_3=ruleForegroundDecoration
+    this_ConnectionDecoration_3=ruleConnectionDecoration
     { 
-        $current = $this_ForegroundDecoration_3.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getAbstractDecorationAccess().getConnectionDecorationParserRuleCall_4()); 
-    }
-    this_ConnectionDecoration_4=ruleConnectionDecoration
-    { 
-        $current = $this_ConnectionDecoration_4.current; 
+        $current = $this_ConnectionDecoration_3.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -783,69 +773,69 @@ ruleBorderDecoration returns [EObject current=null]
 
 
 
-// Entry rule entryRuleBackgroundDecoration
-entryRuleBackgroundDecoration returns [EObject current=null] 
+// Entry rule entryRuleColorDecoration
+entryRuleColorDecoration returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getBackgroundDecorationRule()); }
-	 iv_ruleBackgroundDecoration=ruleBackgroundDecoration 
-	 { $current=$iv_ruleBackgroundDecoration.current; } 
+	{ newCompositeNode(grammarAccess.getColorDecorationRule()); }
+	 iv_ruleColorDecoration=ruleColorDecoration 
+	 { $current=$iv_ruleColorDecoration.current; } 
 	 EOF 
 ;
 
-// Rule BackgroundDecoration
-ruleBackgroundDecoration returns [EObject current=null] 
+// Rule ColorDecoration
+ruleColorDecoration returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
     {
         $current = forceCreateModelElement(
-            grammarAccess.getBackgroundDecorationAccess().getBackgroundDecorationAction_0(),
+            grammarAccess.getColorDecorationAccess().getColorDecorationAction_0(),
             $current);
     }
-)	otherlv_1='background' 
+)	otherlv_1='color' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getBackgroundDecorationAccess().getBackgroundKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getColorDecorationAccess().getColorKeyword_1());
     }
 	otherlv_2='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getBackgroundDecorationAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getColorDecorationAccess().getLeftCurlyBracketKeyword_2());
     }
 (
 
 (
 	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3());
+	  getUnorderedGroupHelper().enter(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3());
 	}
 	(
 		(
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3(), 0)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), 0)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3(), 0);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), 0);
 	 				}
-					({true}?=>(	otherlv_4='color' 
+					({true}?=>(	otherlv_4='background' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getBackgroundDecorationAccess().getColorKeyword_3_0_0());
+    	newLeafNode(otherlv_4, grammarAccess.getColorDecorationAccess().getBackgroundKeyword_3_0_0());
     }
 	otherlv_5='=' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getBackgroundDecorationAccess().getEqualsSignKeyword_3_0_1());
+    	newLeafNode(otherlv_5, grammarAccess.getColorDecorationAccess().getEqualsSignKeyword_3_0_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBackgroundDecorationAccess().getColorColorParserRuleCall_3_0_2_0()); 
+	        newCompositeNode(grammarAccess.getColorDecorationAccess().getBackgroundColorParserRuleCall_3_0_2_0()); 
 	    }
-		lv_color_6_0=ruleColor		{
+		lv_background_6_0=ruleColor		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBackgroundDecorationRule());
+	            $current = createModelElementForParent(grammarAccess.getColorDecorationRule());
 	        }
        		set(
        			$current, 
-       			"color",
-        		lv_color_6_0, 
+       			"background",
+        		lv_background_6_0, 
         		"Color");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -853,29 +843,67 @@ ruleBackgroundDecoration returns [EObject current=null]
 )
 )))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3(), 1)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), 1)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3(), 1);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), 1);
+	 				}
+					({true}?=>(	otherlv_7='foreground' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getColorDecorationAccess().getForegroundKeyword_3_1_0());
+    }
+	otherlv_8='=' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getColorDecorationAccess().getEqualsSignKeyword_3_1_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getColorDecorationAccess().getForegroundColorParserRuleCall_3_1_2_0()); 
+	    }
+		lv_foreground_9_0=ruleColor		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getColorDecorationRule());
+	        }
+       		set(
+       			$current, 
+       			"foreground",
+        		lv_foreground_9_0, 
+        		"Color");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), 2)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3(), 2);
 	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBackgroundDecorationAccess().getActivationActivationParserRuleCall_3_1_0()); 
+	        newCompositeNode(grammarAccess.getColorDecorationAccess().getActivationActivationParserRuleCall_3_2_0()); 
 	    }
-		lv_activation_7_0=ruleActivation		{
+		lv_activation_10_0=ruleActivation		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getBackgroundDecorationRule());
+	            $current = createModelElementForParent(grammarAccess.getColorDecorationRule());
 	        }
        		set(
        			$current, 
        			"activation",
-        		lv_activation_7_0, 
+        		lv_activation_10_0, 
         		"Activation");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -883,7 +911,7 @@ ruleBackgroundDecoration returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3());
 	 				}
  				)
 			)  
@@ -892,135 +920,12 @@ ruleBackgroundDecoration returns [EObject current=null]
 	)
 )
 	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getBackgroundDecorationAccess().getUnorderedGroup_3());
+	  getUnorderedGroupHelper().leave(grammarAccess.getColorDecorationAccess().getUnorderedGroup_3());
 	}
 
-)	otherlv_8='}' 
+)	otherlv_11='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getBackgroundDecorationAccess().getRightCurlyBracketKeyword_4());
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleForegroundDecoration
-entryRuleForegroundDecoration returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getForegroundDecorationRule()); }
-	 iv_ruleForegroundDecoration=ruleForegroundDecoration 
-	 { $current=$iv_ruleForegroundDecoration.current; } 
-	 EOF 
-;
-
-// Rule ForegroundDecoration
-ruleForegroundDecoration returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getForegroundDecorationAccess().getForegroundDecorationAction_0(),
-            $current);
-    }
-)	otherlv_1='foreground' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getForegroundDecorationAccess().getForegroundKeyword_1());
-    }
-	otherlv_2='{' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getForegroundDecorationAccess().getLeftCurlyBracketKeyword_2());
-    }
-(
-
-(
-	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3());
-	}
-	(
-		(
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3(), 0)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3(), 0);
-	 				}
-					({true}?=>(	otherlv_4='color' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getForegroundDecorationAccess().getColorKeyword_3_0_0());
-    }
-	otherlv_5='=' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getForegroundDecorationAccess().getEqualsSignKeyword_3_0_1());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getForegroundDecorationAccess().getColorColorParserRuleCall_3_0_2_0()); 
-	    }
-		lv_color_6_0=ruleColor		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getForegroundDecorationRule());
-	        }
-       		set(
-       			$current, 
-       			"color",
-        		lv_color_6_0, 
-        		"Color");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3(), 1)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3(), 1);
-	 				}
-					({true}?=>(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getForegroundDecorationAccess().getActivationActivationParserRuleCall_3_1_0()); 
-	    }
-		lv_activation_7_0=ruleActivation		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getForegroundDecorationRule());
-	        }
-       		set(
-       			$current, 
-       			"activation",
-        		lv_activation_7_0, 
-        		"Activation");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3());
-	 				}
- 				)
-			)  
-
-		)*	
-	)
-)
-	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getForegroundDecorationAccess().getUnorderedGroup_3());
-	}
-
-)	otherlv_8='}' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getForegroundDecorationAccess().getRightCurlyBracketKeyword_4());
+    	newLeafNode(otherlv_11, grammarAccess.getColorDecorationAccess().getRightCurlyBracketKeyword_4());
     }
 )
 ;

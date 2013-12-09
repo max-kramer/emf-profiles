@@ -39,12 +39,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BackgroundDecoration" eSuperTypes="#//AbstractDecoration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+  <eClassifiers xsi:type="ecore:EClass" name="ColorDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="background" eType="#//Color"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ForegroundDecoration" eSuperTypes="#//AbstractDecoration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foreground" eType="#//Color"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConnectionDecoration" eSuperTypes="#//AbstractDecoration">

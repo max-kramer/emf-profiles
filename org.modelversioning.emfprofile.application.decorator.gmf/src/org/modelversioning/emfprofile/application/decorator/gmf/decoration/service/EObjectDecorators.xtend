@@ -3,10 +3,9 @@ package org.modelversioning.emfprofile.application.decorator.gmf.decoration.serv
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
-import org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration
-import org.modelversioning.emfprofile.decoration.decorationLanguage.ForegroundDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
 
 @Data
@@ -16,8 +15,7 @@ class EObjectDecorators {
 
 	val ImageDecorator iconDecorator
 	val BorderDecorator borderDecorator
-	val BackgroundDecorator backgroundDecorator
-	val ForegroundDecorator foregroundDecorator
+	val ColorDecorator colorDecorator
 	val ConnectionDecorator connectionDecorator
 	val HighlightingDecorator highlightingDecorator
 
@@ -25,8 +23,7 @@ class EObjectDecorators {
 		printGDD(graphicalDecorationDescription, "ADD")
 		iconDecorator.applyDecorations(graphicalDecorationDescription)
 		borderDecorator.applyDecorations(graphicalDecorationDescription)
-		backgroundDecorator.applyDecorations(graphicalDecorationDescription)
-		foregroundDecorator.applyDecorations(graphicalDecorationDescription)
+		colorDecorator.applyDecorations(graphicalDecorationDescription)
 		connectionDecorator.applyDecorations(graphicalDecorationDescription)
 //		highlightingDecorator.applyDecorations(decorationDescription)
 	}
@@ -35,8 +32,7 @@ class EObjectDecorators {
 		printGDD(graphicalDecorationDescription, "REMOVE")
 		iconDecorator.removeAppliedDecorations(graphicalDecorationDescription)
 		borderDecorator.removeAppliedDecorations(graphicalDecorationDescription)
-		backgroundDecorator.removeAppliedDecorations(graphicalDecorationDescription)
-		foregroundDecorator.removeAppliedDecorations(graphicalDecorationDescription)
+		colorDecorator.removeAppliedDecorations(graphicalDecorationDescription)
 		connectionDecorator.removeAppliedDecorations(graphicalDecorationDescription)
 	}
 	
@@ -53,11 +49,10 @@ class EObjectDecorators {
 					sb.append("image: " +(gd.decoration as ImageDecoration).location_uri)
 				else if(gd.decoration instanceof BorderDecoration)
 					sb.append("border: " +(gd.decoration as BorderDecoration).size)
-				else if(gd.decoration instanceof BackgroundDecoration)
-					sb.append("background: " +(gd.decoration as BackgroundDecoration).color)
-				else if(gd.decoration instanceof ForegroundDecoration)
-					sb.append("foreground: " +(gd.decoration as ForegroundDecoration).color)
-				else if(gd.decoration instanceof ConnectionDecoration)
+				else if(gd.decoration instanceof ColorDecoration){
+					sb.append("background: " +(gd.decoration as ColorDecoration).background)
+					sb.append("foreground: " +(gd.decoration as ColorDecoration).foreground)
+				}else if(gd.decoration instanceof ConnectionDecoration)
 					sb.append("connection: " + "size="+(gd.decoration as ConnectionDecoration).size + ", foreground-color="+(gd.decoration as ConnectionDecoration).foregroundColor + ", line-style="+(gd.decoration as ConnectionDecoration).style)
 				if(gd.decoration.activation != null)
 					sb.append(gd.decoration.activation.condition)

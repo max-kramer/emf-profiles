@@ -4,15 +4,15 @@ import org.eclipse.draw2d.IFigure
 import org.eclipse.gef.editparts.AbstractConnectionEditPart
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget
 import org.eclipse.swt.graphics.Color
-import org.modelversioning.emfprofile.decoration.decorationLanguage.BackgroundDecoration
-import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BackgroundDecorationImpl
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorDecorationImpl
 
-class BackgroundDecorator extends AbstractOnlyOneDecorationDecorator {
+class ColorDecorator extends AbstractOnlyOneDecorationDecorator {
 	
-	public static val String KEY = "PROFILE_APPLICATION_BACKGROUND_DECORATION"
+	public static val String KEY = "PROFILE_APPLICATION_COLOR_DECORATION"
 
 	var Color originalBackgroundColor = null
-	
+	var Color originalForegroundColor = null
 	
 
 	new(IDecoratorTarget decoratorTarget) {
@@ -23,23 +23,49 @@ class BackgroundDecorator extends AbstractOnlyOneDecorationDecorator {
 		if(targetEditPart instanceof AbstractConnectionEditPart)
 			return;
 			
+		val currentFigure = getFigureForColoring(targetEditPart)
+			
+		// background color	
 		val currentBackgroundColor = getRightFigureForBackgroundColoring().backgroundColor
 		if(originalBackgroundColor == null)
 			originalBackgroundColor = currentBackgroundColor
-		val backgroundDecoration = abstractDecorationWithHighestPrecedence as BackgroundDecoration
-		if (backgroundDecoration == null) {
+		
+		val colorDecoration = abstractDecorationWithHighestPrecedence as ColorDecoration
+		
+		if (colorDecoration == null) {
 			if (! colorEqual(currentBackgroundColor, originalBackgroundColor)) {
 				setBackgroundColor(originalBackgroundColor)
 			}
 		} else {
-			if(backgroundDecoration.color == null){
+			if(colorDecoration.background == null){
 				if(! colorEqual(currentBackgroundColor, originalBackgroundColor)){
 					setBackgroundColor(originalBackgroundColor)
 				}
 			}else{
-				val color = provideColor(backgroundDecoration.color)
+				val color = provideColor(colorDecoration.background)
 				if(! colorEqual(color, currentBackgroundColor)){
 					setBackgroundColor(color)
+				}
+			}
+		}
+		
+		// foreground color
+				val currentForegroundColor = currentFigure.foregroundColor
+		if(originalForegroundColor == null)
+			originalForegroundColor = currentForegroundColor
+		if (colorDecoration == null) {
+			if (! colorEqual(currentForegroundColor, originalForegroundColor)) {
+				setForegroundColor(originalForegroundColor)
+			}
+		} else {
+			if(colorDecoration.foreground == null){
+				if(! colorEqual(currentForegroundColor, originalForegroundColor)){
+					setForegroundColor(originalForegroundColor)
+				}
+			}else{
+				val color = provideColor(colorDecoration.foreground)
+				if(! colorEqual(color, currentForegroundColor)){
+					setForegroundColor(color)
 				}
 			}
 		}
@@ -47,13 +73,18 @@ class BackgroundDecorator extends AbstractOnlyOneDecorationDecorator {
 	
 	
 	override getDecorationType() {
-		return BackgroundDecorationImpl
+		return ColorDecorationImpl
 	}
 	
 	private def setBackgroundColor(Color color){
 		val figure = getRightFigureForBackgroundColoring()
 		figure.setBackgroundColor(color)
 		figure.setOpaque(false)
+	}
+	
+	private def setForegroundColor(Color color){
+		getFigureForColoring(targetEditPart).setForegroundColor(color)
+		getFigureForColoring(targetEditPart).setOpaque(false)
 	}
 	
 	private def IFigure getRightFigureForBackgroundColoring(){

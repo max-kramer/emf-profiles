@@ -15,11 +15,10 @@ import org.eclipse.gmf.runtime.notation.Diagram
 import org.eclipse.gmf.runtime.notation.Edge
 import org.eclipse.gmf.runtime.notation.Node
 import org.eclipse.gmf.runtime.notation.View
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BackgroundDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ColorDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ConnectionDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ForegroundDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.HighlightingDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ImageDecorator
 import org.modelversioning.emfprofile.diagram.edit.parts.EAttributeEditPart
@@ -147,8 +146,7 @@ class GMFProfileDecoratorProvider extends AbstractProvider implements IDecorator
 			//			val decorator = new EMFProfileDecorator(decoratorTarget);
 			val imageDecorator = new ImageDecorator(decoratorTarget)
 			val borderDecorator = new BorderDecorator(decoratorTarget)
-			val backgroundDecorator = new BackgroundDecorator(decoratorTarget)
-			val foregroundDecorator = new ForegroundDecorator(decoratorTarget)
+			val colorDecorator = new ColorDecorator(decoratorTarget)
 			val connectionDecorator = new ConnectionDecorator(decoratorTarget)
 			val highlightingDecorator = new HighlightingDecorator(decoratorTarget)
 
@@ -161,9 +159,8 @@ println('''Creating decorators for: «eObject», node: «getDecoratorTargetNode(
 					decoratorTarget,
 					imageDecorator,
 					borderDecorator,
-					backgroundDecorator,
-					foregroundDecorator,
-					connectionDecorator,
+					colorDecorator,
+					connectionDecorator, 
 					highlightingDecorator
 				))
 		}

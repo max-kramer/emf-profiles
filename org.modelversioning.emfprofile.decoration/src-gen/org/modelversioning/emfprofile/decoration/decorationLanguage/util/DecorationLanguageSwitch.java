@@ -116,19 +116,11 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DecorationLanguagePackage.BACKGROUND_DECORATION:
+      case DecorationLanguagePackage.COLOR_DECORATION:
       {
-        BackgroundDecoration backgroundDecoration = (BackgroundDecoration)theEObject;
-        T result = caseBackgroundDecoration(backgroundDecoration);
-        if (result == null) result = caseAbstractDecoration(backgroundDecoration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DecorationLanguagePackage.FOREGROUND_DECORATION:
-      {
-        ForegroundDecoration foregroundDecoration = (ForegroundDecoration)theEObject;
-        T result = caseForegroundDecoration(foregroundDecoration);
-        if (result == null) result = caseAbstractDecoration(foregroundDecoration);
+        ColorDecoration colorDecoration = (ColorDecoration)theEObject;
+        T result = caseColorDecoration(colorDecoration);
+        if (result == null) result = caseAbstractDecoration(colorDecoration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -343,33 +335,17 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Background Decoration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Color Decoration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Background Decoration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Color Decoration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBackgroundDecoration(BackgroundDecoration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Foreground Decoration</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Foreground Decoration</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseForegroundDecoration(ForegroundDecoration object)
+  public T caseColorDecoration(ColorDecoration object)
   {
     return null;
   }
