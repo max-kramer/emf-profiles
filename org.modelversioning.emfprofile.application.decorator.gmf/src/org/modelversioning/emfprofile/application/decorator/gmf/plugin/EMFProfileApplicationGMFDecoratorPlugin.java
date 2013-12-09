@@ -1,4 +1,4 @@
-package org.modelversioning.emfprofile.application.decorator.gmf;
+package org.modelversioning.emfprofile.application.decorator.gmf.plugin;
 
 import java.util.Map.Entry;
 
@@ -39,7 +39,7 @@ public class EMFProfileApplicationGMFDecoratorPlugin implements BundleActivator 
 			entry.getValue().dispose();
 		}
 		
-		// displose created colors
+		// dispose created colors
 		for (Entry<RGB, Color> entry : AbstractDecorator.createdColors.entrySet()){
 			entry.getValue().dispose();
 		}
