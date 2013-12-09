@@ -5,7 +5,7 @@
  * accompanies this distribution, and is available at
  *  http://www.eclipse.org/legal/epl-v10.html
  */
-package org.modelversioning.emfprofile.application.decorator.graphiti;
+package org.modelversioning.emfprofile.application.decorator.graphiti.plugin;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

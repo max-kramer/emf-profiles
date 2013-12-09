@@ -4,7 +4,7 @@
    <extension
          point="org.modelversioning.emfprofile.application.registry.extensionpoint.decorator">
       <decorator
-            class="org.modelversioning.emfprofile.application.decorator.graphiti.EMFProfileApplicationDecoratorImpl">
+            class="org.modelversioning.emfprofile.application.decorator.graphiti.GraphitiProfileApplicationDecorator">
       </decorator>
    </extension>
 
