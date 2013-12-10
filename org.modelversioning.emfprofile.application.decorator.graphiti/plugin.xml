@@ -7,5 +7,11 @@
             class="org.modelversioning.emfprofile.application.decorator.graphiti.GraphitiProfileApplicationDecorator">
       </decorator>
    </extension>
-
+	<extension
+         point="org.eclipse.graphiti.ui.imageProviders">
+      <imageProvider
+               id="org.modelversioning.emfprofile.application.decorator.graphiti.provider.ProfileApplicationImageProvider"
+               class="org.modelversioning.emfprofile.application.decorator.graphiti.provider.ProfileApplicationImageProvider">
+      </imageProvider>
+   </extension>
 </plugin>

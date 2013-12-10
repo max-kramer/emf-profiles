@@ -8,6 +8,7 @@ import org.eclipse.graphiti.services.Graphiti
 import org.eclipse.jface.viewers.IStructuredSelection
 import org.modelversioning.emfprofile.application.decorator.AbstractEMFProfileApplicationDecorator
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
+import org.modelversioning.emfprofile.application.decorator.graphiti.provider.DecoratorsProvider
 
 class GraphitiProfileApplicationDecorator extends AbstractEMFProfileApplicationDecorator {
 
@@ -16,11 +17,13 @@ class GraphitiProfileApplicationDecorator extends AbstractEMFProfileApplicationD
 	}
 
 	override decorate(GraphicalDecorationDescription decorationDescription) {
-		println("NEW GRAPHITI DECORATING: " + decorationDescription)
+//		println("NEW GRAPHITI DECORATING: " + decorationDescription)
+		DecoratorsProvider.INSTANCE.decorate(decorationDescription)
 	}
 
 	override removeDecoration(GraphicalDecorationDescription decorationDescription) {
-		println("NEW GRAPHITI REMOVING DECORATION: " + decorationDescription)
+//		println("NEW GRAPHITI REMOVING DECORATION: " + decorationDescription)
+		DecoratorsProvider.INSTANCE.removeDecoration(decorationDescription)
 	}
 
 	override resolveEObjectFromEditorSelection(Object selection) {

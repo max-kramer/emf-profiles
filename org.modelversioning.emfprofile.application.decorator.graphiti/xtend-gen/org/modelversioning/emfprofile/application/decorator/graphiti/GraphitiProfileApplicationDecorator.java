@@ -10,9 +10,9 @@ import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.services.Graphiti;
 import org.eclipse.graphiti.services.ILinkService;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.modelversioning.emfprofile.application.decorator.AbstractEMFProfileApplicationDecorator;
+import org.modelversioning.emfprofile.application.decorator.graphiti.provider.DecoratorsProvider;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 
 @SuppressWarnings("all")
@@ -22,13 +22,11 @@ public class GraphitiProfileApplicationDecorator extends AbstractEMFProfileAppli
   }
   
   public void decorate(final GraphicalDecorationDescription decorationDescription) {
-    String _plus = ("NEW GRAPHITI DECORATING: " + decorationDescription);
-    InputOutput.<String>println(_plus);
+    DecoratorsProvider.INSTANCE.decorate(decorationDescription);
   }
   
   public void removeDecoration(final GraphicalDecorationDescription decorationDescription) {
-    String _plus = ("NEW GRAPHITI REMOVING DECORATION: " + decorationDescription);
-    InputOutput.<String>println(_plus);
+    DecoratorsProvider.INSTANCE.removeDecoration(decorationDescription);
   }
   
   public EObject resolveEObjectFromEditorSelection(final Object selection) {
