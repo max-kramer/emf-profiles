@@ -11,4 +11,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: org.modelversioning.emfprofile.application.registry;uses:="org.osgi.resource,org.osgi.framework"
+Export-Package: org.modelversioning.emfprofile.application.registry;uses:="org.osgi.resource,org.osgi.framework",
+ org.modelversioning.emfprofile.application.registry.internal
