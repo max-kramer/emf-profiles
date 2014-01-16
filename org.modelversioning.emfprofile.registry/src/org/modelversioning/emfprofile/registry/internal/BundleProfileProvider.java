@@ -14,11 +14,13 @@ public class BundleProfileProvider implements IProfileProvider {
 	private Profile profile;
 	private String profileName;
 	private String profileNsURI;
+	private String profileDescription;
 
-	public BundleProfileProvider(Bundle bundle, Resource profileResource) {
+	public BundleProfileProvider(Bundle bundle, Resource profileResource, String profileDescription) {
 		super();
 		this.bundle = bundle;
 		this.profileResource = profileResource;
+		this.profileDescription = profileDescription;
 		initialize();
 	}
 
@@ -54,6 +56,9 @@ public class BundleProfileProvider implements IProfileProvider {
 		this.profile = profile;
 		this.profileName = profile.getName();
 		this.profileNsURI = profile.getNsURI();
+		if (this.profileDescription == null || this.profileDescription.equals("")) {
+			this.profileDescription = this.profileName;
+		}
 	}
 
 	public Bundle getBundle() {
@@ -73,6 +78,11 @@ public class BundleProfileProvider implements IProfileProvider {
 	@Override
 	public String getProfileName() {
 		return profileName;
+	}
+	
+	@Override
+	public String getProfileDescription() {
+		return profileDescription;
 	}
 
 	@Override

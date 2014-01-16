@@ -64,10 +64,10 @@
                </appinfo>
             </annotation>
          </attribute>
-         <attribute name="profile_name" type="string">
+         <attribute name="profile_description" type="string">
             <annotation>
                <documentation>
-                  The name of the EMF Profile project to be registered. Used as label for the context menu contribution.
+                  The description of the EMF Profile project to be registered. Used as label for the context menu contribution.
                </documentation>
             </annotation>
          </attribute>

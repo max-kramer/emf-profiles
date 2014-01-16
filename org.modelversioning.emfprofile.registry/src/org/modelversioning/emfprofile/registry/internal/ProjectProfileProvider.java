@@ -87,4 +87,9 @@ public class ProjectProfileProvider implements IProfileProvider {
 		return obtainProfileFromResource(resource);
 	}
 
+	@Override
+	public String getProfileDescription() {
+		return getProfileName();
+	}
+
 }

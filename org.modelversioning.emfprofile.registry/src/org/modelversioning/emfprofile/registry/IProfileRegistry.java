@@ -17,6 +17,7 @@ public interface IProfileRegistry {
 
 	public static final String PROFILE_EXTENSION_POINT_ID = "org.modelversioning.emfprofile.profile"; //$NON-NLS-1$
 	public static final String PROFILE_EXTENSION_POINT_RESOURCE_NAME = "profile_resource"; //$NON-NLS-1$
+	public static final String PROFILE_EXTENSION_POINT_PROFILE_DESCRIPTION = "profile_description"; //$NON-NLS-1$
 
 	/**
 	 * The singleton instance.

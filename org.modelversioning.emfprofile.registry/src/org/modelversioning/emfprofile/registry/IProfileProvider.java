@@ -29,6 +29,12 @@ public interface IProfileProvider {
 	 * @return the name.
 	 */
 	String getProfileName();
+	
+	/**
+	 * Returns the description of the profile.
+	 * @return the description.
+	 */
+	String getProfileDescription();
 
 	/**
 	 * Returns the location type of the provided profile.

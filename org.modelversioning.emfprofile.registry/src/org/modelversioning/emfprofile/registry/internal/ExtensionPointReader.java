@@ -50,10 +50,12 @@ public class ExtensionPointReader {
 		IContributor contributor = configElement.getContributor();
 		String profileResourceName = configElement
 				.getAttribute(IProfileRegistry.PROFILE_EXTENSION_POINT_RESOURCE_NAME);
+		String profileDescription = configElement
+				.getAttribute(IProfileRegistry.PROFILE_EXTENSION_POINT_PROFILE_DESCRIPTION);
 		Bundle bundle = Platform.getBundle(contributor.getName());
 		Resource profileResource = resourceSet.getResource(
 				createProfileURI(contributor, profileResourceName), true);
-		return new BundleProfileProvider(bundle, profileResource);
+		return new BundleProfileProvider(bundle, profileResource, profileDescription);
 
 	}
 
