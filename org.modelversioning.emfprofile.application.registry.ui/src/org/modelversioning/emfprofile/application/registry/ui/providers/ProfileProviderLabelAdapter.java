@@ -2,6 +2,7 @@ package org.modelversioning.emfprofile.application.registry.ui.providers;
 
 import java.net.URL;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -62,6 +63,7 @@ public class ProfileProviderLabelAdapter implements ILabelProvider {
 					Image image = EMFProfileApplicationsView.createImage(ImageDescriptor.createFromURL(url));
 					return image;
 				} catch (Exception e) {
+					e.printStackTrace();
 					System.err.println(e.getMessage());
 				}
 				
@@ -70,16 +72,21 @@ public class ProfileProviderLabelAdapter implements ILabelProvider {
 		return getLabelProvider(element).getImage(element);
 	}
 	
+	/*
+	 * This gets the URI of the profile resource (which can also be a proxy) and strips the URI to something like this:
+	 * platform:/resource/ProjectName
+	 * Then it adds to it the relative path to the image and returns a URL of it.
+	 */
 	private URL getPlatformURLToImageOfStereotype(Stereotype stereotype){
 		URL url = null;
 		try{
-			String uriToProfileResource = stereotype.getProfile().eResource().getURI().toString();
-			String result = uriToProfileResource; //.replaceFirst("/resource/", "/plugin/");
+			String uriToProfileResource = EcoreUtil.getURI(stereotype.getProfile()).toString();
 			String strResource = "resource/";
-			result = result.substring(0, result.indexOf("/", result.indexOf(strResource)+strResource.length() + 1)+1);
+			String result = uriToProfileResource.substring(0, uriToProfileResource.indexOf("/", uriToProfileResource.indexOf(strResource)+strResource.length() + 1)+1);
 			result += stereotype.getIconPath();
 			url = new URL(result);
 		}catch (Exception e){
+			e.printStackTrace();
 			System.err.println(e.getMessage());
 		}
 		return url;
