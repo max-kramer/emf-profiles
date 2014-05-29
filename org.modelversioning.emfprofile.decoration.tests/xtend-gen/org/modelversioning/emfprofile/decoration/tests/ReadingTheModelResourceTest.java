@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import java.io.File;
 import java.util.List;
+import java.util.function.Consumer;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -211,12 +212,12 @@ public class ReadingTheModelResourceTest {
       String _plus_17 = ("resource syntax errors count: " + Integer.valueOf(_size));
       InputOutput.<String>println(_plus_17);
       EList<Diagnostic> _errors_1 = resource.getErrors();
-      final Procedure1<Diagnostic> _function_1 = new Procedure1<Diagnostic>() {
-        public void apply(final Diagnostic err) {
+      final Consumer<Diagnostic> _function_1 = new Consumer<Diagnostic>() {
+        public void accept(final Diagnostic err) {
           InputOutput.<Diagnostic>println(err);
         }
       };
-      IterableExtensions.<Diagnostic>forEach(_errors_1, _function_1);
+      _errors_1.forEach(_function_1);
       EList<Diagnostic> _errors_2 = resource.getErrors();
       boolean _isEmpty = _errors_2.isEmpty();
       Assert.assertTrue(_isEmpty);
@@ -291,23 +292,23 @@ public class ReadingTheModelResourceTest {
     String _plus_17 = ("resource syntax errors count: " + Integer.valueOf(_size));
     InputOutput.<String>println(_plus_17);
     EList<Diagnostic> _errors_1 = resource.getErrors();
-    final Procedure1<Diagnostic> _function_1 = new Procedure1<Diagnostic>() {
-      public void apply(final Diagnostic err) {
+    final Consumer<Diagnostic> _function_1 = new Consumer<Diagnostic>() {
+      public void accept(final Diagnostic err) {
         InputOutput.<Diagnostic>println(err);
       }
     };
-    IterableExtensions.<Diagnostic>forEach(_errors_1, _function_1);
+    _errors_1.forEach(_function_1);
     EList<Diagnostic> _warnings = resource.getWarnings();
     int _size_1 = _warnings.size();
     String _plus_18 = ("resource warnings count: " + Integer.valueOf(_size_1));
     InputOutput.<String>println(_plus_18);
     EList<Diagnostic> _warnings_1 = resource.getWarnings();
-    final Procedure1<Diagnostic> _function_2 = new Procedure1<Diagnostic>() {
-      public void apply(final Diagnostic w) {
+    final Consumer<Diagnostic> _function_2 = new Consumer<Diagnostic>() {
+      public void accept(final Diagnostic w) {
         InputOutput.<Diagnostic>println(w);
       }
     };
-    IterableExtensions.<Diagnostic>forEach(_warnings_1, _function_2);
+    _warnings_1.forEach(_function_2);
     EList<Diagnostic> _errors_2 = resource.getErrors();
     boolean _isEmpty = _errors_2.isEmpty();
     Assert.assertTrue(_isEmpty);
@@ -323,12 +324,12 @@ public class ReadingTheModelResourceTest {
     int _size_2 = validationDiagnostics.size();
     String _plus_20 = ("validation errors size: " + Integer.valueOf(_size_2));
     InputOutput.<String>println(_plus_20);
-    final Procedure1<org.eclipse.emf.common.util.Diagnostic> _function_3 = new Procedure1<org.eclipse.emf.common.util.Diagnostic>() {
-      public void apply(final org.eclipse.emf.common.util.Diagnostic vd) {
+    final Consumer<org.eclipse.emf.common.util.Diagnostic> _function_3 = new Consumer<org.eclipse.emf.common.util.Diagnostic>() {
+      public void accept(final org.eclipse.emf.common.util.Diagnostic vd) {
         InputOutput.<org.eclipse.emf.common.util.Diagnostic>println(vd);
       }
     };
-    IterableExtensions.<org.eclipse.emf.common.util.Diagnostic>forEach(validationDiagnostics, _function_3);
+    validationDiagnostics.forEach(_function_3);
     boolean _isEmpty_1 = validationDiagnostics.isEmpty();
     Assert.assertTrue(_isEmpty_1);
     IParseResult _parseResult = xtextResource.getParseResult();
@@ -345,12 +346,12 @@ public class ReadingTheModelResourceTest {
     int _size_3 = issues.size();
     String _plus_22 = ("validation issues size: " + Integer.valueOf(_size_3));
     InputOutput.<String>println(_plus_22);
-    final Procedure1<Issue> _function_4 = new Procedure1<Issue>() {
-      public void apply(final Issue i) {
+    final Consumer<Issue> _function_4 = new Consumer<Issue>() {
+      public void accept(final Issue i) {
         InputOutput.<Issue>println(i);
       }
     };
-    IterableExtensions.<Issue>forEach(issues, _function_4);
+    issues.forEach(_function_4);
     ExtensibleURIConverterImpl _extensibleURIConverterImpl_1 = new ExtensibleURIConverterImpl();
     URI _createPlatformResourceURI = URI.createPlatformResourceURI("EJB_Profile/icons/nav_refresh.gif", true);
     final boolean iconExists = _extensibleURIConverterImpl_1.exists(_createPlatformResourceURI, null);

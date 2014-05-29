@@ -6,12 +6,11 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.Decoration;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.AbstractDecorator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration;
@@ -36,12 +35,12 @@ public abstract class AbstractManyDecorationsDecorator extends AbstractDecorator
   
   public void deactivate() {
     super.deactivate();
-    final Procedure1<Decoration> _function = new Procedure1<Decoration>() {
-      public void apply(final Decoration decoration) {
+    final Consumer<Decoration> _function = new Consumer<Decoration>() {
+      public void accept(final Decoration decoration) {
         AbstractManyDecorationsDecorator.this.processRemoveDecoration(decoration);
       }
     };
-    IterableExtensions.<Decoration>forEach(this.decorationsOnEObject, _function);
+    this.decorationsOnEObject.forEach(_function);
     this.decorationsOnEObject.clear();
   }
   
@@ -51,26 +50,26 @@ public abstract class AbstractManyDecorationsDecorator extends AbstractDecorator
   }
   
   private void removeVisualizedDecorations() {
-    final Procedure1<Decoration> _function = new Procedure1<Decoration>() {
-      public void apply(final Decoration d) {
+    final Consumer<Decoration> _function = new Consumer<Decoration>() {
+      public void accept(final Decoration d) {
         AbstractManyDecorationsDecorator.this.processRemoveDecoration(d);
       }
     };
-    IterableExtensions.<Decoration>forEach(this.decorationsOnEObject, _function);
+    this.decorationsOnEObject.forEach(_function);
     this.decorationsOnEObject.clear();
   }
   
   private void visualizeDecorations() {
     Collection<GraphicalDecorationDescription> _values = this.graphicalDecorationDescriptions.values();
-    final Procedure1<GraphicalDecorationDescription> _function = new Procedure1<GraphicalDecorationDescription>() {
-      public void apply(final GraphicalDecorationDescription graphicalDecorationDescription) {
+    final Consumer<GraphicalDecorationDescription> _function = new Consumer<GraphicalDecorationDescription>() {
+      public void accept(final GraphicalDecorationDescription graphicalDecorationDescription) {
         DecorationStatus _decorationStatus = graphicalDecorationDescription.getDecorationStatus();
         boolean _equals = Objects.equal(_decorationStatus, DecorationStatus.ACTIVE);
         if (_equals) {
           Class<? extends AbstractDecoration> _decorationType = AbstractManyDecorationsDecorator.this.getDecorationType();
           List<GraphicalDecoration> _graphicalDecorations = AbstractManyDecorationsDecorator.this.getGraphicalDecorations(graphicalDecorationDescription, _decorationType);
-          final Procedure1<GraphicalDecoration> _function = new Procedure1<GraphicalDecoration>() {
-            public void apply(final GraphicalDecoration gd) {
+          final Consumer<GraphicalDecoration> _function = new Consumer<GraphicalDecoration>() {
+            public void accept(final GraphicalDecoration gd) {
               final DecorationStatus decorationStatus = gd.getDecorationStatus();
               boolean _matched = false;
               if (!_matched) {
@@ -96,11 +95,11 @@ public abstract class AbstractManyDecorationsDecorator extends AbstractDecorator
               }
             }
           };
-          IterableExtensions.<GraphicalDecoration>forEach(_graphicalDecorations, _function);
+          _graphicalDecorations.forEach(_function);
         }
       }
     };
-    IterableExtensions.<GraphicalDecorationDescription>forEach(_values, _function);
+    _values.forEach(_function);
   }
   
   /**

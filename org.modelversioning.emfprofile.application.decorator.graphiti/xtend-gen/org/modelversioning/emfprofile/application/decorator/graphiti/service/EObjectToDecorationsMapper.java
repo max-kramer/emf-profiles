@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.platform.IDiagramBehavior;
 import org.eclipse.graphiti.tb.IDecorator;
@@ -15,7 +16,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
 import org.modelversioning.emfprofile.application.decorator.graphiti.service.BorderDecorator;
 import org.modelversioning.emfprofile.application.decorator.graphiti.service.ColorDecorator;
@@ -118,15 +118,15 @@ public class EObjectToDecorationsMapper {
     }
     final Collection<DecorationWithStereotypeApplication> tempDecorations = this.findAllActiveDecorations(ImageDecorationImpl.class, ((GraphicalDecorationDescription[])Conversions.unwrapArray(activeGraphicalDecorationDescriptions, GraphicalDecorationDescription.class)));
     final List<IDecorator> decorators = Lists.<IDecorator>newArrayList();
-    final Procedure1<DecorationWithStereotypeApplication> _function_1 = new Procedure1<DecorationWithStereotypeApplication>() {
-      public void apply(final DecorationWithStereotypeApplication decoration) {
+    final Consumer<DecorationWithStereotypeApplication> _function_1 = new Consumer<DecorationWithStereotypeApplication>() {
+      public void accept(final DecorationWithStereotypeApplication decoration) {
         AbstractDecoration _decoration = decoration.getDecoration();
         StereotypeApplication _stereotypeApplication = decoration.getStereotypeApplication();
         ImageDecorator _imageDecorator = new ImageDecorator(((ImageDecoration) _decoration), _stereotypeApplication, null);
         decorators.add(_imageDecorator);
       }
     };
-    IterableExtensions.<DecorationWithStereotypeApplication>forEach(tempDecorations, _function_1);
+    tempDecorations.forEach(_function_1);
     decorators.add(borderDecorator);
     decorators.add(colorDecorator);
     return ((IDecorator[])Conversions.unwrapArray(decorators, IDecorator.class));

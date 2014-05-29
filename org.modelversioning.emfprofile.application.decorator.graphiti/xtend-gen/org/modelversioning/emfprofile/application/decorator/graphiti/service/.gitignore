@@ -3,3 +3,8 @@
 /.ColorDecorator.java._trace
 /.ImageDecorator.java._trace
 /.DecorationWithStereotypeApplication.java._trace
+/BorderDecorator.java
+/ColorDecorator.java
+/DecorationWithStereotypeApplication.java
+/EObjectToDecorationsMapper.java
+/ImageDecorator.java

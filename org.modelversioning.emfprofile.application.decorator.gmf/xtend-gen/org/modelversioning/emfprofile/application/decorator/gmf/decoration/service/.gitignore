@@ -15,3 +15,14 @@
 /.BackgroundDecorator.java._trace
 /.ForegroundDecorator.java._trace
 /.ColorDecorator.java._trace
+/AbstractDecorator.java
+/AbstractManyDecorationsDecorator.java
+/AbstractOnlyOneDecorationDecorator.java
+/BorderDecorator.java
+/ColorDecorator.java
+/ConnectionDecorator.java
+/ConnectionValues.java
+/EObjectDecorators.java
+/HighlightingDecorator.java
+/ImageDecorator.java
+/NotificationListenerImpl.java

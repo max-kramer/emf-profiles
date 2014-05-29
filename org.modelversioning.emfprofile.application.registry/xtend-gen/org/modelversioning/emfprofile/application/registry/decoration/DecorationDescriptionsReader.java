@@ -14,6 +14,7 @@ import com.google.inject.Injector;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -44,7 +45,6 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsChangeListener;
@@ -286,8 +286,8 @@ public class DecorationDescriptionsReader {
     if (_notEquals) {
       allDecorationDescriptions.add(decorationDescription);
     }
-    final Procedure1<EClass> _function_2 = new Procedure1<EClass>() {
-      public void apply(final EClass sst) {
+    final Consumer<EClass> _function_2 = new Consumer<EClass>() {
+      public void accept(final EClass sst) {
         EList<DecorationDescription> _decorationDescriptions = model.getDecorationDescriptions();
         final Function1<DecorationDescription,Boolean> _function = new Function1<DecorationDescription,Boolean>() {
           public Boolean apply(final DecorationDescription it) {
@@ -305,7 +305,7 @@ public class DecorationDescriptionsReader {
         }
       }
     };
-    IterableExtensions.<EClass>forEach(stereotypeSuperTypes, _function_2);
+    stereotypeSuperTypes.forEach(_function_2);
     boolean _isEmpty = allDecorationDescriptions.isEmpty();
     if (_isEmpty) {
       return null;
@@ -336,13 +336,13 @@ public class DecorationDescriptionsReader {
       }
     }
     final ArrayList<AbstractDecoration> resultDecorations = Lists.<AbstractDecoration>newArrayList();
-    final Procedure1<DecorationDescription> _function_4 = new Procedure1<DecorationDescription>() {
-      public void apply(final DecorationDescription it) {
+    final Consumer<DecorationDescription> _function_4 = new Consumer<DecorationDescription>() {
+      public void accept(final DecorationDescription it) {
         EList<AbstractDecoration> _decorations = it.getDecorations();
         resultDecorations.addAll(_decorations);
       }
     };
-    IterableExtensions.<DecorationDescription>forEach(allDecorationDescriptions, _function_4);
+    allDecorationDescriptions.forEach(_function_4);
     EList<AbstractDecoration> _decorations = resultDecorationDescription.getDecorations();
     Collection<AbstractDecoration> _copyAll = EcoreUtil2.<AbstractDecoration>copyAll(resultDecorations);
     _decorations.addAll(_copyAll);
@@ -397,12 +397,12 @@ public class DecorationDescriptionsReader {
       this.resourceChangeListener.dispose();
     }
     EList<Resource> _resources = this.rs.getResources();
-    final Procedure1<Resource> _function = new Procedure1<Resource>() {
-      public void apply(final Resource r) {
+    final Consumer<Resource> _function = new Consumer<Resource>() {
+      public void accept(final Resource r) {
         r.unload();
       }
     };
-    IterableExtensions.<Resource>forEach(_resources, _function);
+    _resources.forEach(_function);
     EList<Resource> _resources_1 = this.rs.getResources();
     _resources_1.clear();
   }

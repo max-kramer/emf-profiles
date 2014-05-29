@@ -6,6 +6,7 @@ import com.google.common.collect.Lists;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
@@ -16,7 +17,6 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.AbstractDecorator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration;
@@ -110,8 +110,8 @@ public abstract class AbstractOnlyOneDecorationDecorator extends AbstractDecorat
     String _plus_2 = (_plus_1 + _class);
     InputOutput.<String>println(_plus_2);
     List _children = figure.getChildren();
-    final Procedure1<Object> _function = new Procedure1<Object>() {
-      public void apply(final Object f) {
+    final Consumer<Object> _function = new Consumer<Object>() {
+      public void accept(final Object f) {
         int step = 0;
         boolean _lessEqualsThan = (step <= level);
         boolean _while = _lessEqualsThan;
@@ -129,7 +129,7 @@ public abstract class AbstractOnlyOneDecorationDecorator extends AbstractDecorat
         AbstractOnlyOneDecorationDecorator.this.printChildrenOfFigure(((IFigure) f), _plus);
       }
     };
-    IterableExtensions.<Object>forEach(_children, _function);
+    _children.forEach(_function);
   }
   
   protected boolean colorEqual(final Color color, final Color other) {

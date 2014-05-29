@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
@@ -28,8 +29,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.NotificationListenerImpl;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecoration;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
@@ -145,8 +144,8 @@ public abstract class AbstractDecorator implements IDecorator {
   protected List<GraphicalDecoration> getGraphicalDecorations(final GraphicalDecorationDescription graphicalDecorationDescription, final Class<? extends AbstractDecoration> decorationType) {
     final List<GraphicalDecoration> graphicalDecorations = Lists.<GraphicalDecoration>newLinkedList();
     List<GraphicalDecoration> _decorations = graphicalDecorationDescription.getDecorations();
-    final Procedure1<GraphicalDecoration> _function = new Procedure1<GraphicalDecoration>() {
-      public void apply(final GraphicalDecoration gd) {
+    final Consumer<GraphicalDecoration> _function = new Consumer<GraphicalDecoration>() {
+      public void accept(final GraphicalDecoration gd) {
         AbstractDecoration _decoration = gd.getDecoration();
         Class<? extends AbstractDecoration> _class = _decoration.getClass();
         boolean _equals = Objects.equal(_class, decorationType);
@@ -155,7 +154,7 @@ public abstract class AbstractDecorator implements IDecorator {
         }
       }
     };
-    IterableExtensions.<GraphicalDecoration>forEach(_decorations, _function);
+    _decorations.forEach(_function);
     return graphicalDecorations;
   }
   

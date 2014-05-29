@@ -3,10 +3,9 @@ package org.modelversioning.emfprofile.application.decorator.gmf.decoration.serv
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import java.util.Collection;
+import java.util.function.Consumer;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators;
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -39,23 +38,23 @@ public class EObjectToDecoratorsMapper {
     StereotypeApplication _stereotypeApplication = graphicalDecorationDescription.getStereotypeApplication();
     EObject _appliedTo = _stereotypeApplication.getAppliedTo();
     Collection<EObjectDecorators> _get = this.decorators.get(_appliedTo);
-    final Procedure1<EObjectDecorators> _function = new Procedure1<EObjectDecorators>() {
-      public void apply(final EObjectDecorators it) {
+    final Consumer<EObjectDecorators> _function = new Consumer<EObjectDecorators>() {
+      public void accept(final EObjectDecorators it) {
         it.decorate(graphicalDecorationDescription);
       }
     };
-    IterableExtensions.<EObjectDecorators>forEach(_get, _function);
+    _get.forEach(_function);
   }
   
   public void removeDecoration(final GraphicalDecorationDescription graphicalDecorationDescription) {
     StereotypeApplication _stereotypeApplication = graphicalDecorationDescription.getStereotypeApplication();
     EObject _appliedTo = _stereotypeApplication.getAppliedTo();
     Collection<EObjectDecorators> _get = this.decorators.get(_appliedTo);
-    final Procedure1<EObjectDecorators> _function = new Procedure1<EObjectDecorators>() {
-      public void apply(final EObjectDecorators it) {
+    final Consumer<EObjectDecorators> _function = new Consumer<EObjectDecorators>() {
+      public void accept(final EObjectDecorators it) {
         it.removeDecoration(graphicalDecorationDescription);
       }
     };
-    IterableExtensions.<EObjectDecorators>forEach(_get, _function);
+    _get.forEach(_function);
   }
 }

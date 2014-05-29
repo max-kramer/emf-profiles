@@ -12,13 +12,12 @@ import com.google.common.base.Objects.ToStringHelper;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.decoration.ConditionEvaluator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
@@ -55,13 +54,13 @@ public class GraphicalDecorationDescription {
     if (_notEquals) {
       final List<GraphicalDecoration> tempList = Lists.<GraphicalDecoration>newArrayList();
       EList<AbstractDecoration> _decorations = decorationDescription.getDecorations();
-      final Procedure1<AbstractDecoration> _function = new Procedure1<AbstractDecoration>() {
-        public void apply(final AbstractDecoration d) {
+      final Consumer<AbstractDecoration> _function = new Consumer<AbstractDecoration>() {
+        public void accept(final AbstractDecoration d) {
           GraphicalDecoration _graphicalDecoration = new GraphicalDecoration(d, stereotypeApplication);
           tempList.add(_graphicalDecoration);
         }
       };
-      IterableExtensions.<AbstractDecoration>forEach(_decorations, _function);
+      _decorations.forEach(_function);
       ImmutableList<GraphicalDecoration> _copyOf = ImmutableList.<GraphicalDecoration>copyOf(tempList);
       this.decorations = _copyOf;
       Activation _activation = decorationDescription.getActivation();

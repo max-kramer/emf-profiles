@@ -1,6 +1,7 @@
 package org.modelversioning.emfprofile.decoration.tests;
 
 import com.google.inject.Inject;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -11,7 +12,6 @@ import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,12 +46,12 @@ public class DecorationTest {
       Assert.assertSame(entity, _eContainer);
       Resource _eResource = model.eResource();
       EList<Diagnostic> _errors = _eResource.getErrors();
-      final Procedure1<Diagnostic> _function = new Procedure1<Diagnostic>() {
-        public void apply(final Diagnostic e) {
+      final Consumer<Diagnostic> _function = new Consumer<Diagnostic>() {
+        public void accept(final Diagnostic e) {
           InputOutput.<Diagnostic>println(e);
         }
       };
-      IterableExtensions.<Diagnostic>forEach(_errors, _function);
+      _errors.forEach(_function);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -15,8 +16,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.decoration.DecorationLanguageUtil;
@@ -110,13 +109,13 @@ public class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarati
       EList<EAttribute> _eAttributes = stereotype.getEAttributes();
       attributes.addAll(_eAttributes);
       EList<EClass> _eSuperTypes = stereotype.getESuperTypes();
-      final Procedure1<EClass> _function = new Procedure1<EClass>() {
-        public void apply(final EClass st) {
+      final Consumer<EClass> _function = new Consumer<EClass>() {
+        public void accept(final EClass st) {
           EList<EAttribute> _eAttributes = st.getEAttributes();
           attributes.addAll(_eAttributes);
         }
       };
-      IterableExtensions.<EClass>forEach(_eSuperTypes, _function);
+      _eSuperTypes.forEach(_function);
       IScope _scopeFor = Scopes.scopeFor(attributes);
       _xblockexpression = (_scopeFor);
     }

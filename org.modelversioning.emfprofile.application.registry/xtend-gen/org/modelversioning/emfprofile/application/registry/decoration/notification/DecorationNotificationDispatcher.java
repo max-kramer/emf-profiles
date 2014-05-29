@@ -17,11 +17,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.EMFProfileApplicationDecorator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationDescriptionsChangeListener;
@@ -148,20 +147,20 @@ public class DecorationNotificationDispatcher implements DecorationDescriptionsC
       int _size = this.tempAppliedStereotypes.size();
       String _plus = ("Decoration Descriptions changed for stereotypeapplications size: " + Integer.valueOf(_size));
       InputOutput.<String>println(_plus);
-      final Procedure1<StereotypeApplication> _function = new Procedure1<StereotypeApplication>() {
-        public void apply(final StereotypeApplication stereotypeApplication) {
+      final Consumer<StereotypeApplication> _function = new Consumer<StereotypeApplication>() {
+        public void accept(final StereotypeApplication stereotypeApplication) {
           DecorationNotificationDispatcher.this.acceptRemoveNotification(stereotypeApplication);
           DecorationNotificationDispatcher.this.acceptAddNotification(stereotypeApplication);
         }
       };
-      IterableExtensions.<StereotypeApplication>forEach(this.tempAppliedStereotypes, _function);
+      this.tempAppliedStereotypes.forEach(_function);
     } else {
-      final Procedure1<StereotypeApplication> _function_1 = new Procedure1<StereotypeApplication>() {
-        public void apply(final StereotypeApplication stereotypeApplication) {
+      final Consumer<StereotypeApplication> _function_1 = new Consumer<StereotypeApplication>() {
+        public void accept(final StereotypeApplication stereotypeApplication) {
           DecorationNotificationDispatcher.this.acceptAddNotification(stereotypeApplication);
         }
       };
-      IterableExtensions.<StereotypeApplication>forEach(this.tempAppliedStereotypes, _function_1);
+      this.tempAppliedStereotypes.forEach(_function_1);
     }
     List<StereotypeApplication> _emptyList = Collections.<StereotypeApplication>emptyList();
     this.tempAppliedStereotypes = _emptyList;
@@ -171,12 +170,12 @@ public class DecorationNotificationDispatcher implements DecorationDescriptionsC
     Set<StereotypeApplication> _keySet = this.tracker.keySet();
     LinkedList<StereotypeApplication> _newLinkedList = Lists.<StereotypeApplication>newLinkedList(_keySet);
     this.tempAppliedStereotypes = _newLinkedList;
-    final Procedure1<StereotypeApplication> _function = new Procedure1<StereotypeApplication>() {
-      public void apply(final StereotypeApplication stereotypeApplication) {
+    final Consumer<StereotypeApplication> _function = new Consumer<StereotypeApplication>() {
+      public void accept(final StereotypeApplication stereotypeApplication) {
         DecorationNotificationDispatcher.this.acceptRemoveNotification(stereotypeApplication);
       }
     };
-    IterableExtensions.<StereotypeApplication>forEach(this.tempAppliedStereotypes, _function);
+    this.tempAppliedStereotypes.forEach(_function);
     this.decorationDescriptionsNotValid = true;
   }
   
@@ -186,12 +185,12 @@ public class DecorationNotificationDispatcher implements DecorationDescriptionsC
   public void dispose() {
     Set<StereotypeApplication> _keySet = this.tracker.keySet();
     HashSet<StereotypeApplication> _newHashSet = Sets.<StereotypeApplication>newHashSet(_keySet);
-    final Procedure1<StereotypeApplication> _function = new Procedure1<StereotypeApplication>() {
-      public void apply(final StereotypeApplication sa) {
+    final Consumer<StereotypeApplication> _function = new Consumer<StereotypeApplication>() {
+      public void accept(final StereotypeApplication sa) {
         DecorationNotificationDispatcher.this.acceptRemoveNotification(sa);
       }
     };
-    IterableExtensions.<StereotypeApplication>forEach(_newHashSet, _function);
+    _newHashSet.forEach(_function);
     if (this.reader!=null) {
       this.reader.dispose();
     }

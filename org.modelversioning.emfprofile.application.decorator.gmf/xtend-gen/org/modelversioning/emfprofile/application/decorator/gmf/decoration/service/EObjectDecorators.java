@@ -2,14 +2,13 @@ package org.modelversioning.emfprofile.application.decorator.gmf.decoration.serv
 
 import com.google.common.base.Objects;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
 import org.eclipse.xtend.lib.Data;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ColorDecorator;
@@ -112,8 +111,8 @@ public class EObjectDecorators {
     boolean _equals = Objects.equal(_decorationStatus_1, DecorationStatus.ACTIVE);
     if (_equals) {
       List<GraphicalDecoration> _decorations = gdd.getDecorations();
-      final Procedure1<GraphicalDecoration> _function = new Procedure1<GraphicalDecoration>() {
-        public void apply(final GraphicalDecoration gd) {
+      final Consumer<GraphicalDecoration> _function = new Consumer<GraphicalDecoration>() {
+        public void accept(final GraphicalDecoration gd) {
           StringBuilder _stringBuilder = new StringBuilder();
           final StringBuilder sb = _stringBuilder;
           StringConcatenation _builder = new StringConcatenation();
@@ -184,7 +183,7 @@ public class EObjectDecorators {
           InputOutput.<String>println(_string);
         }
       };
-      IterableExtensions.<GraphicalDecoration>forEach(_decorations, _function);
+      _decorations.forEach(_function);
     }
   }
   
