@@ -7,6 +7,9 @@
  */
 package org.modelversioning.emfprofileapplication.provider;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,8 +34,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ReflectiveItemProvider;
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.LocalResourceManager;
+import org.eclipse.swt.graphics.Image;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
+import org.modelversioning.emfprofileapplication.StereotypeApplicability;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
@@ -46,15 +54,20 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
-	/////////////////////////////////////////////////////////////////////
+	// To manage created icons of stereotype applications.
+	private static LocalResourceManager resourceManager = new LocalResourceManager(
+			JFaceResources.getResources());
+
+	// ///////////////////////////////////////////////////////////////////
 	/**
 	 * Because StereotypeApplications can have dynamically added/removed
 	 * objects, we use reflective item provider in
 	 * {@link #notifyChanged(Notification)} to produce viewer notifications.
 	 */
 	ReflectiveItemProvider rip = new ReflectiveItemProvider(adapterFactory);
-	/////////////////////////////////////////////////////////////////////
-	
+
+	// ///////////////////////////////////////////////////////////////////
+
 	/**
 	 * This constructs an instance from a factory and a notifier. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
@@ -130,8 +143,50 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 	 */
 	@Override
 	public Object getImage(Object object) {
+
+		Stereotype stereotype = null;
+		if (object instanceof StereotypeApplication) {
+			stereotype = ((StereotypeApplication) object).getStereotype();
+		} else if (object instanceof StereotypeApplicability) {
+			stereotype = ((StereotypeApplicability) object).getStereotype();
+		}
+
+		if (stereotype != null && stereotype.hasIcon()) {
+			URL url = getPlatformURLToImageOfStereotype(stereotype);
+			if (url != null) {
+				try {
+					Image image = resourceManager.createImage(ImageDescriptor
+							.createFromURL(url));
+					return image;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
+
 		return overlayImage(object,
 				getResourceLocator().getImage("full/obj16/Stereotype"));
+	}
+
+	private URL getPlatformURLToImageOfStereotype(Stereotype stereotype) {
+		URL url = null;
+		try {
+			String uriToProfileResource = stereotype.getProfile().eResource()
+					.getURI().toString();
+			String result = uriToProfileResource; // .replaceFirst("/resource/",
+													// "/plugin/");
+			String strResource = "resource/";
+			result = result.substring(
+					0,
+					result.indexOf("/", result.indexOf(strResource)
+							+ strResource.length() + 1) + 1);
+			result += stereotype.getIconPath();
+			url = new URL(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return url;
 	}
 
 	/**
@@ -146,10 +201,24 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 			StereotypeApplication stereotypeApplication = (StereotypeApplication) object;
 			Stereotype stereotype = (stereotypeApplication).getStereotype();
 			EObject eObject = stereotypeApplication.getAppliedTo();
+			// first case, look if the element is of type ENamedElement
 			if (eObject instanceof ENamedElement) {
 				ENamedElement namedElement = (ENamedElement) eObject;
 				return stereotype.getName() + " -> " + namedElement.getName();
 			}
+			// second case, reflectively look if the element has a method
+			// 'getName()'
+			try {
+				Method getNameMethod = eObject.getClass().getMethod("getName",
+						new Class[] {});
+				String eObjectName = getNameMethod.invoke(eObject, new Object[] {}).toString();
+				return stereotype.getName() + " -> " + eObjectName;
+			} catch (NoSuchMethodException | NullPointerException
+					| SecurityException | IllegalAccessException
+					| IllegalArgumentException | InvocationTargetException e) {
+				// nothing to do.
+			}
+			// third case, returns generic names.
 			return getString("_UI_Stereotype_Prefix")
 					+ stereotypeApplication.getStereotype().getName()
 					+ getString("_UI_Stereotype_Postfix")
