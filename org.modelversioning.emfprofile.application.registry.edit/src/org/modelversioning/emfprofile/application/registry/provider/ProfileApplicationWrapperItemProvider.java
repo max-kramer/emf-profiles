@@ -98,14 +98,14 @@ public class ProfileApplicationWrapperItemProvider extends ItemProviderAdapter
 	 * This returns ProfileApplicationWrapper.gif. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(
 				object,
 				getResourceLocator().getImage(
-						"full/obj16/ProfileApplicationWrapper"));
+						"full/obj16/ProfileApplication.png"));
 	}
 
 	/**
