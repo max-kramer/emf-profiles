@@ -216,6 +216,8 @@ public class ProfileFacadeImpl implements IProfileFacade {
 
 	private Profile loadInProfileApplicationResourceSet(Profile profile,
 			ResourceSet resourceSet) {
+		if(profile.eIsProxy())
+			profile = (Profile) EcoreUtil.resolve(profile, resourceSet);
 		return ProfileImportResolver.getProfile(profile.getNsURI(),
 				resourceSet.getResource(profile.eResource().getURI(), true));
 	}
