@@ -29,14 +29,17 @@ class GraphicalDecoration {
 	def reevaluate() {
 		var changeOccured = false
 		val condition = decoration.activation?.condition
+		println(condition)
 		if (condition == null) {
 			decorationStatus = DecorationStatus::ACTIVE
+			changeOccured = true
 		} else {
 			val newDecorationStatus = ConditionEvaluator::execute(condition, stereotypeApplication)
-			if (newDecorationStatus != decorationStatus) {
-				changeOccured = true
-			}
+			
+			if (decorationStatus == DecorationStatus::INANCTIVE && newDecorationStatus == DecorationStatus::INANCTIVE)
+				return false;
 			decorationStatus = newDecorationStatus
+			changeOccured = true
 		}
 		return changeOccured
 	}

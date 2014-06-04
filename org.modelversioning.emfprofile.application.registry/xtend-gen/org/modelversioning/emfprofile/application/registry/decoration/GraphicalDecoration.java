@@ -12,6 +12,7 @@ import com.google.common.base.Objects.ToStringHelper;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.decoration.ConditionEvaluator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
@@ -45,16 +46,26 @@ public class GraphicalDecoration {
       _condition=_activation.getCondition();
     }
     final AbstractCondition condition = _condition;
+    InputOutput.<AbstractCondition>println(condition);
     boolean _equals = Objects.equal(condition, null);
     if (_equals) {
       this.decorationStatus = DecorationStatus.ACTIVE;
+      changeOccured = true;
     } else {
       final DecorationStatus newDecorationStatus = ConditionEvaluator.execute(condition, this.stereotypeApplication);
-      boolean _notEquals = (!Objects.equal(newDecorationStatus, this.decorationStatus));
-      if (_notEquals) {
-        changeOccured = true;
+      boolean _and = false;
+      boolean _equals_1 = Objects.equal(this.decorationStatus, DecorationStatus.INANCTIVE);
+      if (!_equals_1) {
+        _and = false;
+      } else {
+        boolean _equals_2 = Objects.equal(newDecorationStatus, DecorationStatus.INANCTIVE);
+        _and = (_equals_1 && _equals_2);
+      }
+      if (_and) {
+        return false;
       }
       this.decorationStatus = newDecorationStatus;
+      changeOccured = true;
     }
     return changeOccured;
   }
