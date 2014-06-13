@@ -15,6 +15,11 @@ public class EMFProfileDecorationLanguageAntlrTokenToAttributeIdMapper extends D
       boolean _equals = "RULE_BOOLEAN".equals(tokenName);
       if (_equals) {
         return EMFProfileDecorationLanguageHighlightingConfiguration.KEYWORD_ID;
+      } else {
+        boolean _equals_1 = "RULE_ID".equals(tokenName);
+        if (_equals_1) {
+          return EMFProfileDecorationLanguageHighlightingConfiguration.ENUMERATION_LITERAL_ID;
+        }
       }
       String _calculateId = super.calculateId(tokenName, tokenType);
       _xblockexpression = (_calculateId);

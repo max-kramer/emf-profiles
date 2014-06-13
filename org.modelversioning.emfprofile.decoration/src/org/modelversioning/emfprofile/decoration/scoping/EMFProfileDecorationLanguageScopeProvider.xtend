@@ -59,10 +59,10 @@ class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarativeScope
 	 * For scopes in texts.
 	 * <p>
 	 * NOTE: for content assist to work right with cross-references,
-	 * you have to provide the right argument type for the context parameter.
-	 * E.g., in this case do not use {@link SimpleText} as a type for context although 
-	 * the stereotype's attribute is set in here, but use the most common super type for context.
-	 * As in this case {@link Text} is.
+	 * you have to provide the right argument-type for the context parameter.
+	 * E.g., in this case do not use {@link SimpleText} as the type for the context, although 
+	 * the stereotype's attribute is set in that grammar rule, but use the most common super type for context.
+	 * In this case it is the {@link Text} grammar rule.
 	 * </p> 
 	 */
 	def IScope scope_EAttribute(Text context, EReference ref){
@@ -73,7 +73,7 @@ class EMFProfileDecorationLanguageScopeProvider extends AbstractDeclarativeScope
 	 * When resolving the cross-reference to the attribute of a stereotype, which in the decoration language
 	 * only happens in conditions and Text objects, we are only interested in attributes of the stereotype
 	 * for which the decoration is defined. 
-	 * We also need to collect the attributes of the parent/extended stereotypes if the steretype has any ESuperTypes.
+	 * We also need to collect the attributes of the parent/extended stereotypes if the stereotype has any ESuperTypes.
 	 */
 	private def IScope getScopesOfEAttributes(EObject context, EReference ref){
 		val Set<EAttribute> attributes = new HashSet<EAttribute>

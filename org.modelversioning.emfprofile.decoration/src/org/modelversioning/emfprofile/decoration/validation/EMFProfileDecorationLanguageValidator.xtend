@@ -108,10 +108,18 @@ or
 					error('''Expecting a real number.''', condition, DecorationLanguagePackage.Literals.CONDITION__VALUE)
 				}
 			}
+			// enumeration type
+			case Literals.EENUM.isInstance(attribute.EType) : {
+				val literals = attribute.EType.eContents.map(content | content.toString)
+				if (literals.contains(value) == false) {
+					val validLiterals = literals.reduce([a,b | a + ", " + b])
+					error('''Wrong enumeration literal value. Valid values are: «validLiterals»''', condition, DecorationLanguagePackage.Literals.CONDITION__VALUE)
+				}
+			}
 			default:
 				error(
 					'''The attribute of the type «attribute.EType.name» is not supported. 
-				Supported types are: Boolean, String, Int, Float, Double''', condition,
+				Supported types are: Boolean, String, Int, Float, Double and Enumerations defined in the metamodel.''', condition,
 					DecorationLanguagePackage.Literals.CONDITION__ATTRIBUTE)
 		}
 	}

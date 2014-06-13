@@ -12,8 +12,10 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
@@ -145,62 +147,87 @@ public class ConditionEvaluator {
   }
   
   private static Boolean _compare(final Object data, final ComparisonOperator operator, final String value) {
-    Boolean _switchResult = null;
-    boolean _matched = false;
-    if (!_matched) {
-      if (data instanceof String) {
-        final String _string = (String)data;
-        _matched=true;
-        Boolean _compare = ConditionEvaluator.compare(_string, operator, value);
-        _switchResult = _compare;
-      }
-    }
-    if (!_matched) {
-      if (data instanceof Boolean) {
-        final Boolean _boolean = (Boolean)data;
-        _matched=true;
-        Boolean _valueOf = Boolean.valueOf(value);
-        Boolean _compare = ConditionEvaluator.compare(_boolean, operator, _valueOf);
-        _switchResult = _compare;
-      }
-    }
-    if (!_matched) {
-      if (data instanceof Integer) {
-        final Integer _integer = (Integer)data;
-        _matched=true;
-        Integer _valueOf = Integer.valueOf(value);
-        Boolean _compare = ConditionEvaluator.compare(_integer, operator, _valueOf);
-        _switchResult = _compare;
-      }
-    }
-    if (!_matched) {
-      if (data instanceof Float) {
-        final Float _float = (Float)data;
-        _matched=true;
-        Float _valueOf = Float.valueOf(value);
-        Boolean _compare = ConditionEvaluator.compare(_float, operator, _valueOf);
-        _switchResult = _compare;
-      }
-    }
-    if (!_matched) {
-      if (data instanceof Double) {
-        final Double _double = (Double)data;
-        _matched=true;
-        Double _valueOf = Double.valueOf(value);
-        Boolean _compare = ConditionEvaluator.compare(_double, operator, _valueOf);
-        _switchResult = _compare;
-      }
-    }
-    if (!_matched) {
+    Boolean _xblockexpression = null;
+    {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("Comparing data type that is not supported: ");
+      _builder.append("COMPARING data: ");
+      String _string = data.toString();
+      _builder.append(_string, "");
+      _builder.append(", data class: ");
       Class<? extends Object> _class = data.getClass();
       String _name = _class.getName();
       _builder.append(_name, "");
-      IllegalArgumentException _illegalArgumentException = new IllegalArgumentException(_builder.toString());
-      throw _illegalArgumentException;
+      _builder.append(", operator: ");
+      _builder.append(operator, "");
+      _builder.append(", value: ");
+      _builder.append(value, "");
+      InputOutput.<String>println(_builder.toString());
+      Boolean _switchResult = null;
+      boolean _matched = false;
+      if (!_matched) {
+        if (data instanceof String) {
+          final String _string_1 = (String)data;
+          _matched=true;
+          Boolean _compare = ConditionEvaluator.compare(_string_1, operator, value);
+          _switchResult = _compare;
+        }
+      }
+      if (!_matched) {
+        if (data instanceof Boolean) {
+          final Boolean _boolean = (Boolean)data;
+          _matched=true;
+          Boolean _valueOf = Boolean.valueOf(value);
+          Boolean _compare = ConditionEvaluator.compare(_boolean, operator, _valueOf);
+          _switchResult = _compare;
+        }
+      }
+      if (!_matched) {
+        if (data instanceof Integer) {
+          final Integer _integer = (Integer)data;
+          _matched=true;
+          Integer _valueOf = Integer.valueOf(value);
+          Boolean _compare = ConditionEvaluator.compare(_integer, operator, _valueOf);
+          _switchResult = _compare;
+        }
+      }
+      if (!_matched) {
+        if (data instanceof Float) {
+          final Float _float = (Float)data;
+          _matched=true;
+          Float _valueOf = Float.valueOf(value);
+          Boolean _compare = ConditionEvaluator.compare(_float, operator, _valueOf);
+          _switchResult = _compare;
+        }
+      }
+      if (!_matched) {
+        if (data instanceof Double) {
+          final Double _double = (Double)data;
+          _matched=true;
+          Double _valueOf = Double.valueOf(value);
+          Boolean _compare = ConditionEvaluator.compare(_double, operator, _valueOf);
+          _switchResult = _compare;
+        }
+      }
+      if (!_matched) {
+        if (data instanceof EEnumLiteral) {
+          final EEnumLiteral _eEnumLiteral = (EEnumLiteral)data;
+          _matched=true;
+          Boolean _compare = ConditionEvaluator.compare(_eEnumLiteral, operator, value);
+          _switchResult = _compare;
+        }
+      }
+      if (!_matched) {
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("Comparing data type that is not supported: ");
+        Class<? extends Object> _class_1 = data.getClass();
+        String _name_1 = _class_1.getName();
+        _builder_1.append(_name_1, "");
+        IllegalArgumentException _illegalArgumentException = new IllegalArgumentException(_builder_1.toString());
+        throw _illegalArgumentException;
+      }
+      _xblockexpression = (_switchResult);
     }
-    return _switchResult;
+    return _xblockexpression;
   }
   
   private static Boolean _compare(final String data, final ComparisonOperator operator, final String value) {
@@ -232,6 +259,38 @@ public class ConditionEvaluator {
     if (!_matched) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Wrong comparison operator with String type: ");
+      _builder.append(operator, "");
+      IllegalArgumentException _illegalArgumentException = new IllegalArgumentException(_builder.toString());
+      throw _illegalArgumentException;
+    }
+    return Boolean.valueOf(_switchResult);
+  }
+  
+  private static Boolean _compare(final EEnumLiteral data, final ComparisonOperator operator, final String value) {
+    boolean _switchResult = false;
+    boolean _matched = false;
+    if (!_matched) {
+      boolean _equals = Objects.equal(operator, ComparisonOperator.EQUAL);
+      if (_equals) {
+        _matched=true;
+        String _string = data.toString();
+        boolean _equals_1 = _string.equals(value);
+        _switchResult = _equals_1;
+      }
+    }
+    if (!_matched) {
+      boolean _equals_2 = Objects.equal(operator, ComparisonOperator.UNEQUAL);
+      if (_equals_2) {
+        _matched=true;
+        String _string_1 = data.toString();
+        boolean _equals_3 = _string_1.equals(value);
+        boolean _not = (!_equals_3);
+        _switchResult = _not;
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("Wrong comparison operator with Enumeration Literal type: ");
       _builder.append(operator, "");
       IllegalArgumentException _illegalArgumentException = new IllegalArgumentException(_builder.toString());
       throw _illegalArgumentException;
@@ -388,7 +447,10 @@ public class ConditionEvaluator {
   }
   
   private static Boolean compare(final Object data, final ComparisonOperator operator, final Object value) {
-    if (data instanceof Double
+    if (data instanceof EEnumLiteral
+         && value instanceof String) {
+      return _compare((EEnumLiteral)data, operator, (String)value);
+    } else if (data instanceof Double
          && value instanceof Double) {
       return _compare((Double)data, operator, (Double)value);
     } else if (data instanceof Float

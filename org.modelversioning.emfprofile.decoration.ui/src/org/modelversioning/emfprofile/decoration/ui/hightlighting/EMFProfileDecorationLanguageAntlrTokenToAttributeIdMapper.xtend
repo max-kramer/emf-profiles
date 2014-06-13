@@ -13,6 +13,9 @@ class EMFProfileDecorationLanguageAntlrTokenToAttributeIdMapper extends DefaultA
 	override protected calculateId(String tokenName, int tokenType) {
 		if("RULE_BOOLEAN".equals(tokenName)) {
 			return EMFProfileDecorationLanguageHighlightingConfiguration.KEYWORD_ID; // this means that boolean values "true/false" are formated to look like keywords.
+		} 
+		else if ("RULE_ID".equals(tokenName)) {
+			return EMFProfileDecorationLanguageHighlightingConfiguration.ENUMERATION_LITERAL_ID;
 		}
 		super.calculateId(tokenName, tokenType)
 	}

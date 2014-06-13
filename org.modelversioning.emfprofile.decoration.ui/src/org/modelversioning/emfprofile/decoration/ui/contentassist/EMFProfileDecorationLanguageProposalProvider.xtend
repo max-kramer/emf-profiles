@@ -26,7 +26,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationMo
 class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDecorationLanguageProposalProvider {
 
 	/*
-	 * Resolving cross-references to steretypes defined in the profile model.
+	 * Resolving cross-references to stereotypes defined in the profile model.
 	 * Filtering them to show only those which are not already used in the decoration model. 
 	 */
 	override completeDecorationDescription_Stereotype(EObject model, Assignment assignment, ContentAssistContext context,
@@ -72,7 +72,7 @@ class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDec
 	
 
 	/*
-	 * Restricting proposals of comparison operators for String and Boolean 
+	 * Restricting proposals of comparison operators for String, Boolean and Enumerations
 	 */
 	override completeKeyword(Keyword object, ContentAssistContext context, ICompletionProposalAcceptor acceptor){
 		switch context.currentModel {
@@ -81,7 +81,8 @@ class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDec
 				val attributeType = condition.attribute.EType
 				switch attributeType {
 					case attributeType.name == EcorePackage.Literals.EBOOLEAN.name ||
-						 attributeType.name == EcorePackage.Literals.ESTRING.name : {
+						 attributeType.name == EcorePackage.Literals.ESTRING.name ||
+						 Literals.EENUM.isInstance(attributeType) : {
 						if(object.value == ComparisonOperator.EQUAL.literal || object.value == ComparisonOperator.UNEQUAL.literal){
 							super.completeKeyword(object, context, acceptor)
 						}
@@ -96,14 +97,14 @@ class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDec
 	}
 	
 	/*
-	 * Content assist will show only attributes of the steretype that can be used in a condition.
+	 * Content assist will show only attributes of the stereotype that can be used in a condition.
 	 */
 	override completeCondition_Attribute(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		lookupCrossReference(assignment.terminal as CrossReference, context, acceptor, [
 			val attribute = EObjectOrProxy as EAttribute
 			switch attribute {
 				case attribute.EType == Literals.EBOOLEAN || attribute.EType == Literals.ESTRING || attribute.EType == Literals.EINT 
-					|| attribute.EType == Literals.EFLOAT || attribute.EType == Literals.EDOUBLE:
+					|| attribute.EType == Literals.EFLOAT || attribute.EType == Literals.EDOUBLE || Literals.EENUM.isInstance(attribute.EType):
 					return true
 				default :
 					return false
@@ -121,6 +122,9 @@ class EMFProfileDecorationLanguageProposalProvider extends AbstractEMFProfileDec
 			case attributeType == Literals.EBOOLEAN : {
 				acceptor.accept(createCompletionProposal("false", context))
 				acceptor.accept(createCompletionProposal("true", context))
+			}
+			case Literals.EENUM.isInstance(attributeType) : {
+				attributeType.eContents.forEach[literal | println(literal); acceptor.accept(createCompletionProposal(literal.toString , context))]
 			}
 			default:
 				super.completeRuleCall(assignment.terminal as RuleCall, context, acceptor)			

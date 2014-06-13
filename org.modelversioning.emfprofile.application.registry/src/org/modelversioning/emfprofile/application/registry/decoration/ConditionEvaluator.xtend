@@ -13,6 +13,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCon
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator
 import org.modelversioning.emfprofileapplication.StereotypeApplication
+import org.eclipse.emf.ecore.EEnumLiteral
 
 /**
  * It is an utility class to evaluate if a specific decoration should be active or 
@@ -63,7 +64,7 @@ class ConditionEvaluator {
 	}
 	
 	def private static dispatch Boolean compare(Object data, ComparisonOperator operator, String value) {
-//		println('''COMPARING data: «data.toString», data class: «data.class.name», operator: «operator», value: «value»''')
+		println('''COMPARING data: «data.toString», data class: «data.class.name», operator: «operator», value: «value»''')
 		switch data {
 			String : {
 				compare(data, operator, value)
@@ -80,6 +81,9 @@ class ConditionEvaluator {
 			Double : {
 				compare(data, operator, Double.valueOf(value))
 			}
+			EEnumLiteral : {
+				compare(data, operator, value)
+			}
 			default:
 				throw new IllegalArgumentException('''Comparing data type that is not supported: «data.class.name»''')
 		}
@@ -95,6 +99,19 @@ class ConditionEvaluator {
 			}
 			default :
 				throw new IllegalArgumentException('''Wrong comparison operator with String type: «operator»''')
+		}
+	}
+
+	def private static dispatch Boolean compare(EEnumLiteral data, ComparisonOperator operator, String value){
+		switch operator {
+			case operator == ComparisonOperator::EQUAL : {
+				data.toString.equals(value)
+			}
+			case operator == ComparisonOperator::UNEQUAL : {
+				! data.toString.equals(value)
+			}
+			default :
+				throw new IllegalArgumentException('''Wrong comparison operator with Enumeration Literal type: «operator»''')
 		}
 	}
 

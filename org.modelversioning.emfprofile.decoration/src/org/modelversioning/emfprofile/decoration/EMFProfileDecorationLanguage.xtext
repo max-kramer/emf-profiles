@@ -10,21 +10,21 @@ DecorationModel:
 	decorationDescriptions+=DecorationDescription*;
 
 Namespace:
-//	'import' importedNamespace=QualifiedNameWithWildcard;
+//	'profile' importedNamespace=QualifiedNameWithWildcard;
 	'profile' profile=[profile::Profile|QualifiedName];
 
 DecorationDescription:
 	'decoration' stereotype=[profile::Stereotype|QualifiedName] '{' 
-	(decorations+=(AbstractDecoration)+
-	& (activation=Activation)?) 
+		(decorations+=(AbstractDecoration)+
+		& (activation=Activation)?) 
 	'}'
 ;
 
-// For all decorations if they have optional values then some default value will be used. see comments below 
+// For all decorations, if they have optional values then some default value will be used. See comments below.
 AbstractDecoration:
-	ImageDecoration // have effect on both nodes and edges
-	| BorderDecoration | ColorDecoration // have effect only on nodes
-	| ConnectionDecoration; // has effect only on edges
+	ImageDecoration // has an effect on both nodes and edges
+	| BorderDecoration | ColorDecoration // has an effect only on nodes
+	| ConnectionDecoration; // has an effect only on edges
 
 
 ImageDecoration:
@@ -79,7 +79,7 @@ ConnectionDecoration:
 ;
 
 /**
- * Text which we can include in the visualization, e.g., hover text over image decoration.
+ * The text which we can include in the visualization, e.g., hover text over image decoration.
  * Can be build out of Strings and attribute values of the applied stereotype.
  */
 Text:
@@ -139,7 +139,7 @@ CompositeCondition:
 ;
 
 Type:
-	SignedInteger | SignedDouble | STRING | BOOLEAN
+	SignedInteger | SignedDouble | STRING | BOOLEAN | ID
 ;
 
 SignedDouble returns ecore::EDouble :

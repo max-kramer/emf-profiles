@@ -4,6 +4,7 @@
 package org.modelversioning.emfprofile.decoration.validation;
 
 import com.google.common.base.Objects;
+import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
@@ -15,8 +16,10 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.Functions.Function2;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
@@ -258,16 +261,48 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
       }
     }
     if (!_matched) {
-      StringConcatenation _builder_5 = new StringConcatenation();
-      _builder_5.append("The attribute of the type ");
       EClassifier _eType_8 = attribute.getEType();
-      String _name_1 = _eType_8.getName();
-      _builder_5.append(_name_1, "");
-      _builder_5.append(" is not supported. ");
-      _builder_5.newLineIfNotEmpty();
-      _builder_5.append("\t\t\t\t");
-      _builder_5.append("Supported types are: Boolean, String, Int, Float, Double");
-      this.error(_builder_5.toString(), condition, 
+      boolean _isInstance = org.eclipse.emf.ecore.EcorePackage.Literals.EENUM.isInstance(_eType_8);
+      if (_isInstance) {
+        _matched=true;
+        EClassifier _eType_9 = attribute.getEType();
+        EList<EObject> _eContents = _eType_9.eContents();
+        final Function1<EObject,String> _function = new Function1<EObject,String>() {
+          public String apply(final EObject content) {
+            String _string = content.toString();
+            return _string;
+          }
+        };
+        final List<String> literals = ListExtensions.<EObject, String>map(_eContents, _function);
+        boolean _contains = literals.contains(value);
+        boolean _equals_10 = (_contains == false);
+        if (_equals_10) {
+          final Function2<String,String,String> _function_1 = new Function2<String,String,String>() {
+            public String apply(final String a, final String b) {
+              String _plus = (a + ", ");
+              String _plus_1 = (_plus + b);
+              return _plus_1;
+            }
+          };
+          final String validLiterals = IterableExtensions.<String>reduce(literals, _function_1);
+          StringConcatenation _builder_5 = new StringConcatenation();
+          _builder_5.append("Wrong enumeration literal value. Valid values are: ");
+          _builder_5.append(validLiterals, "");
+          this.error(_builder_5.toString(), condition, Literals.CONDITION__VALUE);
+        }
+      }
+    }
+    if (!_matched) {
+      StringConcatenation _builder_6 = new StringConcatenation();
+      _builder_6.append("The attribute of the type ");
+      EClassifier _eType_10 = attribute.getEType();
+      String _name_1 = _eType_10.getName();
+      _builder_6.append(_name_1, "");
+      _builder_6.append(" is not supported. ");
+      _builder_6.newLineIfNotEmpty();
+      _builder_6.append("\t\t\t\t");
+      _builder_6.append("Supported types are: Boolean, String, Int, Float, Double and Enumerations defined in the metamodel.");
+      this.error(_builder_6.toString(), condition, 
         Literals.CONDITION__ATTRIBUTE);
     }
   }

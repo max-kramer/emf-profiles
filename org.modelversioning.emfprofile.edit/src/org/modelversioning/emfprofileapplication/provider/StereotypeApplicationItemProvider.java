@@ -19,10 +19,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.ETypedElement;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -200,25 +202,12 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 		if (object instanceof StereotypeApplication) {
 			StereotypeApplication stereotypeApplication = (StereotypeApplication) object;
 			Stereotype stereotype = (stereotypeApplication).getStereotype();
-			EObject eObject = stereotypeApplication.getAppliedTo();
-			// first case, look if the element is of type ENamedElement
-			if (eObject instanceof ENamedElement) {
-				ENamedElement namedElement = (ENamedElement) eObject;
-				return stereotype.getName() + " -> " + namedElement.getName();
-			}
-			// second case, reflectively look if the element has a method
-			// 'getName()'
-			try {
-				Method getNameMethod = eObject.getClass().getMethod("getName",
-						new Class[] {});
-				String eObjectName = getNameMethod.invoke(eObject, new Object[] {}).toString();
-				return stereotype.getName() + " -> " + eObjectName;
-			} catch (NoSuchMethodException | NullPointerException
-					| SecurityException | IllegalAccessException
-					| IllegalArgumentException | InvocationTargetException e) {
-				// nothing to do.
-			}
-			// third case, returns generic names.
+			
+			String appliedToName = getAppliedToName(stereotypeApplication);
+			if(appliedToName != null)
+				return stereotype.getName() + " -> " + appliedToName;
+			
+			// if previous didn't work we return generic names.
 			return getString("_UI_Stereotype_Prefix")
 					+ stereotypeApplication.getStereotype().getName()
 					+ getString("_UI_Stereotype_Postfix")
@@ -231,6 +220,36 @@ public class StereotypeApplicationItemProvider extends ItemProviderAdapter
 		} else {
 			return getString("_UI_StereotypeApplication_type");
 		}
+	}
+
+	private String getAppliedToName(StereotypeApplication stereotypeApplication) {
+		EObject eObject = stereotypeApplication.getAppliedTo();
+		String parentName = "";
+		if(eObject instanceof ETypedElement || eObject instanceof EEnumLiteral){
+			if(eObject.eContainer() instanceof ENamedElement){
+				ENamedElement parent = (ENamedElement) eObject.eContainer();
+				parentName = parent.getName() + ".";
+			}
+		}
+		
+		// first case, look if the element is of type ENamedElement			
+		if (eObject instanceof ENamedElement) {
+			ENamedElement namedElement = (ENamedElement) eObject;
+			return parentName + namedElement.getName();
+		}
+		// second case, reflectively look if the element has a method
+		// 'getName()'
+		try {
+			Method getNameMethod = eObject.getClass().getMethod("getName",
+					new Class[] {});
+			String eObjectName = getNameMethod.invoke(eObject, new Object[] {}).toString();
+			return parentName + eObjectName;
+		} catch (NoSuchMethodException | NullPointerException
+				| SecurityException | IllegalAccessException
+				| IllegalArgumentException | InvocationTargetException e) {
+			// nothing to do.
+		}
+		return null;
 	}
 
 	/**

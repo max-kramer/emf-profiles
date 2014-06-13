@@ -70,15 +70,15 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final CrossReference cProfileProfileCrossReference_1_0 = (CrossReference)cProfileAssignment_1.eContents().get(0);
 		private final RuleCall cProfileProfileQualifiedNameParserRuleCall_1_0_1 = (RuleCall)cProfileProfileCrossReference_1_0.eContents().get(1);
 		
-		//Namespace: //	'import' importedNamespace=QualifiedNameWithWildcard;
+		//Namespace: //	'profile' importedNamespace=QualifiedNameWithWildcard;
 		//	"profile" profile=[profile::Profile|QualifiedName];
 		public ParserRule getRule() { return rule; }
 
-		////	'import' importedNamespace=QualifiedNameWithWildcard;
+		////	'profile' importedNamespace=QualifiedNameWithWildcard;
 		//"profile" profile=[profile::Profile|QualifiedName]
 		public Group getGroup() { return cGroup; }
 
-		////	'import' importedNamespace=QualifiedNameWithWildcard;
+		////	'profile' importedNamespace=QualifiedNameWithWildcard;
 		//"profile"
 		public Keyword getProfileKeyword_0() { return cProfileKeyword_0; }
 
@@ -158,26 +158,26 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cColorDecorationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cConnectionDecorationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//// For all decorations if they have optional values then some default value will be used. see comments below 
-		//// has effect only on edges
-		//AbstractDecoration: // have effect on both nodes and edges
-		//	ImageDecoration | BorderDecoration | // have effect only on nodes
+		//// For all decorations, if they have optional values then some default value will be used. See comments below.
+		//// has an effect only on edges
+		//AbstractDecoration: // has an effect on both nodes and edges
+		//	ImageDecoration | BorderDecoration | // has an effect only on nodes
 		//	ColorDecoration | ConnectionDecoration;
 		public ParserRule getRule() { return rule; }
 
-		//// have effect on both nodes and edges
-		//ImageDecoration | BorderDecoration | // have effect only on nodes
+		//// has an effect on both nodes and edges
+		//ImageDecoration | BorderDecoration | // has an effect only on nodes
 		//ColorDecoration | ConnectionDecoration
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//// have effect on both nodes and edges
+		//// has an effect on both nodes and edges
 		//ImageDecoration
 		public RuleCall getImageDecorationParserRuleCall_0() { return cImageDecorationParserRuleCall_0; }
 
 		//BorderDecoration
 		public RuleCall getBorderDecorationParserRuleCall_1() { return cBorderDecorationParserRuleCall_1; }
 
-		//// have effect only on nodes
+		//// has an effect only on nodes
 		//ColorDecoration
 		public RuleCall getColorDecorationParserRuleCall_2() { return cColorDecorationParserRuleCall_2; }
 
@@ -560,7 +560,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cComplexTextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		/// **
-		// * Text which we can include in the visualization, e.g., hover text over image decoration.
+		// * The text which we can include in the visualization, e.g., hover text over image decoration.
 		// * Can be build out of Strings and attribute values of the applied stereotype.
 		// * / Text:
 		//	SimpleText | ComplexText;
@@ -987,12 +987,13 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cSignedDoubleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSTRINGTerminalRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cBOOLEANTerminalRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cIDTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Type:
-		//	SignedInteger | SignedDouble | STRING | BOOLEAN;
+		//	SignedInteger | SignedDouble | STRING | BOOLEAN | ID;
 		public ParserRule getRule() { return rule; }
 
-		//SignedInteger | SignedDouble | STRING | BOOLEAN
+		//SignedInteger | SignedDouble | STRING | BOOLEAN | ID
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SignedInteger
@@ -1006,6 +1007,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 
 		//BOOLEAN
 		public RuleCall getBOOLEANTerminalRuleCall_3() { return cBOOLEANTerminalRuleCall_3; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_4() { return cIDTerminalRuleCall_4; }
 	}
 
 	public class SignedDoubleElements extends AbstractParserRuleElementFinder {
@@ -1550,7 +1554,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getDecorationModelAccess().getRule();
 	}
 
-	//Namespace: //	'import' importedNamespace=QualifiedNameWithWildcard;
+	//Namespace: //	'profile' importedNamespace=QualifiedNameWithWildcard;
 	//	"profile" profile=[profile::Profile|QualifiedName];
 	public NamespaceElements getNamespaceAccess() {
 		return (pNamespace != null) ? pNamespace : (pNamespace = new NamespaceElements());
@@ -1571,10 +1575,10 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getDecorationDescriptionAccess().getRule();
 	}
 
-	//// For all decorations if they have optional values then some default value will be used. see comments below 
-	//// has effect only on edges
-	//AbstractDecoration: // have effect on both nodes and edges
-	//	ImageDecoration | BorderDecoration | // have effect only on nodes
+	//// For all decorations, if they have optional values then some default value will be used. See comments below.
+	//// has an effect only on edges
+	//AbstractDecoration: // has an effect on both nodes and edges
+	//	ImageDecoration | BorderDecoration | // has an effect only on nodes
 	//	ColorDecoration | ConnectionDecoration;
 	public AbstractDecorationElements getAbstractDecorationAccess() {
 		return (pAbstractDecoration != null) ? pAbstractDecoration : (pAbstractDecoration = new AbstractDecorationElements());
@@ -1632,7 +1636,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	/// **
-	// * Text which we can include in the visualization, e.g., hover text over image decoration.
+	// * The text which we can include in the visualization, e.g., hover text over image decoration.
 	// * Can be build out of Strings and attribute values of the applied stereotype.
 	// * / Text:
 	//	SimpleText | ComplexText;
@@ -1775,7 +1779,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//Type:
-	//	SignedInteger | SignedDouble | STRING | BOOLEAN;
+	//	SignedInteger | SignedDouble | STRING | BOOLEAN | ID;
 	public TypeElements getTypeAccess() {
 		return (pType != null) ? pType : (pType = new TypeElements());
 	}

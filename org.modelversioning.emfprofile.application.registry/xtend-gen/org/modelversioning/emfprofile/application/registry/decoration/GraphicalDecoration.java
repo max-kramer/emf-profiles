@@ -12,7 +12,6 @@ import com.google.common.base.Objects.ToStringHelper;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.application.registry.decoration.ConditionEvaluator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
@@ -46,7 +45,6 @@ public class GraphicalDecoration {
       _condition=_activation.getCondition();
     }
     final AbstractCondition condition = _condition;
-    InputOutput.<AbstractCondition>println(condition);
     boolean _equals = Objects.equal(condition, null);
     if (_equals) {
       this.decorationStatus = DecorationStatus.ACTIVE;

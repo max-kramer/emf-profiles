@@ -29,7 +29,6 @@ class GraphicalDecoration {
 	def reevaluate() {
 		var changeOccured = false
 		val condition = decoration.activation?.condition
-		println(condition)
 		if (condition == null) {
 			decorationStatus = DecorationStatus::ACTIVE
 			changeOccured = true

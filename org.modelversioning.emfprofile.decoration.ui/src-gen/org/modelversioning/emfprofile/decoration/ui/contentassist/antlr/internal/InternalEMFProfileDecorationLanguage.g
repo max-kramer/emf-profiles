@@ -1033,6 +1033,12 @@ rule__Type__Alternatives
 { after(grammarAccess.getTypeAccess().getBOOLEANTerminalRuleCall_3()); }
 )
 
+    |(
+{ before(grammarAccess.getTypeAccess().getIDTerminalRuleCall_4()); }
+	RULE_ID
+{ after(grammarAccess.getTypeAccess().getIDTerminalRuleCall_4()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
