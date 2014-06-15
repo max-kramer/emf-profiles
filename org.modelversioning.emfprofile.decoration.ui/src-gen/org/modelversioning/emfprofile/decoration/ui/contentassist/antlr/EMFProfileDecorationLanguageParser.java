@@ -41,6 +41,7 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getTextAccess().getAlternatives(), "rule__Text__Alternatives");
 					put(grammarAccess.getSimpleTextAccess().getAlternatives(), "rule__SimpleText__Alternatives");
 					put(grammarAccess.getColorAccess().getAlternatives(), "rule__Color__Alternatives");
+					put(grammarAccess.getConcreteColorAccess().getAlternatives(), "rule__ConcreteColor__Alternatives");
 					put(grammarAccess.getAbstractConditionAccess().getAlternatives(), "rule__AbstractCondition__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getComparisonOperatorAccess().getAlternatives(), "rule__ComparisonOperator__Alternatives");
@@ -68,7 +69,7 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getDirectionAccess().getGroup(), "rule__Direction__Group__0");
 					put(grammarAccess.getMarginAccess().getGroup(), "rule__Margin__Group__0");
 					put(grammarAccess.getColorAccess().getGroup_0(), "rule__Color__Group_0__0");
-					put(grammarAccess.getConcreteColorAccess().getGroup(), "rule__ConcreteColor__Group__0");
+					put(grammarAccess.getRGBAccess().getGroup(), "rule__RGB__Group__0");
 					put(grammarAccess.getActivationAccess().getGroup(), "rule__Activation__Group__0");
 					put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 					put(grammarAccess.getCompositeConditionAccess().getGroup(), "rule__CompositeCondition__Group__0");
@@ -111,9 +112,10 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getMarginAccess().getValueAssignment_2(), "rule__Margin__ValueAssignment_2");
 					put(grammarAccess.getColorAccess().getValueAssignment_0_1(), "rule__Color__ValueAssignment_0_1");
 					put(grammarAccess.getColorAccess().getConcreteAssignment_1(), "rule__Color__ConcreteAssignment_1");
-					put(grammarAccess.getConcreteColorAccess().getRedAssignment_2(), "rule__ConcreteColor__RedAssignment_2");
-					put(grammarAccess.getConcreteColorAccess().getGreenAssignment_4(), "rule__ConcreteColor__GreenAssignment_4");
-					put(grammarAccess.getConcreteColorAccess().getBlueAssignment_6(), "rule__ConcreteColor__BlueAssignment_6");
+					put(grammarAccess.getRGBAccess().getRedAssignment_2(), "rule__RGB__RedAssignment_2");
+					put(grammarAccess.getRGBAccess().getGreenAssignment_4(), "rule__RGB__GreenAssignment_4");
+					put(grammarAccess.getRGBAccess().getBlueAssignment_6(), "rule__RGB__BlueAssignment_6");
+					put(grammarAccess.getHexColorAccess().getHexCodeAssignment(), "rule__HexColor__HexCodeAssignment");
 					put(grammarAccess.getColorConstantAccess().getValueAssignment(), "rule__ColorConstant__ValueAssignment");
 					put(grammarAccess.getActivationAccess().getConditionAssignment_1(), "rule__Activation__ConditionAssignment_1");
 					put(grammarAccess.getConditionAccess().getAttributeAssignment_0(), "rule__Condition__AttributeAssignment_0");

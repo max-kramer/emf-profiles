@@ -176,6 +176,24 @@ public interface DecorationLanguageFactory extends EFactory
   ConcreteColor createConcreteColor();
 
   /**
+   * Returns a new object of class '<em>RGB</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RGB</em>'.
+   * @generated
+   */
+  RGB createRGB();
+
+  /**
+   * Returns a new object of class '<em>Hex Color</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Hex Color</em>'.
+   * @generated
+   */
+  HexColor createHexColor();
+
+  /**
    * Returns a new object of class '<em>Color Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

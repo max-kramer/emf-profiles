@@ -37,6 +37,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstan
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Colors;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
@@ -276,11 +277,32 @@ public abstract class AbstractDecorator implements IDecorator {
     final ConcreteColor concreteColor = color.getConcrete();
     boolean _notEquals = (!Objects.equal(concreteColor, null));
     if (_notEquals) {
-      int _red = concreteColor.getRed();
-      int _green = concreteColor.getGreen();
-      int _blue = concreteColor.getBlue();
-      RGB _rGB = new RGB(_red, _green, _blue);
-      final RGB rgb = _rGB;
+      RGB rgb = null;
+      boolean _matched = false;
+      if (!_matched) {
+        if (concreteColor instanceof HexColor) {
+          final HexColor _hexColor = (HexColor)concreteColor;
+          _matched=true;
+          String _hexCode = _hexColor.getHexCode();
+          final java.awt.Color c = java.awt.Color.decode(_hexCode);
+          int _red = c.getRed();
+          int _green = c.getGreen();
+          int _blue = c.getBlue();
+          RGB _rGB = new RGB(_red, _green, _blue);
+          rgb = _rGB;
+        }
+      }
+      if (!_matched) {
+        if (concreteColor instanceof org.modelversioning.emfprofile.decoration.decorationLanguage.RGB) {
+          final org.modelversioning.emfprofile.decoration.decorationLanguage.RGB _rGB = (org.modelversioning.emfprofile.decoration.decorationLanguage.RGB)concreteColor;
+          _matched=true;
+          int _red = _rGB.getRed();
+          int _green = _rGB.getGreen();
+          int _blue = _rGB.getBlue();
+          RGB _rGB_1 = new RGB(_red, _green, _blue);
+          rgb = _rGB_1;
+        }
+      }
       boolean _containsKey = AbstractDecorator.createdColors.containsKey(rgb);
       if (_containsKey) {
         return AbstractDecorator.createdColors.get(rgb);
@@ -288,8 +310,8 @@ public abstract class AbstractDecorator implements IDecorator {
       Display _current = Display.getCurrent();
       Color _color = new Color(_current, rgb);
       final Color newColor = _color;
-      RGB _rGB_1 = newColor.getRGB();
-      AbstractDecorator.createdColors.put(_rGB_1, newColor);
+      RGB _rGB = newColor.getRGB();
+      AbstractDecorator.createdColors.put(_rGB, newColor);
       return newColor;
     } else {
       final ColorConstant constantColor = color.getValue();
@@ -298,109 +320,109 @@ public abstract class AbstractDecorator implements IDecorator {
         return ColorConstants.red;
       }
       final Colors colorCode = constantColor.getValue();
-      boolean _matched = false;
-      if (!_matched) {
+      boolean _matched_1 = false;
+      if (!_matched_1) {
         boolean _equals_2 = Objects.equal(colorCode, Colors.BLACK);
         if (_equals_2) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.black;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_3 = Objects.equal(colorCode, Colors.BLUE);
         if (_equals_3) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.blue;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_4 = Objects.equal(colorCode, Colors.BLUE_DARK);
         if (_equals_4) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.darkBlue;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_5 = Objects.equal(colorCode, Colors.BLUE_LIGHT);
         if (_equals_5) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.lightBlue;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_6 = Objects.equal(colorCode, Colors.CYAN);
         if (_equals_6) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.cyan;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_7 = Objects.equal(colorCode, Colors.GRAY);
         if (_equals_7) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.gray;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_8 = Objects.equal(colorCode, Colors.GRAY_DARK);
         if (_equals_8) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.darkGray;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_9 = Objects.equal(colorCode, Colors.GRAY_LIGHT);
         if (_equals_9) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.lightGray;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_10 = Objects.equal(colorCode, Colors.GREEN);
         if (_equals_10) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.green;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_11 = Objects.equal(colorCode, Colors.GREEN_DARK);
         if (_equals_11) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.darkGreen;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_12 = Objects.equal(colorCode, Colors.GREEN_LIGHT);
         if (_equals_12) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.lightGreen;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_13 = Objects.equal(colorCode, Colors.ORANGE);
         if (_equals_13) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.orange;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_14 = Objects.equal(colorCode, Colors.RED);
         if (_equals_14) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.red;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_15 = Objects.equal(colorCode, Colors.WHITE);
         if (_equals_15) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.white;
         }
       }
-      if (!_matched) {
+      if (!_matched_1) {
         boolean _equals_16 = Objects.equal(colorCode, Colors.YELLOW);
         if (_equals_16) {
-          _matched=true;
+          _matched_1=true;
           return ColorConstants.yellow;
         }
       }

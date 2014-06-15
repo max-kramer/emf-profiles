@@ -82,6 +82,8 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.MARGIN: return createMargin();
       case DecorationLanguagePackage.COLOR: return createColor();
       case DecorationLanguagePackage.CONCRETE_COLOR: return createConcreteColor();
+      case DecorationLanguagePackage.RGB: return createRGB();
+      case DecorationLanguagePackage.HEX_COLOR: return createHexColor();
       case DecorationLanguagePackage.COLOR_CONSTANT: return createColorConstant();
       case DecorationLanguagePackage.ACTIVATION: return createActivation();
       case DecorationLanguagePackage.ABSTRACT_CONDITION: return createAbstractCondition();
@@ -327,6 +329,28 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     ConcreteColorImpl concreteColor = new ConcreteColorImpl();
     return concreteColor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RGB createRGB()
+  {
+    RGBImpl rgb = new RGBImpl();
+    return rgb;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HexColor createHexColor()
+  {
+    HexColorImpl hexColor = new HexColorImpl();
+    return hexColor;
   }
 
   /**

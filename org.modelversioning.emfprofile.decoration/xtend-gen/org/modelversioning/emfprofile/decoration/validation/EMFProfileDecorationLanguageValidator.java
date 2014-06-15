@@ -22,12 +22,12 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage.Literals;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.RGB;
 import org.modelversioning.emfprofile.decoration.validation.AbstractEMFProfileDecorationLanguageValidator;
 
 /**
@@ -91,7 +91,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\"platform:/plugin/Plugin_ID/path_to_image_file\"");
-        this.error(_builder.toString(), imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
+        this.error(_builder.toString(), imageDecoration, 
+          Literals.IMAGE_DECORATION__LOCATION_URI);
       }
       boolean _exists = EMFProfileDecorationLanguageValidator.uriConverter.exists(iconURI, null);
       boolean _equals = (_exists == false);
@@ -106,7 +107,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         _builder_1.newLine();
         _builder_1.append("\t");
         _builder_1.append("\"platform:/plugin/Plugin_ID/path_to_icon_file\"");
-        this.error(_builder_1.toString(), imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
+        this.error(_builder_1.toString(), imageDecoration, 
+          Literals.IMAGE_DECORATION__LOCATION_URI);
       }
     } catch (final Throwable _t) {
       if (_t instanceof IllegalArgumentException) {
@@ -288,7 +290,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
           StringConcatenation _builder_5 = new StringConcatenation();
           _builder_5.append("Wrong enumeration literal value. Valid values are: ");
           _builder_5.append(validLiterals, "");
-          this.error(_builder_5.toString(), condition, Literals.CONDITION__VALUE);
+          this.error(_builder_5.toString(), condition, 
+            Literals.CONDITION__VALUE);
         }
       }
     }
@@ -308,7 +311,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
   }
   
   @Check
-  public void checkRGBColor(final ConcreteColor color) {
+  public void checkRGB(final RGB color) {
     boolean _or = false;
     int _red = color.getRed();
     boolean _lessThan = (_red < 0);
@@ -322,7 +325,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
     if (_or) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Color values must be in range 0 - 255");
-      this.error(_builder.toString(), color, Literals.CONCRETE_COLOR__RED);
+      this.error(_builder.toString(), color, Literals.RGB__RED);
     } else {
       boolean _or_1 = false;
       int _green = color.getGreen();
@@ -337,7 +340,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
       if (_or_1) {
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("Color values must be in range 0 - 255");
-        this.error(_builder_1.toString(), color, Literals.CONCRETE_COLOR__GREEN);
+        this.error(_builder_1.toString(), color, Literals.RGB__GREEN);
       } else {
         boolean _or_2 = false;
         int _blue = color.getBlue();
@@ -352,7 +355,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         if (_or_2) {
           StringConcatenation _builder_2 = new StringConcatenation();
           _builder_2.append("Color values must be in range 0 - 255");
-          this.error(_builder_2.toString(), color, Literals.CONCRETE_COLOR__BLUE);
+          this.error(_builder_2.toString(), color, Literals.RGB__BLUE);
         }
       }
     }

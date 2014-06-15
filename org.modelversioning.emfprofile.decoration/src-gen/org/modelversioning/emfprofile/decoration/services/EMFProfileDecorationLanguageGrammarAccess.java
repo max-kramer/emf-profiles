@@ -790,6 +790,26 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 
 	public class ConcreteColorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ConcreteColor");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cRGBParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cHexColorParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ConcreteColor:
+		//	RGB | HexColor;
+		public ParserRule getRule() { return rule; }
+
+		//RGB | HexColor
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//RGB
+		public RuleCall getRGBParserRuleCall_0() { return cRGBParserRuleCall_0; }
+
+		//HexColor
+		public RuleCall getHexColorParserRuleCall_1() { return cHexColorParserRuleCall_1; }
+	}
+
+	public class RGBElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RGB");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cRGBKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -803,7 +823,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cBlueINTTerminalRuleCall_6_0 = (RuleCall)cBlueAssignment_6.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		//ConcreteColor:
+		//RGB:
 		//	"RGB" "(" red=INT "," green=INT "," blue=INT ")";
 		public ParserRule getRule() { return rule; }
 
@@ -842,6 +862,22 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 
 		//")"
 		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+	}
+
+	public class HexColorElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "HexColor");
+		private final Assignment cHexCodeAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cHexCodeHEX_COLORTerminalRuleCall_0 = (RuleCall)cHexCodeAssignment.eContents().get(0);
+		
+		//HexColor:
+		//	hexCode=HEX_COLOR;
+		public ParserRule getRule() { return rule; }
+
+		//hexCode=HEX_COLOR
+		public Assignment getHexCodeAssignment() { return cHexCodeAssignment; }
+
+		//HEX_COLOR
+		public RuleCall getHexCodeHEX_COLORTerminalRuleCall_0() { return cHexCodeHEX_COLORTerminalRuleCall_0; }
 	}
 
 	public class ColorConstantElements extends AbstractParserRuleElementFinder {
@@ -1488,6 +1524,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	private MarginElements pMargin;
 	private ColorElements pColor;
 	private ConcreteColorElements pConcreteColor;
+	private RGBElements pRGB;
+	private HexColorElements pHexColor;
 	private ColorConstantElements pColorConstant;
 	private ActivationElements pActivation;
 	private AbstractConditionElements pAbstractCondition;
@@ -1499,6 +1537,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private QualifiedNameElements pQualifiedName;
 	private TerminalRule tBOOLEAN;
+	private TerminalRule tHEX_COLOR;
 	private ComparisonOperatorElements unknownRuleComparisonOperator;
 	private LogicalOperatorElements unknownRuleLogicalOperator;
 	private LineStyleElements unknownRuleLineStyle;
@@ -1719,13 +1758,33 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//ConcreteColor:
-	//	"RGB" "(" red=INT "," green=INT "," blue=INT ")";
+	//	RGB | HexColor;
 	public ConcreteColorElements getConcreteColorAccess() {
 		return (pConcreteColor != null) ? pConcreteColor : (pConcreteColor = new ConcreteColorElements());
 	}
 	
 	public ParserRule getConcreteColorRule() {
 		return getConcreteColorAccess().getRule();
+	}
+
+	//RGB:
+	//	"RGB" "(" red=INT "," green=INT "," blue=INT ")";
+	public RGBElements getRGBAccess() {
+		return (pRGB != null) ? pRGB : (pRGB = new RGBElements());
+	}
+	
+	public ParserRule getRGBRule() {
+		return getRGBAccess().getRule();
+	}
+
+	//HexColor:
+	//	hexCode=HEX_COLOR;
+	public HexColorElements getHexColorAccess() {
+		return (pHexColor != null) ? pHexColor : (pHexColor = new HexColorElements());
+	}
+	
+	public ParserRule getHexColorRule() {
+		return getHexColorAccess().getRule();
 	}
 
 	//ColorConstant:
@@ -1832,6 +1891,13 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	//	"true" | "false";
 	public TerminalRule getBOOLEANRule() {
 		return (tBOOLEAN != null) ? tBOOLEAN : (tBOOLEAN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "BOOLEAN"));
+	} 
+
+	//terminal HEX_COLOR:
+	//	"#" (("a".."f" | "A".."F" | "0".."9") ("a".."f" | "A".."F" | "0".."9") ("a".."f" | "A".."F" | "0".."9"))? ("a".."f" |
+	//	"A".."F" | "0".."9") ("a".."f" | "A".."F" | "0".."9") ("a".."f" | "A".."F" | "0".."9");
+	public TerminalRule getHEX_COLORRule() {
+		return (tHEX_COLOR != null) ? tHEX_COLOR : (tHEX_COLOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "HEX_COLOR"));
 	} 
 
 	//enum ComparisonOperator:

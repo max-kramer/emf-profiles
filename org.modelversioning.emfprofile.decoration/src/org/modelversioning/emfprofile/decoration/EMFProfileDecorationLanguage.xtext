@@ -115,7 +115,15 @@ Color:
 ;
 
 ConcreteColor:
-	'RGB' '(' red=INT ',' green=INT ',' blue = INT ')'
+	RGB | HexColor
+;
+
+RGB:
+	'RGB' '(' red=INT ',' green=INT ',' blue=INT ')'	
+;
+
+HexColor: 
+	hexCode = HEX_COLOR
 ;
 
 ColorConstant:
@@ -159,6 +167,12 @@ QualifiedName returns ecore::EString:
 
 terminal BOOLEAN returns ecore::EBoolean:
 	'true' | 'false'
+;
+
+terminal HEX_COLOR:
+  '#' 
+  (('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9'))?
+  ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9')
 ;
 
 enum ComparisonOperator:

@@ -33,6 +33,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLa
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Direction;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator;
@@ -169,6 +170,20 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * @generated
    */
   private EClass concreteColorEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rgbEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass hexColorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -791,9 +806,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConcreteColor_Red()
+  public EClass getRGB()
   {
-    return (EAttribute)concreteColorEClass.getEStructuralFeatures().get(0);
+    return rgbEClass;
   }
 
   /**
@@ -801,9 +816,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConcreteColor_Green()
+  public EAttribute getRGB_Red()
   {
-    return (EAttribute)concreteColorEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)rgbEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -811,9 +826,39 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getConcreteColor_Blue()
+  public EAttribute getRGB_Green()
   {
-    return (EAttribute)concreteColorEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)rgbEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRGB_Blue()
+  {
+    return (EAttribute)rgbEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getHexColor()
+  {
+    return hexColorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getHexColor_HexCode()
+  {
+    return (EAttribute)hexColorEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1080,9 +1125,14 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     createEReference(colorEClass, COLOR__CONCRETE);
 
     concreteColorEClass = createEClass(CONCRETE_COLOR);
-    createEAttribute(concreteColorEClass, CONCRETE_COLOR__RED);
-    createEAttribute(concreteColorEClass, CONCRETE_COLOR__GREEN);
-    createEAttribute(concreteColorEClass, CONCRETE_COLOR__BLUE);
+
+    rgbEClass = createEClass(RGB);
+    createEAttribute(rgbEClass, RGB__RED);
+    createEAttribute(rgbEClass, RGB__GREEN);
+    createEAttribute(rgbEClass, RGB__BLUE);
+
+    hexColorEClass = createEClass(HEX_COLOR);
+    createEAttribute(hexColorEClass, HEX_COLOR__HEX_CODE);
 
     colorConstantEClass = createEClass(COLOR_CONSTANT);
     createEAttribute(colorConstantEClass, COLOR_CONSTANT__VALUE);
@@ -1148,6 +1198,8 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     connectionDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     simpleTextEClass.getESuperTypes().add(this.getText());
     complexTextEClass.getESuperTypes().add(this.getText());
+    rgbEClass.getESuperTypes().add(this.getConcreteColor());
+    hexColorEClass.getESuperTypes().add(this.getConcreteColor());
     conditionEClass.getESuperTypes().add(this.getAbstractCondition());
     compositeConditionEClass.getESuperTypes().add(this.getAbstractCondition());
 
@@ -1216,9 +1268,14 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEReference(getColor_Concrete(), this.getConcreteColor(), null, "concrete", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(concreteColorEClass, ConcreteColor.class, "ConcreteColor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConcreteColor_Red(), theEcorePackage.getEInt(), "red", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConcreteColor_Green(), theEcorePackage.getEInt(), "green", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConcreteColor_Blue(), theEcorePackage.getEInt(), "blue", null, 0, 1, ConcreteColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rgbEClass, org.modelversioning.emfprofile.decoration.decorationLanguage.RGB.class, "RGB", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRGB_Red(), theEcorePackage.getEInt(), "red", null, 0, 1, org.modelversioning.emfprofile.decoration.decorationLanguage.RGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRGB_Green(), theEcorePackage.getEInt(), "green", null, 0, 1, org.modelversioning.emfprofile.decoration.decorationLanguage.RGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRGB_Blue(), theEcorePackage.getEInt(), "blue", null, 0, 1, org.modelversioning.emfprofile.decoration.decorationLanguage.RGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(hexColorEClass, HexColor.class, "HexColor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getHexColor_HexCode(), theEcorePackage.getEString(), "hexCode", null, 0, 1, HexColor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colorConstantEClass, ColorConstant.class, "ColorConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getColorConstant_Value(), this.getColors(), "value", null, 0, 1, ColorConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

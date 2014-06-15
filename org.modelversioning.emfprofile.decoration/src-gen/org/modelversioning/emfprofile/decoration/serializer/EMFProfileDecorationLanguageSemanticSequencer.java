@@ -20,16 +20,17 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstan
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComplexText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Direction;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.RGB;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
@@ -89,12 +90,6 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 					return; 
 				}
 				else break;
-			case DecorationLanguagePackage.CONCRETE_COLOR:
-				if(context == grammarAccess.getConcreteColorRule()) {
-					sequence_ConcreteColor(context, (ConcreteColor) semanticObject); 
-					return; 
-				}
-				else break;
 			case DecorationLanguagePackage.CONDITION:
 				if(context == grammarAccess.getAbstractConditionRule() ||
 				   context == grammarAccess.getConditionRule()) {
@@ -127,6 +122,13 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 					return; 
 				}
 				else break;
+			case DecorationLanguagePackage.HEX_COLOR:
+				if(context == grammarAccess.getConcreteColorRule() ||
+				   context == grammarAccess.getHexColorRule()) {
+					sequence_HexColor(context, (HexColor) semanticObject); 
+					return; 
+				}
+				else break;
 			case DecorationLanguagePackage.IMAGE_DECORATION:
 				if(context == grammarAccess.getAbstractDecorationRule() ||
 				   context == grammarAccess.getImageDecorationRule()) {
@@ -143,6 +145,13 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 			case DecorationLanguagePackage.NAMESPACE:
 				if(context == grammarAccess.getNamespaceRule()) {
 					sequence_Namespace(context, (Namespace) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.RGB:
+				if(context == grammarAccess.getConcreteColorRule() ||
+				   context == grammarAccess.getRGBRule()) {
+					sequence_RGB(context, (RGB) semanticObject); 
 					return; 
 				}
 				else break;
@@ -258,28 +267,6 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (red=INT green=INT blue=INT)
-	 */
-	protected void sequence_ConcreteColor(EObject context, ConcreteColor semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.CONCRETE_COLOR__RED) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.CONCRETE_COLOR__RED));
-			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.CONCRETE_COLOR__GREEN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.CONCRETE_COLOR__GREEN));
-			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.CONCRETE_COLOR__BLUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.CONCRETE_COLOR__BLUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getConcreteColorAccess().getRedINTTerminalRuleCall_2_0(), semanticObject.getRed());
-		feeder.accept(grammarAccess.getConcreteColorAccess().getGreenINTTerminalRuleCall_4_0(), semanticObject.getGreen());
-		feeder.accept(grammarAccess.getConcreteColorAccess().getBlueINTTerminalRuleCall_6_0(), semanticObject.getBlue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (attribute=[EAttribute|QualifiedName] operator=ComparisonOperator value=Type)
 	 */
 	protected void sequence_Condition(EObject context, Condition semanticObject) {
@@ -345,6 +332,22 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
+	 *     hexCode=HEX_COLOR
+	 */
+	protected void sequence_HexColor(EObject context, HexColor semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.HEX_COLOR__HEX_CODE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.HEX_COLOR__HEX_CODE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getHexColorAccess().getHexCodeHEX_COLORTerminalRuleCall_0(), semanticObject.getHexCode());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (location_uri=STRING direction=Direction? margin=Margin? tooltip=Text? activation=Activation?)
 	 */
 	protected void sequence_ImageDecoration(EObject context, ImageDecoration semanticObject) {
@@ -380,6 +383,28 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getNamespaceAccess().getProfileProfileQualifiedNameParserRuleCall_1_0_1(), semanticObject.getProfile());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (red=INT green=INT blue=INT)
+	 */
+	protected void sequence_RGB(EObject context, RGB semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RGB__RED) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RGB__RED));
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RGB__GREEN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RGB__GREEN));
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RGB__BLUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RGB__BLUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0(), semanticObject.getRed());
+		feeder.accept(grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0(), semanticObject.getGreen());
+		feeder.accept(grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0(), semanticObject.getBlue());
 		feeder.finish();
 	}
 	

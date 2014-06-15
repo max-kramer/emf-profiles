@@ -197,6 +197,22 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DecorationLanguagePackage.RGB:
+      {
+        RGB rgb = (RGB)theEObject;
+        T result = caseRGB(rgb);
+        if (result == null) result = caseConcreteColor(rgb);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.HEX_COLOR:
+      {
+        HexColor hexColor = (HexColor)theEObject;
+        T result = caseHexColor(hexColor);
+        if (result == null) result = caseConcreteColor(hexColor);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DecorationLanguagePackage.COLOR_CONSTANT:
       {
         ColorConstant colorConstant = (ColorConstant)theEObject;
@@ -506,6 +522,38 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConcreteColor(ConcreteColor object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RGB</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RGB</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRGB(RGB object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Hex Color</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Hex Color</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseHexColor(HexColor object)
   {
     return null;
   }

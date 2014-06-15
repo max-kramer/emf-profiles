@@ -520,9 +520,65 @@ ruleConcreteColor
     }
 	:
 (
-{ before(grammarAccess.getConcreteColorAccess().getGroup()); }
-(rule__ConcreteColor__Group__0)
-{ after(grammarAccess.getConcreteColorAccess().getGroup()); }
+{ before(grammarAccess.getConcreteColorAccess().getAlternatives()); }
+(rule__ConcreteColor__Alternatives)
+{ after(grammarAccess.getConcreteColorAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleRGB
+entryRuleRGB 
+:
+{ before(grammarAccess.getRGBRule()); }
+	 ruleRGB
+{ after(grammarAccess.getRGBRule()); } 
+	 EOF 
+;
+
+// Rule RGB
+ruleRGB
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getRGBAccess().getGroup()); }
+(rule__RGB__Group__0)
+{ after(grammarAccess.getRGBAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleHexColor
+entryRuleHexColor 
+:
+{ before(grammarAccess.getHexColorRule()); }
+	 ruleHexColor
+{ after(grammarAccess.getHexColorRule()); } 
+	 EOF 
+;
+
+// Rule HexColor
+ruleHexColor
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getHexColorAccess().getHexCodeAssignment()); }
+(rule__HexColor__HexCodeAssignment)
+{ after(grammarAccess.getHexColorAccess().getHexCodeAssignment()); }
 )
 
 ;
@@ -975,6 +1031,28 @@ rule__Color__Alternatives
 { before(grammarAccess.getColorAccess().getConcreteAssignment_1()); }
 (rule__Color__ConcreteAssignment_1)
 { after(grammarAccess.getColorAccess().getConcreteAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ConcreteColor__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getConcreteColorAccess().getRGBParserRuleCall_0()); }
+	ruleRGB
+{ after(grammarAccess.getConcreteColorAccess().getRGBParserRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getConcreteColorAccess().getHexColorParserRuleCall_1()); }
+	ruleHexColor
+{ after(grammarAccess.getConcreteColorAccess().getHexColorParserRuleCall_1()); }
 )
 
 ;
@@ -3564,29 +3642,29 @@ finally {
 
 
 
-rule__ConcreteColor__Group__0
+rule__RGB__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__0__Impl
-	rule__ConcreteColor__Group__1
+	rule__RGB__Group__0__Impl
+	rule__RGB__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__0__Impl
+rule__RGB__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getRGBKeyword_0()); }
+{ before(grammarAccess.getRGBAccess().getRGBKeyword_0()); }
 
 	'RGB' 
 
-{ after(grammarAccess.getConcreteColorAccess().getRGBKeyword_0()); }
+{ after(grammarAccess.getRGBAccess().getRGBKeyword_0()); }
 )
 
 ;
@@ -3595,29 +3673,29 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__1
+rule__RGB__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__1__Impl
-	rule__ConcreteColor__Group__2
+	rule__RGB__Group__1__Impl
+	rule__RGB__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__1__Impl
+rule__RGB__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getLeftParenthesisKeyword_1()); }
+{ before(grammarAccess.getRGBAccess().getLeftParenthesisKeyword_1()); }
 
 	'(' 
 
-{ after(grammarAccess.getConcreteColorAccess().getLeftParenthesisKeyword_1()); }
+{ after(grammarAccess.getRGBAccess().getLeftParenthesisKeyword_1()); }
 )
 
 ;
@@ -3626,27 +3704,27 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__2
+rule__RGB__Group__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__2__Impl
-	rule__ConcreteColor__Group__3
+	rule__RGB__Group__2__Impl
+	rule__RGB__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__2__Impl
+rule__RGB__Group__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getRedAssignment_2()); }
-(rule__ConcreteColor__RedAssignment_2)
-{ after(grammarAccess.getConcreteColorAccess().getRedAssignment_2()); }
+{ before(grammarAccess.getRGBAccess().getRedAssignment_2()); }
+(rule__RGB__RedAssignment_2)
+{ after(grammarAccess.getRGBAccess().getRedAssignment_2()); }
 )
 
 ;
@@ -3655,29 +3733,29 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__3
+rule__RGB__Group__3
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__3__Impl
-	rule__ConcreteColor__Group__4
+	rule__RGB__Group__3__Impl
+	rule__RGB__Group__4
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__3__Impl
+rule__RGB__Group__3__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getCommaKeyword_3()); }
+{ before(grammarAccess.getRGBAccess().getCommaKeyword_3()); }
 
 	',' 
 
-{ after(grammarAccess.getConcreteColorAccess().getCommaKeyword_3()); }
+{ after(grammarAccess.getRGBAccess().getCommaKeyword_3()); }
 )
 
 ;
@@ -3686,27 +3764,27 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__4
+rule__RGB__Group__4
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__4__Impl
-	rule__ConcreteColor__Group__5
+	rule__RGB__Group__4__Impl
+	rule__RGB__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__4__Impl
+rule__RGB__Group__4__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getGreenAssignment_4()); }
-(rule__ConcreteColor__GreenAssignment_4)
-{ after(grammarAccess.getConcreteColorAccess().getGreenAssignment_4()); }
+{ before(grammarAccess.getRGBAccess().getGreenAssignment_4()); }
+(rule__RGB__GreenAssignment_4)
+{ after(grammarAccess.getRGBAccess().getGreenAssignment_4()); }
 )
 
 ;
@@ -3715,29 +3793,29 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__5
+rule__RGB__Group__5
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__5__Impl
-	rule__ConcreteColor__Group__6
+	rule__RGB__Group__5__Impl
+	rule__RGB__Group__6
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__5__Impl
+rule__RGB__Group__5__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getCommaKeyword_5()); }
+{ before(grammarAccess.getRGBAccess().getCommaKeyword_5()); }
 
 	',' 
 
-{ after(grammarAccess.getConcreteColorAccess().getCommaKeyword_5()); }
+{ after(grammarAccess.getRGBAccess().getCommaKeyword_5()); }
 )
 
 ;
@@ -3746,27 +3824,27 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__6
+rule__RGB__Group__6
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__6__Impl
-	rule__ConcreteColor__Group__7
+	rule__RGB__Group__6__Impl
+	rule__RGB__Group__7
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__6__Impl
+rule__RGB__Group__6__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getBlueAssignment_6()); }
-(rule__ConcreteColor__BlueAssignment_6)
-{ after(grammarAccess.getConcreteColorAccess().getBlueAssignment_6()); }
+{ before(grammarAccess.getRGBAccess().getBlueAssignment_6()); }
+(rule__RGB__BlueAssignment_6)
+{ after(grammarAccess.getRGBAccess().getBlueAssignment_6()); }
 )
 
 ;
@@ -3775,28 +3853,28 @@ finally {
 }
 
 
-rule__ConcreteColor__Group__7
+rule__RGB__Group__7
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__ConcreteColor__Group__7__Impl
+	rule__RGB__Group__7__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__Group__7__Impl
+rule__RGB__Group__7__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getRightParenthesisKeyword_7()); }
+{ before(grammarAccess.getRGBAccess().getRightParenthesisKeyword_7()); }
 
 	')' 
 
-{ after(grammarAccess.getConcreteColorAccess().getRightParenthesisKeyword_7()); }
+{ after(grammarAccess.getRGBAccess().getRightParenthesisKeyword_7()); }
 )
 
 ;
@@ -5723,14 +5801,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__RedAssignment_2
+rule__RGB__RedAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getRedINTTerminalRuleCall_2_0()); }
-	RULE_INT{ after(grammarAccess.getConcreteColorAccess().getRedINTTerminalRuleCall_2_0()); }
+{ before(grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0()); }
+	RULE_INT{ after(grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0()); }
 )
 
 ;
@@ -5738,14 +5816,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__GreenAssignment_4
+rule__RGB__GreenAssignment_4
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getGreenINTTerminalRuleCall_4_0()); }
-	RULE_INT{ after(grammarAccess.getConcreteColorAccess().getGreenINTTerminalRuleCall_4_0()); }
+{ before(grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0()); }
+	RULE_INT{ after(grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0()); }
 )
 
 ;
@@ -5753,14 +5831,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ConcreteColor__BlueAssignment_6
+rule__RGB__BlueAssignment_6
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getConcreteColorAccess().getBlueINTTerminalRuleCall_6_0()); }
-	RULE_INT{ after(grammarAccess.getConcreteColorAccess().getBlueINTTerminalRuleCall_6_0()); }
+{ before(grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0()); }
+	RULE_INT{ after(grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__HexColor__HexCodeAssignment
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getHexColorAccess().getHexCodeHEX_COLORTerminalRuleCall_0()); }
+	RULE_HEX_COLOR{ after(grammarAccess.getHexColorAccess().getHexCodeHEX_COLORTerminalRuleCall_0()); }
 )
 
 ;
@@ -5879,6 +5972,8 @@ finally {
 
 
 RULE_BOOLEAN : ('true'|'false');
+
+RULE_HEX_COLOR : '#' (('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9'))? ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

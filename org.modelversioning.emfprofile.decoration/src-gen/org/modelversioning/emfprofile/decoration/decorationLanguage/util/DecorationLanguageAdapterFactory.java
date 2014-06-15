@@ -160,6 +160,16 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createConcreteColorAdapter();
       }
       @Override
+      public Adapter caseRGB(RGB object)
+      {
+        return createRGBAdapter();
+      }
+      @Override
+      public Adapter caseHexColor(HexColor object)
+      {
+        return createHexColorAdapter();
+      }
+      @Override
       public Adapter caseColorConstant(ColorConstant object)
       {
         return createColorConstantAdapter();
@@ -457,6 +467,36 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConcreteColorAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RGB <em>RGB</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RGB
+   * @generated
+   */
+  public Adapter createRGBAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor <em>Hex Color</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor
+   * @generated
+   */
+  public Adapter createHexColorAdapter()
   {
     return null;
   }

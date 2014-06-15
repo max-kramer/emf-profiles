@@ -30,6 +30,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Directions
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style
 import org.modelversioning.emfprofileapplication.StereotypeApplication
+import org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor
 
 abstract class AbstractDecorator implements IDecorator {
 	/** to cash created colors. they are disposed when the plug-in is stop method is called */
@@ -185,7 +186,18 @@ abstract class AbstractDecorator implements IDecorator {
 		
 		val concreteColor = color.concrete 
 		if(concreteColor != null) {
-			val rgb = new RGB(concreteColor.red,concreteColor.green,concreteColor.blue)
+			var RGB rgb = null
+			switch concreteColor {
+				HexColor : {
+					val c  = java.awt.Color.decode(concreteColor.hexCode)
+					rgb = new RGB(c.red, c.green, c.blue)
+				}
+				org.modelversioning.emfprofile.decoration.decorationLanguage.RGB : {
+					rgb = new RGB(concreteColor.red,concreteColor.green,concreteColor.blue)
+				}
+			}
+			
+			
 			if(createdColors.containsKey(rgb)){
 				return createdColors.get(rgb)
 			}

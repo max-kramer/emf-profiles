@@ -9,12 +9,12 @@ import org.eclipse.emf.ecore.EcorePackage.Literals
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl
 import org.eclipse.xtext.validation.Check
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator
-import org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationModel
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.RGB
 
 //import org.eclipse.xtext.validation.Check
 /**
@@ -41,21 +41,20 @@ class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDecoration
 			var URI iconURI = URI.createURI(imageDecoration.location_uri);
 			if (iconURI.isRelative()) {
 				error(
-'''The URI must be absolute. Please use the path schema like: 
+					'''The URI must be absolute. Please use the path schema like: 
 	"platform:/resource/Project_Name/path_to_image_file"
 or
-	"platform:/plugin/Plugin_ID/path_to_image_file"''',
-					imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
+	"platform:/plugin/Plugin_ID/path_to_image_file"''', imageDecoration,
+					DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
 			}
-
 
 			if (uriConverter.exists(iconURI, null) == false) {
 				error(
-'''The URI does not point to the icon location. Please use the path schema like: 
+					'''The URI does not point to the icon location. Please use the path schema like: 
 	"platform:/resource/Project_Name/path_to_image_file"
 or
-	"platform:/plugin/Plugin_ID/path_to_icon_file"''',
-					imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
+	"platform:/plugin/Plugin_ID/path_to_icon_file"''', imageDecoration,
+					DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
 			}
 		} catch (IllegalArgumentException iae) {
 			println("\tCould not create URI, illegal argument exception is thrown: " + iae.message)
@@ -109,11 +108,12 @@ or
 				}
 			}
 			// enumeration type
-			case Literals.EENUM.isInstance(attribute.EType) : {
-				val literals = attribute.EType.eContents.map(content | content.toString)
+			case Literals.EENUM.isInstance(attribute.EType): {
+				val literals = attribute.EType.eContents.map(content|content.toString)
 				if (literals.contains(value) == false) {
-					val validLiterals = literals.reduce([a,b | a + ", " + b])
-					error('''Wrong enumeration literal value. Valid values are: «validLiterals»''', condition, DecorationLanguagePackage.Literals.CONDITION__VALUE)
+					val validLiterals = literals.reduce([a, b|a + ", " + b])
+					error('''Wrong enumeration literal value. Valid values are: «validLiterals»''', condition,
+						DecorationLanguagePackage.Literals.CONDITION__VALUE)
 				}
 			}
 			default:
@@ -123,19 +123,16 @@ or
 					DecorationLanguagePackage.Literals.CONDITION__ATTRIBUTE)
 		}
 	}
-	
+
 	@Check
-	def checkRGBColor(ConcreteColor color) {
-		if(color.red < 0 ||	color.red > 255){
-			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.CONCRETE_COLOR__RED)
-		} 
-		else if(color.green < 0 || color.green > 255)
-		{
-			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.CONCRETE_COLOR__GREEN)
-		}
-		else if(color.blue < 0 || color.blue > 255)
-		{
-			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.CONCRETE_COLOR__BLUE)
+	def checkRGB(RGB color) {
+		if (color.red < 0 || color.red > 255) {
+			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.RGB__RED)
+		} else if (color.green < 0 || color.green > 255) {
+			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.RGB__GREEN)
+		} else if (color.blue < 0 || color.blue > 255) {
+			error('''Color values must be in range 0 - 255''', color, DecorationLanguagePackage.Literals.RGB__BLUE)
 		}
 	}
+	
 }

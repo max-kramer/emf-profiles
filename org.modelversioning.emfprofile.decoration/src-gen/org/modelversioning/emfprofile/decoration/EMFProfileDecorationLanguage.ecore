@@ -83,10 +83,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="concrete" eType="#//ConcreteColor"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConcreteColor">
+  <eClassifiers xsi:type="ecore:EClass" name="ConcreteColor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RGB" eSuperTypes="#//ConcreteColor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="red" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="green" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="blue" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HexColor" eSuperTypes="#//ConcreteColor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexCode" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColorConstant">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//Colors"/>

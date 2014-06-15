@@ -687,13 +687,32 @@ public interface DecorationLanguagePackage extends EPackage
   int CONCRETE_COLOR = 16;
 
   /**
+   * The number of structural features of the '<em>Concrete Color</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCRETE_COLOR_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RGBImpl <em>RGB</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RGBImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getRGB()
+   * @generated
+   */
+  int RGB = 17;
+
+  /**
    * The feature id for the '<em><b>Red</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCRETE_COLOR__RED = 0;
+  int RGB__RED = CONCRETE_COLOR_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Green</b></em>' attribute.
@@ -702,7 +721,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONCRETE_COLOR__GREEN = 1;
+  int RGB__GREEN = CONCRETE_COLOR_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Blue</b></em>' attribute.
@@ -711,16 +730,44 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONCRETE_COLOR__BLUE = 2;
+  int RGB__BLUE = CONCRETE_COLOR_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Concrete Color</em>' class.
+   * The number of structural features of the '<em>RGB</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCRETE_COLOR_FEATURE_COUNT = 3;
+  int RGB_FEATURE_COUNT = CONCRETE_COLOR_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.HexColorImpl <em>Hex Color</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.HexColorImpl
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getHexColor()
+   * @generated
+   */
+  int HEX_COLOR = 18;
+
+  /**
+   * The feature id for the '<em><b>Hex Code</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEX_COLOR__HEX_CODE = CONCRETE_COLOR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Hex Color</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int HEX_COLOR_FEATURE_COUNT = CONCRETE_COLOR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorConstantImpl <em>Color Constant</em>}' class.
@@ -730,7 +777,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColorConstant()
    * @generated
    */
-  int COLOR_CONSTANT = 17;
+  int COLOR_CONSTANT = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -758,7 +805,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getActivation()
    * @generated
    */
-  int ACTIVATION = 18;
+  int ACTIVATION = 20;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -786,7 +833,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getAbstractCondition()
    * @generated
    */
-  int ABSTRACT_CONDITION = 19;
+  int ABSTRACT_CONDITION = 21;
 
   /**
    * The number of structural features of the '<em>Abstract Condition</em>' class.
@@ -805,7 +852,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 20;
+  int CONDITION = 22;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -851,7 +898,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCompositeCondition()
    * @generated
    */
-  int COMPOSITE_CONDITION = 21;
+  int COMPOSITE_CONDITION = 23;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -888,7 +935,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 22;
+  int COMPARISON_OPERATOR = 24;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -898,7 +945,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLogicalOperator()
    * @generated
    */
-  int LOGICAL_OPERATOR = 23;
+  int LOGICAL_OPERATOR = 25;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle <em>Line Style</em>}' enum.
@@ -908,7 +955,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLineStyle()
    * @generated
    */
-  int LINE_STYLE = 24;
+  int LINE_STYLE = 26;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Colors <em>Colors</em>}' enum.
@@ -918,7 +965,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColors()
    * @generated
    */
-  int COLORS = 25;
+  int COLORS = 27;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Directions <em>Directions</em>}' enum.
@@ -928,7 +975,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirections()
    * @generated
    */
-  int DIRECTIONS = 26;
+  int DIRECTIONS = 28;
 
 
   /**
@@ -1443,37 +1490,68 @@ public interface DecorationLanguagePackage extends EPackage
   EClass getConcreteColor();
 
   /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getRed <em>Red</em>}'.
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RGB <em>RGB</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RGB</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RGB
+   * @generated
+   */
+  EClass getRGB();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RGB#getRed <em>Red</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Red</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getRed()
-   * @see #getConcreteColor()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RGB#getRed()
+   * @see #getRGB()
    * @generated
    */
-  EAttribute getConcreteColor_Red();
+  EAttribute getRGB_Red();
 
   /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getGreen <em>Green</em>}'.
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RGB#getGreen <em>Green</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Green</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getGreen()
-   * @see #getConcreteColor()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RGB#getGreen()
+   * @see #getRGB()
    * @generated
    */
-  EAttribute getConcreteColor_Green();
+  EAttribute getRGB_Green();
 
   /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getBlue <em>Blue</em>}'.
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RGB#getBlue <em>Blue</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Blue</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConcreteColor#getBlue()
-   * @see #getConcreteColor()
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RGB#getBlue()
+   * @see #getRGB()
    * @generated
    */
-  EAttribute getConcreteColor_Blue();
+  EAttribute getRGB_Blue();
+
+  /**
+   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor <em>Hex Color</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Hex Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor
+   * @generated
+   */
+  EClass getHexColor();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor#getHexCode <em>Hex Code</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Hex Code</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor#getHexCode()
+   * @see #getHexColor()
+   * @generated
+   */
+  EAttribute getHexColor_HexCode();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant <em>Color Constant</em>}'.
@@ -2094,12 +2172,22 @@ public interface DecorationLanguagePackage extends EPackage
     EClass CONCRETE_COLOR = eINSTANCE.getConcreteColor();
 
     /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RGBImpl <em>RGB</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RGBImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getRGB()
+     * @generated
+     */
+    EClass RGB = eINSTANCE.getRGB();
+
+    /**
      * The meta object literal for the '<em><b>Red</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONCRETE_COLOR__RED = eINSTANCE.getConcreteColor_Red();
+    EAttribute RGB__RED = eINSTANCE.getRGB_Red();
 
     /**
      * The meta object literal for the '<em><b>Green</b></em>' attribute feature.
@@ -2107,7 +2195,7 @@ public interface DecorationLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONCRETE_COLOR__GREEN = eINSTANCE.getConcreteColor_Green();
+    EAttribute RGB__GREEN = eINSTANCE.getRGB_Green();
 
     /**
      * The meta object literal for the '<em><b>Blue</b></em>' attribute feature.
@@ -2115,7 +2203,25 @@ public interface DecorationLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONCRETE_COLOR__BLUE = eINSTANCE.getConcreteColor_Blue();
+    EAttribute RGB__BLUE = eINSTANCE.getRGB_Blue();
+
+    /**
+     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.HexColorImpl <em>Hex Color</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.HexColorImpl
+     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getHexColor()
+     * @generated
+     */
+    EClass HEX_COLOR = eINSTANCE.getHexColor();
+
+    /**
+     * The meta object literal for the '<em><b>Hex Code</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute HEX_COLOR__HEX_CODE = eINSTANCE.getHexColor_HexCode();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorConstantImpl <em>Color Constant</em>}' class.

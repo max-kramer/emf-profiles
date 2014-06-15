@@ -1577,23 +1577,63 @@ ruleConcreteColor returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getConcreteColorAccess().getRGBParserRuleCall_0()); 
+    }
+    this_RGB_0=ruleRGB
+    { 
+        $current = $this_RGB_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getConcreteColorAccess().getHexColorParserRuleCall_1()); 
+    }
+    this_HexColor_1=ruleHexColor
+    { 
+        $current = $this_HexColor_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleRGB
+entryRuleRGB returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRGBRule()); }
+	 iv_ruleRGB=ruleRGB 
+	 { $current=$iv_ruleRGB.current; } 
+	 EOF 
+;
+
+// Rule RGB
+ruleRGB returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 (	otherlv_0='RGB' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getConcreteColorAccess().getRGBKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getRGBAccess().getRGBKeyword_0());
     }
 	otherlv_1='(' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getConcreteColorAccess().getLeftParenthesisKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getRGBAccess().getLeftParenthesisKeyword_1());
     }
 (
 (
 		lv_red_2_0=RULE_INT
 		{
-			newLeafNode(lv_red_2_0, grammarAccess.getConcreteColorAccess().getRedINTTerminalRuleCall_2_0()); 
+			newLeafNode(lv_red_2_0, grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConcreteColorRule());
+	            $current = createModelElement(grammarAccess.getRGBRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1605,17 +1645,17 @@ ruleConcreteColor returns [EObject current=null]
 )
 )	otherlv_3=',' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getConcreteColorAccess().getCommaKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getRGBAccess().getCommaKeyword_3());
     }
 (
 (
 		lv_green_4_0=RULE_INT
 		{
-			newLeafNode(lv_green_4_0, grammarAccess.getConcreteColorAccess().getGreenINTTerminalRuleCall_4_0()); 
+			newLeafNode(lv_green_4_0, grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConcreteColorRule());
+	            $current = createModelElement(grammarAccess.getRGBRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1627,17 +1667,17 @@ ruleConcreteColor returns [EObject current=null]
 )
 )	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getConcreteColorAccess().getCommaKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getRGBAccess().getCommaKeyword_5());
     }
 (
 (
 		lv_blue_6_0=RULE_INT
 		{
-			newLeafNode(lv_blue_6_0, grammarAccess.getConcreteColorAccess().getBlueINTTerminalRuleCall_6_0()); 
+			newLeafNode(lv_blue_6_0, grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getConcreteColorRule());
+	            $current = createModelElement(grammarAccess.getRGBRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -1649,8 +1689,47 @@ ruleConcreteColor returns [EObject current=null]
 )
 )	otherlv_7=')' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getConcreteColorAccess().getRightParenthesisKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getRGBAccess().getRightParenthesisKeyword_7());
     }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleHexColor
+entryRuleHexColor returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getHexColorRule()); }
+	 iv_ruleHexColor=ruleHexColor 
+	 { $current=$iv_ruleHexColor.current; } 
+	 EOF 
+;
+
+// Rule HexColor
+ruleHexColor returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		lv_hexCode_0_0=RULE_HEX_COLOR
+		{
+			newLeafNode(lv_hexCode_0_0, grammarAccess.getHexColorAccess().getHexCodeHEX_COLORTerminalRuleCall_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getHexColorRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"hexCode",
+        		lv_hexCode_0_0, 
+        		"HEX_COLOR");
+	    }
+
+)
 )
 ;
 
@@ -2367,6 +2446,8 @@ ruleDirections returns [Enumerator current=null]
 
 
 RULE_BOOLEAN : ('true'|'false');
+
+RULE_HEX_COLOR : '#' (('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9'))? ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
