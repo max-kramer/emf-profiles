@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget
 import org.eclipse.swt.graphics.Color
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel
 
 class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 
@@ -63,6 +64,9 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 	 *            the line border style
 	 */
 	protected def setBorder(IFigure figure, Color color, int size, int style) {
+		
+		if (figure instanceof WrappingLabel)
+			return;
 //		println("Figure: " + figure)
 //		println('''Backgournd color: «getFigureForColoring(targetEditPart).backgroundColor»''')
 //		println('''Foreground color: «getFigureForColoring(targetEditPart).foregroundColor»''')

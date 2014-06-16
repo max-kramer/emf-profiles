@@ -7,6 +7,7 @@ import org.eclipse.draw2d.LineBorder;
 import org.eclipse.gef.editparts.AbstractConnectionEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.services.decorator.IDecoratorTarget;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.AbstractOnlyOneDecorationDecorator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
@@ -96,6 +97,9 @@ public class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
    *            the line border style
    */
   protected void setBorder(final IFigure figure, final org.eclipse.swt.graphics.Color color, final int size, final int style) {
+    if ((figure instanceof WrappingLabel)) {
+      return;
+    }
     LineBorder _lineBorder = new LineBorder(color, size, style);
     figure.setBorder(_lineBorder);
     figure.setOpaque(false);
