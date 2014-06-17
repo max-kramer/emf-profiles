@@ -14,7 +14,10 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Border;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration;
@@ -30,7 +33,9 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.HexColor;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.RGB;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
@@ -50,10 +55,29 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 					return; 
 				}
 				else break;
+			case DecorationLanguagePackage.BORDER:
+				if(context == grammarAccess.getBorderRule()) {
+					sequence_Border(context, (Border) semanticObject); 
+					return; 
+				}
+				else break;
 			case DecorationLanguagePackage.BORDER_DECORATION:
 				if(context == grammarAccess.getAbstractDecorationRule() ||
 				   context == grammarAccess.getBorderDecorationRule()) {
 					sequence_BorderDecoration(context, (BorderDecoration) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.BOX_DECORATION:
+				if(context == grammarAccess.getAbstractDecorationRule() ||
+				   context == grammarAccess.getBoxDecorationRule()) {
+					sequence_BoxDecoration(context, (BoxDecoration) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.BOX_IMAGE:
+				if(context == grammarAccess.getBoxImageRule()) {
+					sequence_BoxImage(context, (BoxImage) semanticObject); 
 					return; 
 				}
 				else break;
@@ -148,10 +172,23 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 					return; 
 				}
 				else break;
+			case DecorationLanguagePackage.OCL_EXPRESSION:
+				if(context == grammarAccess.getAbstractConditionRule() ||
+				   context == grammarAccess.getOclExpressionRule()) {
+					sequence_OclExpression(context, (OclExpression) semanticObject); 
+					return; 
+				}
+				else break;
 			case DecorationLanguagePackage.RGB:
 				if(context == grammarAccess.getConcreteColorRule() ||
 				   context == grammarAccess.getRGBRule()) {
 					sequence_RGB(context, (RGB) semanticObject); 
+					return; 
+				}
+				else break;
+			case DecorationLanguagePackage.RELATIVE_POSITION:
+				if(context == grammarAccess.getRelativePositionRule()) {
+					sequence_RelativePosition(context, (RelativePosition) semanticObject); 
 					return; 
 				}
 				else break;
@@ -196,9 +233,49 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (size=Size? color=Color? style=Style? activation=Activation?)
+	 *     (border=Border activation=Activation?)
 	 */
 	protected void sequence_BorderDecoration(EObject context, BorderDecoration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (size=Size? color=Color? style=Style?)
+	 */
+	protected void sequence_Border(EObject context, Border semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         text=Text 
+	 *         widht=INT 
+	 *         height=INT 
+	 *         image=BoxImage? 
+	 *         border=Border? 
+	 *         foregroundColor=Color? 
+	 *         backgroundColor=Color? 
+	 *         direction=Direction? 
+	 *         margin=Margin? 
+	 *         contentDirection=Directions? 
+	 *         tooltip=Text? 
+	 *         activation=Activation?
+	 *     )
+	 */
+	protected void sequence_BoxDecoration(EObject context, BoxDecoration semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (location_uri=STRING placement=BoxImageOrientation?)
+	 */
+	protected void sequence_BoxImage(EObject context, BoxImage semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -389,6 +466,22 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
+	 *     expression=STRING
+	 */
+	protected void sequence_OclExpression(EObject context, OclExpression semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.OCL_EXPRESSION__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.OCL_EXPRESSION__EXPRESSION));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getOclExpressionAccess().getExpressionSTRINGTerminalRuleCall_2_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (red=INT green=INT blue=INT)
 	 */
 	protected void sequence_RGB(EObject context, RGB semanticObject) {
@@ -405,6 +498,25 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 		feeder.accept(grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0(), semanticObject.getRed());
 		feeder.accept(grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0(), semanticObject.getGreen());
 		feeder.accept(grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0(), semanticObject.getBlue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (x=SignedInteger y=SignedInteger)
+	 */
+	protected void sequence_RelativePosition(EObject context, RelativePosition semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__X) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__X));
+			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__Y) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__Y));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRelativePositionAccess().getXSignedIntegerParserRuleCall_1_0(), semanticObject.getX());
+		feeder.accept(grammarAccess.getRelativePositionAccess().getYSignedIntegerParserRuleCall_3_0(), semanticObject.getY());
 		feeder.finish();
 	}
 	

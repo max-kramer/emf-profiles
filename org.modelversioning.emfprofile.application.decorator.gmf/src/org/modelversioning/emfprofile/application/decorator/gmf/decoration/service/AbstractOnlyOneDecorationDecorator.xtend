@@ -37,7 +37,7 @@ abstract class AbstractOnlyOneDecorationDecorator extends AbstractDecorator {
 	protected def IFigure getFigureForColoring(IGraphicalEditPart editPart) {
 		var IFigure figure = editPart.getFigure()
 		
-		printChildrenOfFigure(figure, 0)
+//		printChildrenOfFigure(figure, 0)
 		
 		if (figure instanceof BorderedNodeFigure) {
 			figure = figure.children.get(0) as IFigure

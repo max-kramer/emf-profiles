@@ -27,17 +27,17 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  CENTER(0, "CENTER", "center"),
+  CENTER(0, "CENTER", "CENTER"),
 
   /**
-   * The '<em><b>NORHT</b></em>' literal object.
+   * The '<em><b>NORTH</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NORHT_VALUE
+   * @see #NORTH_VALUE
    * @generated
    * @ordered
    */
-  NORHT(1, "NORHT", "north"),
+  NORTH(1, "NORTH", "NORTH"),
 
   /**
    * The '<em><b>SOUTH</b></em>' literal object.
@@ -47,7 +47,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  SOUTH(2, "SOUTH", "south"),
+  SOUTH(2, "SOUTH", "SOUTH"),
 
   /**
    * The '<em><b>WEST</b></em>' literal object.
@@ -57,7 +57,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  WEST(3, "WEST", "west"),
+  WEST(3, "WEST", "WEST"),
 
   /**
    * The '<em><b>EAST</b></em>' literal object.
@@ -67,7 +67,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  EAST(4, "EAST", "east"),
+  EAST(4, "EAST", "EAST"),
 
   /**
    * The '<em><b>NORTH EAST</b></em>' literal object.
@@ -77,7 +77,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  NORTH_EAST(5, "NORTH_EAST", "north_east"),
+  NORTH_EAST(5, "NORTH_EAST", "NORTH_EAST"),
 
   /**
    * The '<em><b>NORTH WEST</b></em>' literal object.
@@ -87,7 +87,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  NORTH_WEST(6, "NORTH_WEST", "north_west"),
+  NORTH_WEST(6, "NORTH_WEST", "NORTH_WEST"),
 
   /**
    * The '<em><b>SOUTH EAST</b></em>' literal object.
@@ -97,7 +97,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  SOUTH_EAST(7, "SOUTH_EAST", "south_east"),
+  SOUTH_EAST(7, "SOUTH_EAST", "SOUTH_EAST"),
 
   /**
    * The '<em><b>SOUTH WEST</b></em>' literal object.
@@ -107,7 +107,7 @@ public enum Directions implements Enumerator
    * @generated
    * @ordered
    */
-  SOUTH_WEST(8, "SOUTH_WEST", "south_west");
+  SOUTH_WEST(8, "SOUTH_WEST", "SOUTH_WEST");
 
   /**
    * The '<em><b>CENTER</b></em>' literal value.
@@ -118,26 +118,26 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #CENTER
-   * @model literal="center"
+   * @model
    * @generated
    * @ordered
    */
   public static final int CENTER_VALUE = 0;
 
   /**
-   * The '<em><b>NORHT</b></em>' literal value.
+   * The '<em><b>NORTH</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>NORHT</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>NORTH</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NORHT
-   * @model literal="north"
+   * @see #NORTH
+   * @model
    * @generated
    * @ordered
    */
-  public static final int NORHT_VALUE = 1;
+  public static final int NORTH_VALUE = 1;
 
   /**
    * The '<em><b>SOUTH</b></em>' literal value.
@@ -148,7 +148,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #SOUTH
-   * @model literal="south"
+   * @model
    * @generated
    * @ordered
    */
@@ -163,7 +163,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #WEST
-   * @model literal="west"
+   * @model
    * @generated
    * @ordered
    */
@@ -178,7 +178,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #EAST
-   * @model literal="east"
+   * @model
    * @generated
    * @ordered
    */
@@ -193,7 +193,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #NORTH_EAST
-   * @model literal="north_east"
+   * @model
    * @generated
    * @ordered
    */
@@ -208,7 +208,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #NORTH_WEST
-   * @model literal="north_west"
+   * @model
    * @generated
    * @ordered
    */
@@ -223,7 +223,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #SOUTH_EAST
-   * @model literal="south_east"
+   * @model
    * @generated
    * @ordered
    */
@@ -238,7 +238,7 @@ public enum Directions implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #SOUTH_WEST
-   * @model literal="south_west"
+   * @model
    * @generated
    * @ordered
    */
@@ -254,7 +254,7 @@ public enum Directions implements Enumerator
     new Directions[]
     {
       CENTER,
-      NORHT,
+      NORTH,
       SOUTH,
       WEST,
       EAST,
@@ -321,7 +321,7 @@ public enum Directions implements Enumerator
     switch (value)
     {
       case CENTER_VALUE: return CENTER;
-      case NORHT_VALUE: return NORHT;
+      case NORTH_VALUE: return NORTH;
       case SOUTH_VALUE: return SOUTH;
       case WEST_VALUE: return WEST;
       case EAST_VALUE: return EAST;

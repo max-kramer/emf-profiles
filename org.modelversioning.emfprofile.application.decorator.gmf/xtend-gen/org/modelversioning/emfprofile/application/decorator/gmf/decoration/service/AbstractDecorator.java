@@ -455,7 +455,7 @@ public abstract class AbstractDecorator implements IDecorator {
       }
     }
     if (!_matched) {
-      boolean _equals_3 = Objects.equal(concreteDirectionValue, Directions.NORHT);
+      boolean _equals_3 = Objects.equal(concreteDirectionValue, Directions.NORTH);
       if (_equals_3) {
         _matched=true;
         return Direction.NORTH;

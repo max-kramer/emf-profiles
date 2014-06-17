@@ -7,13 +7,20 @@
  */
 package org.modelversioning.emfprofile.application.registry.decoration
 
+import org.eclipse.emf.ecore.EClassifier
+import org.eclipse.emf.ecore.EEnumLiteral
+import org.eclipse.ocl.ParserException
+import org.eclipse.ocl.ecore.Constraint
+import org.eclipse.ocl.ecore.EcoreEnvironmentFactory
+import org.eclipse.ocl.ecore.OCL
+import org.eclipse.ocl.helper.OCLHelper
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator
+import org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression
 import org.modelversioning.emfprofileapplication.StereotypeApplication
-import org.eclipse.emf.ecore.EEnumLiteral
 
 /**
  * It is an utility class to evaluate if a specific decoration should be active or 
@@ -22,39 +29,57 @@ import org.eclipse.emf.ecore.EEnumLiteral
  * @author <a href="mailto:becirb@gmail.com">Becir Basic</a>
  */
 class ConditionEvaluator {
-	
-	private new() {}
-	
+
+	//	private IOCLFactory<Object> oclFactory = new EcoreOCLFactory();
+	private new() {
+	}
+
 	def static DecorationStatus execute(AbstractCondition condition, StereotypeApplication stereotypeApplication) {
 		val evaluation = evaluate(condition, stereotypeApplication)
 		switch evaluation {
-			case evaluation == Boolean.TRUE : {
+			case evaluation == Boolean.TRUE: {
 				DecorationStatus::ACTIVE
 			}
-			case evaluation == Boolean.FALSE : {
+			case evaluation == Boolean.FALSE: {
 				DecorationStatus::INANCTIVE
 			}
 			default:
 				DecorationStatus::UNKNOWN
 		}
 	}
-	
+
 	def private static Boolean evaluate(AbstractCondition condition, StereotypeApplication application) {
-		
+
 		switch condition {
-			Condition : {
+			Condition: {
 				val attribute = application.eClass.EAllAttributes.findFirst[name == condition.attribute.name];
 				compare(application.eGet(attribute), condition.operator, condition.value)
 			}
-			
-			CompositeCondition : {
+			OclExpression: {
+				try{
+					val OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+					val OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
+	
+					helper.setContext(application.eClass);
+	//				helper.setContext(EXTLibraryPackage.Literals.LIBRARY);
+	//				val Constraint invariant = helper.createInvariant("books->forAll(b1, b2 | b1 <> b2 implies b1.title <> b2.title)");
+					val Constraint invariant = helper.createInvariant(condition.expression);
+					val conditionEval = ocl.createQuery(invariant)
+					val result = conditionEval.check(application)
+					return result
+				} catch (ParserException pe) {
+					pe.printStackTrace
+					return false;
+				}
+			}
+			CompositeCondition: {
 				val operator = condition.operator
 				switch operator {
-					case operator == LogicalOperator::ALL : {
-						condition.conditions.forall[c | evaluate(c, application) == true]
+					case operator == LogicalOperator::ALL: {
+						condition.conditions.forall[c|evaluate(c, application) == true]
 					}
-					case operator == LogicalOperator::ANY : {
-						condition.conditions.exists[c | evaluate(c, application) == true]
+					case operator == LogicalOperator::ANY: {
+						condition.conditions.exists[c|evaluate(c, application) == true]
 					}
 				}
 			}
@@ -62,125 +87,128 @@ class ConditionEvaluator {
 				null as Boolean
 		}
 	}
-	
+
 	def private static dispatch Boolean compare(Object data, ComparisonOperator operator, String value) {
-		println('''COMPARING data: «data.toString», data class: «data.class.name», operator: «operator», value: «value»''')
+		println(
+			'''COMPARING data: «data.toString», data class: «data.class.name», operator: «operator», value: «value»''')
 		switch data {
-			String : {
+			String: {
 				compare(data, operator, value)
 			}
-			Boolean : {
+			Boolean: {
 				compare(data, operator, Boolean.valueOf(value))
 			}
-			Integer : {
+			Integer: {
 				compare(data, operator, Integer.valueOf(value))
 			}
-			Float : {
+			Float: {
 				compare(data, operator, Float.valueOf(value))
 			}
-			Double : {
+			Double: {
 				compare(data, operator, Double.valueOf(value))
 			}
-			EEnumLiteral : {
+			EEnumLiteral: {
 				compare(data, operator, value)
 			}
 			default:
 				throw new IllegalArgumentException('''Comparing data type that is not supported: «data.class.name»''')
 		}
 	}
-	
-	def private static dispatch Boolean compare(String data, ComparisonOperator operator, String value){
+
+	def private static dispatch Boolean compare(String data, ComparisonOperator operator, String value) {
 		switch operator {
-			case operator == ComparisonOperator::EQUAL : {
-				data.equals(value.substring(1,value.length-1))
+			case operator == ComparisonOperator::EQUAL: {
+				data.equals(value.substring(1, value.length - 1))
 			}
-			case operator == ComparisonOperator::UNEQUAL : {
-				! data.equals(value.substring(1,value.length-1))
+			case operator == ComparisonOperator::UNEQUAL: {
+				! data.equals(value.substring(1, value.length - 1))
 			}
-			default :
+			default:
 				throw new IllegalArgumentException('''Wrong comparison operator with String type: «operator»''')
 		}
 	}
 
-	def private static dispatch Boolean compare(EEnumLiteral data, ComparisonOperator operator, String value){
+	def private static dispatch Boolean compare(EEnumLiteral data, ComparisonOperator operator, String value) {
 		switch operator {
-			case operator == ComparisonOperator::EQUAL : {
+			case operator == ComparisonOperator::EQUAL: {
 				data.toString.equals(value)
 			}
-			case operator == ComparisonOperator::UNEQUAL : {
+			case operator == ComparisonOperator::UNEQUAL: {
 				! data.toString.equals(value)
 			}
-			default :
-				throw new IllegalArgumentException('''Wrong comparison operator with Enumeration Literal type: «operator»''')
+			default:
+				throw new IllegalArgumentException(
+					'''Wrong comparison operator with Enumeration Literal type: «operator»''')
 		}
 	}
 
-	def private static dispatch Boolean compare(Boolean data, ComparisonOperator operator, Boolean value){
+	def private static dispatch Boolean compare(Boolean data, ComparisonOperator operator, Boolean value) {
 		switch operator {
-			case operator == ComparisonOperator::EQUAL : {
+			case operator == ComparisonOperator::EQUAL: {
 				data.equals(value)
 			}
-			case operator == ComparisonOperator::UNEQUAL : {
+			case operator == ComparisonOperator::UNEQUAL: {
 				! data.equals(value)
 			}
-			default :
+			default:
 				throw new IllegalArgumentException('''Wrong comparison operator with Boolean type: «operator»''')
 		}
 	}
 
-	def private static dispatch Boolean compare(Integer data, ComparisonOperator operator, Integer value){
+	def private static dispatch Boolean compare(Integer data, ComparisonOperator operator, Integer value) {
 		numberCompare(data, operator, value)
 	}
 
-	def private static dispatch Boolean compare(Float data, ComparisonOperator operator, Float value){
+	def private static dispatch Boolean compare(Float data, ComparisonOperator operator, Float value) {
 		numberCompare(data, operator, value)
 	}
 
-	def private static dispatch Boolean compare(Double data, ComparisonOperator operator, Double value){
+	def private static dispatch Boolean compare(Double data, ComparisonOperator operator, Double value) {
 		numberCompare(data, operator, value)
 	}
-	
-	def private static <T extends Number & Comparable<T>> Boolean numberCompare(T data, ComparisonOperator operator, T value){
+
+	def private static <T extends Number & Comparable<T>> Boolean numberCompare(T data, ComparisonOperator operator,
+		T value) {
 		switch operator {
-			case operator == ComparisonOperator::EQUAL : {
+			case operator == ComparisonOperator::EQUAL: {
 				data.equals(value)
 			}
-			case operator == ComparisonOperator::UNEQUAL : {
+			case operator == ComparisonOperator::UNEQUAL: {
 				! data.equals(value)
 			}
-			case operator == ComparisonOperator::GREATER : {
+			case operator == ComparisonOperator::GREATER: {
 				switch data {
-					case data > value : {
+					case data > value: {
 						Boolean.TRUE
 					}
-					default: 
+					default:
 						Boolean.FALSE
 				}
 			}
-			case operator == ComparisonOperator::GREATEROREQUAL : {
+			case operator == ComparisonOperator::GREATEROREQUAL: {
 				switch data {
-					case data >= value : {
+					case data >= value: {
 						Boolean.TRUE
 					}
-					default: 
+					default:
 						Boolean.FALSE
 				}
 			}
-			case operator == ComparisonOperator::LOWER : {
+			case operator == ComparisonOperator::LOWER: {
 				switch data {
-					case data < value : {
+					case data < value: {
 						Boolean.TRUE
 					}
-					default: 
+					default:
 						Boolean.FALSE
 				}
 			}
-			case operator == ComparisonOperator::LOWEROREQUAL : {
+			case operator == ComparisonOperator::LOWEROREQUAL: {
 				switch data {
-					case data <= value : {
+					case data <= value: {
 						Boolean.TRUE
 					}
-					default: 
+					default:
 						Boolean.FALSE
 				}
 			}

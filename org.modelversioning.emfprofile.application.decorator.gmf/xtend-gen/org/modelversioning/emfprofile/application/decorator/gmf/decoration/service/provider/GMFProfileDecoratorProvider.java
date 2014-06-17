@@ -19,10 +19,10 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator;
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BoxDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ColorDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ConnectionDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators;
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.HighlightingDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ImageDecorator;
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.provider.EObjectToDecoratorsMapper;
 import org.modelversioning.emfprofile.diagram.edit.parts.EAttributeEditPart;
@@ -100,11 +100,11 @@ public class GMFProfileDecoratorProvider extends AbstractProvider implements IDe
       final ColorDecorator colorDecorator = _colorDecorator;
       ConnectionDecorator _connectionDecorator = new ConnectionDecorator(decoratorTarget);
       final ConnectionDecorator connectionDecorator = _connectionDecorator;
-      HighlightingDecorator _highlightingDecorator = new HighlightingDecorator(decoratorTarget);
-      final HighlightingDecorator highlightingDecorator = _highlightingDecorator;
+      BoxDecorator _boxDecorator = new BoxDecorator(decoratorTarget);
+      final BoxDecorator boxDecorator = _boxDecorator;
       decoratorTarget.installDecorator(ImageDecorator.KEY, imageDecorator);
       decoratorTarget.installDecorator(BorderDecorator.KEY, borderDecorator);
-      decoratorTarget.installDecorator(HighlightingDecorator.KEY, highlightingDecorator);
+      decoratorTarget.installDecorator(BoxDecorator.KEY, boxDecorator);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Creating decorators for: ");
       _builder.append(eObject, "");
@@ -112,7 +112,7 @@ public class GMFProfileDecoratorProvider extends AbstractProvider implements IDe
       Node _decoratorTargetNode = GMFProfileDecoratorProvider.getDecoratorTargetNode(decoratorTarget);
       _builder.append(_decoratorTargetNode, "");
       InputOutput.<String>println(_builder.toString());
-      EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, imageDecorator, borderDecorator, colorDecorator, connectionDecorator, highlightingDecorator);
+      EObjectDecorators _eObjectDecorators = new EObjectDecorators(decoratorTarget, imageDecorator, borderDecorator, colorDecorator, connectionDecorator, boxDecorator);
       this.mapper.put(eObject, _eObjectDecorators);
     }
   }

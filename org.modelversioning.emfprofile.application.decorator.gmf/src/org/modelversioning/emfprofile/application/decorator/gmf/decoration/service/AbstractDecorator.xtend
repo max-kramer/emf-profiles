@@ -242,7 +242,7 @@ abstract class AbstractDecorator implements IDecorator {
 		switch concreteDirectionValue {
 			case concreteDirectionValue == Directions::CENTER : return Direction.CENTER
 			case concreteDirectionValue == Directions::EAST : return Direction.EAST
-			case concreteDirectionValue == Directions::NORHT : return Direction.NORTH
+			case concreteDirectionValue == Directions::NORTH : return Direction.NORTH
 			case concreteDirectionValue == Directions::NORTH_EAST : return Direction.NORTH_EAST
 			case concreteDirectionValue == Directions::NORTH_WEST : return Direction.NORTH_WEST
 			case concreteDirectionValue == Directions::SOUTH : return Direction.SOUTH

@@ -52,8 +52,8 @@ class EMFProfileDecorationLanguageLabelProvider extends DefaultEObjectLabelProvi
 		return '''Imported Resource - "«model.importURI»"'''
 	}
 
-	def text(BorderDecoration border){
-		return '''Border Decoration - size : «border.size»'''
+	def text(BorderDecoration borderDecoration){
+		return '''Border Decoration - size : «borderDecoration.border.size»'''
 	}
 	
 	def text(ImageDecoration image){

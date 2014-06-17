@@ -21,6 +21,7 @@ import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.modelversioning.emfprofile.Stereotype;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription;
@@ -78,7 +79,37 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
   public void checkImageDecorationLocationURI(final ImageDecoration imageDecoration) {
     try {
       String _location_uri = imageDecoration.getLocation_uri();
-      URI iconURI = URI.createURI(_location_uri);
+      this.checkLocationURI(_location_uri);
+    } catch (final Throwable _t) {
+      if (_t instanceof IllegalArgumentException) {
+        final IllegalArgumentException iae = (IllegalArgumentException)_t;
+        String _message = iae.getMessage();
+        this.error(_message, imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+  }
+  
+  @Check
+  public void checkBoxImageLocationURI(final BoxImage imageDecoration) {
+    try {
+      String _location_uri = imageDecoration.getLocation_uri();
+      this.checkLocationURI(_location_uri);
+    } catch (final Throwable _t) {
+      if (_t instanceof IllegalArgumentException) {
+        final IllegalArgumentException iae = (IllegalArgumentException)_t;
+        String _message = iae.getMessage();
+        this.error(_message, imageDecoration, Literals.BOX_IMAGE__LOCATION_URI);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+  }
+  
+  public void checkLocationURI(final String uri) {
+    try {
+      URI iconURI = URI.createURI(uri);
       boolean _isRelative = iconURI.isRelative();
       if (_isRelative) {
         StringConcatenation _builder = new StringConcatenation();
@@ -91,8 +122,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\"platform:/plugin/Plugin_ID/path_to_image_file\"");
-        this.error(_builder.toString(), imageDecoration, 
-          Literals.IMAGE_DECORATION__LOCATION_URI);
+        IllegalArgumentException _illegalArgumentException = new IllegalArgumentException(_builder.toString());
+        throw _illegalArgumentException;
       }
       boolean _exists = EMFProfileDecorationLanguageValidator.uriConverter.exists(iconURI, null);
       boolean _equals = (_exists == false);
@@ -107,8 +138,8 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         _builder_1.newLine();
         _builder_1.append("\t");
         _builder_1.append("\"platform:/plugin/Plugin_ID/path_to_icon_file\"");
-        this.error(_builder_1.toString(), imageDecoration, 
-          Literals.IMAGE_DECORATION__LOCATION_URI);
+        IllegalArgumentException _illegalArgumentException_1 = new IllegalArgumentException(_builder_1.toString());
+        throw _illegalArgumentException_1;
       }
     } catch (final Throwable _t) {
       if (_t instanceof IllegalArgumentException) {
@@ -116,8 +147,7 @@ public class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDec
         String _message = iae.getMessage();
         String _plus = ("\tCould not create URI, illegal argument exception is thrown: " + _message);
         InputOutput.<String>println(_plus);
-        String _message_1 = iae.getMessage();
-        this.error(_message_1, imageDecoration, Literals.IMAGE_DECORATION__LOCATION_URI);
+        throw iae;
       } else {
         throw Exceptions.sneakyThrow(_t);
       }

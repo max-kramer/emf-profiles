@@ -100,6 +100,11 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createImageDecorationAdapter();
       }
       @Override
+      public Adapter caseBoxDecoration(BoxDecoration object)
+      {
+        return createBoxDecorationAdapter();
+      }
+      @Override
       public Adapter caseBorderDecoration(BorderDecoration object)
       {
         return createBorderDecorationAdapter();
@@ -130,6 +135,16 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createComplexTextAdapter();
       }
       @Override
+      public Adapter caseBorder(Border object)
+      {
+        return createBorderAdapter();
+      }
+      @Override
+      public Adapter caseBoxImage(BoxImage object)
+      {
+        return createBoxImageAdapter();
+      }
+      @Override
       public Adapter caseStyle(Style object)
       {
         return createStyleAdapter();
@@ -148,6 +163,11 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMargin(Margin object)
       {
         return createMarginAdapter();
+      }
+      @Override
+      public Adapter caseRelativePosition(RelativePosition object)
+      {
+        return createRelativePositionAdapter();
       }
       @Override
       public Adapter caseColor(Color object)
@@ -183,6 +203,11 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAbstractCondition(AbstractCondition object)
       {
         return createAbstractConditionAdapter();
+      }
+      @Override
+      public Adapter caseOclExpression(OclExpression object)
+      {
+        return createOclExpressionAdapter();
       }
       @Override
       public Adapter caseCondition(Condition object)
@@ -292,6 +317,21 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration <em>Box Decoration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration
+   * @generated
+   */
+  public Adapter createBoxDecorationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration <em>Border Decoration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -382,6 +422,36 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Border <em>Border</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.Border
+   * @generated
+   */
+  public Adapter createBorderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImage <em>Box Image</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImage
+   * @generated
+   */
+  public Adapter createBoxImageAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Style <em>Style</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -437,6 +507,21 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMarginAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition <em>Relative Position</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition
+   * @generated
+   */
+  public Adapter createRelativePositionAdapter()
   {
     return null;
   }
@@ -542,6 +627,21 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAbstractConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression <em>Ocl Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression
+   * @generated
+   */
+  public Adapter createOclExpressionAdapter()
   {
     return null;
   }

@@ -32,11 +32,28 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="tooltip" eType="#//Text"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BorderDecoration" eSuperTypes="#//AbstractDecoration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Size" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+  <eClassifiers xsi:type="ecore:EClass" name="BoxDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//Text" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="widht" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//BoxImage"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="border" eType="#//Border"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="foregroundColor" eType="#//Color"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backgroundColor" eType="#//Color"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="direction" eType="#//Direction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="margin" eType="#//Margin"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contentDirection" eType="#//Directions"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tooltip" eType="#//Text"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BorderDecoration" eSuperTypes="#//AbstractDecoration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="border" eType="#//Border"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColorDecoration" eSuperTypes="#//AbstractDecoration">
@@ -65,6 +82,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Text"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Border">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="size" eType="#//Size" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="color" eType="#//Color"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="style" eType="#//Style"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BoxImage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location_uri" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="placement" eType="#//BoxImageOrientation"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Style">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//LineStyle"/>
   </eClassifiers>
@@ -76,6 +104,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Margin">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativePosition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Color">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ColorConstant"
@@ -100,6 +132,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OclExpression" eSuperTypes="#//AbstractCondition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//AbstractCondition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="ecore:EClass ../../../../../../org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//ComparisonOperator"/>
@@ -110,6 +145,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
         eType="#//AbstractCondition" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BoxImageOrientation">
+    <eLiterals name="WEST" literal="WEST"/>
+    <eLiterals name="NORTH" value="1" literal="NORTH"/>
+    <eLiterals name="EAST" value="2" literal="EAST"/>
+    <eLiterals name="SOUTH" value="3" literal="SOUTH"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ComparisonOperator">
     <eLiterals name="EQUAL" literal="=="/>
     <eLiterals name="UNEQUAL" value="1" literal="!="/>
@@ -119,42 +160,42 @@
     <eLiterals name="LOWEROREQUAL" value="5" literal="&lt;="/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LogicalOperator">
-    <eLiterals name="ALL" literal="all"/>
-    <eLiterals name="ANY" value="1" literal="any"/>
+    <eLiterals name="ALL" literal="ALL"/>
+    <eLiterals name="ANY" value="1" literal="ANY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LineStyle">
-    <eLiterals name="LINE_SOLID" literal="solid"/>
-    <eLiterals name="LINE_DOT" value="1" literal="dot"/>
-    <eLiterals name="LINE_DASH" value="2" literal="dash"/>
-    <eLiterals name="LINE_DASHDOT" value="3" literal="dash_dot"/>
-    <eLiterals name="LINE_DASHDOTDOT" value="4" literal="dash_dot_dot"/>
+    <eLiterals name="LINE_SOLID" literal="SOLID"/>
+    <eLiterals name="LINE_DOT" value="1" literal="DOTS"/>
+    <eLiterals name="LINE_DASH" value="2" literal="DASH"/>
+    <eLiterals name="LINE_DASHDOT" value="3" literal="DASHDOT"/>
+    <eLiterals name="LINE_DASHDOTDOT" value="4" literal="DASHDOTDOT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Colors">
-    <eLiterals name="RED" literal="red"/>
-    <eLiterals name="BLACK" value="1" literal="black"/>
-    <eLiterals name="WHITE" value="2" literal="white"/>
-    <eLiterals name="GREEN" value="3" literal="green"/>
-    <eLiterals name="GREEN_LIGHT" value="4" literal="green_light"/>
-    <eLiterals name="GREEN_DARK" value="5" literal="green_dark"/>
-    <eLiterals name="BLUE" value="6" literal="blue"/>
-    <eLiterals name="BLUE_LIGHT" value="7" literal="blue_light"/>
-    <eLiterals name="BLUE_DARK" value="8" literal="blue_dark"/>
-    <eLiterals name="GRAY" value="9" literal="gray"/>
-    <eLiterals name="GRAY_LIGHT" value="10" literal="gray_light"/>
-    <eLiterals name="GRAY_DARK" value="11" literal="gray_dark"/>
-    <eLiterals name="ORANGE" value="12" literal="orange"/>
-    <eLiterals name="YELLOW" value="13" literal="yellow"/>
-    <eLiterals name="CYAN" value="14" literal="cyan"/>
+    <eLiterals name="RED" literal="RED"/>
+    <eLiterals name="BLACK" value="1" literal="BLACK"/>
+    <eLiterals name="WHITE" value="2" literal="WHITE"/>
+    <eLiterals name="GREEN" value="3" literal="GREEN"/>
+    <eLiterals name="GREEN_LIGHT" value="4" literal="GREEN_LIGHT"/>
+    <eLiterals name="GREEN_DARK" value="5" literal="GREEN_DARK"/>
+    <eLiterals name="BLUE" value="6" literal="BLUE"/>
+    <eLiterals name="BLUE_LIGHT" value="7" literal="BLUE_LIGHT"/>
+    <eLiterals name="BLUE_DARK" value="8" literal="BLUE_DARK"/>
+    <eLiterals name="GRAY" value="9" literal="GRAY"/>
+    <eLiterals name="GRAY_LIGHT" value="10" literal="GRAY_LIGHT"/>
+    <eLiterals name="GRAY_DARK" value="11" literal="GRAY_DARK"/>
+    <eLiterals name="ORANGE" value="12" literal="ORANGE"/>
+    <eLiterals name="YELLOW" value="13" literal="YELLOW"/>
+    <eLiterals name="CYAN" value="14" literal="CYAN"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Directions">
-    <eLiterals name="CENTER" literal="center"/>
-    <eLiterals name="NORHT" value="1" literal="north"/>
-    <eLiterals name="SOUTH" value="2" literal="south"/>
-    <eLiterals name="WEST" value="3" literal="west"/>
-    <eLiterals name="EAST" value="4" literal="east"/>
-    <eLiterals name="NORTH_EAST" value="5" literal="north_east"/>
-    <eLiterals name="NORTH_WEST" value="6" literal="north_west"/>
-    <eLiterals name="SOUTH_EAST" value="7" literal="south_east"/>
-    <eLiterals name="SOUTH_WEST" value="8" literal="south_west"/>
+    <eLiterals name="CENTER" literal="CENTER"/>
+    <eLiterals name="NORTH" value="1" literal="NORTH"/>
+    <eLiterals name="SOUTH" value="2" literal="SOUTH"/>
+    <eLiterals name="WEST" value="3" literal="WEST"/>
+    <eLiterals name="EAST" value="4" literal="EAST"/>
+    <eLiterals name="NORTH_EAST" value="5" literal="NORTH_EAST"/>
+    <eLiterals name="NORTH_WEST" value="6" literal="NORTH_WEST"/>
+    <eLiterals name="SOUTH_EAST" value="7" literal="SOUTH_EAST"/>
+    <eLiterals name="SOUTH_WEST" value="8" literal="SOUTH_WEST"/>
   </eClassifiers>
 </ecore:EPackage>

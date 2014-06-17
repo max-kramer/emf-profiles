@@ -108,6 +108,14 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DecorationLanguagePackage.BOX_DECORATION:
+      {
+        BoxDecoration boxDecoration = (BoxDecoration)theEObject;
+        T result = caseBoxDecoration(boxDecoration);
+        if (result == null) result = caseAbstractDecoration(boxDecoration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DecorationLanguagePackage.BORDER_DECORATION:
       {
         BorderDecoration borderDecoration = (BorderDecoration)theEObject;
@@ -155,6 +163,20 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case DecorationLanguagePackage.BORDER:
+      {
+        Border border = (Border)theEObject;
+        T result = caseBorder(border);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.BOX_IMAGE:
+      {
+        BoxImage boxImage = (BoxImage)theEObject;
+        T result = caseBoxImage(boxImage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case DecorationLanguagePackage.STYLE:
       {
         Style style = (Style)theEObject;
@@ -180,6 +202,13 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
       {
         Margin margin = (Margin)theEObject;
         T result = caseMargin(margin);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.RELATIVE_POSITION:
+      {
+        RelativePosition relativePosition = (RelativePosition)theEObject;
+        T result = caseRelativePosition(relativePosition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -231,6 +260,14 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
       {
         AbstractCondition abstractCondition = (AbstractCondition)theEObject;
         T result = caseAbstractCondition(abstractCondition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case DecorationLanguagePackage.OCL_EXPRESSION:
+      {
+        OclExpression oclExpression = (OclExpression)theEObject;
+        T result = caseOclExpression(oclExpression);
+        if (result == null) result = caseAbstractCondition(oclExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -335,6 +372,22 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Box Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Box Decoration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoxDecoration(BoxDecoration object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Border Decoration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -431,6 +484,38 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Border</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Border</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBorder(Border object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Box Image</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Box Image</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBoxImage(BoxImage object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Style</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -490,6 +575,22 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMargin(Margin object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relative Position</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relative Position</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelativePosition(RelativePosition object)
   {
     return null;
   }
@@ -602,6 +703,22 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAbstractCondition(AbstractCondition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Ocl Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Ocl Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOclExpression(OclExpression object)
   {
     return null;
   }

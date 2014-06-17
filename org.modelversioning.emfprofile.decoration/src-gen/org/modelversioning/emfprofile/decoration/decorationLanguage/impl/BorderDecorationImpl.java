@@ -10,11 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Border;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,9 +21,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl#getSize <em>Size</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl#getColor <em>Color</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl#getStyle <em>Style</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl#getBorder <em>Border</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,34 +30,14 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
 public class BorderDecorationImpl extends AbstractDecorationImpl implements BorderDecoration
 {
   /**
-   * The cached value of the '{@link #getSize() <em>Size</em>}' containment reference.
+   * The cached value of the '{@link #getBorder() <em>Border</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSize()
+   * @see #getBorder()
    * @generated
    * @ordered
    */
-  protected Size size;
-
-  /**
-   * The cached value of the '{@link #getColor() <em>Color</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getColor()
-   * @generated
-   * @ordered
-   */
-  protected Color color;
-
-  /**
-   * The cached value of the '{@link #getStyle() <em>Style</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStyle()
-   * @generated
-   * @ordered
-   */
-  protected Style style;
+  protected Border border;
 
   /**
    * <!-- begin-user-doc -->
@@ -89,9 +65,9 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
    * <!-- end-user-doc -->
    * @generated
    */
-  public Size getSize()
+  public Border getBorder()
   {
-    return size;
+    return border;
   }
 
   /**
@@ -99,13 +75,13 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSize(Size newSize, NotificationChain msgs)
+  public NotificationChain basicSetBorder(Border newBorder, NotificationChain msgs)
   {
-    Size oldSize = size;
-    size = newSize;
+    Border oldBorder = border;
+    border = newBorder;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__SIZE, oldSize, newSize);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__BORDER, oldBorder, newBorder);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -116,116 +92,20 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSize(Size newSize)
+  public void setBorder(Border newBorder)
   {
-    if (newSize != size)
+    if (newBorder != border)
     {
       NotificationChain msgs = null;
-      if (size != null)
-        msgs = ((InternalEObject)size).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__SIZE, null, msgs);
-      if (newSize != null)
-        msgs = ((InternalEObject)newSize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__SIZE, null, msgs);
-      msgs = basicSetSize(newSize, msgs);
+      if (border != null)
+        msgs = ((InternalEObject)border).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__BORDER, null, msgs);
+      if (newBorder != null)
+        msgs = ((InternalEObject)newBorder).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__BORDER, null, msgs);
+      msgs = basicSetBorder(newBorder, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__SIZE, newSize, newSize));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Color getColor()
-  {
-    return color;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetColor(Color newColor, NotificationChain msgs)
-  {
-    Color oldColor = color;
-    color = newColor;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__COLOR, oldColor, newColor);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setColor(Color newColor)
-  {
-    if (newColor != color)
-    {
-      NotificationChain msgs = null;
-      if (color != null)
-        msgs = ((InternalEObject)color).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__COLOR, null, msgs);
-      if (newColor != null)
-        msgs = ((InternalEObject)newColor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__COLOR, null, msgs);
-      msgs = basicSetColor(newColor, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__COLOR, newColor, newColor));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Style getStyle()
-  {
-    return style;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStyle(Style newStyle, NotificationChain msgs)
-  {
-    Style oldStyle = style;
-    style = newStyle;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__STYLE, oldStyle, newStyle);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setStyle(Style newStyle)
-  {
-    if (newStyle != style)
-    {
-      NotificationChain msgs = null;
-      if (style != null)
-        msgs = ((InternalEObject)style).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__STYLE, null, msgs);
-      if (newStyle != null)
-        msgs = ((InternalEObject)newStyle).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DecorationLanguagePackage.BORDER_DECORATION__STYLE, null, msgs);
-      msgs = basicSetStyle(newStyle, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__STYLE, newStyle, newStyle));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BORDER_DECORATION__BORDER, newBorder, newBorder));
   }
 
   /**
@@ -238,12 +118,8 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.BORDER_DECORATION__SIZE:
-        return basicSetSize(null, msgs);
-      case DecorationLanguagePackage.BORDER_DECORATION__COLOR:
-        return basicSetColor(null, msgs);
-      case DecorationLanguagePackage.BORDER_DECORATION__STYLE:
-        return basicSetStyle(null, msgs);
+      case DecorationLanguagePackage.BORDER_DECORATION__BORDER:
+        return basicSetBorder(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -258,12 +134,8 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.BORDER_DECORATION__SIZE:
-        return getSize();
-      case DecorationLanguagePackage.BORDER_DECORATION__COLOR:
-        return getColor();
-      case DecorationLanguagePackage.BORDER_DECORATION__STYLE:
-        return getStyle();
+      case DecorationLanguagePackage.BORDER_DECORATION__BORDER:
+        return getBorder();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -278,14 +150,8 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.BORDER_DECORATION__SIZE:
-        setSize((Size)newValue);
-        return;
-      case DecorationLanguagePackage.BORDER_DECORATION__COLOR:
-        setColor((Color)newValue);
-        return;
-      case DecorationLanguagePackage.BORDER_DECORATION__STYLE:
-        setStyle((Style)newValue);
+      case DecorationLanguagePackage.BORDER_DECORATION__BORDER:
+        setBorder((Border)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -301,14 +167,8 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.BORDER_DECORATION__SIZE:
-        setSize((Size)null);
-        return;
-      case DecorationLanguagePackage.BORDER_DECORATION__COLOR:
-        setColor((Color)null);
-        return;
-      case DecorationLanguagePackage.BORDER_DECORATION__STYLE:
-        setStyle((Style)null);
+      case DecorationLanguagePackage.BORDER_DECORATION__BORDER:
+        setBorder((Border)null);
         return;
     }
     super.eUnset(featureID);
@@ -324,12 +184,8 @@ public class BorderDecorationImpl extends AbstractDecorationImpl implements Bord
   {
     switch (featureID)
     {
-      case DecorationLanguagePackage.BORDER_DECORATION__SIZE:
-        return size != null;
-      case DecorationLanguagePackage.BORDER_DECORATION__COLOR:
-        return color != null;
-      case DecorationLanguagePackage.BORDER_DECORATION__STYLE:
-        return style != null;
+      case DecorationLanguagePackage.BORDER_DECORATION__BORDER:
+        return border != null;
     }
     return super.eIsSet(featureID);
   }

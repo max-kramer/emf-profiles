@@ -7,51 +7,77 @@ import "http://www.modelversioning.org/emfprofile/1.1" as profile
 DecorationModel:
 	"import resource" importURI = STRING  // makes sense only for ImportURIScopingFragment and SimpleNameProvider
 	(namespace=Namespace)?
-	decorationDescriptions+=DecorationDescription*;
+	decorationDescriptions+=DecorationDescription*
+;
 
 Namespace:
 //	'profile' importedNamespace=QualifiedNameWithWildcard;
-	'profile' profile=[profile::Profile|QualifiedName];
+	'profile' profile=[profile::Profile|QualifiedName]
+;
 
 DecorationDescription:
 	'decoration' stereotype=[profile::Stereotype|QualifiedName] '{' 
-		(decorations+=(AbstractDecoration)+
-		& (activation=Activation)?) 
+		(
+			decorations+=(AbstractDecoration)+
+			& (activation=Activation)?
+		) 
 	'}'
 ;
 
 // For all decorations, if they have optional values then some default value will be used. See comments below.
 AbstractDecoration:
-	ImageDecoration // has an effect on both nodes and edges
+	ImageDecoration | BoxDecoration // has an effect on both: nodes and edges
 	| BorderDecoration | ColorDecoration // has an effect only on nodes
-	| ConnectionDecoration; // has an effect only on edges
+	| ConnectionDecoration // has an effect only on edges
+;
 
 
 ImageDecoration:
 	{ImageDecoration}
 	'image' '{' 
 		(
-			('location-uri' '=' location_uri=STRING) 
-			& (direction=Direction)? // default value will be: for node = north_west; for edge = center
-			& (margin=Margin)? // default value will be: -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+			('uri' '=' location_uri=STRING) 
+			& (direction=Direction)? // default value for node = NORTH_WEST; for edge = CENTER
+			& (margin=Margin)? // default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
 			& ('tooltip' '=' tooltip=Text)?
 			& (activation=Activation)? 
 		)
 	'}'
 ;
 
+BoxDecoration :
+	{BoxDecoration}
+	'box' '{'
+		(	
+			// mandatory
+			('text' '=' text=Text)
+			& ('width' '=' widht=INT)
+			& ('height' '=' height=INT)
+			
+			// optional
+			& (image=BoxImage)?
+			& ('border' '{' border=Border '}')?
+			& ('foreground-color' '=' foregroundColor=Color)?
+			& ('background-color' '=' backgroundColor=Color)?
+			& (direction=Direction)? // default value for node = NORTH_WEST; for edge = CENTER
+			& (margin=Margin)? // default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
+			& ('content-direction' '=' contentDirection=Directions)? // default is CENTER
+			& ('tooltip' '=' tooltip=Text)?
+			& (activation=Activation)?
+		)
+	'}'
+;
 
 BorderDecoration:
 	{BorderDecoration}
 	'border' '{' 
 		(
-			(size=Size)? // default value will be: 1
-			& ('color' '=' color=Color)? // default value will be: black
-			& (style=Style)?// default value will be: solid
+			(border=Border)
 			& (activation=Activation)?
 		)
 	'}'
 ;
+
 
 ColorDecoration:
 	{ColorDecoration}
@@ -63,7 +89,6 @@ ColorDecoration:
 		)	
 	'}'
 ;
-
 
 ConnectionDecoration:
 	{ConnectionDecoration}
@@ -80,7 +105,7 @@ ConnectionDecoration:
 
 /**
  * The text which we can include in the visualization, e.g., hover text over image decoration.
- * Can be build out of Strings and attribute values of the applied stereotype.
+ * Can be build out of Strings and tagging values of the applied stereotype.
  */
 Text:
 	SimpleText | ComplexText
@@ -91,6 +116,24 @@ SimpleText:
 ;
 ComplexText:
 	left=SimpleText '+' right=Text
+;
+
+Border:
+	{Border}
+	(	(size=Size)? // default value 1
+		& ('color' '=' color=Color)? // default value BLACK
+		& (style=Style)?// default value SOLID
+	)	
+;
+
+BoxImage : 
+	{BoxImage}
+	'image' '{' 
+		(
+			('uri' '=' location_uri=STRING)
+			& ('placement' '=' placement = BoxImageOrientation)? // default is WEST
+		) 
+	'}'
 ;
 
 Style:
@@ -107,6 +150,10 @@ Direction:
 
 Margin:
 	'margin' '=' value=SignedInteger
+;
+
+RelativePosition:
+	'(' x=SignedInteger ',' y=SignedInteger ')'
 ;
 
 Color:
@@ -135,7 +182,11 @@ Activation:
 ;
 
 AbstractCondition:
-	Condition | CompositeCondition
+	Condition | CompositeCondition | OclExpression
+;
+
+OclExpression:
+	'ocl' '(' expression = STRING ')'
 ;
 
 Condition:
@@ -162,8 +213,8 @@ QualifiedNameWithWildcard:
 	QualifiedName '.*'?;
 
 QualifiedName returns ecore::EString:
-	ID ('.' ID)*;
-
+	ID ('.' ID)*
+;
 
 terminal BOOLEAN returns ecore::EBoolean:
 	'true' | 'false'
@@ -173,6 +224,13 @@ terminal HEX_COLOR:
   '#' 
   (('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9'))?
   ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9') ('a'..'f'|'A'..'F'|'0'..'9')
+;
+
+enum BoxImageOrientation:
+	WEST |
+	NORTH | 
+	EAST |
+	SOUTH
 ;
 
 enum ComparisonOperator:
@@ -185,46 +243,46 @@ enum ComparisonOperator:
 ;
 
 enum LogicalOperator:
-	ALL='all' |
-	ANY='any' 
+	ALL |
+	ANY 
 ;
 
 enum LineStyle:
-	LINE_SOLID = 'solid' |
-	LINE_DOT = 'dot' |
-	LINE_DASH = 'dash' |
-	LINE_DASHDOT = 'dash_dot' |
-	LINE_DASHDOTDOT = 'dash_dot_dot'
+	LINE_SOLID = 'SOLID' |
+	LINE_DOT = 'DOTS' |
+	LINE_DASH = 'DASH' |
+	LINE_DASHDOT = 'DASHDOT' |
+	LINE_DASHDOTDOT = 'DASHDOTDOT'
 ;
 
 enum Colors:
-	RED = 'red' |
-	BLACK = 'black' |
-	WHITE = 'white' |
-	GREEN = 'green' |
-	GREEN_LIGHT = 'green_light' |
-	GREEN_DARK = 'green_dark' |
-	BLUE = 'blue' |
-	BLUE_LIGHT = 'blue_light' |
-	BLUE_DARK = 'blue_dark' |
-	GRAY = 'gray' |
-	GRAY_LIGHT = 'gray_light' |
-	GRAY_DARK = 'gray_dark' |
-	ORANGE = 'orange' |
-	YELLOW = 'yellow' |
-	CYAN = 'cyan'
-	;
+	RED |
+	BLACK |
+	WHITE |
+	GREEN |
+	GREEN_LIGHT |
+	GREEN_DARK |
+	BLUE |
+	BLUE_LIGHT |
+	BLUE_DARK |
+	GRAY |
+	GRAY_LIGHT |
+	GRAY_DARK |
+	ORANGE |
+	YELLOW |
+	CYAN
+;
 
 enum Directions:
-	CENTER = 'center' |
-	NORHT = 'north' |
-	SOUTH = 'south' |
-	WEST = 'west' |
-	EAST = 'east' |
-	NORTH_EAST = 'north_east' |
-	NORTH_WEST = 'north_west' |
-	SOUTH_EAST = 'south_east' |
-	SOUTH_WEST = 'south_west'
+	CENTER |
+	NORTH |
+	SOUTH |
+	WEST |
+	EAST |
+	NORTH_EAST |
+	NORTH_WEST |
+	SOUTH_EAST |
+	SOUTH_WEST
 ;
 
 

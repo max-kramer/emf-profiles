@@ -89,7 +89,6 @@ public abstract class AbstractOnlyOneDecorationDecorator extends AbstractDecorat
    */
   protected IFigure getFigureForColoring(final IGraphicalEditPart editPart) {
     IFigure figure = editPart.getFigure();
-    this.printChildrenOfFigure(figure, 0);
     if ((figure instanceof BorderedNodeFigure)) {
       List _children = figure.getChildren();
       Object _get = _children.get(0);

@@ -45,4 +45,9 @@ public class EMFProfileApplicationGMFDecoratorPlugin implements BundleActivator 
 		}
 	}
 
+	
+	// utility method to binary OR integers
+	public static final int integerBinaryOr(int first, int second) {
+		return first | second;
+	}
 }

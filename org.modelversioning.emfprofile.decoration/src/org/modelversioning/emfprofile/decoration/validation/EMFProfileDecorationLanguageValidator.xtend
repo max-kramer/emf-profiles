@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EAttribute
 import org.eclipse.emf.ecore.EcorePackage.Literals
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl
 import org.eclipse.xtext.validation.Check
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImage
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition
 import org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationDescription
@@ -37,28 +38,43 @@ class EMFProfileDecorationLanguageValidator extends AbstractEMFProfileDecoration
 	@Check
 	def checkImageDecorationLocationURI(ImageDecoration imageDecoration) {
 		try {
+			checkLocationURI(imageDecoration.location_uri)
+		} catch (IllegalArgumentException iae) {
+			error(iae.message, imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
+		}
+	}
+	
+	@Check
+	def checkBoxImageLocationURI(BoxImage imageDecoration) {
+		try {
+			checkLocationURI(imageDecoration.location_uri)
+		} catch (IllegalArgumentException iae) {
+			error(iae.message, imageDecoration, DecorationLanguagePackage.Literals.BOX_IMAGE__LOCATION_URI)
+		}
+	}
+	
+	def checkLocationURI(String uri){
+		try {
 
-			var URI iconURI = URI.createURI(imageDecoration.location_uri);
+			var URI iconURI = URI.createURI(uri);
 			if (iconURI.isRelative()) {
-				error(
+				throw new IllegalArgumentException(
 					'''The URI must be absolute. Please use the path schema like: 
 	"platform:/resource/Project_Name/path_to_image_file"
 or
-	"platform:/plugin/Plugin_ID/path_to_image_file"''', imageDecoration,
-					DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
+	"platform:/plugin/Plugin_ID/path_to_image_file"''')
 			}
 
 			if (uriConverter.exists(iconURI, null) == false) {
-				error(
+				throw new IllegalArgumentException(
 					'''The URI does not point to the icon location. Please use the path schema like: 
 	"platform:/resource/Project_Name/path_to_image_file"
 or
-	"platform:/plugin/Plugin_ID/path_to_icon_file"''', imageDecoration,
-					DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
+	"platform:/plugin/Plugin_ID/path_to_icon_file"''')
 			}
 		} catch (IllegalArgumentException iae) {
 			println("\tCould not create URI, illegal argument exception is thrown: " + iae.message)
-			error(iae.message, imageDecoration, DecorationLanguagePackage.Literals.IMAGE_DECORATION__LOCATION_URI)
+			throw iae
 		}
 	}
 

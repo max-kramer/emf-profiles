@@ -16,10 +16,10 @@ import org.eclipse.gmf.runtime.notation.Edge
 import org.eclipse.gmf.runtime.notation.Node
 import org.eclipse.gmf.runtime.notation.View
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BorderDecorator
+import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.BoxDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ColorDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ConnectionDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.EObjectDecorators
-import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.HighlightingDecorator
 import org.modelversioning.emfprofile.application.decorator.gmf.decoration.service.ImageDecorator
 import org.modelversioning.emfprofile.diagram.edit.parts.EAttributeEditPart
 import org.modelversioning.emfprofile.diagram.edit.parts.EClassAttributesEditPart
@@ -148,11 +148,11 @@ class GMFProfileDecoratorProvider extends AbstractProvider implements IDecorator
 			val borderDecorator = new BorderDecorator(decoratorTarget)
 			val colorDecorator = new ColorDecorator(decoratorTarget)
 			val connectionDecorator = new ConnectionDecorator(decoratorTarget)
-			val highlightingDecorator = new HighlightingDecorator(decoratorTarget)
+			val boxDecorator = new BoxDecorator(decoratorTarget)
 
 			decoratorTarget.installDecorator(ImageDecorator::KEY, imageDecorator)
 			decoratorTarget.installDecorator(BorderDecorator::KEY, borderDecorator)
-			decoratorTarget.installDecorator(HighlightingDecorator::KEY, highlightingDecorator)
+			decoratorTarget.installDecorator(BoxDecorator::KEY, boxDecorator)
 println('''Creating decorators for: «eObject», node: «getDecoratorTargetNode(decoratorTarget)»''')
 			mapper.put(eObject,
 				new EObjectDecorators(
@@ -161,7 +161,7 @@ println('''Creating decorators for: «eObject», node: «getDecoratorTargetNode(
 					borderDecorator,
 					colorDecorator,
 					connectionDecorator, 
-					highlightingDecorator
+					boxDecorator
 				))
 		}
 	}

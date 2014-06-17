@@ -12,8 +12,16 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnumLiteral;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
+import org.eclipse.ocl.ecore.OCL;
+import org.eclipse.ocl.ecore.OCL.Query;
+import org.eclipse.ocl.helper.OCLHelper;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -23,6 +31,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOp
 import org.modelversioning.emfprofile.decoration.decorationLanguage.CompositeCondition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Condition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
 /**
@@ -92,6 +101,31 @@ public class ConditionEvaluator {
           _xblockexpression = (_compare);
         }
         _switchResult = _xblockexpression;
+      }
+    }
+    if (!_matched) {
+      if (condition instanceof OclExpression) {
+        final OclExpression _oclExpression = (OclExpression)condition;
+        _matched=true;
+        try {
+          final OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+          final OCLHelper<EClassifier,?,?,Constraint> helper = ocl.createOCLHelper();
+          EClass _eClass = application.eClass();
+          helper.setContext(_eClass);
+          String _expression = _oclExpression.getExpression();
+          final Constraint invariant = helper.createInvariant(_expression);
+          final Query conditionEval = ocl.createQuery(invariant);
+          final boolean result = conditionEval.check(application);
+          return Boolean.valueOf(result);
+        } catch (final Throwable _t) {
+          if (_t instanceof ParserException) {
+            final ParserException pe = (ParserException)_t;
+            pe.printStackTrace();
+            return Boolean.valueOf(false);
+          } else {
+            throw Exceptions.sneakyThrow(_t);
+          }
+        }
       }
     }
     if (!_matched) {

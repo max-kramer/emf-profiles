@@ -26,3 +26,5 @@
 /HighlightingDecorator.java
 /ImageDecorator.java
 /NotificationListenerImpl.java
+/.BoxDecorator.java._trace
+/.WrappingLabelEx.java._trace

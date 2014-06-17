@@ -16,7 +16,11 @@ import org.modelversioning.emfprofile.EMFProfilePackage;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Activation;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.Border;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImage;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxImageOrientation;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Color;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorConstant;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration;
@@ -39,6 +43,8 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
@@ -92,6 +98,13 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass boxDecorationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass borderDecorationEClass = null;
 
   /**
@@ -134,6 +147,20 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass borderEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass boxImageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass styleEClass = null;
 
   /**
@@ -156,6 +183,13 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * @generated
    */
   private EClass marginEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relativePositionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,6 +245,13 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass oclExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass conditionEClass = null;
 
   /**
@@ -219,6 +260,13 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * @generated
    */
   private EClass compositeConditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum boxImageOrientationEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -496,6 +544,126 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBoxDecoration()
+  {
+    return boxDecorationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_Text()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoxDecoration_Widht()
+  {
+    return (EAttribute)boxDecorationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoxDecoration_Height()
+  {
+    return (EAttribute)boxDecorationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_Image()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_Border()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_ForegroundColor()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_BackgroundColor()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_Direction()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_Margin()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoxDecoration_ContentDirection()
+  {
+    return (EAttribute)boxDecorationEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBoxDecoration_Tooltip()
+  {
+    return (EReference)boxDecorationEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBorderDecoration()
   {
     return borderDecorationEClass;
@@ -506,29 +674,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getBorderDecoration_Size()
+  public EReference getBorderDecoration_Border()
   {
     return (EReference)borderDecorationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBorderDecoration_Color()
-  {
-    return (EReference)borderDecorationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBorderDecoration_Style()
-  {
-    return (EReference)borderDecorationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -686,6 +834,76 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getBorder()
+  {
+    return borderEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBorder_Size()
+  {
+    return (EReference)borderEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBorder_Color()
+  {
+    return (EReference)borderEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getBorder_Style()
+  {
+    return (EReference)borderEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getBoxImage()
+  {
+    return boxImageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoxImage_Location_uri()
+  {
+    return (EAttribute)boxImageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBoxImage_Placement()
+  {
+    return (EAttribute)boxImageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getStyle()
   {
     return styleEClass;
@@ -759,6 +977,36 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
   public EAttribute getMargin_Value()
   {
     return (EAttribute)marginEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRelativePosition()
+  {
+    return relativePositionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelativePosition_X()
+  {
+    return (EAttribute)relativePositionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRelativePosition_Y()
+  {
+    return (EAttribute)relativePositionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -916,6 +1164,26 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getOclExpression()
+  {
+    return oclExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOclExpression_Expression()
+  {
+    return (EAttribute)oclExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCondition()
   {
     return conditionEClass;
@@ -979,6 +1247,16 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
   public EReference getCompositeCondition_Conditions()
   {
     return (EReference)compositeConditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getBoxImageOrientation()
+  {
+    return boxImageOrientationEEnum;
   }
 
   /**
@@ -1083,10 +1361,21 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     createEReference(imageDecorationEClass, IMAGE_DECORATION__MARGIN);
     createEReference(imageDecorationEClass, IMAGE_DECORATION__TOOLTIP);
 
+    boxDecorationEClass = createEClass(BOX_DECORATION);
+    createEReference(boxDecorationEClass, BOX_DECORATION__TEXT);
+    createEAttribute(boxDecorationEClass, BOX_DECORATION__WIDHT);
+    createEAttribute(boxDecorationEClass, BOX_DECORATION__HEIGHT);
+    createEReference(boxDecorationEClass, BOX_DECORATION__IMAGE);
+    createEReference(boxDecorationEClass, BOX_DECORATION__BORDER);
+    createEReference(boxDecorationEClass, BOX_DECORATION__FOREGROUND_COLOR);
+    createEReference(boxDecorationEClass, BOX_DECORATION__BACKGROUND_COLOR);
+    createEReference(boxDecorationEClass, BOX_DECORATION__DIRECTION);
+    createEReference(boxDecorationEClass, BOX_DECORATION__MARGIN);
+    createEAttribute(boxDecorationEClass, BOX_DECORATION__CONTENT_DIRECTION);
+    createEReference(boxDecorationEClass, BOX_DECORATION__TOOLTIP);
+
     borderDecorationEClass = createEClass(BORDER_DECORATION);
-    createEReference(borderDecorationEClass, BORDER_DECORATION__SIZE);
-    createEReference(borderDecorationEClass, BORDER_DECORATION__COLOR);
-    createEReference(borderDecorationEClass, BORDER_DECORATION__STYLE);
+    createEReference(borderDecorationEClass, BORDER_DECORATION__BORDER);
 
     colorDecorationEClass = createEClass(COLOR_DECORATION);
     createEReference(colorDecorationEClass, COLOR_DECORATION__BACKGROUND);
@@ -1108,6 +1397,15 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     createEReference(complexTextEClass, COMPLEX_TEXT__LEFT);
     createEReference(complexTextEClass, COMPLEX_TEXT__RIGHT);
 
+    borderEClass = createEClass(BORDER);
+    createEReference(borderEClass, BORDER__SIZE);
+    createEReference(borderEClass, BORDER__COLOR);
+    createEReference(borderEClass, BORDER__STYLE);
+
+    boxImageEClass = createEClass(BOX_IMAGE);
+    createEAttribute(boxImageEClass, BOX_IMAGE__LOCATION_URI);
+    createEAttribute(boxImageEClass, BOX_IMAGE__PLACEMENT);
+
     styleEClass = createEClass(STYLE);
     createEAttribute(styleEClass, STYLE__VALUE);
 
@@ -1119,6 +1417,10 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     marginEClass = createEClass(MARGIN);
     createEAttribute(marginEClass, MARGIN__VALUE);
+
+    relativePositionEClass = createEClass(RELATIVE_POSITION);
+    createEAttribute(relativePositionEClass, RELATIVE_POSITION__X);
+    createEAttribute(relativePositionEClass, RELATIVE_POSITION__Y);
 
     colorEClass = createEClass(COLOR);
     createEReference(colorEClass, COLOR__VALUE);
@@ -1142,6 +1444,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     abstractConditionEClass = createEClass(ABSTRACT_CONDITION);
 
+    oclExpressionEClass = createEClass(OCL_EXPRESSION);
+    createEAttribute(oclExpressionEClass, OCL_EXPRESSION__EXPRESSION);
+
     conditionEClass = createEClass(CONDITION);
     createEReference(conditionEClass, CONDITION__ATTRIBUTE);
     createEAttribute(conditionEClass, CONDITION__OPERATOR);
@@ -1152,6 +1457,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     createEReference(compositeConditionEClass, COMPOSITE_CONDITION__CONDITIONS);
 
     // Create enums
+    boxImageOrientationEEnum = createEEnum(BOX_IMAGE_ORIENTATION);
     comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
     logicalOperatorEEnum = createEEnum(LOGICAL_OPERATOR);
     lineStyleEEnum = createEEnum(LINE_STYLE);
@@ -1193,6 +1499,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     // Add supertypes to classes
     imageDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
+    boxDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     borderDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     colorDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
     connectionDecorationEClass.getESuperTypes().add(this.getAbstractDecoration());
@@ -1200,6 +1507,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     complexTextEClass.getESuperTypes().add(this.getText());
     rgbEClass.getESuperTypes().add(this.getConcreteColor());
     hexColorEClass.getESuperTypes().add(this.getConcreteColor());
+    oclExpressionEClass.getESuperTypes().add(this.getAbstractCondition());
     conditionEClass.getESuperTypes().add(this.getAbstractCondition());
     compositeConditionEClass.getESuperTypes().add(this.getAbstractCondition());
 
@@ -1226,10 +1534,21 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEReference(getImageDecoration_Margin(), this.getMargin(), null, "margin", null, 0, 1, ImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getImageDecoration_Tooltip(), this.getText(), null, "tooltip", null, 0, 1, ImageDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(boxDecorationEClass, BoxDecoration.class, "BoxDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBoxDecoration_Text(), this.getText(), null, "text", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBoxDecoration_Widht(), theEcorePackage.getEInt(), "widht", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBoxDecoration_Height(), theEcorePackage.getEInt(), "height", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_Image(), this.getBoxImage(), null, "image", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_Border(), this.getBorder(), null, "border", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_ForegroundColor(), this.getColor(), null, "foregroundColor", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_BackgroundColor(), this.getColor(), null, "backgroundColor", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_Direction(), this.getDirection(), null, "direction", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_Margin(), this.getMargin(), null, "margin", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBoxDecoration_ContentDirection(), this.getDirections(), "contentDirection", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBoxDecoration_Tooltip(), this.getText(), null, "tooltip", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(borderDecorationEClass, BorderDecoration.class, "BorderDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBorderDecoration_Size(), this.getSize(), null, "size", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBorderDecoration_Color(), this.getColor(), null, "color", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getBorderDecoration_Style(), this.getStyle(), null, "style", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBorderDecoration_Border(), this.getBorder(), null, "border", null, 0, 1, BorderDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colorDecorationEClass, ColorDecoration.class, "ColorDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getColorDecoration_Background(), this.getColor(), null, "background", null, 0, 1, ColorDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1251,6 +1570,15 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEReference(getComplexText_Left(), this.getSimpleText(), null, "left", null, 0, 1, ComplexText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComplexText_Right(), this.getText(), null, "right", null, 0, 1, ComplexText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(borderEClass, Border.class, "Border", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBorder_Size(), this.getSize(), null, "size", null, 0, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBorder_Color(), this.getColor(), null, "color", null, 0, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getBorder_Style(), this.getStyle(), null, "style", null, 0, 1, Border.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(boxImageEClass, BoxImage.class, "BoxImage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBoxImage_Location_uri(), theEcorePackage.getEString(), "location_uri", null, 0, 1, BoxImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBoxImage_Placement(), this.getBoxImageOrientation(), "placement", null, 0, 1, BoxImage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(styleEClass, Style.class, "Style", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStyle_Value(), this.getLineStyle(), "value", null, 0, 1, Style.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1262,6 +1590,10 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(marginEClass, Margin.class, "Margin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMargin_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, Margin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relativePositionEClass, RelativePosition.class, "RelativePosition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRelativePosition_X(), theEcorePackage.getEInt(), "x", null, 0, 1, RelativePosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRelativePosition_Y(), theEcorePackage.getEInt(), "y", null, 0, 1, RelativePosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getColor_Value(), this.getColorConstant(), null, "value", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1285,6 +1617,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(abstractConditionEClass, AbstractCondition.class, "AbstractCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(oclExpressionEClass, OclExpression.class, "OclExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOclExpression_Expression(), theEcorePackage.getEString(), "expression", null, 0, 1, OclExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCondition_Attribute(), theEcorePackage.getEAttribute(), null, "attribute", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCondition_Operator(), this.getComparisonOperator(), "operator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1295,6 +1630,12 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEReference(getCompositeCondition_Conditions(), this.getAbstractCondition(), null, "conditions", null, 0, -1, CompositeCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
+    initEEnum(boxImageOrientationEEnum, BoxImageOrientation.class, "BoxImageOrientation");
+    addEEnumLiteral(boxImageOrientationEEnum, BoxImageOrientation.WEST);
+    addEEnumLiteral(boxImageOrientationEEnum, BoxImageOrientation.NORTH);
+    addEEnumLiteral(boxImageOrientationEEnum, BoxImageOrientation.EAST);
+    addEEnumLiteral(boxImageOrientationEEnum, BoxImageOrientation.SOUTH);
+
     initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");
     addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.EQUAL);
     addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.UNEQUAL);
@@ -1333,7 +1674,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEEnum(directionsEEnum, Directions.class, "Directions");
     addEEnumLiteral(directionsEEnum, Directions.CENTER);
-    addEEnumLiteral(directionsEEnum, Directions.NORHT);
+    addEEnumLiteral(directionsEEnum, Directions.NORTH);
     addEEnumLiteral(directionsEEnum, Directions.SOUTH);
     addEEnumLiteral(directionsEEnum, Directions.WEST);
     addEEnumLiteral(directionsEEnum, Directions.EAST);

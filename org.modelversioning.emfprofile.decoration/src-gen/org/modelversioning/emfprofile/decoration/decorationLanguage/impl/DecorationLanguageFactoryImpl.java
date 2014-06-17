@@ -70,16 +70,20 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.DECORATION_DESCRIPTION: return createDecorationDescription();
       case DecorationLanguagePackage.ABSTRACT_DECORATION: return createAbstractDecoration();
       case DecorationLanguagePackage.IMAGE_DECORATION: return createImageDecoration();
+      case DecorationLanguagePackage.BOX_DECORATION: return createBoxDecoration();
       case DecorationLanguagePackage.BORDER_DECORATION: return createBorderDecoration();
       case DecorationLanguagePackage.COLOR_DECORATION: return createColorDecoration();
       case DecorationLanguagePackage.CONNECTION_DECORATION: return createConnectionDecoration();
       case DecorationLanguagePackage.TEXT: return createText();
       case DecorationLanguagePackage.SIMPLE_TEXT: return createSimpleText();
       case DecorationLanguagePackage.COMPLEX_TEXT: return createComplexText();
+      case DecorationLanguagePackage.BORDER: return createBorder();
+      case DecorationLanguagePackage.BOX_IMAGE: return createBoxImage();
       case DecorationLanguagePackage.STYLE: return createStyle();
       case DecorationLanguagePackage.SIZE: return createSize();
       case DecorationLanguagePackage.DIRECTION: return createDirection();
       case DecorationLanguagePackage.MARGIN: return createMargin();
+      case DecorationLanguagePackage.RELATIVE_POSITION: return createRelativePosition();
       case DecorationLanguagePackage.COLOR: return createColor();
       case DecorationLanguagePackage.CONCRETE_COLOR: return createConcreteColor();
       case DecorationLanguagePackage.RGB: return createRGB();
@@ -87,6 +91,7 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.COLOR_CONSTANT: return createColorConstant();
       case DecorationLanguagePackage.ACTIVATION: return createActivation();
       case DecorationLanguagePackage.ABSTRACT_CONDITION: return createAbstractCondition();
+      case DecorationLanguagePackage.OCL_EXPRESSION: return createOclExpression();
       case DecorationLanguagePackage.CONDITION: return createCondition();
       case DecorationLanguagePackage.COMPOSITE_CONDITION: return createCompositeCondition();
       default:
@@ -104,6 +109,8 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     switch (eDataType.getClassifierID())
     {
+      case DecorationLanguagePackage.BOX_IMAGE_ORIENTATION:
+        return createBoxImageOrientationFromString(eDataType, initialValue);
       case DecorationLanguagePackage.COMPARISON_OPERATOR:
         return createComparisonOperatorFromString(eDataType, initialValue);
       case DecorationLanguagePackage.LOGICAL_OPERATOR:
@@ -129,6 +136,8 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     switch (eDataType.getClassifierID())
     {
+      case DecorationLanguagePackage.BOX_IMAGE_ORIENTATION:
+        return convertBoxImageOrientationToString(eDataType, instanceValue);
       case DecorationLanguagePackage.COMPARISON_OPERATOR:
         return convertComparisonOperatorToString(eDataType, instanceValue);
       case DecorationLanguagePackage.LOGICAL_OPERATOR:
@@ -204,6 +213,17 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public BoxDecoration createBoxDecoration()
+  {
+    BoxDecorationImpl boxDecoration = new BoxDecorationImpl();
+    return boxDecoration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public BorderDecoration createBorderDecoration()
   {
     BorderDecorationImpl borderDecoration = new BorderDecorationImpl();
@@ -270,6 +290,28 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public Border createBorder()
+  {
+    BorderImpl border = new BorderImpl();
+    return border;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoxImage createBoxImage()
+  {
+    BoxImageImpl boxImage = new BoxImageImpl();
+    return boxImage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Style createStyle()
   {
     StyleImpl style = new StyleImpl();
@@ -307,6 +349,17 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     MarginImpl margin = new MarginImpl();
     return margin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RelativePosition createRelativePosition()
+  {
+    RelativePositionImpl relativePosition = new RelativePositionImpl();
+    return relativePosition;
   }
 
   /**
@@ -391,6 +444,17 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
+  public OclExpression createOclExpression()
+  {
+    OclExpressionImpl oclExpression = new OclExpressionImpl();
+    return oclExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Condition createCondition()
   {
     ConditionImpl condition = new ConditionImpl();
@@ -406,6 +470,28 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     CompositeConditionImpl compositeCondition = new CompositeConditionImpl();
     return compositeCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoxImageOrientation createBoxImageOrientationFromString(EDataType eDataType, String initialValue)
+  {
+    BoxImageOrientation result = BoxImageOrientation.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBoxImageOrientationToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

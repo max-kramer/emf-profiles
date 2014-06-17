@@ -55,19 +55,23 @@ public class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
       }
     } else {
       int _xifexpression = (int) 0;
-      Size _size = borderDecoration.getSize();
+      org.modelversioning.emfprofile.decoration.decorationLanguage.Border _border = borderDecoration.getBorder();
+      Size _size = _border.getSize();
       boolean _notEquals = (!Objects.equal(_size, null));
       if (_notEquals) {
-        Size _size_1 = borderDecoration.getSize();
+        org.modelversioning.emfprofile.decoration.decorationLanguage.Border _border_1 = borderDecoration.getBorder();
+        Size _size_1 = _border_1.getSize();
         int _value = _size_1.getValue();
         _xifexpression = _value;
       } else {
         _xifexpression = 1;
       }
       final int size = _xifexpression;
-      Color _color = borderDecoration.getColor();
+      org.modelversioning.emfprofile.decoration.decorationLanguage.Border _border_2 = borderDecoration.getBorder();
+      Color _color = _border_2.getColor();
       final org.eclipse.swt.graphics.Color color = this.provideColor(_color);
-      Style _style = borderDecoration.getStyle();
+      org.modelversioning.emfprofile.decoration.decorationLanguage.Border _border_3 = borderDecoration.getBorder();
+      Style _style = _border_3.getStyle();
       final int style = this.provideStyle(_style);
       IGraphicalEditPart _targetEditPart_3 = this.getTargetEditPart();
       IFigure _figure_2 = _targetEditPart_3.getFigure();

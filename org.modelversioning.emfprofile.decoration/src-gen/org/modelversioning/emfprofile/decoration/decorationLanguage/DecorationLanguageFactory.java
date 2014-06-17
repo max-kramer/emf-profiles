@@ -68,6 +68,15 @@ public interface DecorationLanguageFactory extends EFactory
   ImageDecoration createImageDecoration();
 
   /**
+   * Returns a new object of class '<em>Box Decoration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Box Decoration</em>'.
+   * @generated
+   */
+  BoxDecoration createBoxDecoration();
+
+  /**
    * Returns a new object of class '<em>Border Decoration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -122,6 +131,24 @@ public interface DecorationLanguageFactory extends EFactory
   ComplexText createComplexText();
 
   /**
+   * Returns a new object of class '<em>Border</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Border</em>'.
+   * @generated
+   */
+  Border createBorder();
+
+  /**
+   * Returns a new object of class '<em>Box Image</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Box Image</em>'.
+   * @generated
+   */
+  BoxImage createBoxImage();
+
+  /**
    * Returns a new object of class '<em>Style</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -156,6 +183,15 @@ public interface DecorationLanguageFactory extends EFactory
    * @generated
    */
   Margin createMargin();
+
+  /**
+   * Returns a new object of class '<em>Relative Position</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relative Position</em>'.
+   * @generated
+   */
+  RelativePosition createRelativePosition();
 
   /**
    * Returns a new object of class '<em>Color</em>'.
@@ -219,6 +255,15 @@ public interface DecorationLanguageFactory extends EFactory
    * @generated
    */
   AbstractCondition createAbstractCondition();
+
+  /**
+   * Returns a new object of class '<em>Ocl Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ocl Expression</em>'.
+   * @generated
+   */
+  OclExpression createOclExpression();
 
   /**
    * Returns a new object of class '<em>Condition</em>'.

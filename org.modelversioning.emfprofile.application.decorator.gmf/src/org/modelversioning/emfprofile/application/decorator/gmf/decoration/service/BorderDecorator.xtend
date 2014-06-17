@@ -33,9 +33,9 @@ class BorderDecorator extends AbstractOnlyOneDecorationDecorator {
 				targetEditPart.figure.setBorder(originalBorder)
 			}
 		} else {
-			val size = if(borderDecoration.size != null) borderDecoration.size.value else 1;
-			val color = provideColor(borderDecoration.color)
-			val style = provideStyle(borderDecoration.style)
+			val size = if(borderDecoration.border.size != null) borderDecoration.border.size.value else 1;
+			val color = provideColor(borderDecoration.border.color)
+			val style = provideStyle(borderDecoration.border.style)
 			//			println('''BORDER WILL BE SET at«GMFProfileDecoratorProvider::getEObjectFromDecoratorTarget(decoratorTarget)»''')
 			setBorder(targetEditPart.figure, color, size, style)
 		}

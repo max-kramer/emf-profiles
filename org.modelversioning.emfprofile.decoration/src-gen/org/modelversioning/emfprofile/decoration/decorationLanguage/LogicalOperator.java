@@ -27,7 +27,7 @@ public enum LogicalOperator implements Enumerator
    * @generated
    * @ordered
    */
-  ALL(0, "ALL", "all"),
+  ALL(0, "ALL", "ALL"),
 
   /**
    * The '<em><b>ANY</b></em>' literal object.
@@ -37,7 +37,7 @@ public enum LogicalOperator implements Enumerator
    * @generated
    * @ordered
    */
-  ANY(1, "ANY", "any");
+  ANY(1, "ANY", "ANY");
 
   /**
    * The '<em><b>ALL</b></em>' literal value.
@@ -48,7 +48,7 @@ public enum LogicalOperator implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #ALL
-   * @model literal="all"
+   * @model
    * @generated
    * @ordered
    */
@@ -63,7 +63,7 @@ public enum LogicalOperator implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #ANY
-   * @model literal="any"
+   * @model
    * @generated
    * @ordered
    */
