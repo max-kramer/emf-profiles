@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory;
 import org.eclipse.ocl.ecore.OCL;
 import org.eclipse.ocl.ecore.OCL.Query;
 import org.eclipse.ocl.helper.OCLHelper;
@@ -108,7 +107,7 @@ public class ConditionEvaluator {
         final OclExpression _oclExpression = (OclExpression)condition;
         _matched=true;
         try {
-          final OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+          final OCL ocl = OCL.newInstance();
           final OCLHelper<EClassifier,?,?,Constraint> helper = ocl.createOCLHelper();
           EClass _eClass = application.eClass();
           helper.setContext(_eClass);

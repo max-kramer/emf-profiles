@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EClassifier
 import org.eclipse.emf.ecore.EEnumLiteral
 import org.eclipse.ocl.ParserException
 import org.eclipse.ocl.ecore.Constraint
-import org.eclipse.ocl.ecore.EcoreEnvironmentFactory
 import org.eclipse.ocl.ecore.OCL
 import org.eclipse.ocl.helper.OCLHelper
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractCondition
@@ -57,7 +56,7 @@ class ConditionEvaluator {
 			}
 			OclExpression: {
 				try{
-					val OCL ocl = OCL.newInstance(EcoreEnvironmentFactory.INSTANCE);
+					val OCL ocl = OCL.newInstance();
 					val OCLHelper<EClassifier, ?, ?, Constraint> helper = ocl.createOCLHelper();
 	
 					helper.setContext(application.eClass);
