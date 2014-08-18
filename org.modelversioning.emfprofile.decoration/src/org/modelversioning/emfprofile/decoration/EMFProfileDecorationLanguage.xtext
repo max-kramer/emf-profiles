@@ -26,8 +26,8 @@ DecorationDescription:
 
 // For all decorations, if they have optional values then some default value will be used. See comments below.
 AbstractDecoration:
-	ImageDecoration | BoxDecoration // has an effect on both: nodes and edges
-	| BorderDecoration | ColorDecoration // has an effect only on nodes
+	ImageDecoration | BoxDecoration | ColorDecoration // has an effect on both nodes and edges
+	| BorderDecoration // has an effect only on nodes
 	| ConnectionDecoration // has an effect only on edges
 ;
 
@@ -37,8 +37,8 @@ ImageDecoration:
 	'image' '{' 
 		(
 			('uri' '=' location_uri=STRING) 
-			& (direction=Direction)? // default value for node = NORTH_WEST; for edge = CENTER
-			& (margin=Margin)? // default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+			& (direction=Direction)? // default value for the node = NORTH_WEST, and for edge = CENTER
+			& (margin=Margin)? // default value -1 on nodes, 50 for connections (for connections margin is interpreted as a percentage) 
 			& ('tooltip' '=' tooltip=Text)?
 			& (activation=Activation)? 
 		)
@@ -96,16 +96,15 @@ ConnectionDecoration:
 		(
 			(size=Size)?
 			& (style=Style)?
-			& ('foreground-color' '=' foregroundColor=Color)?
-			& ('background-color' '=' backgroundColor=Color)?
+			& ('color' '=' color=Color)?
 			& (activation=Activation)?
 		)
 	'}'
 ;
 
 /**
- * The text which we can include in the visualization, e.g., hover text over image decoration.
- * Can be build out of Strings and tagging values of the applied stereotype.
+ * The text which we can include in the visualization, e.g., the hover text over an image decoration.
+ * It can be build out of Strings and tagged values of the applied stereotype.
  */
 Text:
 	SimpleText | ComplexText
@@ -114,15 +113,16 @@ Text:
 SimpleText:
 	text=STRING | attribute=[ecore::EAttribute|QualifiedName]
 ;
+
 ComplexText:
 	left=SimpleText '+' right=Text
 ;
 
 Border:
 	{Border}
-	(	(size=Size)? // default value 1
-		& ('color' '=' color=Color)? // default value BLACK
-		& (style=Style)?// default value SOLID
+	(	(size=Size)? // default value is 1
+		& ('color' '=' color=Color)? // default value is BLACK
+		& (style=Style)?// default value is SOLID
 	)	
 ;
 
@@ -131,7 +131,7 @@ BoxImage :
 	'image' '{' 
 		(
 			('uri' '=' location_uri=STRING)
-			& ('placement' '=' placement = BoxImageOrientation)? // default is WEST
+			& ('placement' '=' placement = BoxImageOrientation)? // default value is WEST
 		) 
 	'}'
 ;
@@ -152,9 +152,9 @@ Margin:
 	'margin' '=' value=SignedInteger
 ;
 
-RelativePosition:
-	'(' x=SignedInteger ',' y=SignedInteger ')'
-;
+//RelativePosition:
+//	'(' x=SignedInteger ',' y=SignedInteger ')'
+//;
 
 Color:
 	{Color}
@@ -284,5 +284,3 @@ enum Directions:
 	SOUTH_EAST |
 	SOUTH_WEST
 ;
-
-

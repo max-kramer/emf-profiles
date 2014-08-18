@@ -205,13 +205,6 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DecorationLanguagePackage.RELATIVE_POSITION:
-      {
-        RelativePosition relativePosition = (RelativePosition)theEObject;
-        T result = caseRelativePosition(relativePosition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case DecorationLanguagePackage.COLOR:
       {
         Color color = (Color)theEObject;
@@ -575,22 +568,6 @@ public class DecorationLanguageSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMargin(Margin object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Relative Position</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Relative Position</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRelativePosition(RelativePosition object)
   {
     return null;
   }

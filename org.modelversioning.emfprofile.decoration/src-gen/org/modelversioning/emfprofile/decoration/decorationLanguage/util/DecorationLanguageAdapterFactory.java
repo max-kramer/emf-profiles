@@ -165,11 +165,6 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
         return createMarginAdapter();
       }
       @Override
-      public Adapter caseRelativePosition(RelativePosition object)
-      {
-        return createRelativePositionAdapter();
-      }
-      @Override
       public Adapter caseColor(Color object)
       {
         return createColorAdapter();
@@ -507,21 +502,6 @@ public class DecorationLanguageAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMarginAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition <em>Relative Position</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition
-   * @generated
-   */
-  public Adapter createRelativePositionAdapter()
   {
     return null;
   }

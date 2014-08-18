@@ -107,8 +107,7 @@
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//ConnectionDecoration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/size"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/style"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/foregroundColor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/backgroundColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//ConnectionDecoration/color"/>
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Text"/>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//SimpleText">
@@ -139,10 +138,6 @@
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Margin">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//Margin/value"/>
-    </genClasses>
-    <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//RelativePosition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//RelativePosition/x"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//RelativePosition/y"/>
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//Color">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//Color/value"/>

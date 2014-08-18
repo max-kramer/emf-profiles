@@ -612,7 +612,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             	            }
             	            break;
-            	        case 26:
+            	        case 30:
             	            {
             	            int LA3_4 = input.LA(2);
 
@@ -623,7 +623,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             	            }
             	            break;
-            	        case 30:
+            	        case 26:
             	            {
             	            int LA3_5 = input.LA(2);
 
@@ -864,7 +864,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleAbstractDecoration"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:321:1: ruleAbstractDecoration returns [EObject current=null] : (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_BorderDecoration_2= ruleBorderDecoration | this_ColorDecoration_3= ruleColorDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:321:1: ruleAbstractDecoration returns [EObject current=null] : (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_ColorDecoration_2= ruleColorDecoration | this_BorderDecoration_3= ruleBorderDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration ) ;
     public final EObject ruleAbstractDecoration() throws RecognitionException {
         EObject current = null;
 
@@ -872,9 +872,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
         EObject this_BoxDecoration_1 = null;
 
-        EObject this_BorderDecoration_2 = null;
+        EObject this_ColorDecoration_2 = null;
 
-        EObject this_ColorDecoration_3 = null;
+        EObject this_BorderDecoration_3 = null;
 
         EObject this_ConnectionDecoration_4 = null;
 
@@ -882,10 +882,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:324:28: ( (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_BorderDecoration_2= ruleBorderDecoration | this_ColorDecoration_3= ruleColorDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:325:1: (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_BorderDecoration_2= ruleBorderDecoration | this_ColorDecoration_3= ruleColorDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:324:28: ( (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_ColorDecoration_2= ruleColorDecoration | this_BorderDecoration_3= ruleBorderDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:325:1: (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_ColorDecoration_2= ruleColorDecoration | this_BorderDecoration_3= ruleBorderDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:325:1: (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_BorderDecoration_2= ruleBorderDecoration | this_ColorDecoration_3= ruleColorDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:325:1: (this_ImageDecoration_0= ruleImageDecoration | this_BoxDecoration_1= ruleBoxDecoration | this_ColorDecoration_2= ruleColorDecoration | this_BorderDecoration_3= ruleBorderDecoration | this_ConnectionDecoration_4= ruleConnectionDecoration )
             int alt5=5;
             switch ( input.LA(1) ) {
             case 18:
@@ -898,12 +898,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                 alt5=2;
                 }
                 break;
-            case 26:
+            case 30:
                 {
                 alt5=3;
                 }
                 break;
-            case 30:
+            case 26:
                 {
                 alt5=4;
                 }
@@ -958,36 +958,36 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:346:5: this_BorderDecoration_2= ruleBorderDecoration
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:346:5: this_ColorDecoration_2= ruleColorDecoration
                     {
                      
-                            newCompositeNode(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_2()); 
+                            newCompositeNode(grammarAccess.getAbstractDecorationAccess().getColorDecorationParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleBorderDecoration_in_ruleAbstractDecoration759);
-                    this_BorderDecoration_2=ruleBorderDecoration();
+                    pushFollow(FOLLOW_ruleColorDecoration_in_ruleAbstractDecoration759);
+                    this_ColorDecoration_2=ruleColorDecoration();
 
                     state._fsp--;
 
                      
-                            current = this_BorderDecoration_2; 
+                            current = this_ColorDecoration_2; 
                             afterParserOrEnumRuleCall();
                         
 
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:356:5: this_ColorDecoration_3= ruleColorDecoration
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:356:5: this_BorderDecoration_3= ruleBorderDecoration
                     {
                      
-                            newCompositeNode(grammarAccess.getAbstractDecorationAccess().getColorDecorationParserRuleCall_3()); 
+                            newCompositeNode(grammarAccess.getAbstractDecorationAccess().getBorderDecorationParserRuleCall_3()); 
                         
-                    pushFollow(FOLLOW_ruleColorDecoration_in_ruleAbstractDecoration786);
-                    this_ColorDecoration_3=ruleColorDecoration();
+                    pushFollow(FOLLOW_ruleBorderDecoration_in_ruleAbstractDecoration786);
+                    this_BorderDecoration_3=ruleBorderDecoration();
 
                     state._fsp--;
 
                      
-                            current = this_ColorDecoration_3; 
+                            current = this_BorderDecoration_3; 
                             afterParserOrEnumRuleCall();
                         
 
@@ -3378,7 +3378,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleConnectionDecoration"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1374:1: ruleConnectionDecoration returns [EObject current=null] : ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_13= '}' ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1374:1: ruleConnectionDecoration returns [EObject current=null] : ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_10= '}' ) ;
     public final EObject ruleConnectionDecoration() throws RecognitionException {
         EObject current = null;
 
@@ -3386,28 +3386,24 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
         Token otherlv_2=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
-        Token otherlv_9=null;
         Token otherlv_10=null;
-        Token otherlv_13=null;
         EObject lv_size_4_0 = null;
 
         EObject lv_style_5_0 = null;
 
-        EObject lv_foregroundColor_8_0 = null;
+        EObject lv_color_8_0 = null;
 
-        EObject lv_backgroundColor_11_0 = null;
-
-        EObject lv_activation_12_0 = null;
+        EObject lv_activation_9_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1377:28: ( ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_13= '}' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:1: ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_13= '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1377:28: ( ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_10= '}' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:1: ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_10= '}' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:1: ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_13= '}' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:2: () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_13= '}'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:1: ( () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_10= '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:2: () otherlv_1= 'connection' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) ) ) otherlv_10= '}'
             {
             // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1378:2: ()
             // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1379:5: 
@@ -3428,22 +3424,22 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 	newLeafNode(otherlv_2, grammarAccess.getConnectionDecorationAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1392:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1394:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1392:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1394:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1394:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1395:2: ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1394:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1395:2: ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* )
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3());
             	
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1398:2: ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )* )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1399:3: ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1398:2: ( ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1399:3: ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )*
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1399:3: ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) ) )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1399:3: ( ({...}? => ( ({...}? => ( (lv_size_4_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_5_0= ruleStyle ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) ) )*
             loop10:
             do {
-                int alt10=6;
+                int alt10=5;
                 int LA10_0 = input.LA(1);
 
                 if ( LA10_0 ==37 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 0) ) {
@@ -3452,14 +3448,11 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                 else if ( LA10_0 ==36 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 1) ) {
                     alt10=2;
                 }
-                else if ( LA10_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 2) ) {
+                else if ( LA10_0 ==30 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 2) ) {
                     alt10=3;
                 }
-                else if ( LA10_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 3) ) {
+                else if ( LA10_0 ==44 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 3) ) {
                     alt10=4;
-                }
-                else if ( LA10_0 ==44 && getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 4) ) {
-                    alt10=5;
                 }
 
 
@@ -3599,48 +3592,48 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	    }
             	    break;
             	case 3 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1461:4: ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1461:4: ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1461:4: ({...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1462:5: {...}? => ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1461:4: ({...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1462:5: {...}? => ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleConnectionDecoration", "getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 2)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1462:117: ( ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1463:6: ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1462:117: ( ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1463:6: ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 2);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:6: ({...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:7: {...}? => (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:6: ({...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:7: {...}? => (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleConnectionDecoration", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:16: (otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:18: otherlv_6= 'foreground-color' otherlv_7= '=' ( (lv_foregroundColor_8_0= ruleColor ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:16: (otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1466:18: otherlv_6= 'color' otherlv_7= '=' ( (lv_color_8_0= ruleColor ) )
             	    {
-            	    otherlv_6=(Token)match(input,27,FOLLOW_27_in_ruleConnectionDecoration3707); 
+            	    otherlv_6=(Token)match(input,30,FOLLOW_30_in_ruleConnectionDecoration3707); 
 
-            	        	newLeafNode(otherlv_6, grammarAccess.getConnectionDecorationAccess().getForegroundColorKeyword_3_2_0());
+            	        	newLeafNode(otherlv_6, grammarAccess.getConnectionDecorationAccess().getColorKeyword_3_2_0());
             	        
             	    otherlv_7=(Token)match(input,20,FOLLOW_20_in_ruleConnectionDecoration3719); 
 
             	        	newLeafNode(otherlv_7, grammarAccess.getConnectionDecorationAccess().getEqualsSignKeyword_3_2_1());
             	        
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1474:1: ( (lv_foregroundColor_8_0= ruleColor ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1475:1: (lv_foregroundColor_8_0= ruleColor )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1474:1: ( (lv_color_8_0= ruleColor ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1475:1: (lv_color_8_0= ruleColor )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1475:1: (lv_foregroundColor_8_0= ruleColor )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1476:3: lv_foregroundColor_8_0= ruleColor
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1475:1: (lv_color_8_0= ruleColor )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1476:3: lv_color_8_0= ruleColor
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getConnectionDecorationAccess().getForegroundColorColorParserRuleCall_3_2_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getConnectionDecorationAccess().getColorColorParserRuleCall_3_2_2_0()); 
             	    	    
             	    pushFollow(FOLLOW_ruleColor_in_ruleConnectionDecoration3740);
-            	    lv_foregroundColor_8_0=ruleColor();
+            	    lv_color_8_0=ruleColor();
 
             	    state._fsp--;
 
@@ -3650,8 +3643,8 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	    	        }
             	           		set(
             	           			current, 
-            	           			"foregroundColor",
-            	            		lv_foregroundColor_8_0, 
+            	           			"color",
+            	            		lv_color_8_0, 
             	            		"Color");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -3680,118 +3673,37 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	    }
             	    break;
             	case 4 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1499:4: ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1499:4: ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1499:4: ({...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1500:5: {...}? => ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1499:4: ({...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1500:5: {...}? => ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 3) ) {
             	        throw new FailedPredicateException(input, "ruleConnectionDecoration", "getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 3)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1500:117: ( ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1501:6: ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1500:117: ( ({...}? => ( (lv_activation_9_0= ruleActivation ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1501:6: ({...}? => ( (lv_activation_9_0= ruleActivation ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 3);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:6: ({...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:7: {...}? => (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:6: ({...}? => ( (lv_activation_9_0= ruleActivation ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:7: {...}? => ( (lv_activation_9_0= ruleActivation ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleConnectionDecoration", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:16: (otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:18: otherlv_9= 'background-color' otherlv_10= '=' ( (lv_backgroundColor_11_0= ruleColor ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1504:16: ( (lv_activation_9_0= ruleActivation ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1505:1: (lv_activation_9_0= ruleActivation )
             	    {
-            	    otherlv_9=(Token)match(input,28,FOLLOW_28_in_ruleConnectionDecoration3808); 
-
-            	        	newLeafNode(otherlv_9, grammarAccess.getConnectionDecorationAccess().getBackgroundColorKeyword_3_3_0());
-            	        
-            	    otherlv_10=(Token)match(input,20,FOLLOW_20_in_ruleConnectionDecoration3820); 
-
-            	        	newLeafNode(otherlv_10, grammarAccess.getConnectionDecorationAccess().getEqualsSignKeyword_3_3_1());
-            	        
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1512:1: ( (lv_backgroundColor_11_0= ruleColor ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1513:1: (lv_backgroundColor_11_0= ruleColor )
-            	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1513:1: (lv_backgroundColor_11_0= ruleColor )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1514:3: lv_backgroundColor_11_0= ruleColor
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1505:1: (lv_activation_9_0= ruleActivation )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1506:3: lv_activation_9_0= ruleActivation
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getConnectionDecorationAccess().getBackgroundColorColorParserRuleCall_3_3_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getConnectionDecorationAccess().getActivationActivationParserRuleCall_3_3_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleColor_in_ruleConnectionDecoration3841);
-            	    lv_backgroundColor_11_0=ruleColor();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getConnectionDecorationRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"backgroundColor",
-            	            		lv_backgroundColor_11_0, 
-            	            		"Color");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-
-            	     
-            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3());
-            	    	 				
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 5 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1537:4: ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) )
-            	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1537:4: ({...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1538:5: {...}? => ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) )
-            	    {
-            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 4) ) {
-            	        throw new FailedPredicateException(input, "ruleConnectionDecoration", "getUnorderedGroupHelper().canSelect(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 4)");
-            	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1538:117: ( ({...}? => ( (lv_activation_12_0= ruleActivation ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1539:6: ({...}? => ( (lv_activation_12_0= ruleActivation ) ) )
-            	    {
-            	     
-            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getConnectionDecorationAccess().getUnorderedGroup_3(), 4);
-            	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1542:6: ({...}? => ( (lv_activation_12_0= ruleActivation ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1542:7: {...}? => ( (lv_activation_12_0= ruleActivation ) )
-            	    {
-            	    if ( !((true)) ) {
-            	        throw new FailedPredicateException(input, "ruleConnectionDecoration", "true");
-            	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1542:16: ( (lv_activation_12_0= ruleActivation ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1543:1: (lv_activation_12_0= ruleActivation )
-            	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1543:1: (lv_activation_12_0= ruleActivation )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1544:3: lv_activation_12_0= ruleActivation
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getConnectionDecorationAccess().getActivationActivationParserRuleCall_3_4_0()); 
-            	    	    
-            	    pushFollow(FOLLOW_ruleActivation_in_ruleConnectionDecoration3917);
-            	    lv_activation_12_0=ruleActivation();
+            	    pushFollow(FOLLOW_ruleActivation_in_ruleConnectionDecoration3816);
+            	    lv_activation_9_0=ruleActivation();
 
             	    state._fsp--;
 
@@ -3802,7 +3714,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	           		set(
             	           			current, 
             	           			"activation",
-            	            		lv_activation_12_0, 
+            	            		lv_activation_9_0, 
             	            		"Activation");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -3845,9 +3757,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_13=(Token)match(input,17,FOLLOW_17_in_ruleConnectionDecoration3969); 
+            otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleConnectionDecoration3868); 
 
-                	newLeafNode(otherlv_13, grammarAccess.getConnectionDecorationAccess().getRightCurlyBracketKeyword_4());
+                	newLeafNode(otherlv_10, grammarAccess.getConnectionDecorationAccess().getRightCurlyBracketKeyword_4());
                 
 
             }
@@ -3870,7 +3782,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleText"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1586:1: entryRuleText returns [EObject current=null] : iv_ruleText= ruleText EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1548:1: entryRuleText returns [EObject current=null] : iv_ruleText= ruleText EOF ;
     public final EObject entryRuleText() throws RecognitionException {
         EObject current = null;
 
@@ -3878,17 +3790,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1587:2: (iv_ruleText= ruleText EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1588:2: iv_ruleText= ruleText EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1549:2: (iv_ruleText= ruleText EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1550:2: iv_ruleText= ruleText EOF
             {
              newCompositeNode(grammarAccess.getTextRule()); 
-            pushFollow(FOLLOW_ruleText_in_entryRuleText4005);
+            pushFollow(FOLLOW_ruleText_in_entryRuleText3904);
             iv_ruleText=ruleText();
 
             state._fsp--;
 
              current =iv_ruleText; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleText4015); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleText3914); 
 
             }
 
@@ -3906,7 +3818,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleText"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1595:1: ruleText returns [EObject current=null] : (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1557:1: ruleText returns [EObject current=null] : (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText ) ;
     public final EObject ruleText() throws RecognitionException {
         EObject current = null;
 
@@ -3918,20 +3830,20 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1598:28: ( (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1599:1: (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1560:28: ( (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1561:1: (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1599:1: (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1561:1: (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText )
             int alt11=2;
             alt11 = dfa11.predict(input);
             switch (alt11) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1600:5: this_SimpleText_0= ruleSimpleText
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1562:5: this_SimpleText_0= ruleSimpleText
                     {
                      
                             newCompositeNode(grammarAccess.getTextAccess().getSimpleTextParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleSimpleText_in_ruleText4062);
+                    pushFollow(FOLLOW_ruleSimpleText_in_ruleText3961);
                     this_SimpleText_0=ruleSimpleText();
 
                     state._fsp--;
@@ -3944,12 +3856,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1610:5: this_ComplexText_1= ruleComplexText
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1572:5: this_ComplexText_1= ruleComplexText
                     {
                      
                             newCompositeNode(grammarAccess.getTextAccess().getComplexTextParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleComplexText_in_ruleText4089);
+                    pushFollow(FOLLOW_ruleComplexText_in_ruleText3988);
                     this_ComplexText_1=ruleComplexText();
 
                     state._fsp--;
@@ -3982,7 +3894,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleSimpleText"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1626:1: entryRuleSimpleText returns [EObject current=null] : iv_ruleSimpleText= ruleSimpleText EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1588:1: entryRuleSimpleText returns [EObject current=null] : iv_ruleSimpleText= ruleSimpleText EOF ;
     public final EObject entryRuleSimpleText() throws RecognitionException {
         EObject current = null;
 
@@ -3990,17 +3902,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1627:2: (iv_ruleSimpleText= ruleSimpleText EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1628:2: iv_ruleSimpleText= ruleSimpleText EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1589:2: (iv_ruleSimpleText= ruleSimpleText EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1590:2: iv_ruleSimpleText= ruleSimpleText EOF
             {
              newCompositeNode(grammarAccess.getSimpleTextRule()); 
-            pushFollow(FOLLOW_ruleSimpleText_in_entryRuleSimpleText4124);
+            pushFollow(FOLLOW_ruleSimpleText_in_entryRuleSimpleText4023);
             iv_ruleSimpleText=ruleSimpleText();
 
             state._fsp--;
 
              current =iv_ruleSimpleText; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleText4134); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleText4033); 
 
             }
 
@@ -4018,7 +3930,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleSimpleText"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1635:1: ruleSimpleText returns [EObject current=null] : ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1597:1: ruleSimpleText returns [EObject current=null] : ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) ) ;
     public final EObject ruleSimpleText() throws RecognitionException {
         EObject current = null;
 
@@ -4027,10 +3939,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1638:28: ( ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1639:1: ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1600:28: ( ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1601:1: ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1639:1: ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1601:1: ( ( (lv_text_0_0= RULE_STRING ) ) | ( ( ruleQualifiedName ) ) )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -4048,15 +3960,15 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             }
             switch (alt12) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1639:2: ( (lv_text_0_0= RULE_STRING ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1601:2: ( (lv_text_0_0= RULE_STRING ) )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1639:2: ( (lv_text_0_0= RULE_STRING ) )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1640:1: (lv_text_0_0= RULE_STRING )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1601:2: ( (lv_text_0_0= RULE_STRING ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1602:1: (lv_text_0_0= RULE_STRING )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1640:1: (lv_text_0_0= RULE_STRING )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1641:3: lv_text_0_0= RULE_STRING
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1602:1: (lv_text_0_0= RULE_STRING )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1603:3: lv_text_0_0= RULE_STRING
                     {
-                    lv_text_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSimpleText4176); 
+                    lv_text_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSimpleText4075); 
 
                     			newLeafNode(lv_text_0_0, grammarAccess.getSimpleTextAccess().getTextSTRINGTerminalRuleCall_0_0()); 
                     		
@@ -4080,13 +3992,13 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1658:6: ( ( ruleQualifiedName ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1620:6: ( ( ruleQualifiedName ) )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1658:6: ( ( ruleQualifiedName ) )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1659:1: ( ruleQualifiedName )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1620:6: ( ( ruleQualifiedName ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1621:1: ( ruleQualifiedName )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1659:1: ( ruleQualifiedName )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1660:3: ruleQualifiedName
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1621:1: ( ruleQualifiedName )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1622:3: ruleQualifiedName
                     {
 
                     			if (current==null) {
@@ -4096,7 +4008,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                      
                     	        newCompositeNode(grammarAccess.getSimpleTextAccess().getAttributeEAttributeCrossReference_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleSimpleText4210);
+                    pushFollow(FOLLOW_ruleQualifiedName_in_ruleSimpleText4109);
                     ruleQualifiedName();
 
                     state._fsp--;
@@ -4134,7 +4046,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleComplexText"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1681:1: entryRuleComplexText returns [EObject current=null] : iv_ruleComplexText= ruleComplexText EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1643:1: entryRuleComplexText returns [EObject current=null] : iv_ruleComplexText= ruleComplexText EOF ;
     public final EObject entryRuleComplexText() throws RecognitionException {
         EObject current = null;
 
@@ -4142,17 +4054,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1682:2: (iv_ruleComplexText= ruleComplexText EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1683:2: iv_ruleComplexText= ruleComplexText EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1644:2: (iv_ruleComplexText= ruleComplexText EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1645:2: iv_ruleComplexText= ruleComplexText EOF
             {
              newCompositeNode(grammarAccess.getComplexTextRule()); 
-            pushFollow(FOLLOW_ruleComplexText_in_entryRuleComplexText4246);
+            pushFollow(FOLLOW_ruleComplexText_in_entryRuleComplexText4145);
             iv_ruleComplexText=ruleComplexText();
 
             state._fsp--;
 
              current =iv_ruleComplexText; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexText4256); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexText4155); 
 
             }
 
@@ -4170,7 +4082,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleComplexText"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1690:1: ruleComplexText returns [EObject current=null] : ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1652:1: ruleComplexText returns [EObject current=null] : ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) ) ;
     public final EObject ruleComplexText() throws RecognitionException {
         EObject current = null;
 
@@ -4183,22 +4095,22 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1693:28: ( ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1694:1: ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1655:28: ( ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1656:1: ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1694:1: ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1694:2: ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1656:1: ( ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1656:2: ( (lv_left_0_0= ruleSimpleText ) ) otherlv_1= '+' ( (lv_right_2_0= ruleText ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1694:2: ( (lv_left_0_0= ruleSimpleText ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1695:1: (lv_left_0_0= ruleSimpleText )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1656:2: ( (lv_left_0_0= ruleSimpleText ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1657:1: (lv_left_0_0= ruleSimpleText )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1695:1: (lv_left_0_0= ruleSimpleText )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1696:3: lv_left_0_0= ruleSimpleText
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1657:1: (lv_left_0_0= ruleSimpleText )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1658:3: lv_left_0_0= ruleSimpleText
             {
              
             	        newCompositeNode(grammarAccess.getComplexTextAccess().getLeftSimpleTextParserRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleSimpleText_in_ruleComplexText4302);
+            pushFollow(FOLLOW_ruleSimpleText_in_ruleComplexText4201);
             lv_left_0_0=ruleSimpleText();
 
             state._fsp--;
@@ -4220,20 +4132,20 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleComplexText4314); 
+            otherlv_1=(Token)match(input,34,FOLLOW_34_in_ruleComplexText4213); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getComplexTextAccess().getPlusSignKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1716:1: ( (lv_right_2_0= ruleText ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1717:1: (lv_right_2_0= ruleText )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1678:1: ( (lv_right_2_0= ruleText ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1679:1: (lv_right_2_0= ruleText )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1717:1: (lv_right_2_0= ruleText )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1718:3: lv_right_2_0= ruleText
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1679:1: (lv_right_2_0= ruleText )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1680:3: lv_right_2_0= ruleText
             {
              
             	        newCompositeNode(grammarAccess.getComplexTextAccess().getRightTextParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleText_in_ruleComplexText4335);
+            pushFollow(FOLLOW_ruleText_in_ruleComplexText4234);
             lv_right_2_0=ruleText();
 
             state._fsp--;
@@ -4276,7 +4188,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleBorder"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1742:1: entryRuleBorder returns [EObject current=null] : iv_ruleBorder= ruleBorder EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1704:1: entryRuleBorder returns [EObject current=null] : iv_ruleBorder= ruleBorder EOF ;
     public final EObject entryRuleBorder() throws RecognitionException {
         EObject current = null;
 
@@ -4284,17 +4196,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1743:2: (iv_ruleBorder= ruleBorder EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1744:2: iv_ruleBorder= ruleBorder EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1705:2: (iv_ruleBorder= ruleBorder EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1706:2: iv_ruleBorder= ruleBorder EOF
             {
              newCompositeNode(grammarAccess.getBorderRule()); 
-            pushFollow(FOLLOW_ruleBorder_in_entryRuleBorder4371);
+            pushFollow(FOLLOW_ruleBorder_in_entryRuleBorder4270);
             iv_ruleBorder=ruleBorder();
 
             state._fsp--;
 
              current =iv_ruleBorder; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBorder4381); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBorder4280); 
 
             }
 
@@ -4312,7 +4224,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleBorder"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1751:1: ruleBorder returns [EObject current=null] : ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1713:1: ruleBorder returns [EObject current=null] : ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) ) ;
     public final EObject ruleBorder() throws RecognitionException {
         EObject current = null;
 
@@ -4328,14 +4240,14 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1754:28: ( ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1755:1: ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1716:28: ( ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1717:1: ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1755:1: ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1755:2: () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1717:1: ( () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1717:2: () ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1755:2: ()
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1756:5: 
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1717:2: ()
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1718:5: 
             {
 
                     current = forceCreateModelElement(
@@ -4345,19 +4257,19 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1761:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1763:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1723:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1725:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1763:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1764:2: ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1725:1: ( ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1726:2: ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* )
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getBorderAccess().getUnorderedGroup_1());
             	
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1767:2: ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1768:3: ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1729:2: ( ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1730:3: ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )*
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1768:3: ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1730:3: ( ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) ) )*
             loop13:
             do {
                 int alt13=4;
@@ -4400,36 +4312,36 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 switch (alt13) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1770:4: ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1732:4: ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1770:4: ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1771:5: {...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1732:4: ({...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1733:5: {...}? => ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleBorder", "getUnorderedGroupHelper().canSelect(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 0)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1771:103: ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1772:6: ({...}? => ( (lv_size_2_0= ruleSize ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1733:103: ( ({...}? => ( (lv_size_2_0= ruleSize ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1734:6: ({...}? => ( (lv_size_2_0= ruleSize ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 0);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1775:6: ({...}? => ( (lv_size_2_0= ruleSize ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1775:7: {...}? => ( (lv_size_2_0= ruleSize ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1737:6: ({...}? => ( (lv_size_2_0= ruleSize ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1737:7: {...}? => ( (lv_size_2_0= ruleSize ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleBorder", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1775:16: ( (lv_size_2_0= ruleSize ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1776:1: (lv_size_2_0= ruleSize )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1737:16: ( (lv_size_2_0= ruleSize ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1738:1: (lv_size_2_0= ruleSize )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1776:1: (lv_size_2_0= ruleSize )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1777:3: lv_size_2_0= ruleSize
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1738:1: (lv_size_2_0= ruleSize )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1739:3: lv_size_2_0= ruleSize
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getBorderAccess().getSizeSizeParserRuleCall_1_0_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleSize_in_ruleBorder4481);
+            	    pushFollow(FOLLOW_ruleSize_in_ruleBorder4380);
             	    lv_size_2_0=ruleSize();
 
             	    state._fsp--;
@@ -4467,47 +4379,47 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	    }
             	    break;
             	case 2 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1800:4: ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1762:4: ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1800:4: ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1801:5: {...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1762:4: ({...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1763:5: {...}? => ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleBorder", "getUnorderedGroupHelper().canSelect(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 1)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1801:103: ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1802:6: ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1763:103: ( ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1764:6: ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 1);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:6: ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:7: {...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1767:6: ({...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1767:7: {...}? => (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleBorder", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:16: (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:18: otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1767:16: (otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1767:18: otherlv_3= 'color' otherlv_4= '=' ( (lv_color_5_0= ruleColor ) )
             	    {
-            	    otherlv_3=(Token)match(input,30,FOLLOW_30_in_ruleBorder4548); 
+            	    otherlv_3=(Token)match(input,30,FOLLOW_30_in_ruleBorder4447); 
 
             	        	newLeafNode(otherlv_3, grammarAccess.getBorderAccess().getColorKeyword_1_1_0());
             	        
-            	    otherlv_4=(Token)match(input,20,FOLLOW_20_in_ruleBorder4560); 
+            	    otherlv_4=(Token)match(input,20,FOLLOW_20_in_ruleBorder4459); 
 
             	        	newLeafNode(otherlv_4, grammarAccess.getBorderAccess().getEqualsSignKeyword_1_1_1());
             	        
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1813:1: ( (lv_color_5_0= ruleColor ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1814:1: (lv_color_5_0= ruleColor )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1775:1: ( (lv_color_5_0= ruleColor ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1776:1: (lv_color_5_0= ruleColor )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1814:1: (lv_color_5_0= ruleColor )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1815:3: lv_color_5_0= ruleColor
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1776:1: (lv_color_5_0= ruleColor )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1777:3: lv_color_5_0= ruleColor
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getBorderAccess().getColorColorParserRuleCall_1_1_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleColor_in_ruleBorder4581);
+            	    pushFollow(FOLLOW_ruleColor_in_ruleBorder4480);
             	    lv_color_5_0=ruleColor();
 
             	    state._fsp--;
@@ -4548,36 +4460,36 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	    }
             	    break;
             	case 3 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1838:4: ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1800:4: ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1838:4: ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1839:5: {...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1800:4: ({...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1801:5: {...}? => ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleBorder", "getUnorderedGroupHelper().canSelect(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 2)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1839:103: ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1840:6: ({...}? => ( (lv_style_6_0= ruleStyle ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1801:103: ( ({...}? => ( (lv_style_6_0= ruleStyle ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1802:6: ({...}? => ( (lv_style_6_0= ruleStyle ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getBorderAccess().getUnorderedGroup_1(), 2);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1843:6: ({...}? => ( (lv_style_6_0= ruleStyle ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1843:7: {...}? => ( (lv_style_6_0= ruleStyle ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:6: ({...}? => ( (lv_style_6_0= ruleStyle ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:7: {...}? => ( (lv_style_6_0= ruleStyle ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleBorder", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1843:16: ( (lv_style_6_0= ruleStyle ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1844:1: (lv_style_6_0= ruleStyle )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1805:16: ( (lv_style_6_0= ruleStyle ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1806:1: (lv_style_6_0= ruleStyle )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1844:1: (lv_style_6_0= ruleStyle )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1845:3: lv_style_6_0= ruleStyle
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1806:1: (lv_style_6_0= ruleStyle )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1807:3: lv_style_6_0= ruleStyle
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getBorderAccess().getStyleStyleParserRuleCall_1_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleStyle_in_ruleBorder4657);
+            	    pushFollow(FOLLOW_ruleStyle_in_ruleBorder4556);
             	    lv_style_6_0=ruleStyle();
 
             	    state._fsp--;
@@ -4653,7 +4565,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleBoxImage"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1883:1: entryRuleBoxImage returns [EObject current=null] : iv_ruleBoxImage= ruleBoxImage EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1845:1: entryRuleBoxImage returns [EObject current=null] : iv_ruleBoxImage= ruleBoxImage EOF ;
     public final EObject entryRuleBoxImage() throws RecognitionException {
         EObject current = null;
 
@@ -4661,17 +4573,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1884:2: (iv_ruleBoxImage= ruleBoxImage EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1885:2: iv_ruleBoxImage= ruleBoxImage EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1846:2: (iv_ruleBoxImage= ruleBoxImage EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1847:2: iv_ruleBoxImage= ruleBoxImage EOF
             {
              newCompositeNode(grammarAccess.getBoxImageRule()); 
-            pushFollow(FOLLOW_ruleBoxImage_in_entryRuleBoxImage4733);
+            pushFollow(FOLLOW_ruleBoxImage_in_entryRuleBoxImage4632);
             iv_ruleBoxImage=ruleBoxImage();
 
             state._fsp--;
 
              current =iv_ruleBoxImage; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBoxImage4743); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBoxImage4642); 
 
             }
 
@@ -4689,7 +4601,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleBoxImage"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1892:1: ruleBoxImage returns [EObject current=null] : ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1854:1: ruleBoxImage returns [EObject current=null] : ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' ) ;
     public final EObject ruleBoxImage() throws RecognitionException {
         EObject current = null;
 
@@ -4707,14 +4619,14 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1895:28: ( ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1896:1: ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1857:28: ( ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1858:1: ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1896:1: ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1896:2: () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1858:1: ( () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1858:2: () otherlv_1= 'image' otherlv_2= '{' ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) ) otherlv_10= '}'
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1896:2: ()
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1897:5: 
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1858:2: ()
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1859:5: 
             {
 
                     current = forceCreateModelElement(
@@ -4724,27 +4636,27 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleBoxImage4789); 
+            otherlv_1=(Token)match(input,18,FOLLOW_18_in_ruleBoxImage4688); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getBoxImageAccess().getImageKeyword_1());
                 
-            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleBoxImage4801); 
+            otherlv_2=(Token)match(input,16,FOLLOW_16_in_ruleBoxImage4700); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getBoxImageAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1910:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1912:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1872:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1874:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1912:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1913:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?)
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1874:1: ( ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1875:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?)
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getBoxImageAccess().getUnorderedGroup_3());
             	
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1916:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?)
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1917:3: ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1878:2: ( ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?)
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1879:3: ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+ {...}?
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1917:3: ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1879:3: ( ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) ) )+
             int cnt14=0;
             loop14:
             do {
@@ -4761,44 +4673,44 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1919:4: ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1881:4: ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1919:4: ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1920:5: {...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1881:4: ({...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1882:5: {...}? => ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getBoxImageAccess().getUnorderedGroup_3(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleBoxImage", "getUnorderedGroupHelper().canSelect(grammarAccess.getBoxImageAccess().getUnorderedGroup_3(), 0)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1920:105: ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1921:6: ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1882:105: ( ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1883:6: ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getBoxImageAccess().getUnorderedGroup_3(), 0);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:6: ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:7: {...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1886:6: ({...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1886:7: {...}? => (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleBoxImage", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:16: (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:18: otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1886:16: (otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1886:18: otherlv_4= 'uri' otherlv_5= '=' ( (lv_location_uri_6_0= RULE_STRING ) )
             	    {
-            	    otherlv_4=(Token)match(input,19,FOLLOW_19_in_ruleBoxImage4859); 
+            	    otherlv_4=(Token)match(input,19,FOLLOW_19_in_ruleBoxImage4758); 
 
             	        	newLeafNode(otherlv_4, grammarAccess.getBoxImageAccess().getUriKeyword_3_0_0());
             	        
-            	    otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleBoxImage4871); 
+            	    otherlv_5=(Token)match(input,20,FOLLOW_20_in_ruleBoxImage4770); 
 
             	        	newLeafNode(otherlv_5, grammarAccess.getBoxImageAccess().getEqualsSignKeyword_3_0_1());
             	        
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1932:1: ( (lv_location_uri_6_0= RULE_STRING ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1933:1: (lv_location_uri_6_0= RULE_STRING )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1894:1: ( (lv_location_uri_6_0= RULE_STRING ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1895:1: (lv_location_uri_6_0= RULE_STRING )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1933:1: (lv_location_uri_6_0= RULE_STRING )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1934:3: lv_location_uri_6_0= RULE_STRING
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1895:1: (lv_location_uri_6_0= RULE_STRING )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1896:3: lv_location_uri_6_0= RULE_STRING
             	    {
-            	    lv_location_uri_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleBoxImage4888); 
+            	    lv_location_uri_6_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleBoxImage4787); 
 
             	    			newLeafNode(lv_location_uri_6_0, grammarAccess.getBoxImageAccess().getLocation_uriSTRINGTerminalRuleCall_3_0_2_0()); 
             	    		
@@ -4837,47 +4749,47 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             	    }
             	    break;
             	case 2 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1957:4: ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1919:4: ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1957:4: ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1958:5: {...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1919:4: ({...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1920:5: {...}? => ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getBoxImageAccess().getUnorderedGroup_3(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleBoxImage", "getUnorderedGroupHelper().canSelect(grammarAccess.getBoxImageAccess().getUnorderedGroup_3(), 1)");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1958:105: ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1959:6: ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1920:105: ( ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1921:6: ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getBoxImageAccess().getUnorderedGroup_3(), 1);
             	    	 				
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1962:6: ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1962:7: {...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:6: ({...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:7: {...}? => (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleBoxImage", "true");
             	    }
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1962:16: (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1962:18: otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:16: (otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1924:18: otherlv_7= 'placement' otherlv_8= '=' ( (lv_placement_9_0= ruleBoxImageOrientation ) )
             	    {
-            	    otherlv_7=(Token)match(input,35,FOLLOW_35_in_ruleBoxImage4961); 
+            	    otherlv_7=(Token)match(input,35,FOLLOW_35_in_ruleBoxImage4860); 
 
             	        	newLeafNode(otherlv_7, grammarAccess.getBoxImageAccess().getPlacementKeyword_3_1_0());
             	        
-            	    otherlv_8=(Token)match(input,20,FOLLOW_20_in_ruleBoxImage4973); 
+            	    otherlv_8=(Token)match(input,20,FOLLOW_20_in_ruleBoxImage4872); 
 
             	        	newLeafNode(otherlv_8, grammarAccess.getBoxImageAccess().getEqualsSignKeyword_3_1_1());
             	        
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1970:1: ( (lv_placement_9_0= ruleBoxImageOrientation ) )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1971:1: (lv_placement_9_0= ruleBoxImageOrientation )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1932:1: ( (lv_placement_9_0= ruleBoxImageOrientation ) )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1933:1: (lv_placement_9_0= ruleBoxImageOrientation )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1971:1: (lv_placement_9_0= ruleBoxImageOrientation )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1972:3: lv_placement_9_0= ruleBoxImageOrientation
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1933:1: (lv_placement_9_0= ruleBoxImageOrientation )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1934:3: lv_placement_9_0= ruleBoxImageOrientation
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getBoxImageAccess().getPlacementBoxImageOrientationEnumRuleCall_3_1_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleBoxImageOrientation_in_ruleBoxImage4994);
+            	    pushFollow(FOLLOW_ruleBoxImageOrientation_in_ruleBoxImage4893);
             	    lv_placement_9_0=ruleBoxImageOrientation();
 
             	    state._fsp--;
@@ -4942,7 +4854,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleBoxImage5053); 
+            otherlv_10=(Token)match(input,17,FOLLOW_17_in_ruleBoxImage4952); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getBoxImageAccess().getRightCurlyBracketKeyword_4());
                 
@@ -4967,7 +4879,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleStyle"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2015:1: entryRuleStyle returns [EObject current=null] : iv_ruleStyle= ruleStyle EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1977:1: entryRuleStyle returns [EObject current=null] : iv_ruleStyle= ruleStyle EOF ;
     public final EObject entryRuleStyle() throws RecognitionException {
         EObject current = null;
 
@@ -4975,17 +4887,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2016:2: (iv_ruleStyle= ruleStyle EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2017:2: iv_ruleStyle= ruleStyle EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1978:2: (iv_ruleStyle= ruleStyle EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1979:2: iv_ruleStyle= ruleStyle EOF
             {
              newCompositeNode(grammarAccess.getStyleRule()); 
-            pushFollow(FOLLOW_ruleStyle_in_entryRuleStyle5089);
+            pushFollow(FOLLOW_ruleStyle_in_entryRuleStyle4988);
             iv_ruleStyle=ruleStyle();
 
             state._fsp--;
 
              current =iv_ruleStyle; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStyle5099); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStyle4998); 
 
             }
 
@@ -5003,7 +4915,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleStyle"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2024:1: ruleStyle returns [EObject current=null] : (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1986:1: ruleStyle returns [EObject current=null] : (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) ) ;
     public final EObject ruleStyle() throws RecognitionException {
         EObject current = null;
 
@@ -5015,30 +4927,30 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2027:28: ( (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2028:1: (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1989:28: ( (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1990:1: (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2028:1: (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2028:3: otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1990:1: (otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1990:3: otherlv_0= 'line-style' otherlv_1= '=' ( (lv_value_2_0= ruleLineStyle ) )
             {
-            otherlv_0=(Token)match(input,36,FOLLOW_36_in_ruleStyle5136); 
+            otherlv_0=(Token)match(input,36,FOLLOW_36_in_ruleStyle5035); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getStyleAccess().getLineStyleKeyword_0());
                 
-            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleStyle5148); 
+            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleStyle5047); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getStyleAccess().getEqualsSignKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2036:1: ( (lv_value_2_0= ruleLineStyle ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2037:1: (lv_value_2_0= ruleLineStyle )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1998:1: ( (lv_value_2_0= ruleLineStyle ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1999:1: (lv_value_2_0= ruleLineStyle )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2037:1: (lv_value_2_0= ruleLineStyle )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2038:3: lv_value_2_0= ruleLineStyle
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:1999:1: (lv_value_2_0= ruleLineStyle )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2000:3: lv_value_2_0= ruleLineStyle
             {
              
             	        newCompositeNode(grammarAccess.getStyleAccess().getValueLineStyleEnumRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleLineStyle_in_ruleStyle5169);
+            pushFollow(FOLLOW_ruleLineStyle_in_ruleStyle5068);
             lv_value_2_0=ruleLineStyle();
 
             state._fsp--;
@@ -5081,7 +4993,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleSize"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2062:1: entryRuleSize returns [EObject current=null] : iv_ruleSize= ruleSize EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2024:1: entryRuleSize returns [EObject current=null] : iv_ruleSize= ruleSize EOF ;
     public final EObject entryRuleSize() throws RecognitionException {
         EObject current = null;
 
@@ -5089,17 +5001,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2063:2: (iv_ruleSize= ruleSize EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2064:2: iv_ruleSize= ruleSize EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2025:2: (iv_ruleSize= ruleSize EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2026:2: iv_ruleSize= ruleSize EOF
             {
              newCompositeNode(grammarAccess.getSizeRule()); 
-            pushFollow(FOLLOW_ruleSize_in_entryRuleSize5205);
+            pushFollow(FOLLOW_ruleSize_in_entryRuleSize5104);
             iv_ruleSize=ruleSize();
 
             state._fsp--;
 
              current =iv_ruleSize; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSize5215); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSize5114); 
 
             }
 
@@ -5117,7 +5029,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleSize"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2071:1: ruleSize returns [EObject current=null] : (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2033:1: ruleSize returns [EObject current=null] : (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) ;
     public final EObject ruleSize() throws RecognitionException {
         EObject current = null;
 
@@ -5128,27 +5040,27 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2074:28: ( (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2075:1: (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2036:28: ( (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2037:1: (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2075:1: (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2075:3: otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2037:1: (otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2037:3: otherlv_0= 'size' otherlv_1= '=' ( (lv_value_2_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruleSize5252); 
+            otherlv_0=(Token)match(input,37,FOLLOW_37_in_ruleSize5151); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getSizeAccess().getSizeKeyword_0());
                 
-            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleSize5264); 
+            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleSize5163); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSizeAccess().getEqualsSignKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2083:1: ( (lv_value_2_0= RULE_INT ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2084:1: (lv_value_2_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2045:1: ( (lv_value_2_0= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2046:1: (lv_value_2_0= RULE_INT )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2084:1: (lv_value_2_0= RULE_INT )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2085:3: lv_value_2_0= RULE_INT
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2046:1: (lv_value_2_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2047:3: lv_value_2_0= RULE_INT
             {
-            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSize5281); 
+            lv_value_2_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSize5180); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getSizeAccess().getValueINTTerminalRuleCall_2_0()); 
             		
@@ -5189,7 +5101,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleDirection"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2109:1: entryRuleDirection returns [EObject current=null] : iv_ruleDirection= ruleDirection EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2071:1: entryRuleDirection returns [EObject current=null] : iv_ruleDirection= ruleDirection EOF ;
     public final EObject entryRuleDirection() throws RecognitionException {
         EObject current = null;
 
@@ -5197,17 +5109,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2110:2: (iv_ruleDirection= ruleDirection EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2111:2: iv_ruleDirection= ruleDirection EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2072:2: (iv_ruleDirection= ruleDirection EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2073:2: iv_ruleDirection= ruleDirection EOF
             {
              newCompositeNode(grammarAccess.getDirectionRule()); 
-            pushFollow(FOLLOW_ruleDirection_in_entryRuleDirection5322);
+            pushFollow(FOLLOW_ruleDirection_in_entryRuleDirection5221);
             iv_ruleDirection=ruleDirection();
 
             state._fsp--;
 
              current =iv_ruleDirection; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDirection5332); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDirection5231); 
 
             }
 
@@ -5225,7 +5137,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleDirection"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2118:1: ruleDirection returns [EObject current=null] : (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2080:1: ruleDirection returns [EObject current=null] : (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) ) ;
     public final EObject ruleDirection() throws RecognitionException {
         EObject current = null;
 
@@ -5237,30 +5149,30 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2121:28: ( (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2122:1: (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2083:28: ( (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2084:1: (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2122:1: (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2122:3: otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2084:1: (otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2084:3: otherlv_0= 'direction' otherlv_1= '=' ( (lv_value_2_0= ruleDirections ) )
             {
-            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleDirection5369); 
+            otherlv_0=(Token)match(input,38,FOLLOW_38_in_ruleDirection5268); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getDirectionAccess().getDirectionKeyword_0());
                 
-            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleDirection5381); 
+            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleDirection5280); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getDirectionAccess().getEqualsSignKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2130:1: ( (lv_value_2_0= ruleDirections ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2131:1: (lv_value_2_0= ruleDirections )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2092:1: ( (lv_value_2_0= ruleDirections ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2093:1: (lv_value_2_0= ruleDirections )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2131:1: (lv_value_2_0= ruleDirections )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2132:3: lv_value_2_0= ruleDirections
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2093:1: (lv_value_2_0= ruleDirections )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2094:3: lv_value_2_0= ruleDirections
             {
              
             	        newCompositeNode(grammarAccess.getDirectionAccess().getValueDirectionsEnumRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleDirections_in_ruleDirection5402);
+            pushFollow(FOLLOW_ruleDirections_in_ruleDirection5301);
             lv_value_2_0=ruleDirections();
 
             state._fsp--;
@@ -5303,7 +5215,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleMargin"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2156:1: entryRuleMargin returns [EObject current=null] : iv_ruleMargin= ruleMargin EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2118:1: entryRuleMargin returns [EObject current=null] : iv_ruleMargin= ruleMargin EOF ;
     public final EObject entryRuleMargin() throws RecognitionException {
         EObject current = null;
 
@@ -5311,17 +5223,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2157:2: (iv_ruleMargin= ruleMargin EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2158:2: iv_ruleMargin= ruleMargin EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2119:2: (iv_ruleMargin= ruleMargin EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2120:2: iv_ruleMargin= ruleMargin EOF
             {
              newCompositeNode(grammarAccess.getMarginRule()); 
-            pushFollow(FOLLOW_ruleMargin_in_entryRuleMargin5438);
+            pushFollow(FOLLOW_ruleMargin_in_entryRuleMargin5337);
             iv_ruleMargin=ruleMargin();
 
             state._fsp--;
 
              current =iv_ruleMargin; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMargin5448); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMargin5347); 
 
             }
 
@@ -5339,7 +5251,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleMargin"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2165:1: ruleMargin returns [EObject current=null] : (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2127:1: ruleMargin returns [EObject current=null] : (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) ) ;
     public final EObject ruleMargin() throws RecognitionException {
         EObject current = null;
 
@@ -5351,30 +5263,30 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2168:28: ( (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2169:1: (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2130:28: ( (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2131:1: (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2169:1: (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2169:3: otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2131:1: (otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2131:3: otherlv_0= 'margin' otherlv_1= '=' ( (lv_value_2_0= ruleSignedInteger ) )
             {
-            otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleMargin5485); 
+            otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleMargin5384); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getMarginAccess().getMarginKeyword_0());
                 
-            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleMargin5497); 
+            otherlv_1=(Token)match(input,20,FOLLOW_20_in_ruleMargin5396); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getMarginAccess().getEqualsSignKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2177:1: ( (lv_value_2_0= ruleSignedInteger ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:1: (lv_value_2_0= ruleSignedInteger )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2139:1: ( (lv_value_2_0= ruleSignedInteger ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2140:1: (lv_value_2_0= ruleSignedInteger )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:1: (lv_value_2_0= ruleSignedInteger )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2179:3: lv_value_2_0= ruleSignedInteger
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2140:1: (lv_value_2_0= ruleSignedInteger )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2141:3: lv_value_2_0= ruleSignedInteger
             {
              
             	        newCompositeNode(grammarAccess.getMarginAccess().getValueSignedIntegerParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleSignedInteger_in_ruleMargin5518);
+            pushFollow(FOLLOW_ruleSignedInteger_in_ruleMargin5417);
             lv_value_2_0=ruleSignedInteger();
 
             state._fsp--;
@@ -5417,7 +5329,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleColor"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2205:1: entryRuleColor returns [EObject current=null] : iv_ruleColor= ruleColor EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2165:1: entryRuleColor returns [EObject current=null] : iv_ruleColor= ruleColor EOF ;
     public final EObject entryRuleColor() throws RecognitionException {
         EObject current = null;
 
@@ -5425,17 +5337,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2206:2: (iv_ruleColor= ruleColor EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2207:2: iv_ruleColor= ruleColor EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2166:2: (iv_ruleColor= ruleColor EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2167:2: iv_ruleColor= ruleColor EOF
             {
              newCompositeNode(grammarAccess.getColorRule()); 
-            pushFollow(FOLLOW_ruleColor_in_entryRuleColor5556);
+            pushFollow(FOLLOW_ruleColor_in_entryRuleColor5453);
             iv_ruleColor=ruleColor();
 
             state._fsp--;
 
              current =iv_ruleColor; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleColor5566); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleColor5463); 
 
             }
 
@@ -5453,7 +5365,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleColor"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2214:1: ruleColor returns [EObject current=null] : ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2174:1: ruleColor returns [EObject current=null] : ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) ) ;
     public final EObject ruleColor() throws RecognitionException {
         EObject current = null;
 
@@ -5465,10 +5377,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2217:28: ( ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2218:1: ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2177:28: ( ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:1: ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2218:1: ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:1: ( ( () ( (lv_value_1_0= ruleColorConstant ) ) ) | ( (lv_concrete_2_0= ruleConcreteColor ) ) )
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -5486,13 +5398,13 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             }
             switch (alt15) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2218:2: ( () ( (lv_value_1_0= ruleColorConstant ) ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:2: ( () ( (lv_value_1_0= ruleColorConstant ) ) )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2218:2: ( () ( (lv_value_1_0= ruleColorConstant ) ) )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2218:3: () ( (lv_value_1_0= ruleColorConstant ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:2: ( () ( (lv_value_1_0= ruleColorConstant ) ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:3: () ( (lv_value_1_0= ruleColorConstant ) )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2218:3: ()
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2219:5: 
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2178:3: ()
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2179:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -5502,16 +5414,16 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                     }
 
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2224:2: ( (lv_value_1_0= ruleColorConstant ) )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2225:1: (lv_value_1_0= ruleColorConstant )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2184:2: ( (lv_value_1_0= ruleColorConstant ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2185:1: (lv_value_1_0= ruleColorConstant )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2225:1: (lv_value_1_0= ruleColorConstant )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2226:3: lv_value_1_0= ruleColorConstant
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2185:1: (lv_value_1_0= ruleColorConstant )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2186:3: lv_value_1_0= ruleColorConstant
                     {
                      
                     	        newCompositeNode(grammarAccess.getColorAccess().getValueColorConstantParserRuleCall_0_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleColorConstant_in_ruleColor5622);
+                    pushFollow(FOLLOW_ruleColorConstant_in_ruleColor5519);
                     lv_value_1_0=ruleColorConstant();
 
                     state._fsp--;
@@ -5540,18 +5452,18 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2243:6: ( (lv_concrete_2_0= ruleConcreteColor ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2203:6: ( (lv_concrete_2_0= ruleConcreteColor ) )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2243:6: ( (lv_concrete_2_0= ruleConcreteColor ) )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2244:1: (lv_concrete_2_0= ruleConcreteColor )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2203:6: ( (lv_concrete_2_0= ruleConcreteColor ) )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2204:1: (lv_concrete_2_0= ruleConcreteColor )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2244:1: (lv_concrete_2_0= ruleConcreteColor )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2245:3: lv_concrete_2_0= ruleConcreteColor
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2204:1: (lv_concrete_2_0= ruleConcreteColor )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2205:3: lv_concrete_2_0= ruleConcreteColor
                     {
                      
                     	        newCompositeNode(grammarAccess.getColorAccess().getConcreteConcreteColorParserRuleCall_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleConcreteColor_in_ruleColor5650);
+                    pushFollow(FOLLOW_ruleConcreteColor_in_ruleColor5547);
                     lv_concrete_2_0=ruleConcreteColor();
 
                     state._fsp--;
@@ -5597,7 +5509,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleConcreteColor"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2269:1: entryRuleConcreteColor returns [EObject current=null] : iv_ruleConcreteColor= ruleConcreteColor EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2229:1: entryRuleConcreteColor returns [EObject current=null] : iv_ruleConcreteColor= ruleConcreteColor EOF ;
     public final EObject entryRuleConcreteColor() throws RecognitionException {
         EObject current = null;
 
@@ -5605,17 +5517,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2270:2: (iv_ruleConcreteColor= ruleConcreteColor EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2271:2: iv_ruleConcreteColor= ruleConcreteColor EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2230:2: (iv_ruleConcreteColor= ruleConcreteColor EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2231:2: iv_ruleConcreteColor= ruleConcreteColor EOF
             {
              newCompositeNode(grammarAccess.getConcreteColorRule()); 
-            pushFollow(FOLLOW_ruleConcreteColor_in_entryRuleConcreteColor5686);
+            pushFollow(FOLLOW_ruleConcreteColor_in_entryRuleConcreteColor5583);
             iv_ruleConcreteColor=ruleConcreteColor();
 
             state._fsp--;
 
              current =iv_ruleConcreteColor; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleConcreteColor5696); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleConcreteColor5593); 
 
             }
 
@@ -5633,7 +5545,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleConcreteColor"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2278:1: ruleConcreteColor returns [EObject current=null] : (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2238:1: ruleConcreteColor returns [EObject current=null] : (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor ) ;
     public final EObject ruleConcreteColor() throws RecognitionException {
         EObject current = null;
 
@@ -5645,10 +5557,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2281:28: ( (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2282:1: (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2241:28: ( (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2242:1: (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2282:1: (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2242:1: (this_RGB_0= ruleRGB | this_HexColor_1= ruleHexColor )
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -5666,12 +5578,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             }
             switch (alt16) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2283:5: this_RGB_0= ruleRGB
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2243:5: this_RGB_0= ruleRGB
                     {
                      
                             newCompositeNode(grammarAccess.getConcreteColorAccess().getRGBParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleRGB_in_ruleConcreteColor5743);
+                    pushFollow(FOLLOW_ruleRGB_in_ruleConcreteColor5640);
                     this_RGB_0=ruleRGB();
 
                     state._fsp--;
@@ -5684,12 +5596,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2293:5: this_HexColor_1= ruleHexColor
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2253:5: this_HexColor_1= ruleHexColor
                     {
                      
                             newCompositeNode(grammarAccess.getConcreteColorAccess().getHexColorParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleHexColor_in_ruleConcreteColor5770);
+                    pushFollow(FOLLOW_ruleHexColor_in_ruleConcreteColor5667);
                     this_HexColor_1=ruleHexColor();
 
                     state._fsp--;
@@ -5722,7 +5634,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleRGB"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2309:1: entryRuleRGB returns [EObject current=null] : iv_ruleRGB= ruleRGB EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2269:1: entryRuleRGB returns [EObject current=null] : iv_ruleRGB= ruleRGB EOF ;
     public final EObject entryRuleRGB() throws RecognitionException {
         EObject current = null;
 
@@ -5730,17 +5642,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2310:2: (iv_ruleRGB= ruleRGB EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2311:2: iv_ruleRGB= ruleRGB EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2270:2: (iv_ruleRGB= ruleRGB EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2271:2: iv_ruleRGB= ruleRGB EOF
             {
              newCompositeNode(grammarAccess.getRGBRule()); 
-            pushFollow(FOLLOW_ruleRGB_in_entryRuleRGB5805);
+            pushFollow(FOLLOW_ruleRGB_in_entryRuleRGB5702);
             iv_ruleRGB=ruleRGB();
 
             state._fsp--;
 
              current =iv_ruleRGB; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRGB5815); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRGB5712); 
 
             }
 
@@ -5758,7 +5670,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleRGB"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2318:1: ruleRGB returns [EObject current=null] : (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2278:1: ruleRGB returns [EObject current=null] : (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' ) ;
     public final EObject ruleRGB() throws RecognitionException {
         EObject current = null;
 
@@ -5774,27 +5686,27 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2321:28: ( (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2322:1: (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2281:28: ( (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2282:1: (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2322:1: (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2322:3: otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2282:1: (otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2282:3: otherlv_0= 'RGB' otherlv_1= '(' ( (lv_red_2_0= RULE_INT ) ) otherlv_3= ',' ( (lv_green_4_0= RULE_INT ) ) otherlv_5= ',' ( (lv_blue_6_0= RULE_INT ) ) otherlv_7= ')'
             {
-            otherlv_0=(Token)match(input,40,FOLLOW_40_in_ruleRGB5852); 
+            otherlv_0=(Token)match(input,40,FOLLOW_40_in_ruleRGB5749); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRGBAccess().getRGBKeyword_0());
                 
-            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleRGB5864); 
+            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleRGB5761); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getRGBAccess().getLeftParenthesisKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2330:1: ( (lv_red_2_0= RULE_INT ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2331:1: (lv_red_2_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2290:1: ( (lv_red_2_0= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2291:1: (lv_red_2_0= RULE_INT )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2331:1: (lv_red_2_0= RULE_INT )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2332:3: lv_red_2_0= RULE_INT
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2291:1: (lv_red_2_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2292:3: lv_red_2_0= RULE_INT
             {
-            lv_red_2_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleRGB5881); 
+            lv_red_2_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleRGB5778); 
 
             			newLeafNode(lv_red_2_0, grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0()); 
             		
@@ -5814,17 +5726,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_3=(Token)match(input,42,FOLLOW_42_in_ruleRGB5898); 
+            otherlv_3=(Token)match(input,42,FOLLOW_42_in_ruleRGB5795); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRGBAccess().getCommaKeyword_3());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2352:1: ( (lv_green_4_0= RULE_INT ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2353:1: (lv_green_4_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2312:1: ( (lv_green_4_0= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2313:1: (lv_green_4_0= RULE_INT )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2353:1: (lv_green_4_0= RULE_INT )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2354:3: lv_green_4_0= RULE_INT
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2313:1: (lv_green_4_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2314:3: lv_green_4_0= RULE_INT
             {
-            lv_green_4_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleRGB5915); 
+            lv_green_4_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleRGB5812); 
 
             			newLeafNode(lv_green_4_0, grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0()); 
             		
@@ -5844,17 +5756,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_5=(Token)match(input,42,FOLLOW_42_in_ruleRGB5932); 
+            otherlv_5=(Token)match(input,42,FOLLOW_42_in_ruleRGB5829); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRGBAccess().getCommaKeyword_5());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2374:1: ( (lv_blue_6_0= RULE_INT ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2375:1: (lv_blue_6_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2334:1: ( (lv_blue_6_0= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2335:1: (lv_blue_6_0= RULE_INT )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2375:1: (lv_blue_6_0= RULE_INT )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2376:3: lv_blue_6_0= RULE_INT
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2335:1: (lv_blue_6_0= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2336:3: lv_blue_6_0= RULE_INT
             {
-            lv_blue_6_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleRGB5949); 
+            lv_blue_6_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleRGB5846); 
 
             			newLeafNode(lv_blue_6_0, grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0()); 
             		
@@ -5874,7 +5786,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_7=(Token)match(input,43,FOLLOW_43_in_ruleRGB5966); 
+            otherlv_7=(Token)match(input,43,FOLLOW_43_in_ruleRGB5863); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getRGBAccess().getRightParenthesisKeyword_7());
                 
@@ -5899,7 +5811,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleHexColor"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2404:1: entryRuleHexColor returns [EObject current=null] : iv_ruleHexColor= ruleHexColor EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2364:1: entryRuleHexColor returns [EObject current=null] : iv_ruleHexColor= ruleHexColor EOF ;
     public final EObject entryRuleHexColor() throws RecognitionException {
         EObject current = null;
 
@@ -5907,17 +5819,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2405:2: (iv_ruleHexColor= ruleHexColor EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2406:2: iv_ruleHexColor= ruleHexColor EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2365:2: (iv_ruleHexColor= ruleHexColor EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2366:2: iv_ruleHexColor= ruleHexColor EOF
             {
              newCompositeNode(grammarAccess.getHexColorRule()); 
-            pushFollow(FOLLOW_ruleHexColor_in_entryRuleHexColor6002);
+            pushFollow(FOLLOW_ruleHexColor_in_entryRuleHexColor5899);
             iv_ruleHexColor=ruleHexColor();
 
             state._fsp--;
 
              current =iv_ruleHexColor; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleHexColor6012); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleHexColor5909); 
 
             }
 
@@ -5935,7 +5847,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleHexColor"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2413:1: ruleHexColor returns [EObject current=null] : ( (lv_hexCode_0_0= RULE_HEX_COLOR ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2373:1: ruleHexColor returns [EObject current=null] : ( (lv_hexCode_0_0= RULE_HEX_COLOR ) ) ;
     public final EObject ruleHexColor() throws RecognitionException {
         EObject current = null;
 
@@ -5944,16 +5856,16 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2416:28: ( ( (lv_hexCode_0_0= RULE_HEX_COLOR ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2417:1: ( (lv_hexCode_0_0= RULE_HEX_COLOR ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2376:28: ( ( (lv_hexCode_0_0= RULE_HEX_COLOR ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2377:1: ( (lv_hexCode_0_0= RULE_HEX_COLOR ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2417:1: ( (lv_hexCode_0_0= RULE_HEX_COLOR ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2418:1: (lv_hexCode_0_0= RULE_HEX_COLOR )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2377:1: ( (lv_hexCode_0_0= RULE_HEX_COLOR ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2378:1: (lv_hexCode_0_0= RULE_HEX_COLOR )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2418:1: (lv_hexCode_0_0= RULE_HEX_COLOR )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2419:3: lv_hexCode_0_0= RULE_HEX_COLOR
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2378:1: (lv_hexCode_0_0= RULE_HEX_COLOR )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2379:3: lv_hexCode_0_0= RULE_HEX_COLOR
             {
-            lv_hexCode_0_0=(Token)match(input,RULE_HEX_COLOR,FOLLOW_RULE_HEX_COLOR_in_ruleHexColor6053); 
+            lv_hexCode_0_0=(Token)match(input,RULE_HEX_COLOR,FOLLOW_RULE_HEX_COLOR_in_ruleHexColor5950); 
 
             			newLeafNode(lv_hexCode_0_0, grammarAccess.getHexColorAccess().getHexCodeHEX_COLORTerminalRuleCall_0()); 
             		
@@ -5991,7 +5903,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleColorConstant"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2443:1: entryRuleColorConstant returns [EObject current=null] : iv_ruleColorConstant= ruleColorConstant EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2403:1: entryRuleColorConstant returns [EObject current=null] : iv_ruleColorConstant= ruleColorConstant EOF ;
     public final EObject entryRuleColorConstant() throws RecognitionException {
         EObject current = null;
 
@@ -5999,17 +5911,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2444:2: (iv_ruleColorConstant= ruleColorConstant EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2445:2: iv_ruleColorConstant= ruleColorConstant EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2404:2: (iv_ruleColorConstant= ruleColorConstant EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2405:2: iv_ruleColorConstant= ruleColorConstant EOF
             {
              newCompositeNode(grammarAccess.getColorConstantRule()); 
-            pushFollow(FOLLOW_ruleColorConstant_in_entryRuleColorConstant6093);
+            pushFollow(FOLLOW_ruleColorConstant_in_entryRuleColorConstant5990);
             iv_ruleColorConstant=ruleColorConstant();
 
             state._fsp--;
 
              current =iv_ruleColorConstant; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleColorConstant6103); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleColorConstant6000); 
 
             }
 
@@ -6027,7 +5939,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleColorConstant"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2452:1: ruleColorConstant returns [EObject current=null] : ( (lv_value_0_0= ruleColors ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2412:1: ruleColorConstant returns [EObject current=null] : ( (lv_value_0_0= ruleColors ) ) ;
     public final EObject ruleColorConstant() throws RecognitionException {
         EObject current = null;
 
@@ -6037,19 +5949,19 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2455:28: ( ( (lv_value_0_0= ruleColors ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:1: ( (lv_value_0_0= ruleColors ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2415:28: ( ( (lv_value_0_0= ruleColors ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2416:1: ( (lv_value_0_0= ruleColors ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2456:1: ( (lv_value_0_0= ruleColors ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2457:1: (lv_value_0_0= ruleColors )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2416:1: ( (lv_value_0_0= ruleColors ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2417:1: (lv_value_0_0= ruleColors )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2457:1: (lv_value_0_0= ruleColors )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2458:3: lv_value_0_0= ruleColors
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2417:1: (lv_value_0_0= ruleColors )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2418:3: lv_value_0_0= ruleColors
             {
              
             	        newCompositeNode(grammarAccess.getColorConstantAccess().getValueColorsEnumRuleCall_0()); 
             	    
-            pushFollow(FOLLOW_ruleColors_in_ruleColorConstant6148);
+            pushFollow(FOLLOW_ruleColors_in_ruleColorConstant6045);
             lv_value_0_0=ruleColors();
 
             state._fsp--;
@@ -6089,7 +6001,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleActivation"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2482:1: entryRuleActivation returns [EObject current=null] : iv_ruleActivation= ruleActivation EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2442:1: entryRuleActivation returns [EObject current=null] : iv_ruleActivation= ruleActivation EOF ;
     public final EObject entryRuleActivation() throws RecognitionException {
         EObject current = null;
 
@@ -6097,17 +6009,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2483:2: (iv_ruleActivation= ruleActivation EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2484:2: iv_ruleActivation= ruleActivation EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2443:2: (iv_ruleActivation= ruleActivation EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2444:2: iv_ruleActivation= ruleActivation EOF
             {
              newCompositeNode(grammarAccess.getActivationRule()); 
-            pushFollow(FOLLOW_ruleActivation_in_entryRuleActivation6183);
+            pushFollow(FOLLOW_ruleActivation_in_entryRuleActivation6080);
             iv_ruleActivation=ruleActivation();
 
             state._fsp--;
 
              current =iv_ruleActivation; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleActivation6193); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleActivation6090); 
 
             }
 
@@ -6125,7 +6037,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleActivation"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2491:1: ruleActivation returns [EObject current=null] : (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2451:1: ruleActivation returns [EObject current=null] : (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) ) ;
     public final EObject ruleActivation() throws RecognitionException {
         EObject current = null;
 
@@ -6136,26 +6048,26 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2494:28: ( (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2495:1: (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2454:28: ( (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2455:1: (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2495:1: (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2495:3: otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2455:1: (otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2455:3: otherlv_0= 'active when' ( (lv_condition_1_0= ruleAbstractCondition ) )
             {
-            otherlv_0=(Token)match(input,44,FOLLOW_44_in_ruleActivation6230); 
+            otherlv_0=(Token)match(input,44,FOLLOW_44_in_ruleActivation6127); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getActivationAccess().getActiveWhenKeyword_0());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2499:1: ( (lv_condition_1_0= ruleAbstractCondition ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2500:1: (lv_condition_1_0= ruleAbstractCondition )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2459:1: ( (lv_condition_1_0= ruleAbstractCondition ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2460:1: (lv_condition_1_0= ruleAbstractCondition )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2500:1: (lv_condition_1_0= ruleAbstractCondition )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2501:3: lv_condition_1_0= ruleAbstractCondition
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2460:1: (lv_condition_1_0= ruleAbstractCondition )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2461:3: lv_condition_1_0= ruleAbstractCondition
             {
              
             	        newCompositeNode(grammarAccess.getActivationAccess().getConditionAbstractConditionParserRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleAbstractCondition_in_ruleActivation6251);
+            pushFollow(FOLLOW_ruleAbstractCondition_in_ruleActivation6148);
             lv_condition_1_0=ruleAbstractCondition();
 
             state._fsp--;
@@ -6198,7 +6110,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleAbstractCondition"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2525:1: entryRuleAbstractCondition returns [EObject current=null] : iv_ruleAbstractCondition= ruleAbstractCondition EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2485:1: entryRuleAbstractCondition returns [EObject current=null] : iv_ruleAbstractCondition= ruleAbstractCondition EOF ;
     public final EObject entryRuleAbstractCondition() throws RecognitionException {
         EObject current = null;
 
@@ -6206,17 +6118,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2526:2: (iv_ruleAbstractCondition= ruleAbstractCondition EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2527:2: iv_ruleAbstractCondition= ruleAbstractCondition EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2486:2: (iv_ruleAbstractCondition= ruleAbstractCondition EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2487:2: iv_ruleAbstractCondition= ruleAbstractCondition EOF
             {
              newCompositeNode(grammarAccess.getAbstractConditionRule()); 
-            pushFollow(FOLLOW_ruleAbstractCondition_in_entryRuleAbstractCondition6287);
+            pushFollow(FOLLOW_ruleAbstractCondition_in_entryRuleAbstractCondition6184);
             iv_ruleAbstractCondition=ruleAbstractCondition();
 
             state._fsp--;
 
              current =iv_ruleAbstractCondition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAbstractCondition6297); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbstractCondition6194); 
 
             }
 
@@ -6234,7 +6146,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleAbstractCondition"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2534:1: ruleAbstractCondition returns [EObject current=null] : (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2494:1: ruleAbstractCondition returns [EObject current=null] : (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression ) ;
     public final EObject ruleAbstractCondition() throws RecognitionException {
         EObject current = null;
 
@@ -6248,10 +6160,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2537:28: ( (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2538:1: (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2497:28: ( (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2498:1: (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2538:1: (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2498:1: (this_Condition_0= ruleCondition | this_CompositeCondition_1= ruleCompositeCondition | this_OclExpression_2= ruleOclExpression )
             int alt17=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -6279,12 +6191,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt17) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2539:5: this_Condition_0= ruleCondition
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2499:5: this_Condition_0= ruleCondition
                     {
                      
                             newCompositeNode(grammarAccess.getAbstractConditionAccess().getConditionParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleCondition_in_ruleAbstractCondition6344);
+                    pushFollow(FOLLOW_ruleCondition_in_ruleAbstractCondition6241);
                     this_Condition_0=ruleCondition();
 
                     state._fsp--;
@@ -6297,12 +6209,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2549:5: this_CompositeCondition_1= ruleCompositeCondition
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2509:5: this_CompositeCondition_1= ruleCompositeCondition
                     {
                      
                             newCompositeNode(grammarAccess.getAbstractConditionAccess().getCompositeConditionParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleCompositeCondition_in_ruleAbstractCondition6371);
+                    pushFollow(FOLLOW_ruleCompositeCondition_in_ruleAbstractCondition6268);
                     this_CompositeCondition_1=ruleCompositeCondition();
 
                     state._fsp--;
@@ -6315,12 +6227,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2559:5: this_OclExpression_2= ruleOclExpression
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2519:5: this_OclExpression_2= ruleOclExpression
                     {
                      
                             newCompositeNode(grammarAccess.getAbstractConditionAccess().getOclExpressionParserRuleCall_2()); 
                         
-                    pushFollow(FOLLOW_ruleOclExpression_in_ruleAbstractCondition6398);
+                    pushFollow(FOLLOW_ruleOclExpression_in_ruleAbstractCondition6295);
                     this_OclExpression_2=ruleOclExpression();
 
                     state._fsp--;
@@ -6353,7 +6265,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleOclExpression"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2575:1: entryRuleOclExpression returns [EObject current=null] : iv_ruleOclExpression= ruleOclExpression EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2535:1: entryRuleOclExpression returns [EObject current=null] : iv_ruleOclExpression= ruleOclExpression EOF ;
     public final EObject entryRuleOclExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6361,17 +6273,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2576:2: (iv_ruleOclExpression= ruleOclExpression EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2577:2: iv_ruleOclExpression= ruleOclExpression EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2536:2: (iv_ruleOclExpression= ruleOclExpression EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2537:2: iv_ruleOclExpression= ruleOclExpression EOF
             {
              newCompositeNode(grammarAccess.getOclExpressionRule()); 
-            pushFollow(FOLLOW_ruleOclExpression_in_entryRuleOclExpression6433);
+            pushFollow(FOLLOW_ruleOclExpression_in_entryRuleOclExpression6330);
             iv_ruleOclExpression=ruleOclExpression();
 
             state._fsp--;
 
              current =iv_ruleOclExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleOclExpression6443); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleOclExpression6340); 
 
             }
 
@@ -6389,7 +6301,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleOclExpression"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2584:1: ruleOclExpression returns [EObject current=null] : (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2544:1: ruleOclExpression returns [EObject current=null] : (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' ) ;
     public final EObject ruleOclExpression() throws RecognitionException {
         EObject current = null;
 
@@ -6401,27 +6313,27 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2587:28: ( (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2588:1: (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2547:28: ( (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2548:1: (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2588:1: (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2588:3: otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2548:1: (otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2548:3: otherlv_0= 'ocl' otherlv_1= '(' ( (lv_expression_2_0= RULE_STRING ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,45,FOLLOW_45_in_ruleOclExpression6480); 
+            otherlv_0=(Token)match(input,45,FOLLOW_45_in_ruleOclExpression6377); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getOclExpressionAccess().getOclKeyword_0());
                 
-            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleOclExpression6492); 
+            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleOclExpression6389); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getOclExpressionAccess().getLeftParenthesisKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2596:1: ( (lv_expression_2_0= RULE_STRING ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2597:1: (lv_expression_2_0= RULE_STRING )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2556:1: ( (lv_expression_2_0= RULE_STRING ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2557:1: (lv_expression_2_0= RULE_STRING )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2597:1: (lv_expression_2_0= RULE_STRING )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2598:3: lv_expression_2_0= RULE_STRING
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2557:1: (lv_expression_2_0= RULE_STRING )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2558:3: lv_expression_2_0= RULE_STRING
             {
-            lv_expression_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleOclExpression6509); 
+            lv_expression_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleOclExpression6406); 
 
             			newLeafNode(lv_expression_2_0, grammarAccess.getOclExpressionAccess().getExpressionSTRINGTerminalRuleCall_2_0()); 
             		
@@ -6441,7 +6353,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_3=(Token)match(input,43,FOLLOW_43_in_ruleOclExpression6526); 
+            otherlv_3=(Token)match(input,43,FOLLOW_43_in_ruleOclExpression6423); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getOclExpressionAccess().getRightParenthesisKeyword_3());
                 
@@ -6466,7 +6378,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleCondition"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2626:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2586:1: entryRuleCondition returns [EObject current=null] : iv_ruleCondition= ruleCondition EOF ;
     public final EObject entryRuleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -6474,17 +6386,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2627:2: (iv_ruleCondition= ruleCondition EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2628:2: iv_ruleCondition= ruleCondition EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2587:2: (iv_ruleCondition= ruleCondition EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2588:2: iv_ruleCondition= ruleCondition EOF
             {
              newCompositeNode(grammarAccess.getConditionRule()); 
-            pushFollow(FOLLOW_ruleCondition_in_entryRuleCondition6562);
+            pushFollow(FOLLOW_ruleCondition_in_entryRuleCondition6459);
             iv_ruleCondition=ruleCondition();
 
             state._fsp--;
 
              current =iv_ruleCondition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCondition6572); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCondition6469); 
 
             }
 
@@ -6502,7 +6414,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleCondition"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2635:1: ruleCondition returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2595:1: ruleCondition returns [EObject current=null] : ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) ) ;
     public final EObject ruleCondition() throws RecognitionException {
         EObject current = null;
 
@@ -6514,17 +6426,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2638:28: ( ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2639:1: ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2598:28: ( ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2599:1: ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2639:1: ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2639:2: ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2599:1: ( ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2599:2: ( ( ruleQualifiedName ) ) ( (lv_operator_1_0= ruleComparisonOperator ) ) ( (lv_value_2_0= ruleType ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2639:2: ( ( ruleQualifiedName ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2640:1: ( ruleQualifiedName )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2599:2: ( ( ruleQualifiedName ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2600:1: ( ruleQualifiedName )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2640:1: ( ruleQualifiedName )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2641:3: ruleQualifiedName
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2600:1: ( ruleQualifiedName )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2601:3: ruleQualifiedName
             {
 
             			if (current==null) {
@@ -6534,7 +6446,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
              
             	        newCompositeNode(grammarAccess.getConditionAccess().getAttributeEAttributeCrossReference_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleQualifiedName_in_ruleCondition6620);
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleCondition6517);
             ruleQualifiedName();
 
             state._fsp--;
@@ -6548,16 +6460,16 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2654:2: ( (lv_operator_1_0= ruleComparisonOperator ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2655:1: (lv_operator_1_0= ruleComparisonOperator )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2614:2: ( (lv_operator_1_0= ruleComparisonOperator ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2615:1: (lv_operator_1_0= ruleComparisonOperator )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2655:1: (lv_operator_1_0= ruleComparisonOperator )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2656:3: lv_operator_1_0= ruleComparisonOperator
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2615:1: (lv_operator_1_0= ruleComparisonOperator )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2616:3: lv_operator_1_0= ruleComparisonOperator
             {
              
             	        newCompositeNode(grammarAccess.getConditionAccess().getOperatorComparisonOperatorEnumRuleCall_1_0()); 
             	    
-            pushFollow(FOLLOW_ruleComparisonOperator_in_ruleCondition6641);
+            pushFollow(FOLLOW_ruleComparisonOperator_in_ruleCondition6538);
             lv_operator_1_0=ruleComparisonOperator();
 
             state._fsp--;
@@ -6579,16 +6491,16 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2672:2: ( (lv_value_2_0= ruleType ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2673:1: (lv_value_2_0= ruleType )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2632:2: ( (lv_value_2_0= ruleType ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2633:1: (lv_value_2_0= ruleType )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2673:1: (lv_value_2_0= ruleType )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2674:3: lv_value_2_0= ruleType
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2633:1: (lv_value_2_0= ruleType )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2634:3: lv_value_2_0= ruleType
             {
              
             	        newCompositeNode(grammarAccess.getConditionAccess().getValueTypeParserRuleCall_2_0()); 
             	    
-            pushFollow(FOLLOW_ruleType_in_ruleCondition6662);
+            pushFollow(FOLLOW_ruleType_in_ruleCondition6559);
             lv_value_2_0=ruleType();
 
             state._fsp--;
@@ -6631,7 +6543,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleCompositeCondition"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2698:1: entryRuleCompositeCondition returns [EObject current=null] : iv_ruleCompositeCondition= ruleCompositeCondition EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2658:1: entryRuleCompositeCondition returns [EObject current=null] : iv_ruleCompositeCondition= ruleCompositeCondition EOF ;
     public final EObject entryRuleCompositeCondition() throws RecognitionException {
         EObject current = null;
 
@@ -6639,17 +6551,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2699:2: (iv_ruleCompositeCondition= ruleCompositeCondition EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2700:2: iv_ruleCompositeCondition= ruleCompositeCondition EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2659:2: (iv_ruleCompositeCondition= ruleCompositeCondition EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2660:2: iv_ruleCompositeCondition= ruleCompositeCondition EOF
             {
              newCompositeNode(grammarAccess.getCompositeConditionRule()); 
-            pushFollow(FOLLOW_ruleCompositeCondition_in_entryRuleCompositeCondition6698);
+            pushFollow(FOLLOW_ruleCompositeCondition_in_entryRuleCompositeCondition6595);
             iv_ruleCompositeCondition=ruleCompositeCondition();
 
             state._fsp--;
 
              current =iv_ruleCompositeCondition; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeCondition6708); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCompositeCondition6605); 
 
             }
 
@@ -6667,7 +6579,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleCompositeCondition"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2707:1: ruleCompositeCondition returns [EObject current=null] : ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2667:1: ruleCompositeCondition returns [EObject current=null] : ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' ) ;
     public final EObject ruleCompositeCondition() throws RecognitionException {
         EObject current = null;
 
@@ -6681,22 +6593,22 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2710:28: ( ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2711:1: ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2670:28: ( ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2671:1: ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2711:1: ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2711:2: ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')'
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2671:1: ( ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')' )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2671:2: ( (lv_operator_0_0= ruleLogicalOperator ) ) otherlv_1= '(' ( (lv_conditions_2_0= ruleAbstractCondition ) )+ otherlv_3= ')'
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2711:2: ( (lv_operator_0_0= ruleLogicalOperator ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2712:1: (lv_operator_0_0= ruleLogicalOperator )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2671:2: ( (lv_operator_0_0= ruleLogicalOperator ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2672:1: (lv_operator_0_0= ruleLogicalOperator )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2712:1: (lv_operator_0_0= ruleLogicalOperator )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2713:3: lv_operator_0_0= ruleLogicalOperator
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2672:1: (lv_operator_0_0= ruleLogicalOperator )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2673:3: lv_operator_0_0= ruleLogicalOperator
             {
              
             	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getOperatorLogicalOperatorEnumRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleLogicalOperator_in_ruleCompositeCondition6754);
+            pushFollow(FOLLOW_ruleLogicalOperator_in_ruleCompositeCondition6651);
             lv_operator_0_0=ruleLogicalOperator();
 
             state._fsp--;
@@ -6718,11 +6630,11 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleCompositeCondition6766); 
+            otherlv_1=(Token)match(input,41,FOLLOW_41_in_ruleCompositeCondition6663); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getCompositeConditionAccess().getLeftParenthesisKeyword_1());
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2733:1: ( (lv_conditions_2_0= ruleAbstractCondition ) )+
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2693:1: ( (lv_conditions_2_0= ruleAbstractCondition ) )+
             int cnt18=0;
             loop18:
             do {
@@ -6736,15 +6648,15 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 switch (alt18) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2734:1: (lv_conditions_2_0= ruleAbstractCondition )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2694:1: (lv_conditions_2_0= ruleAbstractCondition )
             	    {
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2734:1: (lv_conditions_2_0= ruleAbstractCondition )
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2735:3: lv_conditions_2_0= ruleAbstractCondition
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2694:1: (lv_conditions_2_0= ruleAbstractCondition )
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2695:3: lv_conditions_2_0= ruleAbstractCondition
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getCompositeConditionAccess().getConditionsAbstractConditionParserRuleCall_2_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleAbstractCondition_in_ruleCompositeCondition6787);
+            	    pushFollow(FOLLOW_ruleAbstractCondition_in_ruleCompositeCondition6684);
             	    lv_conditions_2_0=ruleAbstractCondition();
 
             	    state._fsp--;
@@ -6776,7 +6688,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                 cnt18++;
             } while (true);
 
-            otherlv_3=(Token)match(input,43,FOLLOW_43_in_ruleCompositeCondition6800); 
+            otherlv_3=(Token)match(input,43,FOLLOW_43_in_ruleCompositeCondition6697); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getCompositeConditionAccess().getRightParenthesisKeyword_3());
                 
@@ -6801,7 +6713,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleType"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2763:1: entryRuleType returns [String current=null] : iv_ruleType= ruleType EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2723:1: entryRuleType returns [String current=null] : iv_ruleType= ruleType EOF ;
     public final String entryRuleType() throws RecognitionException {
         String current = null;
 
@@ -6809,17 +6721,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2764:2: (iv_ruleType= ruleType EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2765:2: iv_ruleType= ruleType EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2724:2: (iv_ruleType= ruleType EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2725:2: iv_ruleType= ruleType EOF
             {
              newCompositeNode(grammarAccess.getTypeRule()); 
-            pushFollow(FOLLOW_ruleType_in_entryRuleType6837);
+            pushFollow(FOLLOW_ruleType_in_entryRuleType6734);
             iv_ruleType=ruleType();
 
             state._fsp--;
 
              current =iv_ruleType.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleType6848); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleType6745); 
 
             }
 
@@ -6837,7 +6749,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleType"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2772:1: ruleType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2732:1: ruleType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleType() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -6852,10 +6764,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2775:28: ( (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2776:1: (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2735:28: ( (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2736:1: (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2776:1: (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2736:1: (this_SignedInteger_0= ruleSignedInteger | this_SignedDouble_1= ruleSignedDouble | this_STRING_2= RULE_STRING | this_BOOLEAN_3= RULE_BOOLEAN | this_ID_4= RULE_ID )
             int alt19=5;
             switch ( input.LA(1) ) {
             case 46:
@@ -6928,12 +6840,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt19) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2777:5: this_SignedInteger_0= ruleSignedInteger
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2737:5: this_SignedInteger_0= ruleSignedInteger
                     {
                      
                             newCompositeNode(grammarAccess.getTypeAccess().getSignedIntegerParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleSignedInteger_in_ruleType6895);
+                    pushFollow(FOLLOW_ruleSignedInteger_in_ruleType6792);
                     this_SignedInteger_0=ruleSignedInteger();
 
                     state._fsp--;
@@ -6948,12 +6860,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2789:5: this_SignedDouble_1= ruleSignedDouble
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2749:5: this_SignedDouble_1= ruleSignedDouble
                     {
                      
                             newCompositeNode(grammarAccess.getTypeAccess().getSignedDoubleParserRuleCall_1()); 
                         
-                    pushFollow(FOLLOW_ruleSignedDouble_in_ruleType6928);
+                    pushFollow(FOLLOW_ruleSignedDouble_in_ruleType6825);
                     this_SignedDouble_1=ruleSignedDouble();
 
                     state._fsp--;
@@ -6968,9 +6880,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2800:10: this_STRING_2= RULE_STRING
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2760:10: this_STRING_2= RULE_STRING
                     {
-                    this_STRING_2=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleType6954); 
+                    this_STRING_2=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleType6851); 
 
                     		current.merge(this_STRING_2);
                         
@@ -6981,9 +6893,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2808:10: this_BOOLEAN_3= RULE_BOOLEAN
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2768:10: this_BOOLEAN_3= RULE_BOOLEAN
                     {
-                    this_BOOLEAN_3=(Token)match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleType6980); 
+                    this_BOOLEAN_3=(Token)match(input,RULE_BOOLEAN,FOLLOW_RULE_BOOLEAN_in_ruleType6877); 
 
                     		current.merge(this_BOOLEAN_3);
                         
@@ -6994,9 +6906,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 5 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2816:10: this_ID_4= RULE_ID
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2776:10: this_ID_4= RULE_ID
                     {
-                    this_ID_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleType7006); 
+                    this_ID_4=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleType6903); 
 
                     		current.merge(this_ID_4);
                         
@@ -7027,7 +6939,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleSignedDouble"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2831:1: entryRuleSignedDouble returns [String current=null] : iv_ruleSignedDouble= ruleSignedDouble EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2791:1: entryRuleSignedDouble returns [String current=null] : iv_ruleSignedDouble= ruleSignedDouble EOF ;
     public final String entryRuleSignedDouble() throws RecognitionException {
         String current = null;
 
@@ -7035,17 +6947,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2832:2: (iv_ruleSignedDouble= ruleSignedDouble EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2833:2: iv_ruleSignedDouble= ruleSignedDouble EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2792:2: (iv_ruleSignedDouble= ruleSignedDouble EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2793:2: iv_ruleSignedDouble= ruleSignedDouble EOF
             {
              newCompositeNode(grammarAccess.getSignedDoubleRule()); 
-            pushFollow(FOLLOW_ruleSignedDouble_in_entryRuleSignedDouble7052);
+            pushFollow(FOLLOW_ruleSignedDouble_in_entryRuleSignedDouble6949);
             iv_ruleSignedDouble=ruleSignedDouble();
 
             state._fsp--;
 
              current =iv_ruleSignedDouble.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedDouble7063); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedDouble6960); 
 
             }
 
@@ -7063,7 +6975,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleSignedDouble"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2840:1: ruleSignedDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2800:1: ruleSignedDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleSignedDouble() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -7074,13 +6986,13 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2843:28: ( ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2844:1: ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2803:28: ( ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2804:1: ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2844:1: ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2844:2: (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2804:1: ( (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2804:2: (kw= '-' )? this_INT_1= RULE_INT kw= '.' this_INT_3= RULE_INT
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2844:2: (kw= '-' )?
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2804:2: (kw= '-' )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -7089,9 +7001,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             }
             switch (alt20) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2845:2: kw= '-'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2805:2: kw= '-'
                     {
-                    kw=(Token)match(input,46,FOLLOW_46_in_ruleSignedDouble7102); 
+                    kw=(Token)match(input,46,FOLLOW_46_in_ruleSignedDouble6999); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getSignedDoubleAccess().getHyphenMinusKeyword_0()); 
@@ -7102,19 +7014,19 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedDouble7119); 
+            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedDouble7016); 
 
             		current.merge(this_INT_1);
                 
              
                 newLeafNode(this_INT_1, grammarAccess.getSignedDoubleAccess().getINTTerminalRuleCall_1()); 
                 
-            kw=(Token)match(input,47,FOLLOW_47_in_ruleSignedDouble7137); 
+            kw=(Token)match(input,47,FOLLOW_47_in_ruleSignedDouble7034); 
 
                     current.merge(kw);
                     newLeafNode(kw, grammarAccess.getSignedDoubleAccess().getFullStopKeyword_2()); 
                 
-            this_INT_3=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedDouble7152); 
+            this_INT_3=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedDouble7049); 
 
             		current.merge(this_INT_3);
                 
@@ -7142,7 +7054,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleSignedInteger"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2878:1: entryRuleSignedInteger returns [String current=null] : iv_ruleSignedInteger= ruleSignedInteger EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2838:1: entryRuleSignedInteger returns [String current=null] : iv_ruleSignedInteger= ruleSignedInteger EOF ;
     public final String entryRuleSignedInteger() throws RecognitionException {
         String current = null;
 
@@ -7150,17 +7062,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2879:2: (iv_ruleSignedInteger= ruleSignedInteger EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2880:2: iv_ruleSignedInteger= ruleSignedInteger EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2839:2: (iv_ruleSignedInteger= ruleSignedInteger EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2840:2: iv_ruleSignedInteger= ruleSignedInteger EOF
             {
              newCompositeNode(grammarAccess.getSignedIntegerRule()); 
-            pushFollow(FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger7198);
+            pushFollow(FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger7095);
             iv_ruleSignedInteger=ruleSignedInteger();
 
             state._fsp--;
 
              current =iv_ruleSignedInteger.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedInteger7209); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedInteger7106); 
 
             }
 
@@ -7178,7 +7090,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleSignedInteger"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2887:1: ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2847:1: ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleSignedInteger() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -7188,13 +7100,13 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2890:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2891:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2850:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2851:1: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2891:1: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2891:2: (kw= '-' )? this_INT_1= RULE_INT
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2851:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2851:2: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2891:2: (kw= '-' )?
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2851:2: (kw= '-' )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -7203,9 +7115,9 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             }
             switch (alt21) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2892:2: kw= '-'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2852:2: kw= '-'
                     {
-                    kw=(Token)match(input,46,FOLLOW_46_in_ruleSignedInteger7248); 
+                    kw=(Token)match(input,46,FOLLOW_46_in_ruleSignedInteger7145); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0()); 
@@ -7216,7 +7128,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             }
 
-            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedInteger7265); 
+            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedInteger7162); 
 
             		current.merge(this_INT_1);
                 
@@ -7244,7 +7156,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2914:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2874:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -7252,17 +7164,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2915:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2916:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2875:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2876:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
-            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7313);
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7210);
             iv_ruleQualifiedName=ruleQualifiedName();
 
             state._fsp--;
 
              current =iv_ruleQualifiedName.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName7324); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName7221); 
 
             }
 
@@ -7280,7 +7192,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleQualifiedName"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2923:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2883:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -7291,20 +7203,20 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
          enterRule(); 
             
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2926:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2927:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2886:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2887:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2927:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2927:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2887:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2887:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7364); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7261); 
 
             		current.merge(this_ID_0);
                 
              
                 newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
                 
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2934:1: (kw= '.' this_ID_2= RULE_ID )*
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2894:1: (kw= '.' this_ID_2= RULE_ID )*
             loop22:
             do {
                 int alt22=2;
@@ -7317,14 +7229,14 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
                 switch (alt22) {
             	case 1 :
-            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2935:2: kw= '.' this_ID_2= RULE_ID
+            	    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2895:2: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,47,FOLLOW_47_in_ruleQualifiedName7383); 
+            	    kw=(Token)match(input,47,FOLLOW_47_in_ruleQualifiedName7280); 
 
             	            current.merge(kw);
             	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             	        
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7398); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName7295); 
 
             	    		current.merge(this_ID_2);
             	        
@@ -7361,7 +7273,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleBoxImageOrientation"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2955:1: ruleBoxImageOrientation returns [Enumerator current=null] : ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2915:1: ruleBoxImageOrientation returns [Enumerator current=null] : ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) ) ;
     public final Enumerator ruleBoxImageOrientation() throws RecognitionException {
         Enumerator current = null;
 
@@ -7372,10 +7284,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
          enterRule(); 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2957:28: ( ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2958:1: ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2917:28: ( ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2918:1: ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2958:1: ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2918:1: ( (enumLiteral_0= 'WEST' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'EAST' ) | (enumLiteral_3= 'SOUTH' ) )
             int alt23=4;
             switch ( input.LA(1) ) {
             case 48:
@@ -7407,12 +7319,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt23) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2958:2: (enumLiteral_0= 'WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2918:2: (enumLiteral_0= 'WEST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2958:2: (enumLiteral_0= 'WEST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2958:4: enumLiteral_0= 'WEST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2918:2: (enumLiteral_0= 'WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2918:4: enumLiteral_0= 'WEST'
                     {
-                    enumLiteral_0=(Token)match(input,48,FOLLOW_48_in_ruleBoxImageOrientation7459); 
+                    enumLiteral_0=(Token)match(input,48,FOLLOW_48_in_ruleBoxImageOrientation7356); 
 
                             current = grammarAccess.getBoxImageOrientationAccess().getWESTEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getBoxImageOrientationAccess().getWESTEnumLiteralDeclaration_0()); 
@@ -7424,12 +7336,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2964:6: (enumLiteral_1= 'NORTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2924:6: (enumLiteral_1= 'NORTH' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2964:6: (enumLiteral_1= 'NORTH' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2964:8: enumLiteral_1= 'NORTH'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2924:6: (enumLiteral_1= 'NORTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2924:8: enumLiteral_1= 'NORTH'
                     {
-                    enumLiteral_1=(Token)match(input,49,FOLLOW_49_in_ruleBoxImageOrientation7476); 
+                    enumLiteral_1=(Token)match(input,49,FOLLOW_49_in_ruleBoxImageOrientation7373); 
 
                             current = grammarAccess.getBoxImageOrientationAccess().getNORTHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getBoxImageOrientationAccess().getNORTHEnumLiteralDeclaration_1()); 
@@ -7441,12 +7353,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2970:6: (enumLiteral_2= 'EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2930:6: (enumLiteral_2= 'EAST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2970:6: (enumLiteral_2= 'EAST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2970:8: enumLiteral_2= 'EAST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2930:6: (enumLiteral_2= 'EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2930:8: enumLiteral_2= 'EAST'
                     {
-                    enumLiteral_2=(Token)match(input,50,FOLLOW_50_in_ruleBoxImageOrientation7493); 
+                    enumLiteral_2=(Token)match(input,50,FOLLOW_50_in_ruleBoxImageOrientation7390); 
 
                             current = grammarAccess.getBoxImageOrientationAccess().getEASTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getBoxImageOrientationAccess().getEASTEnumLiteralDeclaration_2()); 
@@ -7458,12 +7370,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2976:6: (enumLiteral_3= 'SOUTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2936:6: (enumLiteral_3= 'SOUTH' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2976:6: (enumLiteral_3= 'SOUTH' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2976:8: enumLiteral_3= 'SOUTH'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2936:6: (enumLiteral_3= 'SOUTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2936:8: enumLiteral_3= 'SOUTH'
                     {
-                    enumLiteral_3=(Token)match(input,51,FOLLOW_51_in_ruleBoxImageOrientation7510); 
+                    enumLiteral_3=(Token)match(input,51,FOLLOW_51_in_ruleBoxImageOrientation7407); 
 
                             current = grammarAccess.getBoxImageOrientationAccess().getSOUTHEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getBoxImageOrientationAccess().getSOUTHEnumLiteralDeclaration_3()); 
@@ -7495,7 +7407,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleComparisonOperator"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2986:1: ruleComparisonOperator returns [Enumerator current=null] : ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2946:1: ruleComparisonOperator returns [Enumerator current=null] : ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) ) ;
     public final Enumerator ruleComparisonOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -7508,10 +7420,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
          enterRule(); 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2988:28: ( ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2989:1: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2948:28: ( ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2949:1: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2989:1: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2949:1: ( (enumLiteral_0= '==' ) | (enumLiteral_1= '!=' ) | (enumLiteral_2= '>' ) | (enumLiteral_3= '>=' ) | (enumLiteral_4= '<' ) | (enumLiteral_5= '<=' ) )
             int alt24=6;
             switch ( input.LA(1) ) {
             case 52:
@@ -7553,12 +7465,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt24) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2989:2: (enumLiteral_0= '==' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2949:2: (enumLiteral_0= '==' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2989:2: (enumLiteral_0= '==' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2989:4: enumLiteral_0= '=='
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2949:2: (enumLiteral_0= '==' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2949:4: enumLiteral_0= '=='
                     {
-                    enumLiteral_0=(Token)match(input,52,FOLLOW_52_in_ruleComparisonOperator7555); 
+                    enumLiteral_0=(Token)match(input,52,FOLLOW_52_in_ruleComparisonOperator7452); 
 
                             current = grammarAccess.getComparisonOperatorAccess().getEQUALEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getComparisonOperatorAccess().getEQUALEnumLiteralDeclaration_0()); 
@@ -7570,12 +7482,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2995:6: (enumLiteral_1= '!=' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2955:6: (enumLiteral_1= '!=' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2995:6: (enumLiteral_1= '!=' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2995:8: enumLiteral_1= '!='
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2955:6: (enumLiteral_1= '!=' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2955:8: enumLiteral_1= '!='
                     {
-                    enumLiteral_1=(Token)match(input,53,FOLLOW_53_in_ruleComparisonOperator7572); 
+                    enumLiteral_1=(Token)match(input,53,FOLLOW_53_in_ruleComparisonOperator7469); 
 
                             current = grammarAccess.getComparisonOperatorAccess().getUNEQUALEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getComparisonOperatorAccess().getUNEQUALEnumLiteralDeclaration_1()); 
@@ -7587,12 +7499,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3001:6: (enumLiteral_2= '>' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2961:6: (enumLiteral_2= '>' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3001:6: (enumLiteral_2= '>' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3001:8: enumLiteral_2= '>'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2961:6: (enumLiteral_2= '>' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2961:8: enumLiteral_2= '>'
                     {
-                    enumLiteral_2=(Token)match(input,54,FOLLOW_54_in_ruleComparisonOperator7589); 
+                    enumLiteral_2=(Token)match(input,54,FOLLOW_54_in_ruleComparisonOperator7486); 
 
                             current = grammarAccess.getComparisonOperatorAccess().getGREATEREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getComparisonOperatorAccess().getGREATEREnumLiteralDeclaration_2()); 
@@ -7604,12 +7516,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3007:6: (enumLiteral_3= '>=' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2967:6: (enumLiteral_3= '>=' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3007:6: (enumLiteral_3= '>=' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3007:8: enumLiteral_3= '>='
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2967:6: (enumLiteral_3= '>=' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2967:8: enumLiteral_3= '>='
                     {
-                    enumLiteral_3=(Token)match(input,55,FOLLOW_55_in_ruleComparisonOperator7606); 
+                    enumLiteral_3=(Token)match(input,55,FOLLOW_55_in_ruleComparisonOperator7503); 
 
                             current = grammarAccess.getComparisonOperatorAccess().getGREATEROREQUALEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getComparisonOperatorAccess().getGREATEROREQUALEnumLiteralDeclaration_3()); 
@@ -7621,12 +7533,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 5 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3013:6: (enumLiteral_4= '<' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2973:6: (enumLiteral_4= '<' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3013:6: (enumLiteral_4= '<' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3013:8: enumLiteral_4= '<'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2973:6: (enumLiteral_4= '<' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2973:8: enumLiteral_4= '<'
                     {
-                    enumLiteral_4=(Token)match(input,56,FOLLOW_56_in_ruleComparisonOperator7623); 
+                    enumLiteral_4=(Token)match(input,56,FOLLOW_56_in_ruleComparisonOperator7520); 
 
                             current = grammarAccess.getComparisonOperatorAccess().getLOWEREnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getComparisonOperatorAccess().getLOWEREnumLiteralDeclaration_4()); 
@@ -7638,12 +7550,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 6 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3019:6: (enumLiteral_5= '<=' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2979:6: (enumLiteral_5= '<=' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3019:6: (enumLiteral_5= '<=' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3019:8: enumLiteral_5= '<='
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2979:6: (enumLiteral_5= '<=' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2979:8: enumLiteral_5= '<='
                     {
-                    enumLiteral_5=(Token)match(input,57,FOLLOW_57_in_ruleComparisonOperator7640); 
+                    enumLiteral_5=(Token)match(input,57,FOLLOW_57_in_ruleComparisonOperator7537); 
 
                             current = grammarAccess.getComparisonOperatorAccess().getLOWEROREQUALEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getComparisonOperatorAccess().getLOWEROREQUALEnumLiteralDeclaration_5()); 
@@ -7675,7 +7587,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleLogicalOperator"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3029:1: ruleLogicalOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2989:1: ruleLogicalOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) ) ;
     public final Enumerator ruleLogicalOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -7684,10 +7596,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
          enterRule(); 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3031:28: ( ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3032:1: ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2991:28: ( ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2992:1: ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3032:1: ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2992:1: ( (enumLiteral_0= 'ALL' ) | (enumLiteral_1= 'ANY' ) )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -7705,12 +7617,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             }
             switch (alt25) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3032:2: (enumLiteral_0= 'ALL' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2992:2: (enumLiteral_0= 'ALL' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3032:2: (enumLiteral_0= 'ALL' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3032:4: enumLiteral_0= 'ALL'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2992:2: (enumLiteral_0= 'ALL' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2992:4: enumLiteral_0= 'ALL'
                     {
-                    enumLiteral_0=(Token)match(input,58,FOLLOW_58_in_ruleLogicalOperator7685); 
+                    enumLiteral_0=(Token)match(input,58,FOLLOW_58_in_ruleLogicalOperator7582); 
 
                             current = grammarAccess.getLogicalOperatorAccess().getALLEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getLogicalOperatorAccess().getALLEnumLiteralDeclaration_0()); 
@@ -7722,12 +7634,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3038:6: (enumLiteral_1= 'ANY' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2998:6: (enumLiteral_1= 'ANY' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3038:6: (enumLiteral_1= 'ANY' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3038:8: enumLiteral_1= 'ANY'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2998:6: (enumLiteral_1= 'ANY' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:2998:8: enumLiteral_1= 'ANY'
                     {
-                    enumLiteral_1=(Token)match(input,59,FOLLOW_59_in_ruleLogicalOperator7702); 
+                    enumLiteral_1=(Token)match(input,59,FOLLOW_59_in_ruleLogicalOperator7599); 
 
                             current = grammarAccess.getLogicalOperatorAccess().getANYEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getLogicalOperatorAccess().getANYEnumLiteralDeclaration_1()); 
@@ -7759,7 +7671,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleLineStyle"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3048:1: ruleLineStyle returns [Enumerator current=null] : ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3008:1: ruleLineStyle returns [Enumerator current=null] : ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) ) ;
     public final Enumerator ruleLineStyle() throws RecognitionException {
         Enumerator current = null;
 
@@ -7771,10 +7683,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
          enterRule(); 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3050:28: ( ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3051:1: ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3010:28: ( ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3011:1: ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3051:1: ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3011:1: ( (enumLiteral_0= 'SOLID' ) | (enumLiteral_1= 'DOTS' ) | (enumLiteral_2= 'DASH' ) | (enumLiteral_3= 'DASHDOT' ) | (enumLiteral_4= 'DASHDOTDOT' ) )
             int alt26=5;
             switch ( input.LA(1) ) {
             case 60:
@@ -7811,12 +7723,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt26) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3051:2: (enumLiteral_0= 'SOLID' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3011:2: (enumLiteral_0= 'SOLID' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3051:2: (enumLiteral_0= 'SOLID' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3051:4: enumLiteral_0= 'SOLID'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3011:2: (enumLiteral_0= 'SOLID' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3011:4: enumLiteral_0= 'SOLID'
                     {
-                    enumLiteral_0=(Token)match(input,60,FOLLOW_60_in_ruleLineStyle7747); 
+                    enumLiteral_0=(Token)match(input,60,FOLLOW_60_in_ruleLineStyle7644); 
 
                             current = grammarAccess.getLineStyleAccess().getLINE_SOLIDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getLineStyleAccess().getLINE_SOLIDEnumLiteralDeclaration_0()); 
@@ -7828,12 +7740,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3057:6: (enumLiteral_1= 'DOTS' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3017:6: (enumLiteral_1= 'DOTS' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3057:6: (enumLiteral_1= 'DOTS' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3057:8: enumLiteral_1= 'DOTS'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3017:6: (enumLiteral_1= 'DOTS' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3017:8: enumLiteral_1= 'DOTS'
                     {
-                    enumLiteral_1=(Token)match(input,61,FOLLOW_61_in_ruleLineStyle7764); 
+                    enumLiteral_1=(Token)match(input,61,FOLLOW_61_in_ruleLineStyle7661); 
 
                             current = grammarAccess.getLineStyleAccess().getLINE_DOTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getLineStyleAccess().getLINE_DOTEnumLiteralDeclaration_1()); 
@@ -7845,12 +7757,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3063:6: (enumLiteral_2= 'DASH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3023:6: (enumLiteral_2= 'DASH' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3063:6: (enumLiteral_2= 'DASH' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3063:8: enumLiteral_2= 'DASH'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3023:6: (enumLiteral_2= 'DASH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3023:8: enumLiteral_2= 'DASH'
                     {
-                    enumLiteral_2=(Token)match(input,62,FOLLOW_62_in_ruleLineStyle7781); 
+                    enumLiteral_2=(Token)match(input,62,FOLLOW_62_in_ruleLineStyle7678); 
 
                             current = grammarAccess.getLineStyleAccess().getLINE_DASHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getLineStyleAccess().getLINE_DASHEnumLiteralDeclaration_2()); 
@@ -7862,12 +7774,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3069:6: (enumLiteral_3= 'DASHDOT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3029:6: (enumLiteral_3= 'DASHDOT' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3069:6: (enumLiteral_3= 'DASHDOT' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3069:8: enumLiteral_3= 'DASHDOT'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3029:6: (enumLiteral_3= 'DASHDOT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3029:8: enumLiteral_3= 'DASHDOT'
                     {
-                    enumLiteral_3=(Token)match(input,63,FOLLOW_63_in_ruleLineStyle7798); 
+                    enumLiteral_3=(Token)match(input,63,FOLLOW_63_in_ruleLineStyle7695); 
 
                             current = grammarAccess.getLineStyleAccess().getLINE_DASHDOTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getLineStyleAccess().getLINE_DASHDOTEnumLiteralDeclaration_3()); 
@@ -7879,12 +7791,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 5 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3075:6: (enumLiteral_4= 'DASHDOTDOT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3035:6: (enumLiteral_4= 'DASHDOTDOT' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3075:6: (enumLiteral_4= 'DASHDOTDOT' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3075:8: enumLiteral_4= 'DASHDOTDOT'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3035:6: (enumLiteral_4= 'DASHDOTDOT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3035:8: enumLiteral_4= 'DASHDOTDOT'
                     {
-                    enumLiteral_4=(Token)match(input,64,FOLLOW_64_in_ruleLineStyle7815); 
+                    enumLiteral_4=(Token)match(input,64,FOLLOW_64_in_ruleLineStyle7712); 
 
                             current = grammarAccess.getLineStyleAccess().getLINE_DASHDOTDOTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getLineStyleAccess().getLINE_DASHDOTDOTEnumLiteralDeclaration_4()); 
@@ -7916,7 +7828,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleColors"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3085:1: ruleColors returns [Enumerator current=null] : ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3045:1: ruleColors returns [Enumerator current=null] : ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) ) ;
     public final Enumerator ruleColors() throws RecognitionException {
         Enumerator current = null;
 
@@ -7938,10 +7850,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
          enterRule(); 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3087:28: ( ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3088:1: ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3047:28: ( ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3048:1: ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3088:1: ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3048:1: ( (enumLiteral_0= 'RED' ) | (enumLiteral_1= 'BLACK' ) | (enumLiteral_2= 'WHITE' ) | (enumLiteral_3= 'GREEN' ) | (enumLiteral_4= 'GREEN_LIGHT' ) | (enumLiteral_5= 'GREEN_DARK' ) | (enumLiteral_6= 'BLUE' ) | (enumLiteral_7= 'BLUE_LIGHT' ) | (enumLiteral_8= 'BLUE_DARK' ) | (enumLiteral_9= 'GRAY' ) | (enumLiteral_10= 'GRAY_LIGHT' ) | (enumLiteral_11= 'GRAY_DARK' ) | (enumLiteral_12= 'ORANGE' ) | (enumLiteral_13= 'YELLOW' ) | (enumLiteral_14= 'CYAN' ) )
             int alt27=15;
             switch ( input.LA(1) ) {
             case 65:
@@ -8028,12 +7940,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt27) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3088:2: (enumLiteral_0= 'RED' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3048:2: (enumLiteral_0= 'RED' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3088:2: (enumLiteral_0= 'RED' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3088:4: enumLiteral_0= 'RED'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3048:2: (enumLiteral_0= 'RED' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3048:4: enumLiteral_0= 'RED'
                     {
-                    enumLiteral_0=(Token)match(input,65,FOLLOW_65_in_ruleColors7860); 
+                    enumLiteral_0=(Token)match(input,65,FOLLOW_65_in_ruleColors7757); 
 
                             current = grammarAccess.getColorsAccess().getREDEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getColorsAccess().getREDEnumLiteralDeclaration_0()); 
@@ -8045,12 +7957,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3094:6: (enumLiteral_1= 'BLACK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3054:6: (enumLiteral_1= 'BLACK' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3094:6: (enumLiteral_1= 'BLACK' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3094:8: enumLiteral_1= 'BLACK'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3054:6: (enumLiteral_1= 'BLACK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3054:8: enumLiteral_1= 'BLACK'
                     {
-                    enumLiteral_1=(Token)match(input,66,FOLLOW_66_in_ruleColors7877); 
+                    enumLiteral_1=(Token)match(input,66,FOLLOW_66_in_ruleColors7774); 
 
                             current = grammarAccess.getColorsAccess().getBLACKEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getColorsAccess().getBLACKEnumLiteralDeclaration_1()); 
@@ -8062,12 +7974,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3100:6: (enumLiteral_2= 'WHITE' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3060:6: (enumLiteral_2= 'WHITE' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3100:6: (enumLiteral_2= 'WHITE' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3100:8: enumLiteral_2= 'WHITE'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3060:6: (enumLiteral_2= 'WHITE' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3060:8: enumLiteral_2= 'WHITE'
                     {
-                    enumLiteral_2=(Token)match(input,67,FOLLOW_67_in_ruleColors7894); 
+                    enumLiteral_2=(Token)match(input,67,FOLLOW_67_in_ruleColors7791); 
 
                             current = grammarAccess.getColorsAccess().getWHITEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getColorsAccess().getWHITEEnumLiteralDeclaration_2()); 
@@ -8079,12 +7991,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3106:6: (enumLiteral_3= 'GREEN' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3066:6: (enumLiteral_3= 'GREEN' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3106:6: (enumLiteral_3= 'GREEN' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3106:8: enumLiteral_3= 'GREEN'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3066:6: (enumLiteral_3= 'GREEN' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3066:8: enumLiteral_3= 'GREEN'
                     {
-                    enumLiteral_3=(Token)match(input,68,FOLLOW_68_in_ruleColors7911); 
+                    enumLiteral_3=(Token)match(input,68,FOLLOW_68_in_ruleColors7808); 
 
                             current = grammarAccess.getColorsAccess().getGREENEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getColorsAccess().getGREENEnumLiteralDeclaration_3()); 
@@ -8096,12 +8008,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 5 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3112:6: (enumLiteral_4= 'GREEN_LIGHT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3072:6: (enumLiteral_4= 'GREEN_LIGHT' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3112:6: (enumLiteral_4= 'GREEN_LIGHT' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3112:8: enumLiteral_4= 'GREEN_LIGHT'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3072:6: (enumLiteral_4= 'GREEN_LIGHT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3072:8: enumLiteral_4= 'GREEN_LIGHT'
                     {
-                    enumLiteral_4=(Token)match(input,69,FOLLOW_69_in_ruleColors7928); 
+                    enumLiteral_4=(Token)match(input,69,FOLLOW_69_in_ruleColors7825); 
 
                             current = grammarAccess.getColorsAccess().getGREEN_LIGHTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getColorsAccess().getGREEN_LIGHTEnumLiteralDeclaration_4()); 
@@ -8113,12 +8025,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 6 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3118:6: (enumLiteral_5= 'GREEN_DARK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3078:6: (enumLiteral_5= 'GREEN_DARK' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3118:6: (enumLiteral_5= 'GREEN_DARK' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3118:8: enumLiteral_5= 'GREEN_DARK'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3078:6: (enumLiteral_5= 'GREEN_DARK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3078:8: enumLiteral_5= 'GREEN_DARK'
                     {
-                    enumLiteral_5=(Token)match(input,70,FOLLOW_70_in_ruleColors7945); 
+                    enumLiteral_5=(Token)match(input,70,FOLLOW_70_in_ruleColors7842); 
 
                             current = grammarAccess.getColorsAccess().getGREEN_DARKEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getColorsAccess().getGREEN_DARKEnumLiteralDeclaration_5()); 
@@ -8130,12 +8042,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 7 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3124:6: (enumLiteral_6= 'BLUE' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3084:6: (enumLiteral_6= 'BLUE' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3124:6: (enumLiteral_6= 'BLUE' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3124:8: enumLiteral_6= 'BLUE'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3084:6: (enumLiteral_6= 'BLUE' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3084:8: enumLiteral_6= 'BLUE'
                     {
-                    enumLiteral_6=(Token)match(input,71,FOLLOW_71_in_ruleColors7962); 
+                    enumLiteral_6=(Token)match(input,71,FOLLOW_71_in_ruleColors7859); 
 
                             current = grammarAccess.getColorsAccess().getBLUEEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getColorsAccess().getBLUEEnumLiteralDeclaration_6()); 
@@ -8147,12 +8059,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 8 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3130:6: (enumLiteral_7= 'BLUE_LIGHT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3090:6: (enumLiteral_7= 'BLUE_LIGHT' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3130:6: (enumLiteral_7= 'BLUE_LIGHT' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3130:8: enumLiteral_7= 'BLUE_LIGHT'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3090:6: (enumLiteral_7= 'BLUE_LIGHT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3090:8: enumLiteral_7= 'BLUE_LIGHT'
                     {
-                    enumLiteral_7=(Token)match(input,72,FOLLOW_72_in_ruleColors7979); 
+                    enumLiteral_7=(Token)match(input,72,FOLLOW_72_in_ruleColors7876); 
 
                             current = grammarAccess.getColorsAccess().getBLUE_LIGHTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getColorsAccess().getBLUE_LIGHTEnumLiteralDeclaration_7()); 
@@ -8164,12 +8076,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 9 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3136:6: (enumLiteral_8= 'BLUE_DARK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3096:6: (enumLiteral_8= 'BLUE_DARK' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3136:6: (enumLiteral_8= 'BLUE_DARK' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3136:8: enumLiteral_8= 'BLUE_DARK'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3096:6: (enumLiteral_8= 'BLUE_DARK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3096:8: enumLiteral_8= 'BLUE_DARK'
                     {
-                    enumLiteral_8=(Token)match(input,73,FOLLOW_73_in_ruleColors7996); 
+                    enumLiteral_8=(Token)match(input,73,FOLLOW_73_in_ruleColors7893); 
 
                             current = grammarAccess.getColorsAccess().getBLUE_DARKEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getColorsAccess().getBLUE_DARKEnumLiteralDeclaration_8()); 
@@ -8181,12 +8093,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 10 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3142:6: (enumLiteral_9= 'GRAY' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3102:6: (enumLiteral_9= 'GRAY' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3142:6: (enumLiteral_9= 'GRAY' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3142:8: enumLiteral_9= 'GRAY'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3102:6: (enumLiteral_9= 'GRAY' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3102:8: enumLiteral_9= 'GRAY'
                     {
-                    enumLiteral_9=(Token)match(input,74,FOLLOW_74_in_ruleColors8013); 
+                    enumLiteral_9=(Token)match(input,74,FOLLOW_74_in_ruleColors7910); 
 
                             current = grammarAccess.getColorsAccess().getGRAYEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_9, grammarAccess.getColorsAccess().getGRAYEnumLiteralDeclaration_9()); 
@@ -8198,12 +8110,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 11 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3148:6: (enumLiteral_10= 'GRAY_LIGHT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3108:6: (enumLiteral_10= 'GRAY_LIGHT' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3148:6: (enumLiteral_10= 'GRAY_LIGHT' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3148:8: enumLiteral_10= 'GRAY_LIGHT'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3108:6: (enumLiteral_10= 'GRAY_LIGHT' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3108:8: enumLiteral_10= 'GRAY_LIGHT'
                     {
-                    enumLiteral_10=(Token)match(input,75,FOLLOW_75_in_ruleColors8030); 
+                    enumLiteral_10=(Token)match(input,75,FOLLOW_75_in_ruleColors7927); 
 
                             current = grammarAccess.getColorsAccess().getGRAY_LIGHTEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_10, grammarAccess.getColorsAccess().getGRAY_LIGHTEnumLiteralDeclaration_10()); 
@@ -8215,12 +8127,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 12 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3154:6: (enumLiteral_11= 'GRAY_DARK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3114:6: (enumLiteral_11= 'GRAY_DARK' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3154:6: (enumLiteral_11= 'GRAY_DARK' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3154:8: enumLiteral_11= 'GRAY_DARK'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3114:6: (enumLiteral_11= 'GRAY_DARK' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3114:8: enumLiteral_11= 'GRAY_DARK'
                     {
-                    enumLiteral_11=(Token)match(input,76,FOLLOW_76_in_ruleColors8047); 
+                    enumLiteral_11=(Token)match(input,76,FOLLOW_76_in_ruleColors7944); 
 
                             current = grammarAccess.getColorsAccess().getGRAY_DARKEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_11, grammarAccess.getColorsAccess().getGRAY_DARKEnumLiteralDeclaration_11()); 
@@ -8232,12 +8144,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 13 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3160:6: (enumLiteral_12= 'ORANGE' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3120:6: (enumLiteral_12= 'ORANGE' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3160:6: (enumLiteral_12= 'ORANGE' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3160:8: enumLiteral_12= 'ORANGE'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3120:6: (enumLiteral_12= 'ORANGE' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3120:8: enumLiteral_12= 'ORANGE'
                     {
-                    enumLiteral_12=(Token)match(input,77,FOLLOW_77_in_ruleColors8064); 
+                    enumLiteral_12=(Token)match(input,77,FOLLOW_77_in_ruleColors7961); 
 
                             current = grammarAccess.getColorsAccess().getORANGEEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_12, grammarAccess.getColorsAccess().getORANGEEnumLiteralDeclaration_12()); 
@@ -8249,12 +8161,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 14 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3166:6: (enumLiteral_13= 'YELLOW' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3126:6: (enumLiteral_13= 'YELLOW' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3166:6: (enumLiteral_13= 'YELLOW' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3166:8: enumLiteral_13= 'YELLOW'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3126:6: (enumLiteral_13= 'YELLOW' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3126:8: enumLiteral_13= 'YELLOW'
                     {
-                    enumLiteral_13=(Token)match(input,78,FOLLOW_78_in_ruleColors8081); 
+                    enumLiteral_13=(Token)match(input,78,FOLLOW_78_in_ruleColors7978); 
 
                             current = grammarAccess.getColorsAccess().getYELLOWEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_13, grammarAccess.getColorsAccess().getYELLOWEnumLiteralDeclaration_13()); 
@@ -8266,12 +8178,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 15 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3172:6: (enumLiteral_14= 'CYAN' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3132:6: (enumLiteral_14= 'CYAN' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3172:6: (enumLiteral_14= 'CYAN' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3172:8: enumLiteral_14= 'CYAN'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3132:6: (enumLiteral_14= 'CYAN' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3132:8: enumLiteral_14= 'CYAN'
                     {
-                    enumLiteral_14=(Token)match(input,79,FOLLOW_79_in_ruleColors8098); 
+                    enumLiteral_14=(Token)match(input,79,FOLLOW_79_in_ruleColors7995); 
 
                             current = grammarAccess.getColorsAccess().getCYANEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_14, grammarAccess.getColorsAccess().getCYANEnumLiteralDeclaration_14()); 
@@ -8303,7 +8215,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "ruleDirections"
-    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3182:1: ruleDirections returns [Enumerator current=null] : ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) ) ;
+    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3142:1: ruleDirections returns [Enumerator current=null] : ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) ) ;
     public final Enumerator ruleDirections() throws RecognitionException {
         Enumerator current = null;
 
@@ -8319,10 +8231,10 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
          enterRule(); 
         try {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3184:28: ( ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) ) )
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3185:1: ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3144:28: ( ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3145:1: ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) )
             {
-            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3185:1: ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) )
+            // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3145:1: ( (enumLiteral_0= 'CENTER' ) | (enumLiteral_1= 'NORTH' ) | (enumLiteral_2= 'SOUTH' ) | (enumLiteral_3= 'WEST' ) | (enumLiteral_4= 'EAST' ) | (enumLiteral_5= 'NORTH_EAST' ) | (enumLiteral_6= 'NORTH_WEST' ) | (enumLiteral_7= 'SOUTH_EAST' ) | (enumLiteral_8= 'SOUTH_WEST' ) )
             int alt28=9;
             switch ( input.LA(1) ) {
             case 80:
@@ -8379,12 +8291,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
             switch (alt28) {
                 case 1 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3185:2: (enumLiteral_0= 'CENTER' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3145:2: (enumLiteral_0= 'CENTER' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3185:2: (enumLiteral_0= 'CENTER' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3185:4: enumLiteral_0= 'CENTER'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3145:2: (enumLiteral_0= 'CENTER' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3145:4: enumLiteral_0= 'CENTER'
                     {
-                    enumLiteral_0=(Token)match(input,80,FOLLOW_80_in_ruleDirections8143); 
+                    enumLiteral_0=(Token)match(input,80,FOLLOW_80_in_ruleDirections8040); 
 
                             current = grammarAccess.getDirectionsAccess().getCENTEREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getDirectionsAccess().getCENTEREnumLiteralDeclaration_0()); 
@@ -8396,12 +8308,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 2 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3191:6: (enumLiteral_1= 'NORTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3151:6: (enumLiteral_1= 'NORTH' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3191:6: (enumLiteral_1= 'NORTH' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3191:8: enumLiteral_1= 'NORTH'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3151:6: (enumLiteral_1= 'NORTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3151:8: enumLiteral_1= 'NORTH'
                     {
-                    enumLiteral_1=(Token)match(input,49,FOLLOW_49_in_ruleDirections8160); 
+                    enumLiteral_1=(Token)match(input,49,FOLLOW_49_in_ruleDirections8057); 
 
                             current = grammarAccess.getDirectionsAccess().getNORTHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getDirectionsAccess().getNORTHEnumLiteralDeclaration_1()); 
@@ -8413,12 +8325,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 3 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3197:6: (enumLiteral_2= 'SOUTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3157:6: (enumLiteral_2= 'SOUTH' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3197:6: (enumLiteral_2= 'SOUTH' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3197:8: enumLiteral_2= 'SOUTH'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3157:6: (enumLiteral_2= 'SOUTH' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3157:8: enumLiteral_2= 'SOUTH'
                     {
-                    enumLiteral_2=(Token)match(input,51,FOLLOW_51_in_ruleDirections8177); 
+                    enumLiteral_2=(Token)match(input,51,FOLLOW_51_in_ruleDirections8074); 
 
                             current = grammarAccess.getDirectionsAccess().getSOUTHEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getDirectionsAccess().getSOUTHEnumLiteralDeclaration_2()); 
@@ -8430,12 +8342,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 4 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3203:6: (enumLiteral_3= 'WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3163:6: (enumLiteral_3= 'WEST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3203:6: (enumLiteral_3= 'WEST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3203:8: enumLiteral_3= 'WEST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3163:6: (enumLiteral_3= 'WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3163:8: enumLiteral_3= 'WEST'
                     {
-                    enumLiteral_3=(Token)match(input,48,FOLLOW_48_in_ruleDirections8194); 
+                    enumLiteral_3=(Token)match(input,48,FOLLOW_48_in_ruleDirections8091); 
 
                             current = grammarAccess.getDirectionsAccess().getWESTEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getDirectionsAccess().getWESTEnumLiteralDeclaration_3()); 
@@ -8447,12 +8359,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 5 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3209:6: (enumLiteral_4= 'EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3169:6: (enumLiteral_4= 'EAST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3209:6: (enumLiteral_4= 'EAST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3209:8: enumLiteral_4= 'EAST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3169:6: (enumLiteral_4= 'EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3169:8: enumLiteral_4= 'EAST'
                     {
-                    enumLiteral_4=(Token)match(input,50,FOLLOW_50_in_ruleDirections8211); 
+                    enumLiteral_4=(Token)match(input,50,FOLLOW_50_in_ruleDirections8108); 
 
                             current = grammarAccess.getDirectionsAccess().getEASTEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_4, grammarAccess.getDirectionsAccess().getEASTEnumLiteralDeclaration_4()); 
@@ -8464,12 +8376,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 6 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3215:6: (enumLiteral_5= 'NORTH_EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3175:6: (enumLiteral_5= 'NORTH_EAST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3215:6: (enumLiteral_5= 'NORTH_EAST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3215:8: enumLiteral_5= 'NORTH_EAST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3175:6: (enumLiteral_5= 'NORTH_EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3175:8: enumLiteral_5= 'NORTH_EAST'
                     {
-                    enumLiteral_5=(Token)match(input,81,FOLLOW_81_in_ruleDirections8228); 
+                    enumLiteral_5=(Token)match(input,81,FOLLOW_81_in_ruleDirections8125); 
 
                             current = grammarAccess.getDirectionsAccess().getNORTH_EASTEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_5, grammarAccess.getDirectionsAccess().getNORTH_EASTEnumLiteralDeclaration_5()); 
@@ -8481,12 +8393,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 7 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3221:6: (enumLiteral_6= 'NORTH_WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3181:6: (enumLiteral_6= 'NORTH_WEST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3221:6: (enumLiteral_6= 'NORTH_WEST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3221:8: enumLiteral_6= 'NORTH_WEST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3181:6: (enumLiteral_6= 'NORTH_WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3181:8: enumLiteral_6= 'NORTH_WEST'
                     {
-                    enumLiteral_6=(Token)match(input,82,FOLLOW_82_in_ruleDirections8245); 
+                    enumLiteral_6=(Token)match(input,82,FOLLOW_82_in_ruleDirections8142); 
 
                             current = grammarAccess.getDirectionsAccess().getNORTH_WESTEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_6, grammarAccess.getDirectionsAccess().getNORTH_WESTEnumLiteralDeclaration_6()); 
@@ -8498,12 +8410,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 8 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3227:6: (enumLiteral_7= 'SOUTH_EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3187:6: (enumLiteral_7= 'SOUTH_EAST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3227:6: (enumLiteral_7= 'SOUTH_EAST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3227:8: enumLiteral_7= 'SOUTH_EAST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3187:6: (enumLiteral_7= 'SOUTH_EAST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3187:8: enumLiteral_7= 'SOUTH_EAST'
                     {
-                    enumLiteral_7=(Token)match(input,83,FOLLOW_83_in_ruleDirections8262); 
+                    enumLiteral_7=(Token)match(input,83,FOLLOW_83_in_ruleDirections8159); 
 
                             current = grammarAccess.getDirectionsAccess().getSOUTH_EASTEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_7, grammarAccess.getDirectionsAccess().getSOUTH_EASTEnumLiteralDeclaration_7()); 
@@ -8515,12 +8427,12 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
                     }
                     break;
                 case 9 :
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3233:6: (enumLiteral_8= 'SOUTH_WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3193:6: (enumLiteral_8= 'SOUTH_WEST' )
                     {
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3233:6: (enumLiteral_8= 'SOUTH_WEST' )
-                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3233:8: enumLiteral_8= 'SOUTH_WEST'
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3193:6: (enumLiteral_8= 'SOUTH_WEST' )
+                    // ../org.modelversioning.emfprofile.decoration/src-gen/org/modelversioning/emfprofile/decoration/parser/antlr/internal/InternalEMFProfileDecorationLanguage.g:3193:8: enumLiteral_8= 'SOUTH_WEST'
                     {
-                    enumLiteral_8=(Token)match(input,84,FOLLOW_84_in_ruleDirections8279); 
+                    enumLiteral_8=(Token)match(input,84,FOLLOW_84_in_ruleDirections8176); 
 
                             current = grammarAccess.getDirectionsAccess().getSOUTH_WESTEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_8, grammarAccess.getDirectionsAccess().getSOUTH_WESTEnumLiteralDeclaration_8()); 
@@ -8721,7 +8633,7 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
             this.transition = DFA11_transition;
         }
         public String getDescription() {
-            return "1599:1: (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText )";
+            return "1561:1: (this_SimpleText_0= ruleSimpleText | this_ComplexText_1= ruleComplexText )";
         }
     }
  
@@ -8748,8 +8660,8 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
     public static final BitSet FOLLOW_EOF_in_entryRuleAbstractDecoration658 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImageDecoration_in_ruleAbstractDecoration705 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBoxDecoration_in_ruleAbstractDecoration732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBorderDecoration_in_ruleAbstractDecoration759 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColorDecoration_in_ruleAbstractDecoration786 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColorDecoration_in_ruleAbstractDecoration759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBorderDecoration_in_ruleAbstractDecoration786 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConnectionDecoration_in_ruleAbstractDecoration813 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleImageDecoration_in_entryRuleImageDecoration848 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleImageDecoration858 = new BitSet(new long[]{0x0000000000000002L});
@@ -8821,180 +8733,177 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
     public static final BitSet FOLLOW_ruleConnectionDecoration_in_entryRuleConnectionDecoration3431 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleConnectionDecoration3441 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_33_in_ruleConnectionDecoration3487 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleConnectionDecoration3499 = new BitSet(new long[]{0x000010325C460000L});
-    public static final BitSet FOLLOW_ruleSize_in_ruleConnectionDecoration3565 = new BitSet(new long[]{0x000010325C460000L});
-    public static final BitSet FOLLOW_ruleStyle_in_ruleConnectionDecoration3640 = new BitSet(new long[]{0x000010325C460000L});
-    public static final BitSet FOLLOW_27_in_ruleConnectionDecoration3707 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_16_in_ruleConnectionDecoration3499 = new BitSet(new long[]{0x0000103244460000L});
+    public static final BitSet FOLLOW_ruleSize_in_ruleConnectionDecoration3565 = new BitSet(new long[]{0x0000103244460000L});
+    public static final BitSet FOLLOW_ruleStyle_in_ruleConnectionDecoration3640 = new BitSet(new long[]{0x0000103244460000L});
+    public static final BitSet FOLLOW_30_in_ruleConnectionDecoration3707 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleConnectionDecoration3719 = new BitSet(new long[]{0x0000010000000040L,0x000000000000FFFEL});
-    public static final BitSet FOLLOW_ruleColor_in_ruleConnectionDecoration3740 = new BitSet(new long[]{0x000010325C460000L});
-    public static final BitSet FOLLOW_28_in_ruleConnectionDecoration3808 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleConnectionDecoration3820 = new BitSet(new long[]{0x0000010000000040L,0x000000000000FFFEL});
-    public static final BitSet FOLLOW_ruleColor_in_ruleConnectionDecoration3841 = new BitSet(new long[]{0x000010325C460000L});
-    public static final BitSet FOLLOW_ruleActivation_in_ruleConnectionDecoration3917 = new BitSet(new long[]{0x000010325C460000L});
-    public static final BitSet FOLLOW_17_in_ruleConnectionDecoration3969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleText_in_entryRuleText4005 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleText4015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleText_in_ruleText4062 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexText_in_ruleText4089 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleText_in_entryRuleSimpleText4124 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleText4134 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleText4176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleSimpleText4210 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexText_in_entryRuleComplexText4246 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComplexText4256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleText_in_ruleComplexText4302 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_ruleComplexText4314 = new BitSet(new long[]{0x0000000000000110L});
-    public static final BitSet FOLLOW_ruleText_in_ruleComplexText4335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBorder_in_entryRuleBorder4371 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBorder4381 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSize_in_ruleBorder4481 = new BitSet(new long[]{0x0000003040000002L});
-    public static final BitSet FOLLOW_30_in_ruleBorder4548 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBorder4560 = new BitSet(new long[]{0x0000010000000040L,0x000000000000FFFEL});
-    public static final BitSet FOLLOW_ruleColor_in_ruleBorder4581 = new BitSet(new long[]{0x0000003040000002L});
-    public static final BitSet FOLLOW_ruleStyle_in_ruleBorder4657 = new BitSet(new long[]{0x0000003040000002L});
-    public static final BitSet FOLLOW_ruleBoxImage_in_entryRuleBoxImage4733 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBoxImage4743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleBoxImage4789 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleBoxImage4801 = new BitSet(new long[]{0x0000000800080000L});
-    public static final BitSet FOLLOW_19_in_ruleBoxImage4859 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBoxImage4871 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleBoxImage4888 = new BitSet(new long[]{0x00000008000A0000L});
-    public static final BitSet FOLLOW_35_in_ruleBoxImage4961 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleBoxImage4973 = new BitSet(new long[]{0x000F000000000000L});
-    public static final BitSet FOLLOW_ruleBoxImageOrientation_in_ruleBoxImage4994 = new BitSet(new long[]{0x00000008000A0000L});
-    public static final BitSet FOLLOW_17_in_ruleBoxImage5053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStyle_in_entryRuleStyle5089 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStyle5099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleStyle5136 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleStyle5148 = new BitSet(new long[]{0xF000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_ruleLineStyle_in_ruleStyle5169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSize_in_entryRuleSize5205 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSize5215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleSize5252 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleSize5264 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSize5281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDirection_in_entryRuleDirection5322 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDirection5332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleDirection5369 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleDirection5381 = new BitSet(new long[]{0x000F000000000000L,0x00000000001F0000L});
-    public static final BitSet FOLLOW_ruleDirections_in_ruleDirection5402 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMargin_in_entryRuleMargin5438 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMargin5448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleMargin5485 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_20_in_ruleMargin5497 = new BitSet(new long[]{0x0000400000000020L});
-    public static final BitSet FOLLOW_ruleSignedInteger_in_ruleMargin5518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColor_in_entryRuleColor5556 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleColor5566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColorConstant_in_ruleColor5622 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcreteColor_in_ruleColor5650 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleConcreteColor_in_entryRuleConcreteColor5686 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleConcreteColor5696 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRGB_in_ruleConcreteColor5743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHexColor_in_ruleConcreteColor5770 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRGB_in_entryRuleRGB5805 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRGB5815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleRGB5852 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleRGB5864 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleRGB5881 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleRGB5898 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleRGB5915 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_42_in_ruleRGB5932 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleRGB5949 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_ruleRGB5966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleHexColor_in_entryRuleHexColor6002 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleHexColor6012 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_HEX_COLOR_in_ruleHexColor6053 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColorConstant_in_entryRuleColorConstant6093 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleColorConstant6103 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleColors_in_ruleColorConstant6148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleActivation_in_entryRuleActivation6183 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleActivation6193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleActivation6230 = new BitSet(new long[]{0x0C00200000000100L});
-    public static final BitSet FOLLOW_ruleAbstractCondition_in_ruleActivation6251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbstractCondition_in_entryRuleAbstractCondition6287 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAbstractCondition6297 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCondition_in_ruleAbstractCondition6344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeCondition_in_ruleAbstractCondition6371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOclExpression_in_ruleAbstractCondition6398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleOclExpression_in_entryRuleOclExpression6433 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleOclExpression6443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleOclExpression6480 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleOclExpression6492 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleOclExpression6509 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_43_in_ruleOclExpression6526 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCondition_in_entryRuleCondition6562 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCondition6572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleCondition6620 = new BitSet(new long[]{0x03F0000000000000L});
-    public static final BitSet FOLLOW_ruleComparisonOperator_in_ruleCondition6641 = new BitSet(new long[]{0x00004000000001B0L});
-    public static final BitSet FOLLOW_ruleType_in_ruleCondition6662 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCompositeCondition_in_entryRuleCompositeCondition6698 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeCondition6708 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLogicalOperator_in_ruleCompositeCondition6754 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ruleCompositeCondition6766 = new BitSet(new long[]{0x0C00200000000100L});
-    public static final BitSet FOLLOW_ruleAbstractCondition_in_ruleCompositeCondition6787 = new BitSet(new long[]{0x0C00280000000100L});
-    public static final BitSet FOLLOW_43_in_ruleCompositeCondition6800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_entryRuleType6837 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleType6848 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignedInteger_in_ruleType6895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignedDouble_in_ruleType6928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleType6954 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_BOOLEAN_in_ruleType6980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleType7006 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignedDouble_in_entryRuleSignedDouble7052 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSignedDouble7063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleSignedDouble7102 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedDouble7119 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_47_in_ruleSignedDouble7137 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedDouble7152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger7198 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSignedInteger7209 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleSignedInteger7248 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedInteger7265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7313 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName7324 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7364 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_47_in_ruleQualifiedName7383 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7398 = new BitSet(new long[]{0x0000800000000002L});
-    public static final BitSet FOLLOW_48_in_ruleBoxImageOrientation7459 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleBoxImageOrientation7476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleBoxImageOrientation7493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleBoxImageOrientation7510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleComparisonOperator7555 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleComparisonOperator7572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleComparisonOperator7589 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleComparisonOperator7606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleComparisonOperator7623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleComparisonOperator7640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleLogicalOperator7685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleLogicalOperator7702 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleLineStyle7747 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleLineStyle7764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleLineStyle7781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleLineStyle7798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleLineStyle7815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleColors7860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleColors7877 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleColors7894 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleColors7911 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_ruleColors7928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleColors7945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleColors7962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleColors7979 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleColors7996 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleColors8013 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleColors8030 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleColors8047 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_ruleColors8064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleColors8081 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleColors8098 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_ruleDirections8143 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleDirections8160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleDirections8177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleDirections8194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleDirections8211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_ruleDirections8228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_ruleDirections8245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_ruleDirections8262 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_ruleDirections8279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColor_in_ruleConnectionDecoration3740 = new BitSet(new long[]{0x0000103244460000L});
+    public static final BitSet FOLLOW_ruleActivation_in_ruleConnectionDecoration3816 = new BitSet(new long[]{0x0000103244460000L});
+    public static final BitSet FOLLOW_17_in_ruleConnectionDecoration3868 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleText_in_entryRuleText3904 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleText3914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleText_in_ruleText3961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexText_in_ruleText3988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleText_in_entryRuleSimpleText4023 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleText4033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSimpleText4075 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleSimpleText4109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexText_in_entryRuleComplexText4145 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComplexText4155 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleText_in_ruleComplexText4201 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_ruleComplexText4213 = new BitSet(new long[]{0x0000000000000110L});
+    public static final BitSet FOLLOW_ruleText_in_ruleComplexText4234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBorder_in_entryRuleBorder4270 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBorder4280 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSize_in_ruleBorder4380 = new BitSet(new long[]{0x0000003040000002L});
+    public static final BitSet FOLLOW_30_in_ruleBorder4447 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleBorder4459 = new BitSet(new long[]{0x0000010000000040L,0x000000000000FFFEL});
+    public static final BitSet FOLLOW_ruleColor_in_ruleBorder4480 = new BitSet(new long[]{0x0000003040000002L});
+    public static final BitSet FOLLOW_ruleStyle_in_ruleBorder4556 = new BitSet(new long[]{0x0000003040000002L});
+    public static final BitSet FOLLOW_ruleBoxImage_in_entryRuleBoxImage4632 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBoxImage4642 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleBoxImage4688 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleBoxImage4700 = new BitSet(new long[]{0x0000000800080000L});
+    public static final BitSet FOLLOW_19_in_ruleBoxImage4758 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleBoxImage4770 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleBoxImage4787 = new BitSet(new long[]{0x00000008000A0000L});
+    public static final BitSet FOLLOW_35_in_ruleBoxImage4860 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleBoxImage4872 = new BitSet(new long[]{0x000F000000000000L});
+    public static final BitSet FOLLOW_ruleBoxImageOrientation_in_ruleBoxImage4893 = new BitSet(new long[]{0x00000008000A0000L});
+    public static final BitSet FOLLOW_17_in_ruleBoxImage4952 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStyle_in_entryRuleStyle4988 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStyle4998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleStyle5035 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleStyle5047 = new BitSet(new long[]{0xF000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_ruleLineStyle_in_ruleStyle5068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSize_in_entryRuleSize5104 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSize5114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleSize5151 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleSize5163 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSize5180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDirection_in_entryRuleDirection5221 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDirection5231 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleDirection5268 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleDirection5280 = new BitSet(new long[]{0x000F000000000000L,0x00000000001F0000L});
+    public static final BitSet FOLLOW_ruleDirections_in_ruleDirection5301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMargin_in_entryRuleMargin5337 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMargin5347 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleMargin5384 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_20_in_ruleMargin5396 = new BitSet(new long[]{0x0000400000000020L});
+    public static final BitSet FOLLOW_ruleSignedInteger_in_ruleMargin5417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColor_in_entryRuleColor5453 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleColor5463 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColorConstant_in_ruleColor5519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcreteColor_in_ruleColor5547 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleConcreteColor_in_entryRuleConcreteColor5583 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleConcreteColor5593 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRGB_in_ruleConcreteColor5640 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHexColor_in_ruleConcreteColor5667 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRGB_in_entryRuleRGB5702 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRGB5712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleRGB5749 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleRGB5761 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleRGB5778 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleRGB5795 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleRGB5812 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_42_in_ruleRGB5829 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleRGB5846 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_ruleRGB5863 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleHexColor_in_entryRuleHexColor5899 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleHexColor5909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_HEX_COLOR_in_ruleHexColor5950 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColorConstant_in_entryRuleColorConstant5990 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleColorConstant6000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleColors_in_ruleColorConstant6045 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleActivation_in_entryRuleActivation6080 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleActivation6090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleActivation6127 = new BitSet(new long[]{0x0C00200000000100L});
+    public static final BitSet FOLLOW_ruleAbstractCondition_in_ruleActivation6148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractCondition_in_entryRuleAbstractCondition6184 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbstractCondition6194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCondition_in_ruleAbstractCondition6241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompositeCondition_in_ruleAbstractCondition6268 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOclExpression_in_ruleAbstractCondition6295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleOclExpression_in_entryRuleOclExpression6330 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleOclExpression6340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleOclExpression6377 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleOclExpression6389 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleOclExpression6406 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_43_in_ruleOclExpression6423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCondition_in_entryRuleCondition6459 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCondition6469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleCondition6517 = new BitSet(new long[]{0x03F0000000000000L});
+    public static final BitSet FOLLOW_ruleComparisonOperator_in_ruleCondition6538 = new BitSet(new long[]{0x00004000000001B0L});
+    public static final BitSet FOLLOW_ruleType_in_ruleCondition6559 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCompositeCondition_in_entryRuleCompositeCondition6595 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCompositeCondition6605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogicalOperator_in_ruleCompositeCondition6651 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ruleCompositeCondition6663 = new BitSet(new long[]{0x0C00200000000100L});
+    public static final BitSet FOLLOW_ruleAbstractCondition_in_ruleCompositeCondition6684 = new BitSet(new long[]{0x0C00280000000100L});
+    public static final BitSet FOLLOW_43_in_ruleCompositeCondition6697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_entryRuleType6734 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleType6745 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignedInteger_in_ruleType6792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignedDouble_in_ruleType6825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleType6851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_BOOLEAN_in_ruleType6877 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleType6903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignedDouble_in_entryRuleSignedDouble6949 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSignedDouble6960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleSignedDouble6999 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedDouble7016 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_47_in_ruleSignedDouble7034 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedDouble7049 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger7095 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSignedInteger7106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleSignedInteger7145 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedInteger7162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName7210 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName7221 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7261 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_47_in_ruleQualifiedName7280 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName7295 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_48_in_ruleBoxImageOrientation7356 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleBoxImageOrientation7373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleBoxImageOrientation7390 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleBoxImageOrientation7407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleComparisonOperator7452 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleComparisonOperator7469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleComparisonOperator7486 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleComparisonOperator7503 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleComparisonOperator7520 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleComparisonOperator7537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleLogicalOperator7582 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleLogicalOperator7599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleLineStyle7644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleLineStyle7661 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleLineStyle7678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleLineStyle7695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleLineStyle7712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleColors7757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleColors7774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleColors7791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleColors7808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleColors7825 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleColors7842 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleColors7859 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleColors7876 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleColors7893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleColors7910 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleColors7927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleColors7944 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleColors7961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleColors7978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleColors7995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_ruleDirections8040 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleDirections8057 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleDirections8074 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleDirections8091 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleDirections8108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_ruleDirections8125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_ruleDirections8142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleDirections8159 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_ruleDirections8176 = new BitSet(new long[]{0x0000000000000002L});
 
 }

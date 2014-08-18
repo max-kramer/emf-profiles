@@ -172,10 +172,10 @@ public class EObjectDecorators {
                     AbstractDecoration _decoration_11 = gd.getDecoration();
                     Size _size_1 = ((ConnectionDecoration) _decoration_11).getSize();
                     String _plus_6 = (_plus_5 + _size_1);
-                    String _plus_7 = (_plus_6 + ", foreground-color=");
+                    String _plus_7 = (_plus_6 + ", color=");
                     AbstractDecoration _decoration_12 = gd.getDecoration();
-                    Color _foregroundColor = ((ConnectionDecoration) _decoration_12).getForegroundColor();
-                    String _plus_8 = (_plus_7 + _foregroundColor);
+                    Color _color = ((ConnectionDecoration) _decoration_12).getColor();
+                    String _plus_8 = (_plus_7 + _color);
                     String _plus_9 = (_plus_8 + ", line-style=");
                     AbstractDecoration _decoration_13 = gd.getDecoration();
                     Style _style = ((ConnectionDecoration) _decoration_13).getStyle();

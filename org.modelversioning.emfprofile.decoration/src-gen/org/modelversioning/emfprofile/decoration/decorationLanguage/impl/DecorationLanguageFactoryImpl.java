@@ -83,7 +83,6 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
       case DecorationLanguagePackage.SIZE: return createSize();
       case DecorationLanguagePackage.DIRECTION: return createDirection();
       case DecorationLanguagePackage.MARGIN: return createMargin();
-      case DecorationLanguagePackage.RELATIVE_POSITION: return createRelativePosition();
       case DecorationLanguagePackage.COLOR: return createColor();
       case DecorationLanguagePackage.CONCRETE_COLOR: return createConcreteColor();
       case DecorationLanguagePackage.RGB: return createRGB();
@@ -349,17 +348,6 @@ public class DecorationLanguageFactoryImpl extends EFactoryImpl implements Decor
   {
     MarginImpl margin = new MarginImpl();
     return margin;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public RelativePosition createRelativePosition()
-  {
-    RelativePositionImpl relativePosition = new RelativePositionImpl();
-    return relativePosition;
   }
 
   /**

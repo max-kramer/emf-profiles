@@ -44,7 +44,6 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOpera
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
@@ -183,13 +182,6 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * @generated
    */
   private EClass marginEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass relativePositionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -744,19 +736,9 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getConnectionDecoration_ForegroundColor()
+  public EReference getConnectionDecoration_Color()
   {
     return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getConnectionDecoration_BackgroundColor()
-  {
-    return (EReference)connectionDecorationEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -977,36 +959,6 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
   public EAttribute getMargin_Value()
   {
     return (EAttribute)marginEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getRelativePosition()
-  {
-    return relativePositionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRelativePosition_X()
-  {
-    return (EAttribute)relativePositionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getRelativePosition_Y()
-  {
-    return (EAttribute)relativePositionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1384,8 +1336,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     connectionDecorationEClass = createEClass(CONNECTION_DECORATION);
     createEReference(connectionDecorationEClass, CONNECTION_DECORATION__SIZE);
     createEReference(connectionDecorationEClass, CONNECTION_DECORATION__STYLE);
-    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__FOREGROUND_COLOR);
-    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__BACKGROUND_COLOR);
+    createEReference(connectionDecorationEClass, CONNECTION_DECORATION__COLOR);
 
     textEClass = createEClass(TEXT);
 
@@ -1417,10 +1368,6 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     marginEClass = createEClass(MARGIN);
     createEAttribute(marginEClass, MARGIN__VALUE);
-
-    relativePositionEClass = createEClass(RELATIVE_POSITION);
-    createEAttribute(relativePositionEClass, RELATIVE_POSITION__X);
-    createEAttribute(relativePositionEClass, RELATIVE_POSITION__Y);
 
     colorEClass = createEClass(COLOR);
     createEReference(colorEClass, COLOR__VALUE);
@@ -1557,8 +1504,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
     initEClass(connectionDecorationEClass, ConnectionDecoration.class, "ConnectionDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConnectionDecoration_Size(), this.getSize(), null, "size", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnectionDecoration_Style(), this.getStyle(), null, "style", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConnectionDecoration_ForegroundColor(), this.getColor(), null, "foregroundColor", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConnectionDecoration_BackgroundColor(), this.getColor(), null, "backgroundColor", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnectionDecoration_Color(), this.getColor(), null, "color", null, 0, 1, ConnectionDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1590,10 +1536,6 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(marginEClass, Margin.class, "Margin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMargin_Value(), theEcorePackage.getEInt(), "value", null, 0, 1, Margin.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(relativePositionEClass, RelativePosition.class, "RelativePosition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRelativePosition_X(), theEcorePackage.getEInt(), "x", null, 0, 1, RelativePosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRelativePosition_Y(), theEcorePackage.getEInt(), "y", null, 0, 1, RelativePosition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(colorEClass, Color.class, "Color", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getColor_Value(), this.getColorConstant(), null, "value", null, 0, 1, Color.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

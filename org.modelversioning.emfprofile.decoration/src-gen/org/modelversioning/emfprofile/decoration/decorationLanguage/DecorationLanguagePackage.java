@@ -517,22 +517,13 @@ public interface DecorationLanguagePackage extends EPackage
   int CONNECTION_DECORATION__STYLE = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Foreground Color</b></em>' containment reference.
+   * The feature id for the '<em><b>Color</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONNECTION_DECORATION__FOREGROUND_COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Background Color</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONNECTION_DECORATION__BACKGROUND_COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
+  int CONNECTION_DECORATION__COLOR = ABSTRACT_DECORATION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Connection Decoration</em>' class.
@@ -541,7 +532,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONNECTION_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 4;
+  int CONNECTION_DECORATION_FEATURE_COUNT = ABSTRACT_DECORATION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.TextImpl <em>Text</em>}' class.
@@ -832,43 +823,6 @@ public interface DecorationLanguagePackage extends EPackage
   int MARGIN_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RelativePositionImpl <em>Relative Position</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RelativePositionImpl
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getRelativePosition()
-   * @generated
-   */
-  int RELATIVE_POSITION = 18;
-
-  /**
-   * The feature id for the '<em><b>X</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RELATIVE_POSITION__X = 0;
-
-  /**
-   * The feature id for the '<em><b>Y</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RELATIVE_POSITION__Y = 1;
-
-  /**
-   * The number of structural features of the '<em>Relative Position</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RELATIVE_POSITION_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl <em>Color</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -876,7 +830,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColor()
    * @generated
    */
-  int COLOR = 19;
+  int COLOR = 18;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -913,7 +867,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getConcreteColor()
    * @generated
    */
-  int CONCRETE_COLOR = 20;
+  int CONCRETE_COLOR = 19;
 
   /**
    * The number of structural features of the '<em>Concrete Color</em>' class.
@@ -932,7 +886,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getRGB()
    * @generated
    */
-  int RGB = 21;
+  int RGB = 20;
 
   /**
    * The feature id for the '<em><b>Red</b></em>' attribute.
@@ -978,7 +932,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getHexColor()
    * @generated
    */
-  int HEX_COLOR = 22;
+  int HEX_COLOR = 21;
 
   /**
    * The feature id for the '<em><b>Hex Code</b></em>' attribute.
@@ -1006,7 +960,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColorConstant()
    * @generated
    */
-  int COLOR_CONSTANT = 23;
+  int COLOR_CONSTANT = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1034,7 +988,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getActivation()
    * @generated
    */
-  int ACTIVATION = 24;
+  int ACTIVATION = 23;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -1062,7 +1016,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getAbstractCondition()
    * @generated
    */
-  int ABSTRACT_CONDITION = 25;
+  int ABSTRACT_CONDITION = 24;
 
   /**
    * The number of structural features of the '<em>Abstract Condition</em>' class.
@@ -1081,7 +1035,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getOclExpression()
    * @generated
    */
-  int OCL_EXPRESSION = 26;
+  int OCL_EXPRESSION = 25;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' attribute.
@@ -1109,7 +1063,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 27;
+  int CONDITION = 26;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' reference.
@@ -1155,7 +1109,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getCompositeCondition()
    * @generated
    */
-  int COMPOSITE_CONDITION = 28;
+  int COMPOSITE_CONDITION = 27;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -1192,7 +1146,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getBoxImageOrientation()
    * @generated
    */
-  int BOX_IMAGE_ORIENTATION = 29;
+  int BOX_IMAGE_ORIENTATION = 28;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ComparisonOperator <em>Comparison Operator</em>}' enum.
@@ -1202,7 +1156,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getComparisonOperator()
    * @generated
    */
-  int COMPARISON_OPERATOR = 30;
+  int COMPARISON_OPERATOR = 29;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LogicalOperator <em>Logical Operator</em>}' enum.
@@ -1212,7 +1166,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLogicalOperator()
    * @generated
    */
-  int LOGICAL_OPERATOR = 31;
+  int LOGICAL_OPERATOR = 30;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.LineStyle <em>Line Style</em>}' enum.
@@ -1222,7 +1176,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getLineStyle()
    * @generated
    */
-  int LINE_STYLE = 32;
+  int LINE_STYLE = 31;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Colors <em>Colors</em>}' enum.
@@ -1232,7 +1186,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getColors()
    * @generated
    */
-  int COLORS = 33;
+  int COLORS = 32;
 
   /**
    * The meta object id for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Directions <em>Directions</em>}' enum.
@@ -1242,7 +1196,7 @@ public interface DecorationLanguagePackage extends EPackage
    * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getDirections()
    * @generated
    */
-  int DIRECTIONS = 34;
+  int DIRECTIONS = 33;
 
 
   /**
@@ -1644,26 +1598,15 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getConnectionDecoration_Style();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getForegroundColor <em>Foreground Color</em>}'.
+   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getColor <em>Color</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Foreground Color</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getForegroundColor()
+   * @return the meta object for the containment reference '<em>Color</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getColor()
    * @see #getConnectionDecoration()
    * @generated
    */
-  EReference getConnectionDecoration_ForegroundColor();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getBackgroundColor <em>Background Color</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Background Color</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration#getBackgroundColor()
-   * @see #getConnectionDecoration()
-   * @generated
-   */
-  EReference getConnectionDecoration_BackgroundColor();
+  EReference getConnectionDecoration_Color();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Text <em>Text</em>}'.
@@ -1897,38 +1840,6 @@ public interface DecorationLanguagePackage extends EPackage
    * @generated
    */
   EAttribute getMargin_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition <em>Relative Position</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Relative Position</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition
-   * @generated
-   */
-  EClass getRelativePosition();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition#getX <em>X</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>X</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition#getX()
-   * @see #getRelativePosition()
-   * @generated
-   */
-  EAttribute getRelativePosition_X();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition#getY <em>Y</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Y</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition#getY()
-   * @see #getRelativePosition()
-   * @generated
-   */
-  EAttribute getRelativePosition_Y();
 
   /**
    * Returns the meta object for class '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.Color <em>Color</em>}'.
@@ -2582,20 +2493,12 @@ public interface DecorationLanguagePackage extends EPackage
     EReference CONNECTION_DECORATION__STYLE = eINSTANCE.getConnectionDecoration_Style();
 
     /**
-     * The meta object literal for the '<em><b>Foreground Color</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONNECTION_DECORATION__FOREGROUND_COLOR = eINSTANCE.getConnectionDecoration_ForegroundColor();
-
-    /**
-     * The meta object literal for the '<em><b>Background Color</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CONNECTION_DECORATION__BACKGROUND_COLOR = eINSTANCE.getConnectionDecoration_BackgroundColor();
+    EReference CONNECTION_DECORATION__COLOR = eINSTANCE.getConnectionDecoration_Color();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.TextImpl <em>Text</em>}' class.
@@ -2790,32 +2693,6 @@ public interface DecorationLanguagePackage extends EPackage
      * @generated
      */
     EAttribute MARGIN__VALUE = eINSTANCE.getMargin_Value();
-
-    /**
-     * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RelativePositionImpl <em>Relative Position</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.RelativePositionImpl
-     * @see org.modelversioning.emfprofile.decoration.decorationLanguage.impl.DecorationLanguagePackageImpl#getRelativePosition()
-     * @generated
-     */
-    EClass RELATIVE_POSITION = eINSTANCE.getRelativePosition();
-
-    /**
-     * The meta object literal for the '<em><b>X</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RELATIVE_POSITION__X = eINSTANCE.getRelativePosition_X();
-
-    /**
-     * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute RELATIVE_POSITION__Y = eINSTANCE.getRelativePosition_Y();
 
     /**
      * The meta object literal for the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorImpl <em>Color</em>}' class.

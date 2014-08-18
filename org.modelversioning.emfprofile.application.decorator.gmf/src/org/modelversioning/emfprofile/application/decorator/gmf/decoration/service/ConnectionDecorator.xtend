@@ -37,8 +37,10 @@ class ConnectionDecorator extends AbstractOnlyOneDecorationDecorator {
 			}
 		} else {
 			val size = if(connectionDecoration.size == null) originalConnectionValues.size else connectionDecoration.size.value;
-			val backgroundColor = provideColor(connectionDecoration.backgroundColor)
-			val foregroundColor = provideColor(connectionDecoration.foregroundColor)
+			// TODO note at the moment that the foreground color is used also to set the background color as well
+			// the reason is that (to the best of my knowledge) the connection figure actually has no background to be colored.  
+			val backgroundColor = provideColor(connectionDecoration.color)
+			val foregroundColor = provideColor(connectionDecoration.color)
 			val style = provideStyle(connectionDecoration.style)
 			highlightEdge(currentFigure, foregroundColor, backgroundColor, size, style)
 		}

@@ -57,7 +57,7 @@ class EObjectDecorators {
 					sb.append("background: " +(gd.decoration as ColorDecoration).background)
 					sb.append("foreground: " +(gd.decoration as ColorDecoration).foreground)
 				}else if(gd.decoration instanceof ConnectionDecoration)
-					sb.append("connection: " + "size="+(gd.decoration as ConnectionDecoration).size + ", foreground-color="+(gd.decoration as ConnectionDecoration).foregroundColor + ", line-style="+(gd.decoration as ConnectionDecoration).style)
+					sb.append("connection: " + "size="+(gd.decoration as ConnectionDecoration).size + ", color="+(gd.decoration as ConnectionDecoration).color + ", line-style="+(gd.decoration as ConnectionDecoration).style)
 				if(gd.decoration.activation != null)
 					sb.append(gd.decoration.activation.condition)
 					

@@ -155,37 +155,37 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cImageDecorationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBoxDecorationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cBorderDecorationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cColorDecorationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cColorDecorationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cBorderDecorationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cConnectionDecorationParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//// For all decorations, if they have optional values then some default value will be used. See comments below.
 		//AbstractDecoration:
-		//	ImageDecoration | // has an effect on both: nodes and edges
-		//	BoxDecoration | BorderDecoration | // has an effect only on nodes
-		//	ColorDecoration | // has an effect only on edges
+		//	ImageDecoration | BoxDecoration | // has an effect on both nodes and edges
+		//	ColorDecoration | // has an effect only on nodes
+		//	BorderDecoration | // has an effect only on edges
 		//	ConnectionDecoration;
 		public ParserRule getRule() { return rule; }
 
-		//ImageDecoration | // has an effect on both: nodes and edges
-		//BoxDecoration | BorderDecoration | // has an effect only on nodes
-		//ColorDecoration | // has an effect only on edges
+		//ImageDecoration | BoxDecoration | // has an effect on both nodes and edges
+		//ColorDecoration | // has an effect only on nodes
+		//BorderDecoration | // has an effect only on edges
 		//ConnectionDecoration
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ImageDecoration
 		public RuleCall getImageDecorationParserRuleCall_0() { return cImageDecorationParserRuleCall_0; }
 
-		//// has an effect on both: nodes and edges
 		//BoxDecoration
 		public RuleCall getBoxDecorationParserRuleCall_1() { return cBoxDecorationParserRuleCall_1; }
 
-		//BorderDecoration
-		public RuleCall getBorderDecorationParserRuleCall_2() { return cBorderDecorationParserRuleCall_2; }
+		//// has an effect on both nodes and edges
+		//ColorDecoration
+		public RuleCall getColorDecorationParserRuleCall_2() { return cColorDecorationParserRuleCall_2; }
 
 		//// has an effect only on nodes
-		//ColorDecoration
-		public RuleCall getColorDecorationParserRuleCall_3() { return cColorDecorationParserRuleCall_3; }
+		//BorderDecoration
+		public RuleCall getBorderDecorationParserRuleCall_3() { return cBorderDecorationParserRuleCall_3; }
 
 		//// has an effect only on edges
 		//ConnectionDecoration
@@ -218,13 +218,13 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ImageDecoration:
-		//	{ImageDecoration} "image" "{" ("uri" "=" location_uri=STRING // default value for node = NORTH_WEST; for edge = CENTER
-		//	// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+		//	{ImageDecoration} "image" "{" ("uri" "=" location_uri=STRING // default value for the node = NORTH_WEST, and for edge = CENTER
+		//	// default value -1 on nodes, 50 for connections (for connections margin is interpreted as a percentage) 
 		//	& direction=Direction? & margin=Margin? & ("tooltip" "=" tooltip=Text)? & activation=Activation?) "}";
 		public ParserRule getRule() { return rule; }
 
-		//{ImageDecoration} "image" "{" ("uri" "=" location_uri=STRING // default value for node = NORTH_WEST; for edge = CENTER
-		//// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+		//{ImageDecoration} "image" "{" ("uri" "=" location_uri=STRING // default value for the node = NORTH_WEST, and for edge = CENTER
+		//// default value -1 on nodes, 50 for connections (for connections margin is interpreted as a percentage) 
 		//& direction=Direction? & margin=Margin? & ("tooltip" "=" tooltip=Text)? & activation=Activation?) "}"
 		public Group getGroup() { return cGroup; }
 
@@ -237,8 +237,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//"uri" "=" location_uri=STRING // default value for node = NORTH_WEST; for edge = CENTER
-		//// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+		//"uri" "=" location_uri=STRING // default value for the node = NORTH_WEST, and for edge = CENTER
+		//// default value -1 on nodes, 50 for connections (for connections margin is interpreted as a percentage) 
 		//& direction=Direction? & margin=Margin? & ("tooltip" "=" tooltip=Text)? & activation=Activation?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
@@ -688,26 +688,21 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Assignment cStyleAssignment_3_1 = (Assignment)cUnorderedGroup_3.eContents().get(1);
 		private final RuleCall cStyleStyleParserRuleCall_3_1_0 = (RuleCall)cStyleAssignment_3_1.eContents().get(0);
 		private final Group cGroup_3_2 = (Group)cUnorderedGroup_3.eContents().get(2);
-		private final Keyword cForegroundColorKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Keyword cColorKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_2_1 = (Keyword)cGroup_3_2.eContents().get(1);
-		private final Assignment cForegroundColorAssignment_3_2_2 = (Assignment)cGroup_3_2.eContents().get(2);
-		private final RuleCall cForegroundColorColorParserRuleCall_3_2_2_0 = (RuleCall)cForegroundColorAssignment_3_2_2.eContents().get(0);
-		private final Group cGroup_3_3 = (Group)cUnorderedGroup_3.eContents().get(3);
-		private final Keyword cBackgroundColorKeyword_3_3_0 = (Keyword)cGroup_3_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_3_1 = (Keyword)cGroup_3_3.eContents().get(1);
-		private final Assignment cBackgroundColorAssignment_3_3_2 = (Assignment)cGroup_3_3.eContents().get(2);
-		private final RuleCall cBackgroundColorColorParserRuleCall_3_3_2_0 = (RuleCall)cBackgroundColorAssignment_3_3_2.eContents().get(0);
-		private final Assignment cActivationAssignment_3_4 = (Assignment)cUnorderedGroup_3.eContents().get(4);
-		private final RuleCall cActivationActivationParserRuleCall_3_4_0 = (RuleCall)cActivationAssignment_3_4.eContents().get(0);
+		private final Assignment cColorAssignment_3_2_2 = (Assignment)cGroup_3_2.eContents().get(2);
+		private final RuleCall cColorColorParserRuleCall_3_2_2_0 = (RuleCall)cColorAssignment_3_2_2.eContents().get(0);
+		private final Assignment cActivationAssignment_3_3 = (Assignment)cUnorderedGroup_3.eContents().get(3);
+		private final RuleCall cActivationActivationParserRuleCall_3_3_0 = (RuleCall)cActivationAssignment_3_3.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ConnectionDecoration:
-		//	{ConnectionDecoration} "connection" "{" (size=Size? & style=Style? & ("foreground-color" "=" foregroundColor=Color)? &
-		//	("background-color" "=" backgroundColor=Color)? & activation=Activation?) "}";
+		//	{ConnectionDecoration} "connection" "{" (size=Size? & style=Style? & ("color" "=" color=Color)? &
+		//	activation=Activation?) "}";
 		public ParserRule getRule() { return rule; }
 
-		//{ConnectionDecoration} "connection" "{" (size=Size? & style=Style? & ("foreground-color" "=" foregroundColor=Color)? &
-		//("background-color" "=" backgroundColor=Color)? & activation=Activation?) "}"
+		//{ConnectionDecoration} "connection" "{" (size=Size? & style=Style? & ("color" "=" color=Color)? &
+		//activation=Activation?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//{ConnectionDecoration}
@@ -719,8 +714,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//size=Size? & style=Style? & ("foreground-color" "=" foregroundColor=Color)? & ("background-color" "="
-		//backgroundColor=Color)? & activation=Activation?
+		//size=Size? & style=Style? & ("color" "=" color=Color)? & activation=Activation?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//size=Size?
@@ -735,41 +729,26 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//Style
 		public RuleCall getStyleStyleParserRuleCall_3_1_0() { return cStyleStyleParserRuleCall_3_1_0; }
 
-		//("foreground-color" "=" foregroundColor=Color)?
+		//("color" "=" color=Color)?
 		public Group getGroup_3_2() { return cGroup_3_2; }
 
-		//"foreground-color"
-		public Keyword getForegroundColorKeyword_3_2_0() { return cForegroundColorKeyword_3_2_0; }
+		//"color"
+		public Keyword getColorKeyword_3_2_0() { return cColorKeyword_3_2_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_3_2_1() { return cEqualsSignKeyword_3_2_1; }
 
-		//foregroundColor=Color
-		public Assignment getForegroundColorAssignment_3_2_2() { return cForegroundColorAssignment_3_2_2; }
+		//color=Color
+		public Assignment getColorAssignment_3_2_2() { return cColorAssignment_3_2_2; }
 
 		//Color
-		public RuleCall getForegroundColorColorParserRuleCall_3_2_2_0() { return cForegroundColorColorParserRuleCall_3_2_2_0; }
-
-		//("background-color" "=" backgroundColor=Color)?
-		public Group getGroup_3_3() { return cGroup_3_3; }
-
-		//"background-color"
-		public Keyword getBackgroundColorKeyword_3_3_0() { return cBackgroundColorKeyword_3_3_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_3_3_1() { return cEqualsSignKeyword_3_3_1; }
-
-		//backgroundColor=Color
-		public Assignment getBackgroundColorAssignment_3_3_2() { return cBackgroundColorAssignment_3_3_2; }
-
-		//Color
-		public RuleCall getBackgroundColorColorParserRuleCall_3_3_2_0() { return cBackgroundColorColorParserRuleCall_3_3_2_0; }
+		public RuleCall getColorColorParserRuleCall_3_2_2_0() { return cColorColorParserRuleCall_3_2_2_0; }
 
 		//activation=Activation?
-		public Assignment getActivationAssignment_3_4() { return cActivationAssignment_3_4; }
+		public Assignment getActivationAssignment_3_3() { return cActivationAssignment_3_3; }
 
 		//Activation
-		public RuleCall getActivationActivationParserRuleCall_3_4_0() { return cActivationActivationParserRuleCall_3_4_0; }
+		public RuleCall getActivationActivationParserRuleCall_3_3_0() { return cActivationActivationParserRuleCall_3_3_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -782,8 +761,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cComplexTextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		/// **
-		// * The text which we can include in the visualization, e.g., hover text over image decoration.
-		// * Can be build out of Strings and tagging values of the applied stereotype.
+		// * The text which we can include in the visualization, e.g., the hover text over an image decoration.
+		// * It can be build out of Strings and tagged values of the applied stereotype.
 		// * / Text:
 		//	SimpleText | ComplexText;
 		public ParserRule getRule() { return rule; }
@@ -878,24 +857,24 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cStyleStyleParserRuleCall_1_2_0 = (RuleCall)cStyleAssignment_1_2.eContents().get(0);
 		
 		//Border:
-		//	{Border} (size=Size? // default value 1
-		//	// default value BLACK
-		//	// default value SOLID
+		//	{Border} (size=Size? // default value is 1
+		//	// default value is BLACK
+		//	// default value is SOLID
 		//	& ("color" "=" color=Color)? & style=Style?);
 		public ParserRule getRule() { return rule; }
 
-		//{Border} (size=Size? // default value 1
-		//// default value BLACK
-		//// default value SOLID
+		//{Border} (size=Size? // default value is 1
+		//// default value is BLACK
+		//// default value is SOLID
 		//& ("color" "=" color=Color)? & style=Style?)
 		public Group getGroup() { return cGroup; }
 
 		//{Border}
 		public Action getBorderAction_0() { return cBorderAction_0; }
 
-		//size=Size? // default value 1
-		//// default value BLACK
-		//// default value SOLID
+		//size=Size? // default value is 1
+		//// default value is BLACK
+		//// default value is SOLID
 		//& ("color" "=" color=Color)? & style=Style?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
@@ -947,11 +926,11 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//BoxImage:
-		//	{BoxImage} "image" "{" ("uri" "=" location_uri=STRING // default is WEST
+		//	{BoxImage} "image" "{" ("uri" "=" location_uri=STRING // default value is WEST
 		//	& ("placement" "=" placement=BoxImageOrientation)?) "}";
 		public ParserRule getRule() { return rule; }
 
-		//{BoxImage} "image" "{" ("uri" "=" location_uri=STRING // default is WEST
+		//{BoxImage} "image" "{" ("uri" "=" location_uri=STRING // default value is WEST
 		//& ("placement" "=" placement=BoxImageOrientation)?) "}"
 		public Group getGroup() { return cGroup; }
 
@@ -964,7 +943,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//"uri" "=" location_uri=STRING // default is WEST
+		//"uri" "=" location_uri=STRING // default value is WEST
 		//& ("placement" "=" placement=BoxImageOrientation)?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
@@ -1114,46 +1093,6 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		public RuleCall getValueSignedIntegerParserRuleCall_2_0() { return cValueSignedIntegerParserRuleCall_2_0; }
 	}
 
-	public class RelativePositionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RelativePosition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cXAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cXSignedIntegerParserRuleCall_1_0 = (RuleCall)cXAssignment_1.eContents().get(0);
-		private final Keyword cCommaKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cYAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cYSignedIntegerParserRuleCall_3_0 = (RuleCall)cYAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//RelativePosition:
-		//	"(" x=SignedInteger "," y=SignedInteger ")";
-		public ParserRule getRule() { return rule; }
-
-		//"(" x=SignedInteger "," y=SignedInteger ")"
-		public Group getGroup() { return cGroup; }
-
-		//"("
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
-
-		//x=SignedInteger
-		public Assignment getXAssignment_1() { return cXAssignment_1; }
-
-		//SignedInteger
-		public RuleCall getXSignedIntegerParserRuleCall_1_0() { return cXSignedIntegerParserRuleCall_1_0; }
-
-		//","
-		public Keyword getCommaKeyword_2() { return cCommaKeyword_2; }
-
-		//y=SignedInteger
-		public Assignment getYAssignment_3() { return cYAssignment_3; }
-
-		//SignedInteger
-		public RuleCall getYSignedIntegerParserRuleCall_3_0() { return cYSignedIntegerParserRuleCall_3_0; }
-
-		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
-	}
-
 	public class ColorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Color");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1164,6 +1103,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Assignment cConcreteAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cConcreteConcreteColorParserRuleCall_1_0 = (RuleCall)cConcreteAssignment_1.eContents().get(0);
 		
+		////RelativePosition:
+		////	'(' x=SignedInteger ',' y=SignedInteger ')'
+		////;
 		//Color:
 		//	{Color} value=ColorConstant | concrete=ConcreteColor;
 		public ParserRule getRule() { return rule; }
@@ -2003,7 +1945,6 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	private SizeElements pSize;
 	private DirectionElements pDirection;
 	private MarginElements pMargin;
-	private RelativePositionElements pRelativePosition;
 	private ColorElements pColor;
 	private ConcreteColorElements pConcreteColor;
 	private RGBElements pRGB;
@@ -2100,9 +2041,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 
 	//// For all decorations, if they have optional values then some default value will be used. See comments below.
 	//AbstractDecoration:
-	//	ImageDecoration | // has an effect on both: nodes and edges
-	//	BoxDecoration | BorderDecoration | // has an effect only on nodes
-	//	ColorDecoration | // has an effect only on edges
+	//	ImageDecoration | BoxDecoration | // has an effect on both nodes and edges
+	//	ColorDecoration | // has an effect only on nodes
+	//	BorderDecoration | // has an effect only on edges
 	//	ConnectionDecoration;
 	public AbstractDecorationElements getAbstractDecorationAccess() {
 		return (pAbstractDecoration != null) ? pAbstractDecoration : (pAbstractDecoration = new AbstractDecorationElements());
@@ -2113,8 +2054,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//ImageDecoration:
-	//	{ImageDecoration} "image" "{" ("uri" "=" location_uri=STRING // default value for node = NORTH_WEST; for edge = CENTER
-	//	// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage) 
+	//	{ImageDecoration} "image" "{" ("uri" "=" location_uri=STRING // default value for the node = NORTH_WEST, and for edge = CENTER
+	//	// default value -1 on nodes, 50 for connections (for connections margin is interpreted as a percentage) 
 	//	& direction=Direction? & margin=Margin? & ("tooltip" "=" tooltip=Text)? & activation=Activation?) "}";
 	public ImageDecorationElements getImageDecorationAccess() {
 		return (pImageDecoration != null) ? pImageDecoration : (pImageDecoration = new ImageDecorationElements());
@@ -2164,8 +2105,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//ConnectionDecoration:
-	//	{ConnectionDecoration} "connection" "{" (size=Size? & style=Style? & ("foreground-color" "=" foregroundColor=Color)? &
-	//	("background-color" "=" backgroundColor=Color)? & activation=Activation?) "}";
+	//	{ConnectionDecoration} "connection" "{" (size=Size? & style=Style? & ("color" "=" color=Color)? &
+	//	activation=Activation?) "}";
 	public ConnectionDecorationElements getConnectionDecorationAccess() {
 		return (pConnectionDecoration != null) ? pConnectionDecoration : (pConnectionDecoration = new ConnectionDecorationElements());
 	}
@@ -2175,8 +2116,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	/// **
-	// * The text which we can include in the visualization, e.g., hover text over image decoration.
-	// * Can be build out of Strings and tagging values of the applied stereotype.
+	// * The text which we can include in the visualization, e.g., the hover text over an image decoration.
+	// * It can be build out of Strings and tagged values of the applied stereotype.
 	// * / Text:
 	//	SimpleText | ComplexText;
 	public TextElements getTextAccess() {
@@ -2208,9 +2149,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//Border:
-	//	{Border} (size=Size? // default value 1
-	//	// default value BLACK
-	//	// default value SOLID
+	//	{Border} (size=Size? // default value is 1
+	//	// default value is BLACK
+	//	// default value is SOLID
 	//	& ("color" "=" color=Color)? & style=Style?);
 	public BorderElements getBorderAccess() {
 		return (pBorder != null) ? pBorder : (pBorder = new BorderElements());
@@ -2221,7 +2162,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//BoxImage:
-	//	{BoxImage} "image" "{" ("uri" "=" location_uri=STRING // default is WEST
+	//	{BoxImage} "image" "{" ("uri" "=" location_uri=STRING // default value is WEST
 	//	& ("placement" "=" placement=BoxImageOrientation)?) "}";
 	public BoxImageElements getBoxImageAccess() {
 		return (pBoxImage != null) ? pBoxImage : (pBoxImage = new BoxImageElements());
@@ -2271,16 +2212,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getMarginAccess().getRule();
 	}
 
-	//RelativePosition:
-	//	"(" x=SignedInteger "," y=SignedInteger ")";
-	public RelativePositionElements getRelativePositionAccess() {
-		return (pRelativePosition != null) ? pRelativePosition : (pRelativePosition = new RelativePositionElements());
-	}
-	
-	public ParserRule getRelativePositionRule() {
-		return getRelativePositionAccess().getRule();
-	}
-
+	////RelativePosition:
+	////	'(' x=SignedInteger ',' y=SignedInteger ')'
+	////;
 	//Color:
 	//	{Color} value=ColorConstant | concrete=ConcreteColor;
 	public ColorElements getColorAccess() {

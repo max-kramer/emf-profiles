@@ -185,15 +185,6 @@ public interface DecorationLanguageFactory extends EFactory
   Margin createMargin();
 
   /**
-   * Returns a new object of class '<em>Relative Position</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Relative Position</em>'.
-   * @generated
-   */
-  RelativePosition createRelativePosition();
-
-  /**
    * Returns a new object of class '<em>Color</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

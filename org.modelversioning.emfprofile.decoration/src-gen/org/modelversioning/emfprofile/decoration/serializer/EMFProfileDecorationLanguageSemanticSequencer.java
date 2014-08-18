@@ -35,7 +35,6 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Margin;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Namespace;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.OclExpression;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.RGB;
-import org.modelversioning.emfprofile.decoration.decorationLanguage.RelativePosition;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.SimpleText;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Size;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.Style;
@@ -183,12 +182,6 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 				if(context == grammarAccess.getConcreteColorRule() ||
 				   context == grammarAccess.getRGBRule()) {
 					sequence_RGB(context, (RGB) semanticObject); 
-					return; 
-				}
-				else break;
-			case DecorationLanguagePackage.RELATIVE_POSITION:
-				if(context == grammarAccess.getRelativePositionRule()) {
-					sequence_RelativePosition(context, (RelativePosition) semanticObject); 
 					return; 
 				}
 				else break;
@@ -366,7 +359,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	
 	/**
 	 * Constraint:
-	 *     (size=Size? style=Style? foregroundColor=Color? backgroundColor=Color? activation=Activation?)
+	 *     (size=Size? style=Style? color=Color? activation=Activation?)
 	 */
 	protected void sequence_ConnectionDecoration(EObject context, ConnectionDecoration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -498,25 +491,6 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 		feeder.accept(grammarAccess.getRGBAccess().getRedINTTerminalRuleCall_2_0(), semanticObject.getRed());
 		feeder.accept(grammarAccess.getRGBAccess().getGreenINTTerminalRuleCall_4_0(), semanticObject.getGreen());
 		feeder.accept(grammarAccess.getRGBAccess().getBlueINTTerminalRuleCall_6_0(), semanticObject.getBlue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (x=SignedInteger y=SignedInteger)
-	 */
-	protected void sequence_RelativePosition(EObject context, RelativePosition semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__X) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__X));
-			if(transientValues.isValueTransient(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__Y) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DecorationLanguagePackage.Literals.RELATIVE_POSITION__Y));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRelativePositionAccess().getXSignedIntegerParserRuleCall_1_0(), semanticObject.getX());
-		feeder.accept(grammarAccess.getRelativePositionAccess().getYSignedIntegerParserRuleCall_3_0(), semanticObject.getY());
 		feeder.finish();
 	}
 	

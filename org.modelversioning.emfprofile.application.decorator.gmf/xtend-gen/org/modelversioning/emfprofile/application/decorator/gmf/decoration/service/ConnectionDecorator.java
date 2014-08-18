@@ -73,10 +73,10 @@ public class ConnectionDecorator extends AbstractOnlyOneDecorationDecorator {
         _xifexpression = _value;
       }
       final int size = _xifexpression;
-      org.modelversioning.emfprofile.decoration.decorationLanguage.Color _backgroundColor_1 = connectionDecoration.getBackgroundColor();
-      final Color backgroundColor = this.provideColor(_backgroundColor_1);
-      org.modelversioning.emfprofile.decoration.decorationLanguage.Color _foregroundColor_1 = connectionDecoration.getForegroundColor();
-      final Color foregroundColor = this.provideColor(_foregroundColor_1);
+      org.modelversioning.emfprofile.decoration.decorationLanguage.Color _color = connectionDecoration.getColor();
+      final Color backgroundColor = this.provideColor(_color);
+      org.modelversioning.emfprofile.decoration.decorationLanguage.Color _color_1 = connectionDecoration.getColor();
+      final Color foregroundColor = this.provideColor(_color_1);
       Style _style = connectionDecoration.getStyle();
       final int style = this.provideStyle(_style);
       this.highlightEdge(currentFigure, foregroundColor, backgroundColor, size, style);
