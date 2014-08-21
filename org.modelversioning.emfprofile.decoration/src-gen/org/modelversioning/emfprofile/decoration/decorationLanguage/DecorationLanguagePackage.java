@@ -298,13 +298,13 @@ public interface DecorationLanguagePackage extends EPackage
   int BOX_DECORATION__TEXT = ABSTRACT_DECORATION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Widht</b></em>' attribute.
+   * The feature id for the '<em><b>Width</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BOX_DECORATION__WIDHT = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
+  int BOX_DECORATION__WIDTH = ABSTRACT_DECORATION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Height</b></em>' attribute.
@@ -1403,15 +1403,15 @@ public interface DecorationLanguagePackage extends EPackage
   EReference getBoxDecoration_Text();
 
   /**
-   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidht <em>Widht</em>}'.
+   * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidth <em>Width</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Widht</em>'.
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidht()
+   * @return the meta object for the attribute '<em>Width</em>'.
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidth()
    * @see #getBoxDecoration()
    * @generated
    */
-  EAttribute getBoxDecoration_Widht();
+  EAttribute getBoxDecoration_Width();
 
   /**
    * Returns the meta object for the attribute '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getHeight <em>Height</em>}'.
@@ -2343,12 +2343,12 @@ public interface DecorationLanguagePackage extends EPackage
     EReference BOX_DECORATION__TEXT = eINSTANCE.getBoxDecoration_Text();
 
     /**
-     * The meta object literal for the '<em><b>Widht</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BOX_DECORATION__WIDHT = eINSTANCE.getBoxDecoration_Widht();
+    EAttribute BOX_DECORATION__WIDTH = eINSTANCE.getBoxDecoration_Width();
 
     /**
      * The meta object literal for the '<em><b>Height</b></em>' attribute feature.

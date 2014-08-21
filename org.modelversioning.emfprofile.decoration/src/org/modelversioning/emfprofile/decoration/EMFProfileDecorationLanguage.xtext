@@ -51,7 +51,7 @@ BoxDecoration :
 		(	
 			// mandatory
 			('text' '=' text=Text)
-			& ('width' '=' widht=INT)
+			& ('width' '=' width=INT)
 			& ('height' '=' height=INT)
 			
 			// optional
@@ -209,8 +209,8 @@ SignedInteger returns ecore::EInt:
 	'-'? INT
 ;
 
-QualifiedNameWithWildcard:
-	QualifiedName '.*'?;
+//QualifiedNameWithWildcard:
+//	QualifiedName '.*'?;
 
 QualifiedName returns ecore::EString:
 	ID ('.' ID)*

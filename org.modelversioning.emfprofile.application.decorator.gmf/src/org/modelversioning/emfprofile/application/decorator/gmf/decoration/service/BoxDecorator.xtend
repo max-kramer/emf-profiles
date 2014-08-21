@@ -75,7 +75,7 @@ class BoxDecorator extends AbstractManyDecorationsDecorator {
 		}
 		setContentDirection(figure, decoration.contentDirection)
 				
-		figure.setSize(decoration.widht, decoration.height)
+		figure.setSize(decoration.width, decoration.height)
 		
 		return figure
 	}

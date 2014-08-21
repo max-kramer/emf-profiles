@@ -89,7 +89,6 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getCompositeConditionAccess().getGroup(), "rule__CompositeCondition__Group__0");
 					put(grammarAccess.getSignedDoubleAccess().getGroup(), "rule__SignedDouble__Group__0");
 					put(grammarAccess.getSignedIntegerAccess().getGroup(), "rule__SignedInteger__Group__0");
-					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup(), "rule__QualifiedName__Group__0");
 					put(grammarAccess.getQualifiedNameAccess().getGroup_1(), "rule__QualifiedName__Group_1__0");
 					put(grammarAccess.getDecorationModelAccess().getImportURIAssignment_1(), "rule__DecorationModel__ImportURIAssignment_1");
@@ -105,7 +104,7 @@ public class EMFProfileDecorationLanguageParser extends AbstractContentAssistPar
 					put(grammarAccess.getImageDecorationAccess().getTooltipAssignment_3_3_2(), "rule__ImageDecoration__TooltipAssignment_3_3_2");
 					put(grammarAccess.getImageDecorationAccess().getActivationAssignment_3_4(), "rule__ImageDecoration__ActivationAssignment_3_4");
 					put(grammarAccess.getBoxDecorationAccess().getTextAssignment_3_0_2(), "rule__BoxDecoration__TextAssignment_3_0_2");
-					put(grammarAccess.getBoxDecorationAccess().getWidhtAssignment_3_1_2(), "rule__BoxDecoration__WidhtAssignment_3_1_2");
+					put(grammarAccess.getBoxDecorationAccess().getWidthAssignment_3_1_2(), "rule__BoxDecoration__WidthAssignment_3_1_2");
 					put(grammarAccess.getBoxDecorationAccess().getHeightAssignment_3_2_2(), "rule__BoxDecoration__HeightAssignment_3_2_2");
 					put(grammarAccess.getBoxDecorationAccess().getImageAssignment_3_3(), "rule__BoxDecoration__ImageAssignment_3_3");
 					put(grammarAccess.getBoxDecorationAccess().getBorderAssignment_3_4_2(), "rule__BoxDecoration__BorderAssignment_3_4_2");

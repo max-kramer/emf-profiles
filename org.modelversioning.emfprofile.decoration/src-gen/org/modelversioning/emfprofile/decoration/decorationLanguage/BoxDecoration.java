@@ -12,7 +12,7 @@ package org.modelversioning.emfprofile.decoration.decorationLanguage;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getText <em>Text</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidht <em>Widht</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidth <em>Width</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getHeight <em>Height</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getImage <em>Image</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getBorder <em>Border</em>}</li>
@@ -58,30 +58,30 @@ public interface BoxDecoration extends AbstractDecoration
   void setText(Text value);
 
   /**
-   * Returns the value of the '<em><b>Widht</b></em>' attribute.
+   * Returns the value of the '<em><b>Width</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Widht</em>' attribute isn't clear,
+   * If the meaning of the '<em>Width</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Widht</em>' attribute.
-   * @see #setWidht(int)
-   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage#getBoxDecoration_Widht()
+   * @return the value of the '<em>Width</em>' attribute.
+   * @see #setWidth(int)
+   * @see org.modelversioning.emfprofile.decoration.decorationLanguage.DecorationLanguagePackage#getBoxDecoration_Width()
    * @model
    * @generated
    */
-  int getWidht();
+  int getWidth();
 
   /**
-   * Sets the value of the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidht <em>Widht</em>}' attribute.
+   * Sets the value of the '{@link org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration#getWidth <em>Width</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Widht</em>' attribute.
-   * @see #getWidht()
+   * @param value the new value of the '<em>Width</em>' attribute.
+   * @see #getWidth()
    * @generated
    */
-  void setWidht(int value);
+  void setWidth(int value);
 
   /**
    * Returns the value of the '<em><b>Height</b></em>' attribute.

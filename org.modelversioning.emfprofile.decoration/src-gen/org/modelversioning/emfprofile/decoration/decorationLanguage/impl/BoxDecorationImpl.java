@@ -28,7 +28,7 @@ import org.modelversioning.emfprofile.decoration.decorationLanguage.Text;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl#getText <em>Text</em>}</li>
- *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl#getWidht <em>Widht</em>}</li>
+ *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl#getWidth <em>Width</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl#getHeight <em>Height</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl#getImage <em>Image</em>}</li>
  *   <li>{@link org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl#getBorder <em>Border</em>}</li>
@@ -56,24 +56,24 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
   protected Text text;
 
   /**
-   * The default value of the '{@link #getWidht() <em>Widht</em>}' attribute.
+   * The default value of the '{@link #getWidth() <em>Width</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWidht()
+   * @see #getWidth()
    * @generated
    * @ordered
    */
-  protected static final int WIDHT_EDEFAULT = 0;
+  protected static final int WIDTH_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getWidht() <em>Widht</em>}' attribute.
+   * The cached value of the '{@link #getWidth() <em>Width</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getWidht()
+   * @see #getWidth()
    * @generated
    * @ordered
    */
-  protected int widht = WIDHT_EDEFAULT;
+  protected int width = WIDTH_EDEFAULT;
 
   /**
    * The default value of the '{@link #getHeight() <em>Height</em>}' attribute.
@@ -259,9 +259,9 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getWidht()
+  public int getWidth()
   {
-    return widht;
+    return width;
   }
 
   /**
@@ -269,12 +269,12 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setWidht(int newWidht)
+  public void setWidth(int newWidth)
   {
-    int oldWidht = widht;
-    widht = newWidht;
+    int oldWidth = width;
+    width = newWidth;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BOX_DECORATION__WIDHT, oldWidht, widht));
+      eNotify(new ENotificationImpl(this, Notification.SET, DecorationLanguagePackage.BOX_DECORATION__WIDTH, oldWidth, width));
   }
 
   /**
@@ -701,8 +701,8 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
     {
       case DecorationLanguagePackage.BOX_DECORATION__TEXT:
         return getText();
-      case DecorationLanguagePackage.BOX_DECORATION__WIDHT:
-        return getWidht();
+      case DecorationLanguagePackage.BOX_DECORATION__WIDTH:
+        return getWidth();
       case DecorationLanguagePackage.BOX_DECORATION__HEIGHT:
         return getHeight();
       case DecorationLanguagePackage.BOX_DECORATION__IMAGE:
@@ -738,8 +738,8 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
       case DecorationLanguagePackage.BOX_DECORATION__TEXT:
         setText((Text)newValue);
         return;
-      case DecorationLanguagePackage.BOX_DECORATION__WIDHT:
-        setWidht((Integer)newValue);
+      case DecorationLanguagePackage.BOX_DECORATION__WIDTH:
+        setWidth((Integer)newValue);
         return;
       case DecorationLanguagePackage.BOX_DECORATION__HEIGHT:
         setHeight((Integer)newValue);
@@ -785,8 +785,8 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
       case DecorationLanguagePackage.BOX_DECORATION__TEXT:
         setText((Text)null);
         return;
-      case DecorationLanguagePackage.BOX_DECORATION__WIDHT:
-        setWidht(WIDHT_EDEFAULT);
+      case DecorationLanguagePackage.BOX_DECORATION__WIDTH:
+        setWidth(WIDTH_EDEFAULT);
         return;
       case DecorationLanguagePackage.BOX_DECORATION__HEIGHT:
         setHeight(HEIGHT_EDEFAULT);
@@ -831,8 +831,8 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
     {
       case DecorationLanguagePackage.BOX_DECORATION__TEXT:
         return text != null;
-      case DecorationLanguagePackage.BOX_DECORATION__WIDHT:
-        return widht != WIDHT_EDEFAULT;
+      case DecorationLanguagePackage.BOX_DECORATION__WIDTH:
+        return width != WIDTH_EDEFAULT;
       case DecorationLanguagePackage.BOX_DECORATION__HEIGHT:
         return height != HEIGHT_EDEFAULT;
       case DecorationLanguagePackage.BOX_DECORATION__IMAGE:
@@ -866,8 +866,8 @@ public class BoxDecorationImpl extends AbstractDecorationImpl implements BoxDeco
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (widht: ");
-    result.append(widht);
+    result.append(" (width: ");
+    result.append(width);
     result.append(", height: ");
     result.append(height);
     result.append(", contentDirection: ");

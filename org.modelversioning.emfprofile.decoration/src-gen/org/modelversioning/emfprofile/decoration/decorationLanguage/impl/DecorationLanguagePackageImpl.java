@@ -556,7 +556,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBoxDecoration_Widht()
+  public EAttribute getBoxDecoration_Width()
   {
     return (EAttribute)boxDecorationEClass.getEStructuralFeatures().get(1);
   }
@@ -1315,7 +1315,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     boxDecorationEClass = createEClass(BOX_DECORATION);
     createEReference(boxDecorationEClass, BOX_DECORATION__TEXT);
-    createEAttribute(boxDecorationEClass, BOX_DECORATION__WIDHT);
+    createEAttribute(boxDecorationEClass, BOX_DECORATION__WIDTH);
     createEAttribute(boxDecorationEClass, BOX_DECORATION__HEIGHT);
     createEReference(boxDecorationEClass, BOX_DECORATION__IMAGE);
     createEReference(boxDecorationEClass, BOX_DECORATION__BORDER);
@@ -1483,7 +1483,7 @@ public class DecorationLanguagePackageImpl extends EPackageImpl implements Decor
 
     initEClass(boxDecorationEClass, BoxDecoration.class, "BoxDecoration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBoxDecoration_Text(), this.getText(), null, "text", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBoxDecoration_Widht(), theEcorePackage.getEInt(), "widht", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBoxDecoration_Width(), theEcorePackage.getEInt(), "width", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBoxDecoration_Height(), theEcorePackage.getEInt(), "height", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBoxDecoration_Image(), this.getBoxImage(), null, "image", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBoxDecoration_Border(), this.getBorder(), null, "border", null, 0, 1, BoxDecoration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

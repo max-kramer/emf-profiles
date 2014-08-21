@@ -924,8 +924,6 @@ finally {
 
 
 
-
-
 // Entry rule entryRuleQualifiedName
 entryRuleQualifiedName 
 :
@@ -2653,9 +2651,9 @@ rule__BoxDecoration__Group_3_1__2__Impl
     }
 :
 (
-{ before(grammarAccess.getBoxDecorationAccess().getWidhtAssignment_3_1_2()); }
-(rule__BoxDecoration__WidhtAssignment_3_1_2)
-{ after(grammarAccess.getBoxDecorationAccess().getWidhtAssignment_3_1_2()); }
+{ before(grammarAccess.getBoxDecorationAccess().getWidthAssignment_3_1_2()); }
+(rule__BoxDecoration__WidthAssignment_3_1_2)
+{ after(grammarAccess.getBoxDecorationAccess().getWidthAssignment_3_1_2()); }
 )
 
 ;
@@ -5972,7 +5970,6 @@ finally {
 
 
 
-
 rule__QualifiedName__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -7623,14 +7620,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BoxDecoration__WidhtAssignment_3_1_2
+rule__BoxDecoration__WidthAssignment_3_1_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBoxDecorationAccess().getWidhtINTTerminalRuleCall_3_1_2_0()); }
-	RULE_INT{ after(grammarAccess.getBoxDecorationAccess().getWidhtINTTerminalRuleCall_3_1_2_0()); }
+{ before(grammarAccess.getBoxDecorationAccess().getWidthINTTerminalRuleCall_3_1_2_0()); }
+	RULE_INT{ after(grammarAccess.getBoxDecorationAccess().getWidthINTTerminalRuleCall_3_1_2_0()); }
 )
 
 ;

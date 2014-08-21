@@ -309,8 +309,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Group cGroup_3_1 = (Group)cUnorderedGroup_3.eContents().get(1);
 		private final Keyword cWidthKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_1_1 = (Keyword)cGroup_3_1.eContents().get(1);
-		private final Assignment cWidhtAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
-		private final RuleCall cWidhtINTTerminalRuleCall_3_1_2_0 = (RuleCall)cWidhtAssignment_3_1_2.eContents().get(0);
+		private final Assignment cWidthAssignment_3_1_2 = (Assignment)cGroup_3_1.eContents().get(2);
+		private final RuleCall cWidthINTTerminalRuleCall_3_1_2_0 = (RuleCall)cWidthAssignment_3_1_2.eContents().get(0);
 		private final Group cGroup_3_2 = (Group)cUnorderedGroup_3.eContents().get(2);
 		private final Keyword cHeightKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_3_2_1 = (Keyword)cGroup_3_2.eContents().get(1);
@@ -358,7 +358,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//	// default value for node = NORTH_WEST; for edge = CENTER
 		//	// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 		//	// default is CENTER
-		//	& "width" "=" widht=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
+		//	& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
 		//	("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
 		//	direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
 		//	tooltip=Text)? & activation=Activation?) "}";
@@ -369,7 +369,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//// default value for node = NORTH_WEST; for edge = CENTER
 		//// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 		//// default is CENTER
-		//& "width" "=" widht=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
+		//& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
 		//("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
 		//direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
 		//tooltip=Text)? & activation=Activation?) "}"
@@ -389,7 +389,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//// default value for node = NORTH_WEST; for edge = CENTER
 		//// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 		//// default is CENTER
-		//& "width" "=" widht=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
+		//& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
 		//("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
 		//direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
 		//tooltip=Text)? & activation=Activation?
@@ -410,7 +410,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//Text
 		public RuleCall getTextTextParserRuleCall_3_0_2_0() { return cTextTextParserRuleCall_3_0_2_0; }
 
-		//"width" "=" widht=INT
+		//"width" "=" width=INT
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
 		//"width"
@@ -419,11 +419,11 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"="
 		public Keyword getEqualsSignKeyword_3_1_1() { return cEqualsSignKeyword_3_1_1; }
 
-		//widht=INT
-		public Assignment getWidhtAssignment_3_1_2() { return cWidhtAssignment_3_1_2; }
+		//width=INT
+		public Assignment getWidthAssignment_3_1_2() { return cWidthAssignment_3_1_2; }
 
 		//INT
-		public RuleCall getWidhtINTTerminalRuleCall_3_1_2_0() { return cWidhtINTTerminalRuleCall_3_1_2_0; }
+		public RuleCall getWidthINTTerminalRuleCall_3_1_2_0() { return cWidthINTTerminalRuleCall_3_1_2_0; }
 
 		//"height" "=" height=INT
 		public Group getGroup_3_2() { return cGroup_3_2; }
@@ -1476,26 +1476,6 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 
-	public class QualifiedNameWithWildcardElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedNameWithWildcard");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//QualifiedNameWithWildcard:
-		//	QualifiedName ".*"?;
-		public ParserRule getRule() { return rule; }
-
-		//QualifiedName ".*"?
-		public Group getGroup() { return cGroup; }
-
-		//QualifiedName
-		public RuleCall getQualifiedNameParserRuleCall_0() { return cQualifiedNameParserRuleCall_0; }
-
-		//".*"?
-		public Keyword getFullStopAsteriskKeyword_1() { return cFullStopAsteriskKeyword_1; }
-	}
-
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QualifiedName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1504,6 +1484,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
+		////QualifiedNameWithWildcard:
+		////	QualifiedName '.*'?;
 		//QualifiedName returns ecore::EString:
 		//	ID ("." ID)*;
 		public ParserRule getRule() { return rule; }
@@ -1958,7 +1940,6 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	private TypeElements pType;
 	private SignedDoubleElements pSignedDouble;
 	private SignedIntegerElements pSignedInteger;
-	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private QualifiedNameElements pQualifiedName;
 	private TerminalRule tBOOLEAN;
 	private TerminalRule tHEX_COLOR;
@@ -2071,7 +2052,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	//	// default value for node = NORTH_WEST; for edge = CENTER
 	//	// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 	//	// default is CENTER
-	//	& "width" "=" widht=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
+	//	& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
 	//	("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
 	//	direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
 	//	tooltip=Text)? & activation=Activation?) "}";
@@ -2345,16 +2326,8 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		return getSignedIntegerAccess().getRule();
 	}
 
-	//QualifiedNameWithWildcard:
-	//	QualifiedName ".*"?;
-	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
-		return (pQualifiedNameWithWildcard != null) ? pQualifiedNameWithWildcard : (pQualifiedNameWithWildcard = new QualifiedNameWithWildcardElements());
-	}
-	
-	public ParserRule getQualifiedNameWithWildcardRule() {
-		return getQualifiedNameWithWildcardAccess().getRule();
-	}
-
+	////QualifiedNameWithWildcard:
+	////	QualifiedName '.*'?;
 	//QualifiedName returns ecore::EString:
 	//	ID ("." ID)*;
 	public QualifiedNameElements getQualifiedNameAccess() {

@@ -246,7 +246,7 @@ public class EMFProfileDecorationLanguageSemanticSequencer extends AbstractDeleg
 	 * Constraint:
 	 *     (
 	 *         text=Text 
-	 *         widht=INT 
+	 *         width=INT 
 	 *         height=INT 
 	 *         image=BoxImage? 
 	 *         border=Border? 

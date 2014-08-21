@@ -170,9 +170,9 @@ public class BoxDecorator extends AbstractManyDecorationsDecorator {
     }
     Directions _contentDirection = decoration.getContentDirection();
     this.setContentDirection(figure, _contentDirection);
-    int _widht = decoration.getWidht();
+    int _width = decoration.getWidth();
     int _height = decoration.getHeight();
-    figure.setSize(_widht, _height);
+    figure.setSize(_width, _height);
     return figure;
   }
   

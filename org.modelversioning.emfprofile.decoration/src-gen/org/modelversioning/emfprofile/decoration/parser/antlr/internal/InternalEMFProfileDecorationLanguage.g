@@ -690,9 +690,9 @@ ruleBoxDecoration returns [EObject current=null]
     }
 (
 (
-		lv_widht_9_0=RULE_INT
+		lv_width_9_0=RULE_INT
 		{
-			newLeafNode(lv_widht_9_0, grammarAccess.getBoxDecorationAccess().getWidhtINTTerminalRuleCall_3_1_2_0()); 
+			newLeafNode(lv_width_9_0, grammarAccess.getBoxDecorationAccess().getWidthINTTerminalRuleCall_3_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -700,8 +700,8 @@ ruleBoxDecoration returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"widht",
-        		lv_widht_9_0, 
+       			"width",
+        		lv_width_9_0, 
         		"INT");
 	    }
 
@@ -2863,8 +2863,6 @@ ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     }
 )
     ;
-
-
 
 
 

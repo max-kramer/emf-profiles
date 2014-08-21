@@ -86,7 +86,7 @@
     </genClasses>
     <genClasses ecoreClass="EMFProfileDecorationLanguage.ecore#//BoxDecoration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BoxDecoration/text"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//BoxDecoration/widht"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//BoxDecoration/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EMFProfileDecorationLanguage.ecore#//BoxDecoration/height"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BoxDecoration/image"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference EMFProfileDecorationLanguage.ecore#//BoxDecoration/border"/>
