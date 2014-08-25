@@ -359,9 +359,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//	// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 		//	// default is CENTER
 		//	& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
-		//	("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
-		//	direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
-		//	tooltip=Text)? & activation=Activation?) "}";
+		//	("foregroundColor" "=" foregroundColor=Color)? & ("backgroundColor" "=" backgroundColor=Color)? & direction=Direction?
+		//	& margin=Margin? & ("contentDirection" "=" contentDirection=Directions)? & ("tooltip" "=" tooltip=Text)? &
+		//	activation=Activation?) "}";
 		public ParserRule getRule() { return rule; }
 
 		//{BoxDecoration} "box" "{" ("text" "=" text=Text // mandatory
@@ -370,9 +370,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 		//// default is CENTER
 		//& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
-		//("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
-		//direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
-		//tooltip=Text)? & activation=Activation?) "}"
+		//("foregroundColor" "=" foregroundColor=Color)? & ("backgroundColor" "=" backgroundColor=Color)? & direction=Direction?
+		//& margin=Margin? & ("contentDirection" "=" contentDirection=Directions)? & ("tooltip" "=" tooltip=Text)? &
+		//activation=Activation?) "}"
 		public Group getGroup() { return cGroup; }
 
 		//{BoxDecoration}
@@ -390,9 +390,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 		//// default is CENTER
 		//& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
-		//("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
-		//direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
-		//tooltip=Text)? & activation=Activation?
+		//("foregroundColor" "=" foregroundColor=Color)? & ("backgroundColor" "=" backgroundColor=Color)? & direction=Direction?
+		//& margin=Margin? & ("contentDirection" "=" contentDirection=Directions)? & ("tooltip" "=" tooltip=Text)? &
+		//activation=Activation?
 		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
 		//"text" "=" text=Text
@@ -464,10 +464,10 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3_4_3() { return cRightCurlyBracketKeyword_3_4_3; }
 
-		//("foreground-color" "=" foregroundColor=Color)?
+		//("foregroundColor" "=" foregroundColor=Color)?
 		public Group getGroup_3_5() { return cGroup_3_5; }
 
-		//"foreground-color"
+		//"foregroundColor"
 		public Keyword getForegroundColorKeyword_3_5_0() { return cForegroundColorKeyword_3_5_0; }
 
 		//"="
@@ -479,10 +479,10 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//Color
 		public RuleCall getForegroundColorColorParserRuleCall_3_5_2_0() { return cForegroundColorColorParserRuleCall_3_5_2_0; }
 
-		//("background-color" "=" backgroundColor=Color)?
+		//("backgroundColor" "=" backgroundColor=Color)?
 		public Group getGroup_3_6() { return cGroup_3_6; }
 
-		//"background-color"
+		//"backgroundColor"
 		public Keyword getBackgroundColorKeyword_3_6_0() { return cBackgroundColorKeyword_3_6_0; }
 
 		//"="
@@ -506,10 +506,10 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		//Margin
 		public RuleCall getMarginMarginParserRuleCall_3_8_0() { return cMarginMarginParserRuleCall_3_8_0; }
 
-		//("content-direction" "=" contentDirection=Directions)?
+		//("contentDirection" "=" contentDirection=Directions)?
 		public Group getGroup_3_9() { return cGroup_3_9; }
 
-		//"content-direction"
+		//"contentDirection"
 		public Keyword getContentDirectionKeyword_3_9_0() { return cContentDirectionKeyword_3_9_0; }
 
 		//"="
@@ -990,13 +990,13 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 		private final RuleCall cValueLineStyleEnumRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Style:
-		//	"line-style" "=" value=LineStyle;
+		//	"lineStyle" "=" value=LineStyle;
 		public ParserRule getRule() { return rule; }
 
-		//"line-style" "=" value=LineStyle
+		//"lineStyle" "=" value=LineStyle
 		public Group getGroup() { return cGroup; }
 
-		//"line-style"
+		//"lineStyle"
 		public Keyword getLineStyleKeyword_0() { return cLineStyleKeyword_0; }
 
 		//"="
@@ -2053,9 +2053,9 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	//	// default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
 	//	// default is CENTER
 	//	& "width" "=" width=INT & "height" "=" height=INT & image=BoxImage? & ("border" "{" border=Border "}")? &
-	//	("foreground-color" "=" foregroundColor=Color)? & ("background-color" "=" backgroundColor=Color)? &
-	//	direction=Direction? & margin=Margin? & ("content-direction" "=" contentDirection=Directions)? & ("tooltip" "="
-	//	tooltip=Text)? & activation=Activation?) "}";
+	//	("foregroundColor" "=" foregroundColor=Color)? & ("backgroundColor" "=" backgroundColor=Color)? & direction=Direction?
+	//	& margin=Margin? & ("contentDirection" "=" contentDirection=Directions)? & ("tooltip" "=" tooltip=Text)? &
+	//	activation=Activation?) "}";
 	public BoxDecorationElements getBoxDecorationAccess() {
 		return (pBoxDecoration != null) ? pBoxDecoration : (pBoxDecoration = new BoxDecorationElements());
 	}
@@ -2154,7 +2154,7 @@ public class EMFProfileDecorationLanguageGrammarAccess extends AbstractGrammarEl
 	}
 
 	//Style:
-	//	"line-style" "=" value=LineStyle;
+	//	"lineStyle" "=" value=LineStyle;
 	public StyleElements getStyleAccess() {
 		return (pStyle != null) ? pStyle : (pStyle = new StyleElements());
 	}

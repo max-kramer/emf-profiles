@@ -57,11 +57,11 @@ BoxDecoration :
 			// optional
 			& (image=BoxImage)?
 			& ('border' '{' border=Border '}')?
-			& ('foreground-color' '=' foregroundColor=Color)?
-			& ('background-color' '=' backgroundColor=Color)?
+			& ('foregroundColor' '=' foregroundColor=Color)?
+			& ('backgroundColor' '=' backgroundColor=Color)?
 			& (direction=Direction)? // default value for node = NORTH_WEST; for edge = CENTER
 			& (margin=Margin)? // default value -1 on nodes, 50 for connection (for connection margin is interpreted as percentage)
-			& ('content-direction' '=' contentDirection=Directions)? // default is CENTER
+			& ('contentDirection' '=' contentDirection=Directions)? // default is CENTER
 			& ('tooltip' '=' tooltip=Text)?
 			& (activation=Activation)?
 		)
@@ -137,7 +137,7 @@ BoxImage :
 ;
 
 Style:
-	'line-style' '=' value=LineStyle
+	'lineStyle' '=' value=LineStyle
 ;
 
 Size:

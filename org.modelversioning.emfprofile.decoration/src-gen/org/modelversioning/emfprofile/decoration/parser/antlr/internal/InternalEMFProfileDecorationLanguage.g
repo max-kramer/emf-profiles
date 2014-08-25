@@ -828,7 +828,7 @@ ruleBoxDecoration returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getBoxDecorationAccess().getUnorderedGroup_3(), 5);
 	 				}
-					({true}?=>(	otherlv_18='foreground-color' 
+					({true}?=>(	otherlv_18='foregroundColor' 
     {
     	newLeafNode(otherlv_18, grammarAccess.getBoxDecorationAccess().getForegroundColorKeyword_3_5_0());
     }
@@ -866,7 +866,7 @@ ruleBoxDecoration returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getBoxDecorationAccess().getUnorderedGroup_3(), 6);
 	 				}
-					({true}?=>(	otherlv_21='background-color' 
+					({true}?=>(	otherlv_21='backgroundColor' 
     {
     	newLeafNode(otherlv_21, grammarAccess.getBoxDecorationAccess().getBackgroundColorKeyword_3_6_0());
     }
@@ -964,7 +964,7 @@ ruleBoxDecoration returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getBoxDecorationAccess().getUnorderedGroup_3(), 9);
 	 				}
-					({true}?=>(	otherlv_26='content-direction' 
+					({true}?=>(	otherlv_26='contentDirection' 
     {
     	newLeafNode(otherlv_26, grammarAccess.getBoxDecorationAccess().getContentDirectionKeyword_3_9_0());
     }
@@ -1987,7 +1987,7 @@ ruleStyle returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='line-style' 
+(	otherlv_0='lineStyle' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getStyleAccess().getLineStyleKeyword_0());
     }

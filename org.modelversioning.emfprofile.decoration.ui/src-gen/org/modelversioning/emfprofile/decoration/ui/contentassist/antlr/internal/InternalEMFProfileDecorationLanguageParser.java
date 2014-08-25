@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalEMFProfileDecorationLanguageParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_BOOLEAN", "RULE_ID", "RULE_INT", "RULE_HEX_COLOR", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'WEST'", "'NORTH'", "'EAST'", "'SOUTH'", "'=='", "'!='", "'>'", "'>='", "'<'", "'<='", "'ALL'", "'ANY'", "'SOLID'", "'DOTS'", "'DASH'", "'DASHDOT'", "'DASHDOTDOT'", "'RED'", "'BLACK'", "'WHITE'", "'GREEN'", "'GREEN_LIGHT'", "'GREEN_DARK'", "'BLUE'", "'BLUE_LIGHT'", "'BLUE_DARK'", "'GRAY'", "'GRAY_LIGHT'", "'GRAY_DARK'", "'ORANGE'", "'YELLOW'", "'CYAN'", "'CENTER'", "'NORTH_EAST'", "'NORTH_WEST'", "'SOUTH_EAST'", "'SOUTH_WEST'", "'import resource'", "'profile'", "'decoration'", "'{'", "'}'", "'image'", "'uri'", "'='", "'tooltip'", "'box'", "'text'", "'width'", "'height'", "'border'", "'foreground-color'", "'background-color'", "'content-direction'", "'color'", "'background'", "'foreground'", "'connection'", "'+'", "'placement'", "'line-style'", "'size'", "'direction'", "'margin'", "'RGB'", "'('", "','", "')'", "'active when'", "'ocl'", "'-'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_BOOLEAN", "RULE_ID", "RULE_INT", "RULE_HEX_COLOR", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'WEST'", "'NORTH'", "'EAST'", "'SOUTH'", "'=='", "'!='", "'>'", "'>='", "'<'", "'<='", "'ALL'", "'ANY'", "'SOLID'", "'DOTS'", "'DASH'", "'DASHDOT'", "'DASHDOTDOT'", "'RED'", "'BLACK'", "'WHITE'", "'GREEN'", "'GREEN_LIGHT'", "'GREEN_DARK'", "'BLUE'", "'BLUE_LIGHT'", "'BLUE_DARK'", "'GRAY'", "'GRAY_LIGHT'", "'GRAY_DARK'", "'ORANGE'", "'YELLOW'", "'CYAN'", "'CENTER'", "'NORTH_EAST'", "'NORTH_WEST'", "'SOUTH_EAST'", "'SOUTH_WEST'", "'import resource'", "'profile'", "'decoration'", "'{'", "'}'", "'image'", "'uri'", "'='", "'tooltip'", "'box'", "'text'", "'width'", "'height'", "'border'", "'foregroundColor'", "'backgroundColor'", "'contentDirection'", "'color'", "'background'", "'foreground'", "'connection'", "'+'", "'placement'", "'lineStyle'", "'size'", "'direction'", "'margin'", "'RGB'", "'('", "','", "')'", "'active when'", "'ocl'", "'-'", "'.'"
     };
     public static final int T__50=50;
     public static final int RULE_BOOLEAN=5;
@@ -8788,17 +8788,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "rule__BoxDecoration__Group_3_5__0__Impl"
-    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2908:1: rule__BoxDecoration__Group_3_5__0__Impl : ( 'foreground-color' ) ;
+    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2908:1: rule__BoxDecoration__Group_3_5__0__Impl : ( 'foregroundColor' ) ;
     public final void rule__BoxDecoration__Group_3_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2912:1: ( ( 'foreground-color' ) )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2913:1: ( 'foreground-color' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2912:1: ( ( 'foregroundColor' ) )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2913:1: ( 'foregroundColor' )
             {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2913:1: ( 'foreground-color' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2914:1: 'foreground-color'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2913:1: ( 'foregroundColor' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:2914:1: 'foregroundColor'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBoxDecorationAccess().getForegroundColorKeyword_3_5_0()); 
@@ -9030,17 +9030,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "rule__BoxDecoration__Group_3_6__0__Impl"
-    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3004:1: rule__BoxDecoration__Group_3_6__0__Impl : ( 'background-color' ) ;
+    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3004:1: rule__BoxDecoration__Group_3_6__0__Impl : ( 'backgroundColor' ) ;
     public final void rule__BoxDecoration__Group_3_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3008:1: ( ( 'background-color' ) )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3009:1: ( 'background-color' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3008:1: ( ( 'backgroundColor' ) )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3009:1: ( 'backgroundColor' )
             {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3009:1: ( 'background-color' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3010:1: 'background-color'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3009:1: ( 'backgroundColor' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3010:1: 'backgroundColor'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBoxDecorationAccess().getBackgroundColorKeyword_3_6_0()); 
@@ -9272,17 +9272,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "rule__BoxDecoration__Group_3_9__0__Impl"
-    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3100:1: rule__BoxDecoration__Group_3_9__0__Impl : ( 'content-direction' ) ;
+    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3100:1: rule__BoxDecoration__Group_3_9__0__Impl : ( 'contentDirection' ) ;
     public final void rule__BoxDecoration__Group_3_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3104:1: ( ( 'content-direction' ) )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3105:1: ( 'content-direction' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3104:1: ( ( 'contentDirection' ) )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3105:1: ( 'contentDirection' )
             {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3105:1: ( 'content-direction' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3106:1: 'content-direction'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3105:1: ( 'contentDirection' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:3106:1: 'contentDirection'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBoxDecorationAccess().getContentDirectionKeyword_3_9_0()); 
@@ -13223,17 +13223,17 @@ public class InternalEMFProfileDecorationLanguageParser extends AbstractInternal
 
 
     // $ANTLR start "rule__Style__Group__0__Impl"
-    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4673:1: rule__Style__Group__0__Impl : ( 'line-style' ) ;
+    // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4673:1: rule__Style__Group__0__Impl : ( 'lineStyle' ) ;
     public final void rule__Style__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4677:1: ( ( 'line-style' ) )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4678:1: ( 'line-style' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4677:1: ( ( 'lineStyle' ) )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4678:1: ( 'lineStyle' )
             {
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4678:1: ( 'line-style' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4679:1: 'line-style'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4678:1: ( 'lineStyle' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:4679:1: 'lineStyle'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStyleAccess().getLineStyleKeyword_0()); 

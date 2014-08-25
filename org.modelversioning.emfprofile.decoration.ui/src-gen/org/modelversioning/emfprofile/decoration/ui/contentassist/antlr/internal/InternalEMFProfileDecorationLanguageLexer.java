@@ -1179,10 +1179,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:7: ( 'foreground-color' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:9: 'foreground-color'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:7: ( 'foregroundColor' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:62:9: 'foregroundColor'
             {
-            match("foreground-color"); 
+            match("foregroundColor"); 
 
 
             }
@@ -1200,10 +1200,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:7: ( 'background-color' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:9: 'background-color'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:7: ( 'backgroundColor' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:63:9: 'backgroundColor'
             {
-            match("background-color"); 
+            match("backgroundColor"); 
 
 
             }
@@ -1221,10 +1221,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:7: ( 'content-direction' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:9: 'content-direction'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:7: ( 'contentDirection' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:64:9: 'contentDirection'
             {
-            match("content-direction"); 
+            match("contentDirection"); 
 
 
             }
@@ -1367,10 +1367,10 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:7: ( 'line-style' )
-            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:9: 'line-style'
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:7: ( 'lineStyle' )
+            // ../org.modelversioning.emfprofile.decoration.ui/src-gen/org/modelversioning/emfprofile/decoration/ui/contentassist/antlr/internal/InternalEMFProfileDecorationLanguage.g:71:9: 'lineStyle'
             {
-            match("line-style"); 
+            match("lineStyle"); 
 
 
             }
@@ -2870,17 +2870,19 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         "\1\63\1\u00e0\1\u00e1\1\uffff\12\63\1\u00ec\2\63\2\uffff\1\u00ef"+
         "\1\u00f1\1\uffff\1\u00f3\1\u00f4\1\uffff\1\63\1\uffff\1\u00f6\1"+
         "\63\1\uffff\1\u00fa\1\63\1\uffff\2\63\1\uffff\2\63\1\u0101\5\63"+
-        "\2\uffff\2\63\1\u0109\2\63\1\u00e1\2\63\1\u010e\2\uffff\2\63\1\uffff"+
-        "\1\63\1\uffff\1\63\2\uffff\1\63\1\uffff\3\63\1\uffff\2\63\1\u011c"+
-        "\1\u011d\1\u011e\1\63\1\uffff\5\63\1\u0125\1\63\1\uffff\1\u0127"+
-        "\3\63\1\uffff\1\u012b\5\63\1\u0132\6\63\4\uffff\1\u0139\3\63\1\u013d"+
-        "\1\uffff\1\63\1\uffff\3\63\2\uffff\5\63\1\uffff\6\63\1\uffff\3\63"+
-        "\1\uffff\2\63\1\uffff\7\63\1\u0159\3\63\1\u015d\1\u015e\1\63\1\u0160"+
-        "\3\63\1\u0164\1\u0165\1\u0166\1\u0167\1\u0168\1\u0169\1\uffff\1"+
-        "\63\1\u016b\1\u016c\2\uffff\1\u016d\1\uffff\1\u016f\1\u0171\1\u0172"+
-        "\6\uffff\1\u0173\11\uffff";
+        "\2\uffff\2\63\1\u0109\2\63\1\u00e1\2\63\1\u010e\1\63\1\uffff\2\63"+
+        "\1\uffff\1\63\1\uffff\1\63\2\uffff\1\63\1\uffff\3\63\1\uffff\2\63"+
+        "\1\u011d\1\u011e\1\u011f\1\63\1\uffff\5\63\1\u0126\1\63\1\uffff"+
+        "\1\u0128\3\63\1\uffff\1\63\1\u012d\5\63\1\u0134\6\63\4\uffff\1\u013b"+
+        "\3\63\1\u013f\1\uffff\1\63\1\uffff\4\63\2\uffff\5\63\1\uffff\6\63"+
+        "\1\uffff\3\63\1\uffff\13\63\1\u015e\3\63\1\u0162\1\u0163\1\63\1"+
+        "\u0165\4\63\1\u016a\1\u016b\1\u016c\1\u016d\1\u016e\1\u016f\1\u0170"+
+        "\1\uffff\1\63\1\u0172\1\u0173\2\uffff\1\u0174\1\uffff\1\u0176\1"+
+        "\u0178\1\63\1\u017a\7\uffff\1\u017b\3\uffff\1\63\1\uffff\1\63\1"+
+        "\uffff\1\63\2\uffff\11\63\1\u0188\1\u0189\1\63\2\uffff\1\u018b\1"+
+        "\uffff";
     static final String DFA14_eofS =
-        "\u0174\uffff";
+        "\u018c\uffff";
     static final String DFA14_minS =
         "\1\0\1\105\1\117\1\101\1\117\4\75\1\114\1\101\1\105\1\114\2\122"+
         "\2\105\1\155\1\154\1\145\2\uffff\1\162\1\145\1\141\1\151\1\145\1"+
@@ -2895,20 +2897,22 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         "\1\145\1\163\1\156\1\157\2\145\1\147\1\151\2\60\1\105\1\110\1\60"+
         "\1\110\1\104\2\uffff\2\60\2\uffff\1\113\1\60\1\116\1\60\1\107\1"+
         "\117\1\60\1\105\1\162\1\145\1\151\1\145\1\162\1\143\1\uffff\1\164"+
-        "\2\60\1\uffff\1\145\1\147\2\150\1\147\3\145\1\162\1\55\1\60\1\151"+
+        "\2\60\1\uffff\1\145\1\147\2\150\1\147\3\145\1\162\1\123\1\60\1\151"+
         "\1\166\2\uffff\2\60\1\uffff\2\60\1\uffff\1\117\1\uffff\1\60\1\104"+
         "\1\uffff\1\60\1\104\1\uffff\1\105\1\127\1\uffff\1\122\1\164\1\60"+
         "\1\154\1\155\1\141\1\164\1\151\2\uffff\2\162\1\60\1\164\1\162\1"+
-        "\60\1\156\1\143\1\60\2\uffff\1\156\1\145\1\uffff\1\105\1\uffff\1"+
-        "\105\2\uffff\1\124\1\uffff\1\111\1\101\1\104\1\uffff\1\111\1\101"+
+        "\60\1\156\1\143\1\60\1\164\1\uffff\1\156\1\145\1\uffff\1\105\1\uffff"+
+        "\1\105\2\uffff\1\124\1\uffff\1\111\1\101\1\104\1\uffff\1\111\1\101"+
         "\3\60\1\40\1\uffff\2\145\1\164\1\151\1\160\1\60\1\157\1\uffff\1"+
-        "\60\1\157\2\164\1\uffff\1\60\1\40\1\101\1\105\1\101\1\105\1\60\1"+
-        "\107\1\122\1\111\1\101\1\107\1\122\4\uffff\1\60\1\156\1\151\1\157"+
-        "\1\60\1\uffff\1\165\1\uffff\1\165\1\55\1\151\2\uffff\4\123\1\117"+
-        "\1\uffff\1\110\1\113\1\107\1\122\1\110\1\113\1\uffff\1\164\1\157"+
-        "\1\156\1\uffff\2\156\1\uffff\1\157\6\124\1\60\1\110\1\113\1\124"+
-        "\2\60\1\156\1\60\2\144\1\156\6\60\1\uffff\1\124\2\60\2\uffff\1\60"+
-        "\1\uffff\2\55\1\60\6\uffff\1\60\11\uffff";
+        "\60\1\157\2\164\1\uffff\1\171\1\60\1\40\1\101\1\105\1\101\1\105"+
+        "\1\60\1\107\1\122\1\111\1\101\1\107\1\122\4\uffff\1\60\1\156\1\151"+
+        "\1\157\1\60\1\uffff\1\165\1\uffff\1\165\1\104\1\151\1\154\2\uffff"+
+        "\4\123\1\117\1\uffff\1\110\1\113\1\107\1\122\1\110\1\113\1\uffff"+
+        "\1\164\1\157\1\156\1\uffff\2\156\1\151\1\157\1\145\6\124\1\60\1"+
+        "\110\1\113\1\124\2\60\1\156\1\60\2\144\1\162\1\156\7\60\1\uffff"+
+        "\1\124\2\60\2\uffff\1\60\1\uffff\2\60\1\145\1\60\7\uffff\1\60\3"+
+        "\uffff\1\157\1\uffff\1\157\1\uffff\1\143\2\uffff\2\154\1\164\2\157"+
+        "\1\151\2\162\1\157\2\60\1\156\2\uffff\1\60\1\uffff";
     static final String DFA14_maxS =
         "\1\uffff\1\110\1\117\1\101\1\117\4\75\1\116\1\117\1\107\1\114\2"+
         "\122\1\105\1\131\1\155\1\162\1\151\2\uffff\2\162\1\157\1\151\1\145"+
@@ -2923,20 +2927,23 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         "\1\147\1\145\1\163\1\164\1\157\2\145\1\147\1\151\2\172\1\105\1\110"+
         "\1\172\1\110\1\104\2\uffff\2\172\2\uffff\1\113\1\172\1\116\1\172"+
         "\1\107\1\117\1\172\1\105\1\162\1\145\1\151\1\145\1\162\1\143\1\uffff"+
-        "\1\164\2\172\1\uffff\1\145\1\147\2\150\1\147\3\145\1\162\1\55\1"+
+        "\1\164\2\172\1\uffff\1\145\1\147\2\150\1\147\3\145\1\162\1\123\1"+
         "\172\1\151\1\166\2\uffff\2\172\1\uffff\2\172\1\uffff\1\117\1\uffff"+
         "\1\172\1\114\1\uffff\1\172\1\114\1\uffff\1\105\1\127\1\uffff\1\122"+
         "\1\164\1\172\1\154\1\155\1\141\1\164\1\151\2\uffff\2\162\1\172\1"+
-        "\164\1\162\1\172\1\156\1\143\1\172\2\uffff\1\156\1\145\1\uffff\1"+
-        "\127\1\uffff\1\127\2\uffff\1\124\1\uffff\1\111\1\101\1\114\1\uffff"+
+        "\164\1\162\1\172\1\156\1\143\1\172\1\164\1\uffff\1\156\1\145\1\uffff"+
+        "\1\127\1\uffff\1\127\2\uffff\1\124\1\uffff\1\111\1\101\1\114\1\uffff"+
         "\1\111\1\101\3\172\1\40\1\uffff\2\145\1\164\1\151\1\160\1\172\1"+
-        "\157\1\uffff\1\172\1\157\2\164\1\uffff\1\172\1\40\1\101\1\105\1"+
-        "\101\1\105\1\172\1\107\1\122\1\111\1\101\1\107\1\122\4\uffff\1\172"+
-        "\1\156\1\151\1\157\1\172\1\uffff\1\165\1\uffff\1\165\1\55\1\151"+
-        "\2\uffff\4\123\1\117\1\uffff\1\110\1\113\1\107\1\122\1\110\1\113"+
-        "\1\uffff\1\164\1\157\1\156\1\uffff\2\156\1\uffff\1\157\6\124\1\172"+
-        "\1\110\1\113\1\124\2\172\1\156\1\172\2\144\1\156\6\172\1\uffff\1"+
-        "\124\2\172\2\uffff\1\172\1\uffff\3\172\6\uffff\1\172\11\uffff";
+        "\157\1\uffff\1\172\1\157\2\164\1\uffff\1\171\1\172\1\40\1\101\1"+
+        "\105\1\101\1\105\1\172\1\107\1\122\1\111\1\101\1\107\1\122\4\uffff"+
+        "\1\172\1\156\1\151\1\157\1\172\1\uffff\1\165\1\uffff\1\165\1\104"+
+        "\1\151\1\154\2\uffff\4\123\1\117\1\uffff\1\110\1\113\1\107\1\122"+
+        "\1\110\1\113\1\uffff\1\164\1\157\1\156\1\uffff\2\156\1\151\1\157"+
+        "\1\145\6\124\1\172\1\110\1\113\1\124\2\172\1\156\1\172\2\144\1\162"+
+        "\1\156\7\172\1\uffff\1\124\2\172\2\uffff\1\172\1\uffff\2\172\1\145"+
+        "\1\172\7\uffff\1\172\3\uffff\1\157\1\uffff\1\157\1\uffff\1\143\2"+
+        "\uffff\2\154\1\164\2\157\1\151\2\162\1\157\2\172\1\156\2\uffff\1"+
+        "\172\1\uffff";
     static final String DFA14_acceptS =
         "\24\uffff\1\51\1\52\7\uffff\1\73\3\uffff\1\102\1\103\1\104\2\uffff"+
         "\1\107\1\110\2\uffff\1\113\1\114\3\uffff\1\120\1\121\2\uffff\1\113"+
@@ -2945,15 +2952,15 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         "\1\115\1\116\1\117\1\120\62\uffff\1\13\1\14\2\uffff\1\22\1\101\16"+
         "\uffff\1\54\3\uffff\1\57\15\uffff\1\106\1\1\2\uffff\1\3\2\uffff"+
         "\1\16\1\uffff\1\17\2\uffff\1\30\2\uffff\1\33\2\uffff\1\40\10\uffff"+
-        "\1\60\1\111\11\uffff\1\75\1\76\2\uffff\1\24\1\uffff\1\2\1\uffff"+
-        "\1\4\1\15\1\uffff\1\23\3\uffff\1\25\6\uffff\1\53\7\uffff\1\61\4"+
-        "\uffff\1\67\15\uffff\1\36\1\37\1\41\1\46\5\uffff\1\63\1\uffff\1"+
-        "\62\3\uffff\1\100\1\105\5\uffff\1\20\6\uffff\1\47\3\uffff\1\56\2"+
-        "\uffff\1\66\30\uffff\1\32\3\uffff\1\35\1\74\1\uffff\1\77\3\uffff"+
-        "\1\42\1\43\1\44\1\45\1\21\1\31\1\uffff\1\27\1\34\1\50\1\65\1\70"+
-        "\1\64\1\71\1\72\1\26";
+        "\1\60\1\111\12\uffff\1\76\2\uffff\1\24\1\uffff\1\2\1\uffff\1\4\1"+
+        "\15\1\uffff\1\23\3\uffff\1\25\6\uffff\1\53\7\uffff\1\61\4\uffff"+
+        "\1\67\16\uffff\1\36\1\37\1\41\1\46\5\uffff\1\63\1\uffff\1\62\4\uffff"+
+        "\1\100\1\105\5\uffff\1\20\6\uffff\1\47\3\uffff\1\56\36\uffff\1\32"+
+        "\3\uffff\1\35\1\74\1\uffff\1\77\4\uffff\1\75\1\42\1\43\1\44\1\45"+
+        "\1\21\1\31\1\uffff\1\27\1\34\1\50\1\uffff\1\70\1\uffff\1\71\1\uffff"+
+        "\1\72\1\26\14\uffff\1\65\1\64\1\uffff\1\66";
     static final String DFA14_specialS =
-        "\1\1\53\uffff\1\2\1\0\u0146\uffff}>";
+        "\1\2\53\uffff\1\0\1\1\u015e\uffff}>";
     static final String[] DFA14_transitionS = {
             "\11\60\2\57\2\60\1\57\22\60\1\57\1\6\1\54\1\50\3\60\1\55\1\41"+
             "\1\43\1\60\1\35\1\42\1\46\1\47\1\56\12\53\2\60\1\10\1\5\1\7"+
@@ -3196,135 +3203,132 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "\1\u010c",
             "\1\u010d",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-            "",
-            "",
             "\1\u010f",
+            "",
             "\1\u0110",
+            "\1\u0111",
             "",
-            "\1\u0111\21\uffff\1\u0112",
+            "\1\u0112\21\uffff\1\u0113",
             "",
-            "\1\u0113\21\uffff\1\u0114",
+            "\1\u0114\21\uffff\1\u0115",
             "",
-            "",
-            "\1\u0115",
             "",
             "\1\u0116",
+            "",
             "\1\u0117",
-            "\1\u0119\7\uffff\1\u0118",
+            "\1\u0118",
+            "\1\u011a\7\uffff\1\u0119",
             "",
-            "\1\u011a",
             "\1\u011b",
+            "\1\u011c",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-            "\1\u011f",
-            "",
             "\1\u0120",
+            "",
             "\1\u0121",
             "\1\u0122",
             "\1\u0123",
             "\1\u0124",
+            "\1\u0125",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-            "\1\u0126",
+            "\1\u0127",
             "",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-            "\1\u0128",
             "\1\u0129",
             "\1\u012a",
+            "\1\u012b",
             "",
-            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\1\u012c",
-            "\1\u012d",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\1\u012e",
             "\1\u012f",
             "\1\u0130",
-            "\12\63\7\uffff\3\63\1\u0131\26\63\4\uffff\1\63\1\uffff\32\63",
-            "\1\u0133",
-            "\1\u0134",
+            "\1\u0131",
+            "\1\u0132",
+            "\12\63\7\uffff\3\63\1\u0133\26\63\4\uffff\1\63\1\uffff\32\63",
             "\1\u0135",
             "\1\u0136",
             "\1\u0137",
             "\1\u0138",
-            "",
-            "",
-            "",
-            "",
-            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u0139",
             "\1\u013a",
-            "\1\u013b",
+            "",
+            "",
+            "",
+            "",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\1\u013c",
+            "\1\u013d",
+            "\1\u013e",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
-            "\1\u013e",
-            "",
-            "\1\u013f",
             "\1\u0140",
+            "",
             "\1\u0141",
-            "",
-            "",
             "\1\u0142",
             "\1\u0143",
             "\1\u0144",
+            "",
+            "",
             "\1\u0145",
             "\1\u0146",
-            "",
             "\1\u0147",
             "\1\u0148",
             "\1\u0149",
+            "",
             "\1\u014a",
             "\1\u014b",
             "\1\u014c",
-            "",
             "\1\u014d",
             "\1\u014e",
             "\1\u014f",
             "",
             "\1\u0150",
             "\1\u0151",
-            "",
             "\1\u0152",
+            "",
             "\1\u0153",
             "\1\u0154",
             "\1\u0155",
             "\1\u0156",
             "\1\u0157",
             "\1\u0158",
-            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u0159",
             "\1\u015a",
             "\1\u015b",
             "\1\u015c",
-            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u015d",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\1\u015f",
-            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u0160",
             "\1\u0161",
-            "\1\u0162",
-            "\1\u0163",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u0164",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u0166",
+            "\1\u0167",
+            "\1\u0168",
+            "\1\u0169",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
-            "\1\u016a",
+            "\1\u0171",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
             "",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
-            "\1\u016e\2\uffff\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32"+
-            "\63",
-            "\1\u0170\2\uffff\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32"+
-            "\63",
-            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\12\63\7\uffff\2\63\1\u0175\27\63\4\uffff\1\63\1\uffff\32\63",
+            "\12\63\7\uffff\2\63\1\u0177\27\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u0179",
             "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
             "",
@@ -3333,7 +3337,32 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
             "",
             "",
             "",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             "",
+            "",
+            "",
+            "\1\u017c",
+            "",
+            "\1\u017d",
+            "",
+            "\1\u017e",
+            "",
+            "",
+            "\1\u017f",
+            "\1\u0180",
+            "\1\u0181",
+            "\1\u0182",
+            "\1\u0183",
+            "\1\u0184",
+            "\1\u0185",
+            "\1\u0186",
+            "\1\u0187",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\u018a",
+            "",
+            "",
+            "\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
             ""
     };
 
@@ -3374,6 +3403,16 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA14_44 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_44>='\u0000' && LA14_44<='\uFFFF')) ) {s = 105;}
+
+                        else s = 48;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA14_45 = input.LA(1);
 
                         s = -1;
@@ -3383,7 +3422,7 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
+                    case 2 : 
                         int LA14_0 = input.LA(1);
 
                         s = -1;
@@ -3482,16 +3521,6 @@ public class InternalEMFProfileDecorationLanguageLexer extends Lexer {
                         else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 47;}
 
                         else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||(LA14_0>='$' && LA14_0<='&')||LA14_0=='*'||(LA14_0>=':' && LA14_0<=';')||(LA14_0>='?' && LA14_0<='@')||(LA14_0>='[' && LA14_0<=']')||LA14_0=='`'||LA14_0=='|'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 48;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA14_44 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_44>='\u0000' && LA14_44<='\uFFFF')) ) {s = 105;}
-
-                        else s = 48;
 
                         if ( s>=0 ) return s;
                         break;

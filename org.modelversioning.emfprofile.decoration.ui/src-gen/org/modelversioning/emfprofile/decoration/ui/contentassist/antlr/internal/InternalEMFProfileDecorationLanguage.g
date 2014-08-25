@@ -2913,7 +2913,7 @@ rule__BoxDecoration__Group_3_5__0__Impl
 (
 { before(grammarAccess.getBoxDecorationAccess().getForegroundColorKeyword_3_5_0()); }
 
-	'foreground-color' 
+	'foregroundColor' 
 
 { after(grammarAccess.getBoxDecorationAccess().getForegroundColorKeyword_3_5_0()); }
 )
@@ -3009,7 +3009,7 @@ rule__BoxDecoration__Group_3_6__0__Impl
 (
 { before(grammarAccess.getBoxDecorationAccess().getBackgroundColorKeyword_3_6_0()); }
 
-	'background-color' 
+	'backgroundColor' 
 
 { after(grammarAccess.getBoxDecorationAccess().getBackgroundColorKeyword_3_6_0()); }
 )
@@ -3105,7 +3105,7 @@ rule__BoxDecoration__Group_3_9__0__Impl
 (
 { before(grammarAccess.getBoxDecorationAccess().getContentDirectionKeyword_3_9_0()); }
 
-	'content-direction' 
+	'contentDirection' 
 
 { after(grammarAccess.getBoxDecorationAccess().getContentDirectionKeyword_3_9_0()); }
 )
@@ -4678,7 +4678,7 @@ rule__Style__Group__0__Impl
 (
 { before(grammarAccess.getStyleAccess().getLineStyleKeyword_0()); }
 
-	'line-style' 
+	'lineStyle' 
 
 { after(grammarAccess.getStyleAccess().getLineStyleKeyword_0()); }
 )
