@@ -14,10 +14,11 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication
 class ImageDecorator extends org.eclipse.graphiti.tb.ImageDecorator {
 	
 	new (ImageDecoration imageDecoration, StereotypeApplication stereotypeApplication, String imageId){
-		// this is just to demonstrate how we can use our own Image Provider although in our scenario it doesn't help much.
-		// well, great! Now I see we have to amend plugin.xml file of the target editor to specify the id of our image provider so that it can be used. Splendid.
+		// This is just to demonstrate how we can use our own Image Provider although in our scenario it doesn't help much.
+		// Well, great! Now I see we have to amend plugin.xml file of the target editor to specify the id of our image provider so that it can be used. Splendid.
+		// We can forget about it.
 //		super(ProfileApplicationImageProvider::TOKEN_IMAGE_ID)
-		super(IPlatformImageConstants.IMG_ECLIPSE_INFORMATION)
+		super(IPlatformImageConstants.IMG_ECLIPSE_ERROR)
 
 		setMessage(DecoratorUtil::provideText(imageDecoration.tooltip, stereotypeApplication))
 	}

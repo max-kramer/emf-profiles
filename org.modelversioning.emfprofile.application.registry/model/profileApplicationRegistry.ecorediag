@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="__MWBAC3aEeS1M7q3gf5sCg" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="__PpzsC3aEeS1M7q3gf5sCg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="__QBAEC3aEeS1M7q3gf5sCg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="__QEqcC3aEeS1M7q3gf5sCg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__QEqcS3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__QEqci3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__QEqcy3aEeS1M7q3gf5sCg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__QFRgC3aEeS1M7q3gf5sCg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="__Qb20C3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Qb20S3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Qcd4C3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications.1"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Qcd4S3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QdE8C3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeApplications.2"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QdE8S3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QdE8i3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getAnnotatedObjects"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QdE8y3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QdE9C3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/addNestedEObject"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QdE9S3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QdsAC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/applyStereotype"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QdsAS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QdsAi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/applyStereotype.1"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QdsAy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QdsBC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getApplicableStereotypes"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QdsBS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QeTEC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getStereotypeFeatures"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QeTES3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QeTEi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QeTEy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Qe6IC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getProfileName"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Qe6IS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QfhMC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/isDirty"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QfhMS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QfhMi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/removeEObject"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QfhMy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QgIQC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/save"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QgIQS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QgIQi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getProfileApplicationIFile"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QgIQy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QgvUC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getProfileApplicationResource"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QgvUS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QgvUi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/unload"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QgvUy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QhWYC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getTaggedValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QhWYS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QhWYi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/setTaggedValue"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QhWYy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QhWZC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper/getProfileFacade"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QhWZS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__QFRgS3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__QFRgi3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__QFRgy3aEeS1M7q3gf5sCg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__PpzsS3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="profileApplicationRegistry.ecore#//ProfileApplicationWrapper"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Ppzsi3aEeS1M7q3gf5sCg" x="495" y="18"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="__QhWZi3aEeS1M7q3gf5sCg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="__Qh9cC3aEeS1M7q3gf5sCg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="__Qh9cS3aEeS1M7q3gf5sCg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__Qh9ci3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__Qh9cy3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__Qh9dC3aEeS1M7q3gf5sCg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__Qh9dS3aEeS1M7q3gf5sCg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="__QikgC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QikgS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Qikgi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationManager.1"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Qikgy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QikhC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationDecoratorForEditorId"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QikhS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Qikhi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/getProfileApplicationDecoratorForEditorId"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Qikhy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QjLkC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/hasProfileApplicationManager"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QjLkS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__Qh9di3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__Qh9dy3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__Qh9eC3aEeS1M7q3gf5sCg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__QhWZy3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__QhWaC3aEeS1M7q3gf5sCg" x="27" y="18" width="435" height="129"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="__QjLki3aEeS1M7q3gf5sCg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="__QjLlS3aEeS1M7q3gf5sCg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="__QjLli3aEeS1M7q3gf5sCg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__QjLly3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__QjLmC3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__QjLmS3aEeS1M7q3gf5sCg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__QjLmi3aEeS1M7q3gf5sCg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="__QjyoC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/createNewProfileApplication"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QjyoS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Qjyoi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/hasProfileApplications"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Qjyoy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QkZsC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/loadProfileApplication"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QkZsS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QkZsi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/dispose"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QkZsy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QkZtC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/getProfileApplicationWrapperOfContainedEObject"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QkZtS3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__QkZti3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/bindProfileApplicationDecorator"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__QkZty3aEeS1M7q3gf5sCg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__QjLmy3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__QjLnC3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__QjLnS3aEeS1M7q3gf5sCg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__QjLky3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="profileApplicationRegistry.ecore#//ProfileApplicationManager"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__QjLlC3aEeS1M7q3gf5sCg" x="27" y="189" width="391" height="139"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="__QuxwS3aEeS1M7q3gf5sCg" type="1004">
+    <children xmi:type="notation:Node" xmi:id="__QvY0C3aEeS1M7q3gf5sCg" type="4008"/>
+    <children xmi:type="notation:Node" xmi:id="__QvY0S3aEeS1M7q3gf5sCg" type="4009"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__Quxwi3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EDataType" href="profileApplicationRegistry.ecore#//ReadingDecorationDescriptionsException"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Quxwy3aEeS1M7q3gf5sCg" x="27" y="423" width="301" height="56"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="__QzqQC3aEeS1M7q3gf5sCg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="__Q3UoC3aEeS1M7q3gf5sCg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="__Q3UoS3aEeS1M7q3gf5sCg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__Q3Uoi3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__Q3Uoy3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__Q3UpC3aEeS1M7q3gf5sCg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__Q3UpS3aEeS1M7q3gf5sCg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="__Q5w4C3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/canDecorateEditorsWithFollowingIDs"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Q5w4S3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Q5w4i3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/decorate"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Q5w4y3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Q7mEC3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/resolveEObjectFromEditorSelection"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Q7mES3aEeS1M7q3gf5sCg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="__Q7mEi3aEeS1M7q3gf5sCg" type="2002">
+        <element xmi:type="ecore:EOperation" href="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator/removeDecoration"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="__Q7mEy3aEeS1M7q3gf5sCg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="__Q3Upi3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="__Q3Upy3aEeS1M7q3gf5sCg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="__Q3UqC3aEeS1M7q3gf5sCg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__QzqQS3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="profileApplicationRegistry.ecore#//EMFProfileApplicationDecorator"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__QzqQi3aEeS1M7q3gf5sCg" x="495" y="387" width="337"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="__Q8NIC3aEeS1M7q3gf5sCg" type="1004">
+    <children xmi:type="notation:Node" xmi:id="__Q80MC3aEeS1M7q3gf5sCg" type="4008"/>
+    <children xmi:type="notation:Node" xmi:id="__Q9bQC3aEeS1M7q3gf5sCg" type="4009"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="__Q8NIS3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EDataType" href="profileApplicationRegistry.ecore#//GraphicalDecorationDescription"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__Q8NIi3aEeS1M7q3gf5sCg" x="27" y="342" width="337" height="66"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="__MWoEC3aEeS1M7q3gf5sCg"/>
+  <element xmi:type="ecore:EPackage" href="profileApplicationRegistry.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="__REwAC3aEeS1M7q3gf5sCg" type="3002" source="__QhWZi3aEeS1M7q3gf5sCg" target="__QjLki3aEeS1M7q3gf5sCg">
+    <children xmi:type="notation:Node" xmi:id="__RGlMC3aEeS1M7q3gf5sCg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__RGlMS3aEeS1M7q3gf5sCg" x="-14" y="-25"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__RJBcC3aEeS1M7q3gf5sCg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__RJBcS3aEeS1M7q3gf5sCg" x="-14" y="17"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__REwAS3aEeS1M7q3gf5sCg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__REwAi3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="profileApplicationRegistry.ecore#//ProfileApplicationRegistry/managers"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__REwAy3aEeS1M7q3gf5sCg" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__aoUoC3aEeS1M7q3gf5sCg" id="(0.49885057471264366,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__ao7sC3aEeS1M7q3gf5sCg" id="(0.49872122762148335,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="__RK2oC3aEeS1M7q3gf5sCg" type="3002" source="__QjLki3aEeS1M7q3gf5sCg" target="__PpzsC3aEeS1M7q3gf5sCg">
+    <children xmi:type="notation:Node" xmi:id="__RK2pC3aEeS1M7q3gf5sCg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__RK2pS3aEeS1M7q3gf5sCg" x="-41" y="-16"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="__RK2pi3aEeS1M7q3gf5sCg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__RK2py3aEeS1M7q3gf5sCg" x="-18" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="__RK2oS3aEeS1M7q3gf5sCg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="__RK2oi3aEeS1M7q3gf5sCg" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="profileApplicationRegistry.ecore#//ProfileApplicationManager/profileApplications"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__RK2oy3aEeS1M7q3gf5sCg" points="[195, 11, -81, 23]$[274, -12, -2, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__apiwC3aEeS1M7q3gf5sCg" id="(0.49872122762148335,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__apiwS3aEeS1M7q3gf5sCg" id="(0.0026109660574412533,0.4985835694050991)"/>
+  </edges>
+</notation:Diagram>

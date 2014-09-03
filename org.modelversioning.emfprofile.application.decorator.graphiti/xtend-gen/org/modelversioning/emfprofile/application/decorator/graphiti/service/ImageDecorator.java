@@ -15,7 +15,7 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
 @SuppressWarnings("all")
 public class ImageDecorator extends org.eclipse.graphiti.tb.ImageDecorator {
   public ImageDecorator(final ImageDecoration imageDecoration, final StereotypeApplication stereotypeApplication, final String imageId) {
-    super(IPlatformImageConstants.IMG_ECLIPSE_INFORMATION);
+    super(IPlatformImageConstants.IMG_ECLIPSE_ERROR);
     Text _tooltip = imageDecoration.getTooltip();
     String _provideText = DecoratorUtil.provideText(_tooltip, stereotypeApplication);
     this.setMessage(_provideText);

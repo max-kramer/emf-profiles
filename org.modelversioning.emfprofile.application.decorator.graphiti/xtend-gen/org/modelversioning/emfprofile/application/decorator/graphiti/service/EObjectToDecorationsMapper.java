@@ -18,7 +18,9 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.util.ToStringHelper;
 import org.modelversioning.emfprofile.application.decorator.graphiti.service.BorderDecorator;
+import org.modelversioning.emfprofile.application.decorator.graphiti.service.BoxDecorator;
 import org.modelversioning.emfprofile.application.decorator.graphiti.service.ColorDecorator;
+import org.modelversioning.emfprofile.application.decorator.graphiti.service.ConnectionDecorator;
 import org.modelversioning.emfprofile.application.decorator.graphiti.service.DecorationWithStereotypeApplication;
 import org.modelversioning.emfprofile.application.decorator.graphiti.service.ImageDecorator;
 import org.modelversioning.emfprofile.application.registry.decoration.DecorationStatus;
@@ -26,10 +28,14 @@ import org.modelversioning.emfprofile.application.registry.decoration.GraphicalD
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorDecorationImpl;
+import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl;
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 
@@ -93,6 +99,7 @@ public class EObjectToDecorationsMapper {
   public IDecorator[] getDecorators() {
     BorderDecorator borderDecorator = null;
     ColorDecorator colorDecorator = null;
+    ConnectionDecorator connectionDecorator = null;
     LinkedList<GraphicalDecorationDescription> _gdDescriptions = this.getGdDescriptions();
     List<GraphicalDecorationDescription> _reverseView = ListExtensions.<GraphicalDecorationDescription>reverseView(_gdDescriptions);
     final Function1<GraphicalDecorationDescription,Boolean> _function = new Function1<GraphicalDecorationDescription,Boolean>() {
@@ -116,7 +123,15 @@ public class EObjectToDecorationsMapper {
       ColorDecorator _colorDecorator = new ColorDecorator(((ColorDecoration) tempDecoration));
       colorDecorator = _colorDecorator;
     }
-    final Collection<DecorationWithStereotypeApplication> tempDecorations = this.findAllActiveDecorations(ImageDecorationImpl.class, ((GraphicalDecorationDescription[])Conversions.unwrapArray(activeGraphicalDecorationDescriptions, GraphicalDecorationDescription.class)));
+    AbstractDecoration _findActiveDecoration_1 = this.findActiveDecoration(ConnectionDecorationImpl.class, ((GraphicalDecorationDescription[])Conversions.unwrapArray(activeGraphicalDecorationDescriptions, GraphicalDecorationDescription.class)));
+    tempDecoration = _findActiveDecoration_1;
+    boolean _notEquals_2 = (!Objects.equal(tempDecoration, null));
+    if (_notEquals_2) {
+      ConnectionDecorator _connectionDecorator = new ConnectionDecorator(((ConnectionDecoration) tempDecoration));
+      connectionDecorator = _connectionDecorator;
+    }
+    final Collection<DecorationWithStereotypeApplication> imageDecorations = this.findAllActiveDecorations(ImageDecorationImpl.class, ((GraphicalDecorationDescription[])Conversions.unwrapArray(activeGraphicalDecorationDescriptions, GraphicalDecorationDescription.class)));
+    final Collection<DecorationWithStereotypeApplication> boxDecorations = this.findAllActiveDecorations(BoxDecorationImpl.class, ((GraphicalDecorationDescription[])Conversions.unwrapArray(activeGraphicalDecorationDescriptions, GraphicalDecorationDescription.class)));
     final List<IDecorator> decorators = Lists.<IDecorator>newArrayList();
     final Consumer<DecorationWithStereotypeApplication> _function_1 = new Consumer<DecorationWithStereotypeApplication>() {
       public void accept(final DecorationWithStereotypeApplication decoration) {
@@ -126,9 +141,19 @@ public class EObjectToDecorationsMapper {
         decorators.add(_imageDecorator);
       }
     };
-    tempDecorations.forEach(_function_1);
+    imageDecorations.forEach(_function_1);
+    final Consumer<DecorationWithStereotypeApplication> _function_2 = new Consumer<DecorationWithStereotypeApplication>() {
+      public void accept(final DecorationWithStereotypeApplication decoration) {
+        AbstractDecoration _decoration = decoration.getDecoration();
+        StereotypeApplication _stereotypeApplication = decoration.getStereotypeApplication();
+        BoxDecorator _boxDecorator = new BoxDecorator(((BoxDecoration) _decoration), _stereotypeApplication);
+        decorators.add(_boxDecorator);
+      }
+    };
+    boxDecorations.forEach(_function_2);
     decorators.add(borderDecorator);
     decorators.add(colorDecorator);
+    decorators.add(connectionDecorator);
     return ((IDecorator[])Conversions.unwrapArray(decorators, IDecorator.class));
   }
   

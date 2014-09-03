@@ -12,10 +12,14 @@ import org.modelversioning.emfprofile.application.registry.decoration.GraphicalD
 import org.modelversioning.emfprofile.application.registry.decoration.GraphicalDecorationDescription
 import org.modelversioning.emfprofile.decoration.decorationLanguage.AbstractDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.BorderDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.BoxDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ColorDecoration
+import org.modelversioning.emfprofile.decoration.decorationLanguage.ConnectionDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.ImageDecoration
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BorderDecorationImpl
+import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.BoxDecorationImpl
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ColorDecorationImpl
+import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ConnectionDecorationImpl
 import org.modelversioning.emfprofile.decoration.decorationLanguage.impl.ImageDecorationImpl
 import org.modelversioning.emfprofileapplication.StereotypeApplication
 
@@ -49,6 +53,7 @@ class EObjectToDecorationsMapper {
 		//		TODO iterate in reverse order over all graphical decoration descriptions and collect decorators: Image decorators, Border decorator, Color decorator
 		var BorderDecorator borderDecorator = null
 		var ColorDecorator colorDecorator = null
+		var ConnectionDecorator connectionDecorator = null
 
 		val activeGraphicalDecorationDescriptions = gdDescriptions.reverseView.filter[
 			it.decorationStatus == DecorationStatus::ACTIVE]
@@ -65,15 +70,29 @@ class EObjectToDecorationsMapper {
 			colorDecorator = new ColorDecorator(tempDecoration as ColorDecoration)
 		}
 		
+		// handle connection decorator
+		tempDecoration = findActiveDecoration(typeof(ConnectionDecorationImpl), activeGraphicalDecorationDescriptions)
+		if (tempDecoration != null) {
+			connectionDecorator = new ConnectionDecorator(tempDecoration as ConnectionDecoration)
+		}
+		
 		// handle image decorators
-		val tempDecorations = findAllActiveDecorations(typeof(ImageDecorationImpl), activeGraphicalDecorationDescriptions)
+		val imageDecorations = findAllActiveDecorations(typeof(ImageDecorationImpl), activeGraphicalDecorationDescriptions)
+		
+		// handle box decorators
+		val boxDecorations = findAllActiveDecorations(typeof(BoxDecorationImpl), activeGraphicalDecorationDescriptions)
 		
 		val List<IDecorator> decorators = Lists.newArrayList
-		tempDecorations.forEach[decoration |
+		imageDecorations.forEach[decoration |
 			decorators.add(new ImageDecorator(decoration.decoration as ImageDecoration, decoration.stereotypeApplication, null))
+		]
+		boxDecorations.forEach[decoration |
+			decorators.add(new BoxDecorator(decoration.decoration as BoxDecoration, decoration.stereotypeApplication))
 		]
 		decorators.add(borderDecorator)
 		decorators.add(colorDecorator)
+		decorators.add(connectionDecorator)
+		
 		return decorators
 	}
 
