@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -17,6 +18,7 @@ import org.modelversioning.emfprofile.registry.IProfileProvider;
 import org.modelversioning.emfprofile.registry.IProfileRegistry;
 
 public class ProfileRegistry extends Observable implements IProfileRegistry {
+	private static final Logger LOGGER = Logger.getLogger(ProfileRegistry.class);
 
 	private final ResourceSet resourceSet = new ResourceSetImpl();
 	private final Map<String, IProfileProvider> registeredProfileProviders = new HashMap<String, IProfileProvider>();
@@ -78,6 +80,11 @@ public class ProfileRegistry extends Observable implements IProfileRegistry {
 		if (Diagnostic.OK == diagnostic.getSeverity()) {
 			return true;
 		} else {
+			LOGGER.error("Profile '" + profile.getName() + "' not registered because it cannot be validated:");
+			LOGGER.error(diagnostic.getMessage());
+			for (Diagnostic child : diagnostic.getChildren()) {
+				LOGGER.error(child.getMessage());
+			}
 			return false;
 		}
 	}
